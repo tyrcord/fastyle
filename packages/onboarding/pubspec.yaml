@@ -1,6 +1,7 @@
 name: fastyle_onboarding
 description: Set of onboarding Widgets.
 version: 0.0.2
+repository: https://github.com/tyrcord/fastyle/tree/main/packages/onboarding
 
 environment:
   sdk: ">=2.19.0 <3.0.0"
