@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Onboarding - Debug",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/onboarding/example/lib/main.dart"
+    },
+    {
+      "name": "Onboarding - Profile",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "program": "packages/onboarding/example/lib/main.dart"
+    },
+    {
+      "name": "Onboarding - Release",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release",
+      "program": "packages/onboarding/example/lib/main.dart"
+    }
+  ]
+}

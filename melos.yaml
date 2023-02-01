@@ -1,0 +1,14 @@
+name: fastyle
+
+packages:
+  - packages/**
+
+scripts:
+  analyze:
+    exec: dart analyze .
+  onboarding:
+    exec: flutter run packages/onboarding/example/lib/main.dart
+
+ide:
+  intellij:
+    enabled: false
