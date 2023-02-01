@@ -1,3 +1,7 @@
+## 0.0.3
+
+ - **FEAT**: minor improvements.
+
 ## 0.0.2
 
 - **FEAT**: add Personalized Ads onboarding page.
