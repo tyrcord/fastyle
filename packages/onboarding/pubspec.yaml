@@ -10,6 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   fastyle_dart: ^1.0.0
+  font_awesome_flutter: ^10.3.0
+  app_tracking_transparency: ^2.0.3
 
 dev_dependencies:
   flutter_test:
