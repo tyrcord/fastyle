@@ -57,14 +57,12 @@ class FastOnboardingNotifications extends StatelessWidget {
       children: [
         FastOnboardingContentLayout(
           icon: icon ?? const FaIcon(FontAwesomeIcons.bell),
-          actionText: actionText ?? 'Allow Notifications',
-          primaryText: primaryText ??
-              'Stay up to date with the latest updates, news and important information.',
-          secondaryText: secondaryText ??
-              'We promise to only send notifications that are relevant and important to you. Plus, you can always adjust your notification preferences at any time.',
           handsetIconSize: handsetIconSize,
           tabletIconSize: tabletIconSize,
+          secondaryText: secondaryText,
+          primaryText: primaryText,
           onActionTap: onActionTap,
+          actionText: actionText,
           palette: palette,
           children: children,
         ),

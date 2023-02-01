@@ -58,13 +58,11 @@ class FastOnboardingPersonalizedAds extends StatelessWidget {
       children: [
         FastOnboardingContentLayout(
           icon: icon ?? const FaIcon(FontAwesomeIcons.bullhorn),
-          actionText: actionText ?? 'Turn On Personalized Ads',
-          primaryText: primaryText ??
-              'By allowing us to personalize your ads, you\'ll receive a more personalized experience with advertisements that are tailored to your interests.',
-          secondaryText: secondaryText ??
-              'Your privacy is important to us and we promise to only use your information to enhance your experience and show you ads that matter to you.',
           handsetIconSize: handsetIconSize,
           tabletIconSize: tabletIconSize,
+          secondaryText: secondaryText,
+          primaryText: primaryText,
+          actionText: actionText,
           onActionTap: () async {
             await AppTrackingTransparency.requestTrackingAuthorization();
           },

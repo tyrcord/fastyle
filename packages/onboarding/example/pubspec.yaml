@@ -14,6 +14,10 @@ dependencies:
   fastyle_dart: ^1.0.0
   go_router: ^6.0.1
   font_awesome_flutter: ^10.3.0
+  easy_localization: ^3.0.1
+  lingua_core: ^0.0.1+1
+  lingua_onboarding: ^0.0.2
+  shared_preferences: ^2.0.17
 
   fastyle_onboarding:
     path: ../

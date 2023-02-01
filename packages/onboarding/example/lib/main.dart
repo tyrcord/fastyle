@@ -1,10 +1,29 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lingua_core/lingua_core.dart';
+import 'package:lingua_onboarding/generated/codegen_loader.g.dart';
+import 'package:lingua_onboarding/generated/locale_keys.g.dart';
 import './routes.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [Locale('en'), Locale('fr')],
+      useOnlyLangCode: true,
+      assetLoader: LinguaLoader(
+        mapLocales: LinguaLoader.mergeMapLocales([
+          OnboardingCodegenLoader.mapLocales,
+        ]),
+      ),
+      path: 'i18n', // fake path, just to make the example work
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -13,6 +32,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       routes: kAppRoutes,
       home: FastSectionPage(
         titleText: 'Fastyle Onboarding',
@@ -21,9 +43,15 @@ class MyApp extends StatelessWidget {
         child: Builder(
           builder: (context) {
             return FastNavigationListView(
-              items: const [
-                FastItem(labelText: 'Notifications', value: 'notifications'),
-                FastItem(labelText: 'Personalized Ads', value: 'ads'),
+              items: [
+                FastItem(
+                  labelText: OnboardingLocaleKeys.notifications_title.tr(),
+                  value: 'notifications',
+                ),
+                FastItem(
+                  labelText: OnboardingLocaleKeys.personalized_ads_title.tr(),
+                  value: 'ads',
+                ),
               ],
               onSelectionChanged: (FastItem<dynamic> value) {
                 if (value.value == 'notifications') {
