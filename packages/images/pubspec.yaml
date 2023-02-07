@@ -1,0 +1,23 @@
+name: fastyle_images
+description: A new Flutter package project.
+version: 0.0.1
+repository: https://github.com/tyrcord/fastyle/tree/main/packages/images
+
+environment:
+  sdk: ">=2.19.0 <3.0.0"
+  flutter: ">=3.7.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  fastyle_dart: ^1.0.0
+
+flutter:
+  assets:
+    - assets/icons/flags/
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+  dart_code_metrics: ^5.5.1
