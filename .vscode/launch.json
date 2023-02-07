@@ -2,25 +2,25 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Onboarding - Debug",
+      "name": "Onboarding",
       "request": "launch",
       "type": "dart",
       "flutterMode": "debug",
       "program": "packages/onboarding/example/lib/main.dart"
     },
     {
-      "name": "Onboarding - Profile",
+      "name": "Settings",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "profile",
-      "program": "packages/onboarding/example/lib/main.dart"
+      "flutterMode": "debug",
+      "program": "packages/settings/example/lib/main.dart"
     },
     {
-      "name": "Onboarding - Release",
+      "name": "Images",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "release",
-      "program": "packages/onboarding/example/lib/main.dart"
+      "flutterMode": "debug",
+      "program": "packages/images/example/lib/main.dart"
     }
   ]
 }
