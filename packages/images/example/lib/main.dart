@@ -43,14 +43,20 @@ class MyApp extends StatelessWidget {
             return FastNavigationListView(
               items: const [
                 FastItem(
+                  labelText: 'commodities',
+                  value: '/commodities',
+                ),
+                FastItem(
+                  labelText: 'cryptos',
+                  value: '/cryptos',
+                ),
+                FastItem(
                   labelText: 'flags',
-                  value: 'flags',
+                  value: '/flags',
                 ),
               ],
-              onSelectionChanged: (FastItem<dynamic> value) {
-                if (value.value == 'flags') {
-                  GoRouter.of(context).go('/flags');
-                }
+              onSelectionChanged: (FastItem<dynamic> item) {
+                GoRouter.of(context).go(item.value);
               },
             );
           },

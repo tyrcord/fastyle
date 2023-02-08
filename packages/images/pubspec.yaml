@@ -14,7 +14,9 @@ dependencies:
 
 flutter:
   assets:
-    - assets/icons/flags/
+    - assets/images/commodity/
+    - assets/images/crypto/
+    - assets/images/flag/
 
 dev_dependencies:
   flutter_test:
