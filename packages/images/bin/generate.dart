@@ -2,33 +2,38 @@ import 'dart:io';
 
 const _assets = [
   {
-    'name': 'FastImageCommodity',
-    'path': 'assets/images/commodity',
+    'className': 'FastImageCommodity',
+    'input': 'assets/images/commodity',
     'output': 'lib/images/commodity.dart',
   },
   {
-    'name': 'FastImageCrypto',
-    'path': 'assets/images/crypto',
+    'className': 'FastImageCrypto',
+    'input': 'assets/images/crypto',
     'output': 'lib/images/crypto.dart',
   },
   {
-    'name': 'FastImageFlag',
-    'path': 'assets/images/flag',
+    'className': 'FastImageFlag',
+    'input': 'assets/images/flag',
     'output': 'lib/images/flags.dart',
+  },
+  {
+    'className': 'FastImageMobile',
+    'input': 'assets/images/mobile',
+    'output': 'lib/images/mobile.dart',
   }
 ];
 
 void main(List<String> args) async {
   for (var asset in _assets) {
-    final name = asset['name']!;
-    final path = asset['path']!;
+    final className = asset['className']!;
+    final input = asset['input']!;
     final output = asset['output']!;
-    final elements = _listFiles(path);
+    final elements = _listFiles(input);
     final buffer = StringBuffer('// Generated, do not edit\n');
 
-    _writeClass(buffer, name, elements);
-    _writeList(buffer, name, elements);
-    _writeMap(buffer, name, elements);
+    _writeClass(buffer, className, elements);
+    _writeList(buffer, className, elements);
+    _writeMap(buffer, className, elements);
 
     final file = File(output);
     file.writeAsString(buffer.toString());
@@ -110,6 +115,7 @@ void _writeBarrel() {
 
   buffer.writeln('library fastyle_images;\n');
   buffer.writeln('export \'logic/image.dart\';');
+  buffer.writeln('export \'constants.dart\';');
 
   for (var asset in _assets) {
     final output = asset['output']!.replaceFirst('lib/', '');
