@@ -201,6 +201,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.1"
+  fastyle_images:
+    dependency: "direct overridden"
+    description:
+      path: "../../images"
+      relative: true
+    source: path
+    version: "0.0.1"
   fastyle_settings:
     dependency: "direct main"
     description:
@@ -300,6 +307,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
+  hive:
+    dependency: transitive
+    description:
+      name: hive
+      sha256: "8dcf6db979d7933da8217edcec84e9df1bdb4e4edc7fc77dbd5aa74356d6d941"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.3"
+  hive_flutter:
+    dependency: transitive
+    description:
+      name: hive_flutter
+      sha256: dca1da446b1d808a51689fb5d0c6c9510c0a2ba01e22805d492c73b68e33eecc
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   html:
     dependency: transitive
     description:
@@ -658,13 +681,13 @@ packages:
     source: hosted
     version: "1.2.0"
   tbloc_dart:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: tbloc_dart
-      sha256: c6c86071b526cd4b30cb6252b00a18584d0d68322f3f34223c07fae9719ca999
+      sha256: c30f4399d350b89c9a597f796ecd6a0afa36d6c1aec5b1f5e9dd41f47d2bb737
       url: "https://pub.dev"
     source: hosted
-    version: "0.19.2"
+    version: "0.20.1"
   term_glyph:
     dependency: transitive
     description:
@@ -689,6 +712,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.0"
+  tstore_dart:
+    dependency: transitive
+    description:
+      name: tstore_dart
+      sha256: f9b2e8ae1fc172b9c16cf23e8ce612f10e6e59739e7fd13dcbea58d77b1dc778
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.8.4"
   tsub:
     dependency: transitive
     description:

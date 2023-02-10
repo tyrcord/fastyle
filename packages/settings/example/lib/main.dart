@@ -1,8 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:lingua_core/lingua_core.dart';
+import 'package:tbloc_dart/tbloc_dart.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter/material.dart';
+
 import './routes.dart';
 
 void main() async {
@@ -29,38 +32,54 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FastApp(
-      // localizationsDelegates: context.localizationDelegates,
-      // supportedLocales: context.supportedLocales,
-      // locale: context.locale,
-      routes: kAppRoutes,
-      home: FastSectionPage(
-        titleText: 'Fastyle Settings',
-        contentPadding: EdgeInsets.zero,
-        showAppBar: false,
-        child: Builder(
-          builder: (context) {
-            return FastNavigationListView(
-              items: const [
-                FastItem(
-                  labelText: 'all',
-                  value: 'all',
-                ),
-                FastItem(
-                  labelText: 'languages',
-                  value: 'languages',
-                ),
-              ],
-              onSelectionChanged: (FastItem<dynamic> value) {
-                if (value.value == 'all') {
-                  GoRouter.of(context).go('/all');
-                } else if (value.value == 'languages') {
-                  GoRouter.of(context).go('/languages');
-                }
-              },
-            );
-          },
+    return MultiBlocProvider(
+      blocProviders: [
+        BlocProvider(bloc: FastSettingsBloc()),
+      ],
+      child: FastApp(
+        // localizationsDelegates: context.localizationDelegates,
+        // supportedLocales: context.supportedLocales,
+        // locale: context.locale,
+        routes: kAppRoutes,
+        loaderJobs: [
+          FastSettingsJob(),
+        ],
+        home: FastSettingsThemeListener(
+          child: buildHome(context),
         ),
+      ),
+    );
+  }
+
+  buildHome(BuildContext context) {
+    return FastSectionPage(
+      titleText: 'Fastyle Settings',
+      contentPadding: EdgeInsets.zero,
+      showAppBar: false,
+      child: Builder(
+        builder: (context) {
+          return FastNavigationListView(
+            items: const [
+              FastItem(
+                labelText: 'all',
+                value: '/all',
+              ),
+              FastItem(
+                labelText: 'languages',
+                value: '/languages',
+              ),
+              FastItem(
+                labelText: 'theme',
+                value: '/theme',
+              ),
+            ],
+            onSelectionChanged: (FastItem<String> item) {
+              if (item.value != null) {
+                GoRouter.of(context).go(item.value!);
+              }
+            },
+          );
+        },
       ),
     );
   }
