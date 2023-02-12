@@ -7,14 +7,12 @@ import 'package:flutter/material.dart';
 /// or the theme.
 class FastSettingsBloc
     extends BidirectionalBloc<FastSettingsBlocEvent, FastSettingsBlocState> {
-  late FastSettingsDataProvider _settingsProvider;
+  final FastSettingsDataProvider _settingsProvider;
   late FastSettingsDocument _persistedSettings;
 
   FastSettingsBloc({
     super.initialState = const FastSettingsBlocState(),
-  }) {
-    _settingsProvider = FastSettingsDataProvider();
-  }
+  }) : _settingsProvider = FastSettingsDataProvider();
 
   @override
   @mustCallSuper
@@ -37,15 +35,21 @@ class FastSettingsBloc
     } else if (type == FastSettingsBlocEventType.initialized) {
       yield* handleInitializedEvent(payload);
     } else if (isInitialized) {
-      if (type == FastSettingsBlocEventType.languageCodeChanged) {
-        yield* handleLanguageCodeChangedEvent(payload);
-      } else if (type == FastSettingsBlocEventType.themeChanged) {
-        yield* handleThemeChangedEvent(payload);
-      } else if (type == FastSettingsBlocEventType.countryCodeChanged) {
-        yield* handleCountryCodeChangedEvent(payload);
+      switch (type) {
+        case FastSettingsBlocEventType.languageCodeChanged:
+          yield* handleLanguageCodeChangedEvent(payload);
+          break;
+        case FastSettingsBlocEventType.themeChanged:
+          yield* handleThemeChangedEvent(payload);
+          break;
+        case FastSettingsBlocEventType.countryCodeChanged:
+          yield* handleCountryCodeChangedEvent(payload);
+          break;
+        default:
+          break;
       }
     } else {
-      debugPrint('SettingsBloc is not initialized yet.');
+      assert(false, 'SettingsBloc is not initialized yet.');
     }
   }
 

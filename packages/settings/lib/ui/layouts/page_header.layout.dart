@@ -23,21 +23,19 @@ class FastSettingPageHeaderLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> firstChildren = [];
-    double _iconHeight = iconHeight;
+    double height = iconHeight;
 
     if (icon != null) {
-      firstChildren = [icon!, kFastSizedBox32];
-      _iconHeight += 32;
+      height += 32;
     }
 
     return Container(
       margin: const EdgeInsets.only(bottom: 16.0),
-      height: _iconHeight,
+      height: height,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          ...firstChildren,
+          ...(icon != null ? [icon!, kFastSizedBox32] : []),
           if (descriptionText != null)
             FastSecondaryBody(
               textAlign: TextAlign.center,
