@@ -5,6 +5,8 @@ import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:tbloc_dart/tbloc_dart.dart';
 import 'package:flutter/material.dart';
 
+typedef ThemeModeFormatter = String Function(ThemeMode mode);
+
 /// The [FastThemeSettingPage] class is a [FastSettingPageLayout] that
 /// displays the current theme of the application.
 /// It allows the user to change the theme of the application.
@@ -12,6 +14,9 @@ import 'package:flutter/material.dart';
 class FastThemeSettingPage extends FastSettingPageLayout {
   /// The [FastListItemDescriptor] that will be used to build the list items.
   final FastListItemDescriptor? listItemDescriptor;
+
+  /// The [ThemeModeFormatter] that will be used to format the theme mode.
+  final ThemeModeFormatter? themeModeFormatter;
 
   /// The path of the light icon.
   final String lightIconPath;
@@ -21,6 +26,9 @@ class FastThemeSettingPage extends FastSettingPageLayout {
 
   /// The package of the light and dark icons.
   final String assetPackage;
+
+  /// The text that will be displayed above the list items.
+  final String? subtitleText;
 
   const FastThemeSettingPage({
     super.key,
@@ -33,20 +41,18 @@ class FastThemeSettingPage extends FastSettingPageLayout {
     this.assetPackage = kFastImagesPackageName,
     this.lightIconPath = FastImageMobile.light,
     this.darkIconPath = FastImageMobile.dark,
+    this.themeModeFormatter,
     this.listItemDescriptor,
+    this.subtitleText,
   });
 
-  /// TODO: localize
   @override
   Widget buildSettingsContent(BuildContext context) {
     final items = buildThemeItems();
 
     return Column(
       children: [
-        FastListHeader(
-          categoryText: 'Appearance',
-          // categoryText: LocaleKeys.settings_themes_words_appearance.tr(),
-        ),
+        if (subtitleText != null) FastListHeader(categoryText: subtitleText!),
         FastSettingsThemeBuilder(
           builder: (BuildContext context, FastSettingsBlocState state) {
             return FastSelectableListView<FastItem<ThemeMode>>(
@@ -95,17 +101,29 @@ class FastThemeSettingPage extends FastSettingPageLayout {
 
   /// Builds the list of [FastItem] that will be used to build the list items.
   /// The list items are used to change the theme of the application.
-  /// TODO: localize
   List<FastItem<ThemeMode>> buildThemeItems() {
+    late final String systemLabel;
+    late final String lightLabel;
+    late final String darkLabel;
+
+    if (themeModeFormatter != null) {
+      systemLabel = themeModeFormatter!(ThemeMode.system);
+      lightLabel = themeModeFormatter!(ThemeMode.light);
+      darkLabel = themeModeFormatter!(ThemeMode.dark);
+    } else {
+      systemLabel = 'System';
+      lightLabel = 'Light';
+      darkLabel = 'Dark';
+    }
+
     return [
-      buildThemeItem('System Default', ThemeMode.system),
-      buildThemeItem('Light', ThemeMode.light),
-      buildThemeItem('Dark', ThemeMode.dark),
+      buildThemeItem(systemLabel, ThemeMode.system),
+      buildThemeItem(lightLabel, ThemeMode.light),
+      buildThemeItem(darkLabel, ThemeMode.dark),
     ];
   }
 
   /// Builds a [FastItem] that will be used to build a list item.
-  /// TODO: localize
   FastItem<ThemeMode> buildThemeItem(String name, ThemeMode themeMode) {
     return FastItem(
       descriptor: listItemDescriptor,

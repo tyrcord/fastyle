@@ -17,6 +17,7 @@ dependencies:
   easy_localization: ^3.0.1
   lingua_core: ^0.0.1+1
   tbloc_dart: ">=0.19.2 <1.0.0"
+  lingua_settings: ^0.0.2
 
   fastyle_settings:
     path: ../

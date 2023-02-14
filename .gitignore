@@ -77,6 +77,12 @@ pubspec_overrides.yaml
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
 ### Linux ###
 *~
 
@@ -163,3 +169,6 @@ $RECYCLE.BIN/
 # Snyk
 .dccache
 **/.iac-data
+
+packages/**/linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux
+packages/**/linux/flutter/ephemeral/.plugin_symlinks/shared_preferences_linux
