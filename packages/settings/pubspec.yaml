@@ -1,5 +1,5 @@
 name: fastyle_settings
-description: A new Flutter package project.
+description: Set of settings Widgets for the fastyle library.
 version: 0.0.1
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/settings
 
