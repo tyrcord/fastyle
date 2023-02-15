@@ -23,7 +23,7 @@ class SumCalculatorBloc extends HydratedFastCalculatorBloc<
 
   @override
   Future<SumCalculatorDocument> retrieveDefaultCalculatorDocument() async {
-    return SumCalculatorDocument();
+    return const SumCalculatorDocument();
   }
 
   @override
@@ -34,7 +34,7 @@ class SumCalculatorBloc extends HydratedFastCalculatorBloc<
       final dNumberB = Decimal.tryParse(fields.numberB);
 
       // demo purpose
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 2));
 
       if (dNumberA != null &&
           dNumberB != null &&
@@ -46,7 +46,7 @@ class SumCalculatorBloc extends HydratedFastCalculatorBloc<
       }
     }
 
-    return SumCalculatorResults();
+    return const SumCalculatorResults();
   }
 
   @override
@@ -108,7 +108,7 @@ class SumCalculatorBloc extends HydratedFastCalculatorBloc<
 
   @override
   Future<SumCalculatorResults> retrieveDefaultResult() async {
-    return SumCalculatorResults();
+    return const SumCalculatorResults();
   }
 
   @override
@@ -123,13 +123,13 @@ class SumCalculatorBloc extends HydratedFastCalculatorBloc<
       if (payload.key == 'async') {
         yield currentState.copyWith(
           extras: currentState.extras!.merge(
-            SumCalculatorBlocStateExtras(isFetchingAsyncValue: true),
+            const SumCalculatorBlocStateExtras(isFetchingAsyncValue: true),
           ),
         );
 
         // no cancellable operations will go through
         // demo purpose
-        await Future.delayed(Duration(seconds: 3));
+        await Future.delayed(const Duration(seconds: 3));
 
         addEvent(FastCalculatorBlocEvent.custom<SumCalculatorResults>(
           'asyncDone',

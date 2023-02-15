@@ -6,11 +6,13 @@ import 'package:flutter/services.dart';
 import 'package:tbloc_dart/tbloc_dart.dart';
 
 class SumCalculatorPage extends StatefulWidget {
+  const SumCalculatorPage({super.key});
+
   @override
-  _SumCalculatorPageState createState() => _SumCalculatorPageState();
+  SumCalculatorPageState createState() => SumCalculatorPageState();
 }
 
-class _SumCalculatorPageState extends State<SumCalculatorPage> {
+class SumCalculatorPageState extends State<SumCalculatorPage> {
   final _bloc = SumCalculatorBloc();
 
   final Future<String> _calculation = Future<String>.delayed(
@@ -44,8 +46,8 @@ class _SumCalculatorPageState extends State<SumCalculatorPage> {
               return _buildExtra(context, 'Divider');
             }
 
-            return Padding(
-              padding: const EdgeInsets.all(16.0),
+            return const Padding(
+              padding: EdgeInsets.all(16.0),
               child: SizedBox(
                 width: 50,
                 height: 50,
@@ -80,7 +82,7 @@ class _SumCalculatorPageState extends State<SumCalculatorPage> {
         FastIconButton(
           iconColor: ThemeHelper.colors.getPrimaryColor(context),
           iconAlignment: Alignment.centerRight,
-          icon: Icon(Icons.bar_chart),
+          icon: const Icon(Icons.bar_chart),
           isEnabled: false,
           onTap: () {
             //TODO: Wait for fastyle_graph
@@ -189,6 +191,10 @@ class _SumCalculatorPageState extends State<SumCalculatorPage> {
             onTap: () async {
               if (canCopy) {
                 await Clipboard.setData(ClipboardData(text: sum));
+
+                // ignore: use_build_context_synchronously
+                if (!context.mounted) return;
+
                 FastNotificationCenter.info(context, 'Copied to clipboard!');
               }
             },
@@ -231,6 +237,7 @@ class _SumCalculatorPageState extends State<SumCalculatorPage> {
 
         return _buildNumberField(
           labelText: 'Async value',
+          // ignore: no-empty-block
           onValueChanged: (_) {},
           valueText: extras.asyncValue,
           isEnabled: !extras.isFetchingAsyncValue,

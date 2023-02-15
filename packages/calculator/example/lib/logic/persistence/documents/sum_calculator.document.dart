@@ -5,7 +5,7 @@ class SumCalculatorDocument extends FastCalculatorDocument {
   final String? numberA;
   final String? numberB;
 
-  SumCalculatorDocument({this.numberA, this.numberB});
+  const SumCalculatorDocument({this.numberA, this.numberB});
 
   @override
   SumCalculatorDocument clone() {
@@ -24,8 +24,8 @@ class SumCalculatorDocument extends FastCalculatorDocument {
   }
 
   @override
-  SumCalculatorDocument merge(covariant SumCalculatorDocument document) {
-    return document.clone();
+  SumCalculatorDocument merge(covariant SumCalculatorDocument model) {
+    return model.clone();
   }
 
   @override

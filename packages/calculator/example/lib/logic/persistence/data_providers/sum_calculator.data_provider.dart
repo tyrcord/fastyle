@@ -13,6 +13,6 @@ class SumCalculatorDataProvider
       return SumCalculatorDocument.fromJson(raw);
     }
 
-    return SumCalculatorDocument();
+    return const SumCalculatorDocument();
   }
 }

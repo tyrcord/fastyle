@@ -18,6 +18,7 @@ RegExp decimalRegExp(Options options) {
     multiLine: false,
     caseSensitive: false,
   );
+
   return regExp;
 }
 
