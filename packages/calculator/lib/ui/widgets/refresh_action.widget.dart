@@ -1,27 +1,16 @@
-import 'package:flutter/material.dart';
-
 import 'package:fastyle_calculator/fastyle_calculator.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:tbloc_dart/tbloc_dart.dart';
+import 'package:flutter/material.dart';
 
+/// A [FastCalculatorAction] that refreshes the calculator results.
 class FastCalculatorRefreshAction<B extends FastCalculatorBloc,
-    R extends FastCalculatorResults> extends StatelessWidget {
-  final B calculatorBloc;
-  final Widget? icon;
-
-  bool get _isReady => calculatorBloc.currentState.isInitialized;
-
-  bool get _shouldPreventInteractions {
-    final currentState = calculatorBloc.currentState;
-
-    return !currentState.isValid || currentState.isBusy;
-  }
-
+    R extends FastCalculatorResults> extends FastCalculatorAction<B, R> {
   const FastCalculatorRefreshAction({
-    Key? key,
-    required this.calculatorBloc,
-    this.icon,
-  }) : super(key: key);
+    super.key,
+    required super.calculatorBloc,
+    super.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,18 +18,11 @@ class FastCalculatorRefreshAction<B extends FastCalculatorBloc,
 
     return BlocBuilderWidget<FastCalculatorBlocState>(
       bloc: calculatorBloc,
-      buildWhen: (
-        FastCalculatorBlocState previous,
-        FastCalculatorBlocState next,
-      ) {
-        return previous.isInitialized != next.isInitialized ||
-            previous.isBusy != next.isBusy ||
-            previous.isValid != next.isValid;
-      },
+      buildWhen: (previous, next) => previous.isValid != next.isValid,
       builder: (_, FastCalculatorBlocState state) {
         return FastAnimatedRotationIconButton(
+          isEnabled: shouldEnableInteractions(state),
           iconAlignment: Alignment.centerRight,
-          isEnabled: _isReady && !_shouldPreventInteractions,
           shouldTrottleTime: true,
           iconColor: primaryColor,
           rotate: state.isBusy,
@@ -51,5 +33,15 @@ class FastCalculatorRefreshAction<B extends FastCalculatorBloc,
         );
       },
     );
+  }
+
+  /// Whether the action should be enabled or not.
+  @override
+  bool shouldEnableInteractions(FastCalculatorBlocState state) {
+    if (state.isInitialized) {
+      return state.isValid && !state.isBusy;
+    }
+
+    return false;
   }
 }

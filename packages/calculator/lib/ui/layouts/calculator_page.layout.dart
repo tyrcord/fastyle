@@ -25,7 +25,7 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
   final Widget? leading;
 
   const FastCalculatorPageLayout({
-    Key? key,
+    super.key,
     required this.calculatorBloc,
     required this.resultsBuilder,
     required this.fieldsBuilder,
@@ -45,7 +45,7 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
     this.shareIcon,
     this.clearIcon,
     this.leading,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

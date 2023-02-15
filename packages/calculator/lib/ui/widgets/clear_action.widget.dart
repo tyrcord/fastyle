@@ -1,21 +1,16 @@
-import 'package:flutter/material.dart';
-
 import 'package:fastyle_calculator/fastyle_calculator.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:tbloc_dart/tbloc_dart.dart';
+import 'package:flutter/material.dart';
 
+/// A [FastCalculatorAction] that clears the calculator state.
 class FastCalculatorClearAction<B extends FastCalculatorBloc,
-    R extends FastCalculatorResults> extends StatelessWidget {
-  final Widget? icon;
-  final B calculatorBloc;
-
-  bool get _isReady => calculatorBloc.currentState.isInitialized;
-
+    R extends FastCalculatorResults> extends FastCalculatorAction<B, R> {
   const FastCalculatorClearAction({
-    Key? key,
-    required this.calculatorBloc,
-    this.icon,
-  }) : super(key: key);
+    super.key,
+    required super.calculatorBloc,
+    super.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,25 +18,29 @@ class FastCalculatorClearAction<B extends FastCalculatorBloc,
 
     return BlocBuilderWidget<FastCalculatorBlocState>(
       bloc: calculatorBloc,
-      buildWhen: (
-        FastCalculatorBlocState previous,
-        FastCalculatorBlocState next,
-      ) {
-        return previous.isInitialized != next.isInitialized ||
-            previous.isDirty != next.isDirty;
-      },
+      buildWhen: (previous, next) => previous.isDirty != next.isDirty,
       builder: (_, FastCalculatorBlocState state) {
         return FastIconButton(
-          iconAlignment: Alignment.centerRight,
-          isEnabled: _isReady && state.isDirty,
+          isEnabled: shouldEnableInteractions(state),
           icon: icon ?? const Icon(Icons.delete),
-          shouldTrottleTime: true,
+          iconAlignment: Alignment.centerRight,
           iconColor: primaryColor,
+          shouldTrottleTime: true,
           onTap: () => calculatorBloc.addEvent(
             FastCalculatorBlocEvent.clear<R>(),
           ),
         );
       },
     );
+  }
+
+  /// Whether the action should be enabled or not.
+  @override
+  bool shouldEnableInteractions(FastCalculatorBlocState state) {
+    if (state.isInitialized) {
+      return state.isDirty;
+    }
+
+    return false;
   }
 }

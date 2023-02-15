@@ -30,7 +30,7 @@ class FastSettingsBloc
     final payload = event.payload;
     final type = event.type;
 
-    if (type == FastSettingsBlocEventType.init && canInitialize) {
+    if (type == FastSettingsBlocEventType.init) {
       yield* handleInitEvent();
     } else if (type == FastSettingsBlocEventType.initialized) {
       yield* handleInitializedEvent(payload);
