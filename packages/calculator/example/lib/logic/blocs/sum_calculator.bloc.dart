@@ -16,6 +16,7 @@ class SumCalculatorBloc extends HydratedFastCalculatorBloc<
       results: SumCalculatorResults(),
       extras: SumCalculatorBlocStateExtras(),
     ),
+    super.debouceComputeEvents = true,
   }) : super(dataProvider: SumCalculatorDataProvider());
 
   @override

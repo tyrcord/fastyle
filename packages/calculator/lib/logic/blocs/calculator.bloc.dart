@@ -19,11 +19,22 @@ abstract class FastCalculatorBloc<
   @protected
   String? debugLabel;
 
+  /// Whether the compute events should be debounced or not.
+  @protected
+  bool debouceComputeEvents;
+
   FastCalculatorBloc({
     required super.initialState,
     this.debugLabel,
+    this.debouceComputeEvents = false,
   }) {
-    addDebounceEvent = debounceEvent((event) => addEvent(event));
+    if (debouceComputeEvents) {
+      debugPrint('`debouceComputeEvents` is enabled for $runtimeType');
+      addDebounceEvent = debounceEvent((event) => addEvent(event));
+    } else {
+      debugPrint('`debouceComputeEvents` is disabled for $runtimeType');
+      addDebounceEvent = addEvent;
+    }
   }
 
   @protected

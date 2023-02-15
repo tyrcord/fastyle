@@ -23,6 +23,7 @@ abstract class HydratedFastCalculatorBloc<
     required super.initialState,
     required this.dataProvider,
     super.debugLabel,
+    super.debouceComputeEvents,
   });
 
   /// This function is called when the bloc is initialized.
