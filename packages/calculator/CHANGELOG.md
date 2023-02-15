@@ -1,3 +1,7 @@
+## 1.3.0
+
+ - **FEAT**: add debouceComputeEvents for calculator blocs.
+
 ## 1.2.0
 
  - **FEAT**: minor improvements.
