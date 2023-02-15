@@ -100,10 +100,10 @@ packages:
     dependency: "direct main"
     description:
       name: fastyle_dart
-      sha256: "552036ee201dc1d096ab51ece6d3b8322f6cf3028ef572477551c1baf1f832be"
+      sha256: "548dd3857df0071dadf52557f3d1e4f6e8e6457d23d1550034d6358d23835742"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.2"
   ffi:
     dependency: transitive
     description:
@@ -440,10 +440,10 @@ packages:
     dependency: "direct main"
     description:
       name: tbloc_dart
-      sha256: c6c86071b526cd4b30cb6252b00a18584d0d68322f3f34223c07fae9719ca999
+      sha256: c30f4399d350b89c9a597f796ecd6a0afa36d6c1aec5b1f5e9dd41f47d2bb737
       url: "https://pub.dev"
     source: hosted
-    version: "0.19.2"
+    version: "0.20.1"
   term_glyph:
     dependency: transitive
     description:
@@ -533,5 +533,5 @@ packages:
     source: hosted
     version: "0.2.0+3"
 sdks:
-  dart: ">=2.18.0 <3.0.0"
-  flutter: ">=3.3.0"
+  dart: ">=2.19.0 <3.0.0"
+  flutter: ">=3.7.0"

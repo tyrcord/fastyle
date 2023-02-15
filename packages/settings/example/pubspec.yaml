@@ -16,7 +16,7 @@ dependencies:
   font_awesome_flutter: ^10.3.0
   easy_localization: ^3.0.1
   lingua_core: ^0.0.1+1
-  tbloc_dart: ">=0.19.2 <1.0.0"
+  tbloc_dart: ">=0.20.1 <1.0.0"
   lingua_settings: ^0.0.2
 
   fastyle_settings:

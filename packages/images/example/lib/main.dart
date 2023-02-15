@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:lingua_core/lingua_core.dart';
 import './routes.dart';
 
 void main() async {
@@ -10,18 +9,6 @@ void main() async {
   await EasyLocalization.ensureInitialized();
 
   runApp(const MyApp());
-
-  // runApp(
-  //   EasyLocalization(
-  //     supportedLocales: const [Locale('en'), Locale('fr')],
-  //     useOnlyLangCode: true,
-  //     assetLoader: LinguaLoader(
-  //       mapLocales: LinguaLoader.mergeMapLocales([]),
-  //     ),
-  //     path: 'i18n', // fake path, just to make the example work
-  //     child: const MyApp(),
-  //   ),
-  // );
 }
 
 class MyApp extends StatelessWidget {
