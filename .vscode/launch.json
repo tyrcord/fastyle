@@ -2,6 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Calculator",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/calculator/example/lib/main.dart"
+    },
+    {
+      "name": "Images",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/images/example/lib/main.dart"
+    },
+    {
       "name": "Onboarding",
       "request": "launch",
       "type": "dart",
@@ -14,13 +28,6 @@
       "type": "dart",
       "flutterMode": "debug",
       "program": "packages/settings/example/lib/main.dart"
-    },
-    {
-      "name": "Images",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "debug",
-      "program": "packages/images/example/lib/main.dart"
     }
   ]
 }
