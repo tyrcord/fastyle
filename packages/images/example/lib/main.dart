@@ -42,8 +42,10 @@ class MyApp extends StatelessWidget {
                   value: '/flags',
                 ),
               ],
-              onSelectionChanged: (FastItem<dynamic> item) {
-                GoRouter.of(context).go(item.value);
+              onSelectionChanged: (FastItem<String> item) {
+                if (item.value == null) {
+                  GoRouter.of(context).go(item.value!);
+                }
               },
             );
           },

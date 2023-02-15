@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  buildHome(BuildContext context) {
+  Widget buildHome(BuildContext context) {
     return FastSectionPage(
       titleText: 'Fastyle Settings',
       contentPadding: EdgeInsets.zero,
