@@ -11,5 +11,5 @@ class FastCalculatorBlocEventPayload<R extends FastCalculatorResults> {
     this.value,
     this.results,
     this.error,
-  }) : super();
+  });
 }

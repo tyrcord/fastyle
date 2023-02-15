@@ -10,16 +10,13 @@ class SumCalculatorBloc extends HydratedFastCalculatorBloc<
     SumCalculatorDocument,
     SumCalculatorResults> {
   SumCalculatorBloc({
-    SumCalculatorBloState initialState = const FastCalculatorBlocState<
-        SumCalculatorFields, SumCalculatorResults>(
+    super.initialState = const FastCalculatorBlocState<SumCalculatorFields,
+        SumCalculatorResults>(
       fields: SumCalculatorFields(),
       results: SumCalculatorResults(),
       extras: SumCalculatorBlocStateExtras(),
     ),
-  }) : super(
-          initialState: initialState,
-          dataProvider: SumCalculatorDataProvider(),
-        );
+  }) : super(dataProvider: SumCalculatorDataProvider());
 
   @override
   Future<SumCalculatorDocument> retrieveDefaultCalculatorDocument() async {

@@ -4,8 +4,8 @@ import 'package:tstore_dart/tstore_dart.dart';
 abstract class FastCalculatorDataProvider<D extends FastCalculatorDocument>
     extends TDocumentDataProvider {
   FastCalculatorDataProvider({
-    required String storeName,
-  }) : super(storeName: storeName);
+    required super.storeName,
+  });
 
   Future<D> retrieveCalculatorDocument();
 
