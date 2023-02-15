@@ -16,7 +16,8 @@ dependencies:
   fastyle_dart: ">=1.0.2 <2.0.0"
   tstore_dart: ">=0.8.3 <1.0.0"
   tbloc_dart: ">=0.20.1 <1.0.0"
-  fastyle_images: ^0.0.2
+  fastyle_images: ">=0.0.1 <1.0.0"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
