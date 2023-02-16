@@ -23,6 +23,13 @@
       "program": "packages/home/example/lib/main.dart"
     },
     {
+      "name": "Home - Profile",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "program": "packages/home/example/lib/main.dart"
+    },
+    {
       "name": "Images",
       "request": "launch",
       "type": "dart",
