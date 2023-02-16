@@ -9,6 +9,20 @@
       "program": "packages/calculator/example/lib/main.dart"
     },
     {
+      "name": "Calculator - Profile",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "program": "packages/calculator/example/lib/main.dart"
+    },
+    {
+      "name": "Home",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/home/example/lib/main.dart"
+    },
+    {
       "name": "Images",
       "request": "launch",
       "type": "dart",
