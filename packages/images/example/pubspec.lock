@@ -197,17 +197,17 @@ packages:
     dependency: "direct main"
     description:
       name: fastyle_dart
-      sha256: c21e19e6ab69cc7491560f6e12976a729df9b90ad794d493c43a86bbf89b1ce2
+      sha256: "548dd3857df0071dadf52557f3d1e4f6e8e6457d23d1550034d6358d23835742"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.2"
   fastyle_images:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.0.2"
   ffi:
     dependency: transitive
     description:

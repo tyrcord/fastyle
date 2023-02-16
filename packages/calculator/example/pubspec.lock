@@ -175,14 +175,13 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.1.0"
+    version: "1.3.0"
   fastyle_dart:
     dependency: "direct main"
     description:
-      name: fastyle_dart
-      sha256: "548dd3857df0071dadf52557f3d1e4f6e8e6457d23d1550034d6358d23835742"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../../../fastyle_dart"
+      relative: true
+    source: path
     version: "1.0.2"
   ffi:
     dependency: transitive

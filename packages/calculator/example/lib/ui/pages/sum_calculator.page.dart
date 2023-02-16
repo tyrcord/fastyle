@@ -51,7 +51,7 @@ class SumCalculatorPageState extends State<SumCalculatorPage> {
               child: SizedBox(
                 width: 50,
                 height: 50,
-                child: CircularProgressIndicator(),
+                child: RepaintBoundary(child: CircularProgressIndicator()),
               ),
             );
           },

@@ -30,6 +30,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
-dependency_overrides:
-  tbloc_dart: 0.20.1
