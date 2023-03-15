@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=/Users/thibaultzanini/flutter"
-export "FLUTTER_APPLICATION_PATH=/Volumes/Data/dev/tyrcord/libraries/dart/fastyle/packages/onboarding"
+export "FLUTTER_ROOT=/Users/thibaultzanini/Dev/lib/flutter"
+export "FLUTTER_APPLICATION_PATH=/Users/thibaultzanini/Dev/tyrcord/librairies/dart/fastyle/packages/onboarding"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=0.0.3"

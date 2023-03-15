@@ -1,6 +1,6 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=/Users/thibaultzanini/flutter
-FLUTTER_APPLICATION_PATH=/Volumes/Data/dev/tyrcord/libraries/dart/fastyle/packages/onboarding
+FLUTTER_ROOT=/Users/thibaultzanini/Dev/lib/flutter
+FLUTTER_APPLICATION_PATH=/Users/thibaultzanini/Dev/tyrcord/librairies/dart/fastyle/packages/onboarding
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_BUILD_DIR=build
 FLUTTER_BUILD_NAME=0.0.3

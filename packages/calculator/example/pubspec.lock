@@ -179,10 +179,11 @@ packages:
   fastyle_dart:
     dependency: "direct main"
     description:
-      path: "../../../../fastyle_dart"
-      relative: true
-    source: path
-    version: "1.0.2"
+      name: fastyle_dart
+      sha256: b1b927a4c5daf6d08a8b5edd6fc7e66033c60ef623d57917e45fb297fcac78aa
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.5"
   ffi:
     dependency: transitive
     description:
@@ -258,10 +259,10 @@ packages:
     dependency: transitive
     description:
       name: go_router
-      sha256: f611d4396469c46db1c61e934a86e2a590ce02de2a6050d01f677879ce151f4a
+      sha256: b4bb06205ec607278b6fc23db238278417bca84a3905779cc68d1eb7afae37e2
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.1"
+    version: "6.2.0"
   google_fonts:
     dependency: transitive
     description:
