@@ -15,6 +15,20 @@
       "flutterMode": "profile",
       "program": "packages/calculator/example/lib/main.dart"
     },
+     {
+      "name": "Connectivity",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/connectivity/example/lib/main.dart"
+    },
+    {
+      "name": "Connectivity - Profile",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "program": "packages/connectivity/example/lib/main.dart"
+    },
     {
       "name": "Home",
       "request": "launch",
