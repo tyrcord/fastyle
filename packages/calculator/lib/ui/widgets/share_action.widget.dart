@@ -9,6 +9,7 @@ class FastCalculatorShareAction<B extends FastCalculatorBloc,
   const FastCalculatorShareAction({
     super.key,
     required super.calculatorBloc,
+    super.disabledColor,
     super.icon,
   });
 
@@ -21,6 +22,7 @@ class FastCalculatorShareAction<B extends FastCalculatorBloc,
         return FastIconButton(
           isEnabled: shouldEnableInteractions(state),
           icon: icon ?? const Icon(Icons.share),
+          disabledColor: disabledColor,
           shouldTrottleTime: true,
           onTap: () => calculatorBloc.addEvent(
             FastCalculatorBlocEvent.custom<R>('share'),

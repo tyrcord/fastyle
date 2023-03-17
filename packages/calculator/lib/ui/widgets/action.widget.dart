@@ -11,9 +11,13 @@ abstract class FastCalculatorAction<B extends FastCalculatorBloc,
   /// The icon to use.
   final Widget? icon;
 
+  /// The color to use when the action is disabled.
+  final Color? disabledColor;
+
   const FastCalculatorAction({
     super.key,
     required this.calculatorBloc,
+    this.disabledColor,
     this.icon,
   });
 

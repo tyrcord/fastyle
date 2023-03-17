@@ -180,10 +180,10 @@ packages:
     dependency: "direct main"
     description:
       name: fastyle_dart
-      sha256: b1b927a4c5daf6d08a8b5edd6fc7e66033c60ef623d57917e45fb297fcac78aa
+      sha256: "7bb245fe0405a4bbd57abfae5ea814a4c54322b7f16d237318f33e517357ceb7"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.5"
+    version: "1.0.7"
   ffi:
     dependency: transitive
     description:

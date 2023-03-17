@@ -7,7 +7,6 @@ class FastCalculatorBlocState<F extends FastCalculatorFields,
   final TModel? extras;
   final R results;
   final F fields;
-
   final bool isValid;
   final bool isDirty;
 

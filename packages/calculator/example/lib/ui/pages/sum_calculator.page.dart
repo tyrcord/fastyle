@@ -174,13 +174,15 @@ class SumCalculatorPageState extends State<SumCalculatorPage> {
       },
       builder: (_, SumCalculatorBloState state) {
         final sum = state.results.sum;
+        final isSumValid = sum.isNotEmpty && state.isValid;
         final canCopy = sum.isNotEmpty && state.isValid && !state.isBusy;
 
         return FastPendingReadOnlyTextField(
           labelText: 'Sum',
-          valueText: sum,
+          valueText: isSumValid ? sum : null,
           isPending: state.isBusy,
           enableInteractiveSelection: canCopy,
+          placeholderText: '0',
           pendingText: '0.00',
           suffixIcon: FastIconButton(
             icon: const Icon(Icons.content_copy),

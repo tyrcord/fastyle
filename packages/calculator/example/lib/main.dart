@@ -11,6 +11,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FastApp(home: const SumCalculatorPage());
+    return const FastApp(home: SumCalculatorPage());
   }
 }

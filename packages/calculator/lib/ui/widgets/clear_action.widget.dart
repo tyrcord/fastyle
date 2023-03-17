@@ -9,6 +9,7 @@ class FastCalculatorClearAction<B extends FastCalculatorBloc,
   const FastCalculatorClearAction({
     super.key,
     required super.calculatorBloc,
+    super.disabledColor,
     super.icon,
   });
 
@@ -24,6 +25,7 @@ class FastCalculatorClearAction<B extends FastCalculatorBloc,
           isEnabled: shouldEnableInteractions(state),
           icon: icon ?? const Icon(Icons.delete),
           iconAlignment: Alignment.centerRight,
+          disabledColor: disabledColor,
           iconColor: primaryColor,
           shouldTrottleTime: true,
           onTap: () => calculatorBloc.addEvent(

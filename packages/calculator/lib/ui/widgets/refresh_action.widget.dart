@@ -9,6 +9,7 @@ class FastCalculatorRefreshAction<B extends FastCalculatorBloc,
   const FastCalculatorRefreshAction({
     super.key,
     required super.calculatorBloc,
+    super.disabledColor,
     super.icon,
   });
 
@@ -23,6 +24,7 @@ class FastCalculatorRefreshAction<B extends FastCalculatorBloc,
         return FastAnimatedRotationIconButton(
           isEnabled: shouldEnableInteractions(state),
           iconAlignment: Alignment.centerRight,
+          disabledColor: disabledColor,
           shouldTrottleTime: true,
           iconColor: primaryColor,
           rotate: state.isBusy,
