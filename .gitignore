@@ -27,7 +27,6 @@ lib/generated_plugin_registrant.dart
 # For library packages, don’t commit the pubspec.lock file.
 # Regenerating the pubspec.lock file lets you test your package against the latest compatible versions of its dependencies.
 # See https://dart.dev/guides/libraries/private-files#pubspeclock
-pubspec.lock
 pubspec_overrides.yaml
 !/packages/**/example/pubspec.lock
 
@@ -172,3 +171,4 @@ $RECYCLE.BIN/
 
 packages/**/linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux
 packages/**/linux/flutter/ephemeral/.plugin_symlinks/shared_preferences_linux
+
