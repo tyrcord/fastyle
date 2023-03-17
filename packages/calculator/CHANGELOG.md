@@ -1,3 +1,7 @@
+## 1.4.0
+
+ - **FEAT**: add disabled colors to action button.
+
 ## 1.3.0
 
  - **FEAT**: add debouceComputeEvents for calculator blocs.
