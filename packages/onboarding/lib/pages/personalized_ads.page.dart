@@ -7,6 +7,9 @@ import 'package:flutter/material.dart';
 /// A page that displays a layout with an icon, a primary text, a secondary text
 /// and a list of children widgets.
 class FastOnboardingPersonalizedAds extends StatelessWidget {
+  /// The controller to use to pause and resume the onboarding.
+  final FastOnboardingViewController? controller;
+
   /// The title text to display.
   final String? titleText;
 
@@ -44,6 +47,7 @@ class FastOnboardingPersonalizedAds extends StatelessWidget {
     this.secondaryText,
     this.primaryText,
     this.onActionTap,
+    this.controller,
     this.actionText,
     this.titleText,
     this.children,
@@ -64,7 +68,10 @@ class FastOnboardingPersonalizedAds extends StatelessWidget {
           primaryText: primaryText,
           actionText: actionText,
           onActionTap: () async {
+            controller?.pause();
             await AppTrackingTransparency.requestTrackingAuthorization();
+            onActionTap?.call();
+            await Future.microtask(() => controller?.resume());
           },
           palette: palette,
           children: children,
