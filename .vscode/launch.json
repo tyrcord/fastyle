@@ -15,7 +15,7 @@
       "flutterMode": "profile",
       "program": "packages/calculator/example/lib/main.dart"
     },
-     {
+    {
       "name": "Connectivity",
       "request": "launch",
       "type": "dart",
@@ -63,6 +63,20 @@
       "type": "dart",
       "flutterMode": "debug",
       "program": "packages/settings/example/lib/main.dart"
+    },
+    {
+      "name": "Digit Calculator",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/digit_calculator/example/lib/main.dart"
+    },
+    {
+      "name": "Charts",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/charts/example/lib/main.dart"
     }
   ]
 }
