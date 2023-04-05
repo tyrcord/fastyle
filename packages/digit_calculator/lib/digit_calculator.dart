@@ -52,6 +52,12 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
   }
 
   void _evaluateCurrentLine() {
+    if (!_currentOperation.contains(RegExp('[+\\-*/]'))) {
+      // If the current operation does not contain any operators,
+      // don't evaluate and don't add to history
+      return;
+    }
+
     try {
       // Evaluate the current operation and add it to the history
       final result = evaluateExpression(_currentOperation);
