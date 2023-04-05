@@ -37,6 +37,10 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
     });
   }
 
+  bool _hasOperator(String operation) {
+    return operation.contains(RegExp('[+\\-*/]'));
+  }
+
   void _clearHistoryAndCurrentLine() {
     _currentOperation = '';
     _history.clear();
@@ -52,7 +56,7 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
   }
 
   void _evaluateCurrentLine() {
-    if (!_currentOperation.contains(RegExp('[+\\-*/]'))) {
+    if (!_hasOperator(_currentOperation)) {
       // If the current operation does not contain any operators,
       // don't evaluate and don't add to history
       return;
@@ -87,6 +91,12 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
         _currentOperation.startsWith('0') &&
         !_currentOperation.contains('.')) {
       // ignore leading zeros before a number
+      return;
+    } else if (_hasOperator(_currentOperation) && _hasOperator(key)) {
+      // If there are already two operators, evaluate the current operation
+      // and add the pending operator to the next operation
+      _evaluateCurrentLine();
+      _currentOperation += key;
       return;
     }
 
