@@ -25,9 +25,9 @@ class FastDigitCalculatorHistoryList extends StatelessWidget {
         itemCount: history.length,
         itemBuilder: (context, index) {
           final reversedIndex = history.length - index - 1;
-          final operation = history[reversedIndex];
+          final expression = history[reversedIndex];
 
-          return FastDigitCalculatorHistoryListItem(operation: operation);
+          return FastDigitCalculatorHistoryListItem(expression: expression);
         },
       ),
     );
