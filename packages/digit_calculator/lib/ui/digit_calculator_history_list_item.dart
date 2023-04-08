@@ -1,19 +1,8 @@
 import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_digit_calculator/logic/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:t_helpers/helpers.dart';
-
-class Operation {
-  final List<String> operands;
-  final String operator;
-  final String? result;
-
-  Operation({
-    required this.operands,
-    required this.operator,
-    this.result,
-  });
-}
 
 class FastDigitCalculatorHistoryListItem extends StatelessWidget {
   final String operation;
@@ -23,7 +12,7 @@ class FastDigitCalculatorHistoryListItem extends StatelessWidget {
     required this.operation,
   }) : super(key: key);
 
-  Operation? parseOperation(String operation) {
+  FastExpressionOperation? parseOperation(String operation) {
     final operandsAndOperators = parseSimpleOperation(operation);
 
     if (operandsAndOperators != null) {
@@ -35,7 +24,7 @@ class FastDigitCalculatorHistoryListItem extends StatelessWidget {
         result = operandsAndOperators[2] as String;
       }
 
-      return Operation(
+      return FastExpressionOperation(
         operands: operands,
         operator: operator,
         result: result,
@@ -45,7 +34,10 @@ class FastDigitCalculatorHistoryListItem extends StatelessWidget {
     return null;
   }
 
-  List<TextSpan> _buildTextsSpan(BuildContext context, Operation operation) {
+  List<TextSpan> _buildTextsSpan(
+    BuildContext context,
+    FastExpressionOperation operation,
+  ) {
     final textSpans = <TextSpan>[];
 
     for (var i = 0; i < operation.operands.length; i++) {

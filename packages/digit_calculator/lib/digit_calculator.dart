@@ -1,9 +1,9 @@
 library fastyle_digit_calculator;
 
-import 'digit_calculator_display.dart';
+import 'ui/digit_calculator_display.dart';
 import 'package:flutter/material.dart';
 import 'package:t_helpers/helpers.dart';
-import 'digit_calculator_keyboard.dart';
+import 'ui/digit_calculator_keyboard.dart';
 import 'package:intl/intl.dart';
 
 class FastDigitCalculator extends StatefulWidget {
