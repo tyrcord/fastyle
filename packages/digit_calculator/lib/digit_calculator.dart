@@ -68,7 +68,10 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
       // Evaluate the current operation and add it to the history
       final result = evaluateExpression(_currentOperation);
       final formattedResult = NumberFormat.decimalPattern().format(result);
-      _history.add(_currentOperation);
+
+      _history.add('$_currentOperation=$formattedResult');
+
+      // FIXME: bug
       _currentOperation = formattedResult;
     } catch (e) {
       // If there was an error, clear the current operation and
