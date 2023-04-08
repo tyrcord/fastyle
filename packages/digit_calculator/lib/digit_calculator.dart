@@ -8,10 +8,12 @@ import 'package:intl/intl.dart';
 
 class FastDigitCalculator extends StatefulWidget {
   final Color? backgroundColor;
+  final int maxLength;
 
   const FastDigitCalculator({
     super.key,
     this.backgroundColor,
+    this.maxLength = 15,
   });
 
   @override
@@ -76,8 +78,7 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
   }
 
   void _appendToCurrentLine(String key) {
-    // TODO: decide limit length
-    if (_currentOperation.length >= 15) {
+    if (_currentOperation.length >= widget.maxLength) {
       return;
     }
 
