@@ -38,7 +38,7 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
   }
 
   bool _hasOperator(String operation) {
-    return operation.contains(RegExp('[+\\-*/]'));
+    return operation.contains(RegExp('[+\\-*/×÷]'));
   }
 
   void _clearHistoryAndCurrentLine() {

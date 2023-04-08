@@ -97,11 +97,11 @@ class FastDigitCalculatorKeyboardListenerState
     } else if (logicalKey == LogicalKeyboardKey.slash ||
         logicalKey == LogicalKeyboardKey.numpadDivide) {
       // Call the onKeyPressed callback with the '/' character for the slash keys
-      widget.onKeyPressed('/');
+      widget.onKeyPressed('÷');
     } else if (logicalKey == LogicalKeyboardKey.asterisk ||
         logicalKey == LogicalKeyboardKey.numpadMultiply) {
-      // Call the onKeyPressed callback with the '*' character for the asterisk keys
-      widget.onKeyPressed('*');
+      // Call the onKeyPressed callback with the '×' character for the asterisk keys
+      widget.onKeyPressed('×');
     } else if (logicalKey == LogicalKeyboardKey.keyC) {
       // Call the onKeyPressed callback with the 'c' character for the 'c' key
       widget.onKeyPressed('c');

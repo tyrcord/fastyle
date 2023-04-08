@@ -153,10 +153,10 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-// Builds the division button with a value "/" and a division icon
+// Builds the division button with a value "÷" and a division icon
   Widget _buildDivideButton(BuildContext context) {
     return _buildKeyboardButton(
-      '/',
+      '÷',
       icon: FaIcon(
         FontAwesomeIcons.divide,
         size: 16,
@@ -165,10 +165,10 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-// Builds the multiplication button with a value "*" and a multiplication icon
+// Builds the multiplication button with a value "×" and a multiplication icon
   Widget _buildMultiplyButton(BuildContext context) {
     return _buildKeyboardButton(
-      '*',
+      '×',
       icon: FaIcon(
         FontAwesomeIcons.xmark,
         size: 16,
