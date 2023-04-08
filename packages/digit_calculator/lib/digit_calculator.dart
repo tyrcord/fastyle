@@ -4,7 +4,6 @@ import 'ui/digit_calculator_display.dart';
 import 'package:flutter/material.dart';
 import 'package:t_helpers/helpers.dart';
 import 'ui/digit_calculator_keyboard.dart';
-import 'package:intl/intl.dart';
 
 class FastDigitCalculator extends StatefulWidget {
   final Color? backgroundColor;
@@ -67,12 +66,9 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
     try {
       // Evaluate the current operation and add it to the history
       final result = evaluateExpression(_currentOperation);
-      final formattedResult = NumberFormat.decimalPattern().format(result);
-
-      _history.add('$_currentOperation=$formattedResult');
-
-      // FIXME: bug
-      _currentOperation = formattedResult;
+      _history.add('$_currentOperation=$result');
+      _currentOperation =
+          (isDoubleInteger(result) ? result.toInt() : result).toString();
     } catch (e) {
       // If there was an error, clear the current operation and
       // don't add it to the history
