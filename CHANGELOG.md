@@ -15,6 +15,57 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_calculator` - `v1.6.0`](#fastyle_calculator---v160)
+ - [`fastyle_connectivity` - `v0.0.4`](#fastyle_connectivity---v004)
+ - [`fastyle_digit_calculator` - `v0.0.3`](#fastyle_digit_calculator---v003)
+ - [`fastyle_home` - `v0.0.3`](#fastyle_home---v003)
+ - [`fastyle_images` - `v0.0.4`](#fastyle_images---v004)
+ - [`fastyle_onboarding` - `v0.0.5`](#fastyle_onboarding---v005)
+ - [`fastyle_settings` - `v0.0.5`](#fastyle_settings---v005)
+
+---
+
+#### `fastyle_calculator` - `v1.6.0`
+
+ - **FEAT**: lint.
+
+#### `fastyle_connectivity` - `v0.0.4`
+
+ - **FEAT**: lint.
+
+#### `fastyle_digit_calculator` - `v0.0.3`
+
+ - **FEAT**: lint.
+
+#### `fastyle_home` - `v0.0.3`
+
+ - **FEAT**: lint.
+
+#### `fastyle_images` - `v0.0.4`
+
+ - **FEAT**: lint.
+
+#### `fastyle_onboarding` - `v0.0.5`
+
+ - **FEAT**: lint.
+
+#### `fastyle_settings` - `v0.0.5`
+
+ - **FEAT**: lint.
+
+
+## 2023-04-18
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_settings` - `v0.0.4`](#fastyle_settings---v004)
 
 ---

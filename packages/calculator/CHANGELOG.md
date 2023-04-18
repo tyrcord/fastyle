@@ -1,3 +1,7 @@
+## 1.6.0
+
+ - **FEAT**: lint.
+
 ## 1.5.0
 
  - **FEAT**: update dependencies.
