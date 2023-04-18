@@ -11,17 +11,13 @@ dependencies:
   flutter:
     sdk: flutter
   decimal: ^2.3.2
-  t_helpers: ^0.0.3
-  intl: ^0.17.0
-  fastyle_dart: ^1.0.7
-  font_awesome_flutter: ^10.3.0
+  t_helpers: ^0.0.5
+  intl: ^0.18.0
+  fastyle_dart: ^1.1.0
+  font_awesome_flutter: ^10.4.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.1
-  dart_code_metrics: ^5.2.1
-
-dependency_overrides:
-  fastyle_dart:
-    path: /Users/thibaultzanini/Dev/tyrcord/librairies/dart/fastyle_dart
+  dart_code_metrics: ^5.7.2
