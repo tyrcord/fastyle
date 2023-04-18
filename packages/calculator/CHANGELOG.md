@@ -1,3 +1,7 @@
+## 1.5.0
+
+ - **FEAT**: update dependencies.
+
 ## 1.4.0
 
  - **FEAT**: add disabled colors to action button.

@@ -1,6 +1,6 @@
 name: fastyle_connectivity
 description: Set of connectivity Widgets for the fastyle library.
-version: 0.0.2
+version: 0.0.3
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/connectivity
 
 environment:
