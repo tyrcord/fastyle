@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_settings` - `v0.0.3+1`](#fastyle_settings---v0031)
+
+---
+
+#### `fastyle_settings` - `v0.0.3+1`
+
+ - **FIX**: broken settings package.
+
+
+## 2023-04-18
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_calculator` - `v1.5.0`](#fastyle_calculator---v150)
  - [`fastyle_charts` - `v0.0.2`](#fastyle_charts---v002)
  - [`fastyle_connectivity` - `v0.0.3`](#fastyle_connectivity---v003)
