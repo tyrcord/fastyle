@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_settings` - `v0.0.4`](#fastyle_settings---v004)
+
+---
+
+#### `fastyle_settings` - `v0.0.4`
+
+ - **FEAT**: minor performance improvements.
+
+
+## 2023-04-18
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_settings` - `v0.0.3+1`](#fastyle_settings---v0031)
 
 ---

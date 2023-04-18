@@ -1,3 +1,7 @@
+## 0.0.4
+
+ - **FEAT**: minor performance improvements.
+
 ## 0.0.3+1
 
  - **FIX**: broken settings package.
