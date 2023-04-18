@@ -1,4 +1,4 @@
-library charts;
+library fastyle_charts;
 
 /// A Calculator.
 class Calculator {
