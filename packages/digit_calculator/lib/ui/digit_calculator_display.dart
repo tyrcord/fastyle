@@ -4,12 +4,14 @@ import 'package:t_helpers/helpers.dart';
 import 'package:flutter/widgets.dart';
 
 /// A custom widget that displays a calculator screen consisting of a
-/// [FastDigitCalculatorHistoryList] widget and a current operation display widget.
+/// [FastDigitCalculatorHistoryList] widget and a current operation
+/// display widget.
 class FastDigitCalculatorDisplay extends StatelessWidget {
   /// The scroll controller for the [FastDigitCalculatorHistoryList] widget.
   final ScrollController scrollController;
 
-  /// The list of history items to display in the [FastDigitCalculatorHistoryList]
+  /// The list of history items to display in
+  /// the [FastDigitCalculatorHistoryList]
   /// widget.
   final List<TSimpleOperation> history;
 
@@ -19,8 +21,8 @@ class FastDigitCalculatorDisplay extends StatelessWidget {
   /// The current operation to display in the calculator.
   final TSimpleOperation operation;
 
-  /// The callback function to trigger when the user taps on the current operation
-  /// display widget.
+  /// The callback function to trigger when the user taps on the current
+  /// operation display widget.
   final VoidCallback? onTap;
 
   /// Creates a [FastDigitCalculatorDisplay] widget.
@@ -36,8 +38,8 @@ class FastDigitCalculatorDisplay extends StatelessWidget {
   ///
   /// * [operation]: The current operation to display in the calculator.
   ///
-  /// * [onTap]: The callback function to trigger when the user taps on the current
-  /// operation display widget.
+  /// * [onTap]: The callback function to trigger when the user taps on
+  /// the current operation display widget.
   const FastDigitCalculatorDisplay({
     Key? key,
     required this.scrollController,
@@ -107,8 +109,8 @@ class FastDigitCalculatorDisplay extends StatelessWidget {
 
   /// Gets the formatted text of the current operation.
   ///
-  /// Returns the formatted text of the [operation] object. If the [operation] object
-  /// is empty, returns "0".
+  /// Returns the formatted text of the [operation] object.
+  /// If the [operation] object is empty, returns "0".
   String _getDisplayText() {
     return operation.isEmpty ? "0" : operation.format();
   }

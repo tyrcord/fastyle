@@ -8,18 +8,18 @@ import 'package:flutter/material.dart';
 final kAppRoutes = [
   GoRoute(
     path: 'all',
-    builder: (context, state) => FastSectionPage(
+    builder: (context, state) => const FastSectionPage(
       contentPadding: EdgeInsets.zero,
-      child: const FastBody(
+      child: FastBody(
         text: 'TODO',
       ),
     ),
   ),
   GoRoute(
     path: 'languages',
-    builder: (context, state) => FastSectionPage(
+    builder: (context, state) => const FastSectionPage(
       contentPadding: EdgeInsets.zero,
-      child: const FastBody(
+      child: FastBody(
         text: 'TODO',
       ),
     ),

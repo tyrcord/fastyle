@@ -5,13 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:t_helpers/helpers.dart';
 import 'ui/digit_calculator_keyboard.dart';
 
-/// A Flutter widget that provides a digit calculator with a display and keyboard.
+/// A Flutter widget that provides a digit calculator with a display
+/// and keyboard.
 ///
 /// The calculator provides basic arithmetic operations (+, -, *, /)
 /// The display shows the current operation and the history of operations.
 /// The keyboard provides buttons for input.
 ///
-/// To use this widget, simply create a new instance of the [FastDigitCalculator]
+/// To use this widget, simply create a new instance of
+/// the [FastDigitCalculator]
 /// class and add it to your widget tree.
 ///
 /// {@tool dart}
@@ -23,12 +25,14 @@ import 'ui/digit_calculator_keyboard.dart';
 /// ```
 /// {@end-tool}
 class FastDigitCalculator extends StatefulWidget {
-  /// The maximum length of the text that can be displayed in the calculator's display.
+  /// The maximum length of the text that can be displayed in
+  /// the calculator's display.
   final int maxOperationLength;
 
   /// Creates a new instance of the [FastDigitCalculator] widget.
   ///
-  /// The [maxOperationLength] parameter sets the maximum length of the text that can be displayed
+  /// The [maxOperationLength] parameter sets the maximum length of the text
+  /// that can be displayed
   /// in the calculator's display.
   const FastDigitCalculator({
     super.key,

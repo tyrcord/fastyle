@@ -56,7 +56,8 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-  // Builds the first row of the calculator keyboard, including the 'AC', 'delete',
+  // Builds the first row of the calculator keyboard, including the 'AC',
+  // 'delete',
   Widget _buildRow1(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -69,7 +70,8 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-  // Builds the second row of the calculator keyboard, including the '7', '8', '9',
+  // Builds the second row of the calculator keyboard, including the '7', '8',
+  // '9',
   Widget _buildRow2(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -82,7 +84,8 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-  // Builds the third row of the calculator keyboard, including the '4', '5', '6',
+  // Builds the third row of the calculator keyboard, including the '4', '5',
+  // '6',
   Widget _buildRow3(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -95,7 +98,8 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-  // Builds the fourth row of the calculator keyboard, including the '1', '2', '3',
+  // Builds the fourth row of the calculator keyboard, including the '1', '2',
+  // '3',
   Widget _buildRow4(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -108,7 +112,8 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-  // Builds the fifth row of the calculator keyboard, including the '0', '.', and
+  // Builds the fifth row of the calculator keyboard, including the '0', '.',
+  // and '=
   Widget _buildRow5(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -247,12 +252,14 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
   // This helper method returns a color representing a shade of teal in
   Color _getMintColor(BuildContext context) {
     final palette = ThemeHelper.getPaletteColors(context);
+
     return palette.teal.light;
   }
 
   // This helper method returns a color representing a shade of pink in
   Color _getPinkColor(BuildContext context) {
     final palette = ThemeHelper.getPaletteColors(context);
+
     return palette.pink.light;
   }
 
