@@ -8,13 +8,13 @@ mixin FastSettingsThemeMixin {
   void dispatchThemeModeChanged(FastThemeBloc themeBloc, ThemeMode themeMode) {
     switch (themeMode) {
       case ThemeMode.light:
-        themeBloc.addEvent(FastThemeBlocEvent.light());
+        themeBloc.addEvent(const FastThemeBlocEvent.light());
         break;
       case ThemeMode.dark:
-        themeBloc.addEvent(FastThemeBlocEvent.dark());
+        themeBloc.addEvent(const FastThemeBlocEvent.dark());
         break;
       default:
-        themeBloc.addEvent(FastThemeBlocEvent.system());
+        themeBloc.addEvent(const FastThemeBlocEvent.system());
     }
   }
 }
