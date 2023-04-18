@@ -5,25 +5,50 @@ import 'package:flutter/material.dart';
 import 'package:t_helpers/helpers.dart';
 import 'ui/digit_calculator_keyboard.dart';
 
+/// A Flutter widget that provides a digit calculator with a display and keyboard.
+///
+/// The calculator provides basic arithmetic operations (+, -, *, /)
+/// The display shows the current operation and the history of operations.
+/// The keyboard provides buttons for input.
+///
+/// To use this widget, simply create a new instance of the [FastDigitCalculator]
+/// class and add it to your widget tree.
+///
+/// {@tool dart}
+///
+/// ```dart
+/// FastDigitCalculator(
+///   maxOperationLength: 50,
+/// )
+/// ```
+/// {@end-tool}
 class FastDigitCalculator extends StatefulWidget {
-  final Color? backgroundColor;
-  final int maxLength;
+  /// The maximum length of the text that can be displayed in the calculator's display.
+  final int maxOperationLength;
 
+  /// Creates a new instance of the [FastDigitCalculator] widget.
+  ///
+  /// The [maxOperationLength] parameter sets the maximum length of the text that can be displayed
+  /// in the calculator's display.
   const FastDigitCalculator({
     super.key,
-    this.backgroundColor,
-    this.maxLength = 15,
+    this.maxOperationLength = 35,
   });
 
   @override
   FastDigitCalculatorState createState() => FastDigitCalculatorState();
 }
 
+// The state class for the [FastDigitCalculator] widget.
 class FastDigitCalculatorState extends State<FastDigitCalculator> {
+  // The scroll controller used to scroll the display of the calculator.
   final ScrollController _scrollController = ScrollController();
-  final List<String> _history = [];
-  String _currentOperation = '';
+  // The current operation being performed on the calculator.
+  TSimpleOperation _currentOperation = const TSimpleOperation();
+  // The history of operations that have been performed on the calculator.
+  final List<TSimpleOperation> _history = [];
 
+  // Called when a key is pressed on the calculator.
   void _onKeyPressed(String key) {
     setState(() {
       if (key == '<') {
@@ -32,32 +57,56 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
         _evaluateCurrentLine();
       } else if (key == 'c') {
         _clearHistoryAndCurrentLine();
+      } else if (key == '±') {
+        _toggleSign();
       } else {
         _appendToCurrentLine(key);
       }
     });
   }
 
-  bool _hasOperator(String operation) {
-    return operation.contains(RegExp('[+\\-*/×÷]'));
-  }
+  // Toggles the sign of the last operand in the current operation.
+  void _toggleSign() {
+    if (_currentOperation.hasOperator) {
+      return;
+    }
 
-  void _clearHistoryAndCurrentLine() {
-    _currentOperation = '';
-    _history.clear();
-  }
+    if (_currentOperation.lastOperand.isNotEmpty) {
+      final lastOperand = _currentOperation.lastOperand;
+      final value = double.tryParse(lastOperand) ?? 0;
+      final toggledValue = (-value);
 
-  void _deleteLastCharacter() {
-    if (_currentOperation.isNotEmpty) {
-      _currentOperation = _currentOperation.substring(
-        0,
-        _currentOperation.length - 1,
-      );
+      if (toggledValue == 0) {
+        _currentOperation = _currentOperation.clear();
+      } else {
+        final toggledOperand = (isDoubleInteger(toggledValue)
+                ? toggledValue.toInt()
+                : toggledValue)
+            .toString();
+
+        _currentOperation =
+            _currentOperation.replaceLastOperand(toggledOperand);
+      }
+    } else {
+      _currentOperation = _currentOperation.append('-');
+      _currentOperation = _currentOperation.append('0');
     }
   }
 
+  /// Clears the history and the current operation.
+  void _clearHistoryAndCurrentLine() {
+    _currentOperation = _currentOperation.clear();
+    _history.clear();
+  }
+
+  /// Deletes the last character from the current operation.
+  void _deleteLastCharacter() {
+    _currentOperation = _currentOperation.deleteLastCharacter();
+  }
+
+  // Evaluates the current operation and adds the result to the history.
   void _evaluateCurrentLine() {
-    if (!_hasOperator(_currentOperation)) {
+    if (!_currentOperation.isValid) {
       // If the current operation does not contain any operators,
       // don't evaluate and don't add to history
       return;
@@ -65,42 +114,32 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
 
     try {
       // Evaluate the current operation and add it to the history
-      final result = evaluateExpression(_currentOperation);
-      _history.add('$_currentOperation=$result');
-      _currentOperation =
-          (isDoubleInteger(result) ? result.toInt() : result).toString();
+      final result = _currentOperation.evaluate();
+      _history.add(result);
+      _currentOperation = TSimpleOperation(operands: [result.result!]);
     } catch (e) {
       // If there was an error, clear the current operation and
       // don't add it to the history
-      _currentOperation = '';
+      _currentOperation = _currentOperation.clear();
     }
   }
 
+  // Appends the pressed key to the current operation.
   void _appendToCurrentLine(String key) {
-    if (_currentOperation.length >= widget.maxLength) {
+    if (_currentOperation.length >= widget.maxOperationLength) {
       return;
     }
 
-    if (key == '.') {
-      if (_currentOperation.isEmpty) {
-        _currentOperation = '0';
-      } else if (_currentOperation.contains('.')) {
-        return; // ignore duplicate dots
-      }
-    } else if (key == '0' &&
-        _currentOperation.startsWith('0') &&
-        !_currentOperation.contains('.')) {
-      // ignore leading zeros before a number
-      return;
-    } else if (_hasOperator(_currentOperation) && _hasOperator(key)) {
-      // If there are already two operators, evaluate the current operation
-      // and add the pending operator to the next operation
+    if (isOperator(key) && _currentOperation.isValid) {
+      // If the current operation already contains an operator,
+      // don't append the new operator
       _evaluateCurrentLine();
-      _currentOperation += key;
+      _appendToCurrentLine(key);
+
       return;
     }
 
-    _currentOperation += key;
+    _currentOperation = _currentOperation.append(key);
   }
 
   @override
@@ -111,7 +150,7 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
           Expanded(
             child: FastDigitCalculatorDisplay(
               scrollController: _scrollController,
-              currentOperation: _currentOperation,
+              operation: _currentOperation,
               history: _history,
             ),
           ),

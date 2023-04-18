@@ -4,17 +4,34 @@ import 'package:t_helpers/helpers.dart';
 
 // A custom Flutter widget for a calculator keyboard button
 class FastDigitCalculatorKeyboardButton<T> extends StatelessWidget {
+  /// The elevation of the button
   final double buttonElevation;
+
+  /// The function to call when the button is pressed
   final Function(T) onPressed;
+
+  /// The background color of the button
   final Color? backgroundColor;
+
+  /// The highlight color of the button
   final Color? highlightColor;
+
+  /// The text color of the button
   final Color? textColor;
+
+  /// The label to display on the button
   final String? label;
+
+  /// The icon to display on the button
   final Widget? icon;
+
+  /// The flex value to use for the button's `Expanded` widget
   final int flex;
+
+  /// The value associated with the button
   final T value;
 
-  // Constructor for CalculatorKeyboardButton
+  // Constructor for FastDigitCalculatorKeyboardButton
   const FastDigitCalculatorKeyboardButton({
     super.key,
     required this.onPressed,
@@ -98,7 +115,7 @@ class FastDigitCalculatorKeyboardButton<T> extends StatelessWidget {
 
   // Private method to calculate the button's height based on the media type
   double _calculateHeight(FastMediaType mediaType) {
-    var height = 72.0;
+    var height = 80.0;
 
     if (mediaType >= FastMediaType.desktop) {
       height += 64;
@@ -116,7 +133,7 @@ class FastDigitCalculatorKeyboardButton<T> extends StatelessWidget {
     } else if (mediaType >= FastMediaType.tablet) {
       return 22.0;
     } else {
-      return 18.0;
+      return 20.0;
     }
   }
 }

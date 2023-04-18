@@ -1,41 +1,47 @@
 import 'digit_calculator_history_list_item.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:t_helpers/helpers.dart';
 import 'package:flutter/material.dart';
 
+/// A custom widget that displays a list of history items for a calculator screen.
 class FastDigitCalculatorHistoryList extends StatelessWidget {
-  final List<String> history;
+  /// The scroll controller for the list.
   final ScrollController scrollController;
+
+  /// The list of history items to display.
+  final List<TSimpleOperation> history;
+
+  /// The background color of the list.
   final Color? backgroundColor;
 
+  /// Creates a [FastDigitCalculatorHistoryList] widget.
+  ///
+  /// * [scrollController]: The scroll controller for the list.
+  ///
+  /// * [history]: The list of history items to display.
+  ///
+  /// * [backgroundColor]: The background color of the list. If null, the default
+  /// background color of the parent widget is used.
   const FastDigitCalculatorHistoryList({
     Key? key,
-    required this.history,
     required this.scrollController,
+    required this.history,
     this.backgroundColor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: _getBackgroundColor(context),
-      padding: const EdgeInsets.only(top: 24.0),
-      child: ListView.builder(
-        controller: scrollController,
-        reverse: true,
-        itemCount: history.length,
-        itemBuilder: (context, index) {
-          final reversedIndex = history.length - index - 1;
-          final expression = history[reversedIndex];
+    return ListView.builder(
+      controller: scrollController,
+      reverse: true,
+      itemCount: history.length,
+      itemBuilder: (context, index) {
+        // Get the operation for the current history item
+        final reversedIndex = history.length - index - 1;
+        final operation = history[reversedIndex];
 
-          return FastDigitCalculatorHistoryListItem(expression: expression);
-        },
-      ),
+        // Build a FastDigitCalculatorHistoryListItem for the current history item
+        return FastDigitCalculatorHistoryListItem(operation: operation);
+      },
     );
-  }
-
-  Color _getBackgroundColor(BuildContext context) {
-    final colors = ThemeHelper.colors;
-
-    return backgroundColor ?? colors.getSecondaryBackgroundColor(context);
   }
 }

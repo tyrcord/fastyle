@@ -5,9 +5,10 @@ import 'package:flutter/services.dart';
 // It is designed to be used as a child of the CalculatorKeyboard widget to allow the
 // calculator to receive keyboard events when it has focus.
 class FastDigitCalculatorKeyboardListener extends StatefulWidget {
-  // A function that is called when a key is pressed on the keyboard
-
+  /// A function that is called when a key is pressed on the keyboard
   final Function(String) onKeyPressed;
+
+  /// The child widget of the keyboard listener
   final Widget child;
 
   const FastDigitCalculatorKeyboardListener({
@@ -46,7 +47,7 @@ class FastDigitCalculatorKeyboardListenerState
     );
   }
 
-// This method handles physical key presses in Flutter
+  // This method handles physical key presses in Flutter
   KeyEventResult _handlePhysicalKeyPressed(FocusNode node, RawKeyEvent event) {
     // Check if the received event is a key down event
     if (event is RawKeyDownEvent) {
@@ -113,9 +114,9 @@ class FastDigitCalculatorKeyboardListenerState
     return result;
   }
 
-// This function takes a key label and returns the digit contained in it (if any)
-// For example, if the key label is '1', the function will return '1'
-// If the key label is 'x', the function will return null
+  // This function takes a key label and returns the digit contained in it (if any)
+  // For example, if the key label is '1', the function will return '1'
+  // If the key label is 'x', the function will return null
   String? _getDigitFromKeyLabel(String? keyLabel) {
     // Use a regular expression to search for the first digit in the key label
     final digitMatch = RegExp(r'\d').firstMatch(keyLabel ?? '');

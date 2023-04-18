@@ -4,12 +4,12 @@ import 'digit_calculator_keyboard_button.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:flutter/material.dart';
 
-// This class defines a calculator keyboard
+/// This class defines a calculator keyboard
 class FastDigitCalculatorKeyboard extends StatelessWidget {
-  // A function that is called when a key is pressed on the keyboard
+  /// A function that is called when a key is pressed on the keyboard
   final Function(String) onKeyPressed;
 
-  // The background color of the keyboard (optional)
+  /// The background color of the keyboard (optional)
   final Color? backgroundColor;
 
   const FastDigitCalculatorKeyboard({
@@ -21,14 +21,11 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // The overall container for the keyboard, with a secondary background color
-    return FastDigitCalculatorKeyboardListener(
-      onKeyPressed: onKeyPressed,
-      child: Container(
-        color: ThemeHelper.colors.getSecondaryBackgroundColor(context),
+    return Container(
+      color: ThemeHelper.colors.getSecondaryBackgroundColor(context),
+      child: FastDigitCalculatorKeyboardListener(
+        onKeyPressed: onKeyPressed,
         child: Container(
-          // Container for the rows of keys, with padding and decoration
-          // to style the keyboard
-          padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 16),
           decoration: BoxDecoration(
             color: _getBackgroundColor(context),
             borderRadius: const BorderRadius.only(
@@ -36,15 +33,23 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
               topRight: Radius.circular(40.0),
             ),
           ),
-          child: Column(
-            // The rows of keys on the keyboard
-            children: [
-              _buildRow1(context),
-              _buildRow2(context),
-              _buildRow3(context),
-              _buildRow4(context),
-              _buildRow5(context),
-            ],
+          child: SafeArea(
+            top: false,
+            child: Padding(
+              // Padding for the rows of keys
+              padding:
+                  const EdgeInsets.symmetric(vertical: 28.0, horizontal: 16),
+              child: Column(
+                // The rows of keys on the keyboard
+                children: [
+                  _buildRow1(context),
+                  _buildRow2(context),
+                  _buildRow3(context),
+                  _buildRow4(context),
+                  _buildRow5(context),
+                ],
+              ),
+            ),
           ),
         ),
       ),
@@ -77,7 +82,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-// Builds the third row of the calculator keyboard, including the '4', '5', '6',
+  // Builds the third row of the calculator keyboard, including the '4', '5', '6',
   Widget _buildRow3(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -90,7 +95,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-// Builds the fourth row of the calculator keyboard, including the '1', '2', '3',
+  // Builds the fourth row of the calculator keyboard, including the '1', '2', '3',
   Widget _buildRow4(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -103,7 +108,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-// Builds the fifth row of the calculator keyboard, including the '0', '.', and
+  // Builds the fifth row of the calculator keyboard, including the '0', '.', and
   Widget _buildRow5(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -115,12 +120,12 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-// Builds a numeric button with the provided value and optional flex parameter
+  // Builds a numeric button with the provided value and optional flex parameter
   Widget _buildNumberButton(String value, {int flex = 1}) {
     return _buildKeyboardButton(value, flex: flex);
   }
 
-// Builds the All Clear (AC) button with a value "c" and a 'AC label
+  // Builds the All Clear (AC) button with a value "c" and a 'AC label
   Widget _buildClearButton(BuildContext context) {
     return _buildKeyboardButton(
       'c',
@@ -129,7 +134,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-// Builds the backspace button with a value "<" and a deleteLeft icon
+  // Builds the backspace button with a value "<" and a deleteLeft icon
   Widget _buildDeleteButton(BuildContext context) {
     return _buildKeyboardButton(
       '<',
@@ -153,7 +158,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-// Builds the division button with a value "÷" and a division icon
+  // Builds the division button with a value "÷" and a division icon
   Widget _buildDivideButton(BuildContext context) {
     return _buildKeyboardButton(
       '÷',
@@ -165,7 +170,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-// Builds the multiplication button with a value "×" and a multiplication icon
+  // Builds the multiplication button with a value "×" and a multiplication icon
   Widget _buildMultiplyButton(BuildContext context) {
     return _buildKeyboardButton(
       '×',
@@ -177,7 +182,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-// Builds the subtraction button with a value "-" and a subtraction icon
+  // Builds the subtraction button with a value "-" and a subtraction icon
   Widget _buildMinusButton(BuildContext context) {
     return _buildKeyboardButton(
       '-',
@@ -189,7 +194,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-// Builds the addition button with a value "+" and a addition icon
+  // Builds the addition button with a value "+" and a addition icon
   Widget _buildPlusButton(BuildContext context) {
     return _buildKeyboardButton(
       '+',
@@ -201,7 +206,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-// Builds the equals button with a value "=" and a equals icon
+  // Builds the equals button with a value "=" and a equals icon
   Widget _buildEqualsButton(BuildContext context) {
     return _buildKeyboardButton(
       '=',
@@ -239,19 +244,19 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     );
   }
 
-// This helper method returns a color representing a shade of teal in
+  // This helper method returns a color representing a shade of teal in
   Color _getMintColor(BuildContext context) {
     final palette = ThemeHelper.getPaletteColors(context);
     return palette.teal.light;
   }
 
-// This helper method returns a color representing a shade of pink in
+  // This helper method returns a color representing a shade of pink in
   Color _getPinkColor(BuildContext context) {
     final palette = ThemeHelper.getPaletteColors(context);
     return palette.pink.light;
   }
 
-// This helper method returns the tertiary background color in
+  // This helper method returns the tertiary background color in
   Color _getBackgroundColor(BuildContext context) {
     final colors = ThemeHelper.colors;
 
