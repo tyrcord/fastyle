@@ -2,7 +2,7 @@
 
 import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
-import 'package:tbloc_dart/tbloc_dart.dart';
+import 'package:tbloc/tbloc.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 

@@ -1,5 +1,5 @@
 import 'package:fastyle_connectivity/fastyle_connectivity.dart';
-import 'package:tbloc_dart/tbloc_dart.dart';
+import 'package:tbloc/tbloc.dart';
 
 class FastConnectivityStatusBloc extends BidirectionalBloc<
     FastConnectivityStatusBlocEvent, FastConnectivityStatusBlocState> {

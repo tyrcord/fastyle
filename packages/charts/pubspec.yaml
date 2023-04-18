@@ -1,11 +1,11 @@
 name: fastyle_charts
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
+homepage: https://github.com/tyrcord/fastyle/tree/main/packages/charts
 
 environment:
-  sdk: '>=2.19.5 <3.0.0'
-  flutter: ">=1.17.0"
+  sdk: '>=2.19.6 <3.0.0'
+  flutter: ">=3.7.0"
 
 dependencies:
   flutter:
@@ -14,5 +14,5 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-
+  flutter_lints: ^2.0.1
+  dart_code_metrics: ^5.7.2

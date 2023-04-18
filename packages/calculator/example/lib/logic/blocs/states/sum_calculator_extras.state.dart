@@ -1,4 +1,4 @@
-import 'package:tmodel_dart/logic/core/core.dart';
+import 'package:tmodel/tmodel.dart';
 
 class SumCalculatorBlocStateExtras extends TModel {
   final bool isFetchingAsyncValue;

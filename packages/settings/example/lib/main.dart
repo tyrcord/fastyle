@@ -4,7 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:lingua_core/lingua_core.dart';
-import 'package:tbloc_dart/tbloc_dart.dart';
+import 'package:tbloc/tbloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 

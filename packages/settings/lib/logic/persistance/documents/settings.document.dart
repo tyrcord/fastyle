@@ -1,4 +1,4 @@
-import 'package:tstore_dart/tstore_dart.dart';
+import 'package:tstore/tstore.dart';
 
 /// The settings document.
 class FastSettingsDocument extends TDocument {

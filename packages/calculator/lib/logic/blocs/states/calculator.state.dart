@@ -1,6 +1,6 @@
 import 'package:fastyle_calculator/fastyle_calculator.dart';
-import 'package:tmodel_dart/tmodel_dart.dart';
-import 'package:tbloc_dart/tbloc_dart.dart';
+import 'package:tmodel/tmodel.dart';
+import 'package:tbloc/tbloc.dart';
 
 class FastCalculatorBlocState<F extends FastCalculatorFields,
     R extends FastCalculatorResults> extends BlocState {

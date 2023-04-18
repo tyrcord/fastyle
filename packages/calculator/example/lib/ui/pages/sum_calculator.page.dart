@@ -3,7 +3,7 @@ import 'package:fastyle_calculator_example/logic/logic.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:tbloc_dart/tbloc_dart.dart';
+import 'package:tbloc/tbloc.dart';
 
 class SumCalculatorPage extends StatefulWidget {
   const SumCalculatorPage({super.key});

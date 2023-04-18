@@ -4,21 +4,21 @@ version: 0.0.2
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/connectivity
 
 environment:
-  sdk: ">=2.19.0 <3.0.0"
+  sdk: '>=2.19.6 <3.0.0'
   flutter: ">=3.7.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_dart: ^1.0.0
-  font_awesome_flutter: ^10.3.0
-  connectivity_plus: ^3.0.3
-  rxdart: ^0.27.5
-  tmodel_dart: ">=0.5.0 <1.0.0"
-  tbloc_dart: ">=0.20.1 <1.0.0"
+  fastyle_dart: ">=1.1.2 <2.0.0"
+  font_awesome_flutter: ^10.4.0
+  connectivity_plus: ^3.0.4
+  rxdart: ^0.27.7
+  tmodel: ">=0.5.1 <1.0.0"
+  tbloc: ">=0.20.3 <1.0.0"
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  dart_code_metrics: ^5.5.0
+  flutter_lints: ^2.0.1
+  dart_code_metrics: ^5.7.2

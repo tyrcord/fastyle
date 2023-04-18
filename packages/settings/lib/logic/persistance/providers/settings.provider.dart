@@ -1,5 +1,5 @@
 import 'package:fastyle_settings/fastyle_settings.dart';
-import 'package:tstore_dart/tstore_dart.dart';
+import 'package:tstore/tstore.dart';
 
 /// A [TDocumentDataProvider] that provides a way to persist and retrieve
 /// [FastSettingsDocument] objects.

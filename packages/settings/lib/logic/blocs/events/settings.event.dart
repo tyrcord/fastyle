@@ -1,4 +1,4 @@
-import 'package:tbloc_dart/tbloc_dart.dart';
+import 'package:tbloc/tbloc.dart';
 
 /// The settings bloc event type.
 /// This type is used to define the type of the settings bloc event.

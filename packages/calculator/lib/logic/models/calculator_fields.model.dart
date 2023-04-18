@@ -1,4 +1,4 @@
-import 'package:tmodel_dart/tmodel_dart.dart';
+import 'package:tmodel/tmodel.dart';
 
 abstract class FastCalculatorFields extends TModel {
   const FastCalculatorFields();

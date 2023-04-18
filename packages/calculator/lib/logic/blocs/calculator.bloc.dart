@@ -1,6 +1,6 @@
 import 'package:fastyle_calculator/fastyle_calculator.dart';
 import 'package:flutter/foundation.dart';
-import 'package:tbloc_dart/tbloc_dart.dart';
+import 'package:tbloc/tbloc.dart';
 
 typedef FastCalculatorBlocDebounceEventCallback<
         E extends FastCalculatorBlocEvent>

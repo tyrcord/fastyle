@@ -181,10 +181,10 @@ packages:
     dependency: "direct main"
     description:
       name: fastyle_dart
-      sha256: "8070fc8243631f7aeb58fe5e447d575eaf78a05d925e4d1498a6c49b4730a222"
+      sha256: "481d05cb3d5f07f3ca4f7976b962c8a2a2721e5fe8c1f3aa9f3b8ded468ef45b"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.2"
   fastyle_digit_calculator:
     dependency: "direct main"
     description:
@@ -307,10 +307,10 @@ packages:
     dependency: "direct main"
     description:
       name: intl
-      sha256: a3715e3bc90294e971cb7dc063fbf3cd9ee0ebf8604ffeafabd9e6f16abbdbe6
+      sha256: "910f85bce16fb5c6f614e117efa303e85a1731bb0081edf3604a2ae6e9a3cc91"
       url: "https://pub.dev"
     source: hosted
-    version: "0.18.0"
+    version: "0.17.0"
   js:
     dependency: transitive
     description:
@@ -568,26 +568,26 @@ packages:
     dependency: transitive
     description:
       name: subx
-      sha256: "67d3cd0b938ab181304bcb51196700e4335c44e612a0bbd42b098ad196cb239b"
+      sha256: "0b1c41ef56e8427c11d2f7380ed0e5d22244308547c69e86d50c5db228708fc7"
       url: "https://pub.dev"
     source: hosted
-    version: "1.3.0"
+    version: "1.4.0"
   t_helpers:
     dependency: "direct main"
     description:
       name: t_helpers
-      sha256: "6578ea20cf0474b33a9c89dde4fcd625af55bf2ee8e84353d0730494ba6ea589"
+      sha256: f2976553da4194fa04f42784a8dbb3893c22e45b61f1b0c7a9cc243c5ce42972
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.5"
-  tbloc_dart:
+    version: "0.0.7+1"
+  tbloc:
     dependency: transitive
     description:
-      name: tbloc_dart
-      sha256: c30f4399d350b89c9a597f796ecd6a0afa36d6c1aec5b1f5e9dd41f47d2bb737
+      name: tbloc
+      sha256: "3d1bb86d6d2a12fab644077cb965a213ac3aaba5701d3e22e5ae479fdfaf49cf"
       url: "https://pub.dev"
     source: hosted
-    version: "0.20.1"
+    version: "0.20.3+1"
   term_glyph:
     dependency: transitive
     description:
@@ -608,26 +608,18 @@ packages:
     dependency: transitive
     description:
       name: tmodel
-      sha256: "0ef290faed44e1266115f475ff347dcbf9d317267f72a2b10758e663a7e9e3b4"
+      sha256: "65267aaf0d2f614d2ba36ab58f05d856bfbb4179e64f103aa7cb0042a576e28a"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.1"
-  tmodel_dart:
-    dependency: transitive
-    description:
-      name: tmodel_dart
-      sha256: "6ab7addc64e780eca134cce745cebed0833efe9c44a308cfd548060d7e3bcc70"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.5.0"
+    version: "0.5.2"
   tsub:
     dependency: transitive
     description:
       name: tsub
-      sha256: "345fa059797228469f750e03986a05f2e759937ce0db2bbb89400563f6d1f7e5"
+      sha256: e9b08cd5d9bdbfc082568ebf97eb297813a22c8463837313119a959702c08516
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "1.2.0"
   tuple:
     dependency: transitive
     description:
@@ -636,14 +628,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
-  tutils_dart:
-    dependency: transitive
-    description:
-      name: tutils_dart
-      sha256: "232db315e24132663a37047fe0c012641aa0155abac3ce830df15629d208b226"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
   typed_data:
     dependency: transitive
     description:

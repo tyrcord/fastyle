@@ -1,7 +1,7 @@
 import 'package:fastyle_connectivity/fastyle_connectivity.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
-import 'package:tbloc_dart/tbloc_dart.dart';
+import 'package:tbloc/tbloc.dart';
 import 'package:flutter/widgets.dart';
 
 class FastConnectivityStatusListener extends StatefulWidget {

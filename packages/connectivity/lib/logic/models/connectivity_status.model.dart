@@ -1,5 +1,5 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:tmodel_dart/logic/core/core.dart';
+import 'package:tmodel/tmodel.dart';
 
 class FastConnectivityStatus extends TModel {
   final ConnectivityResult connectivityResult;
