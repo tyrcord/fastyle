@@ -207,14 +207,14 @@ packages:
       path: "../../images"
       relative: true
     source: path
-    version: "0.0.3"
+    version: "0.0.4"
   fastyle_settings:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.4"
+    version: "0.0.5"
   ffi:
     dependency: transitive
     description:
