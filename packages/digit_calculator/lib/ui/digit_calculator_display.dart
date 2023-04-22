@@ -10,16 +10,16 @@ class FastDigitCalculatorDisplay extends StatelessWidget {
   /// The scroll controller for the [FastDigitCalculatorHistoryList] widget.
   final ScrollController scrollController;
 
-  /// The list of history items to display in
-  /// the [FastDigitCalculatorHistoryList]
-  /// widget.
-  final List<TSimpleOperation> history;
+  /// A `ValueNotifier` that holds a `TSimpleOperation` object.
+  /// Used to notify listeners whenever the current operation changes.
+  final ValueNotifier<List<TSimpleOperation>> historyNotifier;
 
   /// The background color for the calculator display.
   final Color? backgroundColor;
 
-  /// The current operation to display in the calculator.
-  final TSimpleOperation operation;
+  /// A `ValueNotifier` that holds a list of `TSimpleOperation` objects.
+  /// Used to notify listeners whenever the history of operations changes.
+  final ValueNotifier<TSimpleOperation> operationNotifier;
 
   /// The callback function to trigger when the user taps on the current
   /// operation display widget.
@@ -42,9 +42,9 @@ class FastDigitCalculatorDisplay extends StatelessWidget {
   /// the current operation display widget.
   const FastDigitCalculatorDisplay({
     Key? key,
+    required this.operationNotifier,
     required this.scrollController,
-    required this.operation,
-    required this.history,
+    required this.historyNotifier,
     this.backgroundColor,
     this.onTap,
   }) : super(key: key);
@@ -60,15 +60,25 @@ class FastDigitCalculatorDisplay extends StatelessWidget {
             // CalculatorHistoryList
             Expanded(
               flex: 2,
-              child: FastDigitCalculatorHistoryList(
-                scrollController: scrollController,
-                history: history,
+              child: ValueListenableBuilder<List<TSimpleOperation>>(
+                valueListenable: historyNotifier,
+                builder: (context, history, child) {
+                  return FastDigitCalculatorHistoryList(
+                    scrollController: scrollController,
+                    history: history,
+                  );
+                },
               ),
             ),
             // Current operation display
             GestureDetector(
-              onTap: onTap, // Custom onTap function
-              child: _buildCurrentOperation(context),
+              onTap: onTap,
+              child: ValueListenableBuilder<TSimpleOperation>(
+                valueListenable: operationNotifier,
+                builder: (context, operation, child) {
+                  return _buildCurrentOperation(context, operation);
+                },
+              ),
             ),
           ],
         ),
@@ -81,7 +91,10 @@ class FastDigitCalculatorDisplay extends StatelessWidget {
   /// * [context]: The build context.
   ///
   /// Returns a [Container] widget that displays the current operation.
-  Widget _buildCurrentOperation(BuildContext context) {
+  Widget _buildCurrentOperation(
+    BuildContext context,
+    TSimpleOperation operation,
+  ) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
       alignment: Alignment.centerRight,
@@ -89,7 +102,7 @@ class FastDigitCalculatorDisplay extends StatelessWidget {
         fit: BoxFit.scaleDown,
         child: FastDisplay(
           fontWeight: kFastFontWeightSemiBold,
-          text: _getDisplayText(),
+          text: _getDisplayText(operation),
         ),
       ),
     );
@@ -111,7 +124,7 @@ class FastDigitCalculatorDisplay extends StatelessWidget {
   ///
   /// Returns the formatted text of the [operation] object.
   /// If the [operation] object is empty, returns "0".
-  String _getDisplayText() {
+  String _getDisplayText(TSimpleOperation operation) {
     return operation.isEmpty ? "0" : operation.format();
   }
 }

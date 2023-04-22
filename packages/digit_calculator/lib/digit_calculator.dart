@@ -50,23 +50,36 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
   // The current operation being performed on the calculator.
   TSimpleOperation _currentOperation = const TSimpleOperation();
   // The history of operations that have been performed on the calculator.
-  final List<TSimpleOperation> _history = [];
+  List<TSimpleOperation> _history = [];
+
+  // A `ValueNotifier` that holds a `TSimpleOperation` object.
+  // Used to notify listeners whenever the current operation changes.
+  final ValueNotifier<TSimpleOperation> operationNotifier = ValueNotifier(
+    const TSimpleOperation(),
+  );
+
+  // A `ValueNotifier` that holds a list of `TSimpleOperation` objects.
+  // Used to notify listeners whenever the history of operations changes.
+  final ValueNotifier<List<TSimpleOperation>> historyNotifier = ValueNotifier(
+    [],
+  );
 
   // Called when a key is pressed on the calculator.
   void _onKeyPressed(String key) {
-    setState(() {
-      if (key == '<') {
-        _deleteLastCharacter();
-      } else if (key == '=') {
-        _evaluateCurrentLine();
-      } else if (key == 'c') {
-        _clearHistoryAndCurrentLine();
-      } else if (key == '±') {
-        _toggleSign();
-      } else {
-        _appendToCurrentLine(key);
-      }
-    });
+    if (key == '<') {
+      _deleteLastCharacter();
+    } else if (key == '=') {
+      _evaluateCurrentLine();
+    } else if (key == 'c') {
+      _clearHistoryAndCurrentLine();
+    } else if (key == '±') {
+      _toggleSign();
+    } else {
+      _appendToCurrentLine(key);
+    }
+
+    operationNotifier.value = _currentOperation;
+    historyNotifier.value = _history;
   }
 
   // Toggles the sign of the last operand in the current operation.
@@ -100,7 +113,7 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
   /// Clears the history and the current operation.
   void _clearHistoryAndCurrentLine() {
     _currentOperation = _currentOperation.clear();
-    _history.clear();
+    _history = [];
   }
 
   /// Deletes the last character from the current operation.
@@ -119,7 +132,7 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
     try {
       // Evaluate the current operation and add it to the history
       final result = _currentOperation.evaluate();
-      _history.add(result);
+      _history = [..._history, result];
       _currentOperation = TSimpleOperation(operands: [result.result!]);
     } catch (e) {
       // If there was an error, clear the current operation and
@@ -153,9 +166,9 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
         children: [
           Expanded(
             child: FastDigitCalculatorDisplay(
+              operationNotifier: operationNotifier,
               scrollController: _scrollController,
-              operation: _currentOperation,
-              history: _history,
+              historyNotifier: historyNotifier,
             ),
           ),
           FastDigitCalculatorKeyboard(onKeyPressed: _onKeyPressed)
