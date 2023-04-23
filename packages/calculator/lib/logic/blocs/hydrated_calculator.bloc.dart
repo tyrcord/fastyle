@@ -1,21 +1,38 @@
 import 'package:fastyle_calculator/fastyle_calculator.dart';
 import 'package:flutter/material.dart';
 
+/// An abstract class that extends [FastCalculatorBloc] to create a hydrated
+/// calculator bloc.
+///
+/// This hydrated calculator bloc can persist its state and recover from it
+/// when needed.
+///
+/// The class requires the following generic types:
+///   E: The type of events that the bloc responds to
+///   (must extend [FastCalculatorBlocEvent]).
+///
+///   S: The type of state that the bloc manages
+///  (must extend [FastCalculatorBlocState]).
+///
+///   D: The type of calculator document used to persist the state
+///   (must extend [FastCalculatorDocument]).
+///
+///   R: The type of calculator results managed by the bloc
+///   (must extend [FastCalculatorResults]).
 abstract class HydratedFastCalculatorBloc<
     E extends FastCalculatorBlocEvent,
     S extends FastCalculatorBlocState,
     D extends FastCalculatorDocument,
     R extends FastCalculatorResults> extends FastCalculatorBloc<E, S, R> {
-  /// The data provider is used to persist the calculator document.
+  /// The [dataProvider] is used to persist the calculator document.
   @protected
   final FastCalculatorDataProvider<D> dataProvider;
 
-  /// The default calculator document is used to hydrate
-  /// the bloc calculator state.
+  /// The [defaultDocument] is used to hydrate the bloc calculator state.
   @protected
   late D defaultDocument;
 
-  /// The calculator document is used to hydrate the bloc calculator state.
+  /// The [document] is used to hydrate the bloc calculator state.
   @protected
   late D document;
 
@@ -26,25 +43,44 @@ abstract class HydratedFastCalculatorBloc<
     super.debouceComputeEvents,
   });
 
-  /// This function is called when the bloc is initialized.
-  /// It should return the default calculator document.
-  /// This document will be used to hydrate the bloc calculator state.
+  /// Retrieves the default calculator document.
+  ///
+  /// This method should be implemented by the subclass.
+  /// It is called when the bloc is initialized and should return
+  /// the default calculator document.
   @protected
   Future<D> retrieveDefaultCalculatorDocument();
 
-  /// Patches the calculator document with the given key and value.
+  /// Patches the calculator document with the given [key] and [value].
+  ///
+  /// This method should be implemented by the subclass.
   @protected
   Future<D?> patchCalculatorDocument(String key, dynamic value);
 
+  /// Determines if the user entry can be saved.
+  ///
+  /// Returns a [Future] that resolves to `true` if the user entry can be saved,
+  /// otherwise `false`. By default, it returns `true`.
   @protected
   Future<bool> canSaveUserEntry() async => true;
 
+  /// Closes the bloc by disconnecting from the data provider.
+  ///
+  /// This method is called when the bloc is no longer needed and
+  /// should perform cleanup tasks, such as disconnecting from the
+  /// data provider.
+  @override
   @override
   void close() {
     super.close();
     dataProvider.disconnect();
   }
 
+  /// Initializes the bloc by connecting to the data provider and
+  /// retrieving the default and saved calculator documents.
+  ///
+  /// This method is called when the bloc is created and sets up the
+  /// initial state for the bloc.
   @override
   @mustCallSuper
   Future<void> initialize() async {
@@ -58,12 +94,19 @@ abstract class HydratedFastCalculatorBloc<
     log('will use calculator bloc document', value: document);
   }
 
+  /// Initializes the calculator state with the calculator document.
+  ///
+  /// This method is called after the bloc is initialized and
+  /// the calculator documents are retrieved.
   @override
   @mustCallSuper
   Future<S> initializeCalculatorState() async {
     return initialState!.copyWith(fields: document.toFields()) as S;
   }
 
+  /// Saves the calculator state by persisting the calculator document.
+  ///
+  /// This method is called after the calculator state is modified.
   @override
   @mustCallSuper
   Future<bool> saveCalculatorState() async {
@@ -72,6 +115,9 @@ abstract class HydratedFastCalculatorBloc<
     return super.saveCalculatorState();
   }
 
+  /// Clears the calculator state by clearing the calculator document.
+  ///
+  /// This method is called when the calculator state needs to be reset.
   @override
   @mustCallSuper
   Future<S> clearCalculatorState() async {
@@ -81,10 +127,10 @@ abstract class HydratedFastCalculatorBloc<
     return super.clearCalculatorState();
   }
 
-  /// This function is called when the bloc is initialized.
-  /// It should return the default calculator document.
-  /// This document will be merged with the default one
-  /// and used to hydrate the bloc calculator state.
+  /// Retrieves the calculator document by merging the saved document
+  /// with the default calculator document.
+  ///
+  /// This method is called when the bloc is initialized.
   @protected
   Future<D> retrieveCalculatorDocument() async {
     if (await canSaveUserEntry()) {
@@ -97,6 +143,9 @@ abstract class HydratedFastCalculatorBloc<
     return defaultDocument;
   }
 
+  /// Persists the calculator document.
+  ///
+  /// This method is called when the calculator state is saved.
   @protected
   Future<void> persistCalculatorDocument() async {
     if (await canSaveUserEntry()) {
@@ -106,6 +155,9 @@ abstract class HydratedFastCalculatorBloc<
     }
   }
 
+  /// Clears the calculator document.
+  ///
+  /// This method is called when the calculator state is cleared.
   @protected
   Future<void> clearCalculatorDocument() async {
     if (await canSaveUserEntry()) {
@@ -113,7 +165,14 @@ abstract class HydratedFastCalculatorBloc<
     }
   }
 
+  /// Maps the events to the corresponding state changes in the bloc.
+  ///
+  /// This method handles events like patching values and calculating results.
+  /// It is responsible for updating the state in response to events.
+  ///
+  /// [event]: The event to be handled by the bloc.
   @override
+  @protected
   Stream<S> mapEventToState(FastCalculatorBlocEvent event) async* {
     final payload = event.payload;
     final eventType = event.type;
@@ -129,6 +188,8 @@ abstract class HydratedFastCalculatorBloc<
     }
   }
 
+  /// Handles the patch value event by updating the calculator state
+  /// and document with the given [payload].
   @override
   @protected
   Stream<S> handlePatchValueEvent(

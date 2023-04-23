@@ -2,12 +2,20 @@ import 'package:fastyle_calculator/fastyle_calculator.dart';
 import 'package:tmodel/tmodel.dart';
 import 'package:tbloc/tbloc.dart';
 
+/// Represents the state of a calculator's bloc.
 class FastCalculatorBlocState<F extends FastCalculatorFields,
     R extends FastCalculatorResults> extends BlocState {
+  // Optional instance of TModel that can store additional data.
   final TModel? extras;
+  // Instance of R that contains the current results of the calculator.
   final R results;
+  // Instance of F that contains the current values of the calculator's fields.
   final F fields;
+  // A boolean value indicating whether the calculator's fields are currently
+  // valid.
   final bool isValid;
+  // A boolean value indicating whether the calculator's state has changed
+  // since initialization.
   final bool isDirty;
 
   const FastCalculatorBlocState({
@@ -21,6 +29,8 @@ class FastCalculatorBlocState<F extends FastCalculatorFields,
     this.extras,
   });
 
+  /// Creates a new instance of `FastCalculatorBlocState` that is a clone of
+  /// the current state.
   @override
   FastCalculatorBlocState<F, R> clone() {
     return FastCalculatorBlocState<F, R>(
@@ -35,6 +45,7 @@ class FastCalculatorBlocState<F extends FastCalculatorFields,
     );
   }
 
+  /// Creates a new instance of `FastCalculatorBlocState` with updated values.
   @override
   FastCalculatorBlocState<F, R> copyWith({
     TModel? extras,
@@ -58,6 +69,8 @@ class FastCalculatorBlocState<F extends FastCalculatorFields,
     );
   }
 
+  /// Merges the current state with another instance of
+  /// `FastCalculatorBlocState`.
   @override
   FastCalculatorBlocState<F, R> merge(
     covariant FastCalculatorBlocState<F, R> model,
@@ -74,6 +87,8 @@ class FastCalculatorBlocState<F extends FastCalculatorFields,
     );
   }
 
+  /// A list of objects representing the instance variables of the
+  /// `FastCalculatorBlocState` class.
   @override
   List<Object?> get props => [
         extras,
