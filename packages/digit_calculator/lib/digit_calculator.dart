@@ -29,6 +29,12 @@ class FastDigitCalculator extends StatefulWidget {
   /// the calculator's display.
   final int maxOperationLength;
 
+  // The callback that is called whenever the value of the calculator changes.
+  final ValueChanged<TSimpleOperation>? onValueChanged;
+
+  // The number to display in the calculator's display.
+  final String? valueText;
+
   /// Creates a new instance of the [FastDigitCalculator] widget.
   ///
   /// The [maxOperationLength] parameter sets the maximum length of the text
@@ -37,6 +43,8 @@ class FastDigitCalculator extends StatefulWidget {
   const FastDigitCalculator({
     super.key,
     this.maxOperationLength = 35,
+    this.onValueChanged,
+    this.valueText,
   });
 
   @override
@@ -64,6 +72,17 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
     [],
   );
 
+  @override
+  void initState() {
+    super.initState();
+    final valueText = widget.valueText;
+
+    if (valueText != null && isStringNumber(valueText)) {
+      _currentOperation = _currentOperation.replaceLastOperand(valueText);
+      operationNotifier.value = _currentOperation;
+    }
+  }
+
   // Called when a key is pressed on the calculator.
   void _onKeyPressed(String key) {
     if (key == '<') {
@@ -80,6 +99,10 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
 
     operationNotifier.value = _currentOperation;
     historyNotifier.value = _history;
+
+    if (widget.onValueChanged != null) {
+      widget.onValueChanged!(_currentOperation);
+    }
   }
 
   // Toggles the sign of the last operand in the current operation.
