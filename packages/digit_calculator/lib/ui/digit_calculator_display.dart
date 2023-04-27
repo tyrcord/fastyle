@@ -1,4 +1,5 @@
 import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:flutter/material.dart';
 import 'digit_calculator_history_list.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:flutter/widgets.dart';
@@ -51,39 +52,43 @@ class FastDigitCalculatorDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: _getBackgroundColor(context),
-      child: SafeArea(
-        bottom: false,
-        child: Column(
-          children: [
-            // CalculatorHistoryList
-            Expanded(
-              flex: 2,
-              child: ValueListenableBuilder<List<TSimpleOperation>>(
-                valueListenable: historyNotifier,
-                builder: (context, history, child) {
-                  return FastDigitCalculatorHistoryList(
-                    scrollController: scrollController,
-                    history: history,
-                  );
-                },
+    return LayoutBuilder(builder: (context, constraints) {
+      return Container(
+        color: _getBackgroundColor(context),
+        child: SafeArea(
+          bottom: false,
+          top: false,
+          child: Column(
+            children: [
+              if (constraints.maxHeight >= 128)
+                // CalculatorHistoryList
+                Expanded(
+                  flex: 2,
+                  child: ValueListenableBuilder<List<TSimpleOperation>>(
+                    valueListenable: historyNotifier,
+                    builder: (context, history, child) {
+                      return FastDigitCalculatorHistoryList(
+                        scrollController: scrollController,
+                        history: history,
+                      );
+                    },
+                  ),
+                ),
+              // Current operation display
+              GestureDetector(
+                onTap: onTap,
+                child: ValueListenableBuilder<TSimpleOperation>(
+                  valueListenable: operationNotifier,
+                  builder: (context, operation, child) {
+                    return _buildCurrentOperation(context, operation);
+                  },
+                ),
               ),
-            ),
-            // Current operation display
-            GestureDetector(
-              onTap: onTap,
-              child: ValueListenableBuilder<TSimpleOperation>(
-                valueListenable: operationNotifier,
-                builder: (context, operation, child) {
-                  return _buildCurrentOperation(context, operation);
-                },
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 
   /// Builds the current operation display widget.
