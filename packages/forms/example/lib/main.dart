@@ -24,6 +24,7 @@ class _MyAppState extends State<MyApp> {
           FastDigitCalculatorField(
             labelText: 'Value A',
             valueText: _value ?? '',
+            placeholderText: '0',
             onValueChanged: (value) {
               setState(() => _value = value);
             },

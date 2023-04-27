@@ -23,7 +23,7 @@ class FastDigitCalculatorField extends StatefulWidget {
   final Widget? suffixIcon;
 
   // Valid icon for the digit calculator overlay.
-  final Widget? validIcon;
+  final Widget validIcon;
 
   // Close icon for the digit calculator overlay.
   final Widget closeIcon;
@@ -47,13 +47,13 @@ class FastDigitCalculatorField extends StatefulWidget {
     super.key,
     required this.labelText,
     this.closeIcon = kFastCloseIcon,
+    this.validIcon = kFastDoneIcon,
     this.isEnabled = true,
     this.valueText = '',
     this.placeholderText,
     this.onValueChanged,
     this.captionText,
     this.suffixIcon,
-    this.validIcon,
   });
 
   @override
@@ -95,6 +95,7 @@ class _FastDigitCalculatorFieldState extends State<FastDigitCalculatorField> {
               closeIcon: widget.closeIcon,
               validIcon: widget.validIcon,
               willValid: _onValid,
+              willClose: _onClose,
               child: FastDigitCalculator(
                 onValueChanged: _onValueChanged,
                 valueText: widget.valueText,
@@ -120,7 +121,21 @@ class _FastDigitCalculatorFieldState extends State<FastDigitCalculatorField> {
   /// calls the [widget.onValueChanged] callback with the calculated result.
   void _onValid() {
     if (_operation != null) {
-      widget.onValueChanged?.call(_operation?.evaluate().result);
+      final operation = _operation?.evaluate();
+
+      if (operation?.result != null) {
+        widget.onValueChanged?.call(operation?.result);
+      } else if (operation?.lastOperand != null) {
+        widget.onValueChanged?.call(operation?.lastOperand);
+      } else {
+        widget.onValueChanged?.call(widget.valueText);
+      }
     }
+
+    _onClose();
   }
+
+  /// Resets the [_operation] instance variable to null when the
+  /// digit calculator overlay is closed.
+  void _onClose() => _operation = null;
 }
