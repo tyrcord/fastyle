@@ -77,6 +77,13 @@
       "type": "dart",
       "flutterMode": "debug",
       "program": "packages/charts/example/lib/main.dart"
+    },
+    {
+      "name": "Forms",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/forms/example/lib/main.dart"
     }
   ]
 }
