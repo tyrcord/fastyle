@@ -170,7 +170,7 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
       return Align(
         alignment: Alignment.bottomCenter,
         child: FractionallySizedBox(
-          widthFactor: mediaType.index >= FastMediaType.tablet.index ? 0.5 : 1,
+          widthFactor: mediaType >= FastMediaType.tablet ? 0.5 : 1,
           child: Builder(builder: footerBuilder!),
         ),
       );
