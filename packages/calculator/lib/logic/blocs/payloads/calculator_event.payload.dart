@@ -9,11 +9,14 @@ class FastCalculatorBlocEventPayload<R extends FastCalculatorResults> {
   final R? results;
   // An error that occurred during initialization or computation.
   final dynamic error;
+  // A stack trace associated with an error.
+  final dynamic stacktrace;
 
   const FastCalculatorBlocEventPayload({
     this.key,
     this.value,
     this.results,
     this.error,
+    this.stacktrace,
   });
 }

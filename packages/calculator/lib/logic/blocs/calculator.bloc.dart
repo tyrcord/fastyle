@@ -156,7 +156,9 @@ abstract class FastCalculatorBloc<
     } else if (eventType == FastCalculatorBlocEventType.initialized) {
       yield* handleInitializedEvent();
     } else if (eventType == FastCalculatorBlocEventType.initFailed) {
-      yield* handleInitializeFailedEvent();
+      yield* handleInitializeFailedEvent(
+        payload as FastCalculatorBlocEventPayload<R>?,
+      );
     } else if (isInitialized) {
       if (eventType == FastCalculatorBlocEventType.patchValue) {
         yield* handlePatchValueEvent(payload!);
@@ -199,7 +201,7 @@ abstract class FastCalculatorBloc<
   void log(String message, {dynamic value}) {
     if (kDebugMode) {
       if (debugLabel != null) {
-        message = '$debugLabel: $message';
+        message = '[$debugLabel]: $message';
       }
 
       if (value != null) {
@@ -238,8 +240,8 @@ abstract class FastCalculatorBloc<
             .copyWith(isInitializing: isInitializing) as S;
 
         addEvent(FastCalculatorBlocEvent.initialized<R>());
-      } catch (error) {
-        addEvent(FastCalculatorBlocEvent.initFailed<R>(error));
+      } catch (error, stacktrace) {
+        addEvent(FastCalculatorBlocEvent.initFailed<R>(error, stacktrace));
       }
     }
   }
@@ -270,18 +272,32 @@ abstract class FastCalculatorBloc<
     }
   }
 
-  /// Handles the initialize failed event by resetting the `isInitialized` and
-  /// `isInitializing` flags.
+  /// Handles an event where the calculator fails to initialize by resetting the
+  /// `isInitialized` and `isInitializing` flags and emitting a new state.
   ///
-  /// Emits the new state after updating the flags.
+  /// If the `payload.error` property is not null, the method logs a message
+  /// indicating that the calculator failed to initialize and includes the error
+  /// object in the log message. If the `payload.stacktrace` property is not null,
+  /// the method also logs the stack trace associated with the error.
   ///
-  /// Yields a stream of state changes.
   @protected
-  Stream<S> handleInitializeFailedEvent() async* {
+  Stream<S> handleInitializeFailedEvent(
+    FastCalculatorBlocEventPayload<R>? payload,
+  ) async* {
+    // TODO: allow to log errors and stacktraces to an external tool.
+    if (payload?.error != null) {
+      log('Failed to initialize calculator', value: payload!.error);
+
+      if (payload.stacktrace != null) {
+        log('Stacktrace', value: payload.stacktrace);
+      }
+    }
+
     if (isInitializing) {
       isInitializing = false;
       isInitialized = false;
 
+      // TODO: Notifies the state when the initialization process fails.
       yield currentState.copyWith(
         isInitializing: isInitializing,
         isInitialized: isInitialized,

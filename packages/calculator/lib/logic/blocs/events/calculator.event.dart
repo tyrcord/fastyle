@@ -29,10 +29,14 @@ class FastCalculatorBlocEvent<R extends FastCalculatorResults>
   // and a payload containing an error.
   static FastCalculatorBlocEvent<R> initFailed<R extends FastCalculatorResults>(
     dynamic error,
+    dynamic stacktrace,
   ) {
     return FastCalculatorBlocEvent<R>(
       type: FastCalculatorBlocEventType.initFailed,
-      payload: FastCalculatorBlocEventPayload<R>(error: error),
+      payload: FastCalculatorBlocEventPayload<R>(
+        stacktrace: stacktrace,
+        error: error,
+      ),
     );
   }
 
