@@ -1,6 +1,7 @@
 import 'package:fastyle_calculator/fastyle_calculator.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:flutter/material.dart';
+import 'package:tbloc/tbloc.dart';
 
 /// A widget that provides a layout for a fast calculator app.
 class FastCalculatorPageLayout<B extends FastCalculatorBloc,
@@ -101,13 +102,20 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
           backButton: backButton,
           isViewScrollable: true,
           leading: leading,
-          child: Builder(
-            builder: (BuildContext context) {
-              if (mediaType >= FastMediaType.tablet) {
-                return _buildGridView(context);
+          child: BlocBuilderWidget(
+            bloc: calculatorBloc,
+            forceBuildWhenBusy: false,
+            onlyWhenInitializing: true,
+            builder: (BuildContext context, state) {
+              if (state.isInitialized) {
+                if (mediaType >= FastMediaType.tablet) {
+                  return _buildGridView(context);
+                }
+
+                return _buildColumnView(context);
               }
 
-              return _buildColumnView(context);
+              return const FastEmptyContainer();
             },
           ),
           footerBuilder: (context) => _buildFooter(mediaType),
