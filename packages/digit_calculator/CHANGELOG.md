@@ -1,3 +1,9 @@
+## 0.0.4
+
+ - **FEAT**: make it more responsive.
+ - **FEAT**: add digit calculator field.
+ - **FEAT**: performance improvements.
+
 ## 0.0.3
 
  - **FEAT**: lint.

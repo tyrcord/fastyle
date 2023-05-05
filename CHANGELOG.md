@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-05-06
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_calculator` - `v1.7.0`](#fastyle_calculator---v170)
+ - [`fastyle_digit_calculator` - `v0.0.4`](#fastyle_digit_calculator---v004)
+ - [`fastyle_forms` - `v0.0.2`](#fastyle_forms---v002)
+ - [`fastyle_settings` - `v0.0.6`](#fastyle_settings---v006)
+
+---
+
+#### `fastyle_calculator` - `v1.7.0`
+
+ - **FIX**: avoid to build the calculator before its bloc is ready.
+ - **FEAT**: minor improvements.
+ - **FEAT**: better logs when a bloc calculator fails to init.
+
+#### `fastyle_digit_calculator` - `v0.0.4`
+
+ - **FEAT**: make it more responsive.
+ - **FEAT**: add digit calculator field.
+ - **FEAT**: performance improvements.
+
+#### `fastyle_forms` - `v0.0.2`
+
+ - **FEAT**: minor improvements.
+ - **FEAT**: add digit calculator field.
+
+#### `fastyle_settings` - `v0.0.6`
+
+ - **FEAT**: performance improvements.
+
+
 ## 2023-04-18
 
 ### Changes

@@ -1,3 +1,9 @@
+## 1.7.0
+
+ - **FIX**: avoid to build the calculator before its bloc is ready.
+ - **FEAT**: minor improvements.
+ - **FEAT**: better logs when a bloc calculator fails to init.
+
 ## 1.6.0
 
  - **FEAT**: lint.

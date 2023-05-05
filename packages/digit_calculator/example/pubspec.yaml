@@ -17,7 +17,7 @@ dependencies:
   intl: ^0.17.0
   fastyle_dart: ^1.1.0
   font_awesome_flutter: ^10.4.0
-  fastyle_digit_calculator: ^0.0.3
+  fastyle_digit_calculator: ^0.0.4
 
 dev_dependencies:
   flutter_test:

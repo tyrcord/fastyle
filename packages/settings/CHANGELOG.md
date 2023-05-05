@@ -1,3 +1,7 @@
+## 0.0.6
+
+ - **FEAT**: performance improvements.
+
 ## 0.0.5
 
  - **FEAT**: lint.
