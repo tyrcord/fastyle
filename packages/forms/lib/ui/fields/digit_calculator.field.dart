@@ -46,15 +46,16 @@ class FastDigitCalculatorField extends StatefulWidget {
   const FastDigitCalculatorField({
     super.key,
     required this.labelText,
-    this.closeIcon = kFastCloseIcon,
-    this.validIcon = kFastDoneIcon,
+    Widget? closeIcon,
+    Widget? validIcon,
     this.isEnabled = true,
     this.valueText = '',
     this.placeholderText,
     this.onValueChanged,
     this.captionText,
     this.suffixIcon,
-  });
+  })  : validIcon = validIcon ?? kFastDoneIcon,
+        closeIcon = closeIcon ?? kFastCloseIcon;
 
   @override
   State<FastDigitCalculatorField> createState() =>
