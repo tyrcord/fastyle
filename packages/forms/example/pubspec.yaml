@@ -4,13 +4,13 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.6 <3.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  fastyle_dart: ">=1.1.2 <2.0.0"
+  fastyle_dart: ">=1.2.0 <2.0.0"
   fastyle_forms: ^0.0.2
 
 dev_dependencies:

@@ -4,19 +4,19 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.6 <3.0.0'
-  flutter: ">=3.7.0"
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.5
-  fastyle_dart: ">=1.1.2 <2.0.0"
-  go_router: ^6.5.7
+  fastyle_dart: ">=1.2.0 <2.0.0"
+  go_router: ^7.0.0
   font_awesome_flutter: ^10.4.0
   easy_localization: ^3.0.1
   lingua_core: ^0.0.1+3
-  tbloc: ">=0.20.3 <1.0.0"
+  tbloc: ">=0.20.4 <1.0.0"
   lingua_settings: ^0.0.4
 
   fastyle_settings:
@@ -30,3 +30,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+dependency_overrides: 
+  intl: ^0.18.0

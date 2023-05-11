@@ -4,14 +4,14 @@ version: 0.0.3
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/home
 
 environment:
-  sdk: '>=2.19.6 <3.0.0'
-  flutter: ">=3.7.0"
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  fastyle_dart: ">=1.1.2 <2.0.0"
+  fastyle_dart: ">=1.2.0 <2.0.0"
 
 dev_dependencies:
   flutter_test:
