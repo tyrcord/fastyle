@@ -29,10 +29,10 @@ packages:
     dependency: transitive
     description:
       name: another_flushbar
-      sha256: fa09f8a4ca582c417669b7b1d0e85ce65bd074d80bb0dcbb1302ad1b22bdc3ef
+      sha256: "19bf9520230ec40b300aaf9dd2a8fefcb277b25ecd1c4838f530566965befc2a"
       url: "https://pub.dev"
     source: hosted
-    version: "1.12.29"
+    version: "1.12.30"
   ansicolor:
     dependency: transitive
     description:
@@ -173,10 +173,10 @@ packages:
     dependency: "direct main"
     description:
       name: fastyle_dart
-      sha256: f3eb77267ea8b1c4c872579bdf186c984dffa8c0e80bdeff9410bce37618fd8b
+      sha256: fe5689462d5ed54aa2225d3f47a769837cdb36e342154f0633e2d0432b9bcad8
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.4"
+    version: "1.2.1"
   ffi:
     dependency: transitive
     description:
@@ -252,10 +252,10 @@ packages:
     dependency: transitive
     description:
       name: go_router
-      sha256: "99c7fbd4f73da5268046374576af2f6fef970088038d626c5c689a359479af40"
+      sha256: b185cf91b5a6861f4c2a92ddaa65f8919909416ee033e00751f7c67ebee1588d
       url: "https://pub.dev"
     source: hosted
-    version: "6.5.7"
+    version: "7.0.2"
   google_fonts:
     dependency: transitive
     description:
@@ -308,10 +308,10 @@ packages:
     dependency: transitive
     description:
       name: intl
-      sha256: "910f85bce16fb5c6f614e117efa303e85a1731bb0081edf3604a2ae6e9a3cc91"
+      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.17.0"
+    version: "0.18.1"
   js:
     dependency: transitive
     description:
@@ -577,10 +577,10 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: f2976553da4194fa04f42784a8dbb3893c22e45b61f1b0c7a9cc243c5ce42972
+      sha256: e12e7dfaed839559de6034d0adb180f59d272e63c57c68dc5b4f0e06a721a86a
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.7+1"
+    version: "0.0.8"
   tbloc:
     dependency: "direct main"
     description:
