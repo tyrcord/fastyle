@@ -1,0 +1,19 @@
+name: fastyle_pricing
+description: A set of pricing widgets for the fastyle library.
+version: 1.0.1
+repository: https://github.com/tyrcord/fastyle/tree/main/packages/pricing
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  fastyle_dart: ">=1.2.2 <2.0.0"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+  dart_code_metrics: ^5.7.2
