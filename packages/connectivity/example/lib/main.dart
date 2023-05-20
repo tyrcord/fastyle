@@ -30,12 +30,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return FastSectionPage(
+    return const FastSectionPage(
       titleText: 'Fast Connectivity Example',
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
+          children: <Widget>[
             FastConnectivityStatusListener(
               showDescription: true,
             ),
