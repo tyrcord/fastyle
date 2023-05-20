@@ -1,13 +1,27 @@
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:flutter/material.dart';
 
+/// A card that displays a summary of a plan.
 class FastPlanSummaryCard extends StatelessWidget {
+  /// The maximum height of the icon container.
   final double maxIconContainerHeight;
+
+  /// The minimum height of the icon container.
   final double minIconContainerHeight;
+
+  /// A builder that returns the icon widget.
   final WidgetBuilder? iconBuilder;
+
+  /// The text to display as the title.
   final String? titleText;
+
+  /// The color of the title text.
   final Color? titleColor;
+
+  /// The widget to display as the footer.
   final Widget? footer;
+
+  /// The widget to display as the icon.
   final Widget? icon;
 
   const FastPlanSummaryCard({
@@ -19,7 +33,9 @@ class FastPlanSummaryCard extends StatelessWidget {
     this.titleColor,
     this.icon,
     this.footer,
-  }) : super(key: key);
+  })  : assert(minIconContainerHeight <= maxIconContainerHeight),
+        assert(icon == null || iconBuilder == null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,34 +43,76 @@ class FastPlanSummaryCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          if (titleText != null)
-            FastPadding8(
-              child: FastTitle(
-                text: titleText!,
-                textColor: titleColor,
-                textAlign: TextAlign.center,
-                fontWeight: kFastFontWeightSemiBold,
-              ),
-            ),
-          Container(
-            constraints: BoxConstraints(
-              minHeight: minIconContainerHeight,
-              maxHeight: maxIconContainerHeight,
-            ),
-            child: iconBuilder != null ? Builder(builder: iconBuilder!) : icon,
-          ),
+          _buildTitle(),
+          _buildIcon(),
           kFastSizedBox8,
-          if (footer != null)
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                FastDivider(color: ThemeHelper.colors.getShadowColor(context)),
-                FastPadding8(child: footer!),
-              ],
-            ),
+          _buildFooter(context),
         ],
       ),
+    );
+  }
+
+  /// Builds the title widget.
+  Widget _buildTitle() {
+    if (titleText == null) {
+      return const SizedBox.shrink();
+    }
+
+    return FastPadding8(
+      child: FastTitle(
+        text: titleText!,
+        textColor: titleColor,
+        textAlign: TextAlign.center,
+        fontWeight: kFastFontWeightSemiBold,
+      ),
+    );
+  }
+
+  /// Builds the icon widget.
+  Widget _buildIcon() {
+    if (icon != null) {
+      return _buildIconLayout(icon!);
+    }
+
+    if (iconBuilder != null) {
+      try {
+        return _buildIconLayout(Builder(builder: iconBuilder!));
+      } catch (e) {
+        debugPrint('Error building icon: $e');
+      }
+    }
+
+    return const SizedBox.shrink();
+  }
+
+  /// Builds the icon layout widget.
+  ///
+  /// [icon] is the widget to display as the icon.
+  Widget _buildIconLayout(Widget icon) {
+    return Container(
+      constraints: BoxConstraints(
+        minHeight: minIconContainerHeight,
+        maxHeight: maxIconContainerHeight,
+      ),
+      child: icon,
+    );
+  }
+
+  /// Builds the footer widget.
+  ///
+  /// [context] is the build context.
+  Widget _buildFooter(BuildContext context) {
+    if (footer == null) {
+      return const SizedBox.shrink();
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        FastDivider(color: ThemeHelper.colors.getShadowColor(context)),
+        FastPadding8(child: footer!),
+      ],
     );
   }
 }

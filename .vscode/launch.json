@@ -9,11 +9,11 @@
       "program": "packages/calculator/example/lib/main.dart"
     },
     {
-      "name": "Calculator - Profile",
+      "name": "Charts",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "profile",
-      "program": "packages/calculator/example/lib/main.dart"
+      "flutterMode": "debug",
+      "program": "packages/charts/example/lib/main.dart"
     },
     {
       "name": "Connectivity",
@@ -23,24 +23,24 @@
       "program": "packages/connectivity/example/lib/main.dart"
     },
     {
-      "name": "Connectivity - Profile",
+      "name": "Digit Calculator",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "profile",
-      "program": "packages/connectivity/example/lib/main.dart"
+      "flutterMode": "debug",
+      "program": "packages/digit_calculator/example/lib/main.dart"
+    },
+    {
+      "name": "Forms",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/forms/example/lib/main.dart"
     },
     {
       "name": "Home",
       "request": "launch",
       "type": "dart",
       "flutterMode": "debug",
-      "program": "packages/home/example/lib/main.dart"
-    },
-    {
-      "name": "Home - Profile",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "profile",
       "program": "packages/home/example/lib/main.dart"
     },
     {
@@ -58,32 +58,18 @@
       "program": "packages/onboarding/example/lib/main.dart"
     },
     {
+      "name": "Pricing",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/pricing/example/lib/main.dart"
+    },
+    {
       "name": "Settings",
       "request": "launch",
       "type": "dart",
       "flutterMode": "debug",
       "program": "packages/settings/example/lib/main.dart"
-    },
-    {
-      "name": "Digit Calculator",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "debug",
-      "program": "packages/digit_calculator/example/lib/main.dart"
-    },
-    {
-      "name": "Charts",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "debug",
-      "program": "packages/charts/example/lib/main.dart"
-    },
-    {
-      "name": "Forms",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "debug",
-      "program": "packages/forms/example/lib/main.dart"
     }
   ]
 }
