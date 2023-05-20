@@ -29,6 +29,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
-dependency_overrides: 
-  intl: ^0.18.0
