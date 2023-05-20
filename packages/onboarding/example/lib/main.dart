@@ -1,10 +1,10 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lingua_core/lingua_core.dart';
 import 'package:lingua_onboarding/generated/codegen_loader.g.dart';
 import 'package:lingua_onboarding/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import './routes.dart';
 
 void main() async {
@@ -45,11 +45,14 @@ class MyApp extends StatelessWidget {
             return FastNavigationListView(
               items: [
                 FastItem(
-                  labelText: OnboardingLocaleKeys.notifications_title.tr(),
+                  labelText:
+                      OnboardingLocaleKeys.onboarding_notifications_title.tr(),
                   value: 'notifications',
                 ),
                 FastItem(
-                  labelText: OnboardingLocaleKeys.personalized_ads_title.tr(),
+                  labelText: OnboardingLocaleKeys
+                      .onboarding_personalized_ads_title
+                      .tr(),
                   value: 'ads',
                 ),
               ],
