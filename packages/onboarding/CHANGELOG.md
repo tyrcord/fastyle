@@ -1,3 +1,7 @@
+## 0.0.5+2
+
+ - **FIX**: onboarding example.
+
 ## 0.0.5+1
 
  - **FIX**: minor fixes.

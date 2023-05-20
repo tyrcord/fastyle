@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_onboarding` - `v0.0.5+2`](#fastyle_onboarding---v0052)
+ - [`fastyle_pricing` - `v1.1.0`](#fastyle_pricing---v110)
+
+---
+
+#### `fastyle_onboarding` - `v0.0.5+2`
+
+ - **FIX**: onboarding example.
+
+#### `fastyle_pricing` - `v1.1.0`
+
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: initial commit for fastyle_pricing.
+
+
+## 2023-05-20
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_calculator` - `v1.7.1`](#fastyle_calculator---v171)
  - [`fastyle_connectivity` - `v0.0.4+1`](#fastyle_connectivity---v0041)
  - [`fastyle_digit_calculator` - `v0.0.4+1`](#fastyle_digit_calculator---v0041)
