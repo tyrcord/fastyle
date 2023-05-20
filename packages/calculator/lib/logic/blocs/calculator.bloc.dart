@@ -7,9 +7,10 @@ typedef FastCalculatorBlocDebounceEventCallback<
     = void Function(E event);
 
 /// A generic and customizable FastCalculatorBloc class for managing the
-/// business logic of a fast calculator. This class extends the BidirectionalBloc
-/// and provides methods for initializing the calculator, patching the calculator
-/// state, computing results, and handling various events.
+/// business logic of a fast calculator. This class extends the
+/// BidirectionalBloc and provides methods for initializing the calculator,
+/// patching the calculator state, computing results, and handling various
+/// events.
 ///
 /// This class requires three type parameters:
 /// - E: The event type, extending [FastCalculatorBlocEvent].
@@ -277,8 +278,8 @@ abstract class FastCalculatorBloc<
   ///
   /// If the `payload.error` property is not null, the method logs a message
   /// indicating that the calculator failed to initialize and includes the error
-  /// object in the log message. If the `payload.stacktrace` property is not null,
-  /// the method also logs the stack trace associated with the error.
+  /// object in the log message. If the `payload.stacktrace` property is
+  /// not null, the method also logs the stack trace associated with the error.
   ///
   @protected
   Stream<S> handleInitializeFailedEvent(
