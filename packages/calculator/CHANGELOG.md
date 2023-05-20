@@ -1,3 +1,7 @@
+## 1.7.1
+
+ - **FIX**: minor fixes.
+
 ## 1.7.0
 
  - **FIX**: avoid to build the calculator before its bloc is ready.

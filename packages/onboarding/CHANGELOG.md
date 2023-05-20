@@ -1,3 +1,7 @@
+## 0.0.5+1
+
+ - **FIX**: minor fixes.
+
 ## 0.0.5
 
  - **FEAT**: lint.

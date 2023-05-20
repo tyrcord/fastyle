@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-05-20
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_calculator` - `v1.7.1`](#fastyle_calculator---v171)
+ - [`fastyle_connectivity` - `v0.0.4+1`](#fastyle_connectivity---v0041)
+ - [`fastyle_digit_calculator` - `v0.0.4+1`](#fastyle_digit_calculator---v0041)
+ - [`fastyle_forms` - `v0.0.3`](#fastyle_forms---v003)
+ - [`fastyle_images` - `v0.0.4+1`](#fastyle_images---v0041)
+ - [`fastyle_onboarding` - `v0.0.5+1`](#fastyle_onboarding---v0051)
+ - [`fastyle_settings` - `v0.0.6+1`](#fastyle_settings---v0061)
+
+---
+
+#### `fastyle_calculator` - `v1.7.1`
+
+ - **FIX**: minor fixes.
+
+#### `fastyle_connectivity` - `v0.0.4+1`
+
+ - **FIX**: minor fixes.
+
+#### `fastyle_digit_calculator` - `v0.0.4+1`
+
+ - **FIX**: minor fixes.
+
+#### `fastyle_forms` - `v0.0.3`
+
+ - **FIX**: minor fixes.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_images` - `v0.0.4+1`
+
+ - **FIX**: minor fixes.
+
+#### `fastyle_onboarding` - `v0.0.5+1`
+
+ - **FIX**: minor fixes.
+
+#### `fastyle_settings` - `v0.0.6+1`
+
+ - **FIX**: minor fixes.
+
+
 ## 2023-05-06
 
 ### Changes
