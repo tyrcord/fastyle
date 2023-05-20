@@ -1,22 +1,23 @@
 import 'package:fastyle_dart/fastyle_dart.dart';
-import 'package:fastyle_dart/ui/ui.dart';
 import 'package:flutter/material.dart';
 
 import './pages/plan_summary_cards.page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return FastApp(home: HomePage());
+    return const FastApp(home: HomePage());
   }
 }
 
 class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +29,12 @@ class HomePage extends StatelessWidget {
           if (item.value == 'summary') {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => PlanSummaryCardsPage()),
+              MaterialPageRoute(
+                  builder: (context) => const PlanSummaryCardsPage()),
             );
           }
         },
-        items: [
+        items: const [
           FastItem(labelText: 'Plan Summary cards', value: 'summary'),
           FastItem(labelText: 'Plan Detail cards', value: 'detail'),
         ],

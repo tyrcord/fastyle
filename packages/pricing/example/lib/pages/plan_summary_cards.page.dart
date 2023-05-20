@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-
 import 'package:fastyle_pricing/fastyle_pricing.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 
@@ -63,7 +60,7 @@ class PlanSummaryCardsPage extends StatelessWidget {
               text: 'Restore Purchases',
               textAlign: TextAlign.center,
               onTap: () {
-                log('restore Purchases');
+                debugPrint('restore Purchases');
               },
             ),
           ),
