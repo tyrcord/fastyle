@@ -266,9 +266,8 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     return ValueListenableBuilder<TSimpleOperation>(
       valueListenable: operationNotifier,
       builder: (context, operation, child) {
-        var isEnabled = operation.hasOperator &&
-            (operation.operator == '+' || operation.operator == '-') &&
-            operation.operands.length == 2;
+        var isEnabled = operation.isValid &&
+            (operation.operator == '+' || operation.operator == '-');
 
         return _buildKeyboardButton(
           context,
