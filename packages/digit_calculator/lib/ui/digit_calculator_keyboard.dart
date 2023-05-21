@@ -29,16 +29,15 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
           decoration: BoxDecoration(
             color: _getBackgroundColor(context),
             borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(40.0),
-              topRight: Radius.circular(40.0),
+              topLeft: Radius.circular(20.0),
+              topRight: Radius.circular(20.0),
             ),
           ),
           child: SafeArea(
             top: false,
             child: Padding(
               // Padding for the rows of keys
-              padding:
-                  const EdgeInsets.symmetric(vertical: 28.0, horizontal: 16),
+              padding: kFastEdgeInsets16,
               child: Column(
                 // The rows of keys on the keyboard
                 children: [
