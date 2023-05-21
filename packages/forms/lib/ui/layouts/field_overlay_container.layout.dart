@@ -8,20 +8,32 @@ import 'package:tbloc/tbloc.dart';
 ///
 /// The header includes a title and optional leading and valid icons.
 class FastFieldOverlayContainer<T> extends StatelessWidget {
-  // Callback function to be executed when the overlay container is closed.
+  /// Callback function to be executed when the overlay container is closed.
   final T Function()? willClose;
-  // Callback function to be executed when the valid icon is tapped.
+
+  /// Callback function to be executed when the valid icon is tapped.
   final T Function()? willValid;
-  // The title text to display in the header.
+
+  /// The title text to display in the header.
   final String? titleText;
-  // The valid icon to display in the header.
+
+  /// The valid icon to display in the header.
   final Widget? validIcon;
-  // The close icon to display in the header.
+
+  /// The close icon to display in the header.
   final Widget closeIcon;
-  // The back icon to display in the header.
+
+  /// The back icon to display in the header.
   final Widget backIcon;
-  // The main content of the overlay container.
+
+  /// The main content of the overlay container.
   final Widget child;
+
+  /// The maximum width of the headline in the header.
+  final double maxHeadlineWidth;
+
+  // Constants for small screen height
+  static const double kSmallScreenHeight = 640;
 
   /// Creates a new instance of [FastFieldOverlayContainer].
   ///
@@ -38,7 +50,8 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
     this.validIcon,
     this.willClose,
     this.willValid,
-  });
+    double? maxHeadlineWidth,
+  }) : maxHeadlineWidth = maxHeadlineWidth ?? 640;
 
   /// Builds the overlay container with a header and the main content.
   @override
@@ -65,6 +78,9 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
 
   /// Builds the header with a title and optional icons.
   Widget _buildHeader(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final isSmallScreen = size.height < kSmallScreenHeight;
+
     return Container(
       color: ThemeHelper.colors.getSecondaryBackgroundColor(context),
       child: SafeArea(
@@ -72,35 +88,58 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildHeaderActions(context),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              padding: const EdgeInsets.only(
-                left: 16.0,
-                right: 16.0,
-                bottom: 16.0,
-              ),
-              child: FastHeadline(text: titleText!),
-            ),
+            _buildHeaderActions(context, isSmallScreen: isSmallScreen),
+            if (!isSmallScreen) _buildHeadline(context),
           ],
         ),
       ),
     );
   }
 
+  /// Builds the title widget displayed in the header.
+  Widget _buildHeadline(BuildContext context) {
+    return Center(
+      child: Container(
+        constraints: BoxConstraints(maxWidth: maxHeadlineWidth),
+        width: MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.only(
+          left: 16.0,
+          right: 16.0,
+          bottom: 16.0,
+        ),
+        child: FastHeadline(text: titleText!),
+      ),
+    );
+  }
+
+  Widget _buildTitle(BuildContext context) {
+    return Center(
+      child: FastSubtitle(text: titleText!),
+    );
+  }
+
   /// Builds the header actions with leading and valid icons.
-  Widget _buildHeaderActions(BuildContext context) {
+  Widget _buildHeaderActions(
+    BuildContext context, {
+    bool isSmallScreen = false,
+  }) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         _buildLeadingIcon(context),
-        if (validIcon != null)
-          FastIconButton(
-            onTap: () => _valid(context),
-            iconSize: kFastIconSizeLarge,
-            icon: validIcon!,
-          ),
+        if (isSmallScreen) _buildTitle(context),
+        if (validIcon != null) _buildTralingIcon(context),
       ],
+    );
+  }
+
+  /// Builds the trailing icon based on the current route's properties.
+  Widget _buildTralingIcon(BuildContext context) {
+    return FastIconButton(
+      onTap: () => _valid(context),
+      iconSize: kFastIconSizeLarge,
+      icon: validIcon!,
     );
   }
 

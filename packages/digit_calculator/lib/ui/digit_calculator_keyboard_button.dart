@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:flutter/material.dart';
 import 'package:t_helpers/helpers.dart';
@@ -31,6 +33,15 @@ class FastDigitCalculatorKeyboardButton<T> extends StatelessWidget {
   /// The value associated with the button
   final T value;
 
+  // Constants for button font sizes
+  static const double kDesktopFontSize = 27.0;
+  static const double kTabletFontSize = 20.0;
+  static const double kHandsetFontSize = 17.0;
+
+  // Constants for button heights
+  static const double kMinHeight = 64.0;
+  static const double kMaxHeight = 96.0;
+
   // Constructor for FastDigitCalculatorKeyboardButton
   const FastDigitCalculatorKeyboardButton({
     super.key,
@@ -52,38 +63,44 @@ class FastDigitCalculatorKeyboardButton<T> extends StatelessWidget {
       flex: flex,
       child: FastMediaLayoutBuilder(
         // Build the button based on the media type (desktop, tablet, or mobile)
-        builder: (context, mediaType) {
-          return _buildButton(context, mediaType);
-        },
+        builder: (context, mediaType) => _buildButton(context, mediaType),
       ),
     );
   }
 
   // Private method to build the button UI
   Widget _buildButton(BuildContext context, FastMediaType mediaType) {
-    final padding = _calculatePadding(mediaType);
-    final height = _calculateHeight(mediaType);
-    final fontSize = _calculateFontSize(mediaType);
+    final fontSize = _calculateButtonFontSize(mediaType);
 
     // Use a container to customize the height and padding of the button
-    return Container(
-      height: height,
-      padding: padding,
-      child: FastFilledButton(
-        backgroundColor: _getBackgroundColor(context),
-        highlightColor: _getHighlightColor(context),
-        onTap: () => onPressed(value),
-        elevation: buttonElevation,
-        textColor: textColor,
-        fontSize: fontSize,
-        text: label,
-        child: icon,
+    return NotificationListener<SizeChangedLayoutNotification>(
+      onNotification: (notification) => true,
+      child: SizeChangedLayoutNotifier(
+        child: Builder(builder: (context) {
+          final screenSize = MediaQuery.of(context).size;
+          final height = _calculateButtonHeight(mediaType, screenSize);
+
+          return Container(
+            padding: kFastEdgeInsets6,
+            height: height,
+            child: FastFilledButton(
+              highlightColor: _getButtonHighlightColor(context),
+              backgroundColor: _getButtonBackgroundColor(context),
+              onTap: () => onPressed(value),
+              elevation: buttonElevation,
+              textColor: textColor,
+              fontSize: fontSize,
+              text: label,
+              child: icon,
+            ),
+          );
+        }),
       ),
     );
   }
 
   // Private method to determine the button's highlight color
-  Color _getHighlightColor(BuildContext context) {
+  Color _getButtonHighlightColor(BuildContext context) {
     if (highlightColor != null) {
       return highlightColor!;
     }
@@ -95,45 +112,29 @@ class FastDigitCalculatorKeyboardButton<T> extends StatelessWidget {
   }
 
   // Private method to determine the button's background color
-  Color _getBackgroundColor(BuildContext context) {
+  Color _getButtonBackgroundColor(BuildContext context) {
     final colors = ThemeHelper.colors;
 
     return backgroundColor ??
         darkenColor(colors.getTertiaryBackgroundColor(context), 0.01);
   }
 
-  // Private method to calculate the button's padding based on the media type
-  EdgeInsetsGeometry _calculatePadding(FastMediaType mediaType) {
-    if (mediaType >= FastMediaType.desktop) {
-      return kFastEdgeInsets24;
-    } else if (mediaType >= FastMediaType.tablet) {
-      return kFastEdgeInsets12;
-    } else {
-      return kFastEdgeInsets8;
-    }
-  }
-
   // Private method to calculate the button's height based on the media type
-  double _calculateHeight(FastMediaType mediaType) {
-    var height = 80.0;
-
-    if (mediaType >= FastMediaType.desktop) {
-      height += 64;
-    } else if (mediaType >= FastMediaType.tablet) {
-      height += 32;
-    }
+  double _calculateButtonHeight(FastMediaType mediaType, Size size) {
+    var height = size.height * 0.1;
+    height = min(max(kMinHeight, height), kMaxHeight);
 
     return height;
   }
 
   // Private method to calculate the button's font size based on the media type
-  double _calculateFontSize(FastMediaType mediaType) {
+  double _calculateButtonFontSize(FastMediaType mediaType) {
     if (mediaType >= FastMediaType.desktop) {
-      return 28.0;
+      return kDesktopFontSize;
     } else if (mediaType >= FastMediaType.tablet) {
-      return 22.0;
-    } else {
-      return 20.0;
+      return kTabletFontSize;
     }
+
+    return kHandsetFontSize;
   }
 }

@@ -4,6 +4,7 @@ import 'ui/digit_calculator_display.dart';
 import 'package:flutter/material.dart';
 import 'package:t_helpers/helpers.dart';
 import 'ui/digit_calculator_keyboard.dart';
+import 'package:fastyle_dart/fastyle_dart.dart';
 
 /// A Flutter widget that provides a digit calculator with a display
 /// and keyboard.
@@ -35,6 +36,13 @@ class FastDigitCalculator extends StatefulWidget {
   // The number to display in the calculator's display.
   final String? valueText;
 
+  /// The maximum width of the calculator widget.
+  ///
+  /// If the width of the widget exceeds this value, it will be constrained to
+  /// this value. If this value is not provided, the default value of 640 will
+  /// be used.
+  final double maxWidth;
+
   /// Creates a new instance of the [FastDigitCalculator] widget.
   ///
   /// The [maxOperationLength] parameter sets the maximum length of the text
@@ -45,7 +53,8 @@ class FastDigitCalculator extends StatefulWidget {
     this.maxOperationLength = 35,
     this.onValueChanged,
     this.valueText,
-  });
+    double? maxWidth,
+  }) : maxWidth = maxWidth ?? 640;
 
   @override
   FastDigitCalculatorState createState() => FastDigitCalculatorState();
@@ -185,17 +194,23 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: FastDigitCalculatorDisplay(
-              operationNotifier: operationNotifier,
-              scrollController: _scrollController,
-              historyNotifier: historyNotifier,
-            ),
+      backgroundColor: ThemeHelper.colors.getSecondaryBackgroundColor(context),
+      body: Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: widget.maxWidth),
+          child: Column(
+            children: [
+              Expanded(
+                child: FastDigitCalculatorDisplay(
+                  operationNotifier: operationNotifier,
+                  scrollController: _scrollController,
+                  historyNotifier: historyNotifier,
+                ),
+              ),
+              FastDigitCalculatorKeyboard(onKeyPressed: _onKeyPressed)
+            ],
           ),
-          FastDigitCalculatorKeyboard(onKeyPressed: _onKeyPressed)
-        ],
+        ),
       ),
     );
   }
