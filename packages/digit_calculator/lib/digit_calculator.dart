@@ -9,7 +9,7 @@ import 'package:fastyle_dart/fastyle_dart.dart';
 /// A Flutter widget that provides a digit calculator with a display
 /// and keyboard.
 ///
-/// The calculator provides basic arithmetic operations (+, -, *, /)
+/// The calculator provides basic arithmetic operations (+, -, *, /, %)
 /// The display shows the current operation and the history of operations.
 /// The keyboard provides buttons for input.
 ///
@@ -102,6 +102,8 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
       _clearHistoryAndCurrentLine();
     } else if (key == '±') {
       _toggleSign();
+    } else if (key == '%') {
+      _appendPercent();
     } else {
       _appendToCurrentLine(key);
     }
@@ -111,6 +113,21 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
 
     if (widget.onValueChanged != null) {
       widget.onValueChanged!(_currentOperation);
+    }
+  }
+
+  // Appends a percent sign to the current operation.
+  void _appendPercent() {
+    final operator = _currentOperation.operator;
+
+    if (_currentOperation.lastOperand.isNotEmpty &&
+        _currentOperation.hasOperator &&
+        (operator == '+' || operator == '-')) {
+      _currentOperation = _currentOperation.copyWith(
+        isLastOperandPercent: true,
+      );
+
+      _evaluateCurrentLine();
     }
   }
 
@@ -207,7 +224,10 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
                   historyNotifier: historyNotifier,
                 ),
               ),
-              FastDigitCalculatorKeyboard(onKeyPressed: _onKeyPressed)
+              FastDigitCalculatorKeyboard(
+                onKeyPressed: _onKeyPressed,
+                operationNotifier: operationNotifier,
+              ),
             ],
           ),
         ),

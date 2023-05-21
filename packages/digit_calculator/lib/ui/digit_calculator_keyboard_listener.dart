@@ -117,6 +117,10 @@ class FastDigitCalculatorKeyboardListenerState
     } else if (logicalKey == LogicalKeyboardKey.keyC) {
       // Call the onKeyPressed callback with the 'c' character for the 'c' key
       widget.onKeyPressed('c');
+    } else if (logicalKey == LogicalKeyboardKey.percent) {
+      // Call the onKeyPressed callback with the '%' character for
+      // the percent key
+      widget.onKeyPressed('%');
     } else {
       // If the logical key was not handled, return KeyEventResult.ignored
       result = KeyEventResult.ignored;

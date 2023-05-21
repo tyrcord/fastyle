@@ -29,7 +29,15 @@ class FastDigitCalculatorHistoryListItem extends StatelessWidget {
           textSpans.add(_buildOperandTextSpan(operand));
           textSpans.add(_buildOperatorTextSpan(context, operation!.operator!));
         } else {
-          textSpans.add(_buildOperandTextSpan(operand));
+          // If the last operand is a percent, add a '%' sign to it.
+          if (i == operation!.operands.length - 1) {
+            textSpans.add(_buildOperandTextSpan(
+              operand,
+              percent: operation!.isLastOperandPercent,
+            ));
+          } else {
+            textSpans.add(_buildOperandTextSpan(operand));
+          }
         }
       }
 
@@ -56,12 +64,12 @@ class FastDigitCalculatorHistoryListItem extends StatelessWidget {
   }
 
   /// This method creates a TextSpan object for operands.
-  TextSpan _buildOperandTextSpan(String text) {
+  TextSpan _buildOperandTextSpan(String text, {bool percent = false}) {
     final operand = double.tryParse(text) ?? 0;
     final formattedOperand = formatDecimal(operand);
 
     return TextSpan(
-      text: formattedOperand,
+      text: percent ? '$formattedOperand%' : formattedOperand,
       style: TextStyle(
         color: Colors.grey[500],
         fontWeight: FontWeight.w400,

@@ -33,6 +33,12 @@ class FastDigitCalculatorKeyboardButton<T> extends StatelessWidget {
   /// The value associated with the button
   final T value;
 
+  /// Whether the button is enabled or not.
+  ///
+  /// If `true`, the button is enabled and can be interacted with. If `false`,
+  /// the button is disabled and cannot be interacted with.
+  final bool isEnabled;
+
   // Constants for button font sizes
   static const double kDesktopFontSize = 28.0;
   static const double kTabletFontSize = 22.0;
@@ -54,7 +60,8 @@ class FastDigitCalculatorKeyboardButton<T> extends StatelessWidget {
     this.highlightColor,
     this.textColor,
     this.icon,
-  });
+    bool? isEnabled,
+  }) : isEnabled = isEnabled ?? true;
 
   @override
   Widget build(BuildContext context) {
@@ -86,11 +93,12 @@ class FastDigitCalculatorKeyboardButton<T> extends StatelessWidget {
             child: FastFilledButton(
               highlightColor: _getButtonHighlightColor(context),
               backgroundColor: _getButtonBackgroundColor(context),
-              onTap: () => onPressed(value),
+              onTap: () => isEnabled ? onPressed(value) : null,
               elevation: buttonElevation,
+              padding: EdgeInsets.zero,
+              isEnabled: isEnabled,
               textColor: textColor,
               fontSize: fontSize,
-              padding: EdgeInsets.zero,
               text: label,
               child: icon,
             ),
