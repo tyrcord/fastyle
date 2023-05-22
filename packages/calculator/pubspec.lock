@@ -173,10 +173,10 @@ packages:
     dependency: "direct main"
     description:
       name: fastyle_dart
-      sha256: fe5689462d5ed54aa2225d3f47a769837cdb36e342154f0633e2d0432b9bcad8
+      sha256: "5f741efa2bdbbc3709739bd4aec752346ff5904da18a520ab943654f45accd9c"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.1"
+    version: "1.2.2"
   ffi:
     dependency: transitive
     description:

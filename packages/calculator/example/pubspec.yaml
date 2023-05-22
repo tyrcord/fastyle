@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  fastyle_dart: ">=1.2.0 <2.0.0"
+  fastyle_dart: ">=1.2.2 <2.0.0"
   tbloc: ">=0.20.4 <1.0.0"
   tmodel: ">=0.5.3 <1.0.0"
   decimal: ^2.3.2

@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_dart: ">=1.2.0 <2.0.0"
+  fastyle_dart: ">=1.2.2 <2.0.0"
   font_awesome_flutter: ^10.4.0
   fastyle_digit_calculator: ^0.0.4+1
   tbloc: ">=0.20.4 <1.0.0"

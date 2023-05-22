@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_dart: ">=1.2.0 <2.0.0"
+  fastyle_dart: ">=1.2.2 <2.0.0"
   font_awesome_flutter: ^10.4.0
   connectivity_plus: ^3.0.4
   rxdart: ^0.27.7
