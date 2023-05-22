@@ -14,6 +14,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  FastAmountSwitchFieldType _fieldType = FastAmountSwitchFieldType.amount;
+  String? _percentValue;
+  String? _amountValue;
   String? _value;
 
   @override
@@ -29,6 +32,23 @@ class _MyAppState extends State<MyApp> {
               setState(() => _value = value);
             },
           ),
+          FastAmountSwitchField(
+            onAmountValueChanged: (value) {
+              debugPrint('onAmountValueChanged $value');
+              setState(() => _amountValue = value);
+            },
+            onPercentValueChanged: (value) {
+              debugPrint('onPercentValueChanged $value');
+              setState(() => _percentValue = value);
+            },
+            onFieldTypeChanged: (value) {
+              debugPrint('onFieldTypeChanged $value');
+              setState(() => _fieldType = value);
+            },
+            percentValue: _percentValue,
+            amountValue: _amountValue,
+            fieldType: _fieldType,
+          )
         ]),
       ),
     );

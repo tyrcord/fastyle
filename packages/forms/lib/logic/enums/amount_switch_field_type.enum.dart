@@ -1,0 +1,4 @@
+enum FastAmountSwitchFieldType {
+  percent,
+  amount,
+}
