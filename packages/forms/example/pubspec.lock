@@ -583,10 +583,10 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: e12e7dfaed839559de6034d0adb180f59d272e63c57c68dc5b4f0e06a721a86a
+      sha256: "8d9748eb69527edda491da0c2c1498a28250510680b44d67d0e8d803118d5d48"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.8"
+    version: "0.0.9+1"
   tbloc:
     dependency: transitive
     description:

@@ -4,7 +4,7 @@ version: 0.0.4+1
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/digit_calculator
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.0.0 <4.0.0"
   flutter: ">=3.10.0"
 
 dependencies:
@@ -13,8 +13,8 @@ dependencies:
   decimal: ^2.3.2
   intl: ^0.18.0
   font_awesome_flutter: ^10.4.0
-  fastyle_dart: ">=1.2.0 <2.0.0"
-  t_helpers: ">=0.0.8 <2.0.0"
+  fastyle_dart: ">=1.2.2 <2.0.0"
+  t_helpers: ">=0.0.9 <2.0.0"
 
 dev_dependencies:
   flutter_test:
