@@ -47,6 +47,18 @@ class FastAmountSwitchField extends StatelessWidget {
   /// The default caption text for the amount field.
   static const kDefaultAmountCaptionText = '\$';
 
+  /// The default placeholder text for the percent field.
+  static const kDefaultPercentPlaceholderText = '0';
+
+  /// The default placeholder text for the amount field.
+  static const kDefaultAmountPlaceholderText = '0';
+
+  /// The placeholder text for the percent field.
+  final String percentPlaceholderText;
+
+  /// The placeholder text for the amount field.
+  final String amountPlaceholderText;
+
   const FastAmountSwitchField({
     super.key,
     required this.onAmountValueChanged,
@@ -55,6 +67,8 @@ class FastAmountSwitchField extends StatelessWidget {
     this.percentCaptionText,
     this.amountCaptionText,
     FastAmountSwitchFieldType? fieldType,
+    String? percentPlaceholderText,
+    String? amountPlaceholderText,
     String? percentLabelText,
     String? amountLabelText,
     String? percentValue,
@@ -65,7 +79,11 @@ class FastAmountSwitchField extends StatelessWidget {
         fieldType = fieldType ?? kDefaultFieldType,
         percentValue = percentValue ?? '',
         amountValue = amountValue ?? '',
-        isEnabled = isEnabled ?? true;
+        isEnabled = isEnabled ?? true,
+        percentPlaceholderText =
+            percentPlaceholderText ?? kDefaultPercentPlaceholderText,
+        amountPlaceholderText =
+            amountPlaceholderText ?? kDefaultAmountPlaceholderText;
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +91,7 @@ class FastAmountSwitchField extends StatelessWidget {
       return FastNumberField(
         captionText: percentCaptionText ?? kDefaultPercentCaptionText,
         suffixIcon: _buildSwitchFieldMenuButton(),
+        placeholderText: percentPlaceholderText,
         onValueChanged: onPercentValueChanged,
         labelText: percentLabelText,
         valueText: percentValue,
@@ -82,6 +101,7 @@ class FastAmountSwitchField extends StatelessWidget {
       return FastNumberField(
         captionText: amountCaptionText ?? kDefaultAmountCaptionText,
         suffixIcon: _buildSwitchFieldMenuButton(),
+        placeholderText: amountPlaceholderText,
         onValueChanged: onAmountValueChanged,
         labelText: amountLabelText,
         valueText: amountValue,
