@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-05-22
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_digit_calculator` - `v0.0.5`](#fastyle_digit_calculator---v005)
+ - [`fastyle_forms` - `v0.0.4`](#fastyle_forms---v004)
+
+---
+
+#### `fastyle_digit_calculator` - `v0.0.5`
+
+ - **FIX**: minor improvements.
+ - **FIX**: keyboard button font size.
+ - **FEAT**: esthetic changes.
+ - **FEAT**: add percent keyboard button.
+ - **FEAT**: esthetic changes.
+
+#### `fastyle_forms` - `v0.0.4`
+
+ - **FEAT**: FastAmountSwitchField.
+ - **FEAT**: esthetic changes.
+
+
 ## 2023-05-20
 
 ### Changes

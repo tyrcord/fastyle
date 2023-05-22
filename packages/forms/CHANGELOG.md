@@ -1,3 +1,8 @@
+## 0.0.4
+
+ - **FEAT**: FastAmountSwitchField.
+ - **FEAT**: esthetic changes.
+
 ## 0.0.3
 
  - **FIX**: minor fixes.

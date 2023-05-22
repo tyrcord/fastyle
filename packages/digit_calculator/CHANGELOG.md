@@ -1,3 +1,11 @@
+## 0.0.5
+
+ - **FIX**: minor improvements.
+ - **FIX**: keyboard button font size.
+ - **FEAT**: esthetic changes.
+ - **FEAT**: add percent keyboard button.
+ - **FEAT**: esthetic changes.
+
 ## 0.0.4+1
 
  - **FIX**: minor fixes.
