@@ -105,9 +105,15 @@ class FastDigitCalculatorDisplay extends StatelessWidget {
       alignment: Alignment.centerRight,
       child: FittedBox(
         fit: BoxFit.scaleDown,
-        child: FastDisplay(
-          fontWeight: kFastFontWeightSemiBold,
-          text: _getDisplayText(operation),
+        child: FastMediaLayoutBuilder(
+          builder: (context, mediaType) {
+            return FastDisplay(
+              fontSize:
+                  mediaType == FastMediaType.handset ? kFastFontSize48 : 64,
+              fontWeight: kFastFontWeightSemiBold,
+              text: _getDisplayText(operation),
+            );
+          },
         ),
       ),
     );

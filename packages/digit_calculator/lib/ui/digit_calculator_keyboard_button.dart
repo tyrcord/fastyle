@@ -40,9 +40,9 @@ class FastDigitCalculatorKeyboardButton<T> extends StatelessWidget {
   final bool isEnabled;
 
   // Constants for button font sizes
-  static const double kDesktopFontSize = 28.0;
-  static const double kTabletFontSize = 22.0;
-  static const double kHandsetFontSize = 18.0;
+  static const double kDesktopFontSize = kFastFontSize34;
+  static const double kTabletFontSize = kFastFontSize24;
+  static const double kHandsetFontSize = kFastFontSize18;
 
   // Constants for button heights
   static const double kMinHeight = 64.0;
