@@ -49,12 +49,13 @@ class FastDigitCalculatorField extends StatefulWidget {
     Widget? closeIcon,
     Widget? validIcon,
     this.isEnabled = true,
-    this.valueText = '',
+    String? valueText,
     this.placeholderText,
     this.onValueChanged,
     this.captionText,
     this.suffixIcon,
-  })  : validIcon = validIcon ?? kFastDoneIcon,
+  })  : valueText = valueText ?? '',
+        validIcon = validIcon ?? kFastDoneIcon,
         closeIcon = closeIcon ?? kFastCloseIcon;
 
   @override
