@@ -66,7 +66,10 @@ class FastDigitCalculatorHistoryListItem extends StatelessWidget {
   /// This method creates a TextSpan object for operands.
   TextSpan _buildOperandTextSpan(String text, {bool percent = false}) {
     final operand = double.tryParse(text) ?? 0;
-    final formattedOperand = formatDecimal(operand);
+    final formattedOperand = formatDecimal(
+      maximumFractionDigits: 5,
+      value: operand,
+    );
 
     return TextSpan(
       text: percent ? '$formattedOperand%' : formattedOperand,

@@ -13,7 +13,8 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
 
   @override
   Stream<FastConnectivityStatusBlocState> mapEventToState(
-      FastConnectivityStatusBlocEvent event) async* {
+    FastConnectivityStatusBlocEvent event,
+  ) async* {
     final eventType = event.type;
     final payload = event.payload;
     final isPayloadDefined = payload is FastConnectivityStatusBlocEventPayload;
