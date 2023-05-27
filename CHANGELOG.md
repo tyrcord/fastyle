@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-05-27
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_connectivity` - `v0.0.5`](#fastyle_connectivity---v005)
+ - [`fastyle_digit_calculator` - `v0.0.6`](#fastyle_digit_calculator---v006)
+ - [`fastyle_forms` - `v0.0.5`](#fastyle_forms---v005)
+
+---
+
+#### `fastyle_connectivity` - `v0.0.5`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_digit_calculator` - `v0.0.6`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_forms` - `v0.0.5`
+
+ - **FEAT**: minor improvements.
+ - **FEAT**: add amountSwitchFieldTypeFromString helper.
+ - **FEAT**: add placeholder properties.
+
+
 ## 2023-05-22
 
 ### Changes

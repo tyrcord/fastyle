@@ -1,3 +1,7 @@
+## 0.0.6
+
+ - **FEAT**: minor improvements.
+
 ## 0.0.5
 
  - **FIX**: minor improvements.

@@ -1,3 +1,9 @@
+## 0.0.5
+
+ - **FEAT**: minor improvements.
+ - **FEAT**: add amountSwitchFieldTypeFromString helper.
+ - **FEAT**: add placeholder properties.
+
 ## 0.0.4
 
  - **FEAT**: FastAmountSwitchField.
