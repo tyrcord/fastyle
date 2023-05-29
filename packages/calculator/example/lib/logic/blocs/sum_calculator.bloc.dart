@@ -98,7 +98,7 @@ class SumCalculatorBloc extends HydratedFastCalculatorBloc<
   }
 
   @override
-  Future<void> shareCalculatorState() async {
+  Future<void> shareCalculatorState(BuildContext context) async {
     debugPrint('Number A: ${currentState.fields.numberA}');
     debugPrint('Number B: ${currentState.fields.numberB}');
     debugPrint('Sum: ${currentState.results.sum}');

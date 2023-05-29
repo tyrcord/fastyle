@@ -1,5 +1,6 @@
 import 'package:fastyle_calculator/fastyle_calculator.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:tbloc/tbloc.dart';
 
 typedef FastCalculatorBlocDebounceEventCallback<
@@ -132,7 +133,7 @@ abstract class FastCalculatorBloc<
   /// Throws an exception if the `shareCalculatorState` function is not
   /// implemented.
   @protected
-  Future<void> shareCalculatorState() async {
+  Future<void> shareCalculatorState(BuildContext context) async {
     throw '`shareCalculatorState` function is not implemented';
   }
 
@@ -183,8 +184,8 @@ abstract class FastCalculatorBloc<
         yield nextState.copyWith(isInitialized: true) as S;
         addEvent(FastCalculatorBlocEvent.compute<R>());
       } else if (eventType == FastCalculatorBlocEventType.custom) {
-        if (payload!.key == 'share') {
-          await shareCalculatorState();
+        if (payload!.key == 'share' && payload.value is BuildContext) {
+          await shareCalculatorState(payload.value as BuildContext);
         }
       } else if (eventType == FastCalculatorBlocEventType.reset) {
         yield* handleResetEvent();

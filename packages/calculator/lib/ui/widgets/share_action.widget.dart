@@ -18,14 +18,14 @@ class FastCalculatorShareAction<B extends FastCalculatorBloc,
     return BlocBuilderWidget<FastCalculatorBlocState>(
       bloc: calculatorBloc,
       buildWhen: (previous, next) => previous.isValid != next.isValid,
-      builder: (_, FastCalculatorBlocState state) {
+      builder: (BuildContext context, FastCalculatorBlocState state) {
         return FastIconButton(
           isEnabled: shouldEnableInteractions(state),
           icon: icon ?? const Icon(Icons.share),
           disabledColor: disabledColor,
           shouldTrottleTime: true,
           onTap: () => calculatorBloc.addEvent(
-            FastCalculatorBlocEvent.custom<R>('share'),
+            FastCalculatorBlocEvent.custom<R>('share', value: context),
           ),
         );
       },
