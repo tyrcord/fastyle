@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-05-30
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_calculator` - `v1.8.0`](#fastyle_calculator---v180)
+
+---
+
+#### `fastyle_calculator` - `v1.8.0`
+
+ - **FEAT**: add build context to shareCalculatorState.
+
+
 ## 2023-05-27
 
 ### Changes

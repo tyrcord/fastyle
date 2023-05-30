@@ -1,3 +1,7 @@
+## 1.8.0
+
+ - **FEAT**: add build context to shareCalculatorState.
+
 ## 1.7.1
 
  - **FIX**: minor fixes.
