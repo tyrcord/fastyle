@@ -1,3 +1,7 @@
+## 1.10.0
+
+ - **FEAT**: minor improvements.
+
 ## 1.9.0
 
  - **FEAT**: add default pdf_calculator reporter.

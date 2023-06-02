@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_calculator` - `v1.10.0`](#fastyle_calculator---v1100)
+
+---
+
+#### `fastyle_calculator` - `v1.10.0`
+
+ - **FEAT**: minor improvements.
+
+
+## 2023-06-02
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_calculator` - `v1.9.0`](#fastyle_calculator---v190)
 
 ---
