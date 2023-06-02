@@ -1,3 +1,7 @@
+## 1.9.0
+
+ - **FEAT**: add default pdf_calculator reporter.
+
 ## 1.8.0
 
  - **FEAT**: add build context to shareCalculatorState.

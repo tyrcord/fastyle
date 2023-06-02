@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-06-02
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_calculator` - `v1.9.0`](#fastyle_calculator---v190)
+
+---
+
+#### `fastyle_calculator` - `v1.9.0`
+
+ - **FEAT**: add default pdf_calculator reporter.
+
+
 ## 2023-05-30
 
 ### Changes
