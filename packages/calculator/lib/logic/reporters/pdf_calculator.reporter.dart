@@ -51,6 +51,7 @@ class FastPdfCalculatorReporter {
 
     pdf.addPage(
       pw.Page(
+        // TODO: support other page format like us letter
         pageFormat: PdfPageFormat.a4,
         build: (context) {
           return pw.Column(
@@ -64,7 +65,6 @@ class FastPdfCalculatorReporter {
               // INPUTS
               _buildTableSection(inputTitle, inputs, style),
               // RESULTS
-              _buildSectionTitle(resultTitle, style),
               _buildTableSection(resultTitle, results, style),
               // DISCLAIMER
               if (disclaimerText != null)
@@ -129,8 +129,8 @@ class FastPdfCalculatorReporter {
       children: [
         _buildSectionTitle(title, style),
         pw.Table(
-          children: entries.map((e) {
-            return _buildTableRow(e.name, e.value, style);
+          children: entries.map((entry) {
+            return _buildTableRow(entry, style);
           }).toList(),
         ),
         pw.SizedBox(height: 20),
@@ -139,29 +139,15 @@ class FastPdfCalculatorReporter {
   }
 
   /// Builds a table row of the report.
-  pw.TableRow _buildTableRow(
-    String title,
-    String value,
-    pw.TextStyle style,
-  ) {
+  pw.TableRow _buildTableRow(FastReportEntry entry, pw.TextStyle style) {
     return pw.TableRow(
       children: [
         pw.Padding(
           padding: const pw.EdgeInsets.only(top: 6, bottom: 6),
           child: pw.Row(
             children: [
-              pw.Text(
-                title,
-                style: style.copyWith(
-                  color: PdfColor.fromInt(kFastLightSecondaryLabelColor.value),
-                  fontSize: 10,
-                ),
-              ),
-              pw.Text(
-                value,
-                textAlign: pw.TextAlign.right,
-                style: style,
-              ),
+              _buildEntryName(entry, style),
+              _buildEntryValue(entry, style),
             ],
             mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
           ),
@@ -176,6 +162,24 @@ class FastPdfCalculatorReporter {
         ),
       ),
     );
+  }
+
+  pw.Widget _buildEntryName(FastReportEntry entry, pw.TextStyle style) {
+    return pw.Text(
+      entry.name,
+      style: style.copyWith(
+        color: PdfColor.fromInt(kFastLightSecondaryLabelColor.value),
+        fontSize: 10,
+      ),
+    );
+  }
+
+  pw.Widget _buildEntryValue(FastReportEntry entry, pw.TextStyle style) {
+    if (entry.color != null) {
+      style = style.copyWith(color: PdfColor.fromInt(entry.color!.value));
+    }
+
+    return pw.Text(entry.value, textAlign: pw.TextAlign.right, style: style);
   }
 
   /// Builds the disclaimer section of the report.

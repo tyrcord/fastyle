@@ -1,9 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:tmodel/tmodel.dart';
 
 class FastReportEntry extends TModel {
   final String name;
   final String value;
-  final int? color;
+  final Color? color;
 
   const FastReportEntry({
     required this.name,
@@ -18,7 +19,7 @@ class FastReportEntry extends TModel {
   FastReportEntry copyWith({
     String? name,
     String? value,
-    int? color,
+    Color? color,
   }) {
     return FastReportEntry(
       name: name ?? this.name,
