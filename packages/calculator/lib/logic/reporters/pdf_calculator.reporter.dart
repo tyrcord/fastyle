@@ -43,6 +43,8 @@ class FastPdfCalculatorReporter {
     String? disclaimerText,
     Color? italicTextColor,
     Color? textColor,
+    String? author,
+    List<FastReportCategoryEntry>? categories,
   }) async {
     final italicStyle = await _getItalicStyle(color: italicTextColor);
     final style = await _getRegularStyle(color: textColor);
@@ -50,32 +52,112 @@ class FastPdfCalculatorReporter {
     final pdf = pw.Document();
 
     pdf.addPage(
-      pw.Page(
+      pw.MultiPage(
         // TODO: support other page format like us letter
         pageFormat: PdfPageFormat.a4,
+        footer: (context) => _buildFooter(context, style),
         build: (context) {
-          return pw.Column(
-            crossAxisAlignment: pw.CrossAxisAlignment.start,
-            children: [
-              // header
-              _buildHeaderTitle(title, style),
-              pw.SizedBox(height: 40),
-              _buildDate(dateTitle, now, italicStyle),
-              pw.SizedBox(height: 30),
-              // INPUTS
-              _buildTableSection(inputTitle, inputs, style),
-              // RESULTS
-              _buildTableSection(resultTitle, results, style),
-              // DISCLAIMER
-              if (disclaimerText != null)
-                _buildDisclaimer(disclaimerTitle, disclaimerText, style),
-            ],
-          );
+          return [
+            pw.Column(
+              crossAxisAlignment: pw.CrossAxisAlignment.start,
+              children: [
+                // header
+                pw.Wrap(
+                  children: [
+                    _buildHeaderTitle(title, style),
+                    pw.SizedBox(height: 48),
+                    _buildDate(dateTitle, now, italicStyle),
+                    pw.SizedBox(height: 24),
+                    // INPUTS
+                    _buildTableSection(inputTitle, inputs, style),
+                  ],
+                ),
+                pw.SizedBox(height: 24),
+                pw.Wrap(
+                  children: [
+                    // RESULTS
+                    _buildTableSection(resultTitle, results, style),
+                    pw.SizedBox(height: 12),
+                  ],
+                ),
+                if (categories != null)
+                  pw.Wrap(
+                    children: [
+                      _buildCategoriesTable(context, categories, style),
+                    ],
+                  ),
+                pw.Wrap(
+                  children: [
+                    // DISCLAIMER
+                    if (disclaimerText != null)
+                      _buildDisclaimer(disclaimerTitle, disclaimerText, style),
+                    if (author != null)
+                      pw.Align(
+                        alignment: pw.Alignment.center,
+                        child: pw.Text(
+                          author,
+                          style: style.copyWith(fontSize: 7),
+                        ),
+                      ),
+                  ],
+                ),
+              ],
+            ),
+          ];
         },
       ),
     );
 
     return pdf.save();
+  }
+
+  pw.Widget _buildCategoriesTable(
+    pw.Context context,
+    List<FastReportCategoryEntry> categories,
+    pw.TextStyle style,
+  ) {
+    return pw.Table(
+      columnWidths: const {
+        0: pw.FlexColumnWidth(1),
+        1: pw.FlexColumnWidth(1),
+      },
+      children: transformTo2DArray(categories, 2).map((subCategories) {
+        var index = 0;
+
+        return pw.TableRow(
+          children: subCategories.map((category) {
+            return pw.Column(
+              crossAxisAlignment: pw.CrossAxisAlignment.stretch,
+              children: [
+                pw.Container(
+                  margin:
+                      index++ == 0 ? const pw.EdgeInsets.only(right: 12) : null,
+                  padding: const pw.EdgeInsets.only(top: 6, bottom: 6),
+                  decoration: const pw.BoxDecoration(
+                    border: pw.Border(
+                      bottom: pw.BorderSide(color: PdfColors.grey300, width: 1),
+                    ),
+                  ),
+                  child: pw.Text(
+                    category.name,
+                    style: style.copyWith(fontSize: 10),
+                  ),
+                ),
+                pw.Table(
+                  columnWidths: const {
+                    0: pw.FlexColumnWidth(1),
+                    1: pw.FlexColumnWidth(1),
+                  },
+                  children: transformTo2DArray(category.entries, 2)
+                      .map((entries) => _buildTableRow(entries, style))
+                      .toList(),
+                ),
+              ],
+            );
+          }).toList(),
+        );
+      }).toList(),
+    );
   }
 
   /// Builds the header title of the report.
@@ -102,18 +184,37 @@ class FastPdfCalculatorReporter {
   }
 
   /// Builds the section title of the report.
-  pw.Widget _buildSectionTitle(String title, pw.TextStyle style) {
+  pw.Widget _buildSectionTitle(
+    String title,
+    pw.TextStyle style, {
+    bool showBorder = true,
+  }) {
     return pw.Column(
-      crossAxisAlignment: pw.CrossAxisAlignment.start,
+      crossAxisAlignment: pw.CrossAxisAlignment.stretch,
       children: [
-        pw.Text(
-          title,
-          style: style.copyWith(
-            fontSize: 8,
-            color: PdfColor.fromInt(kFastLightTertiaryLabelColor.value),
+        pw.Container(
+          padding: const pw.EdgeInsets.only(top: 4, bottom: 4),
+          child: pw.Text(
+            title,
+            style: style.copyWith(fontSize: 8),
+            textAlign: showBorder ? pw.TextAlign.center : pw.TextAlign.left,
           ),
+          decoration: showBorder
+              ? const pw.BoxDecoration(
+                  border: pw.Border(
+                    bottom: pw.BorderSide(
+                      color: PdfColors.grey300,
+                      width: 1,
+                    ),
+                    top: pw.BorderSide(
+                      color: PdfColors.grey300,
+                      width: 1,
+                    ),
+                  ),
+                )
+              : null,
         ),
-        pw.SizedBox(height: 10),
+        pw.SizedBox(height: 12),
       ],
     );
   }
@@ -122,45 +223,41 @@ class FastPdfCalculatorReporter {
   pw.Widget _buildTableSection(
     String title,
     List<FastReportEntry> entries,
-    pw.TextStyle style,
-  ) {
+    pw.TextStyle style, {
+    int columns = 3,
+  }) {
     return pw.Column(
       crossAxisAlignment: pw.CrossAxisAlignment.start,
       children: [
         _buildSectionTitle(title, style),
         pw.Table(
-          children: entries.map((entry) {
-            return _buildTableRow(entry, style);
+          children: transformTo2DArray(entries, columns).map((entries) {
+            return _buildTableRow(entries, style);
           }).toList(),
         ),
-        pw.SizedBox(height: 20),
       ],
     );
   }
 
   /// Builds a table row of the report.
-  pw.TableRow _buildTableRow(FastReportEntry entry, pw.TextStyle style) {
+  pw.TableRow _buildTableRow(
+    List<FastReportEntry> entries,
+    pw.TextStyle style,
+  ) {
     return pw.TableRow(
-      children: [
-        pw.Padding(
+      children: entries.map((e) {
+        return pw.Padding(
           padding: const pw.EdgeInsets.only(top: 6, bottom: 6),
-          child: pw.Row(
+          child: pw.Column(
+            crossAxisAlignment: pw.CrossAxisAlignment.start,
             children: [
-              _buildEntryName(entry, style),
-              _buildEntryValue(entry, style),
+              _buildEntryName(e, style),
+              pw.SizedBox(height: 4),
+              _buildEntryValue(e, style),
             ],
-            mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
           ),
-        ),
-      ],
-      decoration: const pw.BoxDecoration(
-        border: pw.Border(
-          bottom: pw.BorderSide(
-            color: PdfColors.grey200,
-            width: 1,
-          ),
-        ),
-      ),
+        );
+      }).toList(),
     );
   }
 
@@ -187,8 +284,8 @@ class FastPdfCalculatorReporter {
     return pw.Column(
       crossAxisAlignment: pw.CrossAxisAlignment.start,
       children: [
-        pw.SizedBox(height: 20),
-        _buildSectionTitle(title, style),
+        pw.SizedBox(height: 24),
+        _buildSectionTitle(title, style, showBorder: false),
         pw.Text(
           content,
           style: style.copyWith(
@@ -196,8 +293,21 @@ class FastPdfCalculatorReporter {
             color: PdfColor.fromInt(kFastLightTertiaryLabelColor.value),
           ),
         ),
-        pw.SizedBox(height: 20),
+        pw.SizedBox(height: 24),
       ],
+    );
+  }
+
+  pw.Widget _buildFooter(pw.Context context, pw.TextStyle style) {
+    return pw.Align(
+      alignment: pw.Alignment.centerRight,
+      child: pw.Text(
+        '${context.pageNumber}/${context.pagesCount}',
+        style: style.copyWith(
+          color: PdfColor.fromInt(kFastLightSecondaryLabelColor.value),
+          fontSize: 10,
+        ),
+      ),
     );
   }
 
