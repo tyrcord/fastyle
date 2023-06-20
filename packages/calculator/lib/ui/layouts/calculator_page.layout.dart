@@ -62,6 +62,16 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
   /// A widget that represents the clear icon.
   final Widget? clearIcon;
 
+  /// A boolean that determines whether the info icon should be displayed or
+  /// not.
+  final bool showInfoIcon;
+
+  /// A widget that represents the info icon.
+  final Widget? infoIcon;
+
+  /// A callback function that is triggered when the info icon is pressed.
+  final VoidCallback? onInfo;
+
   /// The calculator bloc used by the calculator page.
   final B calculatorBloc;
 
@@ -76,6 +86,7 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
     this.requestFullApp = false,
     this.showRefreshIcon = true,
     this.showClearIcon = true,
+    this.showInfoIcon = false,
     this.calculatorActions,
     this.resultsTitleText,
     this.fieldsTitleText,
@@ -88,7 +99,9 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
     this.backButton,
     this.shareIcon,
     this.clearIcon,
+    this.infoIcon,
     this.leading,
+    this.onInfo,
   });
 
   @override
@@ -208,6 +221,12 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
       titleTextColor: primaryColor,
       headerActions: <Widget>[
         ...?calculatorActions,
+        if (showInfoIcon && onInfo != null)
+          FastCalculatorInfoAction<B, R>(
+            calculatorBloc: calculatorBloc,
+            icon: infoIcon,
+            onTap: onInfo!,
+          ),
         if (showClearIcon)
           FastCalculatorClearAction<B, R>(
             calculatorBloc: calculatorBloc,
