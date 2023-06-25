@@ -96,7 +96,7 @@ class FastPdfCalculatorReporter {
                         alignment: pw.Alignment.center,
                         child: pw.Text(
                           author,
-                          style: style.copyWith(fontSize: 7),
+                          style: italicStyle.copyWith(fontSize: 7),
                         ),
                       ),
                   ],
@@ -140,7 +140,7 @@ class FastPdfCalculatorReporter {
                   ),
                   child: pw.Text(
                     category.name,
-                    style: style.copyWith(fontSize: 10),
+                    style: style.copyWith(fontSize: 8),
                   ),
                 ),
                 pw.Table(

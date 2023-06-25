@@ -1,5 +1,4 @@
 import 'package:fastyle_calculator/fastyle_calculator.dart';
-import 'package:flutter/material.dart';
 import 'package:tmodel/tmodel.dart';
 
 class FastReportCategoryEntry extends TModel {
