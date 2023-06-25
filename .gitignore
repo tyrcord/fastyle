@@ -29,6 +29,7 @@ lib/generated_plugin_registrant.dart
 # See https://dart.dev/guides/libraries/private-files#pubspeclock
 pubspec_overrides.yaml
 !/packages/**/example/pubspec.lock
+/packages/**/pubspec.lock
 
 # Android related
 **/android/**/gradle-wrapper.jar
