@@ -1,3 +1,11 @@
+## 1.11.0
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastCalculatorCategoryResult.
+ - **FEAT**: add a default info button.
+ - **FEAT**: better default pdf calculator reporter.
+
 ## 1.10.0
 
  - **FEAT**: minor improvements.

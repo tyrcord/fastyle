@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-06-25
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_calculator` - `v1.11.0`](#fastyle_calculator---v1110)
+
+---
+
+#### `fastyle_calculator` - `v1.11.0`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastCalculatorCategoryResult.
+ - **FEAT**: add a default info button.
+ - **FEAT**: better default pdf calculator reporter.
+
+
 ## 2023-06-02
 
 ### Changes
