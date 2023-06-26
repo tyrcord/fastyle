@@ -16,7 +16,7 @@ dependencies:
   font_awesome_flutter: ^10.4.0
   easy_localization: ^3.0.2
   lingua_core: ^0.0.1+3
-  lingua_onboarding: ^0.0.3+2
+  lingua_onboarding: ^0.0.4
 
   fastyle_onboarding:
     path: ../

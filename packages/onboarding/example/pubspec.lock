@@ -376,10 +376,10 @@ packages:
     dependency: "direct main"
     description:
       name: lingua_onboarding
-      sha256: d173fb52657dafea2010bc96146f11a384608fc2ad6a90a2f4f8a51c1794e304
+      sha256: "80929e4da7fd80ca65eb02b004f26b9597b851a534039b4171e43b2328a2921c"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3+2"
+    version: "0.0.4"
   lints:
     dependency: transitive
     description:

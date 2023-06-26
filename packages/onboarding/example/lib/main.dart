@@ -55,12 +55,27 @@ class MyApp extends StatelessWidget {
                       .tr(),
                   value: 'ads',
                 ),
+                FastItem(
+                  labelText:
+                      OnboardingLocaleKeys.onboarding_user_currency_title.tr(),
+                  value: 'currency',
+                ),
+                FastItem(
+                  labelText: OnboardingLocaleKeys
+                      .onboarding_restore_premium_title
+                      .tr(),
+                  value: 'premium',
+                ),
               ],
               onSelectionChanged: (FastItem<dynamic> value) {
                 if (value.value == 'notifications') {
                   GoRouter.of(context).go('/notifications');
                 } else if (value.value == 'ads') {
                   GoRouter.of(context).go('/ads');
+                } else if (value.value == 'currency') {
+                  GoRouter.of(context).go('/currency');
+                } else if (value.value == 'premium') {
+                  GoRouter.of(context).go('/premium');
                 }
               },
             );
