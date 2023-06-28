@@ -36,7 +36,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       blocProviders: [
-        BlocProvider(bloc: FastSettingsBloc()),
+        BlocProvider(bloc: FastAppSettingsBloc()),
+        BlocProvider(bloc: FastUserSettingsBloc()),
       ],
       child: FastApp(
         localizationsDelegates: context.localizationDelegates,
@@ -44,7 +45,8 @@ class MyApp extends StatelessWidget {
         locale: context.locale,
         routes: kAppRoutes,
         loaderJobs: [
-          FastSettingsJob(),
+          FastAppSettingsJob(),
+          FastUserSettingsJob(),
         ],
         home: FastSettingsThemeListener(
           child: buildHome(context),
@@ -73,6 +75,10 @@ class MyApp extends StatelessWidget {
               FastItem(
                 labelText: SettingsLocaleKeys.settings_labels_appearance.tr(),
                 value: '/appearance',
+              ),
+              FastItem(
+                labelText: 'User settings',
+                value: '/user-settings',
               ),
             ],
             onSelectionChanged: (FastItem<String> item) {

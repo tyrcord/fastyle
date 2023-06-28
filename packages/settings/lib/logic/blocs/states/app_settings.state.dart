@@ -2,11 +2,11 @@ import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:flutter/material.dart';
 
-final String _defaultTheme = kFastSettingsThemeMap[ThemeMode.system]!;
-
-/// The [FastSettingsBlocState] class is the state of the [FastSettingsBloc].
+/// The [FastAppSettingsBlocState] class is the state of the
+/// [FastAppSettingsBloc].
+///
 /// It contains the current settings of the application.
-class FastSettingsBlocState extends BlocState {
+class FastAppSettingsBlocState extends BlocState {
   /// The current language code of the application.
   /// Format: ios3166
   /// For example: en, fr, de, ...
@@ -23,10 +23,11 @@ class FastSettingsBlocState extends BlocState {
   /// The current theme mode of the application.
   /// It is computed from the current theme.
   ThemeMode get themeMode {
-    return kFastSettingThemeModeMap[theme ?? _defaultTheme]!;
+    return kFastSettingThemeModeMap[theme ?? kFastSettingsDefaultTheme]!;
   }
 
-  const FastSettingsBlocState({
+  /// Constructs a [FastAppSettingsBlocState] with the provided parameters.
+  const FastAppSettingsBlocState({
     super.isInitializing,
     super.isInitialized,
     this.languageCode,
@@ -34,15 +35,19 @@ class FastSettingsBlocState extends BlocState {
     this.theme,
   });
 
+  /// Creates a new [FastAppSettingsBlocState] instance with updated properties.
+  ///
+  /// If a parameter is not provided, the corresponding property of the current
+  /// instance is used instead.
   @override
-  FastSettingsBlocState copyWith({
+  FastAppSettingsBlocState copyWith({
     bool? isInitializing,
     String? languageCode,
     String? countryCode,
     bool? isInitialized,
     String? theme,
   }) =>
-      FastSettingsBlocState(
+      FastAppSettingsBlocState(
         isInitializing: isInitializing ?? this.isInitializing,
         isInitialized: isInitialized ?? this.isInitialized,
         languageCode: languageCode ?? this.languageCode,
@@ -50,19 +55,15 @@ class FastSettingsBlocState extends BlocState {
         theme: theme ?? this.theme,
       );
 
+  /// Creates a new [FastAppSettingsBlocState] instance with the same property
+  /// values as the current instance.
   @override
-  FastSettingsBlocState clone() {
-    return FastSettingsBlocState(
-      isInitializing: isInitializing,
-      isInitialized: isInitialized,
-      languageCode: languageCode,
-      countryCode: countryCode,
-      theme: theme,
-    );
-  }
+  FastAppSettingsBlocState clone() => copyWith();
 
+  /// Merges the properties of the provided [model] into a new
+  /// [FastAppSettingsBlocState] instance.
   @override
-  FastSettingsBlocState merge(covariant FastSettingsBlocState model) {
+  FastAppSettingsBlocState merge(covariant FastAppSettingsBlocState model) {
     return copyWith(
       isInitializing: model.isInitializing,
       isInitialized: model.isInitialized,
@@ -72,6 +73,7 @@ class FastSettingsBlocState extends BlocState {
     );
   }
 
+  /// Returns a list of properties used to determine equality between instances.
   @override
   List<Object?> get props => [
         isInitializing,

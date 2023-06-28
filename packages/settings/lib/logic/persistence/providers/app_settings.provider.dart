@@ -2,25 +2,25 @@ import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:tstore/tstore.dart';
 
 /// A [TDocumentDataProvider] that provides a way to persist and retrieve
-/// [FastSettingsDocument] objects.
-class FastSettingsDataProvider extends TDocumentDataProvider {
-  FastSettingsDataProvider({
+/// [FastAppSettingsDocument] objects.
+class FastAppSettingsDataProvider extends TDocumentDataProvider {
+  FastAppSettingsDataProvider({
     super.storeName = kFastSettingStoreName,
   });
 
   /// Retrieves the settings document.
-  Future<FastSettingsDocument> retrieveSettings() async {
+  Future<FastAppSettingsDocument> retrieveSettings() async {
     final raw = await store.toMap();
 
     if (raw.isNotEmpty) {
-      return FastSettingsDocument.fromJson(raw);
+      return FastAppSettingsDocument.fromJson(raw);
     }
 
-    return const FastSettingsDocument();
+    return const FastAppSettingsDocument();
   }
 
   /// Persists the settings document.
-  Future<void> persistSettings(FastSettingsDocument entity) {
+  Future<void> persistSettings(FastAppSettingsDocument entity) {
     return persistDocument(entity);
   }
 }

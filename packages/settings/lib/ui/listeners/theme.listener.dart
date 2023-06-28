@@ -6,7 +6,7 @@ import 'package:tbloc/tbloc.dart';
 import 'package:flutter/material.dart';
 
 /// The [FastSettingsThemeListener] class is a [StatefulWidget] that listens
-/// to the [FastSettingsBloc] and updates the [FastThemeBloc] when the theme
+/// to the [FastAppSettingsBloc] and updates the [FastThemeBloc] when the theme
 /// mode changes.
 class FastSettingsThemeListener extends StatefulWidget {
   /// The child widget.
@@ -24,15 +24,15 @@ class FastSettingsThemeListener extends StatefulWidget {
 
 class _FastSettingsThemeListenerState extends State<FastSettingsThemeListener>
     with FastSettingsThemeMixin {
-  late final StreamSubscription<FastSettingsBlocState> _subscription;
-  late final FastSettingsBloc _settingsBloc;
+  late final StreamSubscription<FastAppSettingsBlocState> _subscription;
+  late final FastAppSettingsBloc _settingsBloc;
   late final FastThemeBloc _themeBloc;
 
   @override
   void initState() {
     super.initState();
 
-    _settingsBloc = BlocProvider.of<FastSettingsBloc>(context);
+    _settingsBloc = BlocProvider.of<FastAppSettingsBloc>(context);
     _themeBloc = BlocProvider.of<FastThemeBloc>(context);
 
     _subscription = _settingsBloc.onData

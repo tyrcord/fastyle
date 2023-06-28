@@ -16,6 +16,15 @@ class FastThemeSettingPage extends FastSettingPageLayout {
   final FastListItemDescriptor? listItemDescriptor;
 
   /// The [ThemeModeFormatter] that will be used to format the theme mode.
+  ///
+  /// E.g.: (mode) => mode.toString().capitalize()
+  ///
+  /// If the [themeModeFormatter] parameter is not null, the [systemText],
+  /// [lightText] and [darkText] parameters will be ignored.
+  ///
+  /// If the [themeModeFormatter] parameter is null, the [systemText],
+  /// [lightText] and [darkText] parameters will be used to build the list
+  /// items.
   final ThemeModeFormatter? themeModeFormatter;
 
   /// The path of the light icon.
@@ -29,6 +38,15 @@ class FastThemeSettingPage extends FastSettingPageLayout {
 
   /// The text that will be displayed above the list items.
   final String? subtitleText;
+
+  /// The text that will be displayed for the system theme.
+  final String systemText;
+
+  /// The text that will be displayed for the light theme.
+  final String lightText;
+
+  /// The text that will be displayed for the dark theme.
+  final String darkText;
 
   const FastThemeSettingPage({
     super.key,
@@ -44,7 +62,12 @@ class FastThemeSettingPage extends FastSettingPageLayout {
     this.themeModeFormatter,
     this.listItemDescriptor,
     this.subtitleText,
-  });
+    String? systemText,
+    String? lightText,
+    String? darkText,
+  })  : systemText = systemText ?? kFastSettingsSystemThemeText,
+        lightText = lightText ?? kFastSettingsLightThemeText,
+        darkText = darkText ?? kFastSettingsDarkThemeText;
 
   @override
   Widget buildSettingsContent(BuildContext context) {
@@ -53,8 +76,8 @@ class FastThemeSettingPage extends FastSettingPageLayout {
     return Column(
       children: [
         if (subtitleText != null) FastListHeader(categoryText: subtitleText!),
-        FastSettingsThemeBuilder(
-          builder: (BuildContext context, FastSettingsBlocState state) {
+        FastAppSettingsThemeBuilder(
+          builder: (BuildContext context, FastAppSettingsBlocState state) {
             return FastSelectableListView<FastItem<ThemeMode>>(
               isViewScrollable: false,
               sortItems: false,
@@ -101,6 +124,13 @@ class FastThemeSettingPage extends FastSettingPageLayout {
 
   /// Builds the list of [FastItem] that will be used to build the list items.
   /// The list items are used to change the theme of the application.
+  ///
+  /// If the [themeModeFormatter] parameter is not null, the [systemText],
+  /// [lightText] and [darkText] parameters will be ignored.
+  ///
+  /// If the [themeModeFormatter] parameter is null, the [systemText],
+  /// [lightText] and [darkText] parameters will be used to build the list
+  /// items.
   List<FastItem<ThemeMode>> buildThemeItems() {
     late final String systemLabel;
     late final String lightLabel;
@@ -111,9 +141,9 @@ class FastThemeSettingPage extends FastSettingPageLayout {
       lightLabel = themeModeFormatter!(ThemeMode.light);
       darkLabel = themeModeFormatter!(ThemeMode.dark);
     } else {
-      systemLabel = 'System';
-      lightLabel = 'Light';
-      darkLabel = 'Dark';
+      systemLabel = systemText;
+      lightLabel = lightText;
+      darkLabel = darkText;
     }
 
     return [
@@ -145,9 +175,9 @@ class FastThemeSettingPage extends FastSettingPageLayout {
   /// Called when the user changes the theme of the application.
   /// The [themeMode] parameter is the new theme of the application.
   void handleThemeSelectionChanged(BuildContext context, ThemeMode themeMode) {
-    final settingsBloc = BlocProvider.of<FastSettingsBloc>(context);
+    final settingsBloc = BlocProvider.of<FastAppSettingsBloc>(context);
     final theme = themeMode.name;
 
-    settingsBloc.addEvent(FastSettingsBlocEvent.themeChanged(theme));
+    settingsBloc.addEvent(FastAppSettingsBlocEvent.themeChanged(theme));
   }
 }

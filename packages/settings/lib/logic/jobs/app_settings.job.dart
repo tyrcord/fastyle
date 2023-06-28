@@ -6,17 +6,18 @@ import 'package:tbloc/tbloc.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 
-/// A [FastJob] that initializes the [FastSettingsBloc].
+/// A [FastJob] that initializes the [FastAppSettingsBloc].
 /// It is used to load the settings of the application
-/// and initialize the [FastSettingsBloc] before the [FastSettingsBloc] is used.
-class FastSettingsJob extends FastJob with FastSettingsThemeMixin {
-  static FastSettingsJob? _singleton;
+/// and initialize the [FastAppSettingsBloc] before the [FastAppSettingsBloc]
+/// is used.
+class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
+  static FastAppSettingsJob? _singleton;
 
-  factory FastSettingsJob() {
-    return (_singleton ??= FastSettingsJob._());
+  factory FastAppSettingsJob() {
+    return (_singleton ??= FastAppSettingsJob._());
   }
 
-  FastSettingsJob._() : super(debugLabel: 'app_settings_job');
+  FastAppSettingsJob._() : super(debugLabel: 'app_settings_job');
 
   @override
   Future<void> initialize(
@@ -28,20 +29,20 @@ class FastSettingsJob extends FastJob with FastSettingsThemeMixin {
     await applySettings(context, settingsState);
   }
 
-  /// Initializes the [FastSettingsBloc] by retrieving the settings
-  /// from the [FastSettingsBloc] and returns the [FastSettingsBlocState].
-  Future<FastSettingsBlocState> initializeSettingsBloc(
+  /// Initializes the [FastAppSettingsBloc] by retrieving the settings
+  /// from the [FastAppSettingsBloc] and returns the [FastAppSettingsBlocState].
+  Future<FastAppSettingsBlocState> initializeSettingsBloc(
     BuildContext context,
   ) async {
-    final settingsBloc = BlocProvider.of<FastSettingsBloc>(context);
-    settingsBloc.addEvent(const FastSettingsBlocEvent.init());
+    final settingsBloc = BlocProvider.of<FastAppSettingsBloc>(context);
+    settingsBloc.addEvent(const FastAppSettingsBlocEvent.init());
 
     final settingsState = await RaceStream([
       settingsBloc.onError,
       settingsBloc.onData.where((state) => state.isInitialized),
     ]).first;
 
-    if (settingsState is! FastSettingsBlocState) {
+    if (settingsState is! FastAppSettingsBlocState) {
       throw settingsState;
     }
 
@@ -52,7 +53,7 @@ class FastSettingsJob extends FastJob with FastSettingsThemeMixin {
   /// It is used to update the theme of the application.
   Future<void> applySettings(
     BuildContext context,
-    FastSettingsBlocState settingsState,
+    FastAppSettingsBlocState settingsState,
   ) async {
     return updateThemeMode(context, settingsState);
   }
@@ -60,7 +61,7 @@ class FastSettingsJob extends FastJob with FastSettingsThemeMixin {
   /// Updates the theme mode of the application.
   Future<void> updateThemeMode(
     BuildContext context,
-    FastSettingsBlocState settingsState,
+    FastAppSettingsBlocState settingsState,
   ) async {
     final themeBloc = BlocProvider.of<FastThemeBloc>(context);
 

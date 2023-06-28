@@ -2,7 +2,7 @@ import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:flutter/material.dart';
 
-/// A layout that displays a page with a header and a content.
+/// A layout that displays a page with a header and content.
 /// It is used to display a page in a [FastSettingPage].
 class FastSettingPageLayout extends StatelessWidget {
   /// The header description text of the page.
@@ -23,6 +23,7 @@ class FastSettingPageLayout extends StatelessWidget {
   /// The height of the icon.
   final double iconHeight;
 
+  /// Creates a new instance of [FastSettingPageLayout].
   const FastSettingPageLayout({
     super.key,
     this.iconHeight = kFastSettingIconHeight,
@@ -59,8 +60,8 @@ class FastSettingPageLayout extends StatelessWidget {
   }
 
   @protected
-  Widget buildSettingsHeaderIcon(BuildContext context) {
-    throw UnimplementedError();
+  Widget? buildSettingsHeaderIcon(BuildContext context) {
+    return null;
   }
 
   @protected

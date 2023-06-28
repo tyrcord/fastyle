@@ -1,3 +1,4 @@
 export 'events/events.dart';
 export 'states/states.dart';
-export 'settings.bloc.dart';
+export 'app_settings.bloc.dart';
+export 'user_settings.bloc.dart';

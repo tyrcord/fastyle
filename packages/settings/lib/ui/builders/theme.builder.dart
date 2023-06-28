@@ -4,15 +4,15 @@ import 'package:tbloc/tbloc.dart';
 
 /// A widget that listens to changes in the `FastSettingsBloc` and rebuilds its
 /// child widget when the theme mode changes.
-class FastSettingsThemeBuilder extends StatelessWidget {
+class FastAppSettingsThemeBuilder extends StatelessWidget {
   /// The builder function that will be called when the theme mode changes.
-  final BlocBuilder<FastSettingsBlocState> builder;
+  final BlocBuilder<FastAppSettingsBlocState> builder;
 
   /// Creates a new `FastSettingsThemeBuilder` instance.
   ///
   /// The `builder` parameter is a required function that takes the
-  /// [BuildContext] and [FastSettingsBlocState] as input and returns a widget.
-  const FastSettingsThemeBuilder({
+  /// [BuildContext] and [FastAppSettingsBlocState] as input and returns a widget.
+  const FastAppSettingsThemeBuilder({
     Key? key,
     required this.builder,
   }) : super(key: key);
@@ -21,7 +21,7 @@ class FastSettingsThemeBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilderWidget(
       buildWhen: (previous, next) => previous.theme != next.theme,
-      bloc: BlocProvider.of<FastSettingsBloc>(context),
+      bloc: BlocProvider.of<FastAppSettingsBloc>(context),
       builder: builder,
     );
   }

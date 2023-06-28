@@ -27,7 +27,10 @@ final kAppRoutes = [
   GoRoute(
     path: 'appearance',
     builder: (context, state) => FastThemeSettingPage(
+      titleText: SettingsLocaleKeys.settings_labels_appearance.tr(),
       subtitleText: SettingsLocaleKeys.settings_labels_appearance.tr(),
+      headerDescriptionText:
+          'Personalize your experience by selecting a theme that suits your style.',
       themeModeFormatter: (mode) {
         switch (mode) {
           case ThemeMode.system:
@@ -38,6 +41,14 @@ final kAppRoutes = [
             return SettingsLocaleKeys.settings_labels_dark.tr();
         }
       },
+    ),
+  ),
+  GoRoute(
+    path: 'user-settings',
+    builder: (context, state) => FastUserSettingsPage(
+      titleText: 'User settings',
+      headerDescriptionText:
+          'Enhance your app experience by adjusting your preferences.',
     ),
   ),
 ];
