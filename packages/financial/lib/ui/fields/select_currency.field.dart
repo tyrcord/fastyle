@@ -5,8 +5,8 @@ import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:matex_dart/matex_dart.dart';
 import 'package:t_helpers/helpers.dart';
 
-/// A Flutter widget for displaying a selectable list of financial instruments.
-class FastSelectInstrumentField extends StatelessWidget {
+/// A Flutter widget for displaying a selectable list of currencies.
+class FastSelectCurrencyField extends StatelessWidget {
   /// A callback function that takes a [MatexInstrumentMetadata] object and
   /// returns a string label for the item.
   final String Function(MatexInstrumentMetadata)? itemLabelBuilder;
@@ -46,8 +46,8 @@ class FastSelectInstrumentField extends StatelessWidget {
   /// A callback function that builds the flag icon for each item.
   final Widget Function(MatexInstrumentMetadata)? flagIconBuilder;
 
-  /// Creates a [FastSelectInstrumentField].
-  const FastSelectInstrumentField({
+  /// Creates a [FastSelectCurrencyField].
+  const FastSelectCurrencyField({
     super.key,
     this.onSelectionChanged,
     this.itemLabelBuilder,

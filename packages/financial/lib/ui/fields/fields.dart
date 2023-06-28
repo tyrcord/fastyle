@@ -1,1 +1,1 @@
-export './select_instruments.field.dart';
+export 'select_currency.field.dart';
