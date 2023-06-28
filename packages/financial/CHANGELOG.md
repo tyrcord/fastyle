@@ -1,3 +1,7 @@
+## 0.0.4
+
+ - **FEAT**: rename FastSelectInstrumentField to FastSelectCurrencyField.
+
 ## 0.0.3
 
  - **FEAT**: add fastyle_financial_example.

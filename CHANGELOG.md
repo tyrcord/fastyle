@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_financial` - `v0.0.4`](#fastyle_financial---v004)
+
+---
+
+#### `fastyle_financial` - `v0.0.4`
+
+ - **FEAT**: rename FastSelectInstrumentField to FastSelectCurrencyField.
+
+
+## 2023-06-28
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_financial` - `v0.0.3`](#fastyle_financial---v003)
  - [`fastyle_images` - `v0.0.5`](#fastyle_images---v005)
  - [`fastyle_settings` - `v0.0.7`](#fastyle_settings---v007)
