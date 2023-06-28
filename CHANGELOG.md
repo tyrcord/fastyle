@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-06-28
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_financial` - `v0.0.2`](#fastyle_financial---v002)
+ - [`fastyle_onboarding` - `v0.0.6`](#fastyle_onboarding---v006)
+
+---
+
+#### `fastyle_financial` - `v0.0.2`
+
+ - **FEAT**: initial commit for fastyle_financial.
+
+#### `fastyle_onboarding` - `v0.0.6`
+
+ - **FEAT**: add new onboarding pages.
+
+
 ## 2023-06-25
 
 ### Changes

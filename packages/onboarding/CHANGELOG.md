@@ -1,3 +1,7 @@
+## 0.0.6
+
+ - **FEAT**: add new onboarding pages.
+
 ## 0.0.5+2
 
  - **FIX**: onboarding example.
