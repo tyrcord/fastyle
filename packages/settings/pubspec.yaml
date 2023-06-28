@@ -14,15 +14,15 @@ dependencies:
   collection: ^1.16.0
   font_awesome_flutter: ^10.4.0
 
-  fastyle_dart: ">=1.2.2 <2.0.0"
-  matex_financial: ">=0.0.5+1 <1.0.0"
-  tstore: ">=0.8.7 <1.0.0"
-  tbloc: ">=0.20.4 <1.0.0"
+  fastyle_dart: ">=1.2.4 <2.0.0"
+  matex_financial: ">=0.0.7 <1.0.0"
+  tstore: ">=0.8.8+1 <1.0.0"
+  tbloc: ">=0.20.5 <1.0.0"
   fastyle_images: ^0.0.5
   matex_dart: ^0.11.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
+  flutter_lints: ^2.0.2
   dart_code_metrics: ^5.7.5
