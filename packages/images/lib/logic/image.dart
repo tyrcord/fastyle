@@ -14,6 +14,10 @@ class FastImageAsset extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (path.isEmpty) {
+      return const SizedBox.shrink();
+    }
+
     return Image.asset(
       path,
       package: 'fastyle_images',
