@@ -15,6 +15,28 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_settings` - `v0.0.8`](#fastyle_settings---v008)
+
+---
+
+#### `fastyle_settings` - `v0.0.8`
+
+ - **FEAT**: rename  to MatexSelectCurrencyField.
+ - **FEAT**: update dependencies.
+
+
+## 2023-06-28
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_financial` - `v0.0.4`](#fastyle_financial---v004)
 
 ---

@@ -1,3 +1,8 @@
+## 0.0.8
+
+ - **FEAT**: rename  to MatexSelectCurrencyField.
+ - **FEAT**: update dependencies.
+
 ## 0.0.7
 
  - **FEAT**: refactor settings package.
