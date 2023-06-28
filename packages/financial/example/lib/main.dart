@@ -21,7 +21,7 @@ class _MyAppState extends State<MyApp> {
           body: FastSectionPage(
         child: Column(
           children: [
-            MatexSelectInstrumentField(),
+            MatexSelectCurrencyField(),
           ],
         ),
       )),
