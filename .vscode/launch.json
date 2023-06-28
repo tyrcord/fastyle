@@ -30,6 +30,13 @@
       "program": "packages/digit_calculator/example/lib/main.dart"
     },
     {
+      "name": "Financial",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/financial/example/lib/main.dart"
+    },
+    {
       "name": "Forms",
       "request": "launch",
       "type": "dart",
