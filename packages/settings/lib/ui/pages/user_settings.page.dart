@@ -53,7 +53,7 @@ class FastUserSettingsPage extends FastSettingPageLayout {
     return [
       const FastListHeader(categoryText: 'DEFAULT VALUES'),
       FastUserSettingsPrimaryCurrencyBuilder(builder: (_, state) {
-        return MatexSelectInstrumentField(
+        return MatexSelectCurrencyField(
           selection: state.primaryCurrencyCode,
         );
       }),
