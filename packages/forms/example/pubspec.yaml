@@ -10,14 +10,15 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  fastyle_dart: ">=1.2.2 <2.0.0"
-  fastyle_forms: ^0.0.5
+  fastyle_dart: ">=1.2.4 <2.0.0"
+  fastyle_forms: ^0.0.5+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.1
-  dart_code_metrics: ^5.7.2
+  dart_code_metrics: ^5.7.5
 
 flutter:
   uses-material-design: true
+  

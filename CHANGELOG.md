@@ -15,6 +15,44 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_financial` - `v0.0.3`](#fastyle_financial---v003)
+ - [`fastyle_images` - `v0.0.5`](#fastyle_images---v005)
+ - [`fastyle_settings` - `v0.0.7`](#fastyle_settings---v007)
+ - [`fastyle_forms` - `v0.0.5+1`](#fastyle_forms---v0051)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_forms` - `v0.0.5+1`
+
+---
+
+#### `fastyle_financial` - `v0.0.3`
+
+ - **FEAT**: add fastyle_financial_example.
+
+#### `fastyle_images` - `v0.0.5`
+
+ - **FEAT**: handle empty path.
+
+#### `fastyle_settings` - `v0.0.7`
+
+ - **FEAT**: refactor settings package.
+
+
+## 2023-06-28
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_financial` - `v0.0.2`](#fastyle_financial---v002)
  - [`fastyle_onboarding` - `v0.0.6`](#fastyle_onboarding---v006)
 

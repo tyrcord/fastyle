@@ -1,3 +1,7 @@
+## 0.0.7
+
+ - **FEAT**: refactor settings package.
+
 ## 0.0.6+1
 
  - **FIX**: minor fixes.
