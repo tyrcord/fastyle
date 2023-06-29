@@ -46,6 +46,9 @@ class FastSelectCurrencyField extends StatelessWidget {
   /// A callback function that builds the flag icon for each item.
   final Widget Function(MatexInstrumentMetadata)? flagIconBuilder;
 
+  /// Specifies whether the selection can be cleared.
+  final bool canClearSelection;
+
   /// Creates a [FastSelectCurrencyField].
   const FastSelectCurrencyField({
     super.key,
@@ -61,10 +64,12 @@ class FastSelectCurrencyField extends StatelessWidget {
     bool? isEnabled = true,
     double? flagIconWidth,
     String? labelText,
+    bool? canClearSelection,
   })  : searchTitleText = searchTitleText ?? 'Search a Financial Instrument',
         labelText = labelText ?? 'Financial Instrument',
         searchPlaceholderText =
             searchPlaceholderText ?? kFastSearchPlaceholderText,
+        canClearSelection = canClearSelection ?? true,
         flagIconWidth = flagIconWidth ?? 40.0,
         currencies = currencies ?? const [],
         isEnabled = isEnabled ?? true;
@@ -72,13 +77,15 @@ class FastSelectCurrencyField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final options = _buildSelectOptions();
+    final selectedOption = _findSelection(options);
 
     return FastSelectField<String>(
       onSelectionChanged: (selection) => onSelectionChanged?.call(selection),
       searchPlaceholderText: searchPlaceholderText,
-      selection: _findSelection(options),
+      selection: selectedOption,
       searchTitleText: searchTitleText,
       placeholderText: placeholderText,
+      canClearSelection: canClearSelection,
       captionText: captionText,
       isReadOnly: !isEnabled,
       labelText: labelText,
@@ -92,7 +99,15 @@ class FastSelectCurrencyField extends StatelessWidget {
   /// Returns the selected [FastItem<String>] object if found, or `null` if not
   /// found.
   FastItem<String>? _findSelection(List<FastItem<String>> options) {
-    return options.firstWhereOrNull((item) => item.value == selection);
+    if (selection == null) {
+      return null;
+    }
+
+    final currency = selection!.toLowerCase();
+
+    return options
+        .where((element) => element.value != null)
+        .firstWhereOrNull((item) => item.value!.toLowerCase() == currency);
   }
 
   /// Builds the list of selectable options based on the provided [currencies].
