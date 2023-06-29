@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   fastyle_dart: ">=1.2.4 <2.0.0"
-  fastyle_financial: ^0.0.4
+  fastyle_financial: ^0.0.4+1
   matex_financial: ">=0.0.7 <1.0.0"
 
 dev_dependencies:

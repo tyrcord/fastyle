@@ -1,3 +1,7 @@
+## 0.0.4+1
+
+ - **FIX**: stronger selection property.
+
 ## 0.0.4
 
  - **FEAT**: rename FastSelectInstrumentField to FastSelectCurrencyField.
