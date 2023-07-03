@@ -26,9 +26,9 @@ class FastAppSettingsDocument extends TDocument {
   /// Creates an instance of [FastAppSettingsDocument] from a JSON map.
   factory FastAppSettingsDocument.fromJson(Map<String, dynamic> json) {
     return FastAppSettingsDocument(
-      languageCode: json[FastAppPreferences.languageCode] as String?,
-      countryCode: json[FastAppPreferences.countryCode] as String?,
-      theme: json[FastAppPreferences.theme] as String?,
+      languageCode: json[FastAppSettings.languageCode] as String?,
+      countryCode: json[FastAppSettings.countryCode] as String?,
+      theme: json[FastAppSettings.theme] as String?,
     );
   }
 
@@ -36,9 +36,9 @@ class FastAppSettingsDocument extends TDocument {
 
   /// Converts the [FastAppSettingsDocument] object to a JSON map.
   Map<String, dynamic> toJson() => <String, dynamic>{
-        FastAppPreferences.languageCode: languageCode,
-        FastAppPreferences.countryCode: countryCode,
-        FastAppPreferences.theme: theme,
+        FastAppSettings.languageCode: languageCode,
+        FastAppSettings.countryCode: countryCode,
+        FastAppSettings.theme: theme,
       };
 
   @override

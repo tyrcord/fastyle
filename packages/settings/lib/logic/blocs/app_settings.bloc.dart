@@ -49,7 +49,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
           break;
       }
     } else {
-      assert(false, 'SettingsBloc is not initialized yet.');
+      assert(false, 'FastAppSettingsBloc is not initialized yet.');
     }
   }
 

@@ -1,5 +1,5 @@
-class FastUserPreferences {
-  static const primaryCurrencyCode = 'primaryCurrencyCode';
+class FastUserSettings {
   static const secondaryCurrencyCode = 'secondaryCurrencyCode';
+  static const primaryCurrencyCode = 'primaryCurrencyCode';
   static const saveEntry = 'saveEntry';
 }

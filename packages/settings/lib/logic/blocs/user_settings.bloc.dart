@@ -59,7 +59,7 @@ class FastUserSettingsBloc extends BidirectionalBloc<FastUserSettingsBlocEvent,
           break;
       }
     } else {
-      assert(false, 'SettingsBloc is not initialized yet.');
+      assert(false, 'FastUserSettingsBloc is not initialized yet.');
     }
   }
 
@@ -154,7 +154,9 @@ class FastUserSettingsBloc extends BidirectionalBloc<FastUserSettingsBlocEvent,
   ///
   /// The [primaryCurrencyCode] parameter represents the new primary currency
   /// code to be persisted.
-  Future<void> _persistPrimaryCurrencyCode(String? primaryCurrencyCode) async {
+  Future<FastUserSettingsDocument> _persistPrimaryCurrencyCode(
+    String? primaryCurrencyCode,
+  ) async {
     if (primaryCurrencyCode != null &&
         primaryCurrencyCode != currentState.primaryCurrencyCode) {
       final newSettings = _persistedSettings.copyWith(
@@ -162,16 +164,18 @@ class FastUserSettingsBloc extends BidirectionalBloc<FastUserSettingsBlocEvent,
       );
 
       await _settingsProvider.persistUserSettings(newSettings);
-      await _retrievePersistedSettings();
     }
+
+    return _retrievePersistedSettings();
   }
 
   /// Persists the new secondary currency code.
   ///
   /// The [secondaryCurrencyCode] parameter represents the new secondary currency
   /// code to be persisted.
-  Future<void> _persistSecondaryCurrencyCode(
-      String? secondaryCurrencyCode) async {
+  Future<FastUserSettingsDocument> _persistSecondaryCurrencyCode(
+    String? secondaryCurrencyCode,
+  ) async {
     if (secondaryCurrencyCode != null &&
         secondaryCurrencyCode != currentState.secondaryCurrencyCode) {
       final newSettings = _persistedSettings.copyWith(
@@ -179,20 +183,22 @@ class FastUserSettingsBloc extends BidirectionalBloc<FastUserSettingsBlocEvent,
       );
 
       await _settingsProvider.persistUserSettings(newSettings);
-      await _retrievePersistedSettings();
     }
+
+    return _retrievePersistedSettings();
   }
 
   /// Persists the new save entry value.
   ///
   /// The [saveEntry] parameter represents the new save entry value to be
   /// persisted.
-  Future<void> _persistSaveEntry(bool? saveEntry) async {
+  Future<FastUserSettingsDocument> _persistSaveEntry(bool? saveEntry) async {
     if (saveEntry != null && saveEntry != currentState.saveEntry) {
       final newSettings = _persistedSettings.copyWith(saveEntry: saveEntry);
       await _settingsProvider.persistUserSettings(newSettings);
-      await _retrievePersistedSettings();
     }
+
+    return _retrievePersistedSettings();
   }
 
   /// Retrieves the persisted user settings.

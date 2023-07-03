@@ -43,8 +43,8 @@ class FastUserSettingsBlocEvent extends BlocEvent<FastUserSettingsBlocEventType,
     FastUserSettingsBlocEventPayload> {
   /// Constructor for the [primaryCurrencyCodeChanged] event.
   FastUserSettingsBlocEvent.primaryCurrencyCodeChanged(
-      String primaryCurrencyCode)
-      : super(
+    String primaryCurrencyCode,
+  ) : super(
           type: FastUserSettingsBlocEventType.primaryCurrencyCodeChanged,
           payload: FastUserSettingsBlocEventPayload(
             primaryCurrencyCode: primaryCurrencyCode,
@@ -53,8 +53,8 @@ class FastUserSettingsBlocEvent extends BlocEvent<FastUserSettingsBlocEventType,
 
   /// Constructor for the [secondaryCurrencyCodeChanged] event.
   FastUserSettingsBlocEvent.secondaryCurrencyCodeChanged(
-      String secondaryCurrencyCode)
-      : super(
+    String secondaryCurrencyCode,
+  ) : super(
           type: FastUserSettingsBlocEventType.secondaryCurrencyCodeChanged,
           payload: FastUserSettingsBlocEventPayload(
             secondaryCurrencyCode: secondaryCurrencyCode,

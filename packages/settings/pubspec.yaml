@@ -15,12 +15,13 @@ dependencies:
   font_awesome_flutter: ^10.4.0
 
   fastyle_dart: ">=1.2.4 <2.0.0"
-  matex_financial: ">=0.0.7 <1.0.0"
+  matex_financial: ">=0.0.8 <1.0.0"
   tstore: ">=0.8.8+1 <1.0.0"
   tbloc: ">=0.20.5 <1.0.0"
   fastyle_images: ^0.0.5
+  fastyle_forms: ^0.0.5+1
   matex_dart: ^0.11.1
-
+  tmodel: ^0.5.3
   fastyle_financial: ^0.0.4+1
 
 dev_dependencies:

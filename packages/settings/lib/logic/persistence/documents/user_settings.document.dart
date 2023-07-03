@@ -25,11 +25,11 @@ class FastUserSettingsDocument extends TDocument {
   factory FastUserSettingsDocument.fromJson(Map<String, dynamic> json) {
     return FastUserSettingsDocument(
       primaryCurrencyCode:
-          json[FastUserPreferences.primaryCurrencyCode] as String? ??
+          json[FastUserSettings.primaryCurrencyCode] as String? ??
               kFastUserSettingPrimaryCurrencyCode,
       secondaryCurrencyCode:
-          json[FastUserPreferences.secondaryCurrencyCode] as String?,
-      saveEntry: json[FastUserPreferences.saveEntry] as bool? ??
+          json[FastUserSettings.secondaryCurrencyCode] as String?,
+      saveEntry: json[FastUserSettings.saveEntry] as bool? ??
           kFastUserSettingSaveEntry,
     );
   }
@@ -37,9 +37,9 @@ class FastUserSettingsDocument extends TDocument {
   /// Converts this [FastUserSettingsDocument] instance to a JSON [Map].
   @override
   Map<String, dynamic> toJson() => <String, dynamic>{
-        FastUserPreferences.primaryCurrencyCode: primaryCurrencyCode,
-        FastUserPreferences.secondaryCurrencyCode: secondaryCurrencyCode,
-        FastUserPreferences.saveEntry: saveEntry,
+        FastUserSettings.primaryCurrencyCode: primaryCurrencyCode,
+        FastUserSettings.secondaryCurrencyCode: secondaryCurrencyCode,
+        FastUserSettings.saveEntry: saveEntry,
       };
 
   /// Creates a new instance of [FastUserSettingsDocument] with the specified
