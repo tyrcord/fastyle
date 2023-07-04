@@ -181,10 +181,10 @@ packages:
     dependency: "direct main"
     description:
       name: fastyle_dart
-      sha256: "9515583321d2a92747d321b44fcdcc9b85d4d45c852071dec9774a2db3c4a16b"
+      sha256: ed11672150c48cb630a28d783962c37505280e3aeea512651e29a2cbdf2807ee
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.4"
+    version: "1.3.0"
   fastyle_digit_calculator:
     dependency: "direct overridden"
     description:
@@ -622,10 +622,10 @@ packages:
     dependency: transitive
     description:
       name: tbloc
-      sha256: "29e4babc3f0d2c98fe3fe74bda629fd066eaffdd76454669fb08db06c89e5201"
+      sha256: "5d3b91db5611d4291d74d30dd16b75ee2a8cc5a119ca2141e01219c93cca2d3f"
       url: "https://pub.dev"
     source: hosted
-    version: "0.20.5"
+    version: "0.21.0"
   term_glyph:
     dependency: transitive
     description:

@@ -15,7 +15,7 @@ dependencies:
   decimal: ^2.3.2
   t_helpers: ">=0.0.8 <2.0.0"
   intl: ^0.18.0
-  fastyle_dart: ^1.1.0
+  fastyle_dart: ">=1.3.0 <2.0.0"
   font_awesome_flutter: ^10.4.0
   fastyle_digit_calculator: ^0.0.6
 

@@ -181,10 +181,10 @@ packages:
     dependency: "direct main"
     description:
       name: fastyle_dart
-      sha256: "5f741efa2bdbbc3709739bd4aec752346ff5904da18a520ab943654f45accd9c"
+      sha256: ed11672150c48cb630a28d783962c37505280e3aeea512651e29a2cbdf2807ee
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.2"
+    version: "1.3.0"
   fastyle_digit_calculator:
     dependency: "direct main"
     description:
@@ -267,10 +267,10 @@ packages:
     dependency: transitive
     description:
       name: go_router
-      sha256: "73a50070c125c90f9960aad4da9e4a95d94558230727f145ac634528da1e75e3"
+      sha256: "00d1b67d6e9fa443331da229084dd3eb04407f5a2dff22940bd7bba6af5722c3"
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.0"
+    version: "7.1.1"
   google_fonts:
     dependency: transitive
     description:
@@ -523,10 +523,10 @@ packages:
     dependency: transitive
     description:
       name: shimmer
-      sha256: "1f1009b5845a1f88f1c5630212279540486f97409e9fc3f63883e71070d107bf"
+      sha256: "5f88c883a22e9f9f299e5ba0e4f7e6054857224976a5d9f839d4ebdc94a14ac9"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0"
+    version: "3.0.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -584,10 +584,10 @@ packages:
     dependency: transitive
     description:
       name: tbloc
-      sha256: "5fc6c0078b874d32fec0b919d4929f423bfa5cf16b736f4f1c544789ae401faf"
+      sha256: "5d3b91db5611d4291d74d30dd16b75ee2a8cc5a119ca2141e01219c93cca2d3f"
       url: "https://pub.dev"
     source: hosted
-    version: "0.20.4"
+    version: "0.21.0"
   term_glyph:
     dependency: transitive
     description:

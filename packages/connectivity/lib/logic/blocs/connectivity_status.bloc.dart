@@ -5,11 +5,10 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
     FastConnectivityStatusBlocEvent, FastConnectivityStatusBlocState> {
   late FastConnectivityService service;
 
-  FastConnectivityStatusBloc({
-    super.initialState = const FastConnectivityStatusBlocState(
-      hasConnection: false,
-    ),
-  });
+  FastConnectivityStatusBloc()
+      : super(
+          initialState: FastConnectivityStatusBlocState(hasConnection: false),
+        );
 
   @override
   Stream<FastConnectivityStatusBlocState> mapEventToState(

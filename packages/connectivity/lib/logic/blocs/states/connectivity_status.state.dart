@@ -3,7 +3,7 @@ import 'package:tbloc/tbloc.dart';
 class FastConnectivityStatusBlocState extends BlocState {
   final bool hasConnection;
 
-  const FastConnectivityStatusBlocState({
+  FastConnectivityStatusBlocState({
     required this.hasConnection,
     super.isInitialized,
     super.isInitializing,
