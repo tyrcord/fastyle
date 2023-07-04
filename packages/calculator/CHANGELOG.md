@@ -1,3 +1,7 @@
+## 1.12.0
+
+ - **FEAT**: add metadata and allow to force rendering.
+
 ## 1.11.0
 
  - **FEAT**: update dependencies.

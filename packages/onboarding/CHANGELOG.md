@@ -1,3 +1,7 @@
+## 0.0.7
+
+ - **FEAT**: update dependencies.
+
 ## 0.0.6
 
  - **FEAT**: add new onboarding pages.

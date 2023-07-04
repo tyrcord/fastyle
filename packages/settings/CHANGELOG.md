@@ -1,3 +1,8 @@
+## 0.0.9
+
+ - **FEAT**: minor improvements.
+ - **FEAT**: refactor settings.
+
 ## 0.0.8+1
 
  - Update a dependency to the latest release.

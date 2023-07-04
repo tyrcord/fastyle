@@ -3,6 +3,74 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-07-04
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_calculator` - `v1.12.0`](#fastyle_calculator---v1120)
+ - [`fastyle_connectivity` - `v0.0.6`](#fastyle_connectivity---v006)
+ - [`fastyle_digit_calculator` - `v0.0.7`](#fastyle_digit_calculator---v007)
+ - [`fastyle_financial` - `v0.0.5`](#fastyle_financial---v005)
+ - [`fastyle_forms` - `v0.0.6`](#fastyle_forms---v006)
+ - [`fastyle_home` - `v0.0.4`](#fastyle_home---v004)
+ - [`fastyle_images` - `v0.0.6`](#fastyle_images---v006)
+ - [`fastyle_onboarding` - `v0.0.7`](#fastyle_onboarding---v007)
+ - [`fastyle_pricing` - `v1.2.0`](#fastyle_pricing---v120)
+ - [`fastyle_settings` - `v0.0.9`](#fastyle_settings---v009)
+
+---
+
+#### `fastyle_calculator` - `v1.12.0`
+
+ - **FEAT**: add metadata and allow to force rendering.
+
+#### `fastyle_connectivity` - `v0.0.6`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_digit_calculator` - `v0.0.7`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_financial` - `v0.0.5`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_forms` - `v0.0.6`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastFormFieldDescriptor.
+
+#### `fastyle_home` - `v0.0.4`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_images` - `v0.0.6`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_onboarding` - `v0.0.7`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_pricing` - `v1.2.0`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_settings` - `v0.0.9`
+
+ - **FEAT**: minor improvements.
+ - **FEAT**: refactor settings.
+
+
 ## 2023-06-29
 
 ### Changes

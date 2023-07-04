@@ -1,3 +1,7 @@
+## 1.2.0
+
+ - **FEAT**: update dependencies.
+
 ## 1.1.0
 
  - **FEAT**: minor improvements.
