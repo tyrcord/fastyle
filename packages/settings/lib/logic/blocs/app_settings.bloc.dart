@@ -9,19 +9,20 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
     FastAppSettingsBlocState> {
   final FastAppSettingsDataProvider _settingsProvider;
   late FastAppSettingsDocument _persistedSettings;
+  static FastAppSettingsBloc? _singleton;
 
-  FastAppSettingsBloc({
-    super.initialState = const FastAppSettingsBlocState(),
-  }) : _settingsProvider = FastAppSettingsDataProvider();
+  FastAppSettingsBloc._({FastAppSettingsBlocState? initialState})
+      : _settingsProvider = FastAppSettingsDataProvider(),
+        super(initialState: initialState ?? FastAppSettingsBlocState());
+
+  factory FastAppSettingsBloc({FastAppSettingsBlocState? initialState}) {
+    _singleton ??= FastAppSettingsBloc._(initialState: initialState);
+
+    return _singleton!;
+  }
 
   @override
-  @mustCallSuper
-  void close() {
-    if (!closed && canClose()) {
-      super.close();
-      _settingsProvider.disconnect();
-    }
-  }
+  bool canClose() => false;
 
   @override
   Stream<FastAppSettingsBlocState> mapEventToState(
@@ -60,7 +61,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   Stream<FastAppSettingsBlocState> handleInitEvent() async* {
     if (canInitialize) {
       isInitializing = true;
-      yield const FastAppSettingsBlocState(isInitializing: true);
+      yield FastAppSettingsBlocState(isInitializing: true);
 
       final settings = await _retrivePersistedSettings();
 

@@ -16,7 +16,7 @@ class FastUserSettingsBlocState extends BlocState {
   ///
   /// The [isInitializing] and [isInitialized] properties are inherited from
   /// the [BlocState] class.
-  const FastUserSettingsBlocState({
+  FastUserSettingsBlocState({
     super.isInitializing,
     super.isInitialized,
     this.secondaryCurrencyCode,

@@ -2,6 +2,9 @@ import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:flutter/material.dart';
 
+const kFastSettingsDefaultCountryCode = 'US';
+const kFastSettingsDefaultLanguageCode = 'en';
+
 /// The [FastAppSettingsBlocState] class is the state of the
 /// [FastAppSettingsBloc].
 ///
@@ -10,15 +13,20 @@ class FastAppSettingsBlocState extends BlocState {
   /// The current language code of the application.
   /// Format: ios3166
   /// For example: en, fr, de, ...
-  final String? languageCode;
+  final String languageCode;
 
   /// The current country code of the application.
   /// Format: ios3166
   /// For example: US, FR, DE, ...
-  final String? countryCode;
+  final String countryCode;
 
   /// The current theme of the application.
   final String? theme;
+
+  /// The current locale code of the application.
+  /// Format: languageCode_countryCode
+  /// For example: en_US, fr_FR, de_DE, ...
+  String get localeCode => '${languageCode}_$countryCode';
 
   /// The current theme mode of the application.
   /// It is computed from the current theme.
@@ -27,13 +35,14 @@ class FastAppSettingsBlocState extends BlocState {
   }
 
   /// Constructs a [FastAppSettingsBlocState] with the provided parameters.
-  const FastAppSettingsBlocState({
+  FastAppSettingsBlocState({
     super.isInitializing,
     super.isInitialized,
-    this.languageCode,
-    this.countryCode,
     this.theme,
-  });
+    String? languageCode,
+    String? countryCode,
+  })  : languageCode = languageCode ?? kFastSettingsDefaultLanguageCode,
+        countryCode = countryCode ?? kFastSettingsDefaultCountryCode;
 
   /// Creates a new [FastAppSettingsBlocState] instance with updated properties.
   ///

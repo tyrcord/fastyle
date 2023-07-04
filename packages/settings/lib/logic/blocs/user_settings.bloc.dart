@@ -1,5 +1,4 @@
 import 'package:fastyle_settings/fastyle_settings.dart';
-import 'package:flutter/material.dart';
 import 'package:tbloc/tbloc.dart';
 
 /// A BLoC (Business Logic Component) class for managing user settings.
@@ -16,7 +15,7 @@ class FastUserSettingsBloc extends BidirectionalBloc<FastUserSettingsBlocEvent,
 
   FastUserSettingsBloc._({FastUserSettingsBlocState? initialState})
       : _settingsProvider = FastUserSettingsDataProvider(),
-        super(initialState: initialState ?? const FastUserSettingsBlocState());
+        super(initialState: initialState ?? FastUserSettingsBlocState());
 
   factory FastUserSettingsBloc({FastUserSettingsBlocState? initialState}) {
     _singleton ??= FastUserSettingsBloc._(initialState: initialState);
@@ -25,13 +24,7 @@ class FastUserSettingsBloc extends BidirectionalBloc<FastUserSettingsBlocEvent,
   }
 
   @override
-  @mustCallSuper
-  void close() {
-    if (!closed && canClose()) {
-      super.close();
-      _settingsProvider.disconnect();
-    }
-  }
+  bool canClose() => false;
 
   @override
   Stream<FastUserSettingsBlocState> mapEventToState(
@@ -70,7 +63,7 @@ class FastUserSettingsBloc extends BidirectionalBloc<FastUserSettingsBlocEvent,
   Stream<FastUserSettingsBlocState> handleInitEvent() async* {
     if (canInitialize) {
       isInitializing = true;
-      yield const FastUserSettingsBlocState(isInitializing: true);
+      yield FastUserSettingsBlocState(isInitializing: true);
 
       final settings = await _retrievePersistedSettings();
 
