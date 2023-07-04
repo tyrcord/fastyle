@@ -11,6 +11,8 @@ class FastCalculatorBlocEventPayload<R extends FastCalculatorResults> {
   final dynamic error;
   // A stack trace associated with an error.
   final dynamic stacktrace;
+  // A map of metadata that can be used to store any additional information.
+  final Map<String, dynamic> metadata;
 
   const FastCalculatorBlocEventPayload({
     this.key,
@@ -18,5 +20,6 @@ class FastCalculatorBlocEventPayload<R extends FastCalculatorResults> {
     this.results,
     this.error,
     this.stacktrace,
+    this.metadata = const {},
   });
 }

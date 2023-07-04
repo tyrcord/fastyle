@@ -1,4 +1,5 @@
 import 'package:fastyle_calculator/fastyle_calculator.dart';
+import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tbloc/tbloc.dart';
@@ -21,10 +22,20 @@ abstract class FastCalculatorBloc<
     E extends FastCalculatorBlocEvent,
     S extends FastCalculatorBlocState,
     R extends FastCalculatorResults> extends BidirectionalBloc<E, S> {
+  /// The default state of the calculator.
   @protected
   late S defaultCalculatorState;
 
+  /// The function to add debounce events to the calculator bloc.
   late FastCalculatorBlocDebounceEventCallback<E> addDebounceEvent;
+
+  /// The user settings bloc used by the calculator.
+  @protected
+  FastUserSettingsBloc userSettingsBloc = FastUserSettingsBloc();
+
+  /// The app settings bloc used by the calculator.
+  @protected
+  FastAppSettingsBloc appSettingsBloc = FastAppSettingsBloc();
 
   /// The debug label used to identify the bloc in the logs.
   @protected
@@ -42,6 +53,7 @@ abstract class FastCalculatorBloc<
   /// and defaults to `false`.
   FastCalculatorBloc({
     required super.initialState,
+    super.enableForceBuildEvents = true,
     this.debugLabel,
     this.debouceComputeEvents = false,
   }) {
@@ -52,6 +64,11 @@ abstract class FastCalculatorBloc<
       debugPrint('`debouceComputeEvents` is disabled for $runtimeType');
       addDebounceEvent = addEvent;
     }
+
+    subxList.addAll([
+      userSettingsBloc.onData.listen(handleSettingsChanges),
+      appSettingsBloc.onData.listen(handleSettingsChanges),
+    ]);
   }
 
   /// Updates a single field in the calculator state.
@@ -128,6 +145,12 @@ abstract class FastCalculatorBloc<
   @protected
   Future<bool> saveCalculatorState() async => true;
 
+  /// Loads the metadata of the calculator.
+  @protected
+  Future<Map<String, dynamic>> loadMetadata() async {
+    return const <String, dynamic>{};
+  }
+
   /// Shares the calculator state.
   ///
   /// Throws an exception if the `shareCalculatorState` function is not
@@ -142,6 +165,14 @@ abstract class FastCalculatorBloc<
   /// Returns `false` by default, meaning events can be processed out of order.
   @override
   bool shouldProcessEventInOrder() => false;
+
+  /// Handles settings changes.
+  void handleSettingsChanges(BlocState state) {
+    if (isInitialized) {
+      addEvent(FastCalculatorBlocEvent.loadMetadata<R>());
+      addEvent(FastCalculatorBlocEvent.compute<R>(forceBuild: true));
+    }
+  }
 
   /// Maps an event to a new state and emits the state changes as a stream.
   ///
@@ -189,6 +220,8 @@ abstract class FastCalculatorBloc<
         }
       } else if (eventType == FastCalculatorBlocEventType.reset) {
         yield* handleResetEvent();
+      } else if (eventType == FastCalculatorBlocEventType.loadMetadata) {
+        yield* handleLoadMetadataEvent();
       }
     } else {
       assert(false, 'FastCalculatorBloc is not initialized yet.');
@@ -239,7 +272,10 @@ abstract class FastCalculatorBloc<
         yield currentState
             .merge(defaultCalculatorState)
             .merge(nextState)
-            .copyWith(isInitializing: isInitializing) as S;
+            .copyWith(
+              isInitializing: isInitializing,
+              metadata: await loadMetadata(),
+            ) as S;
 
         addEvent(FastCalculatorBlocEvent.initialized<R>());
       } catch (error, stacktrace) {
@@ -324,6 +360,13 @@ abstract class FastCalculatorBloc<
     ) as S;
 
     addEvent(FastCalculatorBlocEvent.init<R>());
+  }
+
+  /// Handles the load metadata event by loading the calculator metadata.
+  /// Emits the new state.
+  @protected
+  Stream<S> handleLoadMetadataEvent() async* {
+    yield currentState.copyWith(metadata: await loadMetadata()) as S;
   }
 
   /// Handles the patch value event by updating a single field in the

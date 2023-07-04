@@ -227,26 +227,28 @@ class SumCalculatorPageState extends State<SumCalculatorPage> {
     return BlocBuilderWidget<SumCalculatorBloState>(
       bloc: _bloc,
       buildWhen: (SumCalculatorBloState previous, SumCalculatorBloState next) {
-        var oldExtras = (previous.extras as SumCalculatorBlocStateExtras);
-        var newExtras = (next.extras as SumCalculatorBlocStateExtras);
+        var oldMetadata = previous.metadata;
+        var newMetadata = next.metadata;
 
-        return oldExtras.isFetchingAsyncValue !=
-                newExtras.isFetchingAsyncValue ||
-            oldExtras.asyncValue != newExtras.asyncValue;
+        return oldMetadata['isFetchingAsyncValue'] !=
+                newMetadata['isFetchingAsyncValue'] ||
+            oldMetadata['asyncValue'] != newMetadata['asyncValue'];
       },
       builder: (_, SumCalculatorBloState state) {
-        var extras = (state.extras as SumCalculatorBlocStateExtras);
+        final metadata = state.metadata;
+        final isFetchingAsyncValue = metadata['isFetchingAsyncValue'] as bool;
+        final asyncValue = metadata['asyncValue'] as String? ?? '';
 
         return _buildNumberField(
           labelText: 'Async value',
           // ignore: no-empty-block
           onValueChanged: (_) {},
-          valueText: extras.asyncValue,
-          isEnabled: !extras.isFetchingAsyncValue,
+          valueText: asyncValue,
+          isEnabled: !isFetchingAsyncValue,
           suffixIcon: FastAnimatedRotationIconButton(
-            isEnabled: !extras.isFetchingAsyncValue,
+            isEnabled: !isFetchingAsyncValue,
             iconAlignment: Alignment.centerRight,
-            rotate: extras.isFetchingAsyncValue,
+            rotate: isFetchingAsyncValue,
             padding: EdgeInsets.zero,
             onTap: () {
               _bloc.addEvent(

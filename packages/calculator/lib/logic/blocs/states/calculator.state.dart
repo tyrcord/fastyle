@@ -1,12 +1,11 @@
 import 'package:fastyle_calculator/fastyle_calculator.dart';
-import 'package:tmodel/tmodel.dart';
 import 'package:tbloc/tbloc.dart';
 
 /// Represents the state of a calculator's bloc.
 class FastCalculatorBlocState<F extends FastCalculatorFields,
     R extends FastCalculatorResults> extends BlocState {
-  // Optional instance of TModel that can store additional data.
-  final TModel? extras;
+  // A map of metadata that can be used to store any additional information.
+  final Map<String, dynamic> metadata;
   // Instance of R that contains the current results of the calculator.
   final R results;
   // Instance of F that contains the current values of the calculator's fields.
@@ -18,7 +17,7 @@ class FastCalculatorBlocState<F extends FastCalculatorFields,
   // since initialization.
   final bool isDirty;
 
-  const FastCalculatorBlocState({
+  FastCalculatorBlocState({
     super.isInitializing,
     super.isInitialized,
     super.isBusy,
@@ -26,7 +25,7 @@ class FastCalculatorBlocState<F extends FastCalculatorFields,
     required this.fields,
     this.isValid = false,
     this.isDirty = false,
-    this.extras,
+    this.metadata = const {},
   });
 
   /// Creates a new instance of `FastCalculatorBlocState` that is a clone of
@@ -34,7 +33,7 @@ class FastCalculatorBlocState<F extends FastCalculatorFields,
   @override
   FastCalculatorBlocState<F, R> clone() {
     return FastCalculatorBlocState<F, R>(
-      extras: extras,
+      metadata: metadata,
       isInitializing: isInitializing,
       isInitialized: isInitialized,
       results: results.clone() as R,
@@ -48,7 +47,7 @@ class FastCalculatorBlocState<F extends FastCalculatorFields,
   /// Creates a new instance of `FastCalculatorBlocState` with updated values.
   @override
   FastCalculatorBlocState<F, R> copyWith({
-    TModel? extras,
+    Map<String, dynamic>? metadata,
     bool? isInitializing,
     bool? isInitialized,
     R? results,
@@ -58,7 +57,7 @@ class FastCalculatorBlocState<F extends FastCalculatorFields,
     bool? isBusy,
   }) {
     return FastCalculatorBlocState<F, R>(
-      extras: extras ?? this.extras,
+      metadata: metadata ?? this.metadata,
       isInitializing: isInitializing ?? this.isInitializing,
       isInitialized: isInitialized ?? this.isInitialized,
       results: results ?? this.results,
@@ -76,7 +75,7 @@ class FastCalculatorBlocState<F extends FastCalculatorFields,
     covariant FastCalculatorBlocState<F, R> model,
   ) {
     return copyWith(
-      extras: model.extras != null ? extras?.merge(model.extras!) : null,
+      metadata: model.metadata,
       isInitializing: model.isInitializing,
       isInitialized: model.isInitialized,
       results: results.merge(model.results) as R,
@@ -91,7 +90,7 @@ class FastCalculatorBlocState<F extends FastCalculatorFields,
   /// `FastCalculatorBlocState` class.
   @override
   List<Object?> get props => [
-        extras,
+        metadata,
         isInitializing,
         isInitialized,
         results,

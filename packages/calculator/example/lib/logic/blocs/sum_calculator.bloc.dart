@@ -10,14 +10,16 @@ class SumCalculatorBloc extends HydratedFastCalculatorBloc<
     SumCalculatorDocument,
     SumCalculatorResults> {
   SumCalculatorBloc({
-    super.initialState = const FastCalculatorBlocState<SumCalculatorFields,
-        SumCalculatorResults>(
-      fields: SumCalculatorFields(),
-      results: SumCalculatorResults(),
-      extras: SumCalculatorBlocStateExtras(),
-    ),
     super.debouceComputeEvents = true,
-  }) : super(dataProvider: SumCalculatorDataProvider());
+  }) : super(
+          dataProvider: SumCalculatorDataProvider(),
+          initialState: FastCalculatorBlocState<SumCalculatorFields,
+              SumCalculatorResults>(
+            fields: const SumCalculatorFields(),
+            results: const SumCalculatorResults(),
+            metadata: const {},
+          ),
+        );
 
   @override
   Future<SumCalculatorDocument> retrieveDefaultCalculatorDocument() async {
@@ -119,11 +121,10 @@ class SumCalculatorBloc extends HydratedFastCalculatorBloc<
       final payload = event.payload!;
 
       if (payload.key == 'async') {
-        yield currentState.copyWith(
-          extras: currentState.extras!.merge(
-            const SumCalculatorBlocStateExtras(isFetchingAsyncValue: true),
-          ),
-        );
+        final metadata = {...currentState.metadata};
+        metadata['isFetchingAsyncValue'] = true;
+
+        yield currentState.copyWith(metadata: metadata);
 
         // no cancellable operations will go through
         // demo purpose
@@ -134,14 +135,11 @@ class SumCalculatorBloc extends HydratedFastCalculatorBloc<
           value: '42',
         ));
       } else if (payload.key == 'asyncDone') {
-        yield currentState.copyWith(
-          extras: currentState.extras!.merge(
-            SumCalculatorBlocStateExtras(
-              asyncValue: payload.value as String,
-              isFetchingAsyncValue: false,
-            ),
-          ),
-        );
+        final metadata = {...currentState.metadata};
+        metadata['asyncValue'] = payload.value as String;
+        metadata['isFetchingAsyncValue'] = false;
+
+        yield currentState.copyWith(metadata: metadata);
 
         addEvent(FastCalculatorBlocEvent.patchValue<SumCalculatorResults>(
           key: 'asyncValue',

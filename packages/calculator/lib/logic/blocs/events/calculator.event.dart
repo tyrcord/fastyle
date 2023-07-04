@@ -8,6 +8,7 @@ class FastCalculatorBlocEvent<R extends FastCalculatorResults>
     required FastCalculatorBlocEventType type, // The type of the event.
     FastCalculatorBlocEventPayload<R>?
         payload, // An optional payload associated with the event.
+    super.forceBuild,
   }) : super(type: type, payload: payload);
 
   // Returns an event with the type `FastCalculatorBlocEventType.init`
@@ -55,9 +56,12 @@ class FastCalculatorBlocEvent<R extends FastCalculatorResults>
 
   // Returns an event with the type `FastCalculatorBlocEventType.compute`
   // and no payload.
-  static FastCalculatorBlocEvent<R> compute<R extends FastCalculatorResults>() {
+  static FastCalculatorBlocEvent<R> compute<R extends FastCalculatorResults>({
+    bool forceBuild = false,
+  }) {
     return FastCalculatorBlocEvent<R>(
       type: FastCalculatorBlocEventType.compute,
+      forceBuild: forceBuild,
     );
   }
 
@@ -115,6 +119,28 @@ class FastCalculatorBlocEvent<R extends FastCalculatorResults>
   static FastCalculatorBlocEvent<R> reset<R extends FastCalculatorResults>() {
     return FastCalculatorBlocEvent<R>(
       type: FastCalculatorBlocEventType.reset,
+    );
+  }
+
+  // Returns an event with the type `FastCalculatorBlocEventType.loadMetadata`
+  // and no payload.
+  static FastCalculatorBlocEvent<R>
+      loadMetadata<R extends FastCalculatorResults>() {
+    return FastCalculatorBlocEvent<R>(
+      type: FastCalculatorBlocEventType.loadMetadata,
+    );
+  }
+
+  // Returns an event with the type `FastCalculatorBlocEventType.patchMetadata`
+  // and a payload containing a key and a value.
+  static FastCalculatorBlocEvent<R>
+      patchMetadata<R extends FastCalculatorResults>({
+    required String key,
+    dynamic value,
+  }) {
+    return FastCalculatorBlocEvent<R>(
+      type: FastCalculatorBlocEventType.patchMetadata,
+      payload: FastCalculatorBlocEventPayload<R>(key: key, value: value),
     );
   }
 }
