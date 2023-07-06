@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:fastyle_settings/fastyle_settings.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:flutter/material.dart';

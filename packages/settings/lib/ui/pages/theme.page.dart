@@ -4,6 +4,7 @@ import 'package:fastyle_images/fastyle_images.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:flutter/material.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 
 typedef ThemeModeFormatter = String Function(ThemeMode mode);
 

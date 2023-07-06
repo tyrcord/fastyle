@@ -198,14 +198,14 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.6"
+    version: "0.0.6+2"
   fastyle_images:
     dependency: "direct overridden"
     description:
       path: "../../images"
       relative: true
     source: path
-    version: "0.0.6"
+    version: "0.0.8"
   ffi:
     dependency: transitive
     description:

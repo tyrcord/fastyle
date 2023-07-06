@@ -1,4 +1,4 @@
-import 'package:fastyle_settings/fastyle_settings.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
 import 'package:tbloc/tbloc.dart';
 

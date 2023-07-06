@@ -1,6 +1,7 @@
 import 'package:lingua_settings/generated/codegen_loader.g.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:lingua_core/lingua_core.dart';

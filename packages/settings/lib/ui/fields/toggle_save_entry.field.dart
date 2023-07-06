@@ -2,6 +2,7 @@ import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:fastyle_forms/fastyle_forms.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 
 /// A toggle list item that allows the user to enable or disable auto-saving of
 /// form entries.
