@@ -1,3 +1,7 @@
+## 0.0.9
+
+ - **FEAT**: support fastyle_core.
+
 ## 0.0.8
 
  - **FEAT**: generate missing languages.

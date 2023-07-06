@@ -19,8 +19,8 @@ dependencies:
   tbloc: ">=0.21.0 <1.0.0"
   lingua_settings: ^0.0.4
 
-  fastyle_core: ^0.0.1
-  fastyle_calculator: ^1.12.2
+  fastyle_core: ^0.0.2
+  fastyle_calculator: ^1.13.0
 
   fastyle_settings:
     path: ../

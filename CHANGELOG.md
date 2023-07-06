@@ -15,6 +15,54 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_calculator` - `v1.13.0`](#fastyle_calculator---v1130)
+ - [`fastyle_core` - `v0.0.2`](#fastyle_core---v002)
+ - [`fastyle_forms` - `v0.0.7`](#fastyle_forms---v007)
+ - [`fastyle_images` - `v0.0.9`](#fastyle_images---v009)
+ - [`fastyle_settings` - `v0.0.10`](#fastyle_settings---v0010)
+ - [`fastyle_financial` - `v0.0.5+3`](#fastyle_financial---v0053)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_financial` - `v0.0.5+3`
+
+---
+
+#### `fastyle_calculator` - `v1.13.0`
+
+ - **FEAT**: support fastyle_core.
+
+#### `fastyle_core` - `v0.0.2`
+
+ - **FEAT**: initial commit for core.
+
+#### `fastyle_forms` - `v0.0.7`
+
+ - **FEAT**: support fastyle_core.
+
+#### `fastyle_images` - `v0.0.9`
+
+ - **FEAT**: support fastyle_core.
+
+#### `fastyle_settings` - `v0.0.10`
+
+ - **FEAT**: support fastyle_core.
+
+
+## 2023-07-06
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_images` - `v0.0.8`](#fastyle_images---v008)
  - [`fastyle_forms` - `v0.0.6+2`](#fastyle_forms---v0062)
  - [`fastyle_settings` - `v0.0.9+2`](#fastyle_settings---v0092)

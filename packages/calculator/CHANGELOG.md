@@ -1,3 +1,7 @@
+## 1.13.0
+
+ - **FEAT**: support fastyle_core.
+
 ## 1.12.2
 
  - Update a dependency to the latest release.
