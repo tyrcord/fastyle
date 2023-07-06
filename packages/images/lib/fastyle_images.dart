@@ -7,3 +7,4 @@ export 'images/commodity.dart';
 export 'images/crypto.dart';
 export 'images/flags.dart';
 export 'images/mobile.dart';
+export 'images/localizations.dart';

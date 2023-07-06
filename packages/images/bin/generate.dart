@@ -20,6 +20,11 @@ const _assets = [
     'className': 'FastImageMobile',
     'input': 'assets/images/mobile',
     'output': 'lib/images/mobile.dart',
+  },
+  {
+    'className': 'FastImageLocalization',
+    'input': 'assets/images/localizations',
+    'output': 'lib/images/localizations.dart',
   }
 ];
 
