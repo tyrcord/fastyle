@@ -15,6 +15,40 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_images` - `v0.0.8`](#fastyle_images---v008)
+ - [`fastyle_forms` - `v0.0.6+2`](#fastyle_forms---v0062)
+ - [`fastyle_settings` - `v0.0.9+2`](#fastyle_settings---v0092)
+ - [`fastyle_financial` - `v0.0.5+2`](#fastyle_financial---v0052)
+ - [`fastyle_calculator` - `v1.12.2`](#fastyle_calculator---v1122)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_forms` - `v0.0.6+2`
+ - `fastyle_settings` - `v0.0.9+2`
+ - `fastyle_financial` - `v0.0.5+2`
+ - `fastyle_calculator` - `v1.12.2`
+
+---
+
+#### `fastyle_images` - `v0.0.8`
+
+ - **FEAT**: generate missing languages.
+
+
+## 2023-07-06
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_images` - `v0.0.7`](#fastyle_images---v007)
  - [`fastyle_settings` - `v0.0.9+1`](#fastyle_settings---v0091)
  - [`fastyle_forms` - `v0.0.6+1`](#fastyle_forms---v0061)

@@ -1,3 +1,7 @@
+## 0.0.8
+
+ - **FEAT**: generate missing languages.
+
 ## 0.0.7
 
  - **FEAT**: add languages images.
