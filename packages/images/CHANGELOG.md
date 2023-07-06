@@ -1,3 +1,7 @@
+## 0.0.7
+
+ - **FEAT**: add languages images.
+
 ## 0.0.6
 
  - **FEAT**: update dependencies.
