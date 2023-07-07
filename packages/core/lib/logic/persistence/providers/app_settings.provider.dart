@@ -5,7 +5,7 @@ import 'package:tstore/tstore.dart';
 /// [FastAppSettingsDocument] objects.
 class FastAppSettingsDataProvider extends TDocumentDataProvider {
   FastAppSettingsDataProvider({
-    super.storeName = kFastSettingStoreName,
+    super.storeName = kFastAppSettingStoreName,
   });
 
   /// Retrieves the settings document.

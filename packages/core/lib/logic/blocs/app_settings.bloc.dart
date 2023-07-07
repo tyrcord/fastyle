@@ -7,12 +7,12 @@ import 'package:flutter/material.dart';
 /// or the theme.
 class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
     FastAppSettingsBlocState> {
-  final FastAppSettingsDataProvider _settingsProvider;
+  final FastAppSettingsDataProvider _dataProvider;
   late FastAppSettingsDocument _persistedSettings;
   static FastAppSettingsBloc? _singleton;
 
   FastAppSettingsBloc._({FastAppSettingsBlocState? initialState})
-      : _settingsProvider = FastAppSettingsDataProvider(),
+      : _dataProvider = FastAppSettingsDataProvider(),
         super(initialState: initialState ?? FastAppSettingsBlocState());
 
   factory FastAppSettingsBloc({FastAppSettingsBlocState? initialState}) {
@@ -221,7 +221,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
         primaryCurrencyCode: primaryCurrencyCode,
       );
 
-      await _settingsProvider.persistSettings(newSettings);
+      await _dataProvider.persistSettings(newSettings);
     }
 
     return _retrievePersistedSettings();
@@ -240,7 +240,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
         secondaryCurrencyCode: secondaryCurrencyCode,
       );
 
-      await _settingsProvider.persistSettings(newSettings);
+      await _dataProvider.persistSettings(newSettings);
     }
 
     return _retrievePersistedSettings();
@@ -253,7 +253,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   Future<FastAppSettingsDocument> _persistSaveEntry(bool? saveEntry) async {
     if (saveEntry != null && saveEntry != currentState.saveEntry) {
       final newSettings = _persistedSettings.copyWith(saveEntry: saveEntry);
-      await _settingsProvider.persistSettings(newSettings);
+      await _dataProvider.persistSettings(newSettings);
     }
 
     return _retrievePersistedSettings();
@@ -268,7 +268,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
         languageCode: languageCode,
       );
 
-      await _settingsProvider.persistSettings(newSettings);
+      await _dataProvider.persistSettings(newSettings);
       await _retrievePersistedSettings();
     }
   }
@@ -278,7 +278,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   Future<void> _persistTheme(String? theme) async {
     if (theme != null && theme != currentState.theme) {
       final newSettings = _persistedSettings.copyWith(theme: theme);
-      await _settingsProvider.persistSettings(newSettings);
+      await _dataProvider.persistSettings(newSettings);
       await _retrievePersistedSettings();
     }
   }
@@ -289,15 +289,15 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   Future<void> _persistCountryCode(String? countryCode) async {
     if (countryCode != null && countryCode != currentState.countryCode) {
       final newSettings = _persistedSettings.copyWith(countryCode: countryCode);
-      await _settingsProvider.persistSettings(newSettings);
+      await _dataProvider.persistSettings(newSettings);
       await _retrievePersistedSettings();
     }
   }
 
   /// Retrieve the settings from the data provider.
   Future<FastAppSettingsDocument> _retrievePersistedSettings() async {
-    await _settingsProvider.connect();
+    await _dataProvider.connect();
 
-    return (_persistedSettings = await _settingsProvider.retrieveSettings());
+    return (_persistedSettings = await _dataProvider.retrieveSettings());
   }
 }

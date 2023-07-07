@@ -11,6 +11,7 @@ import 'package:rxdart/rxdart.dart';
 /// It is used to load the settings of the application
 /// and initialize the [FastAppSettingsBloc] before the [FastAppSettingsBloc]
 /// is used.
+/// FIXME: finish to implement this class.
 class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
   static FastAppSettingsJob? _singleton;
 
@@ -91,15 +92,10 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
 
     dispatchThemeModeChanged(themeBloc, settingsState.themeMode);
 
-    themeBloc.onData.where((themeState) {
-      return themeState.themeMode == settingsState.themeMode;
-    });
-
     final themeState = await RaceStream([
       themeBloc.onError,
-      themeBloc.onData.where(
-        (themeState) => themeState.themeMode == settingsState.themeMode,
-      ),
+      themeBloc.onData
+          .where((state) => state.themeMode == settingsState.themeMode),
     ]).first;
 
     if (themeState is! FastThemeBlocState) {

@@ -4,3 +4,4 @@ export 'blocs/blocs.dart';
 export 'jobs/jobs.dart';
 export 'constants.dart';
 export 'enums/enums.dart';
+export 'types/types.dart';
