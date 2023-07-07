@@ -2,19 +2,19 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
 import 'package:tbloc/tbloc.dart';
 
-/// A widget that listens to changes in the `FastUserSettingsBloc` and rebuilds
+/// A widget that listens to changes in the `FastAppSettingsBloc` and rebuilds
 /// its child widget when the primary currency changes.
-class FastUserSettingsPrimaryCurrencyBuilder extends StatelessWidget {
+class FastAppSettingsPrimaryCurrencyBuilder extends StatelessWidget {
   /// The builder function that will be called when the primary currency
   /// changes.
-  final BlocBuilder<FastUserSettingsBlocState> builder;
+  final BlocBuilder<FastAppSettingsBlocState> builder;
 
-  /// Creates a new `FastUserSettingsPrimaryCurrencyBuilder` instance.
+  /// Creates a new `FastAppSettingsPrimaryCurrencyBuilder` instance.
   ///
   /// The `builder` parameter is a required function that takes the
-  /// [BuildContext] and [FastUserSettingsBlocState] as input and returns
+  /// [BuildContext] and [FastAppSettingsBlocState] as input and returns
   /// a widget.
-  const FastUserSettingsPrimaryCurrencyBuilder({
+  const FastAppSettingsPrimaryCurrencyBuilder({
     Key? key,
     required this.builder,
   }) : super(key: key);
@@ -24,7 +24,7 @@ class FastUserSettingsPrimaryCurrencyBuilder extends StatelessWidget {
     return BlocBuilderWidget(
       buildWhen: (previous, next) =>
           previous.primaryCurrencyCode != next.primaryCurrencyCode,
-      bloc: BlocProvider.of<FastUserSettingsBloc>(context),
+      bloc: BlocProvider.of<FastAppSettingsBloc>(context),
       builder: builder,
     );
   }

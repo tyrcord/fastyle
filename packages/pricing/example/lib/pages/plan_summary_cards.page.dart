@@ -27,7 +27,12 @@ class PlanSummaryCardsPage extends StatelessWidget {
                 );
               });
             },
-            footer: FastLink(text: 'Go  Premium', onTap: () {}),
+            footer: FastLink(
+              text: 'Go  Premium',
+              onTap: () {
+                debugPrint('Go Premium');
+              },
+            ),
           ),
           kFastSizedBox16,
           FastPlanSummaryCard(

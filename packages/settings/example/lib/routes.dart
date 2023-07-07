@@ -30,7 +30,8 @@ final kAppRoutes = [
       titleText: SettingsLocaleKeys.settings_labels_appearance.tr(),
       subtitleText: SettingsLocaleKeys.settings_labels_appearance.tr(),
       headerDescriptionText:
-          'Personalize your experience by selecting a theme that suits your style.',
+          'Personalize your experience by selecting a theme that suits '
+          'your style.',
       themeModeFormatter: (mode) {
         switch (mode) {
           case ThemeMode.system:
@@ -45,7 +46,7 @@ final kAppRoutes = [
   ),
   GoRoute(
     path: 'user-settings',
-    builder: (context, state) => FastUserSettingsPage(
+    builder: (context, state) => const FastAppSettingsPage(
       titleText: 'User settings',
       headerDescriptionText:
           'Enhance your app experience by adjusting your preferences.',

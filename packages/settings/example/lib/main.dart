@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       blocProviders: [
         BlocProvider(bloc: FastAppSettingsBloc()),
-        BlocProvider(bloc: FastUserSettingsBloc()),
       ],
       child: FastApp(
         localizationsDelegates: context.localizationDelegates,
@@ -47,7 +46,6 @@ class MyApp extends StatelessWidget {
         routes: kAppRoutes,
         loaderJobs: [
           FastAppSettingsJob(),
-          FastUserSettingsJob(),
         ],
         home: FastSettingsThemeListener(
           child: buildHome(context),
@@ -77,7 +75,7 @@ class MyApp extends StatelessWidget {
                 labelText: SettingsLocaleKeys.settings_labels_appearance.tr(),
                 value: '/appearance',
               ),
-              FastItem(
+              const FastItem(
                 labelText: 'User settings',
                 value: '/user-settings',
               ),

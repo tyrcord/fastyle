@@ -15,9 +15,11 @@ const kFastSettingsThemeMap = {
 final kFastSettingsDefaultTheme = kFastSettingsThemeMap[ThemeMode.system]!;
 
 /// Default store key names.
-const kFastSettingStoreName = 'appSettings';
-const kFastUserSettingStoreName = 'userSettings';
+const kFastSettingStoreName = 'fastAppSettings';
 
-// Default User setting values.
-const kFastUserSettingSaveEntry = true;
-const kFastUserSettingPrimaryCurrencyCode = 'usd';
+// Default App setting values.
+const kFastSettingsDefaultLanguageCode = 'en';
+const kFastAppSettingsDefaultLocale = Locale(kFastSettingsDefaultLanguageCode);
+const kFastAppSettingsSupportedLocales = [kFastAppSettingsDefaultLocale];
+const kFastAppSettingsPrimaryCurrencyCode = 'usd';
+const kFastAppSettingsSaveEntry = true;

@@ -11,7 +11,8 @@ class FastAppSettingsThemeBuilder extends StatelessWidget {
   /// Creates a new `FastSettingsThemeBuilder` instance.
   ///
   /// The `builder` parameter is a required function that takes the
-  /// [BuildContext] and [FastAppSettingsBlocState] as input and returns a widget.
+  /// [BuildContext] and [FastAppSettingsBlocState] as input and returns a
+  /// widget.
   const FastAppSettingsThemeBuilder({
     Key? key,
     required this.builder,

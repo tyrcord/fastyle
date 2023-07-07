@@ -1,34 +1,5 @@
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tbloc/tbloc.dart';
-
-/// The settings bloc event type.
-/// This type is used to define the type of the settings bloc event.
-enum FastAppSettingsBlocEventType {
-  init,
-  initialized,
-  languageCodeChanged,
-  countryCodeChanged,
-  themeChanged,
-}
-
-/// The settings bloc event payload.
-/// This payload is used to pass data to the settings bloc.
-/// It can be used to pass the language code or the theme.
-class FastAppSettingsBlocEventPayload {
-  /// The language code.
-  final String? languageCode;
-
-  /// The country code.
-  final String? countryCode;
-
-  /// The theme.
-  final String? theme;
-
-  const FastAppSettingsBlocEventPayload({
-    this.languageCode,
-    this.countryCode,
-    this.theme,
-  });
-}
 
 /// The settings bloc event.
 /// This event is used to dispatch events to the settings bloc.
@@ -54,17 +25,37 @@ class FastAppSettingsBlocEvent extends BlocEvent<FastAppSettingsBlocEventType,
           payload: FastAppSettingsBlocEventPayload(countryCode: countryCode),
         );
 
+  /// Constructor for the [primaryCurrencyCodeChanged] event.
+  FastAppSettingsBlocEvent.primaryCurrencyCodeChanged(
+    String primaryCurrencyCode,
+  ) : super(
+          type: FastAppSettingsBlocEventType.primaryCurrencyCodeChanged,
+          payload: FastAppSettingsBlocEventPayload(
+            primaryCurrencyCode: primaryCurrencyCode,
+          ),
+        );
+
+  /// Constructor for the [secondaryCurrencyCodeChanged] event.
+  FastAppSettingsBlocEvent.secondaryCurrencyCodeChanged(
+    String secondaryCurrencyCode,
+  ) : super(
+          type: FastAppSettingsBlocEventType.secondaryCurrencyCodeChanged,
+          payload: FastAppSettingsBlocEventPayload(
+            secondaryCurrencyCode: secondaryCurrencyCode,
+          ),
+        );
+
+  /// Constructor for the [saveEntryChanged] event.
+  FastAppSettingsBlocEvent.saveEntryChanged(bool saveEntry)
+      : super(
+          type: FastAppSettingsBlocEventType.saveEntryChanged,
+          payload: FastAppSettingsBlocEventPayload(saveEntry: saveEntry),
+        );
+
   const FastAppSettingsBlocEvent.init()
       : super(type: FastAppSettingsBlocEventType.init);
 
-  FastAppSettingsBlocEvent.initialized({
-    String? languageCode,
-    String? theme,
-  }) : super(
-          type: FastAppSettingsBlocEventType.initialized,
-          payload: FastAppSettingsBlocEventPayload(
-            languageCode: languageCode,
-            theme: theme,
-          ),
-        );
+  const FastAppSettingsBlocEvent.initialized(
+    FastAppSettingsBlocEventPayload payload,
+  ) : super(type: FastAppSettingsBlocEventType.initialized, payload: payload);
 }

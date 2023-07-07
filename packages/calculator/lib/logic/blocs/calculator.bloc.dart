@@ -31,7 +31,7 @@ abstract class FastCalculatorBloc<
 
   /// The user settings bloc used by the calculator.
   @protected
-  FastUserSettingsBloc userSettingsBloc = FastUserSettingsBloc();
+  FastAppSettingsBloc userSettingsBloc = FastAppSettingsBloc();
 
   /// The app settings bloc used by the calculator.
   @protected

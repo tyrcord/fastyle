@@ -6,7 +6,7 @@ import 'package:fastyle_forms/fastyle_forms.dart';
 
 /// A widget that displays a select currency field for the user's primary
 /// currency.
-class FastUserSettingsPrimaryCurrencyField extends StatelessWidget {
+class FastAppSettingsPrimaryCurrencyField extends StatelessWidget {
   /// A callback that is called when the user selects a new currency.
   final void Function(String)? onCurrencyChanged;
 
@@ -28,7 +28,7 @@ class FastUserSettingsPrimaryCurrencyField extends StatelessWidget {
   /// The text to display as a placeholder in the selection field.
   final String? placeholderText;
 
-  const FastUserSettingsPrimaryCurrencyField({
+  const FastAppSettingsPrimaryCurrencyField({
     super.key,
     this.onCurrencyChanged,
     this.descriptor,
@@ -44,7 +44,7 @@ class FastUserSettingsPrimaryCurrencyField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: padding,
-      child: FastUserSettingsPrimaryCurrencyBuilder(builder: (_, state) {
+      child: FastAppSettingsPrimaryCurrencyBuilder(builder: (_, state) {
         return MatexSelectCurrencyField(
           searchTitleText: descriptor?.searchTitleText ?? searchTitleText,
           labelText: descriptor?.labelText ?? labelText,

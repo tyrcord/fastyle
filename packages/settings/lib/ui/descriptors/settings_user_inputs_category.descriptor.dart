@@ -1,17 +1,17 @@
 import 'package:fastyle_forms/fastyle_forms.dart';
 import 'package:fastyle_settings/fastyle_settings.dart';
 
-/// The default fields for the `FastUserSettingsInputsCategoryDescriptor` class.
-const kDefaultFastUserSettingsInputsFields = {
-  FastUserSettingsFields.saveEntry: FastFormFieldDescriptor(
+/// The default fields for the `FastAppSettingsInputsCategoryDescriptor` class.
+const kDefaultFastAppSettingsInputsFields = {
+  FastAppSettingsFields.saveEntry: FastFormFieldDescriptor(
     labelText: 'Auto-save',
   ),
 };
 
 /// A class that represents a category of settings related to user inputs.
-class FastUserSettingsInputsCategoryDescriptor
+class FastAppSettingsInputsCategoryDescriptor
     extends FastSettingsCategoryDescriptor {
-  /// Creates a new instance of the `FastUserSettingsInputsCategoryDescriptor`
+  /// Creates a new instance of the `FastAppSettingsInputsCategoryDescriptor`
   /// class.
   ///
   /// [fields] is an optional map of field descriptors for the category.
@@ -19,12 +19,12 @@ class FastUserSettingsInputsCategoryDescriptor
   /// the category.
   /// [show] is an optional boolean that indicates whether the category should
   /// be shown.
-  const FastUserSettingsInputsCategoryDescriptor({
+  const FastAppSettingsInputsCategoryDescriptor({
     Map<String, FastFormFieldDescriptor>? fields,
     String? titleText,
     bool? show,
   }) : super(
-          fields: fields ?? kDefaultFastUserSettingsInputsFields,
+          fields: fields ?? kDefaultFastAppSettingsInputsFields,
           titleText: titleText ?? 'USER INPUTS',
           show: show ?? true,
         );

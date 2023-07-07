@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:devicelocale/devicelocale.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:tbloc/tbloc.dart';
@@ -17,14 +18,17 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     return (_singleton ??= FastAppSettingsJob._());
   }
 
-  FastAppSettingsJob._() : super(debugLabel: 'app_settings_job');
+  FastAppSettingsJob._() : super(debugLabel: 'fast_app_settings_job');
 
   @override
   Future<void> initialize(
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
-    final settingsState = await initializeSettingsBloc(context);
+    final settingsState = await initializeSettingsBloc(
+      context,
+      errorReporter: errorReporter,
+    );
 
     await applySettings(context, settingsState);
   }
@@ -32,9 +36,29 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
   /// Initializes the [FastAppSettingsBloc] by retrieving the settings
   /// from the [FastAppSettingsBloc] and returns the [FastAppSettingsBlocState].
   Future<FastAppSettingsBlocState> initializeSettingsBloc(
-    BuildContext context,
-  ) async {
+    BuildContext context, {
+    IFastErrorReporter? errorReporter,
+  }) async {
     final settingsBloc = BlocProvider.of<FastAppSettingsBloc>(context);
+    final savedUserLanguageCode = settingsBloc.currentState.languageCode;
+    final supportedLocales = settingsBloc.currentState.supportedLocales;
+
+    // Determine the user language and country code from the device locale.
+    final (deviceLanguageCode, deviceCountryCode) = await getPreferredLocale();
+
+    await notifiyErrorReporterIfNeeded(
+      deviceLanguageCode,
+      deviceCountryCode,
+      errorReporter: errorReporter,
+    );
+
+    // Determine the user language code.
+
+    final languageCode = await determineUserLanguageCode(
+      deviceLanguageCode,
+      supportedLocales,
+    );
+
     settingsBloc.addEvent(const FastAppSettingsBlocEvent.init());
 
     final settingsState = await RaceStream([
@@ -81,5 +105,57 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     if (themeState is! FastThemeBlocState) {
       throw themeState;
     }
+  }
+
+  Future<void> notifiyErrorReporterIfNeeded(
+    String languageCode,
+    String? countryCode, {
+    IFastErrorReporter? errorReporter,
+  }) async {
+    await errorReporter?.setCustomKey(
+      'deviceCountryCode',
+      countryCode ?? 'unknown',
+    );
+
+    await errorReporter?.setCustomKey(
+      'deviceLanguageCode',
+      languageCode,
+    );
+  }
+
+  determineUserLanguageCode(
+    String languageCode,
+    Iterable<Locale> supportedLocales,
+  ) async {
+    final isSupported = isLanguageCodeSupported(languageCode, supportedLocales);
+
+    if (isSupported) {
+      return languageCode;
+    }
+
+    return kFastSettingsDefaultLanguageCode;
+  }
+
+  Future<(String, String?)> getPreferredLocale() async {
+    final deviceIntlLocale = await getDevicelocale();
+
+    return (deviceIntlLocale.languageCode, deviceIntlLocale.countryCode);
+  }
+
+  Future<Locale> getDevicelocale() async {
+    final localeIdentifiers = await Devicelocale.preferredLanguagesAsLocales;
+
+    return localeIdentifiers.first;
+  }
+
+  bool isLanguageCodeSupported(
+    String languageCode,
+    Iterable<Locale> supportedLocales,
+  ) {
+    final supportedLanguageCodes = supportedLocales.map(
+      (locale) => locale.languageCode,
+    );
+
+    return supportedLanguageCodes.contains(languageCode);
   }
 }

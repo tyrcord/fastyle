@@ -3,9 +3,9 @@ import 'package:tmodel/tmodel.dart';
 
 /// The default categories for the [FastSettingsDescriptor].
 const kDefaultFastSettingsCategories = {
-  FastUserSettingsCategories.inputs: FastUserSettingsInputsCategoryDescriptor(),
-  FastUserSettingsCategories.defaultValues:
-      FastUserSettingsDefaultValuesCategoryDescriptor(),
+  FastAppSettingsCategories.inputs: FastAppSettingsInputsCategoryDescriptor(),
+  FastAppSettingsCategories.defaultValues:
+      FastAppSettingsDefaultValuesCategoryDescriptor(),
 };
 
 /// A [TModel] that describes the settings available in the Fastyle Settings

@@ -6,7 +6,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 /// A toggle list item that allows the user to enable or disable auto-saving of
 /// form entries.
-class FastUserSettingsToggleSaveEntryField extends StatelessWidget {
+class FastAppSettingsToggleSaveEntryField extends StatelessWidget {
   /// A callback that is called when the user toggles the auto-save setting.
   final void Function(bool)? onSaveEntryChanged;
 
@@ -16,7 +16,7 @@ class FastUserSettingsToggleSaveEntryField extends StatelessWidget {
   /// The text to display as the label for the toggle list item.
   final String labelText;
 
-  const FastUserSettingsToggleSaveEntryField({
+  const FastAppSettingsToggleSaveEntryField({
     super.key,
     this.onSaveEntryChanged,
     this.descriptor,
@@ -25,8 +25,8 @@ class FastUserSettingsToggleSaveEntryField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FastUserSettingsSaveEntryBuilder(
-      builder: (BuildContext context, FastUserSettingsBlocState state) {
+    return FastAppSettingsSaveEntryBuilder(
+      builder: (BuildContext context, FastAppSettingsBlocState state) {
         return FastToggleListItem(
           labelText: descriptor?.labelText ?? labelText,
           isEnabled: state.isInitialized,

@@ -7,11 +7,11 @@ import 'package:tbloc/tbloc.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 
 /// A page that displays user settings.
-class FastUserSettingsPage extends FastSettingPageLayout {
+class FastAppSettingsPage extends FastSettingPageLayout {
   /// The descriptor for FastSettings.
   final FastSettingsDescriptor descriptor;
 
-  const FastUserSettingsPage({
+  const FastAppSettingsPage({
     super.key,
     super.headerDescriptionText,
     super.contentPadding,
@@ -27,15 +27,15 @@ class FastUserSettingsPage extends FastSettingPageLayout {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        if (_canShowCategory(FastUserSettingsCategories.inputs))
+        if (_canShowCategory(FastAppSettingsCategories.inputs))
           ...buildUserInputsCategory(
-            _getCategoryDescriptor(FastUserSettingsCategories.inputs)!,
+            _getCategoryDescriptor(FastAppSettingsCategories.inputs)!,
             context,
           ),
-        if (_canShowCategory(FastUserSettingsCategories.defaultValues)) ...[
+        if (_canShowCategory(FastAppSettingsCategories.defaultValues)) ...[
           kFastVerticalSizedBox16,
           ...buildUserDefaultValuesCategory(
-            _getCategoryDescriptor(FastUserSettingsCategories.defaultValues)!,
+            _getCategoryDescriptor(FastAppSettingsCategories.defaultValues)!,
             context,
           ),
         ]
@@ -50,16 +50,16 @@ class FastUserSettingsPage extends FastSettingPageLayout {
   ) {
     return [
       FastListHeader(categoryText: categoryDescriptor.titleText),
-      if (_canShowField(categoryDescriptor, FastUserSettingsFields.saveEntry))
-        FastUserSettingsToggleSaveEntryField(
+      if (_canShowField(categoryDescriptor, FastAppSettingsFields.saveEntry))
+        FastAppSettingsToggleSaveEntryField(
           descriptor: _getFieldDescriptor(
             categoryDescriptor,
-            FastUserSettingsFields.saveEntry,
+            FastAppSettingsFields.saveEntry,
           ),
           onSaveEntryChanged: (bool saveEntry) {
             _dispatchEvent(
               context,
-              FastUserSettingsBlocEvent.saveEntryChanged(saveEntry),
+              FastAppSettingsBlocEvent.saveEntryChanged(saveEntry),
             );
           },
         ),
@@ -74,16 +74,16 @@ class FastUserSettingsPage extends FastSettingPageLayout {
     return [
       FastListHeader(categoryText: categoryDescriptor.titleText),
       if (_canShowField(
-          categoryDescriptor, FastUserSettingsFields.primaryCurrency))
-        FastUserSettingsPrimaryCurrencyField(
+          categoryDescriptor, FastAppSettingsFields.primaryCurrency))
+        FastAppSettingsPrimaryCurrencyField(
           descriptor: _getFieldDescriptor(
             categoryDescriptor,
-            FastUserSettingsFields.primaryCurrency,
+            FastAppSettingsFields.primaryCurrency,
           ),
           onCurrencyChanged: (String currencyCode) {
             _dispatchEvent(
               context,
-              FastUserSettingsBlocEvent.primaryCurrencyCodeChanged(
+              FastAppSettingsBlocEvent.primaryCurrencyCodeChanged(
                 currencyCode,
               ),
             );
@@ -99,9 +99,9 @@ class FastUserSettingsPage extends FastSettingPageLayout {
     );
   }
 
-  /// Dispatches the given [event] to the [FastUserSettingsBloc].
-  void _dispatchEvent(BuildContext context, FastUserSettingsBlocEvent event) {
-    final bloc = BlocProvider.of<FastUserSettingsBloc>(context);
+  /// Dispatches the given [event] to the [FastAppSettingsBloc].
+  void _dispatchEvent(BuildContext context, FastAppSettingsBlocEvent event) {
+    final bloc = BlocProvider.of<FastAppSettingsBloc>(context);
 
     bloc.addEvent(event);
   }
