@@ -17,6 +17,7 @@ final kFastSettingsDefaultTheme = kFastSettingsThemeMap[ThemeMode.system]!;
 /// Default store key names.
 const kFastAppSettingStoreName = 'fastAppSettings';
 const kFastAppInfoStoreName = 'fastAppInfo';
+const kFastAppFeaturesStoreName = 'fastAppFeatures';
 
 // Default App setting values.
 const kFastSettingsDefaultLanguageCode = 'en';

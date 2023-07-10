@@ -19,6 +19,7 @@ dependencies:
   tstore: ">=0.8.8+1 <1.0.0"
   devicelocale: ^0.6.0
   t_helpers: ">=0.0.18 <1.0.0"
+  collection: ^1.16.0
 
 dev_dependencies:
   flutter_test:
