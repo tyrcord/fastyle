@@ -128,7 +128,7 @@ class FastOnboardingContentLayout extends StatelessWidget {
   }
 
   double _getIconSize(BuildContext context, FastMediaType mediaType) {
-    final scaleFactor = MediaQuery.of(context).textScaleFactor;
+    final scaleFactor = MediaQuery.textScaleFactorOf(context);
     final textScaleFactor = scaleFactor > 1 ? scaleFactor : scaleFactor;
 
     if (mediaType == FastMediaType.tablet) {

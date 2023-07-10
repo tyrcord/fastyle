@@ -84,7 +84,7 @@ class FastDigitCalculatorKeyboardButton<T> extends StatelessWidget {
       onNotification: (notification) => true,
       child: SizeChangedLayoutNotifier(
         child: Builder(builder: (context) {
-          final screenSize = MediaQuery.of(context).size;
+          final screenSize = MediaQuery.sizeOf(context);
           final height = _calculateButtonHeight(mediaType, screenSize);
 
           return Container(

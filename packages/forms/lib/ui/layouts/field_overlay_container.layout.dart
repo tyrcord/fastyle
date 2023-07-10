@@ -78,7 +78,7 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
 
   /// Builds the header with a title and optional icons.
   Widget _buildHeader(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery.sizeOf(context);
     final isSmallScreen = size.height < kSmallScreenHeight;
 
     return Container(
@@ -101,7 +101,7 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
     return Center(
       child: Container(
         constraints: BoxConstraints(maxWidth: maxHeadlineWidth),
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery.sizeOf(context).width,
         padding: const EdgeInsets.only(
           left: 16.0,
           right: 16.0,
