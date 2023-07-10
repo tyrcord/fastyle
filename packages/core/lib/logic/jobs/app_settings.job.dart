@@ -1,6 +1,5 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:devicelocale/devicelocale.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:tbloc/tbloc.dart';
@@ -11,7 +10,6 @@ import 'package:rxdart/rxdart.dart';
 /// It is used to load the settings of the application
 /// and initialize the [FastAppSettingsBloc] before the [FastAppSettingsBloc]
 /// is used.
-/// FIXME: finish to implement this class.
 class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
   static FastAppSettingsJob? _singleton;
 
@@ -40,12 +38,14 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
+    final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
     final settingsBloc = BlocProvider.of<FastAppSettingsBloc>(context);
-    final savedUserLanguageCode = settingsBloc.currentState.languageCode;
+    final appInfoState = appInfoBloc.currentState;
+    final deviceLanguageCode = appInfoState.deviceLanguageCode;
+    final deviceCountryCode = appInfoState.deviceCountryCode;
+    final isFirstLaunch = appInfoBloc.currentState.isFirstLaunch;
     final supportedLocales = settingsBloc.currentState.supportedLocales;
-
-    // Determine the user language and country code from the device locale.
-    final (deviceLanguageCode, deviceCountryCode) = await getPreferredLocale();
+    late final String languageCode;
 
     await notifiyErrorReporterIfNeeded(
       deviceLanguageCode,
@@ -53,14 +53,23 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
       errorReporter: errorReporter,
     );
 
-    // Determine the user language code.
+    if (isFirstLaunch) {
+      // If it is the first launch of the application, we use the device locale
+      // to initialize the language of the application.
+      languageCode = await determineUserLanguageCode(
+        deviceLanguageCode,
+        supportedLocales,
+      );
+    } else {
+      // If it is not the first launch of the application, we use the saved
+      // language code to initialize the language of the application.
+      languageCode = settingsBloc.currentState.languageCode;
+    }
 
-    final languageCode = await determineUserLanguageCode(
-      deviceLanguageCode,
-      supportedLocales,
-    );
-
-    settingsBloc.addEvent(const FastAppSettingsBlocEvent.init());
+    settingsBloc.addEvent(FastAppSettingsBlocEvent.init(
+      languageCode,
+      deviceCountryCode,
+    ));
 
     final settingsState = await RaceStream([
       settingsBloc.onError,
@@ -119,7 +128,7 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     );
   }
 
-  determineUserLanguageCode(
+  Future<String> determineUserLanguageCode(
     String languageCode,
     Iterable<Locale> supportedLocales,
   ) async {
@@ -130,18 +139,6 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     }
 
     return kFastSettingsDefaultLanguageCode;
-  }
-
-  Future<(String, String?)> getPreferredLocale() async {
-    final deviceIntlLocale = await getDevicelocale();
-
-    return (deviceIntlLocale.languageCode, deviceIntlLocale.countryCode);
-  }
-
-  Future<Locale> getDevicelocale() async {
-    final localeIdentifiers = await Devicelocale.preferredLanguagesAsLocales;
-
-    return localeIdentifiers.first;
   }
 
   bool isLanguageCodeSupported(

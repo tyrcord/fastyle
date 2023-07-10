@@ -1,5 +1,5 @@
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tbloc/tbloc.dart';
 
 /// The [FastAppInfoBlocState] class represents the state of the application's
@@ -86,8 +86,13 @@ class FastAppInfoBlocState extends BlocState {
   /// The previous database version of the app.
   final int? previousDatabaseVersion;
 
-  /// Indicates whether the app is launched for the first time.
-  get isFirstLaunch => appLaunchCounter == 1;
+  /// The device's language code.
+  final String deviceLanguageCode;
+
+  /// The device's country code.
+  final String? deviceCountryCode;
+
+  bool get isFirstLaunch => appLaunchCounter <= 1;
 
   /// Constructs a [FastAppInfoBlocState] with the provided parameters.
   FastAppInfoBlocState({
@@ -113,14 +118,18 @@ class FastAppInfoBlocState extends BlocState {
     this.premiumProductIdentifier,
     this.previousDatabaseVersion,
     this.promoUrl,
+    this.deviceCountryCode,
     int? askForReviewMinLaunches,
     int? askForReviewMinDays,
     int? remindForReviewMinLaunches,
     int? remindForReviewMinDays,
     bool? hasDisclaimer,
     String? appName,
+    String? deviceLanguageCode,
     int? appLaunchCounter,
   })  : appName = appName ?? kFastEmptyString,
+        deviceLanguageCode =
+            deviceLanguageCode ?? kFastSettingsDefaultLanguageCode,
         askForReviewMinLaunches =
             askForReviewMinLaunches ?? kFastAppSettingsAskForReviewMinLaunches,
         remindForReviewMinLaunches = remindForReviewMinLaunches ??
@@ -161,6 +170,8 @@ class FastAppInfoBlocState extends BlocState {
       appName: document.appName,
       appLaunchCounter: document.appLaunchCounter,
       previousDatabaseVersion: document.previousDatabaseVersion,
+      deviceLanguageCode: document.deviceLanguageCode,
+      deviceCountryCode: document.deviceCountryCode,
     );
   }
 
@@ -199,6 +210,8 @@ class FastAppInfoBlocState extends BlocState {
     String? promoUrl,
     int? appLaunchCounter,
     int? previousDatabaseVersion,
+    String? deviceLanguageCode,
+    String? deviceCountryCode,
   }) =>
       FastAppInfoBlocState(
         isInitializing: isInitializing ?? this.isInitializing,
@@ -235,6 +248,8 @@ class FastAppInfoBlocState extends BlocState {
         appLaunchCounter: appLaunchCounter ?? this.appLaunchCounter,
         previousDatabaseVersion:
             previousDatabaseVersion ?? this.previousDatabaseVersion,
+        deviceLanguageCode: deviceLanguageCode ?? this.deviceLanguageCode,
+        deviceCountryCode: deviceCountryCode ?? this.deviceCountryCode,
       );
 
   /// Creates a new [FastAppInfoBlocState] instance with the same property
@@ -276,6 +291,8 @@ class FastAppInfoBlocState extends BlocState {
       promoUrl: model.promoUrl,
       appLaunchCounter: model.appLaunchCounter,
       previousDatabaseVersion: model.previousDatabaseVersion,
+      deviceLanguageCode: model.deviceLanguageCode,
+      deviceCountryCode: model.deviceCountryCode,
     );
   }
 
@@ -308,5 +325,7 @@ class FastAppInfoBlocState extends BlocState {
         promoUrl,
         appLaunchCounter,
         previousDatabaseVersion,
+        deviceLanguageCode,
+        deviceCountryCode,
       ];
 }

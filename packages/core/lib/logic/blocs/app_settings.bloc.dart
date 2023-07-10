@@ -32,7 +32,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
     final type = event.type;
 
     if (type == FastAppSettingsBlocEventType.init) {
-      yield* handleInitEvent();
+      yield* handleInitEvent(payload);
     } else if (type == FastAppSettingsBlocEventType.initialized) {
       yield* handleInitializedEvent(payload);
     } else if (isInitialized) {
@@ -67,7 +67,9 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   /// This event is used to initialize the bloc.
   /// It will retrieve the settings from the data provider and
   /// dispatch a [FastAppSettingsBlocEventType.initialized] event.
-  Stream<FastAppSettingsBlocState> handleInitEvent() async* {
+  Stream<FastAppSettingsBlocState> handleInitEvent(
+    FastAppSettingsBlocEventPayload? payload,
+  ) async* {
     if (canInitialize) {
       isInitializing = true;
       yield currentState.copyWith(isInitializing: true);
@@ -77,9 +79,10 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
       addEvent(FastAppSettingsBlocEvent.initialized(
         FastAppSettingsBlocEventPayload(
           theme: settings.theme ?? kFastSettingsThemeMap[ThemeMode.system],
+          languageCode: payload?.languageCode ?? settings.languageCode,
           secondaryCurrencyCode: settings.secondaryCurrencyCode,
           primaryCurrencyCode: settings.primaryCurrencyCode,
-          languageCode: settings.languageCode,
+          countryCode: payload?.countryCode,
           saveEntry: settings.saveEntry,
         ),
       ));

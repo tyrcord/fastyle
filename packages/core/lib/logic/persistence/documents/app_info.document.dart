@@ -84,6 +84,12 @@ class FastAppInfoDocument extends TDocument {
 
   final int? previousDatabaseVersion;
 
+  /// The device's language code.
+  final String? deviceLanguageCode;
+
+  /// The device's country code.
+  final String? deviceCountryCode;
+
   /// Creates an instance of [FastAppInfoDocument].
   const FastAppInfoDocument({
     this.appVersion,
@@ -106,6 +112,8 @@ class FastAppInfoDocument extends TDocument {
     this.appBuildNumber,
     this.promoUrl,
     this.previousDatabaseVersion,
+    this.deviceLanguageCode,
+    this.deviceCountryCode,
     int? askForReviewMinLaunches,
     int? askForReviewMinDays,
     int? remindForReviewMinLaunches,
@@ -154,6 +162,8 @@ class FastAppInfoDocument extends TDocument {
       appName: state.appName,
       appLaunchCounter: state.appLaunchCounter,
       previousDatabaseVersion: state.previousDatabaseVersion,
+      deviceLanguageCode: state.deviceLanguageCode,
+      deviceCountryCode: state.deviceCountryCode,
     );
   }
 
@@ -202,6 +212,8 @@ class FastAppInfoDocument extends TDocument {
       promoUrl: json['promoUrl'] as String?,
       appLaunchCounter: json['appLaunchCounter'] as int? ?? 0,
       previousDatabaseVersion: json['previousDatabaseVersion'] as int?,
+      deviceLanguageCode: json['deviceLanguageCode'] as String?,
+      deviceCountryCode: json['deviceCountryCode'] as String?,
     );
   }
 
@@ -234,6 +246,8 @@ class FastAppInfoDocument extends TDocument {
     String? promoUrl,
     int? appLaunchCounter,
     int? previousDatabaseVersion,
+    String? deviceLanguageCode,
+    String? deviceCountryCode,
   }) {
     return FastAppInfoDocument(
       appName: appName ?? this.appName,
@@ -268,6 +282,8 @@ class FastAppInfoDocument extends TDocument {
       promoUrl: promoUrl ?? this.promoUrl,
       previousDatabaseVersion:
           previousDatabaseVersion ?? this.previousDatabaseVersion,
+      deviceLanguageCode: deviceLanguageCode ?? this.deviceLanguageCode,
+      deviceCountryCode: deviceCountryCode ?? this.deviceCountryCode,
     );
   }
 
@@ -301,6 +317,8 @@ class FastAppInfoDocument extends TDocument {
       remindForReviewMinDays: model.remindForReviewMinDays,
       promoUrl: model.promoUrl,
       previousDatabaseVersion: model.previousDatabaseVersion,
+      deviceLanguageCode: model.deviceLanguageCode,
+      deviceCountryCode: model.deviceCountryCode,
     );
   }
 
@@ -333,6 +351,8 @@ class FastAppInfoDocument extends TDocument {
         'promoUrl': promoUrl,
         'appLaunchCounter': appLaunchCounter,
         'previousDatabaseVersion': previousDatabaseVersion,
+        'deviceLanguageCode': deviceLanguageCode,
+        'deviceCountryCode': deviceCountryCode,
       };
 
   @override
@@ -367,5 +387,7 @@ class FastAppInfoDocument extends TDocument {
         promoUrl,
         appLaunchCounter,
         previousDatabaseVersion,
+        deviceLanguageCode,
+        deviceCountryCode,
       ];
 }

@@ -1,5 +1,7 @@
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:devicelocale/devicelocale.dart';
+import 'package:fastyle_core/fastyle_core.dart';
+import 'package:flutter/material.dart';
 import 'package:tbloc/tbloc.dart';
 
 class FastAppInfoBloc
@@ -47,6 +49,10 @@ class FastAppInfoBloc
       isInitializing = true;
       yield currentState.copyWith(isInitializing: true);
 
+      // Determine the user language and country code from the device locale.
+      final (deviceLanguageCode, deviceCountryCode) =
+          await getPreferredLocale();
+
       final persistedDocument = await _retrievePersistedAppInfo();
       final packageInfo = await PackageInfo.fromPlatform();
 
@@ -63,6 +69,8 @@ class FastAppInfoBloc
         previousDatabaseVersion: persistedDocument.databaseVersion,
         databaseVersion: initialDocument.databaseVersion,
         appBuildNumber: packageInfo.buildNumber,
+        deviceLanguageCode: deviceLanguageCode,
+        deviceCountryCode: deviceCountryCode,
         appVersion: packageInfo.version,
       );
 
@@ -92,6 +100,20 @@ class FastAppInfoBloc
   }
 
   Future<FastAppInfoDocument> _retrievePersistedAppInfo() async {
+    await _dataProvider.connect();
+
     return _dataProvider.retrieveAppInfo();
+  }
+
+  Future<(String, String?)> getPreferredLocale() async {
+    final deviceIntlLocale = await getDevicelocale();
+
+    return (deviceIntlLocale.languageCode, deviceIntlLocale.countryCode);
+  }
+
+  Future<Locale> getDevicelocale() async {
+    final localeIdentifiers = await Devicelocale.preferredLanguagesAsLocales;
+
+    return localeIdentifiers.first;
   }
 }

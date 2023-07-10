@@ -52,8 +52,14 @@ class FastAppSettingsBlocEvent extends BlocEvent<FastAppSettingsBlocEventType,
           payload: FastAppSettingsBlocEventPayload(saveEntry: saveEntry),
         );
 
-  const FastAppSettingsBlocEvent.init()
-      : super(type: FastAppSettingsBlocEventType.init);
+  FastAppSettingsBlocEvent.init(String languageCode, String? countryCode)
+      : super(
+          type: FastAppSettingsBlocEventType.init,
+          payload: FastAppSettingsBlocEventPayload(
+            languageCode: languageCode,
+            countryCode: countryCode,
+          ),
+        );
 
   const FastAppSettingsBlocEvent.initialized(
     FastAppSettingsBlocEventPayload payload,

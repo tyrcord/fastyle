@@ -1,15 +1,20 @@
 import 'package:lingua_settings/generated/codegen_loader.g.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_settings/fastyle_settings.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:lingua_core/lingua_core.dart';
-import 'package:tbloc/tbloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
+import 'package:tbloc/tbloc.dart';
 
 import './routes.dart';
+
+const kAppInfo = FastAppInfoDocument(
+  appName: 'Fastyle Settings',
+  databaseVersion: 0,
+);
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,6 +42,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       blocProviders: [
+        BlocProvider(bloc: FastAppInfoBloc()),
         BlocProvider(bloc: FastAppSettingsBloc()),
       ],
       child: FastApp(
@@ -45,6 +51,7 @@ class MyApp extends StatelessWidget {
         locale: context.locale,
         routes: kAppRoutes,
         loaderJobs: [
+          FastAppInfoJob(kAppInfo),
           FastAppSettingsJob(),
         ],
         home: FastSettingsThemeListener(

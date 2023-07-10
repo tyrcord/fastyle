@@ -48,6 +48,7 @@ class FastAppInfoJob extends FastJob {
     final hasDatabaseVersionChanged = nextVersion != previousVersion;
 
     if (hasDatabaseVersionChanged && onDatabaseVersionChanged != null) {
+      // FIXME: should be called at the end of the initialization process
       return onDatabaseVersionChanged!(previousVersion, nextVersion);
     }
   }
