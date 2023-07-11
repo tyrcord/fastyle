@@ -43,7 +43,7 @@ class FastAppInfoBloc
   }
 
   Stream<FastAppInfoBlocState> handleInitEvent(
-    FastAppInfoDocument initialDocument,
+    FastAppInfoDocument appInfoDocument,
   ) async* {
     if (canInitialize) {
       isInitializing = true;
@@ -55,19 +55,14 @@ class FastAppInfoBloc
 
       final persistedDocument = await _retrievePersistedAppInfo();
       final packageInfo = await PackageInfo.fromPlatform();
-
-      var document = persistedDocument;
-
-      // If the app is launched for the first time, we initialize the persisted
-      // document with the initial document.
-      // The initial document is the provided by the app.
-      if (persistedDocument.appLaunchCounter == 0) {
-        document = initialDocument;
-      }
+      var document = appInfoDocument;
 
       document = document.copyWith(
+        // Values controlled by the persisted document.
         previousDatabaseVersion: persistedDocument.databaseVersion,
-        databaseVersion: initialDocument.databaseVersion,
+        appLaunchCounter: persistedDocument.appLaunchCounter,
+
+        // Values controlled by the device.
         appBuildNumber: packageInfo.buildNumber,
         deviceLanguageCode: deviceLanguageCode,
         deviceCountryCode: deviceCountryCode,

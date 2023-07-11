@@ -1,5 +1,6 @@
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:flutter/material.dart';
 import 'package:tstore/tstore.dart';
 
 /// Represents information about a fast app.
@@ -90,6 +91,9 @@ class FastAppInfoDocument extends TDocument {
   /// The device's country code.
   final String? deviceCountryCode;
 
+  /// The supported locales of the application.
+  final Iterable<Locale> supportedLocales;
+
   /// Creates an instance of [FastAppInfoDocument].
   const FastAppInfoDocument({
     this.appVersion,
@@ -120,6 +124,7 @@ class FastAppInfoDocument extends TDocument {
     int? remindForReviewMinDays,
     bool? hasDisclaimer,
     String? appName,
+    Iterable<Locale>? supportedLocales,
     int? appLaunchCounter,
   })  : appName = appName ?? kFastEmptyString,
         askForReviewMinLaunches =
@@ -131,6 +136,7 @@ class FastAppInfoDocument extends TDocument {
         remindForReviewMinDays =
             remindForReviewMinDays ?? kFastAppSettingsRemindForReviewMinDays,
         hasDisclaimer = hasDisclaimer ?? kFastAppSettingsHasDisclaimer,
+        supportedLocales = supportedLocales ?? kFastAppSettingsSupportedLocales,
         appLaunchCounter = appLaunchCounter ?? 0;
 
   factory FastAppInfoDocument.fromBlocState(FastAppInfoBlocState state) {
@@ -164,6 +170,7 @@ class FastAppInfoDocument extends TDocument {
       previousDatabaseVersion: state.previousDatabaseVersion,
       deviceLanguageCode: state.deviceLanguageCode,
       deviceCountryCode: state.deviceCountryCode,
+      supportedLocales: state.supportedLocales,
     );
   }
 
@@ -180,6 +187,7 @@ class FastAppInfoDocument extends TDocument {
     }
 
     return FastAppInfoDocument(
+      // Ignore supportedLocales
       hasDisclaimer:
           json['hasDisclaimer'] as bool? ?? kFastAppSettingsHasDisclaimer,
       appName: json['appName'] as String? ?? kFastEmptyString,
@@ -248,6 +256,7 @@ class FastAppInfoDocument extends TDocument {
     int? previousDatabaseVersion,
     String? deviceLanguageCode,
     String? deviceCountryCode,
+    Iterable<Locale>? supportedLocales,
   }) {
     return FastAppInfoDocument(
       appName: appName ?? this.appName,
@@ -284,6 +293,7 @@ class FastAppInfoDocument extends TDocument {
           previousDatabaseVersion ?? this.previousDatabaseVersion,
       deviceLanguageCode: deviceLanguageCode ?? this.deviceLanguageCode,
       deviceCountryCode: deviceCountryCode ?? this.deviceCountryCode,
+      supportedLocales: supportedLocales ?? this.supportedLocales,
     );
   }
 
@@ -319,11 +329,13 @@ class FastAppInfoDocument extends TDocument {
       previousDatabaseVersion: model.previousDatabaseVersion,
       deviceLanguageCode: model.deviceLanguageCode,
       deviceCountryCode: model.deviceCountryCode,
+      supportedLocales: model.supportedLocales,
     );
   }
 
   @override
   Map<String, dynamic> toJson() => <String, dynamic>{
+        // Ignore supportedLocales
         'appName': appName,
         'appVersion': appVersion,
         'appBuildNumber': appBuildNumber,
@@ -389,5 +401,6 @@ class FastAppInfoDocument extends TDocument {
         previousDatabaseVersion,
         deviceLanguageCode,
         deviceCountryCode,
+        supportedLocales,
       ];
 }

@@ -33,9 +33,6 @@ class FastAppSettingsBlocState extends BlocState {
   /// Whether the application should always use the 24-hour format.
   final bool alwaysUse24HourFormat;
 
-  /// The supported locales of the application.
-  final Iterable<Locale> supportedLocales;
-
   /// The current locale code of the application.
   /// Format: languageCode_countryCode
   /// For example: en_US, fr_FR, de_DE, ...
@@ -69,7 +66,6 @@ class FastAppSettingsBlocState extends BlocState {
     this.secondaryCurrencyCode,
     this.countryCode,
     this.theme,
-    Iterable<Locale>? supportedLocales,
     bool? alwaysUse24HourFormat,
     String? primaryCurrencyCode,
     String? languageCode,
@@ -77,7 +73,6 @@ class FastAppSettingsBlocState extends BlocState {
   })  : primaryCurrencyCode =
             primaryCurrencyCode ?? kFastAppSettingsPrimaryCurrencyCode,
         saveEntry = saveEntry ?? kFastAppSettingsSaveEntry,
-        supportedLocales = supportedLocales ?? kFastAppSettingsSupportedLocales,
         languageCode = languageCode ?? kFastSettingsDefaultLanguageCode,
         alwaysUse24HourFormat = alwaysUse24HourFormat ?? false;
 
@@ -93,13 +88,11 @@ class FastAppSettingsBlocState extends BlocState {
     String? countryCode,
     bool? isInitialized,
     String? theme,
-    Iterable<Locale>? supportedLocales,
     String? primaryCurrencyCode,
     String? secondaryCurrencyCode,
     bool? saveEntry,
   }) =>
       FastAppSettingsBlocState(
-        supportedLocales: supportedLocales ?? this.supportedLocales,
         isInitializing: isInitializing ?? this.isInitializing,
         isInitialized: isInitialized ?? this.isInitialized,
         languageCode: languageCode ?? this.languageCode,
@@ -124,7 +117,6 @@ class FastAppSettingsBlocState extends BlocState {
   FastAppSettingsBlocState merge(covariant FastAppSettingsBlocState model) {
     return copyWith(
       alwaysUse24HourFormat: model.alwaysUse24HourFormat,
-      supportedLocales: model.supportedLocales,
       isInitializing: model.isInitializing,
       isInitialized: model.isInitialized,
       languageCode: model.languageCode,
@@ -140,7 +132,6 @@ class FastAppSettingsBlocState extends BlocState {
   @override
   List<Object?> get props => [
         alwaysUse24HourFormat,
-        supportedLocales,
         isInitializing,
         isInitialized,
         languageCode,

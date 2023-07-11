@@ -20,6 +20,7 @@ dependencies:
   devicelocale: ^0.6.0
   t_helpers: ">=0.0.18 <1.0.0"
   collection: ^1.16.0
+  easy_localization: ^3.0.2
 
 dev_dependencies:
   flutter_test:

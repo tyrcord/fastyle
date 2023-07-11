@@ -1,5 +1,6 @@
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:flutter/material.dart';
 import 'package:tbloc/tbloc.dart';
 
 /// The [FastAppInfoBlocState] class represents the state of the application's
@@ -94,6 +95,9 @@ class FastAppInfoBlocState extends BlocState {
 
   bool get isFirstLaunch => appLaunchCounter <= 1;
 
+  /// The supported locales of the application.
+  final Iterable<Locale> supportedLocales;
+
   /// Constructs a [FastAppInfoBlocState] with the provided parameters.
   FastAppInfoBlocState({
     super.isInitializing,
@@ -119,6 +123,7 @@ class FastAppInfoBlocState extends BlocState {
     this.previousDatabaseVersion,
     this.promoUrl,
     this.deviceCountryCode,
+    Iterable<Locale>? supportedLocales,
     int? askForReviewMinLaunches,
     int? askForReviewMinDays,
     int? remindForReviewMinLaunches,
@@ -139,6 +144,7 @@ class FastAppInfoBlocState extends BlocState {
         remindForReviewMinDays =
             remindForReviewMinDays ?? kFastAppSettingsRemindForReviewMinDays,
         hasDisclaimer = hasDisclaimer ?? kFastAppSettingsHasDisclaimer,
+        supportedLocales = supportedLocales ?? kFastAppSettingsSupportedLocales,
         appLaunchCounter = appLaunchCounter ?? 0;
 
   factory FastAppInfoBlocState.fromDocument(FastAppInfoDocument document) {
@@ -172,6 +178,7 @@ class FastAppInfoBlocState extends BlocState {
       previousDatabaseVersion: document.previousDatabaseVersion,
       deviceLanguageCode: document.deviceLanguageCode,
       deviceCountryCode: document.deviceCountryCode,
+      supportedLocales: document.supportedLocales,
     );
   }
 
@@ -212,8 +219,10 @@ class FastAppInfoBlocState extends BlocState {
     int? previousDatabaseVersion,
     String? deviceLanguageCode,
     String? deviceCountryCode,
+    Iterable<Locale>? supportedLocales,
   }) =>
       FastAppInfoBlocState(
+        supportedLocales: supportedLocales ?? this.supportedLocales,
         isInitializing: isInitializing ?? this.isInitializing,
         isInitialized: isInitialized ?? this.isInitialized,
         appName: appName ?? this.appName,
@@ -293,6 +302,7 @@ class FastAppInfoBlocState extends BlocState {
       previousDatabaseVersion: model.previousDatabaseVersion,
       deviceLanguageCode: model.deviceLanguageCode,
       deviceCountryCode: model.deviceCountryCode,
+      supportedLocales: model.supportedLocales,
     );
   }
 
@@ -308,6 +318,7 @@ class FastAppInfoBlocState extends BlocState {
         appDisclaimerUrl,
         supportEmail,
         bugReportEmail,
+        supportedLocales,
         facebookUrl,
         homepageUrl,
         instagramUrl,

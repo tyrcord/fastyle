@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:tbloc/tbloc.dart';
@@ -44,7 +45,7 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     final deviceLanguageCode = appInfoState.deviceLanguageCode;
     final deviceCountryCode = appInfoState.deviceCountryCode;
     final isFirstLaunch = appInfoBloc.currentState.isFirstLaunch;
-    final supportedLocales = settingsBloc.currentState.supportedLocales;
+    final supportedLocales = appInfoBloc.currentState.supportedLocales;
     late final String languageCode;
 
     await notifiyErrorReporterIfNeeded(
@@ -52,6 +53,21 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
       deviceCountryCode,
       errorReporter: errorReporter,
     );
+
+    // We initialize the settings bloc with the device country code.
+    settingsBloc.addEvent(FastAppSettingsBlocEvent.init(deviceCountryCode));
+
+    final settingsState = await RaceStream([
+      settingsBloc.onError,
+      settingsBloc.onData.where((state) => state.isInitialized),
+    ]).first;
+
+    if (settingsState is! FastAppSettingsBlocState) {
+      throw settingsState;
+    }
+
+    // Once the settings bloc is initialized, we determine the language code
+    // that will be used to initialize the language of the application.
 
     if (isFirstLaunch) {
       // If it is the first launch of the application, we use the device locale
@@ -66,18 +82,15 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
       languageCode = settingsBloc.currentState.languageCode;
     }
 
-    settingsBloc.addEvent(FastAppSettingsBlocEvent.init(
-      languageCode,
-      deviceCountryCode,
-    ));
+    // We update the language code of the application if needed.
+    if (languageCode != settingsBloc.currentState.languageCode) {
+      settingsBloc.addEvent(
+        FastAppSettingsBlocEvent.languageCodeChanged(languageCode),
+      );
 
-    final settingsState = await RaceStream([
-      settingsBloc.onError,
-      settingsBloc.onData.where((state) => state.isInitialized),
-    ]).first;
-
-    if (settingsState is! FastAppSettingsBlocState) {
-      throw settingsState;
+      await settingsBloc.onData
+          .where((state) => state.languageCode == languageCode)
+          .first;
     }
 
     return settingsState;
@@ -89,6 +102,8 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     BuildContext context,
     FastAppSettingsBlocState settingsState,
   ) async {
+    await context.setLocale(settingsState.locale);
+
     return updateThemeMode(context, settingsState);
   }
 
