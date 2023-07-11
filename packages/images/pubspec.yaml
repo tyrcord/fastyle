@@ -18,6 +18,7 @@ flutter:
     - assets/images/crypto/
     - assets/images/flag/
     - assets/images/mobile/
+    - assets/images/localizations/
 
 dev_dependencies:
   flutter_test:
