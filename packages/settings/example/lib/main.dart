@@ -14,6 +14,11 @@ import './routes.dart';
 const kAppInfo = FastAppInfoDocument(
   appName: 'Fastyle Settings',
   databaseVersion: 0,
+  supportedLocales: [
+    Locale('en'),
+    Locale('fr'),
+    Locale('es'),
+  ],
 );
 
 void main() async {

@@ -24,6 +24,7 @@ dependencies:
   matex_dart: ^0.11.1
   tmodel: ^0.5.3
   fastyle_financial: ^0.0.5+3
+  easy_localization: ^3.0.2
 
 dev_dependencies:
   flutter_test:

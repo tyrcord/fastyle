@@ -21,9 +21,7 @@ dependencies:
 
   fastyle_core: ^0.0.2
   fastyle_calculator: ^1.13.0
-
-  fastyle_settings:
-    path: ../
+  fastyle_settings: ^0.0.1
 
 dev_dependencies:
   flutter_test:

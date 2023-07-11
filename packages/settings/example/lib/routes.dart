@@ -17,11 +17,19 @@ final kAppRoutes = [
   ),
   GoRoute(
     path: 'languages',
-    builder: (context, state) => const FastSectionPage(
-      contentPadding: EdgeInsets.zero,
-      child: FastBody(
-        text: 'TODO',
-      ),
+    builder: (context, state) => FastSettingsLanguagePage(
+      subtitleText: 'Languages',
+      titleText: 'Languages',
+      headerDescriptionText: 'Select the languages you want to use in the app.',
+      languageFormatter: (languageCode) {
+        if (languageCode == 'fr') {
+          return 'Français';
+        } else if (languageCode == 'en') {
+          return 'English';
+        }
+
+        return languageCode;
+      },
     ),
   ),
   GoRoute(
