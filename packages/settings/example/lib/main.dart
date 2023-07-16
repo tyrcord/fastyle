@@ -1,3 +1,6 @@
+import 'package:lingua_finance/generated/codegen_loader.g.dart';
+import 'package:lingua_finance_instrument/generated/codegen_loader.g.dart';
+import 'package:lingua_languages/generated/codegen_loader.g.dart';
 import 'package:lingua_settings/generated/codegen_loader.g.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -15,9 +18,15 @@ const kAppInfo = FastAppInfoDocument(
   appName: 'Fastyle Settings',
   databaseVersion: 0,
   supportedLocales: [
+    Locale('de'),
     Locale('en'),
     Locale('fr'),
     Locale('es'),
+    Locale('it'),
+    Locale('ja'),
+    Locale('pt'),
+    Locale('ru'),
+    Locale('zh'),
   ],
 );
 
@@ -27,11 +36,14 @@ void main() async {
 
   runApp(
     EasyLocalization(
-      supportedLocales: const [Locale('en'), Locale('fr')],
+      supportedLocales: kAppInfo.supportedLocales,
       useOnlyLangCode: true,
       assetLoader: LinguaLoader(
         mapLocales: LinguaLoader.mergeMapLocales([
           SettingsCodegenLoader.mapLocales,
+          LanguagesCodegenLoader.mapLocales,
+          FinanceCodegenLoader.mapLocales,
+          FinanceInstrumentCodegenLoader.mapLocales,
         ]),
       ),
       path: 'i18n', // fake path, just to make the example work
@@ -80,15 +92,15 @@ class MyApp extends StatelessWidget {
                 value: '/all',
               ),
               FastItem(
-                labelText: SettingsLocaleKeys.settings_labels_languages.tr(),
+                labelText: SettingsLocaleKeys.settings_label_languages.tr(),
                 value: '/languages',
               ),
               FastItem(
-                labelText: SettingsLocaleKeys.settings_labels_appearance.tr(),
+                labelText: SettingsLocaleKeys.settings_label_appearance.tr(),
                 value: '/appearance',
               ),
-              const FastItem(
-                labelText: 'User settings',
+              FastItem(
+                labelText: SettingsLocaleKeys.settings_label_user_settings.tr(),
                 value: '/user-settings',
               ),
             ],
