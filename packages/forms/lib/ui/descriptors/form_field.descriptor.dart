@@ -20,6 +20,12 @@ class FastFormFieldDescriptor extends TModel {
   /// Whether to show the field.
   final bool show;
 
+  /// A function that builds the label text for each item.
+  final String Function(dynamic)? itemLabelBuilder;
+
+  /// A function that builds the description text for each item.
+  final String Function(dynamic)? itemDescriptionBuilder;
+
   /// Creates a new [FastFormFieldDescriptor].
   const FastFormFieldDescriptor({
     this.searchTitleText,
@@ -28,6 +34,8 @@ class FastFormFieldDescriptor extends TModel {
     this.searchPlaceholderText,
     this.placeholderText,
     this.show = true,
+    this.itemLabelBuilder,
+    this.itemDescriptionBuilder,
   });
 
   @override
@@ -41,6 +49,8 @@ class FastFormFieldDescriptor extends TModel {
     String? searchPlaceholderText,
     String? placeholderText,
     bool? show,
+    String Function(dynamic)? itemLabelBuilder,
+    String Function(dynamic)? itemDescriptionBuilder,
   }) {
     return FastFormFieldDescriptor(
       searchTitleText: searchTitleText ?? this.searchTitleText,
@@ -50,6 +60,9 @@ class FastFormFieldDescriptor extends TModel {
           searchPlaceholderText ?? this.searchPlaceholderText,
       placeholderText: placeholderText ?? this.placeholderText,
       show: show ?? this.show,
+      itemLabelBuilder: itemLabelBuilder ?? this.itemLabelBuilder,
+      itemDescriptionBuilder:
+          itemDescriptionBuilder ?? this.itemDescriptionBuilder,
     );
   }
 
@@ -62,6 +75,8 @@ class FastFormFieldDescriptor extends TModel {
       searchPlaceholderText: model.searchPlaceholderText,
       placeholderText: model.placeholderText,
       show: model.show,
+      itemLabelBuilder: model.itemLabelBuilder,
+      itemDescriptionBuilder: model.itemDescriptionBuilder,
     );
   }
 
@@ -73,5 +88,7 @@ class FastFormFieldDescriptor extends TModel {
         searchPlaceholderText,
         placeholderText,
         show,
+        itemLabelBuilder,
+        itemDescriptionBuilder,
       ];
 }
