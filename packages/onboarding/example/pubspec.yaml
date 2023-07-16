@@ -18,9 +18,7 @@ dependencies:
   lingua_core: ^0.0.3+1
   lingua_onboarding: ^0.0.6+1
 
-  fastyle_onboarding:
-    path: ../
-
+  fastyle_onboarding: ^0.0.7
 dev_dependencies:
   flutter_test:
     sdk: flutter

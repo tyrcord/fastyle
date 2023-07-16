@@ -17,8 +17,7 @@ dependencies:
   easy_localization: ^3.0.2
   lingua_core: ^0.0.3+1
 
-  fastyle_images:
-    path: ../
+  fastyle_images: ^0.0.9
 
 dev_dependencies:
   flutter_test:
