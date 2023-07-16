@@ -92,7 +92,7 @@ class FastAppInfoDocument extends TDocument {
   final String? deviceCountryCode;
 
   /// The supported locales of the application.
-  final Iterable<Locale> supportedLocales;
+  final List<Locale> supportedLocales;
 
   /// Creates an instance of [FastAppInfoDocument].
   const FastAppInfoDocument({
@@ -124,7 +124,7 @@ class FastAppInfoDocument extends TDocument {
     int? remindForReviewMinDays,
     bool? hasDisclaimer,
     String? appName,
-    Iterable<Locale>? supportedLocales,
+    List<Locale>? supportedLocales,
     int? appLaunchCounter,
   })  : appName = appName ?? kFastEmptyString,
         askForReviewMinLaunches =
@@ -256,7 +256,7 @@ class FastAppInfoDocument extends TDocument {
     int? previousDatabaseVersion,
     String? deviceLanguageCode,
     String? deviceCountryCode,
-    Iterable<Locale>? supportedLocales,
+    List<Locale>? supportedLocales,
   }) {
     return FastAppInfoDocument(
       appName: appName ?? this.appName,

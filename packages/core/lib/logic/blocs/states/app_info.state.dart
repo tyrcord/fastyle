@@ -96,7 +96,7 @@ class FastAppInfoBlocState extends BlocState {
   bool get isFirstLaunch => appLaunchCounter <= 1;
 
   /// The supported locales of the application.
-  final Iterable<Locale> supportedLocales;
+  final List<Locale> supportedLocales;
 
   /// Constructs a [FastAppInfoBlocState] with the provided parameters.
   FastAppInfoBlocState({
@@ -123,7 +123,7 @@ class FastAppInfoBlocState extends BlocState {
     this.previousDatabaseVersion,
     this.promoUrl,
     this.deviceCountryCode,
-    Iterable<Locale>? supportedLocales,
+    List<Locale>? supportedLocales,
     int? askForReviewMinLaunches,
     int? askForReviewMinDays,
     int? remindForReviewMinLaunches,
@@ -219,7 +219,7 @@ class FastAppInfoBlocState extends BlocState {
     int? previousDatabaseVersion,
     String? deviceLanguageCode,
     String? deviceCountryCode,
-    Iterable<Locale>? supportedLocales,
+    List<Locale>? supportedLocales,
   }) =>
       FastAppInfoBlocState(
         supportedLocales: supportedLocales ?? this.supportedLocales,
