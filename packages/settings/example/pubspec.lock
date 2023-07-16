@@ -538,10 +538,10 @@ packages:
     dependency: transitive
     description:
       name: matex_core
-      sha256: "26c869d0e128f676dc69f54db5286921c94ef5da5ac49163b656e7a84edf9a59"
+      sha256: "54f3dfde7e6ee11de417e97614f261039a187b148c21425b08496b30f6ac55c7"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.5"
+    version: "0.0.6"
   matex_dart:
     dependency: "direct main"
     description:
@@ -554,10 +554,10 @@ packages:
     dependency: transitive
     description:
       name: matex_financial
-      sha256: "519aa7b96cf3b21b83cca533c318cadee3a17dbe0d584f92ab4869b7103e79e5"
+      sha256: "515d7a0f4bc3e19eb085562de32ab3de3ec3f20d9a5cf9ba402d1739cde25a31"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.9"
+    version: "0.0.10"
   meta:
     dependency: transitive
     description:
@@ -903,10 +903,10 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: e6d3c3da14458affc2c693efed3a3b91072d4890490a44d64a3f08669ea1cd9d
+      sha256: d8354e2347f9f70046149b29f976d02685ab3bc037e3d7f38e8f63a2e6421f16
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.18"
+    version: "0.0.19"
   tbloc:
     dependency: "direct main"
     description:

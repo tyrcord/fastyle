@@ -1,3 +1,12 @@
+## 0.0.11
+
+ - **FIX**: rename itemLabelBuilder to itemDescriptionBuilder.
+ - **FEAT**: add app settings languages page.
+ - **FEAT**: finish app settings logic.
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: add AppInfo logic.
+ - **FEAT**: refactor settings and core packages.
+
 ## 0.0.10
 
  - **FEAT**: support fastyle_core.

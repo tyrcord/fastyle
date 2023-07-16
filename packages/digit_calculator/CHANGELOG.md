@@ -1,3 +1,8 @@
+## 0.0.8
+
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: refactor settings and core packages.
+
 ## 0.0.7
 
  - **FEAT**: update dependencies.

@@ -3,6 +3,83 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-07-16
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_calculator` - `v1.14.0`](#fastyle_calculator---v1140)
+ - [`fastyle_core` - `v0.0.3`](#fastyle_core---v003)
+ - [`fastyle_digit_calculator` - `v0.0.8`](#fastyle_digit_calculator---v008)
+ - [`fastyle_financial` - `v0.0.6`](#fastyle_financial---v006)
+ - [`fastyle_forms` - `v0.0.8`](#fastyle_forms---v008)
+ - [`fastyle_images` - `v0.0.10`](#fastyle_images---v0010)
+ - [`fastyle_onboarding` - `v0.0.8`](#fastyle_onboarding---v008)
+ - [`fastyle_pricing` - `v1.3.0`](#fastyle_pricing---v130)
+ - [`fastyle_settings` - `v0.0.11`](#fastyle_settings---v0011)
+
+---
+
+#### `fastyle_calculator` - `v1.14.0`
+
+ - **FEAT**: add AppInfo logic.
+ - **FEAT**: refactor settings and core packages.
+
+#### `fastyle_core` - `v0.0.3`
+
+ - **FIX**: language settings.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add AppFeaturesBloc logic.
+ - **FEAT**: finish app settings logic.
+ - **FEAT**: add AppInfo logic.
+ - **FEAT**: refactor settings and core packages.
+
+#### `fastyle_digit_calculator` - `v0.0.8`
+
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: refactor settings and core packages.
+
+#### `fastyle_financial` - `v0.0.6`
+
+ - **FIX**: rename itemLabelBuilder to itemDescriptionBuilder.
+ - **FEAT**: refactor settings and core packages.
+
+#### `fastyle_forms` - `v0.0.8`
+
+ - **FEAT**: add more options to the form field descriptor.
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: refactor settings and core packages.
+
+#### `fastyle_images` - `v0.0.10`
+
+ - **FIX**: images.
+ - **FEAT**: refactor settings and core packages.
+
+#### `fastyle_onboarding` - `v0.0.8`
+
+ - **FEAT**: minor performance improvements.
+
+#### `fastyle_pricing` - `v1.3.0`
+
+ - **FEAT**: refactor settings and core packages.
+
+#### `fastyle_settings` - `v0.0.11`
+
+ - **FIX**: rename itemLabelBuilder to itemDescriptionBuilder.
+ - **FEAT**: add app settings languages page.
+ - **FEAT**: finish app settings logic.
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: add AppInfo logic.
+ - **FEAT**: refactor settings and core packages.
+
+
 ## 2023-07-06
 
 ### Changes

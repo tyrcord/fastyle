@@ -1,3 +1,8 @@
+## 0.0.10
+
+ - **FIX**: images.
+ - **FEAT**: refactor settings and core packages.
+
 ## 0.0.9
 
  - **FEAT**: support fastyle_core.

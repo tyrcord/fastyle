@@ -133,10 +133,10 @@ packages:
     dependency: "direct dev"
     description:
       name: dart_code_metrics
-      sha256: "8d40e9fa6ba6b5f4f569768e267e9cb3e74350f98b30ac4b8160795792ce5414"
+      sha256: "1dc1fa763b73ed52147bd91b015d81903edc3f227b77b1672fcddba43390ed18"
       url: "https://pub.dev"
     source: hosted
-    version: "5.7.4"
+    version: "5.7.5"
   dart_code_metrics_presets:
     dependency: transitive
     description:
@@ -241,10 +241,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_lints
-      sha256: aeb0b80a8b3709709c9cc496cdc027c5b3216796bc0af0ce1007eaf24464fd4c
+      sha256: "2118df84ef0c3ca93f96123a616ae8540879991b8b57af2f81b76a7ada49b2a4"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.1"
+    version: "2.0.2"
   flutter_localizations:
     dependency: transitive
     description: flutter
@@ -368,18 +368,18 @@ packages:
     dependency: "direct main"
     description:
       name: lingua_core
-      sha256: d14eae64822b888a59e611704848ef853127f6247088715e7df875e026087961
+      sha256: "2133421e24264ba92f86e22e0b896d3c3833ee6677723ccb6260e753c4140077"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.1+3"
+    version: "0.0.3"
   lingua_onboarding:
     dependency: "direct main"
     description:
       name: lingua_onboarding
-      sha256: "80929e4da7fd80ca65eb02b004f26b9597b851a534039b4171e43b2328a2921c"
+      sha256: d64353726fd6ef733bba51720446772f2909312aecf3a5e1256c5a67e016eee4
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.4"
+    version: "0.0.6"
   lints:
     dependency: transitive
     description:

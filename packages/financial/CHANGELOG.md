@@ -1,3 +1,8 @@
+## 0.0.6
+
+ - **FIX**: rename itemLabelBuilder to itemDescriptionBuilder.
+ - **FEAT**: refactor settings and core packages.
+
 ## 0.0.5+3
 
  - Update a dependency to the latest release.

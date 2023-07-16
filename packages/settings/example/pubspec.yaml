@@ -11,20 +11,20 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.5
-  fastyle_dart: ">=1.3.0 <2.0.0"
-  go_router: ^7.0.0
+  fastyle_dart: ">=1.4.1 <2.0.0"
+  go_router: ^9.0.3
   font_awesome_flutter: ^10.4.0
   easy_localization: ^3.0.2
   lingua_core: ^0.0.3+1
   tbloc: ">=0.21.0 <1.0.0"
   lingua_settings: ^0.0.7
   lingua_languages: ^0.0.4+1
-  lingua_finance: ^0.0.5
+  lingua_finance: ^0.0.5+1
   lingua_finance_instrument: ^0.0.2
-  fastyle_forms: ^0.0.7
-  fastyle_core: ^0.0.2
-  fastyle_calculator: ^1.13.0
-  fastyle_settings: ^0.0.10
+  fastyle_forms: ^0.0.8
+  fastyle_core: ^0.0.3
+  fastyle_calculator: ^1.14.0
+  fastyle_settings: ^0.0.11
   matex_dart: ^0.11.1
 
 dev_dependencies:
@@ -32,6 +32,7 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.2
   dart_code_metrics: ^5.7.5
+  import_sorter: ^4.6.0
 
 flutter:
   uses-material-design: true

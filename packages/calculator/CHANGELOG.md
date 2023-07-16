@@ -1,3 +1,8 @@
+## 1.14.0
+
+ - **FEAT**: add AppInfo logic.
+ - **FEAT**: refactor settings and core packages.
+
 ## 1.13.0
 
  - **FEAT**: support fastyle_core.

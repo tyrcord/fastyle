@@ -1,6 +1,6 @@
 name: fastyle_digit_calculator
 description: UI digit calculator built on top of the Fastyle library.
-version: 0.0.7
+version: 0.0.8
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/digit_calculator
 
 environment:
@@ -10,14 +10,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  decimal: ^2.3.2
+  decimal: ^2.3.3
   intl: ^0.18.0
-  font_awesome_flutter: ^10.4.0
-  fastyle_dart: ">=1.3.0 <2.0.0"
-  t_helpers: ">=0.0.18 <1.0.0"
+  font_awesome_flutter: ^10.5.0
+  fastyle_dart: ">=1.4.1 <2.0.0"
+  t_helpers: ">=0.0.19 <1.0.0"
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
-  dart_code_metrics: ^5.7.2
+  flutter_lints: ^2.0.2
+  dart_code_metrics: ^5.7.5
+  import_sorter: ^4.6.0

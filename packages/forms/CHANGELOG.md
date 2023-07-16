@@ -1,3 +1,9 @@
+## 0.0.8
+
+ - **FEAT**: add more options to the form field descriptor.
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: refactor settings and core packages.
+
 ## 0.0.7
 
  - **FEAT**: support fastyle_core.
