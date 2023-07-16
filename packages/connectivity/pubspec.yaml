@@ -10,9 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_dart: ">=1.3.0 <2.0.0"
-  font_awesome_flutter: ^10.4.0
-  connectivity_plus: ^3.0.4
+  fastyle_dart: ">=1.4.1 <2.0.0"
+  font_awesome_flutter: ^10.5.0
+  connectivity_plus: ^4.0.1
   rxdart: ^0.27.7
   tmodel: ">=0.5.3 <1.0.0"
   tbloc: ">=0.21.0 <1.0.0"
@@ -20,5 +20,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
-  dart_code_metrics: ^5.7.2
+  flutter_lints: ^2.0.2
+  dart_code_metrics: ^5.7.5
+  import_sorter: ^4.6.0

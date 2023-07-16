@@ -157,18 +157,18 @@ packages:
     dependency: transitive
     description:
       name: decimal
-      sha256: eece91944f523657c75a3a008a90ec7f7eb3986191153a78570c7d0ac8ef3d01
+      sha256: "24a261d5d5c87e86c7651c417a5dbdf8bcd7080dd592533910e8d0505a279f21"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.2"
+    version: "2.3.3"
   diacritic:
     dependency: transitive
     description:
       name: diacritic
-      sha256: c09a420e737dc036122121fea9f774767e95068f34a17894ee9db30c5bda3075
+      sha256: a84e03ec2779375fb86430dbe9d8fba62c68376f2499097a5f6e75556babe706
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.3"
+    version: "0.1.4"
   easy_localization:
     dependency: "direct main"
     description:
@@ -205,10 +205,10 @@ packages:
     dependency: "direct main"
     description:
       name: fastyle_dart
-      sha256: ed11672150c48cb630a28d783962c37505280e3aeea512651e29a2cbdf2807ee
+      sha256: "96ab425892c27e68651d847c49b924c06b937cf553c36c158a758cf215f20ced"
       url: "https://pub.dev"
     source: hosted
-    version: "1.3.0"
+    version: "1.4.1"
   fastyle_onboarding:
     dependency: "direct main"
     description:
@@ -272,10 +272,10 @@ packages:
     dependency: "direct main"
     description:
       name: font_awesome_flutter
-      sha256: "959ef4add147753f990b4a7c6cccb746d5792dbdc81b1cde99e62e7edb31b206"
+      sha256: "5fb789145cae1f4c3245c58b3f8fb287d055c26323879eab57a7bf0cfd1e45f3"
       url: "https://pub.dev"
     source: hosted
-    version: "10.4.0"
+    version: "10.5.0"
   fuzzy:
     dependency: transitive
     description:
@@ -296,10 +296,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "00d1b67d6e9fa443331da229084dd3eb04407f5a2dff22940bd7bba6af5722c3"
+      sha256: b33a88c67816312597e5e0f5906c5139a0b9bd9bb137346e872c788da7af8ea0
       url: "https://pub.dev"
     source: hosted
-    version: "7.1.1"
+    version: "9.0.3"
   google_fonts:
     dependency: transitive
     description:
@@ -332,6 +332,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  import_sorter:
+    dependency: "direct dev"
+    description:
+      name: import_sorter
+      sha256: eb15738ccead84e62c31e0208ea4e3104415efcd4972b86906ca64a1187d0836
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.6.0"
   intl:
     dependency: transitive
     description:
@@ -368,18 +376,18 @@ packages:
     dependency: "direct main"
     description:
       name: lingua_core
-      sha256: "2133421e24264ba92f86e22e0b896d3c3833ee6677723ccb6260e753c4140077"
+      sha256: "9c4ea7956a95c7ca28080d6ed612a663bd7a9195a12384679971e0200725d01f"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3"
+    version: "0.0.3+1"
   lingua_onboarding:
     dependency: "direct main"
     description:
       name: lingua_onboarding
-      sha256: d64353726fd6ef733bba51720446772f2909312aecf3a5e1256c5a67e016eee4
+      sha256: "522fca961648f556d428dd389f042d9660946d2441ad6c512fb25e45e115d26f"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.6"
+    version: "0.0.6+1"
   lints:
     dependency: transitive
     description:
@@ -677,10 +685,10 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: "63159e50ed80ee718b44cd9a450061bdc4efcff91cfc2c4018d5eaa71b716429"
+      sha256: d8354e2347f9f70046149b29f976d02685ab3bc037e3d7f38e8f63a2e6421f16
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.16"
+    version: "0.0.19"
   tbloc:
     dependency: transitive
     description:
@@ -705,6 +713,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.1"
+  tint:
+    dependency: transitive
+    description:
+      name: tint
+      sha256: "9652d9a589f4536d5e392cf790263d120474f15da3cf1bee7f1fdb31b4de5f46"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.1"
   tmodel:
     dependency: transitive
     description:
