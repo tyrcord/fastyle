@@ -1,6 +1,6 @@
 name: fastyle_images
 description: Set of images Widgets for the fastyle library.
-version: 0.0.10
+version: 0.0.11
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/images
 
 environment:

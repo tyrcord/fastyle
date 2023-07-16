@@ -1,6 +1,6 @@
 name: fastyle_home
 description: Set of home Widgets for the fastyle library.
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/home
 
 environment:

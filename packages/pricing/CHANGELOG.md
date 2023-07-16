@@ -1,3 +1,8 @@
+## 1.4.0
+
+ - **FEAT**: update example dependencies.
+ - **FEAT**: update dependencies.
+
 ## 1.3.0
 
  - **FEAT**: refactor settings and core packages.

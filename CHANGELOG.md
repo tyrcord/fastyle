@@ -15,6 +15,80 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_calculator` - `v1.15.0`](#fastyle_calculator---v1150)
+ - [`fastyle_charts` - `v0.0.3`](#fastyle_charts---v003)
+ - [`fastyle_connectivity` - `v0.0.7`](#fastyle_connectivity---v007)
+ - [`fastyle_digit_calculator` - `v0.0.9`](#fastyle_digit_calculator---v009)
+ - [`fastyle_financial` - `v0.0.7`](#fastyle_financial---v007)
+ - [`fastyle_forms` - `v0.0.9`](#fastyle_forms---v009)
+ - [`fastyle_home` - `v0.0.5`](#fastyle_home---v005)
+ - [`fastyle_images` - `v0.0.11`](#fastyle_images---v0011)
+ - [`fastyle_onboarding` - `v0.0.9`](#fastyle_onboarding---v009)
+ - [`fastyle_pricing` - `v1.4.0`](#fastyle_pricing---v140)
+ - [`fastyle_settings` - `v0.0.12`](#fastyle_settings---v0012)
+
+---
+
+#### `fastyle_calculator` - `v1.15.0`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_charts` - `v0.0.3`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_connectivity` - `v0.0.7`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_digit_calculator` - `v0.0.9`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_financial` - `v0.0.7`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_forms` - `v0.0.9`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_home` - `v0.0.5`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_images` - `v0.0.11`
+
+ - **FEAT**: update example dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_onboarding` - `v0.0.9`
+
+ - **FEAT**: update example dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_pricing` - `v1.4.0`
+
+ - **FEAT**: update example dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_settings` - `v0.0.12`
+
+ - **FEAT**: update dependencies.
+
+
+## 2023-07-16
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_calculator` - `v1.14.0`](#fastyle_calculator---v1140)
  - [`fastyle_core` - `v0.0.3`](#fastyle_core---v003)
  - [`fastyle_digit_calculator` - `v0.0.8`](#fastyle_digit_calculator---v008)

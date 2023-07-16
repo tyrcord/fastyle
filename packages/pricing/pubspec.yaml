@@ -1,6 +1,6 @@
 name: fastyle_pricing
 description: A set of pricing widgets for the fastyle library.
-version: 1.3.0
+version: 1.4.0
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/pricing
 
 environment:

@@ -1,3 +1,7 @@
+## 0.0.9
+
+ - **FEAT**: update dependencies.
+
 ## 0.0.8
 
  - **FEAT**: add more options to the form field descriptor.

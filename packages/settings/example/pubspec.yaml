@@ -21,10 +21,10 @@ dependencies:
   lingua_languages: ^0.0.4+1
   lingua_finance: ^0.0.5+1
   lingua_finance_instrument: ^0.0.2
-  fastyle_forms: ^0.0.8
+  fastyle_forms: ^0.0.9
   fastyle_core: ^0.0.3
-  fastyle_calculator: ^1.14.0
-  fastyle_settings: ^0.0.11
+  fastyle_calculator: ^1.15.0
+  fastyle_settings: ^0.0.12
   matex_dart: ^0.11.1
 
 dev_dependencies:

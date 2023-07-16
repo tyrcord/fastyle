@@ -14,7 +14,7 @@ dependencies:
   tbloc: ">=0.21.0 <1.0.0"
   tmodel: ">=0.5.3 <1.0.0"
   decimal: ^2.3.3
-  fastyle_calculator: ^1.14.0
+  fastyle_calculator: ^1.15.0
 
 dev_dependencies:
   flutter_test:
