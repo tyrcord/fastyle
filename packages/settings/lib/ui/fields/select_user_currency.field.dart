@@ -49,6 +49,7 @@ class FastAppSettingsPrimaryCurrencyField extends StatelessWidget {
           searchTitleText: descriptor?.searchTitleText ?? searchTitleText,
           labelText: descriptor?.labelText ?? labelText,
           selection: state.primaryCurrencyCode,
+          itemDescriptionBuilder: descriptor?.itemDescriptionBuilder,
           canClearSelection: false,
           onSelectionChanged: (FastItem<String>? item) {
             if (item != null &&

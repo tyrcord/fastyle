@@ -8,8 +8,8 @@ import 'package:t_helpers/helpers.dart';
 /// A Flutter widget for displaying a selectable list of currencies.
 class FastSelectCurrencyField extends StatelessWidget {
   /// A callback function that takes a [MatexInstrumentMetadata] object and
-  /// returns a string label for the item.
-  final String Function(MatexInstrumentMetadata)? itemLabelBuilder;
+  /// returns a string description for the item.
+  final String Function(MatexInstrumentMetadata)? itemDescriptionBuilder;
 
   /// A callback function that will be called when the selection changes.
   /// It takes a [FastItem<String>] object representing the selected item.
@@ -53,7 +53,7 @@ class FastSelectCurrencyField extends StatelessWidget {
   const FastSelectCurrencyField({
     super.key,
     this.onSelectionChanged,
-    this.itemLabelBuilder,
+    this.itemDescriptionBuilder,
     this.placeholderText,
     this.flagIconBuilder,
     this.captionText,
@@ -139,8 +139,8 @@ class FastSelectCurrencyField extends StatelessWidget {
       );
     }
 
-    if (itemLabelBuilder != null) {
-      description = itemLabelBuilder!(instrument);
+    if (itemDescriptionBuilder != null) {
+      description = itemDescriptionBuilder!(instrument);
     }
 
     return FastItem(
