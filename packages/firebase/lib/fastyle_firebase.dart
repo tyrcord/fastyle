@@ -1,0 +1,2 @@
+library fastyle_firebase;
+
