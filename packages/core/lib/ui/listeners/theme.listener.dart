@@ -1,29 +1,28 @@
 import 'dart:async';
-
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:flutter/material.dart';
 
-/// The [FastSettingsThemeListener] class is a [StatefulWidget] that listens
+/// The [FastAppSettingsThemeListener] class is a [StatefulWidget] that listens
 /// to the [FastAppSettingsBloc] and updates the [FastThemeBloc] when the theme
 /// mode changes.
-class FastSettingsThemeListener extends StatefulWidget {
+class FastAppSettingsThemeListener extends StatefulWidget {
   /// The child widget.
   final Widget child;
 
-  const FastSettingsThemeListener({
+  const FastAppSettingsThemeListener({
     super.key,
     required this.child,
   });
 
   @override
-  State<FastSettingsThemeListener> createState() =>
-      _FastSettingsThemeListenerState();
+  State<FastAppSettingsThemeListener> createState() =>
+      _FastAppSettingsThemeListenerState();
 }
 
-class _FastSettingsThemeListenerState extends State<FastSettingsThemeListener>
-    with FastSettingsThemeMixin {
+class _FastAppSettingsThemeListenerState
+    extends State<FastAppSettingsThemeListener> with FastSettingsThemeMixin {
   late final StreamSubscription<FastAppSettingsBlocState> _subscription;
   late final FastAppSettingsBloc _settingsBloc;
   late final FastThemeBloc _themeBloc;
@@ -35,6 +34,10 @@ class _FastSettingsThemeListenerState extends State<FastSettingsThemeListener>
     _settingsBloc = BlocProvider.of<FastAppSettingsBloc>(context);
     _themeBloc = BlocProvider.of<FastThemeBloc>(context);
 
+    // Listen to the onData stream of FastAppSettingsBloc.
+    // Skip the initial states until the bloc is initialized.
+    // Distinct states based on the theme to prevent unnecessary updates.
+    // Call handleThemeModeChanged when a new theme mode is received.
     _subscription = _settingsBloc.onData
         .skipWhile((state) => !state.isInitialized)
         .distinct((previous, next) => previous.theme == next.theme)
@@ -44,6 +47,7 @@ class _FastSettingsThemeListenerState extends State<FastSettingsThemeListener>
   @override
   void dispose() {
     super.dispose();
+    // Cancel the stream subscription to avoid memory leaks.
     _subscription.cancel();
   }
 

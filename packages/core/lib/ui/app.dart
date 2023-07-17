@@ -87,9 +87,7 @@ class _FastAppState extends State<FastApp> {
   }
 
   /// Initializes the application.
-  Future<dynamic> _initApp() {
-    return EasyLocalization.ensureInitialized();
-  }
+  Future<dynamic> _initApp() => EasyLocalization.ensureInitialized();
 
   @override
   Widget build(BuildContext context) {
@@ -129,7 +127,7 @@ class _FastAppState extends State<FastApp> {
   /// Builds the app loader widget that displays a loading screen while the app
   /// is being initialized.
   Widget buildAppLoader(BuildContext context) {
-    return FastSettingsThemeListener(
+    return FastAppSettingsThemeListener(
       child: FastAppLoader(
         debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
         delayBeforeShowingLoader: widget.delayBeforeShowingLoader,
@@ -197,7 +195,7 @@ class _FastAppState extends State<FastApp> {
   /// Builds the home widget.
   Widget buildHome(BuildContext context) {
     if (widget.initialRoute != null) {
-      WidgetsBinding.instance!.addPostFrameCallback((_) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
         context.go(widget.initialRoute!);
       });
 
@@ -246,7 +244,7 @@ class _FastAppState extends State<FastApp> {
 
   /// Asks for app review if needed.
   void _askForAppReviewIfNeeded(BuildContext context) {
-    WidgetsBinding.instance!.addPostFrameCallback((_) async {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
       if (widget.askForReview) {
         final rateService = FusexAppRatingService(widget.appInfo);
         rateService.askForAppReviewIfNeeded(context);
