@@ -154,8 +154,9 @@ class _FastAppState extends State<FastApp> {
             child: FastMediaLayoutObserver(
               child: MultiBlocProvider(
                 blocProviders: [
-                  BlocProvider(bloc: FastAppSettingsBloc()),
                   BlocProvider(bloc: FastAppInfoBloc()),
+                  BlocProvider(bloc: FastAppSettingsBloc()),
+                  BlocProvider(bloc: FastAppDictBloc()),
                   BlocProvider(bloc: FastAppFeaturesBloc()),
                   BlocProvider(bloc: _themeBloc),
                   ...?widget.blocProviders,
@@ -198,6 +199,7 @@ class _FastAppState extends State<FastApp> {
             onDatabaseVersionChanged: widget.onDatabaseVersionChanged,
           ),
           FastAppSettingsJob(),
+          FastAppDictJob(),
           FastAppFeaturesJob(),
           ...?widget.loaderJobs,
         ],
