@@ -231,14 +231,14 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.13.0"
+    version: "1.15.0"
   fastyle_core:
     dependency: "direct overridden"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.2"
+    version: "0.0.3"
   fastyle_dart:
     dependency: "direct main"
     description:
