@@ -17,7 +17,7 @@ dependencies:
   fastyle_core: ^0.0.3
   fastyle_dart: ">=1.4.1 <2.0.0"
   matex_financial: ">=0.0.10 <1.0.0"
-  tstore: ">=0.8.8+1 <1.0.0"
+  tstore: ">=0.8.9 <1.0.0"
   tbloc: ">=0.21.0 <1.0.0"
   fastyle_images: ^0.0.11
   fastyle_forms: ^0.0.9
