@@ -1,0 +1,4 @@
+enum FastFirebaseRemoteConfigBlocEventType {
+  init,
+  initialized,
+}

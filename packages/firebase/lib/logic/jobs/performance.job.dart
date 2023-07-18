@@ -1,0 +1,29 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:firebase_performance/firebase_performance.dart';
+
+class FastFirebasePerformanceJob extends FastJob {
+  static FastFirebasePerformanceJob? _singleton;
+
+  factory FastFirebasePerformanceJob() {
+    _singleton ??= FastFirebasePerformanceJob._();
+
+    return _singleton!;
+  }
+
+  FastFirebasePerformanceJob._()
+      : super(debugLabel: 'fast_firebase_performance_job');
+
+  @override
+  Future<void> initialize(
+    BuildContext context, {
+    IFastErrorReporter? errorReporter,
+  }) async {
+    final performance = FirebasePerformance.instance;
+
+    return performance.setPerformanceCollectionEnabled(true);
+  }
+}
