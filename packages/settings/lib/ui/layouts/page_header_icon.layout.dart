@@ -1,5 +1,8 @@
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
 
 const _handsetIconSize = 168.0;
 const _tabletIconSize = 192.0;

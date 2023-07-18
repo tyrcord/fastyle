@@ -1,6 +1,11 @@
-import 'package:fastyle_calculator_example/ui/pages/sum_calculator.page.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
+
+// Project imports:
+import 'package:fastyle_calculator_example/ui/pages/sum_calculator.page.dart';
 
 void main() {
   runApp(const MyApp());

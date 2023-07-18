@@ -1,8 +1,13 @@
-import 'package:fastyle_connectivity/fastyle_connectivity.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
-import 'package:tbloc/tbloc.dart';
+// Flutter imports:
 import 'package:flutter/widgets.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_connectivity/fastyle_connectivity.dart';
 
 class FastConnectivityStatusListener extends StatefulWidget {
   final IconData? disconnectedIcon;

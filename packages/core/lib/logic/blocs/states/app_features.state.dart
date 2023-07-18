@@ -1,6 +1,9 @@
+// Package imports:
 import 'package:collection/collection.dart' show IterableExtension;
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_core/fastyle_core.dart';
 
 /// Represents the state of the Fusex Features BLoC.
 class FastAppFeaturesBlocState extends BlocState {

@@ -1,5 +1,8 @@
-import 'package:fastyle_core/fastyle_core.dart';
+// Package imports:
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_core/fastyle_core.dart';
 
 /// The settings bloc event.
 /// This event is used to dispatch events to the settings bloc.

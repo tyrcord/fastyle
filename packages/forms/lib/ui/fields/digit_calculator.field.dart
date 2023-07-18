@@ -1,9 +1,14 @@
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:fastyle_digit_calculator/digit_calculator.dart';
-import 'package:fastyle_forms/fastyle_forms.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_digit_calculator/digit_calculator.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:t_helpers/helpers.dart';
+
+// Project imports:
+import 'package:fastyle_forms/fastyle_forms.dart';
 
 /// A custom [StatefulWidget] that creates a number input field with a
 /// calculator icon.

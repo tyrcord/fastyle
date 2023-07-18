@@ -1,8 +1,13 @@
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:devicelocale/devicelocale.dart';
-import 'package:fastyle_core/fastyle_core.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:devicelocale/devicelocale.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppInfoBloc
     extends BidirectionalBloc<FastAppInfoBlocEvent, FastAppInfoBlocState> {

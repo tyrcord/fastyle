@@ -1,10 +1,15 @@
-import 'package:collection/collection.dart' show IterableExtension;
-import 'package:fastyle_settings/fastyle_settings.dart';
-import 'package:fastyle_images/fastyle_images.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
-import 'package:tbloc/tbloc.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_images/fastyle_images.dart';
+import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_settings/fastyle_settings.dart';
 
 typedef ThemeModeFormatter = String Function(ThemeMode mode);
 

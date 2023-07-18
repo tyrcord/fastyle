@@ -1,5 +1,8 @@
-import 'package:fastyle_calculator/fastyle_calculator.dart';
+// Package imports:
 import 'package:tstore/tstore.dart';
+
+// Project imports:
+import 'package:fastyle_calculator/fastyle_calculator.dart';
 
 abstract class FastCalculatorDocument extends TDocument {
   const FastCalculatorDocument();

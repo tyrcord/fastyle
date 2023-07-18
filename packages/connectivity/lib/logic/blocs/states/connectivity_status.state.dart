@@ -1,3 +1,4 @@
+// Package imports:
 import 'package:tbloc/tbloc.dart';
 
 class FastConnectivityStatusBlocState extends BlocState {

@@ -1,8 +1,15 @@
+// Dart imports:
 import 'dart:io';
-import 'package:fastyle_core/logic/logic.dart';
+
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:rate_my_app/rate_my_app.dart';
-import 'package:flutter/material.dart';
+
+// Project imports:
+import 'package:fastyle_core/logic/logic.dart';
 
 /// A service class for handling app rating functionality.
 class FusexAppRatingService {

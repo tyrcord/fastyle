@@ -1,6 +1,9 @@
+// Package imports:
 import 'package:collection/collection.dart' show IterableExtension;
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tstore/tstore.dart';
+
+// Project imports:
+import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppFeaturesDataProvider extends TDataProvider {
   FastAppFeaturesDataProvider({

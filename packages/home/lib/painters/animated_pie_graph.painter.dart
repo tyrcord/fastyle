@@ -1,5 +1,7 @@
+// Dart imports:
 import 'dart:math' hide log;
 
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 class FastAnimatedPieGraphPainter extends CustomPainter {

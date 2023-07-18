@@ -125,10 +125,10 @@ packages:
     dependency: "direct dev"
     description:
       name: dart_code_metrics
-      sha256: "1dc1fa763b73ed52147bd91b015d81903edc3f227b77b1672fcddba43390ed18"
+      sha256: "3dede3f7abc077a4181ec7445448a289a9ce08e2981e6a4d49a3fb5099d47e1f"
       url: "https://pub.dev"
     source: hosted
-    version: "5.7.5"
+    version: "5.7.6"
   dart_code_metrics_presets:
     dependency: transitive
     description:
@@ -324,6 +324,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  import_sorter:
+    dependency: "direct dev"
+    description:
+      name: import_sorter
+      sha256: eb15738ccead84e62c31e0208ea4e3104415efcd4972b86906ca64a1187d0836
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.6.0"
   intl:
     dependency: transitive
     description:
@@ -689,6 +697,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.1"
+  tint:
+    dependency: transitive
+    description:
+      name: tint
+      sha256: "9652d9a589f4536d5e392cf790263d120474f15da3cf1bee7f1fdb31b4de5f46"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.1"
   tmodel:
     dependency: transitive
     description:

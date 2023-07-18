@@ -1,6 +1,11 @@
-import 'package:fastyle_core/fastyle_core.dart';
-import 'package:tbloc/tbloc.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_core/fastyle_core.dart';
 
 /// The [FastAppSettingsBloc] is used to manage the app settings.
 /// It can be used to change the language code, the country code

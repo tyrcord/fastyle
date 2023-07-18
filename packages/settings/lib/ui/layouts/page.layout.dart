@@ -1,6 +1,11 @@
-import 'package:fastyle_settings/fastyle_settings.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
+
+// Project imports:
+import 'package:fastyle_settings/fastyle_settings.dart';
 
 /// A layout that displays a page with a header and content.
 /// It is used to display a page in a [FastSettingPage].

@@ -1,6 +1,11 @@
-import 'package:fastyle_dart/fastyle_dart.dart';
-import 'package:fastyle_forms/fastyle_forms.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
+
+// Project imports:
+import 'package:fastyle_forms/fastyle_forms.dart';
 
 /// A widget that allows the user to switch between an amount field and a
 /// percent field.

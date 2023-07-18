@@ -1,5 +1,8 @@
-import 'package:fastyle_core/fastyle_core.dart';
+// Package imports:
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppInfoBlocEvent
     extends BlocEvent<FastAppInfoBlocEventType, FastAppInfoDocument> {

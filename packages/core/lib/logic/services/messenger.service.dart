@@ -1,4 +1,6 @@
 /// Import the required package for launching URLs.
+
+// Package imports:
 import 'package:url_launcher/url_launcher_string.dart';
 
 /// A class representing a fast messenger.

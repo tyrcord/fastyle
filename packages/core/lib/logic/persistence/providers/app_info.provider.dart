@@ -1,4 +1,7 @@
+// Package imports:
 import 'package:tstore/tstore.dart';
+
+// Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppInfoDataProvider extends TDocumentDataProvider {

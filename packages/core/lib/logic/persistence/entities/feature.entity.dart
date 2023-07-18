@@ -1,3 +1,4 @@
+// Package imports:
 import 'package:tstore/tstore.dart';
 
 /// Represents a fast feature entity.

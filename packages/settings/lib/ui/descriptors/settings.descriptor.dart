@@ -1,5 +1,8 @@
-import 'package:fastyle_settings/fastyle_settings.dart';
+// Package imports:
 import 'package:tmodel/tmodel.dart';
+
+// Project imports:
+import 'package:fastyle_settings/fastyle_settings.dart';
 
 /// The default categories for the [FastSettingsDescriptor].
 const kDefaultFastSettingsCategories = {

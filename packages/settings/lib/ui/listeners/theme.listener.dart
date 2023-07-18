@@ -1,9 +1,13 @@
+// Dart imports:
 import 'dart:async';
 
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:tbloc/tbloc.dart';
-import 'package:flutter/material.dart';
 
 /// The [FastSettingsThemeListener] class is a [StatefulWidget] that listens
 /// to the [FastAppSettingsBloc] and updates the [FastThemeBloc] when the theme

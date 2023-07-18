@@ -1,10 +1,15 @@
 library fastyle_digit_calculator;
 
-import 'ui/digit_calculator_display.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:t_helpers/helpers.dart';
-import 'ui/digit_calculator_keyboard.dart';
+
+// Package imports:
 import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:t_helpers/helpers.dart';
+
+// Project imports:
+import 'ui/digit_calculator_display.dart';
+import 'ui/digit_calculator_keyboard.dart';
 
 /// A Flutter widget that provides a digit calculator with a display
 /// and keyboard.

@@ -1,5 +1,8 @@
-import 'package:fastyle_core/fastyle_core.dart';
+// Package imports:
 import 'package:tstore/tstore.dart';
+
+// Project imports:
+import 'package:fastyle_core/fastyle_core.dart';
 
 /// A [TDocumentDataProvider] that provides a way to persist and retrieve
 /// [FastAppSettingsDocument] objects.

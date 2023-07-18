@@ -1,6 +1,11 @@
-import 'digit_calculator_history_list_item.dart';
-import 'package:t_helpers/helpers.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:t_helpers/helpers.dart';
+
+// Project imports:
+import 'digit_calculator_history_list_item.dart';
 
 /// A custom widget that displays a list of history items for a
 /// calculator screen.

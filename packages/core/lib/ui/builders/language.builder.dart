@@ -1,6 +1,11 @@
-import 'package:fastyle_core/fastyle_core.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_core/fastyle_core.dart';
 
 /// A widget that listens to changes in the `FastAppSettingsBloc` and rebuilds
 /// its child widget when the language changes.

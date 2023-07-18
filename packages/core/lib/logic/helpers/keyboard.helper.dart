@@ -1,5 +1,8 @@
-import 'package:flutter/services.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+// Package imports:
 import 'package:t_helpers/helpers.dart';
 
 void hideKeyboard() {

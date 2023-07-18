@@ -1,6 +1,9 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:fastyle_home/fastyle_home.dart';
-import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());

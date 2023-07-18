@@ -1,9 +1,14 @@
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'digit_calculator_keyboard_listener.dart';
-import 'digit_calculator_keyboard_button.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
-import 'package:t_helpers/helpers.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:t_helpers/helpers.dart';
+
+// Project imports:
+import 'digit_calculator_keyboard_button.dart';
+import 'digit_calculator_keyboard_listener.dart';
 
 enum CustomButtonType {
   plusMinus,

@@ -1,14 +1,17 @@
-import 'package:fastyle_settings/fastyle_settings.dart';
-import 'package:lingua_core/generated/locale_keys.g.dart';
-import 'package:lingua_finance/generated/locale_keys.g.dart';
-import 'package:lingua_languages/languages.dart';
-import 'package:lingua_finance_instrument/lingua_finance_instrument.dart';
-import 'package:lingua_settings/generated/locale_keys.g.dart';
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
-import 'package:go_router/go_router.dart';
-import 'package:flutter/material.dart';
 import 'package:fastyle_forms/fastyle_forms.dart';
+import 'package:fastyle_settings/fastyle_settings.dart';
+import 'package:go_router/go_router.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:lingua_finance/generated/locale_keys.g.dart';
+import 'package:lingua_finance_instrument/lingua_finance_instrument.dart';
+import 'package:lingua_languages/languages.dart';
+import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:matex_dart/matex_dart.dart';
 
 final kAppRoutes = [

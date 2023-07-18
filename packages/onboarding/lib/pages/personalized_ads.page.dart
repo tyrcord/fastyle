@@ -1,8 +1,13 @@
-import 'package:app_tracking_transparency/app_tracking_transparency.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:fastyle_onboarding/fastyle_onboarding.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+// Project imports:
+import 'package:fastyle_onboarding/fastyle_onboarding.dart';
 
 /// A page that displays a layout with an icon, a primary text, a secondary text
 /// and a list of children widgets.

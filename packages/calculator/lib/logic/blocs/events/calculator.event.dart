@@ -1,5 +1,8 @@
-import 'package:fastyle_calculator/fastyle_calculator.dart';
+// Package imports:
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_calculator/fastyle_calculator.dart';
 
 class FastCalculatorBlocEvent<R extends FastCalculatorResults>
     extends BlocEvent<FastCalculatorBlocEventType,

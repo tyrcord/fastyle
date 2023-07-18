@@ -1,6 +1,11 @@
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:go_router/go_router.dart';
+
+// Project imports:
 import './routes.dart';
 
 void main() async {

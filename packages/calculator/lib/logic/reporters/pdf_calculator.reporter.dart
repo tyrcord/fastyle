@@ -1,11 +1,16 @@
-import 'package:fastyle_calculator/fastyle_calculator.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:pdf/pdf.dart';
-import 'package:t_helpers/helpers.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
+import 'package:t_helpers/helpers.dart';
+
+// Project imports:
+import 'package:fastyle_calculator/fastyle_calculator.dart';
 
 /// A class that generates a PDF report for a calculator.
 class FastPdfCalculatorReporter {

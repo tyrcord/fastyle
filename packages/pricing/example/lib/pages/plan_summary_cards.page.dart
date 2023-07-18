@@ -1,6 +1,9 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:fastyle_pricing/fastyle_pricing.dart';
+
+// Package imports:
 import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_pricing/fastyle_pricing.dart';
 
 class PlanSummaryCardsPage extends StatelessWidget {
   const PlanSummaryCardsPage({super.key});

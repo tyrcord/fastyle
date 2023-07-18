@@ -1,7 +1,11 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-import 'package:fastyle_home/fastyle_home.dart';
+// Package imports:
 import 'package:fastyle_dart/fastyle_dart.dart';
+
+// Project imports:
+import 'package:fastyle_home/fastyle_home.dart';
 
 class FastHomeGraphPage extends StatefulWidget {
   ///

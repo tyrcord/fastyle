@@ -1,8 +1,13 @@
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:fastyle_calculator/fastyle_calculator.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_calculator/fastyle_calculator.dart';
 
 /// A [FastCalculatorAction] that displays information about the calculator.
 class FastCalculatorInfoAction<B extends FastCalculatorBloc,

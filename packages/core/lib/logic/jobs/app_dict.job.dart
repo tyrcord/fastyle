@@ -1,9 +1,13 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:rxdart/rxdart.dart';
 
+// Package imports:
 import 'package:fastyle_dart/fastyle_dart.dart';
-import 'package:fastyle_core/fastyle_core.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppDictJob extends FastJob {
   static FastAppDictJob? _singleton;

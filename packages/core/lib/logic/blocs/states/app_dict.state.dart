@@ -1,5 +1,8 @@
-import 'package:fastyle_core/fastyle_core.dart';
+// Package imports:
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_core/fastyle_core.dart';
 
 /// Represents the state of the FastAppDictBloc.
 class FastAppDictBlocState extends BlocState {

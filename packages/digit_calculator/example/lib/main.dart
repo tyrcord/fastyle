@@ -1,6 +1,9 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:fastyle_digit_calculator/digit_calculator.dart';
-import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());

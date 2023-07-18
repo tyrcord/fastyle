@@ -1,6 +1,9 @@
-import 'package:fastyle_images/fastyle_images.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_images/fastyle_images.dart';
 
 class CryptosPage extends StatelessWidget {
   const CryptosPage({super.key});

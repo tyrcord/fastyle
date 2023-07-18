@@ -1,11 +1,16 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:easy_localization/easy_localization.dart';
-import 'package:fastyle_core/fastyle_core.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
-import 'package:tbloc/tbloc.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_core/fastyle_core.dart';
 
 /// A [FastJob] that initializes the [FastAppSettingsBloc].
 /// It is used to load the settings of the application

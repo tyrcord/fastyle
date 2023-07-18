@@ -1,7 +1,12 @@
-import 'package:fastyle_dart/fastyle_dart.dart';
-import 'package:fastyle_core/fastyle_core.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_core/fastyle_core.dart';
 
 /// The [FastAppInfoBlocState] class represents the state of the application's
 /// information.

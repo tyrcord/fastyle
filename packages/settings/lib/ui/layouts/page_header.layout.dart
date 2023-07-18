@@ -1,6 +1,11 @@
-import 'package:fastyle_settings/fastyle_settings.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
+
+// Project imports:
+import 'package:fastyle_settings/fastyle_settings.dart';
 
 /// A layout that displays a description text and an optional icon.
 /// It is used to display a header in a [FastSettingPage].

@@ -1,6 +1,9 @@
-import 'package:fastyle_core/fastyle_core.dart';
+// Package imports:
 import 'package:tbloc/tbloc.dart';
 import 'package:tstore/tstore.dart';
+
+// Project imports:
+import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppDictBloc
     extends BidirectionalBloc<FastAppDictBlocEvent, FastAppDictBlocState> {

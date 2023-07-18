@@ -1,8 +1,12 @@
-import 'package:decimal/decimal.dart';
-
-import 'package:fastyle_calculator/fastyle_calculator.dart';
-import 'package:fastyle_calculator_example/logic/logic.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:decimal/decimal.dart';
+import 'package:fastyle_calculator/fastyle_calculator.dart';
+
+// Project imports:
+import 'package:fastyle_calculator_example/logic/logic.dart';
 
 class SumCalculatorBloc extends HydratedFastCalculatorBloc<
     FastCalculatorBlocEvent<SumCalculatorResults>,

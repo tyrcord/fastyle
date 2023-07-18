@@ -1,5 +1,8 @@
-import 'package:fastyle_calculator/fastyle_calculator.dart';
+// Package imports:
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_calculator/fastyle_calculator.dart';
 
 /// Represents the state of a calculator's bloc.
 class FastCalculatorBlocState<F extends FastCalculatorFields,

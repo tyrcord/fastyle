@@ -1,6 +1,9 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:t_helpers/helpers.dart';
-import 'package:flutter/material.dart';
 
 /// This widget is used to display a single item in the calculation history list
 class FastDigitCalculatorHistoryListItem extends StatelessWidget {

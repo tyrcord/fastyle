@@ -1,8 +1,12 @@
+// Dart imports:
 import 'dart:io';
 
+// Package imports:
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:fastyle_connectivity/fastyle_connectivity.dart';
 import 'package:rxdart/rxdart.dart';
+
+// Project imports:
+import 'package:fastyle_connectivity/fastyle_connectivity.dart';
 
 class FastConnectivityService {
   final Duration checkInterval;

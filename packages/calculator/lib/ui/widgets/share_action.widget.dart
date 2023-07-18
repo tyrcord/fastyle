@@ -1,7 +1,12 @@
-import 'package:fastyle_calculator/fastyle_calculator.dart';
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:tbloc/tbloc.dart';
-import 'package:flutter/material.dart';
+
+// Project imports:
+import 'package:fastyle_calculator/fastyle_calculator.dart';
 
 /// A [FastCalculatorAction] that clears the calculator state.
 class FastCalculatorShareAction<B extends FastCalculatorBloc,

@@ -1,6 +1,10 @@
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
+
+// Project imports:
 import './pages/plan_summary_cards.page.dart';
 
 void main() {

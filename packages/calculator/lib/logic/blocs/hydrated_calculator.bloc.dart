@@ -1,5 +1,8 @@
-import 'package:fastyle_calculator/fastyle_calculator.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
+import 'package:fastyle_calculator/fastyle_calculator.dart';
 
 /// An abstract class that extends [FastCalculatorBloc] to create a hydrated
 /// calculator bloc.

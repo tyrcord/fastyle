@@ -1,5 +1,8 @@
-import 'package:fastyle_calculator/fastyle_calculator.dart';
+// Package imports:
 import 'package:tmodel/tmodel.dart';
+
+// Project imports:
+import 'package:fastyle_calculator/fastyle_calculator.dart';
 
 class FastReportCategoryEntry extends TModel {
   final String name;

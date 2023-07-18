@@ -1,7 +1,12 @@
-import 'package:fastyle_calculator/fastyle_calculator.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_calculator/fastyle_calculator.dart';
 
 /// A widget that provides a layout for a fast calculator app.
 class FastCalculatorPageLayout<B extends FastCalculatorBloc,

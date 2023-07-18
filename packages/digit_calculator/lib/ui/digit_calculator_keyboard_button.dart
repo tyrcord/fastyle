@@ -1,7 +1,11 @@
+// Dart imports:
 import 'dart:math';
 
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:t_helpers/helpers.dart';
 
 // A custom Flutter widget for a calculator keyboard button

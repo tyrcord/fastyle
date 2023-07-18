@@ -1,7 +1,12 @@
-import 'package:fastyle_connectivity/logic/logic.dart';
+// Flutter imports:
+import 'package:flutter/widgets.dart';
+
+// Package imports:
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter/widgets.dart';
+
+// Project imports:
+import 'package:fastyle_connectivity/logic/logic.dart';
 
 class FastConnectivityStatusIcon extends StatelessWidget {
   final IconData? disconnectedIcon;

@@ -1,8 +1,13 @@
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'digit_calculator_history_list.dart';
-import 'package:t_helpers/helpers.dart';
 import 'package:flutter/widgets.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:t_helpers/helpers.dart';
+
+// Project imports:
+import 'digit_calculator_history_list.dart';
 
 /// A custom widget that displays a calculator screen consisting of a
 /// [FastDigitCalculatorHistoryList] widget and a current operation

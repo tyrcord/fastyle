@@ -1,8 +1,13 @@
-import 'package:fastyle_dart/fastyle_dart.dart';
-import 'package:fastyle_settings/fastyle_settings.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:matex_financial/financial.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:fastyle_forms/fastyle_forms.dart';
+import 'package:matex_financial/financial.dart';
+
+// Project imports:
+import 'package:fastyle_settings/fastyle_settings.dart';
 
 /// A widget that displays a select currency field for the user's primary
 /// currency.

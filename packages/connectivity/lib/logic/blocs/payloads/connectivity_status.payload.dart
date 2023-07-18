@@ -1,3 +1,4 @@
+// Project imports:
 import 'package:fastyle_connectivity/fastyle_connectivity.dart';
 
 class FastConnectivityStatusBlocEventPayload {
