@@ -76,7 +76,8 @@ class FastAppDictBloc
   }
 
   Stream<FastAppDictBlocState> handleInitializedEvent(
-      List<FastDictEntryEntity> entries) async* {
+    List<FastDictEntryEntity> entries,
+  ) async* {
     if (isInitializing) {
       isInitialized = true;
 
@@ -99,7 +100,8 @@ class FastAppDictBloc
   }
 
   Stream<FastAppDictBlocState> handleEntriesRetrievedEvent(
-      List<FastDictEntryEntity> entries) async* {
+    List<FastDictEntryEntity> entries,
+  ) async* {
     if (isInitialized) {
       yield currentState.copyWith(
         isRetrievingEntries: false,
