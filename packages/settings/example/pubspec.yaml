@@ -15,7 +15,7 @@ dependencies:
   go_router: ^9.0.3
   font_awesome_flutter: ^10.4.0
   easy_localization: ^3.0.2
-  lingua_core: ^0.0.3+1
+  lingua_core: ^0.0.6
   tbloc: ">=0.21.0 <1.0.0"
   lingua_settings: ^0.0.7
   lingua_languages: ^0.0.4+1

@@ -67,7 +67,9 @@ class MyApp extends StatelessWidget {
         sortItems: false,
         items: [
           FastItem(
-            labelText: CoreLocaleKeys.core_label_all.tr(gender: 'female'),
+            labelText: CoreLocaleKeys.core_label_all.tr(
+              gender: LinguaLocalizationGender.female,
+            ),
             value: '/all',
           ),
           FastItem(
