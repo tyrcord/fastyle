@@ -103,6 +103,15 @@ class FastAppInfoBlocState extends BlocState {
   /// The supported locales of the application.
   final List<Locale> supportedLocales;
 
+  /// The last modified date of the app disclaimer.
+  final DateTime? appDisclaimerLastModified;
+
+  /// The last modified date of the app privacy policy.
+  final DateTime? appPrivacyPolicyLastModified;
+
+  /// The last modified date of the app terms of service.
+  final DateTime? appTermsOfServiceLastModified;
+
   /// Constructs a [FastAppInfoBlocState] with the provided parameters.
   FastAppInfoBlocState({
     super.isInitializing,
@@ -128,6 +137,9 @@ class FastAppInfoBlocState extends BlocState {
     this.previousDatabaseVersion,
     this.promoUrl,
     this.deviceCountryCode,
+    this.appDisclaimerLastModified,
+    this.appPrivacyPolicyLastModified,
+    this.appTermsOfServiceLastModified,
     List<Locale>? supportedLocales,
     int? askForReviewMinLaunches,
     int? askForReviewMinDays,
@@ -184,6 +196,9 @@ class FastAppInfoBlocState extends BlocState {
       deviceLanguageCode: document.deviceLanguageCode,
       deviceCountryCode: document.deviceCountryCode,
       supportedLocales: document.supportedLocales,
+      appDisclaimerLastModified: document.appDisclaimerLastModified,
+      appPrivacyPolicyLastModified: document.appPrivacyPolicyLastModified,
+      appTermsOfServiceLastModified: document.appTermsOfServiceLastModified,
     );
   }
 
@@ -225,6 +240,9 @@ class FastAppInfoBlocState extends BlocState {
     String? deviceLanguageCode,
     String? deviceCountryCode,
     List<Locale>? supportedLocales,
+    DateTime? appDisclaimerLastModified,
+    DateTime? appPrivacyPolicyLastModified,
+    DateTime? appTermsOfServiceLastModified,
   }) =>
       FastAppInfoBlocState(
         supportedLocales: supportedLocales ?? this.supportedLocales,
@@ -264,6 +282,12 @@ class FastAppInfoBlocState extends BlocState {
             previousDatabaseVersion ?? this.previousDatabaseVersion,
         deviceLanguageCode: deviceLanguageCode ?? this.deviceLanguageCode,
         deviceCountryCode: deviceCountryCode ?? this.deviceCountryCode,
+        appDisclaimerLastModified:
+            appDisclaimerLastModified ?? this.appDisclaimerLastModified,
+        appPrivacyPolicyLastModified:
+            appPrivacyPolicyLastModified ?? this.appPrivacyPolicyLastModified,
+        appTermsOfServiceLastModified:
+            appTermsOfServiceLastModified ?? this.appTermsOfServiceLastModified,
       );
 
   /// Creates a new [FastAppInfoBlocState] instance with the same property
@@ -308,6 +332,9 @@ class FastAppInfoBlocState extends BlocState {
       deviceLanguageCode: model.deviceLanguageCode,
       deviceCountryCode: model.deviceCountryCode,
       supportedLocales: model.supportedLocales,
+      appDisclaimerLastModified: model.appDisclaimerLastModified,
+      appPrivacyPolicyLastModified: model.appPrivacyPolicyLastModified,
+      appTermsOfServiceLastModified: model.appTermsOfServiceLastModified,
     );
   }
 
@@ -343,5 +370,8 @@ class FastAppInfoBlocState extends BlocState {
         previousDatabaseVersion,
         deviceLanguageCode,
         deviceCountryCode,
+        appDisclaimerLastModified,
+        appPrivacyPolicyLastModified,
+        appTermsOfServiceLastModified,
       ];
 }

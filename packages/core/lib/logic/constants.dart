@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-const kFastAppInfo = FastAppInfoDocument(
+final kFastAppInfo = FastAppInfoDocument(
   facebookUrl: 'https://www.facebook.com/tyrcord',
   promoUrl: 'https://tyrcord.com/apps',
   homepageUrl: 'https://tyrcord.com',
@@ -17,6 +17,9 @@ const kFastAppInfo = FastAppInfoDocument(
   appVersion: '0.0.1',
   appName: 'FastApp',
   databaseVersion: 0,
+  appDisclaimerLastModified: DateTime(2023, 8, 1),
+  appPrivacyPolicyLastModified: DateTime(2023, 8, 1),
+  appTermsOfServiceLastModified: DateTime(2023, 8, 1),
 );
 
 const kFastSettingThemeModeMap = {

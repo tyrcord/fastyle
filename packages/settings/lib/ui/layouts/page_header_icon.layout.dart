@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_settings/fastyle_settings.dart';
 
-const _handsetIconSize = 168.0;
 const _tabletIconSize = 192.0;
 
 class FastSettingPageHeaderRoundedDuotoneIconLayout extends StatelessWidget {
@@ -26,7 +26,7 @@ class FastSettingPageHeaderRoundedDuotoneIconLayout extends StatelessWidget {
     double? handsetIconSize,
     double? tabletIconSize,
     this.palette,
-  })  : handsetIconSize = handsetIconSize ?? _handsetIconSize,
+  })  : handsetIconSize = handsetIconSize ?? kFastSettingIconHeight,
         tabletIconSize = tabletIconSize ?? _tabletIconSize;
 
   @override

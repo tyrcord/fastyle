@@ -53,7 +53,7 @@ class FastApp extends StatefulWidget {
 
   /// An [FastAppInfoDocument] instance that contains information about the
   /// application such as name, version, supported locales, etc.
-  final FastAppInfoDocument appInfo;
+  late final FastAppInfoDocument appInfo;
 
   /// A flag indicating whether to force the onboarding process even
   /// if the application has been launched before.
@@ -88,14 +88,13 @@ class FastApp extends StatefulWidget {
   /// when certain conditions are met.
   final bool askForReview;
 
-  const FastApp({
+  FastApp({
     super.key,
     this.delayBeforeShowingLoader = kFastDelayBeforeShowingLoader,
     this.debugShowCheckedModeBanner = false,
     this.forceOnboarding = false,
     this.routes = kFastDefaultRoutes,
     this.askForReview = true,
-    this.appInfo = kFastAppInfo,
     this.onDatabaseVersionChanged,
     this.onboardingBuilder,
     this.rootNavigatorKey,
@@ -109,10 +108,13 @@ class FastApp extends StatefulWidget {
     this.loaderJobs,
     this.lightTheme,
     this.darkTheme,
+    FastAppInfoDocument? appInformation,
     String? localizationPath,
     Locale? fallbackLocale,
   })  : localizationPath = localizationPath ?? kFastLocalizationPath,
-        fallbackLocale = fallbackLocale ?? kFastAppSettingsDefaultLocale;
+        fallbackLocale = fallbackLocale ?? kFastAppSettingsDefaultLocale {
+    appInfo = appInformation ?? kFastAppInfo;
+  }
 
   @override
   State<StatefulWidget> createState() => _FastAppState();

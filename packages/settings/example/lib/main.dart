@@ -17,10 +17,10 @@ import 'package:lingua_settings/generated/locale_keys.g.dart';
 // Project imports:
 import './routes.dart';
 
-const kAppInfo = FastAppInfoDocument(
+final kAppInfo = kFastAppInfo.copyWith(
   appName: 'Fastyle Settings',
   databaseVersion: 0,
-  supportedLocales: [
+  supportedLocales: const [
     Locale('de'),
     Locale('en'),
     Locale('fr'),
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return FastApp(
       routes: kAppRoutes,
-      appInfo: kAppInfo,
+      appInformation: kAppInfo,
       homeBuilder: (context) => buildHome(context),
       assetLoader: LinguaLoader(
         mapLocales: LinguaLoader.mergeMapLocales([
@@ -83,6 +83,10 @@ class MyApp extends StatelessWidget {
           FastItem(
             labelText: SettingsLocaleKeys.settings_label_user_settings.tr(),
             value: '/user-settings',
+          ),
+          FastItem(
+            labelText: SettingsLocaleKeys.settings_label_disclaimer.tr(),
+            value: '/disclaimer',
           ),
         ],
         onSelectionChanged: (FastItem<String> item) {

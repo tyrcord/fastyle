@@ -99,6 +99,15 @@ class FastAppInfoDocument extends TDocument {
   /// The supported locales of the application.
   final List<Locale> supportedLocales;
 
+  /// The last modified date of the app disclaimer.
+  final DateTime? appDisclaimerLastModified;
+
+  /// The last modified date of the app privacy policy.
+  final DateTime? appPrivacyPolicyLastModified;
+
+  /// The last modified date of the app terms of service.
+  final DateTime? appTermsOfServiceLastModified;
+
   /// Creates an instance of [FastAppInfoDocument].
   const FastAppInfoDocument({
     this.appVersion,
@@ -123,6 +132,9 @@ class FastAppInfoDocument extends TDocument {
     this.previousDatabaseVersion,
     this.deviceLanguageCode,
     this.deviceCountryCode,
+    this.appDisclaimerLastModified,
+    this.appPrivacyPolicyLastModified,
+    this.appTermsOfServiceLastModified,
     int? askForReviewMinLaunches,
     int? askForReviewMinDays,
     int? remindForReviewMinLaunches,
@@ -176,6 +188,9 @@ class FastAppInfoDocument extends TDocument {
       deviceLanguageCode: state.deviceLanguageCode,
       deviceCountryCode: state.deviceCountryCode,
       supportedLocales: state.supportedLocales,
+      appDisclaimerLastModified: state.appDisclaimerLastModified,
+      appPrivacyPolicyLastModified: state.appPrivacyPolicyLastModified,
+      appTermsOfServiceLastModified: state.appTermsOfServiceLastModified,
     );
   }
 
@@ -190,6 +205,15 @@ class FastAppInfoDocument extends TDocument {
         }
       }
     }
+
+    final appDisclaimerLastModified =
+        json['appDisclaimerLastModified'] as String?;
+
+    final appPrivacyPolicyLastModified =
+        json['appPrivacyPolicyLastModified'] as String?;
+
+    final appTermsOfServiceLastModified =
+        json['appTermsOfServiceLastModified'] as String?;
 
     return FastAppInfoDocument(
       // Ignore supportedLocales
@@ -227,6 +251,15 @@ class FastAppInfoDocument extends TDocument {
       previousDatabaseVersion: json['previousDatabaseVersion'] as int?,
       deviceLanguageCode: json['deviceLanguageCode'] as String?,
       deviceCountryCode: json['deviceCountryCode'] as String?,
+      appDisclaimerLastModified: appDisclaimerLastModified != null
+          ? DateTime.parse(appDisclaimerLastModified)
+          : null,
+      appPrivacyPolicyLastModified: appPrivacyPolicyLastModified != null
+          ? DateTime.parse(appPrivacyPolicyLastModified)
+          : null,
+      appTermsOfServiceLastModified: appTermsOfServiceLastModified != null
+          ? DateTime.parse(appTermsOfServiceLastModified)
+          : null,
     );
   }
 
@@ -262,6 +295,9 @@ class FastAppInfoDocument extends TDocument {
     String? deviceLanguageCode,
     String? deviceCountryCode,
     List<Locale>? supportedLocales,
+    DateTime? appDisclaimerLastModified,
+    DateTime? appPrivacyPolicyLastModified,
+    DateTime? appTermsOfServiceLastModified,
   }) {
     return FastAppInfoDocument(
       appName: appName ?? this.appName,
@@ -299,6 +335,12 @@ class FastAppInfoDocument extends TDocument {
       deviceLanguageCode: deviceLanguageCode ?? this.deviceLanguageCode,
       deviceCountryCode: deviceCountryCode ?? this.deviceCountryCode,
       supportedLocales: supportedLocales ?? this.supportedLocales,
+      appDisclaimerLastModified:
+          appDisclaimerLastModified ?? this.appDisclaimerLastModified,
+      appPrivacyPolicyLastModified:
+          appPrivacyPolicyLastModified ?? this.appPrivacyPolicyLastModified,
+      appTermsOfServiceLastModified:
+          appTermsOfServiceLastModified ?? this.appTermsOfServiceLastModified,
     );
   }
 
@@ -335,6 +377,9 @@ class FastAppInfoDocument extends TDocument {
       deviceLanguageCode: model.deviceLanguageCode,
       deviceCountryCode: model.deviceCountryCode,
       supportedLocales: model.supportedLocales,
+      appDisclaimerLastModified: model.appDisclaimerLastModified,
+      appPrivacyPolicyLastModified: model.appPrivacyPolicyLastModified,
+      appTermsOfServiceLastModified: model.appTermsOfServiceLastModified,
     );
   }
 
@@ -370,6 +415,12 @@ class FastAppInfoDocument extends TDocument {
         'previousDatabaseVersion': previousDatabaseVersion,
         'deviceLanguageCode': deviceLanguageCode,
         'deviceCountryCode': deviceCountryCode,
+        'appDisclaimerLastModified':
+            appDisclaimerLastModified?.toIso8601String(),
+        'appPrivacyPolicyLastModified':
+            appPrivacyPolicyLastModified?.toIso8601String(),
+        'appTermsOfServiceLastModified':
+            appTermsOfServiceLastModified?.toIso8601String(),
       };
 
   @override
@@ -407,5 +458,8 @@ class FastAppInfoDocument extends TDocument {
         deviceLanguageCode,
         deviceCountryCode,
         supportedLocales,
+        appDisclaimerLastModified,
+        appPrivacyPolicyLastModified,
+        appTermsOfServiceLastModified,
       ];
 }

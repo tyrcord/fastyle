@@ -514,10 +514,10 @@ packages:
     dependency: "direct main"
     description:
       name: lingua_settings
-      sha256: "31a0d3377ceae6685d51eba1d88a9b9e4ce9b9482817ee3a22b9ac059eb683cd"
+      sha256: "7c2f2a9c5584689f070210ddaa64011256627a3209ea96e1ff0e4a2a1d242ad0"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.7"
+    version: "0.0.8"
   lints:
     dependency: transitive
     description:
@@ -927,10 +927,10 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: d8354e2347f9f70046149b29f976d02685ab3bc037e3d7f38e8f63a2e6421f16
+      sha256: "75bc163467f01b1a2652006e81456874c9dff1cf2a3e43513c01870aa0645c0e"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.19"
+    version: "0.0.20"
   tbloc:
     dependency: "direct main"
     description:

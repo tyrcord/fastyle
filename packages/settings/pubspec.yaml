@@ -25,6 +25,9 @@ dependencies:
   tmodel: ^0.5.3
   fastyle_financial: ^0.0.7
   easy_localization: ^3.0.2
+  lingua_core: ^0.0.6
+  lingua_settings: ^0.0.8
+  t_helpers: ^0.0.20
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:fastyle_settings/ui/pages/disclaimer.page.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -52,49 +53,53 @@ final kAppRoutes = [
     ),
   ),
   GoRoute(
-      path: 'user-settings',
-      builder: (context, state) {
-        return FastAppSettingsPage(
-          titleText: SettingsLocaleKeys.settings_label_user_settings.tr(),
-          headerDescriptionText: SettingsLocaleKeys.settings_note_settings.tr(),
-          descriptor: FastSettingsDescriptor(
-            categories: {
-              FastAppSettingsCategories.inputs:
-                  FastAppSettingsInputsCategoryDescriptor(
-                titleText: SettingsLocaleKeys.settings_label_user_inputs.tr(),
-                fields: {
-                  FastAppSettingsFields.saveEntry: FastFormFieldDescriptor(
-                    labelText: CoreLocaleKeys.core_label_auto_save.tr(),
-                  ),
-                },
-              ),
-              FastAppSettingsCategories.defaultValues:
-                  FastAppSettingsDefaultValuesCategoryDescriptor(
-                titleText: SettingsLocaleKeys.settings_label_default.tr(),
-                fields: {
-                  FastAppSettingsFields.primaryCurrency:
-                      FastFormFieldDescriptor(
-                    labelText:
-                        FinanceLocaleKeys.finance_select_primary_currency.tr(),
-                    searchTitleText:
-                        FinanceLocaleKeys.finance_label_primary_currency.tr(),
-                    searchPlaceholderText:
-                        CoreLocaleKeys.core_message_search.tr(),
-                    itemDescriptionBuilder: (dynamic metadata) {
-                      if (metadata is MatexInstrumentMetadata &&
-                          metadata.name != null) {
-                        final key = metadata.name!.key;
+    path: 'user-settings',
+    builder: (context, state) {
+      return FastAppSettingsPage(
+        titleText: SettingsLocaleKeys.settings_label_user_settings.tr(),
+        headerDescriptionText: SettingsLocaleKeys.settings_note_settings.tr(),
+        descriptor: FastSettingsDescriptor(
+          categories: {
+            FastAppSettingsCategories.inputs:
+                FastAppSettingsInputsCategoryDescriptor(
+              titleText: SettingsLocaleKeys.settings_label_user_inputs.tr(),
+              fields: {
+                FastAppSettingsFields.saveEntry: FastFormFieldDescriptor(
+                  labelText: CoreLocaleKeys.core_label_auto_save.tr(),
+                ),
+              },
+            ),
+            FastAppSettingsCategories.defaultValues:
+                FastAppSettingsDefaultValuesCategoryDescriptor(
+              titleText: SettingsLocaleKeys.settings_label_default.tr(),
+              fields: {
+                FastAppSettingsFields.primaryCurrency: FastFormFieldDescriptor(
+                  labelText:
+                      FinanceLocaleKeys.finance_select_primary_currency.tr(),
+                  searchTitleText:
+                      FinanceLocaleKeys.finance_label_primary_currency.tr(),
+                  searchPlaceholderText:
+                      CoreLocaleKeys.core_message_search.tr(),
+                  itemDescriptionBuilder: (dynamic metadata) {
+                    if (metadata is MatexInstrumentMetadata &&
+                        metadata.name != null) {
+                      final key = metadata.name!.key;
 
-                        return buildLocaleCurrencyKey(key).tr();
-                      }
+                      return buildLocaleCurrencyKey(key).tr();
+                    }
 
-                      return '';
-                    },
-                  ),
-                },
-              ),
-            },
-          ),
-        );
-      }),
+                    return '';
+                  },
+                ),
+              },
+            ),
+          },
+        ),
+      );
+    },
+  ),
+  GoRoute(
+    path: 'disclaimer',
+    builder: (context, state) => const FastSettingsDisclaimerPage(),
+  ),
 ];
