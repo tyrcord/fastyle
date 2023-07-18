@@ -44,7 +44,8 @@ class FastSettingsDisclaimerPage extends StatelessWidget {
           buildLastModifiedText(context, appInfo.appDisclaimerLastModified!),
         buildAppDisclaimerParagraph(appInfo.appName),
         buildDisclaimerParagraph(
-            SettingsLocaleKeys.settings_disclaimer_data.tr()),
+          SettingsLocaleKeys.settings_disclaimer_data.tr(),
+        ),
         if (children != null) ...children!,
       ],
     );

@@ -102,4 +102,8 @@ final kAppRoutes = [
     path: 'disclaimer',
     builder: (context, state) => const FastSettingsDisclaimerPage(),
   ),
+  GoRoute(
+    path: 'tos',
+    builder: (context, state) => const FastSettingsTermsOfServicePage(),
+  ),
 ];

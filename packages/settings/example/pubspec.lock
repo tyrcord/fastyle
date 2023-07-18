@@ -490,10 +490,10 @@ packages:
     dependency: "direct main"
     description:
       name: lingua_finance
-      sha256: "59eedcb7e70d6926e91bb1ad295f83e2e82d7f9165452c86e5d654fd9bbf5f14"
+      sha256: a84b5611b6aeedbbe466e36b11c24a4548ecfbbe23c22dee6565a563552cbc25
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.5+1"
+    version: "0.0.7"
   lingua_finance_instrument:
     dependency: "direct main"
     description:

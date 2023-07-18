@@ -88,6 +88,10 @@ class MyApp extends StatelessWidget {
             labelText: SettingsLocaleKeys.settings_label_disclaimer.tr(),
             value: '/disclaimer',
           ),
+          FastItem(
+            labelText: SettingsLocaleKeys.settings_label_terms_of_service.tr(),
+            value: '/tos',
+          ),
         ],
         onSelectionChanged: (FastItem<String> item) {
           if (item.value != null) {
