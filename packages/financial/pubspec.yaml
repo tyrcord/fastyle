@@ -16,6 +16,10 @@ dependencies:
   matex_dart: ^0.11.1
   collection: ^1.17.1
   fastyle_images: ^0.0.11
+  lingua_finance: ^0.0.7
+  fastyle_settings: ^0.0.10
+  easy_localization: ^3.0.2
+
 
 dev_dependencies:
   flutter_test:
