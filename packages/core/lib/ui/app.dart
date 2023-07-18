@@ -158,6 +158,7 @@ class _FastAppState extends State<FastApp> {
                   BlocProvider(bloc: FastAppSettingsBloc()),
                   BlocProvider(bloc: FastAppDictBloc()),
                   BlocProvider(bloc: FastAppFeaturesBloc()),
+                  BlocProvider(bloc: FastAppOnboardingBloc()),
                   BlocProvider(bloc: _themeBloc),
                   ...?widget.blocProviders,
                 ],
@@ -201,6 +202,7 @@ class _FastAppState extends State<FastApp> {
           FastAppSettingsJob(),
           FastAppDictJob(),
           FastAppFeaturesJob(),
+          FastAppOnboardingJob(),
           ...?widget.loaderJobs,
         ],
         lightTheme: widget.lightTheme,
@@ -211,12 +213,10 @@ class _FastAppState extends State<FastApp> {
 
   /// Builds the app or onboarding widget depending on the app state.
   Widget buildAppOrOnboarding(BuildContext context) {
-    final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
-    final appInfo = appInfoBloc.currentState;
+    final bloc = BlocProvider.of<FastAppOnboardingBloc>(context);
+    final onboardingState = bloc.currentState;
 
-    if (appInfo.isFirstLaunch || widget.forceOnboarding) {
-      // FIXME: add a property to the Fast app info to define
-      // if it has been already initialized or not.
+    if (!onboardingState.isCompleted || widget.forceOnboarding) {
       if (widget.onboardingBuilder != null) {
         return Builder(builder: widget.onboardingBuilder!);
       }

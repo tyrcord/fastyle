@@ -36,6 +36,7 @@ const kFastAppSettingStoreName = 'fastAppSettings';
 const kFastAppInfoStoreName = 'fastAppInfo';
 const kFastAppFeaturesStoreName = 'fastAppFeatures';
 const kFastAppDictStoreName = 'fastAppDict';
+const kFastAppOnboardingStoreName = 'fastAppOnboarding';
 
 // Default App setting values.
 final kFastSettingsDefaultTheme = kFastSettingsThemeMap[ThemeMode.system]!;
