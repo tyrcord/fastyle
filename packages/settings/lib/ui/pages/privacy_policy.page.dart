@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -8,45 +7,22 @@ import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:fastyle_settings/fastyle_settings.dart';
 
-class FastSettingsPrivacyPolicyPage extends StatefulWidget {
+class FastSettingsPrivacyPolicyPage extends StatelessWidget {
   final List<Widget>? children;
   final double iconSize;
 
   const FastSettingsPrivacyPolicyPage({
-    Key? key,
+    super.key,
     this.children,
     double? iconSize,
-  })  : iconSize = iconSize ?? kFastSettingIconHeight,
-        super(key: key);
-
-  @override
-  FastSettingsPrivacyPolicyPageState createState() =>
-      FastSettingsPrivacyPolicyPageState();
-}
-
-class FastSettingsPrivacyPolicyPageState
-    extends State<FastSettingsPrivacyPolicyPage> {
-  late TapGestureRecognizer _emailTapRecognizer;
-
-  @override
-  void initState() {
-    super.initState();
-    _emailTapRecognizer = TapGestureRecognizer();
-    handleContactUs();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _emailTapRecognizer.dispose();
-  }
+  }) : iconSize = iconSize ?? kFastSettingIconHeight;
 
   @override
   Widget build(BuildContext context) {
     return FastSectionPage(
       titleText: getPrivacyPolicyTitle(context),
       isViewScrollable: true,
-      child: buildContent(),
+      child: buildContent(context),
     );
   }
 
@@ -54,7 +30,7 @@ class FastSettingsPrivacyPolicyPageState
     return SettingsLocaleKeys.settings_label_privacy_policy.tr();
   }
 
-  Widget buildContent() {
+  Widget buildContent(BuildContext context) {
     final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
     final appInfo = appInfoBloc.currentState;
     final appAuthor = appInfo.appAuthor;
@@ -80,7 +56,7 @@ class FastSettingsPrivacyPolicyPageState
         buildChildrensPrivacySection(),
         buildChangesToPrivacyPolicySection(),
         buildContactUsSection(appInfo.supportEmail),
-        ...?widget.children,
+        ...?children,
         FastAppCopyright(author: appAuthor, name: appName),
       ],
     );
@@ -95,7 +71,7 @@ class FastSettingsPrivacyPolicyPageState
       child: FastRoundedDuotoneIcon(
         icon: const FaIcon(FontAwesomeIcons.userSecret),
         palette: palette.blueGray,
-        size: widget.iconSize * textScaleFactor,
+        size: iconSize * textScaleFactor,
       ),
     );
   }
@@ -264,46 +240,17 @@ class FastSettingsPrivacyPolicyPageState
   }
 
   Widget buildContactUsSection(String? email) {
-    final palette = ThemeHelper.getPaletteColors(context);
-    final bodyTextStyle = ThemeHelper.texts.getBodyTextStyle(context);
-    final scaleFactor = MediaQuery.textScaleFactorOf(context);
-    final spanTextStyle = bodyTextStyle.copyWith(
-      fontSize: bodyTextStyle.fontSize! * scaleFactor,
-    );
-    final linkTextStyle = spanTextStyle.copyWith(color: palette.blue.mid);
-
     return FastArticle(
       titleText: 'Contact Us',
       children: [
         FastParagraph(
-          child: RichText(
-            text: TextSpan(
-              style: spanTextStyle,
-              text: 'If you have any questions or suggestions about our '
-                  'Privacy Policy, do not hesitate to contact us ',
-              children: [
-                if (email != null)
-                  TextSpan(
-                    recognizer: _emailTapRecognizer,
-                    style: linkTextStyle,
-                    text: email,
-                  ),
-              ],
-            ),
+          child: FastSettingsSupportLink(
+            email: email,
+            linkText: 'If you have any questions or suggestions about our '
+                'Privacy Policy, do not hesitate to contact us ',
           ),
         ),
       ],
     );
-  }
-
-  void handleContactUs() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
-      final appInfo = appInfoBloc.currentState;
-
-      _emailTapRecognizer.onTap = () {
-        FastMessenger.askForSupport(appInfo.supportEmail!);
-      };
-    });
   }
 }

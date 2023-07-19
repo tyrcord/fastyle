@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -8,7 +7,7 @@ import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:fastyle_settings/fastyle_settings.dart';
 
-class FastSettingsTermsOfServicePage extends StatefulWidget {
+class FastSettingsTermsOfServicePage extends StatelessWidget {
   final List<Widget>? children;
   final double iconSize;
 
@@ -17,29 +16,6 @@ class FastSettingsTermsOfServicePage extends StatefulWidget {
     this.children,
     double? iconSize,
   }) : iconSize = iconSize ?? kFastSettingIconHeight;
-
-  @override
-  State<FastSettingsTermsOfServicePage> createState() {
-    return _FastSettingsTermsOfServicePageState();
-  }
-}
-
-class _FastSettingsTermsOfServicePageState
-    extends State<FastSettingsTermsOfServicePage> {
-  late TapGestureRecognizer _emailTapRecognizer;
-
-  @override
-  void initState() {
-    super.initState();
-    _emailTapRecognizer = TapGestureRecognizer();
-    handleAskForSupport();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _emailTapRecognizer.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +51,7 @@ class _FastSettingsTermsOfServicePageState
         buildGovernLawArticle(),
         buildThirdPartyServicesArticle(),
         buildIntellectualPropertyArticle(appName),
-        ...?widget.children,
+        ...?children,
         FastAppCopyright(author: appAuthor, name: appName),
       ],
     );
@@ -90,7 +66,7 @@ class _FastSettingsTermsOfServicePageState
       child: FastRoundedDuotoneIcon(
         icon: const FaIcon(FontAwesomeIcons.fileContract),
         palette: palette.blueGray,
-        size: widget.iconSize * textScaleFactor,
+        size: iconSize * textScaleFactor,
       ),
     );
   }
@@ -106,36 +82,18 @@ class _FastSettingsTermsOfServicePageState
     String appName, {
     String? email = '',
   }) {
-    final bodyTextStyle = ThemeHelper.texts.getBodyTextStyle(context);
-    final scaleFactor = MediaQuery.textScaleFactorOf(context);
-    final palette = ThemeHelper.getPaletteColors(context);
-    final blueColor = palette.blue.mid;
-    final spanTextStyle = bodyTextStyle.copyWith(
-      fontSize: bodyTextStyle.fontSize! * scaleFactor,
-    );
-    final linkTextStyle = spanTextStyle.copyWith(color: blueColor);
-
     return FastArticle(
       titleText: 'Accepting these Terms',
       children: [
         FastParagraph(
-          child: RichText(
-            text: TextSpan(
-              style: spanTextStyle,
-              text: 'If you access or use the Service, it means you '
-                  'agree to be bound by all of the terms below. So, '
-                  'before you use the Service, please read all of the '
-                  'terms. If you do not agree to all of the terms below, '
-                  'please do not use the Service. Also, if a term does not '
-                  'make sense to you, please let us know by e-mailing ',
-              children: [
-                TextSpan(
-                  recognizer: _emailTapRecognizer,
-                  style: linkTextStyle,
-                  text: email,
-                ),
-              ],
-            ),
+          child: FastSettingsSupportLink(
+            email: email,
+            linkText: 'If you access or use the Service, it means you '
+                'agree to be bound by all of the terms below. So, '
+                'before you use the Service, please read all of the '
+                'terms. If you do not agree to all of the terms below, '
+                'please do not use the Service. Also, if a term does not '
+                'make sense to you, please let us know by e-mailing ',
           ),
         ),
       ],
@@ -229,15 +187,4 @@ class _FastSettingsTermsOfServicePageState
   }
 
   Widget buildTermOfServiceParagraph(String text) => FastParagraph(text: text);
-
-  handleAskForSupport() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
-      final appInfo = appInfoBloc.currentState;
-
-      _emailTapRecognizer.onTap = () {
-        FastMessenger.askForSupport(appInfo.supportEmail!);
-      };
-    });
-  }
 }
