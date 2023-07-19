@@ -21,7 +21,7 @@ class FastAppInfoBlocState extends BlocState {
   final String? appBuildNumber;
 
   /// The author of the app.
-  final String? appAuthor;
+  final String appAuthor;
 
   /// The identifier of the app.
   final String? appIdentifier;
@@ -118,7 +118,6 @@ class FastAppInfoBlocState extends BlocState {
     super.isInitialized,
     this.appVersion,
     this.appBuildNumber,
-    this.appAuthor,
     this.appIdentifier,
     this.appTermsOfServiceUrl,
     this.appPrivacyPolicyUrl,
@@ -140,16 +139,18 @@ class FastAppInfoBlocState extends BlocState {
     this.appDisclaimerLastModified,
     this.appPrivacyPolicyLastModified,
     this.appTermsOfServiceLastModified,
+    int? remindForReviewMinLaunches,
     List<Locale>? supportedLocales,
     int? askForReviewMinLaunches,
-    int? askForReviewMinDays,
-    int? remindForReviewMinLaunches,
     int? remindForReviewMinDays,
-    bool? hasDisclaimer,
-    String? appName,
     String? deviceLanguageCode,
+    int? askForReviewMinDays,
     int? appLaunchCounter,
+    bool? hasDisclaimer,
+    String? appAuthor,
+    String? appName,
   })  : appName = appName ?? kFastEmptyString,
+        appAuthor = appAuthor ?? kFastAppAuthor,
         deviceLanguageCode =
             deviceLanguageCode ?? kFastSettingsDefaultLanguageCode,
         askForReviewMinLaunches =

@@ -7,7 +7,6 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:fastyle_settings/fastyle_settings.dart';
-import 'package:t_helpers/helpers.dart';
 
 class FastSettingsTermsOfServicePage extends StatefulWidget {
   final List<Widget>? children;
@@ -59,16 +58,16 @@ class _FastSettingsTermsOfServicePageState
     final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
     final appInfo = appInfoBloc.currentState;
     final appName = appInfo.appName;
+    final appAuthor = appInfo.appAuthor;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        buildTermOfServiceIcon(context),
+        buildTermsOfServiceIcon(context),
         kFastSizedBox32,
         if (appInfo.appTermsOfServiceLastModified != null)
-          buildLastModifiedText(
-            context,
-            appInfo.appTermsOfServiceLastModified!,
+          FastSettingsLastModified(
+            lastModifiedAt: appInfo.appTermsOfServiceLastModified!,
           ),
         buildAppTermOfServiceParagraph(appName),
         buildAcceptingTermsArticle(appName, email: appInfo.supportEmail),
@@ -77,11 +76,12 @@ class _FastSettingsTermsOfServicePageState
         buildThirdPartyServicesArticle(),
         buildIntellectualPropertyArticle(appName),
         ...?widget.children,
+        FastAppCopyright(author: appAuthor, name: appName),
       ],
     );
   }
 
-  Widget buildTermOfServiceIcon(BuildContext context) {
+  Widget buildTermsOfServiceIcon(BuildContext context) {
     final scaleFactor = MediaQuery.textScaleFactorOf(context);
     final textScaleFactor = scaleFactor > 1 ? scaleFactor : scaleFactor;
     final palette = ThemeHelper.getPaletteColors(context);
@@ -91,34 +91,6 @@ class _FastSettingsTermsOfServicePageState
         icon: const FaIcon(FontAwesomeIcons.fileContract),
         palette: palette.blueGray,
         size: widget.iconSize * textScaleFactor,
-      ),
-    );
-  }
-
-  Widget buildLastModifiedText(BuildContext context, DateTime lastModifiedAt) {
-    final appSettingsBloc = BlocProvider.of<FastAppSettingsBloc>(context);
-    final appSettings = appSettingsBloc.currentState;
-    final pendingDate = formatDateTime(
-      lastModifiedAt,
-      languageCode: appSettings.languageCode,
-      countryCode: appSettings.countryCode,
-      showTime: false,
-    );
-
-    return FastParagraph(
-      margin: const EdgeInsets.only(bottom: 8.0),
-      child: FutureBuilder(
-        future: pendingDate,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return FastSecondaryBody(
-              text: SettingsLocaleKeys.settings_message_last_modified
-                  .tr(namedArgs: {'date': snapshot.data.toString()}),
-            );
-          }
-
-          return const SizedBox.shrink();
-        },
       ),
     );
   }

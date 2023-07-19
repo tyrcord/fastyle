@@ -20,7 +20,7 @@ class FastAppInfoDocument extends TDocument {
   final String? appBuildNumber;
 
   /// The author of the app.
-  final String? appAuthor;
+  final String appAuthor;
 
   /// The identifier of the app.
   final String? appIdentifier;
@@ -111,7 +111,6 @@ class FastAppInfoDocument extends TDocument {
   /// Creates an instance of [FastAppInfoDocument].
   const FastAppInfoDocument({
     this.appVersion,
-    this.appAuthor,
     this.appIdentifier,
     this.appTermsOfServiceUrl,
     this.appPrivacyPolicyUrl,
@@ -135,15 +134,17 @@ class FastAppInfoDocument extends TDocument {
     this.appDisclaimerLastModified,
     this.appPrivacyPolicyLastModified,
     this.appTermsOfServiceLastModified,
-    int? askForReviewMinLaunches,
-    int? askForReviewMinDays,
     int? remindForReviewMinLaunches,
-    int? remindForReviewMinDays,
-    bool? hasDisclaimer,
-    String? appName,
     List<Locale>? supportedLocales,
+    int? askForReviewMinLaunches,
+    int? remindForReviewMinDays,
+    int? askForReviewMinDays,
     int? appLaunchCounter,
+    bool? hasDisclaimer,
+    String? appAuthor,
+    String? appName,
   })  : appName = appName ?? kFastEmptyString,
+        appAuthor = appAuthor ?? kFastAppAuthor,
         askForReviewMinLaunches =
             askForReviewMinLaunches ?? kFastAppSettingsAskForReviewMinLaunches,
         remindForReviewMinLaunches = remindForReviewMinLaunches ??

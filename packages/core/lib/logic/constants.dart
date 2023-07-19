@@ -13,7 +13,7 @@ final kFastAppInfo = FastAppInfoDocument(
   homepageUrl: 'https://tyrcord.com',
   supportEmail: 'contact@tyrcord.com',
   bugReportEmail: 'dev@tyrcord.com',
-  appAuthor: 'Tyrcord, Inc',
+  appAuthor: kFastAppAuthor,
   appVersion: '0.0.1',
   appName: 'FastApp',
   databaseVersion: 0,
@@ -81,3 +81,5 @@ const kFastLocalizationPath = 'i18n/';
 
 /// The duration to delay before showing the loader in Fast App.
 const kFastDelayBeforeShowingLoader = Duration(seconds: 1);
+
+const kFastAppAuthor = 'Tyrcord, Inc';

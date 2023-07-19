@@ -106,4 +106,8 @@ final kAppRoutes = [
     path: 'tos',
     builder: (context, state) => const FastSettingsTermsOfServicePage(),
   ),
+  GoRoute(
+    path: 'privacy-policy',
+    builder: (context, state) => const FastSettingsPrivacyPolicyPage(),
+  ),
 ];

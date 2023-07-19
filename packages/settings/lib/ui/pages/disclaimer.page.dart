@@ -6,7 +6,6 @@ import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:flutter/material.dart';
 import 'package:fastyle_settings/fastyle_settings.dart';
-import 'package:t_helpers/helpers.dart';
 
 class FastSettingsDisclaimerPage extends StatelessWidget {
   final List<Widget>? children;
@@ -34,6 +33,8 @@ class FastSettingsDisclaimerPage extends StatelessWidget {
   Widget buildContent(BuildContext context) {
     final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
     final appInfo = appInfoBloc.currentState;
+    final appAuthor = appInfo.appAuthor;
+    final appName = appInfo.appName;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -41,12 +42,15 @@ class FastSettingsDisclaimerPage extends StatelessWidget {
         buildDisclaimerIcon(context),
         kFastSizedBox32,
         if (appInfo.appDisclaimerLastModified != null)
-          buildLastModifiedText(context, appInfo.appDisclaimerLastModified!),
+          FastSettingsLastModified(
+            lastModifiedAt: appInfo.appDisclaimerLastModified!,
+          ),
         buildAppDisclaimerParagraph(appInfo.appName),
         buildDisclaimerParagraph(
           SettingsLocaleKeys.settings_disclaimer_data.tr(),
         ),
-        if (children != null) ...children!,
+        ...?children,
+        FastAppCopyright(author: appAuthor, name: appName),
       ],
     );
   }
@@ -72,34 +76,6 @@ class FastSettingsDisclaimerPage extends StatelessWidget {
     );
 
     return buildDisclaimerParagraph(disclaimerText);
-  }
-
-  Widget buildLastModifiedText(BuildContext context, DateTime lastModifiedAt) {
-    final appSettingsBloc = BlocProvider.of<FastAppSettingsBloc>(context);
-    final appSettings = appSettingsBloc.currentState;
-    final pendingDate = formatDateTime(
-      lastModifiedAt,
-      languageCode: appSettings.languageCode,
-      countryCode: appSettings.countryCode,
-      showTime: false,
-    );
-
-    return FastParagraph(
-      margin: const EdgeInsets.only(bottom: 8.0),
-      child: FutureBuilder(
-        future: pendingDate,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return FastSecondaryBody(
-              text: SettingsLocaleKeys.settings_message_last_modified
-                  .tr(namedArgs: {'date': snapshot.data.toString()}),
-            );
-          }
-
-          return const SizedBox.shrink();
-        },
-      ),
-    );
   }
 
   Widget buildDisclaimerParagraph(String text) {
