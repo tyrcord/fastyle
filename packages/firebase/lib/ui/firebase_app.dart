@@ -6,11 +6,14 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_dart/fastyle_dart.dart' hide FastApp;
 import 'package:firebase_core/firebase_core.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 
 // Project imports:
 import 'package:fastyle_firebase/fastyle_firebase.dart';
 
 class FusexFirebaseApp extends FastApp {
+  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+
   /// The default firebase options.
   final FirebaseOptions? firebaseOptions;
 

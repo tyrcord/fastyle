@@ -20,10 +20,10 @@ dependencies:
   fastyle_settings: ^0.0.10
   easy_localization: ^3.0.2
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.2
   dart_code_metrics: ^5.7.6
   import_sorter: ^4.6.0
+  dependency_validator: ^3.2.2

@@ -10,20 +10,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  rxdart: ^0.27.7
   collection: ^1.17.1
   font_awesome_flutter: ^10.5.0
-
   fastyle_core: ^0.0.3
   fastyle_dart: ">=1.4.1 <2.0.0"
   matex_financial: ">=0.0.10 <1.0.0"
-  tstore: ">=0.8.9 <1.0.0"
   tbloc: ">=0.21.0 <1.0.0"
   fastyle_images: ^0.0.11
   fastyle_forms: ^0.0.9
   matex_dart: ^0.11.1
-  tmodel: ^0.5.3
-  fastyle_financial: ^0.0.7
   fastyle_pricing: ^1.2.0
   easy_localization: ^3.0.2
   lingua_core: ^0.0.6
@@ -36,3 +31,4 @@ dev_dependencies:
   flutter_lints: ^2.0.2
   dart_code_metrics: ^5.7.6
   import_sorter: ^4.6.0
+  dependency_validator: ^3.2.2

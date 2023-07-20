@@ -8,6 +8,8 @@ scripts:
     exec: dart analyze .
   import_sort:
     exec: dart pub run import_sorter:main
+  dependency_validator:
+    exec: dart run dependency_validator
 
 ide:
   intellij:
