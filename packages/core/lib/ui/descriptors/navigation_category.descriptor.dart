@@ -2,7 +2,7 @@
 import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:flutter/material.dart';
 
-class FastSettingsNavigationCategoryDescriptor<T> extends FastDescriptor {
+class FastNavigationCategoryDescriptor<T> extends FastDescriptor {
   final List<FastItem<T>> items;
 
   final String? captionText;
@@ -15,7 +15,7 @@ class FastSettingsNavigationCategoryDescriptor<T> extends FastDescriptor {
 
   final bool show;
 
-  const FastSettingsNavigationCategoryDescriptor({
+  const FastNavigationCategoryDescriptor({
     required this.titleText,
     this.items = const [],
     this.show = true,
@@ -25,10 +25,10 @@ class FastSettingsNavigationCategoryDescriptor<T> extends FastDescriptor {
   });
 
   @override
-  FastSettingsNavigationCategoryDescriptor<T> clone() => copyWith();
+  FastNavigationCategoryDescriptor<T> clone() => copyWith();
 
   @override
-  FastSettingsNavigationCategoryDescriptor<T> copyWith({
+  FastNavigationCategoryDescriptor<T> copyWith({
     List<FastItem<T>>? items,
     String? titleText,
     bool? show,
@@ -36,7 +36,7 @@ class FastSettingsNavigationCategoryDescriptor<T> extends FastDescriptor {
     Color? captionColor,
     Color? titleColor,
   }) {
-    return FastSettingsNavigationCategoryDescriptor<T>(
+    return FastNavigationCategoryDescriptor<T>(
       titleText: titleText ?? this.titleText,
       items: items ?? this.items,
       show: show ?? this.show,
@@ -47,8 +47,8 @@ class FastSettingsNavigationCategoryDescriptor<T> extends FastDescriptor {
   }
 
   @override
-  FastSettingsNavigationCategoryDescriptor<T> merge(
-    covariant FastSettingsNavigationCategoryDescriptor<T> model,
+  FastNavigationCategoryDescriptor<T> merge(
+    covariant FastNavigationCategoryDescriptor<T> model,
   ) {
     return copyWith(
       titleText: model.titleText,

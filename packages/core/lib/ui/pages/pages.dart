@@ -1,0 +1,1 @@
+export 'info.page.dart';

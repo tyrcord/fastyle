@@ -335,10 +335,10 @@ packages:
     dependency: transitive
     description:
       name: go_router
-      sha256: b33a88c67816312597e5e0f5906c5139a0b9bd9bb137346e872c788da7af8ea0
+      sha256: "5927202c23bec18ba93f662b5e1f81f2caa2e0cfa472d857d6229f63d59f1730"
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.3"
+    version: "9.1.0"
   google_fonts:
     dependency: transitive
     description:
@@ -435,6 +435,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.1.0-nullsafety.0"
+  lingua_core:
+    dependency: transitive
+    description:
+      name: lingua_core
+      sha256: "82aa8613b434ea7bb2c83fd38592e061aafba4ba6c7a1ab94fa5db253a34bee5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.7"
   lints:
     dependency: transitive
     description:
@@ -475,6 +483,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
+  mime:
+    dependency: transitive
+    description:
+      name: mime
+      sha256: e4ff8e8564c03f255408decd16e7899da1733852a9110a58fe6d1b817684a63e
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.4"
   nested:
     dependency: transitive
     description:
@@ -683,6 +699,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.27.7"
+  share_plus:
+    dependency: transitive
+    description:
+      name: share_plus
+      sha256: ed3fcea4f789ed95913328e629c0c53e69e80e08b6c24542f1b3576046c614e8
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.0.2"
+  share_plus_platform_interface:
+    dependency: transitive
+    description:
+      name: share_plus_platform_interface
+      sha256: "0c6e61471bd71b04a138b8b588fa388e66d8b005e6f2deda63371c5c505a0981"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.1"
   shared_preferences:
     dependency: transitive
     description:
@@ -796,10 +828,10 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: d8354e2347f9f70046149b29f976d02685ab3bc037e3d7f38e8f63a2e6421f16
+      sha256: "75bc163467f01b1a2652006e81456874c9dff1cf2a3e43513c01870aa0645c0e"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.19"
+    version: "0.0.20"
   tbloc:
     dependency: "direct main"
     description:

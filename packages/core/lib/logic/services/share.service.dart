@@ -1,6 +1,6 @@
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
-import 'package:lingua_share/generated/locale_keys.g.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:tbloc/tbloc.dart';
@@ -25,7 +25,7 @@ class FastShare {
       debugPrint('The app url is not defined');
     }
 
-    message ??= ShareLocaleKeys.share_message_invite.tr();
+    message ??= CoreLocaleKeys.core_message_share_invite.tr();
 
     return Share.share(
       '$message\n\n${appInfo.shareAppUrl ?? appInfo.appName}',

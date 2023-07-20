@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:fastyle_dart/fastyle_dart.dart' hide FastApp;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
@@ -65,9 +64,10 @@ class MyApp extends StatelessWidget {
 
   Widget buildHome(BuildContext context) {
     return FastAppInfoPage<String>(
+      titleText: SettingsLocaleKeys.settings_label_app_settings.tr(),
       showAppBar: false,
       categoryDescriptors: [
-        FastSettingsNavigationCategoryDescriptor(
+        FastNavigationCategoryDescriptor(
           titleText: SettingsLocaleKeys.settings_label_app_settings.tr(),
           items: [
             FastItem(
@@ -96,7 +96,7 @@ class MyApp extends StatelessWidget {
             ),
           ],
         ),
-        FastSettingsNavigationCategoryDescriptor(
+        FastNavigationCategoryDescriptor(
           titleText: SettingsLocaleKeys.settings_label_customer_support.tr(),
           items: [
             FastItem(
@@ -117,7 +117,7 @@ class MyApp extends StatelessWidget {
             ),
           ],
         ),
-        FastSettingsNavigationCategoryDescriptor(
+        FastNavigationCategoryDescriptor(
           titleText: SettingsLocaleKeys.settings_label_legal.tr(),
           items: [
             FastItem(
@@ -147,7 +147,7 @@ class MyApp extends StatelessWidget {
             ),
           ],
         ),
-        FastSettingsNavigationCategoryDescriptor(
+        FastNavigationCategoryDescriptor(
           titleText: 'Fastyle',
           items: [
             FastItem(
@@ -159,7 +159,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
             FastItem(
-              labelText: CoreLocaleKeys.core_label_share.tr(),
+              labelText: CoreLocaleKeys.core_label_share_app.tr(),
               value: 'action://share',
               descriptor: buildListItemDescriptor(
                 context,
@@ -168,11 +168,11 @@ class MyApp extends StatelessWidget {
             ),
           ],
         ),
-        FastSettingsNavigationCategoryDescriptor(
-          titleText: 'Follow us',
+        FastNavigationCategoryDescriptor(
+          titleText: CoreLocaleKeys.core_label_follow_us.tr(),
           items: [
             FastItem(
-              labelText: 'Website',
+              labelText: CoreLocaleKeys.core_label_website.tr(),
               value: 'action://site',
               descriptor: buildListItemDescriptor(
                 context,
