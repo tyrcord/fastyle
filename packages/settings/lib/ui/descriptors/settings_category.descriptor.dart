@@ -1,6 +1,6 @@
 // Package imports:
 import 'package:fastyle_forms/fastyle_forms.dart';
-import 'package:tmodel/tmodel.dart';
+import 'package:fastyle_dart/fastyle_dart.dart';
 
 /// This file defines the [FastSettingsCategoryDescriptor] class, which is a
 /// model for a settings category in the Fastyle Forms library.
@@ -9,9 +9,9 @@ import 'package:tmodel/tmodel.dart';
 /// [FastFormFieldDescriptor] objects, and a boolean flag indicating whether
 /// the category should be shown or hidden.
 ///
-/// This class extends [TModel], which provides methods for cloning, copying,
-/// and merging instances of the class.
-class FastSettingsCategoryDescriptor extends TModel {
+/// This class extends [FastDescriptor], which provides methods for cloning,
+/// copying, and merging instances of the class.
+class FastSettingsCategoryDescriptor extends FastDescriptor {
   /// A map of [FastFormFieldDescriptor] objects that define the fields in the
   /// category.
   final Map<String, FastFormFieldDescriptor> fields;

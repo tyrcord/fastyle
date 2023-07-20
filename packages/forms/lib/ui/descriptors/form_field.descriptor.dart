@@ -1,8 +1,8 @@
 // Package imports:
-import 'package:tmodel/tmodel.dart';
+import 'package:fastyle_dart/fastyle_dart.dart';
 
 /// A descriptor for a form field.
-class FastFormFieldDescriptor extends TModel {
+class FastFormFieldDescriptor extends FastDescriptor {
   /// The text to display in the search title.
   final String? searchTitleText;
 

@@ -203,6 +203,44 @@ class FastAppInfoBlocState extends BlocState {
     );
   }
 
+  FastAppInfoDocument toDocument() {  
+    return FastAppInfoDocument(
+      appAuthor: appAuthor,
+      appBuildNumber: appBuildNumber,
+      appIdentifier: appIdentifier,
+      appTermsOfServiceUrl: appTermsOfServiceUrl,
+      appPrivacyPolicyUrl: appPrivacyPolicyUrl,
+      appDisclaimerUrl: appDisclaimerUrl,
+      supportEmail: supportEmail,
+      bugReportEmail: bugReportEmail,
+      facebookUrl: facebookUrl,
+      homepageUrl: homepageUrl,
+      instagramUrl: instagramUrl,
+      shareAppUrl: shareAppUrl,
+      databaseVersion: databaseVersion,
+      googlePlayIdentifier: googlePlayIdentifier,
+      appStoreIdentifier: appStoreIdentifier,
+      productIdentifiers: productIdentifiers,
+      premiumProductIdentifier: premiumProductIdentifier,
+      promoUrl: promoUrl,
+      appVersion: appVersion,
+      askForReviewMinLaunches: askForReviewMinLaunches,
+      askForReviewMinDays: askForReviewMinDays,
+      remindForReviewMinLaunches: remindForReviewMinLaunches,
+      remindForReviewMinDays: remindForReviewMinDays,
+      hasDisclaimer: hasDisclaimer,
+      appName: appName,
+      appLaunchCounter: appLaunchCounter,
+      previousDatabaseVersion: previousDatabaseVersion,
+      deviceLanguageCode: deviceLanguageCode,
+      deviceCountryCode: deviceCountryCode,
+      supportedLocales: supportedLocales,
+      appDisclaimerLastModified: appDisclaimerLastModified,
+      appPrivacyPolicyLastModified: appPrivacyPolicyLastModified,
+      appTermsOfServiceLastModified: appTermsOfServiceLastModified,
+    );
+  }
+
   /// Creates a new [FastAppInfoBlocState] instance with updated properties.
   ///
   /// If a parameter is not provided, the corresponding property of the current

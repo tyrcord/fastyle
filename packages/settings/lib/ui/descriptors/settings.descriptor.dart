@@ -1,5 +1,5 @@
 // Package imports:
-import 'package:tmodel/tmodel.dart';
+import 'package:fastyle_dart/fastyle_dart.dart';
 
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
@@ -11,8 +11,8 @@ const kDefaultFastSettingsCategories = {
       FastAppSettingsDefaultValuesCategoryDescriptor(),
 };
 
-/// A [TModel] that describes the settings available in the Fastyle Settings
-/// package.
+/// A [FastDescriptor] that describes the settings available in the Fastyle
+/// Settings package.
 ///
 /// The [FastSettingsDescriptor] class contains a map of
 /// [FastSettingsCategoryDescriptor] objects, which describe the different
@@ -21,7 +21,7 @@ const kDefaultFastSettingsCategories = {
 /// The [FastSettingsDescriptor] class provides methods for cloning, copying,
 /// and merging instances of itself, as well as a list of [props] that can be
 /// used to compare instances of the class.
-class FastSettingsDescriptor extends TModel {
+class FastSettingsDescriptor extends FastDescriptor {
   /// Whether to show the default value settings category.
   final Map<String, FastSettingsCategoryDescriptor> categories;
 

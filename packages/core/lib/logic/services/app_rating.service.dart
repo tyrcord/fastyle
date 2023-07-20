@@ -17,22 +17,22 @@ class FusexAppRatingService {
   late RateMyApp _rateMyApp;
 
   /// Creates a singleton instance of [FusexAppRatingService].
-  factory FusexAppRatingService(FastAppInfoDocument model) {
-    _singleton ??= FusexAppRatingService._(model);
+  factory FusexAppRatingService(FastAppInfoDocument appInfo) {
+    _singleton ??= FusexAppRatingService._(appInfo);
 
     return _singleton!;
   }
 
   /// Private constructor for [FusexAppRatingService].
-  FusexAppRatingService._(FastAppInfoDocument model) {
+  FusexAppRatingService._(FastAppInfoDocument appInfo) {
     _rateMyApp = RateMyApp(
-      googlePlayIdentifier: model.googlePlayIdentifier,
-      remindLaunches: model.remindForReviewMinLaunches,
-      preferencesPrefix: '${model.appIdentifier}_',
-      appStoreIdentifier: model.appStoreIdentifier,
-      minLaunches: model.askForReviewMinLaunches,
-      remindDays: model.remindForReviewMinDays,
-      minDays: model.askForReviewMinDays,
+      googlePlayIdentifier: appInfo.googlePlayIdentifier,
+      remindLaunches: appInfo.remindForReviewMinLaunches,
+      preferencesPrefix: '${appInfo.appIdentifier}_',
+      appStoreIdentifier: appInfo.appStoreIdentifier,
+      minLaunches: appInfo.askForReviewMinLaunches,
+      remindDays: appInfo.remindForReviewMinDays,
+      minDays: appInfo.askForReviewMinDays,
     );
   }
 
