@@ -13,7 +13,6 @@ dependencies:
   rxdart: ^0.27.7
   collection: ^1.17.1
   font_awesome_flutter: ^10.5.0
-
   fastyle_core: ^0.0.3
   fastyle_dart: ">=1.4.1 <2.0.0"
   matex_financial: ">=0.0.10 <1.0.0"
@@ -25,6 +24,7 @@ dependencies:
   tmodel: ^0.5.3
   fastyle_financial: ^0.0.7
   easy_localization: ^3.0.2
+  lingua_core: ^0.0.8
 
 dev_dependencies:
   flutter_test:
