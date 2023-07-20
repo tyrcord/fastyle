@@ -26,6 +26,7 @@ dependencies:
   go_router: ^9.1.0
   share_plus: ^7.0.2
   lingua_core: ^0.0.9+1
+  font_awesome_flutter: ^10.4.0
 
 dev_dependencies:
   flutter_test:
