@@ -14,7 +14,8 @@ class FastAppDictBlocState extends BlocState {
 
   /// Constructs a [FastAppDictBlocState] instance.
   ///
-  /// The [entries] parameter is optional and defaults to an empty list if not provided.
+  /// The [entries] parameter is optional and defaults to an empty list if
+  /// not provided.
   FastAppDictBlocState({
     super.isInitializing,
     super.isInitialized,

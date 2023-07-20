@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_dart/fastyle_dart.dart' hide FastApp;
 import 'package:go_router/go_router.dart';
+import 'package:lingua_core/lingua_core.dart';
 import 'package:tbloc/tbloc.dart';
 
 // Project imports:
@@ -104,14 +105,15 @@ class FastApp extends StatefulWidget {
     this.errorBuilder,
     this.initialRoute,
     this.homeBuilder,
-    this.assetLoader,
     this.loaderJobs,
     this.lightTheme,
     this.darkTheme,
     FastAppInfoDocument? appInformation,
+    AssetLoader? assetLoader,
     String? localizationPath,
     Locale? fallbackLocale,
-  })  : localizationPath = localizationPath ?? kFastLocalizationPath,
+  })  : assetLoader = assetLoader ?? const LinguaLoader(),
+        localizationPath = localizationPath ?? kFastLocalizationPath,
         fallbackLocale = fallbackLocale ?? kFastAppSettingsDefaultLocale {
     appInfo = appInformation ?? kFastAppInfo;
   }

@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_dart/fastyle_dart.dart' hide FastApp;
 import 'package:fastyle_buttons/fastyle_buttons.dart';
-import 'package:lingua_core/lingua_core.dart';
-import 'package:lingua_core/generated/codegen_loader.g.dart';
 
 final kAppInfo = kFastAppInfo.copyWith(
   appName: 'Fastyle Buttons',
@@ -33,10 +31,6 @@ class _MyAppState extends State<MyApp> {
     return FastApp(
       appInformation: kAppInfo,
       homeBuilder: (context) => buildHome(context),
-      assetLoader: const LinguaLoader(
-        mapLocales: CoreCodegenLoader.mapLocales,
-        // FIXME
-      ),
     );
   }
 

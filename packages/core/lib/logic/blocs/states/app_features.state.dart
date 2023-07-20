@@ -25,10 +25,10 @@ class FastAppFeaturesBlocState extends BlocState {
   })  : features = features ?? const [],
         isRetrievingFeatures = isRetrievingFeatures ?? false;
 
-  /// Checks if a feature with the given [name] is enabled.
-  bool isFeatureEnabled(String name) {
+  bool isFeatureEnabled(FastAppFeatures appFeature) {
+    final name = appFeature.name;
     final feature = features.firstWhereOrNull(
-      (FastFeatureEntity model) => model.name == name,
+      (FastFeatureEntity model) => model.name.toLowerCase() == name,
     );
 
     return feature != null ? feature.isActivated && feature.isEnabled : false;
