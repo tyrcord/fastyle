@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 /// A button widget used to copy text to the clipboard.
-class FusexCopyButton extends StatelessWidget {
+class FastCopyButton extends StatelessWidget {
   /// Whether to show a notification after copying.
   final bool showNotification;
 
@@ -22,7 +22,7 @@ class FusexCopyButton extends StatelessWidget {
   /// Custom icon for the button (optional).
   final Icon? icon;
 
-  const FusexCopyButton({
+  const FastCopyButton({
     super.key,
     this.valueText = kFastEmptyString,
     this.showNotification = true,
