@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_dart/fastyle_dart.dart' hide FastApp;
+import 'package:fastyle_core/fastyle_core.dart';
 
 // Project imports:
 import './pages/plan_summary_cards.page.dart';
@@ -16,7 +17,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const FastApp(home: HomePage());
+    return FastApp(
+      homeBuilder: (context) => const HomePage(),
+    );
   }
 }
 
