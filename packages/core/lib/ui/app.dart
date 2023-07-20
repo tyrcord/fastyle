@@ -83,7 +83,7 @@ class FastApp extends StatefulWidget {
   final ThemeData? darkTheme;
 
   /// The dynamic asset loader for the localization assets.
-  final dynamic assetLoader;
+  final AssetLoader assetLoader;
 
   /// A flag indicating whether to ask the user for an app review
   /// when certain conditions are met.
@@ -124,7 +124,6 @@ class FastApp extends StatefulWidget {
 
 class _FastAppState extends State<FastApp> {
   late final GlobalKey<NavigatorState> _rootNavigatorKey;
-  late final Future<dynamic> _initialization;
   late final FastThemeBloc _themeBloc;
   late final GoRouter _router;
 
@@ -135,7 +134,6 @@ class _FastAppState extends State<FastApp> {
     _rootNavigatorKey = widget.rootNavigatorKey ?? GlobalKey<NavigatorState>();
     _themeBloc = _buildAppThemeBloc();
     _router = _buildAppRouter();
-    _initialization = _initApp();
   }
 
   @override
@@ -144,57 +142,57 @@ class _FastAppState extends State<FastApp> {
     _themeBloc.close();
   }
 
-  /// Initializes the application.
-  Future<dynamic> _initApp() => EasyLocalization.ensureInitialized();
-
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _initialization,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          return GestureDetector(
-            onTap: hideKeyboard,
-            child: FastMediaLayoutObserver(
-              child: MultiBlocProvider(
-                blocProviders: [
-                  BlocProvider(bloc: FastAppInfoBloc()),
-                  BlocProvider(bloc: FastAppSettingsBloc()),
-                  BlocProvider(bloc: FastAppDictBloc()),
-                  BlocProvider(bloc: FastAppFeaturesBloc()),
-                  BlocProvider(bloc: FastAppOnboardingBloc()),
-                  BlocProvider(bloc: _themeBloc),
-                  ...?widget.blocProviders,
-                ],
-                child: EasyLocalization(
-                  supportedLocales: widget.appInfo.supportedLocales,
-                  fallbackLocale: widget.fallbackLocale,
-                  assetLoader: widget.assetLoader,
-                  path: widget.localizationPath,
-                  useOnlyLangCode: true,
-                  child: buildAppLoader(context),
-                ),
-              ),
-            ),
-          );
-        }
+    return GestureDetector(
+      onTap: hideKeyboard,
+      child: FastMediaLayoutObserver(
+        child: MultiBlocProvider(
+          blocProviders: [
+            BlocProvider(bloc: FastAppInfoBloc()),
+            BlocProvider(bloc: FastAppSettingsBloc()),
+            BlocProvider(bloc: FastAppDictBloc()),
+            BlocProvider(bloc: FastAppFeaturesBloc()),
+            BlocProvider(bloc: FastAppOnboardingBloc()),
+            BlocProvider(bloc: _themeBloc),
+            ...?widget.blocProviders,
+          ],
+          child: EasyLocalization(
+            supportedLocales: widget.appInfo.supportedLocales,
+            fallbackLocale: widget.fallbackLocale,
+            assetLoader: widget.assetLoader,
+            path: widget.localizationPath,
+            useOnlyLangCode: true,
+            child: FutureBuilder(
+              future: EasyLocalization.ensureInitialized(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return buildAppLoader(context);
+                }
 
-        return buildEmptyContainer(context);
-      },
+                return buildEmptyContainer(context);
+              },
+            ),
+          ),
+        ),
+      ),
     );
   }
 
   /// Builds the app loader widget that displays a loading screen while the app
   /// is being initialized.
   Widget buildAppLoader(BuildContext context) {
+    final easyLocalization = EasyLocalization.of(context)!;
+
     return FastAppSettingsThemeListener(
       child: FastAppLoader(
         debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
         delayBeforeShowingLoader: widget.delayBeforeShowingLoader,
         supportedLocales: widget.appInfo.supportedLocales,
+        localizationsDelegates: easyLocalization.delegates,
         errorReporter: widget.errorReporter,
         loaderBuilder: widget.loaderBuilder,
-        errorBuilder: widget.errorBuilder,
+        locale: easyLocalization.locale,
         appBuilder: buildAppOrOnboarding,
         loaderJobs: [
           // FIXME: onDatabaseVersionChanged should be called once the app
@@ -211,6 +209,7 @@ class _FastAppState extends State<FastApp> {
         ],
         lightTheme: widget.lightTheme,
         darkTheme: widget.darkTheme,
+        errorBuilder: widget.errorBuilder ?? handleAppError,
       ),
     );
   }
@@ -290,6 +289,11 @@ class _FastAppState extends State<FastApp> {
     final backgroundColor = colors.getPrimaryBackgroundColor(context);
 
     return Container(color: backgroundColor);
+  }
+
+  /// Handles the app error.
+  Widget handleAppError(context, error) {
+    return const FastErrorStatusPage();
   }
 
   /// Builds the FastThemeBloc instance.
