@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Buttons",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/buttons/example/lib/main.dart"
+    },
+    {
       "name": "Calculator",
       "request": "launch",
       "type": "dart",
