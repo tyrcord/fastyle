@@ -24,6 +24,7 @@ dependencies:
   matex_dart: ^0.11.1
   tmodel: ^0.5.3
   fastyle_financial: ^0.0.7
+  fastyle_pricing: ^1.2.0
   easy_localization: ^3.0.2
   lingua_core: ^0.0.6
   lingua_settings: ^0.0.8

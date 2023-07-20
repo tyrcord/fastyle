@@ -16,6 +16,8 @@ import 'package:lingua_settings/generated/codegen_loader.g.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:lingua_share/generated/codegen_loader.g.dart';
+import 'package:lingua_purchases/generated/codegen_loader.g.dart';
+import 'package:fastyle_pricing/fastyle_pricing.dart';
 
 // Project imports:
 import './routes.dart';
@@ -57,6 +59,7 @@ class MyApp extends StatelessWidget {
           FinanceCodegenLoader.mapLocales,
           FinanceInstrumentCodegenLoader.mapLocales,
           ShareCodegenLoader.mapLocales,
+          PurchasesCodegenLoader.mapLocales,
         ]),
       ),
     );
@@ -66,6 +69,11 @@ class MyApp extends StatelessWidget {
     return FastAppInfoPage<String>(
       titleText: SettingsLocaleKeys.settings_label_app_settings.tr(),
       showAppBar: false,
+      header: FastPremiumSettingsHeader(
+        onGoPremium: () {
+          // GoRouter.of(context).go('/premium');
+        },
+      ),
       categoryDescriptors: [
         FastNavigationCategoryDescriptor(
           titleText: SettingsLocaleKeys.settings_label_app_settings.tr(),

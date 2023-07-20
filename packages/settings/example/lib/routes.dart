@@ -1,5 +1,4 @@
 // Flutter imports:
-import 'package:fastyle_settings/ui/pages/disclaimer.page.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:

@@ -6,12 +6,6 @@ import 'package:fastyle_dart/fastyle_dart.dart';
 
 /// A card that displays a summary of a plan.
 class FastPlanSummaryCard extends StatelessWidget {
-  /// The maximum height of the icon container.
-  final double maxIconContainerHeight;
-
-  /// The minimum height of the icon container.
-  final double minIconContainerHeight;
-
   /// A builder that returns the icon widget.
   final WidgetBuilder? iconBuilder;
 
@@ -29,15 +23,12 @@ class FastPlanSummaryCard extends StatelessWidget {
 
   const FastPlanSummaryCard({
     Key? key,
-    this.maxIconContainerHeight = 128,
-    this.minIconContainerHeight = 0,
     this.iconBuilder,
     this.titleText,
     this.titleColor,
     this.icon,
     this.footer,
-  })  : assert(minIconContainerHeight <= maxIconContainerHeight),
-        assert(icon == null || iconBuilder == null),
+  })  : assert(icon == null || iconBuilder == null),
         super(key: key);
 
   @override
@@ -92,11 +83,8 @@ class FastPlanSummaryCard extends StatelessWidget {
   ///
   /// [icon] is the widget to display as the icon.
   Widget _buildIconLayout(Widget icon) {
-    return Container(
-      constraints: BoxConstraints(
-        minHeight: minIconContainerHeight,
-        maxHeight: maxIconContainerHeight,
-      ),
+    return Padding(
+      padding: kFastEdgeInsets8,
       child: icon,
     );
   }

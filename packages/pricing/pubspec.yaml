@@ -11,6 +11,13 @@ dependencies:
   flutter:
     sdk: flutter
   fastyle_dart: ">=1.4.1 <2.0.0"
+  fastyle_core: 0.0.2
+  tbloc: ^0.21.0
+  font_awesome_flutter: ^10.4.0
+  lingua_core: ^0.0.9
+  lingua_settings: ^0.0.8
+  lingua_purchases: ^0.0.5+1
+  easy_localization: ^3.0.2
 
 dev_dependencies:
   flutter_test:

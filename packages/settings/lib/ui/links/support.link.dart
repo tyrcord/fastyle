@@ -15,11 +15,10 @@ class FastSettingsSupportLink extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _FastSettingsSupportLinkState createState() =>
-      _FastSettingsSupportLinkState();
+  FastSettingsSupportLinkState createState() => FastSettingsSupportLinkState();
 }
 
-class _FastSettingsSupportLinkState extends State<FastSettingsSupportLink> {
+class FastSettingsSupportLinkState extends State<FastSettingsSupportLink> {
   late TapGestureRecognizer _emailTapRecognizer;
 
   @override
