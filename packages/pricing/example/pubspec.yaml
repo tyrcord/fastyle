@@ -12,8 +12,8 @@ dependencies:
     sdk: flutter
 
   fastyle_dart: ">=1.4.1 <2.0.0"
-  fastyle_core: ^0.0.2
-  fastyle_pricing: ^1.4.0
+  fastyle_core: ^0.0.4
+  fastyle_pricing: ^1.5.0
 
 dev_dependencies:
   flutter_test:

@@ -1,3 +1,18 @@
+## 0.0.4
+
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: add status pages.
+ - **FEAT**: add no favorite icon.
+ - **FEAT**: add default assetLoader to FastApp.
+ - **FEAT**: clean up.
+ - **FEAT**: add FastAppInfoPage.
+ - **FEAT**: add privacy policy page.
+ - **FEAT**: add FastSettingsDisclaimerPage.
+ - **FEAT**: add FastAppOnboardingBloc logic.
+ - **FEAT**: add FastDictBloc logic.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastApp.
+
 ## 0.0.3
 
  - **FIX**: language settings.

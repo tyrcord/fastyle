@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   fastyle_dart: ">=1.4.1 <2.0.0"
-  fastyle_forms: ^0.0.9
+  fastyle_forms: ^0.0.10
 
 dev_dependencies:
   flutter_test:

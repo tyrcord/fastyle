@@ -3,6 +3,123 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-07-21
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.2`](#fastyle_ad---v002)
+ - [`fastyle_buttons` - `v0.0.2`](#fastyle_buttons---v002)
+ - [`fastyle_calculator` - `v1.16.0`](#fastyle_calculator---v1160)
+ - [`fastyle_core` - `v0.0.4`](#fastyle_core---v004)
+ - [`fastyle_financial` - `v0.0.8`](#fastyle_financial---v008)
+ - [`fastyle_firebase` - `v0.0.2`](#fastyle_firebase---v002)
+ - [`fastyle_forms` - `v0.0.10`](#fastyle_forms---v0010)
+ - [`fastyle_iap` - `v0.0.2`](#fastyle_iap---v002)
+ - [`fastyle_images` - `v0.0.12`](#fastyle_images---v0012)
+ - [`fastyle_layouts` - `v0.0.2`](#fastyle_layouts---v002)
+ - [`fastyle_onboarding` - `v0.0.10`](#fastyle_onboarding---v0010)
+ - [`fastyle_pricing` - `v1.5.0`](#fastyle_pricing---v150)
+ - [`fastyle_settings` - `v0.0.13`](#fastyle_settings---v0013)
+ - [`fastyle_views` - `v0.0.2`](#fastyle_views---v002)
+
+---
+
+#### `fastyle_ad` - `v0.0.2`
+
+ - **FEAT**: initial commit for fastyle_ad.
+
+#### `fastyle_buttons` - `v0.0.2`
+
+ - **FEAT**: add default assetLoader to FastApp.
+ - **FEAT**: add some pending buttons.
+ - **FEAT**: add copy button.
+ - **FEAT**: initial commit for fastyle_buttons.
+
+#### `fastyle_calculator` - `v1.16.0`
+
+ - **FEAT**: add status pages.
+ - **FEAT**: add default assetLoader to FastApp.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_core` - `v0.0.4`
+
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: add status pages.
+ - **FEAT**: add no favorite icon.
+ - **FEAT**: add default assetLoader to FastApp.
+ - **FEAT**: clean up.
+ - **FEAT**: add FastAppInfoPage.
+ - **FEAT**: add privacy policy page.
+ - **FEAT**: add FastSettingsDisclaimerPage.
+ - **FEAT**: add FastAppOnboardingBloc logic.
+ - **FEAT**: add FastDictBloc logic.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastApp.
+
+#### `fastyle_financial` - `v0.0.8`
+
+ - **FEAT**: add FastFinanceInvestDisclaimerPage.
+
+#### `fastyle_firebase` - `v0.0.2`
+
+ - **FIX**: firebase app.
+ - **FEAT**: clean up.
+ - **FEAT**: implement the fast_firebase package.
+ - **FEAT**: initial commit for fastyle_firebase.
+
+#### `fastyle_forms` - `v0.0.10`
+
+ - **FEAT**: add FastAppInfoPage.
+
+#### `fastyle_iap` - `v0.0.2`
+
+ - **FEAT**: initial commit for fastyle_iap.
+
+#### `fastyle_images` - `v0.0.12`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_layouts` - `v0.0.2`
+
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: initial commit for fastyle_layouts.
+
+#### `fastyle_onboarding` - `v0.0.10`
+
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_pricing` - `v1.5.0`
+
+ - **FEAT**: add default settings headers.
+
+#### `fastyle_settings` - `v0.0.13`
+
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: add default settings headers.
+ - **FEAT**: clean up.
+ - **FEAT**: add FastAppInfoPage.
+ - **FEAT**: improvements.
+ - **FEAT**: add privacy policy page.
+ - **FEAT**: add tos page.
+ - **FEAT**: add FastSettingsDisclaimerPage.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_views` - `v0.0.2`
+
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: initial commit for fastyle_views.
+
+
 ## 2023-07-16
 
 ### Changes

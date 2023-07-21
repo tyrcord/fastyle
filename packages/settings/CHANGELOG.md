@@ -1,3 +1,15 @@
+## 0.0.13
+
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: add default settings headers.
+ - **FEAT**: clean up.
+ - **FEAT**: add FastAppInfoPage.
+ - **FEAT**: improvements.
+ - **FEAT**: add privacy policy page.
+ - **FEAT**: add tos page.
+ - **FEAT**: add FastSettingsDisclaimerPage.
+ - **FEAT**: minor improvements.
+
 ## 0.0.12
 
  - **FEAT**: update dependencies.

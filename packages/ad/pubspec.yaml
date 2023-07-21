@@ -1,6 +1,6 @@
 name: fastyle_ad
 description: Set of ad Widgets for the fastyle library.
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/ad
 
 environment:
@@ -14,16 +14,16 @@ dependencies:
   collection: ^1.17.1
   font_awesome_flutter: ^10.5.0
 
-  fastyle_core: ^0.0.3
+  fastyle_core: ^0.0.4
   fastyle_dart: ">=1.4.1 <2.0.0"
   matex_financial: ">=0.0.10 <1.0.0"
   tstore: ">=0.8.9 <1.0.0"
   tbloc: ">=0.21.0 <1.0.0"
-  fastyle_images: ^0.0.11
-  fastyle_forms: ^0.0.9
+  fastyle_images: ^0.0.12
+  fastyle_forms: ^0.0.10
   matex_dart: ^0.11.1
   tmodel: ^0.5.3
-  fastyle_financial: ^0.0.7
+  fastyle_financial: ^0.0.8
   easy_localization: ^3.0.2
 
 dev_dependencies:

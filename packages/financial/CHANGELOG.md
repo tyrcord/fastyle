@@ -1,3 +1,7 @@
+## 0.0.8
+
+ - **FEAT**: add FastFinanceInvestDisclaimerPage.
+
 ## 0.0.7
 
  - **FEAT**: update dependencies.

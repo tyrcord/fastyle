@@ -1,3 +1,7 @@
+## 0.0.10
+
+ - **FEAT**: add FastAppInfoPage.
+
 ## 0.0.9
 
  - **FEAT**: update dependencies.

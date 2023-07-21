@@ -1,3 +1,7 @@
+## 1.5.0
+
+ - **FEAT**: add default settings headers.
+
 ## 1.4.0
 
  - **FEAT**: update example dependencies.

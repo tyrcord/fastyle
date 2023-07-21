@@ -1,3 +1,10 @@
+## 1.16.0
+
+ - **FEAT**: add status pages.
+ - **FEAT**: add default assetLoader to FastApp.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+
 ## 1.15.0
 
  - **FEAT**: update dependencies.

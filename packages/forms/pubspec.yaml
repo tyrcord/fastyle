@@ -1,6 +1,6 @@
 name: fastyle_forms
 description: Set of forms Widgets for the fastyle library.
-version: 0.0.9
+version: 0.0.10
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/fastyle_forms
 
 environment:

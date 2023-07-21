@@ -1,3 +1,8 @@
+## 0.0.10
+
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: minor improvements.
+
 ## 0.0.9
 
  - **FEAT**: update example dependencies.
