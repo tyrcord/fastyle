@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 
-const _handsetIconSize = 168.0;
 const _tabletIconSize = 192.0;
 
 /// A layout that displays a centered icon, a primary text, a secondary text
@@ -137,7 +137,7 @@ class FastOnboardingContentLayout extends StatelessWidget {
       return (tabletIconSize ?? _tabletIconSize) * textScaleFactor;
     }
 
-    return (handsetIconSize ?? _handsetIconSize) * textScaleFactor;
+    return (handsetIconSize ?? kFastImageSizeXxxl) * textScaleFactor;
   }
 
   FastPaletteScheme _getPalette(BuildContext context) {

@@ -2,7 +2,7 @@
 import 'package:fastyle_images/fastyle_images.dart';
 
 /// Default settings page icon height.
-const kFastSettingIconHeight = 168.0;
+const kFastSettingIconHeight = 160.0;
 
 // Default theme texts.
 const kFastSettingsSystemThemeText = 'System';
