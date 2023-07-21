@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_dart/fastyle_dart.dart' hide FastApp;
+import 'package:fastyle_pricing/fastyle_pricing.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
@@ -12,12 +13,11 @@ import 'package:lingua_core/lingua_core.dart';
 import 'package:lingua_finance/generated/codegen_loader.g.dart';
 import 'package:lingua_finance_instrument/generated/codegen_loader.g.dart';
 import 'package:lingua_languages/generated/codegen_loader.g.dart';
+import 'package:lingua_purchases/generated/codegen_loader.g.dart';
 import 'package:lingua_settings/generated/codegen_loader.g.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
-import 'package:tbloc/tbloc.dart';
 import 'package:lingua_share/generated/codegen_loader.g.dart';
-import 'package:lingua_purchases/generated/codegen_loader.g.dart';
-import 'package:fastyle_pricing/fastyle_pricing.dart';
+import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import './routes.dart';

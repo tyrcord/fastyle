@@ -1,11 +1,15 @@
-import 'package:easy_localization/easy_localization.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:lingua_purchases/generated/locale_keys.g.dart';
 
-import 'package:fastyle_pricing/fastyle_pricing.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Package imports:
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:lingua_purchases/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_pricing/fastyle_pricing.dart';
 
 class FastPremiumSettingsHeader extends StatelessWidget {
   final VoidCallback onGoPremium;

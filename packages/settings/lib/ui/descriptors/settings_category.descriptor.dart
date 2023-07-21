@@ -1,6 +1,6 @@
 // Package imports:
-import 'package:fastyle_forms/fastyle_forms.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_forms/fastyle_forms.dart';
 
 /// This file defines the [FastSettingsCategoryDescriptor] class, which is a
 /// model for a settings category in the Fastyle Forms library.

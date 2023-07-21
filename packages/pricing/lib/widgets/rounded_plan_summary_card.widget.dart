@@ -1,6 +1,11 @@
-import 'package:fastyle_dart/fastyle_dart.dart';
-import 'package:fastyle_pricing/widgets/widgets.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
+
+// Project imports:
+import 'package:fastyle_pricing/widgets/widgets.dart';
 
 abstract class FastRoundedPlanSummaryCard extends FastPlanSummaryCard {
   final FastPaletteScheme? palette;

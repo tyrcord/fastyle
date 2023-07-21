@@ -1,8 +1,13 @@
-import 'package:fastyle_pricing/fastyle_pricing.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:easy_localization/easy_localization.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:easy_localization/easy_localization.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lingua_purchases/generated/locale_keys.g.dart';
+
+// Project imports:
+import 'package:fastyle_pricing/fastyle_pricing.dart';
 
 class FastFreePlanSummaryCard extends FastRoundedPlanSummaryCard {
   const FastFreePlanSummaryCard({
