@@ -145,14 +145,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.17.2"
-  cupertino_icons:
-    dependency: "direct main"
-    description:
-      name: cupertino_icons
-      sha256: e35129dc44c9118cee2a5603506d823bab99c68393879edb440e0090d07586be
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.5"
   dart_code_metrics:
     dependency: "direct dev"
     description:
@@ -336,10 +328,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: b33a88c67816312597e5e0f5906c5139a0b9bd9bb137346e872c788da7af8ea0
+      sha256: edbceb4c06758652fc9d12e58edb371cd977011b032e298dae0eb357167baad2
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.3"
+    version: "9.1.1"
   google_fonts:
     dependency: transitive
     description:

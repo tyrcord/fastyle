@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
       showAppBar: false,
       header: FastPremiumSettingsHeader(
         onGoPremium: () {
-          // GoRouter.of(context).go('/premium');
+          debugPrint('Go premium');
         },
       ),
       categoryDescriptors: [

@@ -10,12 +10,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.5
   fastyle_dart: ">=1.4.1 <2.0.0"
-  go_router: ^9.0.3
+  go_router: ^9.1.1
   font_awesome_flutter: ^10.5.0
   easy_localization: ^3.0.2
-  lingua_core: ^0.0.3+1
+  lingua_core: ^0.0.10
   lingua_onboarding: ^0.0.6+1
 
   fastyle_onboarding: ^0.0.9

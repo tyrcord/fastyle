@@ -905,7 +905,7 @@ packages:
     source: hosted
     version: "2.0.1"
   tmodel:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: tmodel
       sha256: cd086786e0fe3aeda722287ed3670577cc9cd659bc10e868139bc184d7400370

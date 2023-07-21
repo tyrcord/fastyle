@@ -14,7 +14,6 @@ dependencies:
   # public dependencies
 
   pdf: ^3.10.4
-  cross_file: ^0.3.3+4
   printing: ^5.11.0
 
   # internal dependencies

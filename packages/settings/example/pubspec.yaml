@@ -10,7 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.5
   fastyle_dart: ">=1.4.1 <2.0.0"
   go_router: ^9.1.0
   font_awesome_flutter: ^10.4.0
@@ -24,7 +23,6 @@ dependencies:
   lingua_finance_instrument: ^0.0.2
   fastyle_forms: ^0.0.9
   fastyle_core: ^0.0.3
-  fastyle_calculator: ^1.15.0
   fastyle_settings: ^0.0.12
   matex_dart: ^0.11.1
   lingua_share: ^0.0.2+1
@@ -37,6 +35,6 @@ dev_dependencies:
   dart_code_metrics: ^5.7.6
   import_sorter: ^4.6.0
   dependency_validator: ^3.2.2
-  
+
 flutter:
   uses-material-design: true
