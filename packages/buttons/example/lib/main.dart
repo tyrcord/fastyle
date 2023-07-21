@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_dart/fastyle_dart.dart' hide FastApp;
-import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 final kAppInfo = kFastAppInfo.copyWith(
   appName: 'Fastyle Buttons',

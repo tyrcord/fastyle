@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_dart/fastyle_dart.dart' hide FastApp;
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:tbloc/tbloc.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
 
 // Project imports:
 import 'package:fastyle_firebase/fastyle_firebase.dart';

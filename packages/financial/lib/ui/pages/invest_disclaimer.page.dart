@@ -1,8 +1,11 @@
-import 'package:fastyle_settings/fastyle_settings.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:lingua_finance/generated/locale_keys.g.dart';
+
+// Package imports:
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_settings/fastyle_settings.dart';
+import 'package:lingua_finance/generated/locale_keys.g.dart';
 
 class FastFinanceInvestDisclaimerPage extends StatelessWidget {
   const FastFinanceInvestDisclaimerPage({super.key});
