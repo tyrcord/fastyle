@@ -14,15 +14,13 @@ class FastAppInfoBloc
   static FastAppInfoBloc? _singleton;
   FastAppInfoDataProvider _dataProvider;
 
+  factory FastAppInfoBloc({FastAppInfoBlocState? initialState}) {
+    return (_singleton ??= FastAppInfoBloc._(initialState: initialState));
+  }
+
   FastAppInfoBloc._({FastAppInfoBlocState? initialState})
       : _dataProvider = FastAppInfoDataProvider(),
         super(initialState: initialState ?? FastAppInfoBlocState());
-
-  factory FastAppInfoBloc({FastAppInfoBlocState? initialState}) {
-    _singleton ??= FastAppInfoBloc._(initialState: initialState);
-
-    return _singleton!;
-  }
 
   @override
   bool canClose() => false;

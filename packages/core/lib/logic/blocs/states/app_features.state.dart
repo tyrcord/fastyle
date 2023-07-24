@@ -5,7 +5,7 @@ import 'package:tbloc/tbloc.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-/// Represents the state of the Fusex Features BLoC.
+/// Represents the state of the Fast App Features BLoC.
 class FastAppFeaturesBlocState extends BlocState {
   /// The list of fast feature entities.
   final List<FastFeatureEntity> features;

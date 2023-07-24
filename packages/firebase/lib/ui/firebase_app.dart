@@ -11,7 +11,7 @@ import 'package:tbloc/tbloc.dart';
 // Project imports:
 import 'package:fastyle_firebase/fastyle_firebase.dart';
 
-class FusexFirebaseApp extends FastApp {
+class FastFirebaseApp extends FastApp {
   static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
 
   /// The default firebase options.
@@ -20,7 +20,7 @@ class FusexFirebaseApp extends FastApp {
   /// The default remote config values.
   final Map<String, dynamic>? defaultRemoteConfig;
 
-  FusexFirebaseApp({
+  FastFirebaseApp({
     super.key,
     super.delayBeforeShowingLoader = kFastDelayBeforeShowingLoader,
     super.debugShowCheckedModeBanner = false,
@@ -53,10 +53,10 @@ class FusexFirebaseApp extends FastApp {
   }
 
   @override
-  State<FusexFirebaseApp> createState() => _FusexFirebaseAppState();
+  State<FastFirebaseApp> createState() => _FastFirebaseAppState();
 }
 
-class _FusexFirebaseAppState extends State<FusexFirebaseApp> {
+class _FastFirebaseAppState extends State<FastFirebaseApp> {
   final _remoteConfigBloc = FastFirebaseRemoteConfigBloc();
   late final Future<FirebaseApp> _initialization;
 

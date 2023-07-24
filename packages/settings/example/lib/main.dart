@@ -217,7 +217,7 @@ class MyApp extends StatelessWidget {
 
             switch (action) {
               case 'rate-us':
-                final rateService = FusexAppRatingService(appInfo.toDocument());
+                final rateService = FastAppRatingService(appInfo.toDocument());
 
                 rateService.showAppRatingDialog(context);
               case 'share':

@@ -239,7 +239,7 @@ packages:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.3"
+    version: "0.0.4"
   fastyle_dart:
     dependency: "direct main"
     description:
@@ -254,14 +254,14 @@ packages:
       path: "../../layouts"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.0.2"
   fastyle_onboarding:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.9"
+    version: "0.0.10"
   ffi:
     dependency: transitive
     description:

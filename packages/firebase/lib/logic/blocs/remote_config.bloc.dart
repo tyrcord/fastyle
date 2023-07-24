@@ -41,6 +41,9 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
     Map<String, dynamic>? defaultConfig,
   ) async* {
     if (canInitialize) {
+      isInitializing = true;
+      yield currentState.copyWith(isInitializing: true);
+
       final remoteConfig = FirebaseRemoteConfig.instance;
 
       if (defaultConfig != null) {

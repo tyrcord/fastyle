@@ -12,19 +12,19 @@ import 'package:rate_my_app/rate_my_app.dart';
 import 'package:fastyle_core/logic/logic.dart';
 
 /// A service class for handling app rating functionality.
-class FusexAppRatingService {
-  static FusexAppRatingService? _singleton;
+class FastAppRatingService {
+  static FastAppRatingService? _singleton;
   late RateMyApp _rateMyApp;
 
-  /// Creates a singleton instance of [FusexAppRatingService].
-  factory FusexAppRatingService(FastAppInfoDocument appInfo) {
-    _singleton ??= FusexAppRatingService._(appInfo);
+  /// Creates a singleton instance of [FastAppRatingService].
+  factory FastAppRatingService(FastAppInfoDocument appInfo) {
+    _singleton ??= FastAppRatingService._(appInfo);
 
     return _singleton!;
   }
 
-  /// Private constructor for [FusexAppRatingService].
-  FusexAppRatingService._(FastAppInfoDocument appInfo) {
+  /// Private constructor for [FastAppRatingService].
+  FastAppRatingService._(FastAppInfoDocument appInfo) {
     _rateMyApp = RateMyApp(
       googlePlayIdentifier: appInfo.googlePlayIdentifier,
       remindLaunches: appInfo.remindForReviewMinLaunches,
