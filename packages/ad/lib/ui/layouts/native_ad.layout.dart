@@ -4,20 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastNativeAdLayout extends StatelessWidget {
+  final VoidCallback? onButtonTap;
   final String? descriptionText;
   final FastAdSize adSize;
   final String? titleText;
   final String? buttonText;
   final Widget? icon;
-  final VoidCallback? onButtonTap;
 
   const FastNativeAdLayout({
     super.key,
     this.adSize = FastAdSize.medium,
     this.descriptionText,
+    this.onButtonTap,
     this.buttonText,
     this.titleText,
-    this.onButtonTap,
     this.icon,
   });
 
@@ -52,6 +52,8 @@ class FastNativeAdLayout extends StatelessWidget {
 
   Widget buildSmallAdContent() {
     return FastNativeAdSmallLayout(
+      onButtonTap: onButtonTap,
+      buttonText: buttonText,
       titleText: titleText,
       adSize: adSize,
       icon: icon,
@@ -61,6 +63,8 @@ class FastNativeAdLayout extends StatelessWidget {
   Widget buildMediumAdContent() {
     return FastNativeAdMediumLayout(
       descriptionText: descriptionText,
+      onButtonTap: onButtonTap,
+      buttonText: buttonText,
       titleText: titleText,
       adSize: adSize,
       icon: icon,
@@ -70,13 +74,11 @@ class FastNativeAdLayout extends StatelessWidget {
   Widget buildLargeAdContent() {
     return FastNativeAdLargeLayout(
       descriptionText: descriptionText,
-      onButtonTap: handleButtonTap,
+      onButtonTap: onButtonTap,
       buttonText: buttonText,
       titleText: titleText,
       adSize: adSize,
       icon: icon,
     );
   }
-
-  void handleButtonTap() => onButtonTap?.call();
 }
