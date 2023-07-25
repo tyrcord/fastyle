@@ -87,3 +87,5 @@ const kFastAppAuthor = 'Tyrcord, Inc';
 
 /// Default Image sizes.
 const kFastImageSizeXxxl = 160.0;
+
+const kFastVerticalSizedBox4 = SizedBox(height: 4.0);
