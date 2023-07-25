@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_ad/fastyle_ad.dart';
 
 // TODO: support more native ad heights
-class FastAdmobAdNative extends StatefulWidget {
+class FastAdmobNativeAd extends StatefulWidget {
   final FastAdSize adSize;
   final NativeAd? adView;
 
-  const FastAdmobAdNative({
+  const FastAdmobNativeAd({
     super.key,
     required this.adView,
     this.adSize = FastAdSize.medium,
@@ -18,10 +18,10 @@ class FastAdmobAdNative extends StatefulWidget {
         );
 
   @override
-  FastAdmobAdNativeState createState() => FastAdmobAdNativeState();
+  FastAdmobNativeAdState createState() => FastAdmobNativeAdState();
 }
 
-class FastAdmobAdNativeState extends State<FastAdmobAdNative> {
+class FastAdmobNativeAdState extends State<FastAdmobNativeAd> {
   late final NativeAd _adView;
 
   @override

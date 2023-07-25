@@ -28,7 +28,7 @@ class FastLoadingNativeAd extends StatelessWidget {
   Widget buildSmallAdContent(BuildContext context) {
     final placeholder = buildPlaceholder(context);
 
-    return FastNativeAdSmallLayout(
+    return FastSmallNativeAdLayout(
       icon: placeholder,
       detailsPlaceholder: placeholder,
     );
@@ -37,7 +37,7 @@ class FastLoadingNativeAd extends StatelessWidget {
   Widget buildMediumAdContent(BuildContext context) {
     final placeholder = buildPlaceholder(context);
 
-    return FastNativeAdMediumLayout(
+    return FastMediumNativeAdLayout(
       icon: placeholder,
       detailsPlaceholder: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +54,7 @@ class FastLoadingNativeAd extends StatelessWidget {
   Widget buildLargeAdContent(BuildContext context) {
     final placeholder = buildPlaceholder(context);
 
-    return FastNativeAdLargeLayout(
+    return FastLargeNativeAdLayout(
       icon: placeholder,
       detailsPlaceholder: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

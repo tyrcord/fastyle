@@ -57,7 +57,7 @@ class FastNativeAdLayout extends StatelessWidget {
   }
 
   Widget buildSmallAdContent() {
-    return FastNativeAdSmallLayout(
+    return FastSmallNativeAdLayout(
       onButtonTap: onButtonTap,
       buttonText: buttonText,
       titleText: titleText,
@@ -66,7 +66,7 @@ class FastNativeAdLayout extends StatelessWidget {
   }
 
   Widget buildMediumAdContent() {
-    return FastNativeAdMediumLayout(
+    return FastMediumNativeAdLayout(
       descriptionText: descriptionText,
       onButtonTap: onButtonTap,
       buttonText: buttonText,
@@ -76,7 +76,7 @@ class FastNativeAdLayout extends StatelessWidget {
   }
 
   Widget buildLargeAdContent() {
-    return FastNativeAdLargeLayout(
+    return FastLargeNativeAdLayout(
       descriptionText: descriptionText,
       onButtonTap: onButtonTap,
       buttonText: buttonText,

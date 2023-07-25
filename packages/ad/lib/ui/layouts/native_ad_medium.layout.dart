@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_ad/fastyle_ad.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 
-class FastNativeAdMediumLayout extends StatelessWidget {
+class FastMediumNativeAdLayout extends StatelessWidget {
   final FastAdSize adSize = FastAdSize.medium;
   final Widget? detailsPlaceholder;
   final VoidCallback? onButtonTap;
@@ -11,7 +11,7 @@ class FastNativeAdMediumLayout extends StatelessWidget {
   final String? titleText;
   final Widget? icon;
 
-  const FastNativeAdMediumLayout({
+  const FastMediumNativeAdLayout({
     super.key,
     this.detailsPlaceholder,
     this.descriptionText,
