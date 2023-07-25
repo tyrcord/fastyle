@@ -192,8 +192,6 @@ class _FastAppState extends State<FastApp> {
   Widget buildAppLoader(BuildContext context) {
     final easyLocalization = EasyLocalization.of(context)!;
 
-    print('build app loader');
-
     return FastAppSettingsThemeListener(
       child: FastAppLoader(
         debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,

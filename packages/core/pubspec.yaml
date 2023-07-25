@@ -4,13 +4,13 @@ version: 0.0.4
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/core
 
 environment:
-  sdk: '>=3.0.5 <4.0.0'
+  sdk: ">=3.0.5 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  
+
   package_info_plus: ^4.0.2
   rxdart: ^0.27.7
   fastyle_dart: ">=1.4.1 <2.0.0"
@@ -34,3 +34,7 @@ dev_dependencies:
   dart_code_metrics: ^5.7.6
   import_sorter: ^4.6.0
   dependency_validator: ^3.2.2
+
+dependency_overrides:
+  fastyle_dart:
+    path: /Users/thibaultzanini/Dev/tyrcord/librairies/dart/fastyle_dart
