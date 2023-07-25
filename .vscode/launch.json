@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Ads",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/ad/example/lib/main.dart"
+    },
+    {
       "name": "Buttons",
       "request": "launch",
       "type": "dart",
