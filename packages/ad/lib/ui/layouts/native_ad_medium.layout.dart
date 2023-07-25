@@ -28,7 +28,11 @@ class FastMediumNativeAdLayout extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        FastNativeAdIcon(adSize: adSize, icon: icon),
+        FastNativeAdIcon(
+          alignment: Alignment.topCenter,
+          adSize: adSize,
+          icon: icon,
+        ),
         kFastHorizontalSizedBox16,
         Expanded(
           child: SizedBox(

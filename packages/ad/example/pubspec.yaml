@@ -21,9 +21,8 @@ dependencies:
   go_router: ^9.1.1
   font_awesome_flutter: ^10.5.0
   video_player: ^2.7.0
-  lingua_core: ^0.0.12
+  lingua_core: ^0.0.13
   lingua_ad: ^0.0.5
-  visibility_detector: ^0.3.3
 
 dev_dependencies:
   flutter_test:
