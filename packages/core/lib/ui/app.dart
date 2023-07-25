@@ -3,10 +3,16 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastyle_dart/fastyle_dart.dart' hide FastApp;
 import 'package:go_router/go_router.dart';
 import 'package:lingua_core/lingua_core.dart';
 import 'package:tbloc/tbloc.dart';
+//FIXME: migrate away from fastyle_dart
+import 'package:fastyle_dart/fastyle_dart.dart'
+    hide
+        FastApp,
+        FastAppLoader,
+        FastAppLoaderErrorBuilder,
+        FastAppLoaderBuilder;
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -160,9 +166,11 @@ class _FastAppState extends State<FastApp> {
           child: EasyLocalization(
             supportedLocales: widget.appInfo.supportedLocales,
             fallbackLocale: widget.fallbackLocale,
+            startLocale: widget.fallbackLocale,
             assetLoader: widget.assetLoader,
             path: widget.localizationPath,
             useOnlyLangCode: true,
+            saveLocale: false,
             child: FutureBuilder(
               future: EasyLocalization.ensureInitialized(),
               builder: (context, snapshot) {
@@ -183,6 +191,8 @@ class _FastAppState extends State<FastApp> {
   /// is being initialized.
   Widget buildAppLoader(BuildContext context) {
     final easyLocalization = EasyLocalization.of(context)!;
+
+    print('build app loader');
 
     return FastAppSettingsThemeListener(
       child: FastAppLoader(
@@ -293,6 +303,8 @@ class _FastAppState extends State<FastApp> {
 
   /// Handles the app error.
   Widget handleAppError(context, error) {
+    debugPrint('handleAppError: $error');
+
     return const FastErrorStatusPage();
   }
 
