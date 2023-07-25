@@ -10,6 +10,7 @@ class FastNativeAdLayout extends StatelessWidget {
   final String? titleText;
   final String? buttonText;
   final Widget? icon;
+  final bool loading;
 
   const FastNativeAdLayout({
     super.key,
@@ -19,6 +20,7 @@ class FastNativeAdLayout extends StatelessWidget {
     this.buttonText,
     this.titleText,
     this.icon,
+    this.loading = false,
   });
 
   @override
@@ -34,7 +36,11 @@ class FastNativeAdLayout extends StatelessWidget {
         children: [
           const FastAdBadge(),
           divider,
-          Expanded(child: buildAdContent(context)),
+          Expanded(
+            child: loading
+                ? buildLoadingIndicator(context)
+                : buildAdContent(context),
+          ),
         ],
       ),
     );
@@ -55,7 +61,6 @@ class FastNativeAdLayout extends StatelessWidget {
       onButtonTap: onButtonTap,
       buttonText: buttonText,
       titleText: titleText,
-      adSize: adSize,
       icon: icon,
     );
   }
@@ -66,7 +71,6 @@ class FastNativeAdLayout extends StatelessWidget {
       onButtonTap: onButtonTap,
       buttonText: buttonText,
       titleText: titleText,
-      adSize: adSize,
       icon: icon,
     );
   }
@@ -77,8 +81,11 @@ class FastNativeAdLayout extends StatelessWidget {
       onButtonTap: onButtonTap,
       buttonText: buttonText,
       titleText: titleText,
-      adSize: adSize,
       icon: icon,
     );
+  }
+
+  Widget buildLoadingIndicator(BuildContext context) {
+    return FastLoadingNativeAd(adSize: adSize);
   }
 }

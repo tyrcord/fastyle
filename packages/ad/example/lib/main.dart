@@ -64,16 +64,13 @@ class MyHomePage extends StatelessWidget {
       contentPadding: EdgeInsets.zero,
       child: FastNavigationListView(
         onSelectionChanged: (FastItem<String> item) {
-          if (item.value == 'native') {
-          } else if (item.value == 'smart') {
-          } else {
-            GoRouter.of(context).go('/custom');
-          }
+          GoRouter.of(context).go('/${item.value}');
         },
         items: const [
           FastItem(labelText: 'Native Ads', value: 'native'),
           FastItem(labelText: 'Smart Ads', value: 'smart'),
           FastItem(labelText: 'Custom Ads', value: 'custom'),
+          FastItem(labelText: 'Loading Ads', value: 'loading'),
         ],
       ),
     );

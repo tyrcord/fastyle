@@ -3,16 +3,17 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 
 class FastNativeAdMediumLayout extends StatelessWidget {
+  final FastAdSize adSize = FastAdSize.medium;
+  final Widget? detailsPlaceholder;
   final VoidCallback? onButtonTap;
   final String? descriptionText;
   final String? buttonText;
-  final FastAdSize adSize;
   final String? titleText;
   final Widget? icon;
 
   const FastNativeAdMediumLayout({
     super.key,
-    this.adSize = FastAdSize.medium,
+    this.detailsPlaceholder,
     this.descriptionText,
     this.onButtonTap,
     this.buttonText,
@@ -22,29 +23,42 @@ class FastNativeAdMediumLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final iconSize = kFastNativeAdIconSize[adSize] ?? 0;
+
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         FastNativeAdIcon(adSize: adSize, icon: icon),
         kFastHorizontalSizedBox16,
         Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              FastAdDetails(
-                descriptionText: descriptionText,
-                titleText: titleText,
-                adSize: adSize,
-              ),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: FastAdButton(text: buttonText, onTap: onButtonTap),
-              )
-            ],
+          child: SizedBox(
+            height: iconSize,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(child: buildContent()),
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: FastAdButton(text: buttonText, onTap: onButtonTap),
+                ),
+              ],
+            ),
           ),
         ),
       ],
+    );
+  }
+
+  Widget buildContent() {
+    if (detailsPlaceholder != null) {
+      return detailsPlaceholder!;
+    }
+
+    return FastAdDetails(
+      descriptionText: descriptionText,
+      titleText: titleText,
+      adSize: adSize,
     );
   }
 }

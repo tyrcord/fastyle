@@ -15,6 +15,8 @@ class FastNativeAdIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     final iconSize = kFastNativeAdIconSize[adSize] ?? 0;
 
+    print(iconSize);
+
     return SizedBox(
       height: iconSize,
       width: iconSize,

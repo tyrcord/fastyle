@@ -22,7 +22,7 @@ dependencies:
   font_awesome_flutter: ^10.5.0
   lingua_core: ^0.0.12
   lingua_ad: ^0.0.5
-  visibility_detector: ^0.4.0+2
+  visibility_detector: ^0.3.3
 
 dev_dependencies:
   flutter_test:

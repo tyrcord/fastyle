@@ -3,15 +3,16 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 
 class FastNativeAdSmallLayout extends StatelessWidget {
+  final FastAdSize adSize = FastAdSize.small;
+  final Widget? detailsPlaceholder;
   final VoidCallback? onButtonTap;
   final String? buttonText;
-  final FastAdSize adSize;
   final String? titleText;
   final Widget? icon;
 
   const FastNativeAdSmallLayout({
     super.key,
-    this.adSize = FastAdSize.medium,
+    this.detailsPlaceholder,
     this.onButtonTap,
     this.buttonText,
     this.titleText,
@@ -20,18 +21,33 @@ class FastNativeAdSmallLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final iconSize = kFastNativeAdIconSize[adSize] ?? 0;
+
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         FastNativeAdIcon(adSize: adSize, icon: icon),
         kFastHorizontalSizedBox16,
         Expanded(
-          child: FastAdDetails(
-            titleText: titleText,
-            adSize: adSize,
+          child: SizedBox(
+            height: iconSize,
+            child: buildContent(),
           ),
         ),
-        FastAdButton(text: buttonText, onTap: onButtonTap),
+        if (detailsPlaceholder == null)
+          FastAdButton(text: buttonText, onTap: onButtonTap),
       ],
+    );
+  }
+
+  Widget buildContent() {
+    if (detailsPlaceholder != null) {
+      return detailsPlaceholder!;
+    }
+
+    return FastAdDetails(
+      titleText: titleText,
+      adSize: adSize,
     );
   }
 }
