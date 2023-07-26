@@ -10,9 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  google_mobile_ads: ^3.0.0
-
   # internals
   fastyle_dart: ">=1.4.1 <2.0.0"
   tbloc: ">=0.21.0 <1.0.0"

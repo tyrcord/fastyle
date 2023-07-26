@@ -25,7 +25,6 @@ class FastAdDetails extends StatelessWidget {
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         if (titleText != null) buildHeader(),
         if (hasDescription)

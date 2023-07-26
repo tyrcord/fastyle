@@ -1,16 +1,22 @@
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fastyle_ad/fastyle_ad.dart';
+import 'package:tbloc/tbloc.dart';
 
 // TODO: support more native ad heights
 class FastAdmobNativeAd extends StatefulWidget {
   final FastAdSize adSize;
   final NativeAd? adView;
+  final FastAdInfo? adInfo;
+  final String? country;
 
   const FastAdmobNativeAd({
     super.key,
-    required this.adView,
+    this.adView,
+    this.adInfo,
+    this.country,
     this.adSize = FastAdSize.medium,
   }) : assert(
           adSize == FastAdSize.medium,
@@ -22,30 +28,101 @@ class FastAdmobNativeAd extends StatefulWidget {
 }
 
 class FastAdmobNativeAdState extends State<FastAdmobNativeAd> {
-  late final NativeAd _adView;
+  NativeAd? _adView;
+  FastNativeAdBloc? _nativeAdBloc;
 
   @override
   void initState() {
     super.initState();
 
-    _adView = widget.adView!;
-    _adView.load();
+    if (widget.adView != null) {
+      _adView = widget.adView!;
+      _adView!.load();
+    } else {
+      final payload = FastNativeAdBlocEventPayload(
+        country: _getUserCountry(),
+        adInfo: _getAdInfo(),
+      );
+
+      _nativeAdBloc = FastNativeAdBloc();
+      _nativeAdBloc?.addEvent(FastNativeAdBlocEvent.init(payload));
+
+      _loadAd(payload);
+    }
   }
 
   @override
   void dispose() {
     super.dispose();
 
-    if (widget.adView == null) {
-      _adView.dispose();
+    if (widget.adView != null) {
+      _adView!.dispose();
+    } else {
+      _nativeAdBloc?.close();
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return FastNativeAdContainerLayout(
-      adSize: widget.adSize,
-      child: AdWidget(ad: _adView),
+    if (_nativeAdBloc == null && _adView != null) {
+      return buildNativeAd(_adView!, widget.adSize);
+    }
+
+    return BlocBuilderWidget(
+      bloc: _nativeAdBloc!,
+      buildWhen: (previous, next) {
+        return previous.adView != next.adView ||
+            previous.showCustomAd != next.showCustomAd;
+      },
+      builder: (BuildContext context, FastNativeAdBlocState state) {
+        if (state.adView != null) {
+          return buildNativeAd(state.adView as NativeAd, widget.adSize);
+        }
+
+        return FastNativeAdLayout(
+          adSize: widget.adSize,
+          loading: true,
+        );
+      },
     );
+  }
+
+  Widget buildNativeAd(NativeAd adView, FastAdSize adSize) {
+    return FastNativeAdContainerLayout(
+      adSize: adSize,
+      child: AdWidget(ad: adView),
+    );
+  }
+
+  FastAdInfo _getAdInfo() {
+    if (widget.adInfo != null) {
+      return widget.adInfo!;
+    }
+
+    final adInfoBloc = FastAdInfoBloc();
+
+    return adInfoBloc.currentState.adInfo;
+  }
+
+  String? _getUserCountry() {
+    if (widget.country != null) {
+      return widget.country!;
+    }
+
+    final adInfoBloc = FastAppInfoBloc();
+
+    return adInfoBloc.currentState.deviceCountryCode;
+  }
+
+  void _loadAd(FastNativeAdBlocEventPayload payload) {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      if (mounted) {
+        //TODO: add a timeout
+        await _nativeAdBloc!.onData.where((state) => state.isInitialized).first;
+        debugPrint('FastNativeAdBloc is loading an ad...');
+
+        _nativeAdBloc!.addEvent(FastNativeAdBlocEvent.loadAd(payload));
+      }
+    });
   }
 }

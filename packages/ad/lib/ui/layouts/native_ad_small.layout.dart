@@ -23,7 +23,7 @@ class FastSmallNativeAdLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final iconSize = kFastNativeAdIconSize[adSize] ?? 0;
+    final iconSize = kFastNativeAdAssetSizes[adSize] ?? 0;
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,

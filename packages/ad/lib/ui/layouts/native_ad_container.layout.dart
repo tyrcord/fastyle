@@ -13,7 +13,7 @@ class FastNativeAdContainerLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = _getAdHeight(adSize);
+    final height = kFastNativeAdContainerHeights[adSize] ?? 0;
 
     return ConstrainedBox(
       constraints: BoxConstraints(maxHeight: height),
@@ -23,15 +23,5 @@ class FastNativeAdContainerLayout extends StatelessWidget {
         child: child,
       ),
     );
-  }
-
-  double _getAdHeight(FastAdSize size) {
-    if (size == FastAdSize.large) {
-      return 360;
-    } else if (size == FastAdSize.medium) {
-      return 144;
-    }
-
-    return 72;
   }
 }

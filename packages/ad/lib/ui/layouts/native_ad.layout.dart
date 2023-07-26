@@ -1,5 +1,3 @@
-import 'package:fastyle_dart/fastyle_dart.dart';
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fastyle_ad/fastyle_ad.dart';
 
@@ -27,21 +25,18 @@ class FastNativeAdLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final divider = adSize > FastAdSize.small
-        ? kFastVerticalSizedBox8
-        : kFastVerticalSizedBox4;
-
     return FastNativeAdContainerLayout(
       adSize: adSize,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Stack(
         children: [
-          const FastAdBadge(),
-          divider,
-          Expanded(
+          Positioned.fill(
             child: loading
                 ? buildLoadingIndicator(context)
                 : buildAdContent(context),
+          ),
+          const Align(
+            alignment: Alignment.topLeft,
+            child: FastAdBadge(),
           ),
         ],
       ),

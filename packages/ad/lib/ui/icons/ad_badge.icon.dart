@@ -58,7 +58,7 @@ class FastAdBadge extends StatelessWidget {
 
     final palette = ThemeHelper.getPaletteColors(context);
 
-    return palette.mint.mid;
+    return palette.mint.mid.withOpacity(0.75);
   }
 
   Color _getLabelColor(BuildContext context) {

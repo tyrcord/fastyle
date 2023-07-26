@@ -20,25 +20,7 @@ class _AdmobNativeAdsPageState extends State<AdmobNativeAdsPage> {
         children: [
           FastTitle(text: 'Small native Ad'),
           kFastSizedBox16,
-          FastNativeAdLayout(
-            adSize: FastAdSize.small,
-            loading: true,
-          ),
-          kFastSizedBox16,
-          FastTitle(text: 'Medium native Ad'),
-          kFastSizedBox16,
-          FastNativeAdLayout(
-            adSize: FastAdSize.medium,
-            loading: true,
-          ),
-          kFastSizedBox16,
-          FastTitle(text: 'Large native Ad'),
-          kFastSizedBox16,
-          FastNativeAdLayout(
-            adSize: FastAdSize.large,
-            loading: true,
-          ),
-          kFastSizedBox16,
+          FastAdmobNativeAd(),
         ],
       ),
     );

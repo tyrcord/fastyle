@@ -25,10 +25,9 @@ class FastMediumNativeAdLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final iconSize = kFastNativeAdIconSize[adSize] ?? 0;
+    final iconSize = kFastNativeAdAssetSizes[adSize] ?? 0;
 
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         FastNativeAdIcon(
           alignment: Alignment.topCenter,
@@ -40,8 +39,6 @@ class FastMediumNativeAdLayout extends StatelessWidget {
           child: SizedBox(
             height: iconSize,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(child: buildContent()),
                 Align(
