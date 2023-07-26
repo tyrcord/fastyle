@@ -24,6 +24,7 @@ class _CustomAdsPageState extends State<CustomAdsPage> {
           FastNativeAdLayout(
             adSize: FastAdSize.small,
             titleText: 'Medium Ad',
+            rating: 4.5,
             icon: Container(
               color: Colors.blueGrey[100],
               width: double.infinity,
@@ -45,6 +46,7 @@ class _CustomAdsPageState extends State<CustomAdsPage> {
           FastNativeAdLayout(
             adSize: FastAdSize.medium,
             titleText: 'Medium Ad',
+            rating: 4,
             icon: Container(
               color: Colors.blueGrey[100],
               width: double.infinity,
@@ -98,6 +100,7 @@ class _CustomAdsPageState extends State<CustomAdsPage> {
           const FastTitle(text: 'Large Video Custom Ad'),
           kFastSizedBox16,
           const FastVideoNativeAd(
+            rating: 4,
             videoUrl:
                 'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
             adSize: FastAdSize.large,
@@ -106,6 +109,7 @@ class _CustomAdsPageState extends State<CustomAdsPage> {
                 'an install button. It also has a long description.'
                 'I also have a long description. I also have a long description.',
           ),
+          kFastSizedBox16,
         ],
       ),
     );

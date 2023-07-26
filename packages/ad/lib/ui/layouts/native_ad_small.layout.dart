@@ -9,6 +9,7 @@ class FastSmallNativeAdLayout extends StatelessWidget {
   final String? buttonText;
   final String? titleText;
   final Widget? icon;
+  final double? rating;
 
   const FastSmallNativeAdLayout({
     super.key,
@@ -16,6 +17,7 @@ class FastSmallNativeAdLayout extends StatelessWidget {
     this.onButtonTap,
     this.buttonText,
     this.titleText,
+    this.rating,
     this.icon,
   });
 
@@ -48,6 +50,7 @@ class FastSmallNativeAdLayout extends StatelessWidget {
     return FastAdDetails(
       titleText: titleText,
       adSize: adSize,
+      rating: rating,
     );
   }
 }

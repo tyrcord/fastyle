@@ -21,6 +21,7 @@ class FastVideoReplayCover extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FastSecondaryBody(
+            fontWeight: kFastFontWeightMedium,
             text: CoreLocaleKeys.core_label_replay.tr(),
             textColor: palette.ultraLight,
           ),

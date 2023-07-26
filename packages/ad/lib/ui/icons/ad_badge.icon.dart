@@ -5,40 +5,69 @@ import 'package:easy_localization/easy_localization.dart';
 
 // Define the _borderRadius and _badgeIconSize constants here.
 const double _borderRadius = 2.0;
-const double _badgeIconSize = 16.0;
+const double _badgeHeight = 16.0;
 
 class FastAdBadge extends StatelessWidget {
-  final double iconsize;
+  final double height;
   final String? labelText;
+  final Color? color;
+  final Color? labelColor;
+  final double borderRadius;
 
   const FastAdBadge({
     super.key,
     this.labelText,
-    double? iconsize,
-  }) : iconsize = iconsize ?? _badgeIconSize;
+    this.labelColor,
+    this.color,
+    double? borderRadius,
+    double? height,
+  })  : height = height ?? _badgeHeight,
+        borderRadius = borderRadius ?? _borderRadius;
 
   @override
   Widget build(BuildContext context) {
-    final palette = ThemeHelper.getPaletteColors(context);
-
     return FittedBox(
       child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(_borderRadius),
-          color: palette.orange.light,
-        ),
-        height: iconsize,
+        decoration: buildBoxDecoration(context),
+        height: height,
         child: Padding(
           padding: kFastHorizontalEdgeInsets6,
           child: Center(
             child: FastCaption(
-              textColor: palette.whiteColor,
-              fontSize: 11,
               text: labelText ?? AdLocaleKeys.ad_label_ad.tr(),
+              textColor: _getLabelColor(context),
+              fontSize: 11,
             ),
           ),
         ),
       ),
     );
+  }
+
+  BoxDecoration buildBoxDecoration(BuildContext context) {
+    return BoxDecoration(
+      borderRadius: BorderRadius.circular(borderRadius),
+      color: _getBackgroundColor(context),
+    );
+  }
+
+  Color _getBackgroundColor(BuildContext context) {
+    if (color != null) {
+      return color!;
+    }
+
+    final palette = ThemeHelper.getPaletteColors(context);
+
+    return palette.mint.mid;
+  }
+
+  Color _getLabelColor(BuildContext context) {
+    if (color != null) {
+      return color!;
+    }
+
+    final palette = ThemeHelper.getPaletteColors(context);
+
+    return palette.whiteColor;
   }
 }

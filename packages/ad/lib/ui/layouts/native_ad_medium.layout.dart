@@ -9,6 +9,7 @@ class FastMediumNativeAdLayout extends StatelessWidget {
   final String? descriptionText;
   final String? buttonText;
   final String? titleText;
+  final double? rating;
   final Widget? icon;
 
   const FastMediumNativeAdLayout({
@@ -18,6 +19,7 @@ class FastMediumNativeAdLayout extends StatelessWidget {
     this.onButtonTap,
     this.buttonText,
     this.titleText,
+    this.rating,
     this.icon,
   });
 
@@ -63,6 +65,7 @@ class FastMediumNativeAdLayout extends StatelessWidget {
       descriptionText: descriptionText,
       titleText: titleText,
       adSize: adSize,
+      rating: rating,
     );
   }
 }

@@ -8,8 +8,9 @@ class FastVideoNativeAd extends StatelessWidget {
   final FastAdSize adSize;
   final String? titleText;
   final String? buttonText;
-  final bool loading;
   final String videoUrl;
+  final double? rating;
+  final bool loading;
 
   const FastVideoNativeAd({
     super.key,
@@ -19,6 +20,7 @@ class FastVideoNativeAd extends StatelessWidget {
     this.onButtonTap,
     this.buttonText,
     this.titleText,
+    this.rating,
     this.loading = false,
   });
 
@@ -31,6 +33,7 @@ class FastVideoNativeAd extends StatelessWidget {
       buttonText: buttonText,
       titleText: titleText,
       adSize: adSize,
+      rating: rating,
     );
   }
 }

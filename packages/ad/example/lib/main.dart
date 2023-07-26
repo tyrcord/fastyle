@@ -67,7 +67,7 @@ class MyHomePage extends StatelessWidget {
           GoRouter.of(context).go('/${item.value}');
         },
         items: const [
-          FastItem(labelText: 'Native Ads', value: 'native'),
+          FastItem(labelText: 'Admob Native Ads', value: 'admob-native'),
           FastItem(labelText: 'Smart Ads', value: 'smart'),
           FastItem(labelText: 'Custom Ads', value: 'custom'),
           FastItem(labelText: 'Loading Ads', value: 'loading'),
