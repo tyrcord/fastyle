@@ -1,8 +1,10 @@
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fastyle_ad/fastyle_ad.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 
 class FastLoadingNativeAd extends StatelessWidget {
+  static const placeholder = FastBoxPlaceholder();
   final FastAdSize adSize;
 
   const FastLoadingNativeAd({
@@ -26,65 +28,39 @@ class FastLoadingNativeAd extends StatelessWidget {
   }
 
   Widget buildSmallAdContent(BuildContext context) {
-    final placeholder = buildPlaceholder(context);
-
-    return FastSmallNativeAdLayout(
+    return const FastSmallNativeAdLayout(
       icon: placeholder,
       detailsPlaceholder: placeholder,
     );
   }
 
   Widget buildMediumAdContent(BuildContext context) {
-    final placeholder = buildPlaceholder(context);
-
-    return FastMediumNativeAdLayout(
+    return const FastMediumNativeAdLayout(
       icon: placeholder,
       detailsPlaceholder: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          buildPlaceholder(context, height: 14, width: 96),
-          buildPlaceholder(context, height: 14),
-          buildPlaceholder(context, height: 14, width: 72),
+          FastBoxPlaceholder(height: 14, width: 96),
+          FastBoxPlaceholder(height: 14),
+          FastBoxPlaceholder(height: 14, width: 72),
         ],
       ),
     );
   }
 
   Widget buildLargeAdContent(BuildContext context) {
-    final placeholder = buildPlaceholder(context);
-
-    return FastLargeNativeAdLayout(
+    return const FastLargeNativeAdLayout(
       icon: placeholder,
       detailsPlaceholder: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          buildPlaceholder(context, height: 14, width: 96),
-          buildPlaceholder(context, height: 14),
-          buildPlaceholder(context, height: 14, width: 72),
+          FastBoxPlaceholder(height: 14, width: 96),
+          FastBoxPlaceholder(height: 14),
+          FastBoxPlaceholder(height: 14, width: 72),
         ],
       ),
     );
-  }
-
-  Widget buildPlaceholder(
-    BuildContext context, {
-    double? height,
-    double? width,
-  }) {
-    final grayPalette = _getGrayPaletteScheme(context);
-
-    return Container(
-      color: grayPalette.lightest,
-      height: height,
-      width: width,
-    );
-  }
-
-  FastPaletteScheme _getGrayPaletteScheme(BuildContext context) {
-    final palette = ThemeHelper.getPaletteColors(context);
-
-    return palette.gray;
   }
 }
