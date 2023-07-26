@@ -7,3 +7,4 @@ export './app.dart';
 export './app_loader.dart';
 export './covers/cover.dart';
 export './placeholders/placeholders.dart';
+export './star_rating.widget.dart';
