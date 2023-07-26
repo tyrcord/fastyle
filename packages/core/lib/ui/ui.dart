@@ -6,3 +6,4 @@ export './icons/icons.dart';
 export './app.dart';
 export './app_loader.dart';
 export './covers/cover.dart';
+export './placeholders/placeholders.dart';
