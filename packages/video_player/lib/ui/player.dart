@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_video_player/fastyle_video_player.dart';
 
 class FastVideoPlayer extends StatefulWidget {
@@ -30,33 +31,31 @@ class _FastVideoPlayerState extends State<FastVideoPlayer> {
 
     final uri = Uri.parse(widget.videoUrl);
     _controller = VideoPlayerController.networkUrl(uri);
-    _controller.setVolume(volume);
-    _controller.addListener(handleVideoPlay);
-    _initialization = _controller.initialize();
+    _controller.addListener(handleVideoPositionChange);
     _key = UniqueKey();
+
+    _initialization = _controller.initialize().then((value) {
+      return _controller.setVolume(volume);
+    });
   }
 
   @override
-  void dispose() {
+  Future<void> dispose() async {
     super.dispose();
-    _controller.removeListener(handleVideoPlay);
-    _controller.dispose();
+    _controller.removeListener(handleVideoPositionChange);
+    await _controller.pause();
+    await _controller.dispose();
   }
 
-  @override
-  void deactivate() {
-    super.deactivate();
-    _resetVideoController();
-  }
-
-  handleVideoPlay() {
-    if (_controller.value.duration > Duration.zero) {
+  Future<void> handleVideoPositionChange() async {
+    if (mounted && _controller.value.duration > Duration.zero) {
       if (_controller.value.position == _controller.value.duration) {
         debugPrint('Video has ended');
 
+        await _resetVideoController();
+
         setState(() {
           if (mounted) {
-            _resetVideoController();
             hasPlayed = true;
           }
         });
@@ -74,15 +73,17 @@ class _FastVideoPlayerState extends State<FastVideoPlayer> {
     });
   }
 
-  void handleVisibilityChanged(VisibilityInfo info) {
-    if (!hasPlayed) {
+  Future<void> handleVisibilityChanged(VisibilityInfo info) async {
+    if (!hasPlayed && mounted) {
       if (info.visibleFraction >= 0.75) {
         debugPrint('Video is visible, playing');
-        _controller.play();
-      } else {
-        debugPrint('Video is not visible, pausing');
-        _controller.pause();
+
+        return _controller.play();
       }
+
+      debugPrint('Video is not visible, pausing');
+
+      return _controller.pause();
     }
   }
 
@@ -93,34 +94,35 @@ class _FastVideoPlayerState extends State<FastVideoPlayer> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done &&
             _controller.value.isInitialized) {
-          return VisibilityDetector(
-            key: _key,
-            onVisibilityChanged: handleVisibilityChanged,
-            child: AspectRatio(
-              aspectRatio: _controller.value.aspectRatio,
-              child: Stack(
-                children: [
-                  VideoPlayer(_controller),
-                  buildVideoControls(),
-                  if (hasPlayed)
-                    Positioned.fill(
-                      child: FastVideoReplayCover(
-                        onReplayTap: handleReplayAction,
-                      ),
-                    ),
-                ],
-              ),
-            ),
-          );
+          return buildVideoPlayer();
         }
 
-        // FIXME: add a placeholder
-        return const Center(child: CircularProgressIndicator());
+        return const FastLoadingBoxPlaceholder();
       },
     );
   }
 
-  Widget buildVideoControls() {
+  Widget buildVideoPlayer() {
+    return VisibilityDetector(
+      key: _key,
+      onVisibilityChanged: handleVisibilityChanged,
+      child: AspectRatio(
+        aspectRatio: _controller.value.aspectRatio,
+        child: Stack(
+          children: [
+            VideoPlayer(_controller),
+            buildVideoPlayerControls(),
+            if (hasPlayed)
+              Positioned.fill(
+                child: FastVideoReplayCover(onReplayTap: handleReplayAction),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildVideoPlayerControls() {
     return Align(
       alignment: Alignment.bottomLeft,
       child: Container(
@@ -130,10 +132,14 @@ class _FastVideoPlayerState extends State<FastVideoPlayer> {
     );
   }
 
-  void _resetVideoController() {
+  Future<void> _resetVideoController() async {
     hasPlayed = false;
     volume = 0;
-    _controller.setVolume(0);
-    _controller.seekTo(Duration.zero);
+
+    if (mounted) {
+      await _controller.setVolume(volume);
+
+      return _controller.seekTo(Duration.zero);
+    }
   }
 }
