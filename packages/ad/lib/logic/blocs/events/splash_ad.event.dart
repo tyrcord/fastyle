@@ -1,5 +1,8 @@
-import 'package:fastyle_ad/fastyle_ad.dart';
+// Package imports:
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastSplashAdBlocEvent
     extends BlocEvent<FastSplashAdBlocEventType, FastSplashAdBlocEventPayload> {

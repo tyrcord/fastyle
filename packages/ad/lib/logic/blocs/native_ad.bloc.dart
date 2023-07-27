@@ -1,6 +1,11 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastNativeAdBloc

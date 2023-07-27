@@ -6,6 +6,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lingua_core/lingua_core.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_core/fastyle_core.dart';
+
 //FIXME: migrate away from fastyle_dart
 import 'package:fastyle_dart/fastyle_dart.dart'
     hide
@@ -14,8 +18,6 @@ import 'package:fastyle_dart/fastyle_dart.dart'
         FastAppLoaderErrorBuilder,
         FastAppLoaderBuilder;
 
-// Project imports:
-import 'package:fastyle_core/fastyle_core.dart';
 
 /// The main entry point for a Fastyle Dart application.
 class FastApp extends StatefulWidget {

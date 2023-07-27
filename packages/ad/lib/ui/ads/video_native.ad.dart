@@ -1,7 +1,12 @@
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:fastyle_ad/fastyle_ad.dart';
+
+// Package imports:
+import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:fastyle_video_player/fastyle_video_player.dart';
+
+// Project imports:
+import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastVideoNativeAd extends StatelessWidget {
   final VoidCallback? onButtonTap;

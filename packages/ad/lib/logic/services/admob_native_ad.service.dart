@@ -1,7 +1,11 @@
+// Dart imports:
 import 'dart:async';
 
-import 'package:fastyle_ad/fastyle_ad.dart';
+// Package imports:
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+// Project imports:
+import 'package:fastyle_ad/fastyle_ad.dart';
 
 /// This class provides functionality to request native ads from AdMob.
 class FastAdmobNativeAdService {

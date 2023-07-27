@@ -1,6 +1,9 @@
-import 'package:fastyle_ad/logic/logic.dart';
-import 'package:fastyle_ad/fastyle_ad.dart';
+// Package imports:
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+// Project imports:
+import 'package:fastyle_ad/fastyle_ad.dart';
+import 'package:fastyle_ad/logic/logic.dart';
 
 class FastNativeAdBlocEventPayload {
   final FastAdInfo adInfo;

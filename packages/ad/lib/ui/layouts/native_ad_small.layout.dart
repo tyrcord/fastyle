@@ -1,6 +1,11 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:fastyle_ad/fastyle_ad.dart';
+
+// Package imports:
 import 'package:fastyle_dart/fastyle_dart.dart';
+
+// Project imports:
+import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastSmallNativeAdLayout extends StatelessWidget {
   final FastAdSize adSize = FastAdSize.small;

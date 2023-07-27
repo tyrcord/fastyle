@@ -1,4 +1,7 @@
+// Package imports:
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastAdInfoBlocState extends BlocState {

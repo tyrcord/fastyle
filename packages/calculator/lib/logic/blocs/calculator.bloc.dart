@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:tbloc/tbloc.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_calculator/fastyle_calculator.dart';

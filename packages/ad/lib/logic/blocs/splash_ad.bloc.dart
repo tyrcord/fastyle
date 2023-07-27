@@ -1,4 +1,7 @@
+// Package imports:
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 
 /// BLoC class for managing the display and control of a splash ad in a Flutter

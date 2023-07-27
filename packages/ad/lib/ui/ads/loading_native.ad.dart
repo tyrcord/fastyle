@@ -1,7 +1,12 @@
-import 'package:fastyle_core/fastyle_core.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:fastyle_ad/fastyle_ad.dart';
+
+// Package imports:
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
+
+// Project imports:
+import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastLoadingNativeAd extends StatelessWidget {
   static const placeholder = FastBoxPlaceholder();

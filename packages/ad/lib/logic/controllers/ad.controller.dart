@@ -1,7 +1,11 @@
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:rxdart/rxdart.dart';
 
+// Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 
 abstract class FastAdController {

@@ -1,11 +1,15 @@
-import 'package:fastyle_dart/fastyle_dart.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:fastyle_core/fastyle_core.dart';
-import 'package:rxdart/rxdart.dart';
 
-import 'package:tbloc/tbloc.dart';
-import 'package:fastyle_ad/fastyle_ad.dart';
+// Package imports:
+import 'package:fastyle_core/fastyle_core.dart';
+import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastSplashAdJob extends FastJob {
   static FastSplashAdJob? _singleton;

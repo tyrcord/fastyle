@@ -1,3 +1,4 @@
+// Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastSplashAdBlocEventPayload {

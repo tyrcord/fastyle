@@ -1,10 +1,16 @@
+// Dart imports:
 import 'dart:async';
 
+// Flutter imports:
 import 'package:flutter/foundation.dart';
+
+// Package imports:
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:fastyle_ad/fastyle_ad.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:uuid/uuid.dart';
+
+// Project imports:
+import 'package:fastyle_ad/fastyle_ad.dart';
 
 /// Controller for a Rewarded ad.
 class FastAdmobRewardedAdService {

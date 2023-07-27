@@ -1,11 +1,16 @@
+// Dart imports:
 import 'dart:async';
 
-import 'package:fastyle_core/fastyle_core.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-import 'package:fastyle_ad/fastyle_ad.dart';
+// Package imports:
+import 'package:fastyle_core/fastyle_core.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:t_helpers/helpers.dart';
+
+// Project imports:
+import 'package:fastyle_ad/fastyle_ad.dart';
 
 // TODO: support more native ad heights
 class FastAdmobNativeAd extends StatefulWidget {
