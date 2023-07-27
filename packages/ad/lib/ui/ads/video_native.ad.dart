@@ -1,3 +1,4 @@
+import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:flutter/material.dart';
 import 'package:fastyle_ad/fastyle_ad.dart';
 import 'package:fastyle_video_player/fastyle_video_player.dart';
@@ -12,9 +13,10 @@ class FastVideoNativeAd extends StatelessWidget {
   final double? rating;
   final bool loading;
 
-  const FastVideoNativeAd({
+  // ignore: prefer_const_constructors_in_immutables
+  FastVideoNativeAd({
     super.key,
-    this.adSize = FastAdSize.large, // TODO
+    this.adSize = FastAdSize.large,
     required this.videoUrl,
     this.descriptionText,
     this.onButtonTap,
@@ -22,16 +24,20 @@ class FastVideoNativeAd extends StatelessWidget {
     this.titleText,
     this.rating,
     this.loading = false,
-  });
+  }) : assert(adSize >= FastAdSize.medium);
 
   @override
   Widget build(BuildContext context) {
     return FastNativeAdLayout(
-      icon: FastVideoPlayer(videoUrl: videoUrl),
+      icon: FastVideoPlayer(
+        badge: const FastAdBadge(),
+        videoUrl: videoUrl,
+      ),
       descriptionText: descriptionText,
       onButtonTap: onButtonTap,
       buttonText: buttonText,
       titleText: titleText,
+      showAdBadge: false,
       adSize: adSize,
       rating: rating,
     );

@@ -7,10 +7,12 @@ import 'package:fastyle_video_player/fastyle_video_player.dart';
 
 class FastVideoPlayer extends StatefulWidget {
   final String videoUrl;
+  final Widget? badge;
 
   const FastVideoPlayer({
     super.key,
     required this.videoUrl,
+    this.badge,
   });
 
   @override
@@ -115,6 +117,12 @@ class _FastVideoPlayerState extends State<FastVideoPlayer> {
             if (hasPlayed)
               Positioned.fill(
                 child: FastVideoReplayCover(onReplayTap: handleReplayAction),
+              ),
+            if (widget.badge != null)
+              Positioned(
+                top: 0,
+                left: 0,
+                child: widget.badge!,
               ),
           ],
         ),

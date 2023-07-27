@@ -10,6 +10,7 @@ class FastNativeAdLayout extends StatelessWidget {
   final Widget? icon;
   final bool loading;
   final double? rating;
+  final bool showAdBadge;
 
   const FastNativeAdLayout({
     super.key,
@@ -21,26 +22,30 @@ class FastNativeAdLayout extends StatelessWidget {
     this.icon,
     this.rating,
     this.loading = false,
+    this.showAdBadge = true,
   });
 
   @override
   Widget build(BuildContext context) {
-    return FastNativeAdContainerLayout(
-      adSize: adSize,
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: loading
-                ? buildLoadingIndicator(context)
-                : buildAdContent(context),
-          ),
-          const Align(
-            alignment: Alignment.topLeft,
-            child: FastAdBadge(),
-          ),
-        ],
-      ),
-    );
+    final content =
+        loading ? buildLoadingIndicator(context) : buildAdContent(context);
+
+    if (showAdBadge) {
+      return FastNativeAdContainerLayout(
+        adSize: adSize,
+        child: Stack(
+          children: [
+            Positioned.fill(child: content),
+            const Align(
+              alignment: Alignment.topLeft,
+              child: FastAdBadge(),
+            ),
+          ],
+        ),
+      );
+    }
+
+    return FastNativeAdContainerLayout(adSize: adSize, child: content);
   }
 
   Widget buildAdContent(BuildContext context) {

@@ -87,9 +87,8 @@ class _CustomAdsPageState extends State<CustomAdsPage> {
           kFastSizedBox16,
           const FastTitle(text: 'Medium Video Custom Ad'),
           kFastSizedBox16,
-          const FastVideoNativeAd(
-            videoUrl:
-                'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
+          FastVideoNativeAd(
+            videoUrl: 'https://samplelib.com/lib/preview/mp4/sample-5s.mp4',
             adSize: FastAdSize.medium,
             titleText: 'Medium Video Ad',
             descriptionText: 'This is a Medium ad with a Video and '
@@ -99,7 +98,7 @@ class _CustomAdsPageState extends State<CustomAdsPage> {
           kFastSizedBox16,
           const FastTitle(text: 'Large Video Custom Ad'),
           kFastSizedBox16,
-          const FastVideoNativeAd(
+          FastVideoNativeAd(
             rating: 4,
             videoUrl:
                 'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
