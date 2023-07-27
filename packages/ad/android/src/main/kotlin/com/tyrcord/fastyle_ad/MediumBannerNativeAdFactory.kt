@@ -22,19 +22,15 @@ class MediumBannerNativeAdFactory(val context: Context) : GoogleMobileAdsPlugin.
         with(nativeAdView) {
             val attributionViewSmall =
                     findViewById<TextView>(R.id.tv_medium_banner_native_ad_attribution_small)
-            val attributionViewLarge =
-                    findViewById<TextView>(R.id.tv_medium_banner_native_ad_attribution_large)
 
             val iconView = findViewById<ImageView>(R.id.iv_medium_banner_native_ad_icon)
             val icon = nativeAd.icon
 
             if (icon != null) {
                 attributionViewSmall.visibility = View.VISIBLE
-                attributionViewLarge.visibility = View.INVISIBLE
                 iconView.setImageDrawable(icon.drawable)
             } else {
                 attributionViewSmall.visibility = View.INVISIBLE
-                attributionViewLarge.visibility = View.VISIBLE
             }
 
             this.iconView = iconView

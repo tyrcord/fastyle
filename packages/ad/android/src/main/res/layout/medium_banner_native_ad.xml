@@ -1,21 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.gms.ads.nativead.NativeAdView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent">
+<com.google.android.gms.ads.nativead.NativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent">
 
     <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
 
-        <TextView android:id="@+id/tv_medium_banner_native_ad_attribution_small" android:gravity="center" android:layout_width="16dp" android:layout_height="16dp" android:background="#F19938" android:text="Ad" android:textColor="#fcfcfc" android:textSize="11sp" />
+        <ImageView
+            android:id="@+id/iv_medium_banner_native_ad_icon"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:scaleType="fitXY"
+            tools:background="#EDEDED" />
 
-        <ImageView android:id="@+id/iv_medium_banner_native_ad_icon" android:layout_width="80dp" android:layout_height="80dp" android:layout_gravity="bottom" android:layout_marginStart="0dp" android:layout_marginLeft="0dp" android:scaleType="fitXY" tools:background="#EDEDED" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="136dp"
+            android:layout_marginLeft="136dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical">
 
-        <TextView android:id="@+id/tv_medium_banner_native_ad_attribution_large" android:layout_width="80dp" android:layout_height="80dp" android:layout_gravity="bottom" android:layout_marginStart="0dp" android:layout_marginLeft="0dp" android:background="#F19938" android:gravity="center" android:text="Ad" android:textColor="#fcfcfc" android:visibility="invisible" />
+            <TextView
+                android:id="@+id/tv_medium_banner_native_ad_headline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="1"
+                android:maxLines="1"
+                android:textColor="#8C8C8C"
+                android:textSize="16sp"
+                tools:text="Headline" />
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_marginStart="96dp" android:layout_marginLeft="96dp" android:layout_marginEnd="16dp" android:layout_marginRight="16dp" android:orientation="vertical">
-
-            <TextView android:id="@+id/tv_medium_banner_native_ad_headline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:ellipsize="end" android:lines="1" android:maxLines="1" android:textColor="#8C8C8C" android:textSize="16sp" tools:text="Headline" />
-
-            <TextView android:id="@+id/tv_medium_banner_native_ad_body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:ellipsize="end" android:lines="2" android:maxLines="2" android:textColor="#969696" android:textSize="14sp" tools:text="body" />
+            <TextView
+                android:id="@+id/tv_medium_banner_native_ad_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="2"
+                android:maxLines="2"
+                android:textColor="#969696"
+                android:textSize="14sp"
+                tools:text="body" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_medium_banner_native_ad_attribution_small"
+            android:layout_width="20dp"
+            android:layout_height="16dp"
+            android:background="#BF5AAA97"
+            android:gravity="center"
+            android:text="Ad"
+            android:textColor="#fcfcfc"
+            android:textSize="11sp" />
 
     </FrameLayout>
 
