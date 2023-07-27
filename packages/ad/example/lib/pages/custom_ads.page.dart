@@ -96,6 +96,16 @@ class _CustomAdsPageState extends State<CustomAdsPage> {
                 'I also have a long description. I also have a long description.',
           ),
           kFastSizedBox16,
+          kFastSizedBox16,
+          FastVideoNativeAd(
+            videoUrl: 'https://samplelib.com',
+            adSize: FastAdSize.medium,
+            titleText: 'Medium Video Ad with error',
+            descriptionText: 'This is a Medium ad with a Video and '
+                'an install button. It also has a long description.'
+                'I also have a long description. I also have a long description.',
+          ),
+          kFastSizedBox16,
           const FastTitle(text: 'Large Video Custom Ad'),
           kFastSizedBox16,
           FastVideoNativeAd(

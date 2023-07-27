@@ -8,6 +8,7 @@ class FastLoadingBoxPlaceholder extends StatelessWidget {
   final Color? baseColor;
   final double? height;
   final double? width;
+  final Widget? child;
 
   const FastLoadingBoxPlaceholder({
     super.key,
@@ -16,10 +17,12 @@ class FastLoadingBoxPlaceholder extends StatelessWidget {
     this.baseColor,
     this.height,
     this.width,
+    this.child,
   });
 
   @override
   Widget build(BuildContext context) {
+    //FIXME: update default colors when migrating fastyle_dart to melos
     return FastShimmer(
       highlightColor: highlightColor,
       baseColor: baseColor,
@@ -27,6 +30,7 @@ class FastLoadingBoxPlaceholder extends StatelessWidget {
         color: backgroundColor,
         height: height,
         width: width,
+        child: child,
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
@@ -94,9 +95,22 @@ class _FastVideoPlayerState extends State<FastVideoPlayer> {
     return FutureBuilder(
       future: _initialization,
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done &&
-            _controller.value.isInitialized) {
-          return buildVideoPlayer();
+        if (snapshot.connectionState == ConnectionState.done) {
+          if (_controller.value.hasError) {
+            final palettes = ThemeHelper.getPaletteColors(context);
+            final color = palettes.red.mid;
+
+            return FastBoxPlaceholder(
+              child: Center(
+                child: FaIcon(
+                  FontAwesomeIcons.videoSlash,
+                  color: color,
+                ),
+              ),
+            );
+          } else if (_controller.value.isInitialized) {
+            return buildVideoPlayer();
+          }
         }
 
         return const FastLoadingBoxPlaceholder();
