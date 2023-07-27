@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:t_helpers/helpers.dart';
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
@@ -7,12 +8,14 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_video_player/fastyle_video_player.dart';
 
 class FastVideoPlayer extends StatefulWidget {
+  final String? debugLabel;
   final String videoUrl;
   final Widget? badge;
 
   const FastVideoPlayer({
     super.key,
     required this.videoUrl,
+    this.debugLabel,
     this.badge,
   });
 
@@ -53,7 +56,7 @@ class _FastVideoPlayerState extends State<FastVideoPlayer> {
   Future<void> handleVideoPositionChange() async {
     if (mounted && _controller.value.duration > Duration.zero) {
       if (_controller.value.position == _controller.value.duration) {
-        debugPrint('Video has ended');
+        debugLog('Video has ended', debugLabel: widget.debugLabel);
 
         await _resetVideoController();
 
@@ -78,15 +81,26 @@ class _FastVideoPlayerState extends State<FastVideoPlayer> {
 
   Future<void> handleVisibilityChanged(VisibilityInfo info) async {
     if (!hasPlayed && mounted) {
+      debugLog(
+        'Visibilty as chaged',
+        value: info.visibleFraction,
+        debugLabel: widget.debugLabel,
+      );
+
       if (info.visibleFraction >= 0.75) {
-        debugPrint('Video is visible, playing');
+        if (!_controller.value.isPlaying) {
+          debugLog('Video is visible, playing', debugLabel: widget.debugLabel);
 
-        return _controller.play();
+          return _controller.play();
+        }
+      } else if (_controller.value.isPlaying) {
+        debugLog(
+          'Video is not visible, pausing',
+          debugLabel: widget.debugLabel,
+        );
+
+        return _controller.pause();
       }
-
-      debugPrint('Video is not visible, pausing');
-
-      return _controller.pause();
     }
   }
 

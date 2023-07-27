@@ -4,7 +4,7 @@ version: 0.0.13
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/settings
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.0.0 <4.0.0"
   flutter: ">=3.10.0"
 
 dependencies:
@@ -20,7 +20,7 @@ dependencies:
   fastyle_forms: ^0.0.10
   easy_localization: ^3.0.2
   lingua_settings: ^0.0.8
-  t_helpers: ^0.0.20
+  t_helpers: ">=0.0.21 <1.0.0"
 
 dev_dependencies:
   flutter_test:

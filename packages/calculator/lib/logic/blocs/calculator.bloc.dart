@@ -1,10 +1,10 @@
 // Flutter imports:
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_calculator/fastyle_calculator.dart';
@@ -233,25 +233,6 @@ abstract class FastCalculatorBloc<
     }
   }
 
-  /// Logs a message to the console with an optional debug label and value.
-  ///
-  /// Takes a [message] string and optional [value] to print to the console.
-  /// If [debugLabel] is not null, it will be prepended to the message.
-  /// If [debugLabel] is null, the message will be printed as is.
-  void log(String message, {dynamic value}) {
-    if (kDebugMode) {
-      if (debugLabel != null) {
-        message = '[$debugLabel]: $message';
-      }
-
-      if (value != null) {
-        message = '$message => $value';
-      }
-
-      debugPrint(message);
-    }
-  }
-
   // Handlers for various events in the FastCalculatorBloc
 
   /// Handles the initialization event by initializing the calculator and
@@ -329,10 +310,18 @@ abstract class FastCalculatorBloc<
   ) async* {
     // TODO: allow to log errors and stacktraces to an external tool.
     if (payload?.error != null) {
-      log('Failed to initialize calculator', value: payload!.error);
+      debugLog(
+        'Failed to initialize calculator',
+        value: payload!.error,
+        debugLabel: debugLabel,
+      );
 
       if (payload.stacktrace != null) {
-        log('Stacktrace', value: payload.stacktrace);
+        debugLog(
+          'Stacktrace',
+          value: payload.stacktrace,
+          debugLabel: debugLabel,
+        );
       }
     }
 
@@ -433,6 +422,10 @@ abstract class FastCalculatorBloc<
   @override
   @protected
   void handleInternalError(dynamic error) {
-    log('Internal Bloc error occured $error');
+    debugLog(
+      'Internal Bloc error occured',
+      value: error,
+      debugLabel: debugLabel,
+    );
   }
 }

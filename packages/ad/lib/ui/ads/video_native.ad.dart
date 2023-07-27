@@ -6,9 +6,10 @@ import 'package:fastyle_video_player/fastyle_video_player.dart';
 class FastVideoNativeAd extends StatelessWidget {
   final VoidCallback? onButtonTap;
   final String? descriptionText;
+  final String? debugLabel;
+  final String? buttonText;
   final FastAdSize adSize;
   final String? titleText;
-  final String? buttonText;
   final String videoUrl;
   final double? rating;
   final bool loading;
@@ -20,6 +21,7 @@ class FastVideoNativeAd extends StatelessWidget {
     required this.videoUrl,
     this.descriptionText,
     this.onButtonTap,
+    this.debugLabel,
     this.buttonText,
     this.titleText,
     this.rating,
@@ -32,6 +34,7 @@ class FastVideoNativeAd extends StatelessWidget {
       icon: FastVideoPlayer(
         badge: const FastAdBadge(),
         videoUrl: videoUrl,
+        debugLabel: debugLabel,
       ),
       descriptionText: descriptionText,
       onButtonTap: onButtonTap,

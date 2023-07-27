@@ -1,6 +1,9 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
+import 'package:t_helpers/helpers.dart';
+
 // Project imports:
 import 'package:fastyle_calculator/fastyle_calculator.dart';
 
@@ -87,14 +90,22 @@ abstract class HydratedFastCalculatorBloc<
   @override
   @mustCallSuper
   Future<void> initialize() async {
-    log('initializing calculator bloc...');
+    debugLog('initializing calculator bloc...', debugLabel: debugLabel);
     await dataProvider.connect();
 
     defaultDocument = await retrieveDefaultCalculatorDocument();
-    log('retrieved default calculator bloc document', value: defaultDocument);
+    debugLog(
+      'retrieved default calculator bloc document',
+      value: defaultDocument,
+      debugLabel: debugLabel,
+    );
 
     document = await retrieveCalculatorDocument();
-    log('will use calculator bloc document', value: document);
+    debugLog(
+      'will use calculator bloc document',
+      value: document,
+      debugLabel: debugLabel,
+    );
   }
 
   /// Initializes the calculator state with the calculator document.
@@ -138,7 +149,11 @@ abstract class HydratedFastCalculatorBloc<
   Future<D> retrieveCalculatorDocument() async {
     if (await canSaveUserEntry()) {
       final savedDocument = await dataProvider.retrieveCalculatorDocument();
-      log('retrieved saved calculator bloc document', value: savedDocument);
+      debugLog(
+        'retrieved saved calculator bloc document',
+        value: savedDocument,
+        debugLabel: debugLabel,
+      );
 
       return defaultDocument.merge(savedDocument) as D;
     }
@@ -152,7 +167,11 @@ abstract class HydratedFastCalculatorBloc<
   @protected
   Future<void> persistCalculatorDocument() async {
     if (await canSaveUserEntry()) {
-      log('persisting calculator bloc document', value: document.toJson());
+      debugLog(
+        'persisting calculator bloc document',
+        value: document.toJson(),
+        debugLabel: debugLabel,
+      );
 
       return dataProvider.persistCalculatorDocument(document);
     }
@@ -203,7 +222,10 @@ abstract class HydratedFastCalculatorBloc<
     var state = await patchCalculatorState(key, value);
 
     if (state != null) {
-      log('Patching calculator document with key: $key and value: $value');
+      debugLog(
+        'Patching calculator document with key: $key and value: $value',
+        debugLabel: debugLabel,
+      );
 
       final newDocument = await patchCalculatorDocument(key, value);
 

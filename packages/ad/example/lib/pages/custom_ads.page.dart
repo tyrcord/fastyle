@@ -91,6 +91,7 @@ class _CustomAdsPageState extends State<CustomAdsPage> {
             videoUrl: 'https://samplelib.com/lib/preview/mp4/sample-5s.mp4',
             adSize: FastAdSize.medium,
             titleText: 'Medium Video Ad',
+            debugLabel: 'Medium Video Ad',
             descriptionText: 'This is a Medium ad with a Video and '
                 'an install button. It also has a long description.'
                 'I also have a long description. I also have a long description.',
@@ -110,6 +111,7 @@ class _CustomAdsPageState extends State<CustomAdsPage> {
           kFastSizedBox16,
           FastVideoNativeAd(
             rating: 4,
+            debugLabel: 'Large Video Ad',
             videoUrl:
                 'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
             adSize: FastAdSize.large,
