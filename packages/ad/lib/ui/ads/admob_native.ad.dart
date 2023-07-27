@@ -3,7 +3,6 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fastyle_ad/fastyle_ad.dart';
-import 'package:tbloc/tbloc.dart';
 
 // TODO: support more native ad heights
 class FastAdmobNativeAd extends StatefulWidget {
@@ -11,6 +10,7 @@ class FastAdmobNativeAd extends StatefulWidget {
   final NativeAd? adView;
   final FastAdInfo? adInfo;
   final String? country;
+  final WidgetBuilder? fallbackBuilder;
 
   const FastAdmobNativeAd({
     super.key,
@@ -18,9 +18,10 @@ class FastAdmobNativeAd extends StatefulWidget {
     this.adInfo,
     this.country,
     this.adSize = FastAdSize.medium,
+    this.fallbackBuilder,
   }) : assert(
           adSize == FastAdSize.medium,
-          'Only support native ad with a height of 100px',
+          'Only support native ad with a height of 120px',
         );
 
   @override
@@ -68,15 +69,14 @@ class FastAdmobNativeAdState extends State<FastAdmobNativeAd> {
       return buildNativeAd(_adView!, widget.adSize);
     }
 
-    return BlocBuilderWidget(
+    return FastNativeAdBuilder(
       bloc: _nativeAdBloc!,
-      buildWhen: (previous, next) {
-        return previous.adView != next.adView ||
-            previous.showCustomAd != next.showCustomAd;
-      },
       builder: (BuildContext context, FastNativeAdBlocState state) {
         if (state.adView != null) {
           return buildNativeAd(state.adView as NativeAd, widget.adSize);
+        } else if (state.showFallback) {
+          return widget.fallbackBuilder?.call(context) ??
+              const FastDefaultNativeAd();
         }
 
         return FastNativeAdLayout(
@@ -117,7 +117,6 @@ class FastAdmobNativeAdState extends State<FastAdmobNativeAd> {
   void _loadAd(FastNativeAdBlocEventPayload payload) {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       if (mounted) {
-        //TODO: add a timeout
         await _nativeAdBloc!.onData.where((state) => state.isInitialized).first;
         debugPrint('FastNativeAdBloc is loading an ad...');
 

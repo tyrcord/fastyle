@@ -75,7 +75,7 @@ class FastNativeAdBloc
     final country = payload.country;
     AdWithView? adView;
 
-    yield currentState.copyWith(isLoadingAd: true);
+    yield currentState.copyWith(isLoadingAd: true, showFallback: false);
 
     if (adInfo.nativeAdUnitId != null) {
       adView = await _service.requestAd(
@@ -96,7 +96,7 @@ class FastNativeAdBloc
       final adView = payload.adView;
 
       yield currentState.copyWith(
-        showCustomAd: adView == null,
+        showFallback: adView == null,
         isLoadingAd: false,
         adView: adView,
       );

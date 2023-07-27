@@ -18,7 +18,7 @@ class _AdmobNativeAdsPageState extends State<AdmobNativeAdsPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          FastTitle(text: 'Small native Ad'),
+          FastTitle(text: 'Medium native Ad'),
           kFastSizedBox16,
           FastAdmobNativeAd(),
         ],

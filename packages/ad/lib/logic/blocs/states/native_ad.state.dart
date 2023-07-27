@@ -3,13 +3,13 @@ import 'package:tbloc/tbloc.dart';
 
 class FastNativeAdBlocState extends BlocState {
   final AdWithView? adView;
-  final bool showCustomAd;
+  final bool showFallback;
   final bool isLoadingAd;
 
   FastNativeAdBlocState({
     super.isInitializing = false,
     super.isInitialized = false,
-    this.showCustomAd = false,
+    this.showFallback = false,
     this.isLoadingAd = false,
     this.adView,
   });
@@ -19,13 +19,13 @@ class FastNativeAdBlocState extends BlocState {
     bool? isInitializing,
     bool? isInitialized,
     AdWithView? adView,
-    bool? showCustomAd,
+    bool? showFallback,
     bool? isLoadingAd,
   }) {
     return FastNativeAdBlocState(
       isInitializing: isInitializing ?? this.isInitializing,
       isInitialized: isInitialized ?? this.isInitialized,
-      showCustomAd: showCustomAd ?? this.showCustomAd,
+      showFallback: showFallback ?? this.showFallback,
       isLoadingAd: isLoadingAd ?? this.isLoadingAd,
       adView: adView ?? this.adView,
     );
@@ -39,7 +39,7 @@ class FastNativeAdBlocState extends BlocState {
     return copyWith(
       isInitializing: model.isInitializing,
       isInitialized: model.isInitialized,
-      showCustomAd: model.showCustomAd,
+      showFallback: model.showFallback,
       isLoadingAd: model.isLoadingAd,
       adView: model.adView,
     );
@@ -49,7 +49,7 @@ class FastNativeAdBlocState extends BlocState {
   List<Object?> get props => [
         isInitializing,
         isInitialized,
-        showCustomAd,
+        showFallback,
         isLoadingAd,
         adView,
       ];
