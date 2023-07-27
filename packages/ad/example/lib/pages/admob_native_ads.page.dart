@@ -20,7 +20,9 @@ class _AdmobNativeAdsPageState extends State<AdmobNativeAdsPage> {
         children: [
           FastTitle(text: 'Medium native Ad'),
           kFastSizedBox16,
-          FastAdmobNativeAd(),
+          FastAdmobNativeAd(
+            debugLabel: 'Admob Medium Native Ad',
+          ),
         ],
       ),
     );

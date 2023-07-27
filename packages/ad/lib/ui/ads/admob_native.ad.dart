@@ -1,25 +1,33 @@
+import 'dart:async';
+
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fastyle_ad/fastyle_ad.dart';
+import 'package:t_helpers/helpers.dart';
 
 // TODO: support more native ad heights
 class FastAdmobNativeAd extends StatefulWidget {
+  final WidgetBuilder? fallbackBuilder;
+  final Duration refreshTimeout;
+  final String? debugLabel;
+  final FastAdInfo? adInfo;
   final FastAdSize adSize;
   final NativeAd? adView;
-  final FastAdInfo? adInfo;
   final String? country;
-  final WidgetBuilder? fallbackBuilder;
 
   const FastAdmobNativeAd({
     super.key,
-    this.adView,
-    this.adInfo,
-    this.country,
+    Duration? refreshTimeout,
     this.adSize = FastAdSize.medium,
     this.fallbackBuilder,
-  }) : assert(
+    this.debugLabel,
+    this.country,
+    this.adView,
+    this.adInfo,
+  })  : refreshTimeout = refreshTimeout ?? const Duration(seconds: 60),
+        assert(
           adSize == FastAdSize.medium,
           'Only support native ad with a height of 120px',
         );
@@ -29,8 +37,9 @@ class FastAdmobNativeAd extends StatefulWidget {
 }
 
 class FastAdmobNativeAdState extends State<FastAdmobNativeAd> {
-  NativeAd? _adView;
   FastNativeAdBloc? _nativeAdBloc;
+  Timer? _refreshTimer;
+  NativeAd? _adView;
 
   @override
   void initState() {
@@ -49,6 +58,10 @@ class FastAdmobNativeAdState extends State<FastAdmobNativeAd> {
       _nativeAdBloc?.addEvent(FastNativeAdBlocEvent.init(payload));
 
       _loadAd(payload);
+
+      _refreshTimer = Timer.periodic(widget.refreshTimeout, (Timer timer) {
+        _loadAd(payload);
+      });
     }
   }
 
@@ -60,6 +73,7 @@ class FastAdmobNativeAdState extends State<FastAdmobNativeAd> {
       _adView!.dispose();
     } else {
       _nativeAdBloc?.close();
+      _refreshTimer?.cancel();
     }
   }
 
@@ -114,14 +128,15 @@ class FastAdmobNativeAdState extends State<FastAdmobNativeAd> {
     return adInfoBloc.currentState.deviceCountryCode;
   }
 
-  void _loadAd(FastNativeAdBlocEventPayload payload) {
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      if (mounted) {
-        await _nativeAdBloc!.onData.where((state) => state.isInitialized).first;
-        debugPrint('FastNativeAdBloc is loading an ad...');
+  Future<void> _loadAd(FastNativeAdBlocEventPayload payload) async {
+    if (mounted) {
+      await _nativeAdBloc!.onData.where((state) => state.isInitialized).first;
+      debugLog(
+        'FastNativeAdBloc is loading an ad...',
+        debugLabel: widget.debugLabel,
+      );
 
-        _nativeAdBloc!.addEvent(FastNativeAdBlocEvent.loadAd(payload));
-      }
-    });
+      _nativeAdBloc!.addEvent(FastNativeAdBlocEvent.loadAd(payload));
+    }
   }
 }
