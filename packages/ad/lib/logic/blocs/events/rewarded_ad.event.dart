@@ -11,9 +11,6 @@ class FastRewardedAdBlocEvent extends BlocEvent<
   const FastRewardedAdBlocEvent.initialized()
       : super(type: FastAdmobRewardedAdBlocEventType.initalized);
 
-  const FastRewardedAdBlocEvent.showAd()
-      : super(type: FastAdmobRewardedAdBlocEventType.showAd);
-
   const FastRewardedAdBlocEvent.loadAndShowAd()
       : super(type: FastAdmobRewardedAdBlocEventType.loadAndShowAd);
 
@@ -43,4 +40,7 @@ class FastRewardedAdBlocEvent extends BlocEvent<
 
   const FastRewardedAdBlocEvent.adDismissed()
       : super(type: FastAdmobRewardedAdBlocEventType.adDismissed);
+
+  const FastRewardedAdBlocEvent.cancelAdRequest()
+      : super(type: FastAdmobRewardedAdBlocEventType.cancelAdRequest);
 }

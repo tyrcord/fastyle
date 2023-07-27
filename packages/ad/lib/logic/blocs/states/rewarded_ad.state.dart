@@ -8,6 +8,7 @@ class FastRewardedAdBlocState extends BlocState {
   final bool isShowingAd;
   final RewardItem? reward;
   final bool hasDismissedAd;
+  final String? requestId;
 
   bool get isRewarded => reward != null;
 
@@ -21,6 +22,7 @@ class FastRewardedAdBlocState extends BlocState {
     this.hasLoadedAd = false,
     this.isShowingAd = false,
     this.reward,
+    this.requestId,
   });
 
   @override
@@ -36,6 +38,7 @@ class FastRewardedAdBlocState extends BlocState {
     bool? isShowingAd,
     RewardItem? reward,
     bool? hasDismissedAd,
+    String? requestId,
   }) {
     return FastRewardedAdBlocState(
       isInitializing: isInitializing ?? this.isInitializing,
@@ -47,6 +50,7 @@ class FastRewardedAdBlocState extends BlocState {
       isShowingAd: isShowingAd ?? this.isShowingAd,
       reward: reward ?? this.reward,
       hasDismissedAd: hasDismissedAd ?? this.hasDismissedAd,
+      requestId: requestId ?? this.requestId,
     );
   }
 
@@ -68,6 +72,7 @@ class FastRewardedAdBlocState extends BlocState {
       isShowingAd: model.isShowingAd,
       reward: model.reward,
       hasDismissedAd: model.hasDismissedAd,
+      requestId: model.requestId,
     );
   }
 
@@ -82,5 +87,6 @@ class FastRewardedAdBlocState extends BlocState {
         isShowingAd,
         reward,
         hasDismissedAd,
+        requestId,
       ];
 }

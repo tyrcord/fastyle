@@ -1,13 +1,22 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastRewardedAdBloc
     extends BidirectionalBloc<FastRewardedAdBlocEvent, FastRewardedAdBlocState>
     implements AdEventListener {
+  static String debugLabel = 'FastRewardedAdBloc';
   static FastRewardedAdBloc? _singleton;
+
   late final FastAdmobRewardedAdService _admobService;
+  late final Duration blockDuration;
+
+  bool isRequestBlocked = false;
+  Timer? blockTimer;
 
   factory FastRewardedAdBloc({FastRewardedAdBlocState? initialState}) {
     return (_singleton ??= FastRewardedAdBloc._(initialState: initialState));
@@ -38,8 +47,6 @@ class FastRewardedAdBloc
         yield* handleLoadAndShowAd();
       } else if (type == FastAdmobRewardedAdBlocEventType.adLoaded) {
         yield* handleAdLoaded();
-      } else if (type == FastAdmobRewardedAdBlocEventType.showAd) {
-        yield* handleShowAd();
       } else if (type == FastAdmobRewardedAdBlocEventType.adShowed) {
         yield* handleAdShowed();
       } else if (type == FastAdmobRewardedAdBlocEventType.earnedReward) {
@@ -53,6 +60,8 @@ class FastRewardedAdBloc
         if (payload is FastRewardedAdBlocEventPayload) {
           yield* handleAdError(payload);
         }
+      } else if (type == FastAdmobRewardedAdBlocEventType.cancelAdRequest) {
+        yield* handleCancelAdRequestEvent();
       }
     } else {
       assert(false, 'FastAdmobRewardedAdBloc is not initialized yet.');
@@ -68,6 +77,8 @@ class FastRewardedAdBloc
 
       isInitializing = true;
       yield currentState.copyWith(isInitializing: true);
+
+      blockDuration = payload.blockDuration ?? const Duration(minutes: 15);
 
       _admobService = FastAdmobRewardedAdService(payload.adInfo);
       _admobService.addListener(this);
@@ -87,28 +98,54 @@ class FastRewardedAdBloc
     }
   }
 
-  /// TODO: avoid requesting ads too frequently
   Stream<FastRewardedAdBlocState> handleLoadAndShowAd() async* {
-    // Reset state
-    yield FastRewardedAdBlocState(isInitialized: true, isLoadingAd: true);
+    if (currentState.isLoadingAd) {
+      debugLog(
+        'Ad is already loading. Ignoring event.',
+        debugLabel: debugLabel,
+      );
 
-    await _admobService.loadAd();
+      return;
+    }
+
+    // Reset state
+    final emptyState = _getEmptyState();
+
+    if (isRequestBlocked) {
+      debugLog(
+        'Ad request is blocked. Ignoring event.',
+        debugLabel: debugLabel,
+      );
+
+      yield emptyState;
+
+      addEvent(FastRewardedAdBlocEvent.adLoadingError(
+        'Ad request is blocked. Ignoring event.',
+      ));
+
+      return;
+    }
+
+    final requestId = await _admobService.loadAd();
+
+    yield emptyState.copyWith(
+      error: requestId == null ? 'Failed to load ad' : null,
+      isLoadingAd: requestId != null,
+      requestId: requestId,
+    );
   }
 
   Stream<FastRewardedAdBlocState> handleAdLoaded() async* {
-    if (currentState.isLoadingAd) {
+    if (currentState.isLoadingAd && currentState.requestId != null) {
       yield currentState.copyWith(
         hasLoadedAd: true,
         isLoadingAd: false,
       );
 
-      addEvent(const FastRewardedAdBlocEvent.showAd());
-    }
-  }
+      // Block requests for the specified duration
+      _blockRequests();
 
-  Stream<FastRewardedAdBlocState> handleShowAd() async* {
-    if (currentState.hasLoadedAd) {
-      _admobService.showAdIfAvailable();
+      _admobService.showAdIfAvailable(currentState.requestId!);
     }
   }
 
@@ -141,44 +178,74 @@ class FastRewardedAdBloc
     );
   }
 
-  @override
-  void onAdLoaded(RewardedAd ad) {
-    addEvent(const FastRewardedAdBlocEvent.adLoaded());
+  Stream<FastRewardedAdBlocState> handleCancelAdRequestEvent() async* {
+    yield _getEmptyState();
   }
 
   @override
-  void onAdFailedToLoad(LoadAdError error) {
-    addEvent(FastRewardedAdBlocEvent.adLoadingError(error));
+  void onAdLoaded(String requestId, RewardedAd ad) {
+    if (_isRequestAllowed(requestId)) {
+      addEvent(const FastRewardedAdBlocEvent.adLoaded());
+    } else {
+      handleOldRequestEvent('adLoaded');
+    }
   }
 
   @override
-  void onAdFailedToShow(AdError error) {
-    addEvent(FastRewardedAdBlocEvent.adShowingError(error));
+  void onAdFailedToLoad(String requestId, LoadAdError error) {
+    debugLog(requestId, debugLabel: debugLabel);
+
+    if (_isRequestAllowed(requestId)) {
+      addEvent(FastRewardedAdBlocEvent.adLoadingError(error));
+    } else {
+      handleOldRequestEvent('adFailedToLoad');
+    }
   }
 
   @override
-  void onAdShowed() {
-    addEvent(const FastRewardedAdBlocEvent.adShowed());
+  void onAdFailedToShow(String requestId, AdError error) {
+    if (_isRequestAllowed(requestId)) {
+      addEvent(FastRewardedAdBlocEvent.adShowingError(error));
+    } else {
+      handleOldRequestEvent('adFailedToShow');
+    }
   }
 
   @override
-  void onUserEarnedReward(RewardItem reward) {
-    addEvent(FastRewardedAdBlocEvent.earnedReward(reward));
+  void onAdShowed(String requestId, RewardedAd ad) {
+    if (_isRequestAllowed(requestId)) {
+      addEvent(const FastRewardedAdBlocEvent.adShowed());
+    } else {
+      handleOldRequestEvent('adShowed');
+    }
   }
 
   @override
-  void onAdDismissed() {
-    addEvent(const FastRewardedAdBlocEvent.adDismissed());
+  void onUserEarnedReward(String requestId, RewardItem reward) {
+    if (_isRequestAllowed(requestId)) {
+      addEvent(FastRewardedAdBlocEvent.earnedReward(reward));
+    } else {
+      handleOldRequestEvent('earnedReward');
+    }
   }
 
   @override
-  void onAdImpression() {
+  void onAdDismissed(String requestId, RewardedAd ad) {
+    if (_isRequestAllowed(requestId)) {
+      addEvent(const FastRewardedAdBlocEvent.adDismissed());
+    } else {
+      handleOldRequestEvent('adDismissed');
+    }
+  }
+
+  @override
+  void onAdImpression(String requestId, RewardedAd ad) {
     // TODO: implement onAdImpression
     // analyticsService.logEvent(name: 'ad_impression');
   }
 
   @override
-  void onAdClicked() {
+  void onAdClicked(String requestId, RewardedAd ad) {
     // TODO: implement onAdClicked
     // analyticsService.logEvent(name: 'ad_clicked');
   }
@@ -186,5 +253,28 @@ class FastRewardedAdBloc
   @override
   void handleInternalError(dynamic error) {
     debugPrint(error.toString());
+  }
+
+  void handleOldRequestEvent(String type) {
+    debugLog(
+      'Received a $type event for an old request. Ignoring event.',
+      debugLabel: debugLabel,
+    );
+  }
+
+  void _blockRequests() {
+    isRequestBlocked = true;
+    blockTimer?.cancel();
+    blockTimer = Timer(blockDuration, _unblockRequests);
+  }
+
+  void _unblockRequests() => isRequestBlocked = false;
+
+  FastRewardedAdBlocState _getEmptyState() {
+    return FastRewardedAdBlocState(isInitialized: true);
+  }
+
+  bool _isRequestAllowed(String requestId) {
+    return requestId == currentState.requestId;
   }
 }

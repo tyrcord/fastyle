@@ -14,23 +14,63 @@ class AdmobRewardedAdsPageState extends State<AdmobRewardedAdsPage> {
   final adBloc = FastAdInfoBloc();
 
   @override
+  void dispose() {
+    super.dispose();
+    _cancelAdRequest();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return FastSectionPage(
       titleText: 'Rewarded Ads',
       isViewScrollable: true,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          FastRaisedButton(
-            text: 'Show rewarded ad',
-            onTap: () async {
-              rewardedAdBloc.addEvent(
-                const FastRewardedAdBlocEvent.loadAndShowAd(),
+          FastRewardedAdBuilder(
+            builder: (context, state) {
+              Widget? content;
+
+              if (state.hasError) {
+                content = const FastTitle(text: 'No ad to show');
+              } else if (state.isLoadingAd) {
+                content = const FastThreeBounceIndicator();
+              } else if (state.isRewarded) {
+                content = const FastTitle(text: 'Ad rewarded');
+              } else if (state.hasDismissedAd) {
+                content = const FastTitle(text: 'Ad dismissed');
+              } else {
+                content = const FastTitle(text: 'No ad loaded');
+              }
+
+              return SizedBox(
+                height: 128,
+                child: Center(child: content),
               );
             },
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              FastOutlineButton(text: 'reset', onTap: _cancelAdRequest),
+              FastRewardedAdBuilder(builder: (context, state) {
+                return FastRaisedButton(
+                  text: 'Show rewarded ad',
+                  isEnabled: !state.isLoadingAd,
+                  onTap: () {
+                    rewardedAdBloc.addEvent(
+                      const FastRewardedAdBlocEvent.loadAndShowAd(),
+                    );
+                  },
+                );
+              }),
+            ],
+          )
         ],
       ),
     );
+  }
+
+  void _cancelAdRequest() {
+    rewardedAdBloc.addEvent(const FastRewardedAdBlocEvent.cancelAdRequest());
   }
 }

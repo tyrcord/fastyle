@@ -7,13 +7,18 @@ import 'package:tbloc/tbloc.dart';
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 
-class FastAdmobRewardedAdBuilder extends StatelessWidget {
+class FastRewardedAdBuilder extends StatelessWidget {
   final BlocBuilder<FastRewardedAdBlocState> builder;
+  final bool onlyWhenLoading;
+  final bool onlyWhenRewarded;
 
-  const FastAdmobRewardedAdBuilder({
-    Key? key,
+  const FastRewardedAdBuilder({
+    super.key,
     required this.builder,
-  }) : super(key: key);
+    bool? onlyWhenLoading,
+    bool? onlyWhenRewarded,
+  })  : onlyWhenLoading = onlyWhenLoading ?? false,
+        onlyWhenRewarded = onlyWhenRewarded ?? false;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +33,14 @@ class FastAdmobRewardedAdBuilder extends StatelessWidget {
     FastRewardedAdBlocState previous,
     FastRewardedAdBlocState next,
   ) {
+    if (onlyWhenLoading) {
+      return previous.isLoadingAd != next.isLoadingAd;
+    }
+
+    if (onlyWhenRewarded) {
+      return previous.isRewarded != next.isRewarded;
+    }
+
     return previous.isLoadingAd != next.isLoadingAd ||
         previous.isRewarded != next.isRewarded ||
         previous.hasError != next.hasError ||

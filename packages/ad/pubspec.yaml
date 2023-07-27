@@ -23,6 +23,7 @@ dependencies:
   lingua_core: ^0.0.13
   lingua_ad: ^0.0.5
   visibility_detector: ^0.3.3
+  uuid: ^3.0.7
 
 dev_dependencies:
   flutter_test:

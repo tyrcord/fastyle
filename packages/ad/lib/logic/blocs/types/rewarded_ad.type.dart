@@ -3,10 +3,10 @@ enum FastAdmobRewardedAdBlocEventType {
   initalized,
   loadAndShowAd,
   adLoaded,
-  showAd,
   adShowed,
   earnedReward,
   adLoadingError,
   adShowingError,
   adDismissed,
+  cancelAdRequest,
 }

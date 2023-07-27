@@ -4,9 +4,12 @@ import 'package:flutter/foundation.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:fastyle_ad/fastyle_ad.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:uuid/uuid.dart';
 
 /// Controller for a Rewarded ad.
 class FastAdmobRewardedAdService {
+  static const uuid = Uuid();
+
   /// Information about the ad.
   final FastAdInfo? adInfo;
 
@@ -53,7 +56,7 @@ class FastAdmobRewardedAdService {
   ///
   /// This method loads a rewarded ad with the provided ad unit ID and sets up
   /// the full screen content callbacks to handle ad display and events.
-  Future<bool> loadAd({
+  Future<String?> loadAd({
     String? adUnitId,
     String? country,
   }) async {
@@ -64,8 +67,10 @@ class FastAdmobRewardedAdService {
     if (adUnitId == null) {
       debugLog('Ad unit ID is not provided.', debugLabel: debugLabel);
 
-      return false;
+      return null;
     }
+
+    final requestId = uuid.v4();
 
     final canRequestAd = isAdRequestAllowedForCountry(
       whiteList: adInfo?.countries,
@@ -77,21 +82,21 @@ class FastAdmobRewardedAdService {
         adUnitId: adUnitId,
         request: const AdRequest(),
         rewardedAdLoadCallback: RewardedAdLoadCallback(
-          onAdLoaded: handleAdLoaded,
-          onAdFailedToLoad: handleAdFailedToLoad,
+          onAdLoaded: (ad) => handleAdLoaded(requestId, ad),
+          onAdFailedToLoad: (ad) => handleAdFailedToLoad(requestId, ad),
         ),
       );
 
-      return true;
+      return requestId;
     }
 
-    return false;
+    return null;
   }
 
   /// Shows the rewarded ad if it is available.
   ///
   /// Does nothing if the ad is not available or already being shown.
-  void showAdIfAvailable() {
+  void showAdIfAvailable(String requestId) {
     if (!isAdAvailable) {
       debugLog(
         'Tried to show ad before it was available.',
@@ -101,7 +106,9 @@ class FastAdmobRewardedAdService {
       return;
     }
 
-    _rewardedAd!.show(onUserEarnedReward: handleUserEarnedReward);
+    _rewardedAd!.show(onUserEarnedReward: (ad, reward) {
+      handleUserEarnedReward(requestId, ad, reward);
+    });
   }
 
   void addListener(AdEventListener listener) {
@@ -113,78 +120,73 @@ class FastAdmobRewardedAdService {
   }
 
   @protected
-  void handleAdLoaded(RewardedAd ad) {
+  void handleAdLoaded(String requestId, RewardedAd ad) {
     debugLog('Ad loaded', debugLabel: debugLabel);
 
     ad.fullScreenContentCallback = FullScreenContentCallback(
-      onAdFailedToShowFullScreenContent: handleAdFailedToShow,
-      onAdDismissedFullScreenContent: handleAdDismissed,
-      onAdShowedFullScreenContent: handleAdShowed,
-      onAdImpression: handleAdImpression,
-      onAdClicked: handleAdClicked,
+      onAdDismissedFullScreenContent: (ad) => handleAdDismissed(requestId, ad),
+      onAdShowedFullScreenContent: (ad) => handleAdShowed(requestId, ad),
+      onAdImpression: (ad) => handleAdImpression(requestId, ad),
+      onAdClicked: (ad) => handleAdClicked(requestId, ad),
+      onAdFailedToShowFullScreenContent: (ad, error) {
+        handleAdFailedToShow(requestId, ad, error);
+      },
     );
 
     _rewardedAd = ad;
 
-    _notifyListeners((listener) => listener.onAdLoaded(ad));
+    _notifyListeners((listener) => listener.onAdLoaded(requestId, ad));
   }
 
   @protected
-  void handleAdFailedToLoad(LoadAdError error) {
-    debugLog(
-      'RewardedAd failed to load',
-      value: error,
-      debugLabel: debugLabel,
-    );
+  void handleAdFailedToLoad(String requestId, LoadAdError error) {
+    debugLog('RewardedAd failed to load', value: error, debugLabel: debugLabel);
 
-    _notifyListeners((listener) => listener.onAdFailedToLoad(error));
+    _notifyListeners((listener) => listener.onAdFailedToLoad(requestId, error));
   }
 
   @protected
-  void handleAdShowed(RewardedAd ad) {
+  void handleAdShowed(String requestId, RewardedAd ad) {
     debugLog('Ad showed', debugLabel: debugLabel);
-    _notifyListeners((listener) => listener.onAdShowed());
+    _notifyListeners((listener) => listener.onAdShowed(requestId, ad));
   }
 
   @protected
-  void handleAdImpression(RewardedAd ad) {
+  void handleAdImpression(String requestId, RewardedAd ad) {
     debugLog('Ad impression', debugLabel: debugLabel);
-    _notifyListeners((listener) => listener.onAdImpression());
+    _notifyListeners((listener) => listener.onAdImpression(requestId, ad));
   }
 
   @protected
-  void handleAdClicked(RewardedAd ad) {
+  void handleAdClicked(String requestId, RewardedAd ad) {
     debugLog('Ad clicked', debugLabel: debugLabel);
-    _notifyListeners((listener) => listener.onAdClicked());
+    _notifyListeners((listener) => listener.onAdClicked(requestId, ad));
   }
 
   @protected
-  void handleAdFailedToShow(RewardedAd ad, AdError error) {
-    debugLog(
-      'Failed to show ad',
-      value: error,
-      debugLabel: debugLabel,
-    );
+  void handleAdFailedToShow(String requestId, RewardedAd ad, AdError error) {
+    debugLog('Failed to show ad', value: error, debugLabel: debugLabel);
     _disposeAd();
-    _notifyListeners((listener) => listener.onAdFailedToShow(error));
+    _notifyListeners((listener) => listener.onAdFailedToShow(requestId, error));
   }
 
   @protected
-  void handleAdDismissed(RewardedAd ad) {
+  void handleAdDismissed(String requestId, RewardedAd ad) {
     debugLog('Ad dismissed', debugLabel: debugLabel);
     _disposeAd();
-    _notifyListeners((listener) => listener.onAdDismissed());
+    _notifyListeners((listener) => listener.onAdDismissed(requestId, ad));
   }
 
   @protected
-  void handleUserEarnedReward(AdWithoutView ad, RewardItem reward) {
-    debugLog(
-      'User earned reward',
-      value: reward,
-      debugLabel: debugLabel,
-    );
+  void handleUserEarnedReward(
+    String requestId,
+    AdWithoutView ad,
+    RewardItem reward,
+  ) {
+    debugLog('User earned reward', value: reward, debugLabel: debugLabel);
 
-    _notifyListeners((listener) => listener.onUserEarnedReward(reward));
+    _notifyListeners(
+        (listener) => listener.onUserEarnedReward(requestId, reward));
   }
 
   /// Disposes of the current rewarded ad.
