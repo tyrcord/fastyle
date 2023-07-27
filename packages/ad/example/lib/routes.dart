@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:fastyle_ad_example/pages/admob_native_ads.page.dart';
+import 'package:fastyle_ad_example/pages/admob_rewarded_ads.page.dart';
 import 'package:fastyle_ad_example/pages/custom_ads.page.dart';
 import 'package:fastyle_ad_example/pages/loading_ads.page.dart';
 
@@ -18,5 +19,9 @@ final kAppRoutes = [
   GoRoute(
     path: 'admob-native',
     builder: (context, state) => const AdmobNativeAdsPage(),
+  ),
+  GoRoute(
+    path: 'rewarded',
+    builder: (context, state) => const AdmobRewardedAdsPage(),
   ),
 ];

@@ -34,6 +34,9 @@ class FastSplashAdBloc
       : super(initialState: initialState ?? FastSplashAdBlocState());
 
   @override
+  bool canClose() => false;
+
+  @override
   Stream<FastSplashAdBlocState> mapEventToState(
     FastSplashAdBlocEvent event,
   ) async* {

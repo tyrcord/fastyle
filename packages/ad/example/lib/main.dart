@@ -46,10 +46,12 @@ class MyApp extends StatelessWidget {
       blocProviders: [
         BlocProvider(bloc: FastAdInfoBloc()),
         BlocProvider(bloc: FastSplashAdBloc()),
+        BlocProvider(bloc: FastRewardedAdBloc()),
       ],
       loaderJobs: [
         FastAdInfoJob(),
         FastSplashAdJob(),
+        FastRewardedAdJob(),
       ],
       homeBuilder: (BuildContext context) => const MyHomePage(),
     );
@@ -73,6 +75,7 @@ class MyHomePage extends StatelessWidget {
           FastItem(labelText: 'Smart Ads', value: 'smart'),
           FastItem(labelText: 'Custom Ads', value: 'custom'),
           FastItem(labelText: 'Loading Ads', value: 'loading'),
+          FastItem(labelText: 'Rewarded Ads', value: 'rewarded'),
         ],
       ),
     );

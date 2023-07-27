@@ -8,3 +8,4 @@ export './services/services.dart';
 export './controllers/controllers.dart';
 export './types/types.dart';
 export './jobs/jobs.dart';
+export './interfaces/interfaces.dart';
