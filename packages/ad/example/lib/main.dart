@@ -45,9 +45,11 @@ class MyApp extends StatelessWidget {
       routes: kAppRoutes,
       blocProviders: [
         BlocProvider(bloc: FastAdInfoBloc()),
+        BlocProvider(bloc: FastSplashAdBloc()),
       ],
       loaderJobs: [
         FastAdInfoJob(),
+        FastSplashAdJob(),
       ],
       homeBuilder: (BuildContext context) => const MyHomePage(),
     );
