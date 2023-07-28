@@ -1,3 +1,5 @@
+import 'package:fastyle_core/fastyle_core.dart';
+import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:fastyle_iap/fastyle_iap.dart';
 
@@ -10,7 +12,16 @@ class FastStoreBlocEvent
     FastStoreBlocPayload? payload,
   }) : super(type: type, payload: payload);
 
-  const FastStoreBlocEvent.init() : super(type: FastStoreBlocEventType.init);
+  FastStoreBlocEvent.init(
+    FastAppInfoDocument appInfo, {
+    IFastErrorReporter? errorReporter,
+  }) : super(
+          type: FastStoreBlocEventType.init,
+          payload: FastStoreBlocPayload(
+            errorReporter: errorReporter,
+            appInfo: appInfo,
+          ),
+        );
 
   const FastStoreBlocEvent.initialized()
       : super(type: FastStoreBlocEventType.initialized);
@@ -57,15 +68,12 @@ class FastStoreBlocEvent
           payload: FastStoreBlocPayload(purchase: purchase),
         );
 
-  const FastStoreBlocEvent.purchasesRestored()
-      : super(type: FastStoreBlocEventType.purchasesRestored);
-
   const FastStoreBlocEvent.restorePurchasesFailed(dynamic error)
       : super(
           type: FastStoreBlocEventType.restorePurchasesFailed,
           error: error,
         );
 
-  const FastStoreBlocEvent.purchaseProducCanceled()
-      : super(type: FastStoreBlocEventType.purchaseProducCanceled);
+  const FastStoreBlocEvent.purchaseProductCanceled()
+      : super(type: FastStoreBlocEventType.purchaseProductCanceled);
 }

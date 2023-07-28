@@ -77,5 +77,6 @@ class FastStoreBlocState extends BlocState {
         isInitialized,
         purchases,
         products,
+        error,
       ];
 }

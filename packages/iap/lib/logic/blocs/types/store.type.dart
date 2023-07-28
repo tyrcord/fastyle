@@ -7,9 +7,8 @@ enum FastStoreBlocEventType {
   purchaseProduct,
   productPurchased,
   purchaseProductFailed,
-  purchaseProducCanceled,
+  purchaseProductCanceled,
   restorePurchases,
-  purchasesRestored,
   purchaseRestored,
   restorePurchasesFailed,
 }

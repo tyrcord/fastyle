@@ -55,7 +55,7 @@ class FastStoreBloc
         case FastStoreBlocEventType.restorePurchases:
           yield* handleRestorePurchasesEvent();
         case FastStoreBlocEventType.purchaseRestored:
-          yield* handlePurchaseRestoredEvent();
+          yield* handlePurchasesRestoredEvent();
         case FastStoreBlocEventType.restorePurchasesFailed:
           yield* handleRestorePurchasesFailedEvent(error);
 
@@ -80,7 +80,7 @@ class FastStoreBloc
           if (payload is FastStoreBlocPayload) {
             yield* handleProductPurchasedEvent(payload);
           }
-        case FastStoreBlocEventType.purchaseProducCanceled:
+        case FastStoreBlocEventType.purchaseProductCanceled:
           yield* handlePurchaseProductCanceledEvent();
         default:
           assert(false, 'FastStoreBloc is not initialized yet.');
@@ -159,7 +159,7 @@ class FastStoreBloc
 
   /// Handles the [FastStoreBlocEventType.purchaseRestored] event when a
   /// purchase has been successfully restored.
-  Stream<FastStoreBlocState> handlePurchaseRestoredEvent() async* {
+  Stream<FastStoreBlocState> handlePurchasesRestoredEvent() async* {
     if (_isRestoringPurchases) {
       _isRestoringPurchases = false;
       yield currentState.copyWith(isRestoringPurchases: false);
@@ -287,7 +287,7 @@ class FastStoreBloc
             FastStoreBlocEvent.purchaseProductFailed(purchaseDetails.error),
           );
         } else if (purchaseDetails.status == PurchaseStatus.canceled) {
-          addEvent(const FastStoreBlocEvent.purchaseProducCanceled());
+          addEvent(const FastStoreBlocEvent.purchaseProductCanceled());
         }
       },
       onError: (dynamic error) {

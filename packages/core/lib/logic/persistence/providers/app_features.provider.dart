@@ -25,7 +25,7 @@ class FastAppFeaturesDataProvider extends TDataProvider {
   }
 
   Future<void> enableFeature(FastFeatureEntity model) async {
-    return persistFeature(model.copyWith(isEnabled: true));
+    return persistFeature(model.copyWith(isEnabled: true, isActivated: true));
   }
 
   Future<FastFeatureEntity?> findFeatureByName(String name) async {
