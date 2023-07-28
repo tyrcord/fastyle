@@ -33,22 +33,28 @@ class FastAppFeaturesBloc extends BidirectionalBloc<FastAppFeaturesBlocEvent,
     if (type == FastAppFeaturesBlocEventType.init) {
       yield* handleInitEvent();
     } else if (type == FastAppFeaturesBlocEventType.initialized) {
-      if (payload is List<FastFeatureEntity>) {
-        yield* handleInitializedEvent(payload);
+      if (payload is FastAppFeaturesBlocEventPayload) {
+        assert(payload.features != null);
+        yield* handleInitializedEvent(payload.features!);
       }
     } else if (isInitialized) {
       switch (type) {
         case FastAppFeaturesBlocEventType.retrieveFeatures:
           yield* handleRetrieveFeaturesEvent();
-          break;
         case FastAppFeaturesBlocEventType.featuresRetrieved:
-          if (payload is List<FastFeatureEntity>) {
-            yield* handleFeaturesRetrievedEvent(payload);
+          if (payload is FastAppFeaturesBlocEventPayload) {
+            assert(payload.features != null);
+            yield* handleFeaturesRetrievedEvent(payload.features!);
           }
-          break;
+
+        case FastAppFeaturesBlocEventType.enableFeature:
+          if (payload is FastAppFeaturesBlocEventPayload) {
+            assert(payload.feature != null);
+            yield* handleEnableFeatureEvent(payload.feature!);
+          }
 
         default:
-          break;
+          assert(false, 'FastAppFeaturesBloc is not initialized yet.');
       }
     } else {
       assert(false, 'FastAppFeaturesBloc is not initialized yet.');
@@ -104,6 +110,17 @@ class FastAppFeaturesBloc extends BidirectionalBloc<FastAppFeaturesBlocEvent,
         isRetrievingFeatures: false,
         features: features,
       );
+    }
+  }
+
+  Stream<FastAppFeaturesBlocState> handleEnableFeatureEvent(
+    FastFeatureEntity feature,
+  ) async* {
+    if (isInitialized) {
+      await _dataProvider.enableFeature(feature);
+      final features = await _retrieveFeatures();
+
+      yield currentState.copyWith(features: features);
     }
   }
 

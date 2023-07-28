@@ -3,4 +3,5 @@ enum FastAppFeaturesBlocEventType {
   initialized,
   retrieveFeatures,
   featuresRetrieved,
+  enableFeature,
 }

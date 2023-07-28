@@ -4,25 +4,32 @@ import 'package:tbloc/tbloc.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-class FastAppFeaturesBlocEvent
-    extends BlocEvent<FastAppFeaturesBlocEventType, List<FastFeatureEntity>> {
+class FastAppFeaturesBlocEvent extends BlocEvent<FastAppFeaturesBlocEventType,
+    FastAppFeaturesBlocEventPayload> {
   const FastAppFeaturesBlocEvent.init()
       : super(type: FastAppFeaturesBlocEventType.init);
 
-  const FastAppFeaturesBlocEvent.initialized(
-    List<FastFeatureEntity> payload,
+  FastAppFeaturesBlocEvent.initialized(
+    List<FastFeatureEntity> features,
   ) : super(
           type: FastAppFeaturesBlocEventType.initialized,
-          payload: payload,
+          payload: FastAppFeaturesBlocEventPayload(features: features),
         );
 
   const FastAppFeaturesBlocEvent.retrieveFeatures()
       : super(type: FastAppFeaturesBlocEventType.retrieveFeatures);
 
-  const FastAppFeaturesBlocEvent.featuresRetrieved(
-    List<FastFeatureEntity> payload,
+  FastAppFeaturesBlocEvent.featuresRetrieved(
+    List<FastFeatureEntity> features,
   ) : super(
           type: FastAppFeaturesBlocEventType.featuresRetrieved,
-          payload: payload,
+          payload: FastAppFeaturesBlocEventPayload(features: features),
+        );
+
+  FastAppFeaturesBlocEvent.enableFeature(
+    FastFeatureEntity feature,
+  ) : super(
+          type: FastAppFeaturesBlocEventType.enableFeature,
+          payload: FastAppFeaturesBlocEventPayload(feature: feature),
         );
 }
