@@ -26,7 +26,7 @@ class FastAppFeaturesBlocState extends BlocState {
         isRetrievingFeatures = isRetrievingFeatures ?? false;
 
   bool isFeatureEnabled(FastAppFeatures appFeature) {
-    final name = appFeature.name;
+    final name = appFeature.name.toLowerCase();
     final feature = features.firstWhereOrNull(
       (FastFeatureEntity model) => model.name.toLowerCase() == name,
     );

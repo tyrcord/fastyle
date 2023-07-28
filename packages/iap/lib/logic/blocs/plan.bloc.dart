@@ -1,14 +1,19 @@
 import 'dart:async';
 
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:fastyle_iap/fastyle_iap.dart';
+
+typedef PlanPurchasedCallback = FastAppFeatures Function(String planId);
 
 /// The [FastPlanBloc] extends [Bloc], which provides the
 /// necessary functionality to handle events and state changes.
 class FastPlanBloc
     extends BidirectionalBloc<FastPlanBlocEvent, FastPlanBlocState> {
+  final FastAppFeaturesBloc _fastAppFeaturesBloc = FastAppFeaturesBloc();
   final FastStoreBloc _fastStoreBloc = FastStoreBloc();
   late StreamSubscription _fastStoreBlocSubscription;
+  final PlanPurchasedCallback onPlanPurchased;
   final List<String> productIds;
 
   // Store-related flags
@@ -17,6 +22,7 @@ class FastPlanBloc
   String? _pendingPlanRestoring;
 
   FastPlanBloc({
+    required this.onPlanPurchased,
     this.productIds = const <String>[],
     FastPlanBlocState? initialState,
   }) : super(initialState: initialState ?? FastPlanBlocState()) {
@@ -70,6 +76,9 @@ class FastPlanBloc
   Stream<FastPlanBlocState> handlePlanPurchasedEvent(String productId) async* {
     if (_isPurchasePending) {
       _isPurchasePending = false;
+
+      await _enablePlan(productId);
+
       yield currentState.copyWith(
         isPlanPurcharsePending: false,
         hasPurchasedPlan: true,
@@ -158,5 +167,13 @@ class FastPlanBloc
     }
 
     return false;
+  }
+
+  Future<void> _enablePlan(String planId) async {
+    final feature = onPlanPurchased(planId);
+
+    _fastAppFeaturesBloc.addEvent(
+      FastAppFeaturesBlocEvent.enableFeature(feature),
+    );
   }
 }

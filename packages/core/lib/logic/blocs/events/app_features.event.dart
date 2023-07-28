@@ -27,9 +27,15 @@ class FastAppFeaturesBlocEvent extends BlocEvent<FastAppFeaturesBlocEventType,
         );
 
   FastAppFeaturesBlocEvent.enableFeature(
-    FastFeatureEntity feature,
+    FastAppFeatures feature,
   ) : super(
           type: FastAppFeaturesBlocEventType.enableFeature,
-          payload: FastAppFeaturesBlocEventPayload(feature: feature),
+          payload: FastAppFeaturesBlocEventPayload(
+            feature: FastFeatureEntity(
+              name: feature.name.toLowerCase(),
+              isActivated: true,
+              isEnabled: true,
+            ),
+          ),
         );
 }
