@@ -20,6 +20,7 @@ class FastStoreBloc
   bool _isPurchasePending = false;
   bool _isRestoringPurchases = false;
   bool _isStoreAvailable = false;
+  String? _pendingPurchaseProductId;
 
   /// A factory constructor that returns an instance of [FastStoreBloc].
   /// It ensures that only one instance is created.
@@ -50,40 +51,42 @@ class FastStoreBloc
     } else if (type == FastStoreBlocEventType.initialized) {
       yield* handleInitializedEvent();
     } else if (isInitialized) {
-      switch (type) {
-        // Restore purchases
-        case FastStoreBlocEventType.restorePurchases:
-          yield* handleRestorePurchasesEvent();
-        case FastStoreBlocEventType.purchaseRestored:
-          yield* handlePurchasesRestoredEvent();
-        case FastStoreBlocEventType.restorePurchasesFailed:
-          yield* handleRestorePurchasesFailedEvent(error);
+      if (_isStoreAvailable) {
+        switch (type) {
+          // Restore purchases
+          case FastStoreBlocEventType.restorePurchases:
+            yield* handleRestorePurchasesEvent();
+          case FastStoreBlocEventType.purchaseRestored:
+            yield* handlePurchasesRestoredEvent();
+          case FastStoreBlocEventType.restorePurchasesFailed:
+            yield* handleRestorePurchasesFailedEvent(error);
 
-        // Load products
-        case FastStoreBlocEventType.loadProducts:
-          yield* handleLoadProductsEvent();
-        case FastStoreBlocEventType.productsLoaded:
-          if (payload is FastStoreBlocPayload) {
-            yield* handleProductsLoadedEvent(payload);
-          }
-        case FastStoreBlocEventType.loadProductsFailed:
-          yield* handleLoadProductsFailedEvent(error);
+          // Load products
+          case FastStoreBlocEventType.loadProducts:
+            yield* handleLoadProductsEvent();
+          case FastStoreBlocEventType.productsLoaded:
+            if (payload is FastStoreBlocPayload) {
+              yield* handleProductsLoadedEvent(payload);
+            }
+          case FastStoreBlocEventType.loadProductsFailed:
+            yield* handleLoadProductsFailedEvent(error);
 
-        // Purchase product
-        case FastStoreBlocEventType.purchaseProduct:
-          if (payload is FastStoreBlocPayload) {
-            yield* handlePurchaseProductEvent(payload);
-          }
-        case FastStoreBlocEventType.purchaseProductFailed:
-          yield* handlePurchaseProductFailedEvent(error);
-        case FastStoreBlocEventType.productPurchased:
-          if (payload is FastStoreBlocPayload) {
-            yield* handleProductPurchasedEvent(payload);
-          }
-        case FastStoreBlocEventType.purchaseProductCanceled:
-          yield* handlePurchaseProductCanceledEvent();
-        default:
-          assert(false, 'FastStoreBloc is not initialized yet.');
+          // Purchase product
+          case FastStoreBlocEventType.purchaseProduct:
+            if (payload is FastStoreBlocPayload) {
+              yield* handlePurchaseProductEvent(payload);
+            }
+          case FastStoreBlocEventType.purchaseProductFailed:
+            yield* handlePurchaseProductFailedEvent(error);
+          case FastStoreBlocEventType.productPurchased:
+            if (payload is FastStoreBlocPayload) {
+              yield* handleProductPurchasedEvent(payload);
+            }
+          case FastStoreBlocEventType.purchaseProductCanceled:
+            yield* handlePurchaseProductCanceledEvent();
+          default:
+            assert(false, 'FastStoreBloc is not initialized yet.');
+        }
       }
     } else {
       assert(false, 'FastAppInfoBloc is not initialized yet.');
@@ -123,9 +126,9 @@ class FastStoreBloc
       isInitialized = true;
 
       yield currentState.copyWith(
+        isStoreAvailable: _isStoreAvailable,
         isInitializing: false,
         isInitialized: true,
-        isStoreAvailable: _isStoreAvailable,
       );
     }
   }
@@ -173,17 +176,19 @@ class FastStoreBloc
       _isLoadingProducts = true;
       yield currentState.copyWith(isLoadingProducts: true);
 
-      if (_isStoreAvailable) {
+      try {
         final products = await _iapService
             .listAvailableProducts()
             .timeout(kFastAsyncTimeout);
 
         addEvent(FastStoreBlocEvent.productsLoaded(products));
-      } else {
-        addEvent(
-          const FastStoreBlocEvent.loadProductsFailed('store not available'),
-        );
+      } catch (error) {
+        addEvent(FastStoreBlocEvent.loadProductsFailed(error));
       }
+    } else {
+      addEvent(
+        const FastStoreBlocEvent.loadProductsFailed('store not available'),
+      );
     }
   }
 
@@ -195,8 +200,8 @@ class FastStoreBloc
     if (_isLoadingProducts) {
       _isLoadingProducts = false;
       yield currentState.copyWith(
-        isLoadingProducts: false,
         products: payload.products,
+        isLoadingProducts: false,
       );
     }
   }
@@ -204,7 +209,8 @@ class FastStoreBloc
   /// Handles the [FastStoreBlocEventType.loadProductsFailed] event when loading
   /// products from the store has failed.
   Stream<FastStoreBlocState> handleLoadProductsFailedEvent(
-      dynamic error) async* {
+    dynamic error,
+  ) async* {
     if (_isLoadingProducts) {
       _isLoadingProducts = false;
       yield currentState.copyWith(isLoadingProducts: false, error: error);
@@ -216,17 +222,18 @@ class FastStoreBloc
   Stream<FastStoreBlocState> handlePurchaseProductEvent(
     FastStoreBlocPayload payload,
   ) async* {
-    if (!_isPurchasePending &&
-        _isStoreAvailable &&
-        payload.productDetails != null) {
+    if (!_isPurchasePending && payload.productId != null) {
+      final productId = payload.productId!;
+      _pendingPurchaseProductId = productId;
       _isPurchasePending = true;
+
       yield currentState.copyWith(isPurchasePending: true);
 
       try {
         // Purchase status handled by _listenToPurchases
-        await _iapService.purchaseProduct(payload.productDetails!);
+        await _iapService.purchaseProduct(productId);
       } catch (error) {
-        addEvent(FastStoreBlocEvent.purchaseProductFailed(error));
+        addEvent(FastStoreBlocEvent.purchaseProductFailed(error, productId));
       }
     }
   }
@@ -238,6 +245,8 @@ class FastStoreBloc
   ) async* {
     if (_isPurchasePending) {
       _isPurchasePending = false;
+      _pendingPurchaseProductId = null;
+
       yield currentState.copyWith(error: error, isPurchasePending: false);
     }
   }
@@ -249,6 +258,7 @@ class FastStoreBloc
   ) async* {
     if (_isPurchasePending) {
       _isPurchasePending = false;
+      _pendingPurchaseProductId = null;
 
       if (payload.purchaseDetails != null) {
         yield currentState.copyWith(
@@ -284,7 +294,10 @@ class FastStoreBloc
           addEvent(FastStoreBlocEvent.purchaseRestored(purchaseDetails));
         } else if (purchaseDetails.status == PurchaseStatus.error) {
           addEvent(
-            FastStoreBlocEvent.purchaseProductFailed(purchaseDetails.error),
+            FastStoreBlocEvent.purchaseProductFailed(
+              purchaseDetails.error,
+              purchaseDetails.productID,
+            ),
           );
         } else if (purchaseDetails.status == PurchaseStatus.canceled) {
           addEvent(const FastStoreBlocEvent.purchaseProductCanceled());
@@ -302,7 +315,10 @@ class FastStoreBloc
   void _listenToErrors() {
     subxList.add(onError.listen((dynamic error) {
       if (_isPurchasePending) {
-        addEvent(FastStoreBlocEvent.purchaseProductFailed(error));
+        addEvent(FastStoreBlocEvent.purchaseProductFailed(
+          error,
+          _pendingPurchaseProductId!,
+        ));
       } else if (_isRestoringPurchases) {
         addEvent(FastStoreBlocEvent.restorePurchasesFailed(error));
       } else if (_isLoadingProducts) {

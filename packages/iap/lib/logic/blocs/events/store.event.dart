@@ -7,10 +7,7 @@ import 'package:tbloc/tbloc.dart';
 
 class FastStoreBlocEvent
     extends BlocEvent<FastStoreBlocEventType, FastStoreBlocPayload> {
-  const FastStoreBlocEvent({
-    required FastStoreBlocEventType type,
-    FastStoreBlocPayload? payload,
-  }) : super(type: type, payload: payload);
+  const FastStoreBlocEvent({required super.type, super.payload});
 
   FastStoreBlocEvent.init(
     FastAppInfoDocument appInfo, {
@@ -41,21 +38,27 @@ class FastStoreBlocEvent
           payload: FastStoreBlocPayload(products: products),
         );
 
-  FastStoreBlocEvent.purchaseProduct(ProductDetails? productDetails)
+  FastStoreBlocEvent.purchaseProduct(String productId)
       : super(
           type: FastStoreBlocEventType.purchaseProduct,
-          payload: FastStoreBlocPayload(productDetails: productDetails),
+          payload: FastStoreBlocPayload(productId: productId),
         );
 
   FastStoreBlocEvent.productPurchased(PurchaseDetails purchaseDetails)
       : super(
           type: FastStoreBlocEventType.productPurchased,
-          payload: FastStoreBlocPayload(purchaseDetails: purchaseDetails),
+          payload: FastStoreBlocPayload(
+            productId: purchaseDetails.productID,
+            purchaseDetails: purchaseDetails,
+          ),
         );
 
-  const FastStoreBlocEvent.purchaseProductFailed(dynamic error)
-      : super(
+  FastStoreBlocEvent.purchaseProductFailed(
+    dynamic error,
+    String productId,
+  ) : super(
           type: FastStoreBlocEventType.purchaseProductFailed,
+          payload: FastStoreBlocPayload(productId: productId),
           error: error,
         );
 

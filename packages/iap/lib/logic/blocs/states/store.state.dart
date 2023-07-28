@@ -10,6 +10,8 @@ class FastStoreBlocState extends BlocState {
   final List<PurchaseDetails?> purchases;
   final List<ProductDetails>? products;
 
+  bool get hasLoadedProducts => products != null;
+
   FastStoreBlocState({
     super.isInitialized,
     super.isInitializing,
@@ -73,6 +75,7 @@ class FastStoreBlocState extends BlocState {
         isLoadingProducts,
         isPurchasePending,
         isStoreAvailable,
+        hasLoadedProducts,
         isInitializing,
         isInitialized,
         purchases,

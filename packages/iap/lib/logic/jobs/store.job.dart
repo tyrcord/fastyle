@@ -25,20 +25,34 @@ class FastAppOnboardingJob extends FastJob {
     IFastErrorReporter? errorReporter,
   }) async {
     final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
-    final bloc = BlocProvider.of<FastStoreBloc>(context);
+    final storeBloc = BlocProvider.of<FastStoreBloc>(context);
     final appInfoState = appInfoBloc.currentState;
     final appInfo = appInfoState.toDocument();
-    bloc.addEvent(
+    storeBloc.addEvent(
       FastStoreBlocEvent.init(appInfo, errorReporter: errorReporter),
     );
 
-    final onboardingState = await RaceStream([
-      bloc.onError,
-      bloc.onData.where((FastStoreBlocState state) => state.isInitialized),
+    var onboardingState = await RaceStream([
+      storeBloc.onError,
+      storeBloc.onData.where((FastStoreBlocState state) => state.isInitialized),
     ]).first;
 
     if (onboardingState is! FastAppOnboardingBlocState) {
       throw onboardingState;
+    }
+
+    if (storeBloc.currentState.isStoreAvailable) {
+      storeBloc.addEvent(const FastStoreBlocEvent.loadProducts());
+
+      onboardingState = await RaceStream([
+        storeBloc.onError,
+        storeBloc.onData
+            .where((FastStoreBlocState state) => state.hasLoadedProducts),
+      ]).first;
+
+      if (onboardingState is! FastAppOnboardingBlocState) {
+        throw onboardingState;
+      }
     }
   }
 }

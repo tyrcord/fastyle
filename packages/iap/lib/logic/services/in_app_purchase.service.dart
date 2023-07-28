@@ -24,7 +24,7 @@ class FastInAppPurchaseService {
 
   final IFastErrorReporter? errorReporter;
   List<ProductDetails>? _products;
-  List<String>? _productIds;
+  late List<String> _productIds;
 
   FastInAppPurchaseService(
     FastAppInfoDocument appInfo, {
@@ -32,7 +32,7 @@ class FastInAppPurchaseService {
   }) {
     _eventController = PublishSubject<PurchaseDetails>();
     _errorController = PublishSubject<dynamic>();
-    _productIds = appInfo.productIdentifiers;
+    _productIds = appInfo.productIdentifiers ?? [];
     _purchasesSubscription = _iapService.purchaseStream.listen(
       handlePurchase,
       onError: handlePurchaseError,
@@ -66,11 +66,8 @@ class FastInAppPurchaseService {
   List<PurchaseDetails> listPurchases() => _purchases;
 
   Future<List<ProductDetails>?> listAvailableProducts() async {
-    if (_isStoreAvailable &&
-        _products == null &&
-        _productIds != null &&
-        _productIds!.isNotEmpty) {
-      final productIds = _productIds!.toSet();
+    if (_isStoreAvailable && _products == null && _productIds.isNotEmpty) {
+      final productIds = _productIds.toSet();
       final response = await _iapService.queryProductDetails(productIds);
 
       if (response.error != null) {
@@ -83,8 +80,16 @@ class FastInAppPurchaseService {
     return _products;
   }
 
-  Future<bool> purchaseProduct(ProductDetails product) async {
-    await _finishPendingTransaction(productIdentifier: product.id);
+  Future<bool> purchaseProduct(String productId) async {
+    final product = _products?.firstWhereOrNull(
+      (product) => product.id == productId,
+    );
+
+    if (product == null) {
+      throw ('The product $productId is not available');
+    }
+
+    await _finishPendingTransaction(productIdentifier: productId);
     final purchaseParam = PurchaseParam(productDetails: product);
 
     return _iapService.buyNonConsumable(purchaseParam: purchaseParam);
