@@ -5,3 +5,4 @@ export './events/events.dart';
 
 // Blocs
 export './store.bloc.dart';
+export './plan.bloc.dart';

@@ -3,12 +3,12 @@ import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:tbloc/tbloc.dart';
 
 class FastStoreBlocState extends BlocState {
-  final bool isPurchasePending;
-  final bool isRestoringPurchases;
-  final bool isLoadingProducts;
-  final bool isStoreAvailable;
   final List<PurchaseDetails?> purchases;
   final List<ProductDetails>? products;
+  final bool isRestoringPurchases;
+  final bool isPurchasePending;
+  final bool isLoadingProducts;
+  final bool isStoreAvailable;
 
   bool get hasLoadedProducts => products != null;
 

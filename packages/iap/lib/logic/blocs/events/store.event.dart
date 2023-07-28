@@ -77,6 +77,9 @@ class FastStoreBlocEvent
           error: error,
         );
 
-  const FastStoreBlocEvent.purchaseProductCanceled()
-      : super(type: FastStoreBlocEventType.purchaseProductCanceled);
+  FastStoreBlocEvent.purchaseProductCanceled(String productId)
+      : super(
+          type: FastStoreBlocEventType.purchaseProductCanceled,
+          payload: FastStoreBlocPayload(productId: productId),
+        );
 }

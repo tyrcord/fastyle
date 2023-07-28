@@ -293,14 +293,16 @@ class FastStoreBloc
         } else if (purchaseDetails.status == PurchaseStatus.restored) {
           addEvent(FastStoreBlocEvent.purchaseRestored(purchaseDetails));
         } else if (purchaseDetails.status == PurchaseStatus.error) {
-          addEvent(
-            FastStoreBlocEvent.purchaseProductFailed(
-              purchaseDetails.error,
-              purchaseDetails.productID,
-            ),
+          final payload = FastStoreBlocEvent.purchaseProductFailed(
+            purchaseDetails.error,
+            purchaseDetails.productID,
           );
+
+          addEvent(payload);
         } else if (purchaseDetails.status == PurchaseStatus.canceled) {
-          addEvent(const FastStoreBlocEvent.purchaseProductCanceled());
+          addEvent(FastStoreBlocEvent.purchaseProductCanceled(
+            purchaseDetails.productID,
+          ));
         }
       },
       onError: (dynamic error) {
