@@ -65,7 +65,7 @@ const kFastAppSettingsAskForReviewMinLaunches = 10;
 const kFastAppSettingsRemindForReviewMinDays = 7;
 
 /// The timeout duration for asynchronous operations in Fast App.
-const kFastAsyncTimeout = Duration(seconds: 15);
+const kFastAsyncTimeout = Duration(seconds: 30);
 
 /// The minimum number of days before asking the user for a review.
 const kFastAppSettingsAskForReviewMinDays = 7;

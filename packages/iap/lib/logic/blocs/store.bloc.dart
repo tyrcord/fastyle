@@ -1,0 +1,313 @@
+import 'dart:async';
+
+import 'package:in_app_purchase/in_app_purchase.dart';
+import 'package:fastyle_iap/fastyle_iap.dart';
+import 'package:tbloc/tbloc.dart';
+import 'package:fastyle_core/fastyle_core.dart';
+
+/// The [FastStoreBloc] extends [BidirectionalBloc], which provides the
+/// necessary functionality to handle events and state changes in the store.
+class FastStoreBloc
+    extends BidirectionalBloc<FastStoreBlocEvent, FastStoreBlocState> {
+  static FastStoreBloc? _singleton;
+
+  late FastInAppPurchaseDataProvider _iapDataProvider;
+  late FastInAppPurchaseService _iapService;
+  StreamSubscription? _purchasesSubscription;
+
+  // Store-related flags
+  bool _isLoadingProducts = false;
+  bool _isPurchasePending = false;
+  bool _isRestoringPurchases = false;
+  bool _isStoreAvailable = false;
+
+  /// A factory constructor that returns an instance of [FastStoreBloc].
+  /// It ensures that only one instance is created.
+  factory FastStoreBloc({FastStoreBlocState? initialState}) {
+    return (_singleton ??= FastStoreBloc._(initialState: initialState));
+  }
+
+  FastStoreBloc._({FastStoreBlocState? initialState})
+      : super(initialState: initialState ?? FastStoreBlocState());
+
+  @override
+  bool canClose() => false;
+
+  /// Maps incoming [FastStoreBlocEvent]s to the appropriate state changes
+  /// based on the event type.
+  @override
+  Stream<FastStoreBlocState> mapEventToState(
+    FastStoreBlocEvent event,
+  ) async* {
+    final payload = event.payload;
+    final type = event.type;
+    final error = event.error;
+
+    if (type == FastStoreBlocEventType.init) {
+      if (payload is FastStoreBlocPayload) {
+        yield* handleInitEvent(payload);
+      }
+    } else if (type == FastStoreBlocEventType.initialized) {
+      yield* handleInitializedEvent();
+    } else if (isInitialized) {
+      switch (type) {
+        // Restore purchases
+        case FastStoreBlocEventType.restorePurchases:
+          yield* handleRestorePurchasesEvent();
+        case FastStoreBlocEventType.purchaseRestored:
+          yield* handlePurchaseRestoredEvent();
+        case FastStoreBlocEventType.restorePurchasesFailed:
+          yield* handleRestorePurchasesFailedEvent(error);
+
+        // Load products
+        case FastStoreBlocEventType.loadProducts:
+          yield* handleLoadProductsEvent();
+        case FastStoreBlocEventType.productsLoaded:
+          if (payload is FastStoreBlocPayload) {
+            yield* handleProductsLoadedEvent(payload);
+          }
+        case FastStoreBlocEventType.loadProductsFailed:
+          yield* handleLoadProductsFailedEvent(error);
+
+        // Purchase product
+        case FastStoreBlocEventType.purchaseProduct:
+          if (payload is FastStoreBlocPayload) {
+            yield* handlePurchaseProductEvent(payload);
+          }
+        case FastStoreBlocEventType.purchaseProductFailed:
+          yield* handlePurchaseProductFailedEvent(error);
+        case FastStoreBlocEventType.productPurchased:
+          if (payload is FastStoreBlocPayload) {
+            yield* handleProductPurchasedEvent(payload);
+          }
+        case FastStoreBlocEventType.purchaseProducCanceled:
+          yield* handlePurchaseProductCanceledEvent();
+        default:
+          assert(false, 'FastStoreBloc is not initialized yet.');
+      }
+    } else {
+      assert(false, 'FastAppInfoBloc is not initialized yet.');
+    }
+  }
+
+  /// Handles the [FastStoreBlocEventType.init] event to initialize the store.
+  Stream<FastStoreBlocState> handleInitEvent(
+    FastStoreBlocPayload payload,
+  ) async* {
+    if (canInitialize) {
+      assert(payload.appInfo != null, 'appInfo cannot be null');
+
+      isInitializing = true;
+      yield currentState.copyWith(isInitializing: true);
+
+      _iapDataProvider = FastInAppPurchaseDataProvider();
+      _iapService = FastInAppPurchaseService(
+        payload.appInfo!,
+        errorReporter: payload.errorReporter,
+      );
+
+      _listenToPurchases();
+      _listenToErrors();
+
+      await _iapDataProvider.connect();
+      _isStoreAvailable = await _iapService.connect();
+
+      addEvent(const FastStoreBlocEvent.initialized());
+    }
+  }
+
+  /// Handles the [FastStoreBlocEventType.initialized] event when the store
+  /// has been successfully initialized.
+  Stream<FastStoreBlocState> handleInitializedEvent() async* {
+    if (isInitializing) {
+      isInitialized = true;
+
+      yield currentState.copyWith(
+        isInitializing: false,
+        isInitialized: true,
+        isStoreAvailable: _isStoreAvailable,
+      );
+    }
+  }
+
+  /// Handles the [FastStoreBlocEventType.restorePurchases] event to restore
+  /// purchases from the store.
+  Stream<FastStoreBlocState> handleRestorePurchasesEvent() async* {
+    if (!_isRestoringPurchases) {
+      _isRestoringPurchases = true;
+      yield currentState.copyWith(isRestoringPurchases: true);
+
+      try {
+        // Purchase status handled by _listenToPurchases
+        await _iapService.restorePurchases().timeout(kFastAsyncTimeout);
+      } catch (error) {
+        addEvent(FastStoreBlocEvent.restorePurchasesFailed(error));
+      }
+    }
+  }
+
+  /// Handles the [FastStoreBlocEventType.restorePurchasesFailed] event when
+  /// restoring purchases has failed.
+  Stream<FastStoreBlocState> handleRestorePurchasesFailedEvent(
+    dynamic error,
+  ) async* {
+    if (_isRestoringPurchases) {
+      _isRestoringPurchases = false;
+      yield currentState.copyWith(isRestoringPurchases: false, error: error);
+    }
+  }
+
+  /// Handles the [FastStoreBlocEventType.purchaseRestored] event when a
+  /// purchase has been successfully restored.
+  Stream<FastStoreBlocState> handlePurchaseRestoredEvent() async* {
+    if (_isRestoringPurchases) {
+      _isRestoringPurchases = false;
+      yield currentState.copyWith(isRestoringPurchases: false);
+    }
+  }
+
+  /// Handles the [FastStoreBlocEventType.loadProducts] event to load products
+  /// available for purchase in the store.
+  Stream<FastStoreBlocState> handleLoadProductsEvent() async* {
+    if (!_isLoadingProducts) {
+      _isLoadingProducts = true;
+      yield currentState.copyWith(isLoadingProducts: true);
+
+      if (_isStoreAvailable) {
+        final products = await _iapService
+            .listAvailableProducts()
+            .timeout(kFastAsyncTimeout);
+
+        addEvent(FastStoreBlocEvent.productsLoaded(products));
+      } else {
+        addEvent(
+          const FastStoreBlocEvent.loadProductsFailed('store not available'),
+        );
+      }
+    }
+  }
+
+  /// Handles the [FastStoreBlocEventType.productsLoaded] event when products
+  /// have been successfully loaded from the store.
+  Stream<FastStoreBlocState> handleProductsLoadedEvent(
+    FastStoreBlocPayload payload,
+  ) async* {
+    if (_isLoadingProducts) {
+      _isLoadingProducts = false;
+      yield currentState.copyWith(
+        isLoadingProducts: false,
+        products: payload.products,
+      );
+    }
+  }
+
+  /// Handles the [FastStoreBlocEventType.loadProductsFailed] event when loading
+  /// products from the store has failed.
+  Stream<FastStoreBlocState> handleLoadProductsFailedEvent(
+      dynamic error) async* {
+    if (_isLoadingProducts) {
+      _isLoadingProducts = false;
+      yield currentState.copyWith(isLoadingProducts: false, error: error);
+    }
+  }
+
+  /// Handles the [FastStoreBlocEventType.purchaseProduct] event to initiate a
+  /// purchase of a specific product.
+  Stream<FastStoreBlocState> handlePurchaseProductEvent(
+    FastStoreBlocPayload payload,
+  ) async* {
+    if (!_isPurchasePending &&
+        _isStoreAvailable &&
+        payload.productDetails != null) {
+      _isPurchasePending = true;
+      yield currentState.copyWith(isPurchasePending: true);
+
+      try {
+        // Purchase status handled by _listenToPurchases
+        await _iapService.purchaseProduct(payload.productDetails!);
+      } catch (error) {
+        addEvent(FastStoreBlocEvent.purchaseProductFailed(error));
+      }
+    }
+  }
+
+  /// Handles the [FastStoreBlocEventType.purchaseProductFailed] event when
+  /// purchasing a product has failed.
+  Stream<FastStoreBlocState> handlePurchaseProductFailedEvent(
+    dynamic error,
+  ) async* {
+    if (_isPurchasePending) {
+      _isPurchasePending = false;
+      yield currentState.copyWith(error: error, isPurchasePending: false);
+    }
+  }
+
+  /// Handles the [FastStoreBlocEventType.productPurchased] event when a product
+  /// has been successfully purchased.
+  Stream<FastStoreBlocState> handleProductPurchasedEvent(
+    FastStoreBlocPayload payload,
+  ) async* {
+    if (_isPurchasePending) {
+      _isPurchasePending = false;
+
+      if (payload.purchaseDetails != null) {
+        yield currentState.copyWith(
+          purchases: [...currentState.purchases, payload.purchaseDetails],
+          isPurchasePending: false,
+        );
+      } else {
+        yield currentState.copyWith(isPurchasePending: false);
+      }
+    }
+  }
+
+  /// Handles the [FastStoreBlocEventType.purchaseProductCanceled] event when a
+  /// product purchase has been canceled.
+  Stream<FastStoreBlocState> handlePurchaseProductCanceledEvent() async* {
+    if (_isPurchasePending) {
+      _isPurchasePending = false;
+      yield currentState.copyWith(isPurchasePending: false);
+    }
+  }
+
+  /// Sets up the subscriptions to listen for purchase events.
+  void _listenToPurchases() {
+    if (_purchasesSubscription != null) {
+      _purchasesSubscription!.cancel();
+    }
+
+    _purchasesSubscription = _iapService.onPurchase.listen(
+      (PurchaseDetails purchaseDetails) {
+        if (purchaseDetails.status == PurchaseStatus.purchased) {
+          addEvent(FastStoreBlocEvent.productPurchased(purchaseDetails));
+        } else if (purchaseDetails.status == PurchaseStatus.restored) {
+          addEvent(FastStoreBlocEvent.purchaseRestored(purchaseDetails));
+        } else if (purchaseDetails.status == PurchaseStatus.error) {
+          addEvent(
+            FastStoreBlocEvent.purchaseProductFailed(purchaseDetails.error),
+          );
+        } else if (purchaseDetails.status == PurchaseStatus.canceled) {
+          addEvent(const FastStoreBlocEvent.purchaseProducCanceled());
+        }
+      },
+      onError: (dynamic error) {
+        if (!errorController.isClosed) {
+          errorController.sink.add(error as BlocError);
+        }
+      },
+    );
+  }
+
+  /// Sets up the subscriptions to listen for error events.
+  void _listenToErrors() {
+    subxList.add(onError.listen((dynamic error) {
+      if (_isPurchasePending) {
+        addEvent(FastStoreBlocEvent.purchaseProductFailed(error));
+      } else if (_isRestoringPurchases) {
+        addEvent(FastStoreBlocEvent.restorePurchasesFailed(error));
+      } else if (_isLoadingProducts) {
+        addEvent(FastStoreBlocEvent.loadProductsFailed(error));
+      }
+    }));
+  }
+}

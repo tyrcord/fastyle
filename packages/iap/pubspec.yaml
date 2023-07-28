@@ -4,7 +4,7 @@ version: 0.0.2
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/iap
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.0.0 <4.0.0"
   flutter: ">=3.10.0"
 
 dependencies:
@@ -16,15 +16,12 @@ dependencies:
 
   fastyle_core: ^0.0.4
   fastyle_dart: ">=1.4.1 <2.0.0"
-  matex_financial: ">=0.0.10 <1.0.0"
   tstore: ">=0.8.9 <1.0.0"
   tbloc: ">=0.21.0 <1.0.0"
-  fastyle_images: ^0.0.12
-  fastyle_forms: ^0.0.10
-  matex_dart: ^0.11.1
   tmodel: ^0.5.3
-  fastyle_financial: ^0.0.8
   easy_localization: ^3.0.2
+  in_app_purchase: ^3.1.7
+  in_app_purchase_storekit: ^0.3.6+4
 
 dev_dependencies:
   flutter_test:
