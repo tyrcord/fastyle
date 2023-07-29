@@ -86,6 +86,13 @@
       "program": "packages/pricing/example/lib/main.dart"
     },
     {
+      "name": "Iap",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/iap/example/lib/main.dart"
+    },
+    {
       "name": "Settings",
       "request": "launch",
       "type": "dart",
