@@ -15,7 +15,7 @@ dependencies:
   font_awesome_flutter: ^10.5.0
   easy_localization: ^3.0.2
   connectivity_plus: ^4.0.1
-  fastyle_connectivity: ^0.0.8+1
+  fastyle_connectivity: ^0.0.9
 
 dev_dependencies:
   flutter_test:

@@ -15,6 +15,77 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_calculator` - `v1.18.0`](#fastyle_calculator---v1180)
+ - [`fastyle_connectivity` - `v0.0.9`](#fastyle_connectivity---v009)
+ - [`fastyle_digit_calculator` - `v0.0.11`](#fastyle_digit_calculator---v0011)
+ - [`fastyle_financial` - `v0.0.10`](#fastyle_financial---v0010)
+ - [`fastyle_forms` - `v0.0.12`](#fastyle_forms---v0012)
+ - [`fastyle_home` - `v0.0.7`](#fastyle_home---v007)
+ - [`fastyle_images` - `v0.0.14`](#fastyle_images---v0014)
+ - [`fastyle_onboarding` - `v0.0.12`](#fastyle_onboarding---v0012)
+ - [`fastyle_pricing` - `v1.7.0`](#fastyle_pricing---v170)
+ - [`fastyle_settings` - `v0.0.15`](#fastyle_settings---v0015)
+ - [`fastyle_views` - `v0.0.4`](#fastyle_views---v004)
+
+---
+
+#### `fastyle_calculator` - `v1.18.0`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_connectivity` - `v0.0.9`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_digit_calculator` - `v0.0.11`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_financial` - `v0.0.10`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_forms` - `v0.0.12`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_home` - `v0.0.7`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_images` - `v0.0.14`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_onboarding` - `v0.0.12`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_pricing` - `v1.7.0`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_settings` - `v0.0.15`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_views` - `v0.0.4`
+
+ - **FEAT**: update dependencies.
+
+
+## 2023-07-31
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_core` - `v0.0.6`](#fastyle_core---v006)
  - [`fastyle_home` - `v0.0.6+1`](#fastyle_home---v0061)
  - [`fastyle_settings` - `v0.0.14+1`](#fastyle_settings---v00141)

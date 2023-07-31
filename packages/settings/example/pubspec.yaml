@@ -21,11 +21,11 @@ dependencies:
   lingua_finance: ^0.0.8
   lingua_purchases: ^0.0.5+1
   lingua_finance_instrument: ^0.0.2
-  fastyle_forms: ^0.0.11+1
-  fastyle_settings: ^0.0.14+1
+  fastyle_forms: ^0.0.12
+  fastyle_settings: ^0.0.15
   matex_dart: ^0.11.1
   lingua_share: ^0.0.2+1
-  fastyle_pricing: ^1.6.1
+  fastyle_pricing: ^1.7.0
 
 dev_dependencies:
   flutter_test:
