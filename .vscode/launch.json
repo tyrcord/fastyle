@@ -30,6 +30,13 @@
       "program": "packages/charts/example/lib/main.dart"
     },
     {
+      "name": "Core",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/core/example/lib/main.dart"
+    },
+    {
       "name": "Connectivity",
       "request": "launch",
       "type": "dart",

@@ -16,7 +16,7 @@ dependencies:
   matex_dart: ^0.11.1
   collection: ^1.17.1
   fastyle_images: ^0.0.14
-  lingua_finance: ^0.0.7
+  lingua_finance: ^0.0.8
   fastyle_settings: ^0.0.15
   easy_localization: ^3.0.2
 
