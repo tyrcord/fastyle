@@ -82,6 +82,8 @@ const kFastLocalizationPath = 'i18n/';
 /// The duration to delay before showing the loader in Fast App.
 const kFastDelayBeforeShowingLoader = Duration(seconds: 1);
 
+const kFastRefreshTimeout = Duration(seconds: 60);
+
 /// The default app author for Fast App.
 const kFastAppAuthor = 'Tyrcord, Inc';
 

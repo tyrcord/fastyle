@@ -1,3 +1,6 @@
+import 'package:fastyle_ad/fastyle_ad.dart';
+import 'package:flutter/material.dart';
+
 /// Determines if an ad request is allowed based on the user's country and a
 /// whitelist of allowed countries.
 ///
@@ -24,4 +27,14 @@ bool isAdRequestAllowedForCountry({
       whiteList.map((code) => code.toLowerCase()).toSet();
 
   return normalizedWhiteList.contains(normalizedCountry);
+}
+
+Widget getLoadingWidget(FastAdSize adSize) {
+  if (adSize == FastAdSize.medium) {
+    return const FastLoadingNativeAd();
+  } else if (adSize == FastAdSize.large) {
+    return const FastLoadingNativeAd(adSize: FastAdSize.large);
+  }
+
+  return const FastLoadingNativeAd(adSize: FastAdSize.small);
 }

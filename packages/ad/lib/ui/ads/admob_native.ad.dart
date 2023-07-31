@@ -16,22 +16,22 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 class FastAdmobNativeAd extends StatefulWidget {
   final WidgetBuilder? fallbackBuilder;
   final Duration refreshTimeout;
+  final Widget? loadingWidget;
   final String? debugLabel;
   final FastAdInfo? adInfo;
   final FastAdSize adSize;
-  final NativeAd? adView;
   final String? country;
 
   const FastAdmobNativeAd({
     super.key,
-    Duration? refreshTimeout,
     this.adSize = FastAdSize.medium,
     this.fallbackBuilder,
     this.debugLabel,
     this.country,
-    this.adView,
     this.adInfo,
-  })  : refreshTimeout = refreshTimeout ?? const Duration(seconds: 60),
+    this.loadingWidget,
+    Duration? refreshTimeout,
+  })  : refreshTimeout = refreshTimeout ?? kFastRefreshTimeout,
         assert(
           adSize == FastAdSize.medium,
           'Only support native ad with a height of 120px',
@@ -50,36 +50,27 @@ class FastAdmobNativeAdState extends State<FastAdmobNativeAd> {
   void initState() {
     super.initState();
 
-    if (widget.adView != null) {
-      _adView = widget.adView!;
-      _adView!.load();
-    } else {
-      final payload = FastNativeAdBlocEventPayload(
-        country: _getUserCountry(),
-        adInfo: _getAdInfo(),
-      );
+    final payload = FastNativeAdBlocEventPayload(
+      country: _getUserCountry(),
+      adInfo: _getAdInfo(),
+    );
 
-      _nativeAdBloc = FastNativeAdBloc();
-      _nativeAdBloc?.addEvent(FastNativeAdBlocEvent.init(payload));
+    _nativeAdBloc = FastNativeAdBloc();
+    _nativeAdBloc?.addEvent(FastNativeAdBlocEvent.init(payload));
 
+    _loadAd(payload);
+
+    _refreshTimer = Timer.periodic(widget.refreshTimeout, (Timer timer) {
       _loadAd(payload);
-
-      _refreshTimer = Timer.periodic(widget.refreshTimeout, (Timer timer) {
-        _loadAd(payload);
-      });
-    }
+    });
   }
 
   @override
   void dispose() {
     super.dispose();
 
-    if (widget.adView != null) {
-      _adView!.dispose();
-    } else {
-      _nativeAdBloc?.close();
-      _refreshTimer?.cancel();
-    }
+    _nativeAdBloc?.close();
+    _refreshTimer?.cancel();
   }
 
   @override
@@ -98,10 +89,7 @@ class FastAdmobNativeAdState extends State<FastAdmobNativeAd> {
               const FastDefaultNativeAd();
         }
 
-        return FastNativeAdLayout(
-          adSize: widget.adSize,
-          loading: true,
-        );
+        return widget.loadingWidget ?? getLoadingWidget(widget.adSize);
       },
     );
   }

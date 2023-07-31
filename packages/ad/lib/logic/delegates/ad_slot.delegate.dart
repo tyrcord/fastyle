@@ -1,3 +1,3 @@
-class FastyleAdSlotDelegate {
+class FastAdSlotDelegate {
   bool willShowAd() => true;
 }

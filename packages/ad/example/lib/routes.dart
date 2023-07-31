@@ -1,4 +1,5 @@
 // Package imports:
+import 'package:fastyle_ad_example/pages/smart_ads.page.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
@@ -23,5 +24,9 @@ final kAppRoutes = [
   GoRoute(
     path: 'rewarded',
     builder: (context, state) => const AdmobRewardedAdsPage(),
+  ),
+  GoRoute(
+    path: 'smart',
+    builder: (context, state) => const SmartAdsPage(),
   ),
 ];
