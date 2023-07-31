@@ -1,5 +1,5 @@
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 
 /// A descriptor for a form field.
 class FastFormFieldDescriptor extends FastDescriptor {

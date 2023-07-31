@@ -1,4 +1,7 @@
+// Package imports:
 import 'package:tstore/tstore.dart';
+
+// Project imports:
 import 'package:fastyle_iap/fastyle_iap.dart';
 
 const _kStoreName = 'inAppPurchases';

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:firebase_performance/firebase_performance.dart';
 
 class FastFirebasePerformanceJob extends FastJob {

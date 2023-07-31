@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';

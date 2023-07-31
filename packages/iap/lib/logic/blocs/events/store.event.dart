@@ -1,9 +1,10 @@
+// Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
-import 'package:fastyle_iap/fastyle_iap.dart';
-
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_iap/fastyle_iap.dart';
 
 class FastStoreBlocEvent
     extends BlocEvent<FastStoreBlocEventType, FastStoreBlocPayload> {

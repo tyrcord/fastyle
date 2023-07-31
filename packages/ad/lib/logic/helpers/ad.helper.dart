@@ -1,5 +1,8 @@
-import 'package:fastyle_ad/fastyle_ad.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
+import 'package:fastyle_ad/fastyle_ad.dart';
 
 /// Determines if an ad request is allowed based on the user's country and a
 /// whitelist of allowed countries.

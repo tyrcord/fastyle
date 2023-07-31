@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       // supportedLocales: context.supportedLocales,
       // locale: context.locale,
       routes: kAppRoutes,
-      home: FastSectionPage(
+      homeBuilder: (_) => FastSectionPage(
         titleText: 'Fastyle Images',
         contentPadding: EdgeInsets.zero,
         showAppBar: false,

@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:t_helpers/helpers.dart';
 

@@ -1,14 +1,19 @@
+// Dart imports:
 import 'dart:async';
 import 'dart:io' show Platform;
 
-import 'package:collection/collection.dart' show IterableExtension;
-import 'package:fastyle_iap/fastyle_iap.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:in_app_purchase_storekit/store_kit_wrappers.dart';
-import 'package:in_app_purchase/in_app_purchase.dart';
+
+// Package imports:
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:in_app_purchase/in_app_purchase.dart';
+import 'package:in_app_purchase_storekit/store_kit_wrappers.dart';
 import 'package:rxdart/subjects.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+
+// Project imports:
+import 'package:fastyle_iap/fastyle_iap.dart';
 
 class FastInAppPurchaseService {
   //FIXME: should be a singleton

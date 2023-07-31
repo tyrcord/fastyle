@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:fastyle_images/fastyle_images.dart';
 import 'package:tbloc/tbloc.dart';
 

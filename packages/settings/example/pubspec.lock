@@ -265,7 +265,7 @@ packages:
     source: path
     version: "0.0.5"
   fastyle_dart:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: fastyle_dart
       sha256: "974d005c5f17e6a188697c6a8444c21ab97c3386c4982a90268bab4545b6deea"

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 
 /// A widget that displays the result of a calculator category.
 class FastCalculatorCategoryResult extends StatelessWidget {

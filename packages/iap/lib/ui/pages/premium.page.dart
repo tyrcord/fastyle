@@ -1,11 +1,15 @@
-import 'package:fastyle_iap/fastyle_iap.dart';
+// Flutter imports:
 import 'package:flutter/widgets.dart';
-import 'package:fastyle_dart/fastyle_dart.dart' hide FastApp;
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:lingua_purchases/generated/locale_keys.g.dart';
+
+// Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lingua_purchases/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_iap/fastyle_iap.dart';
 
 class FastIapPremiumPage extends StatefulWidget {
   final VoidCallback? onRestorePremium;

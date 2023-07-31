@@ -1,10 +1,14 @@
+// Dart imports:
 import 'dart:async';
 
-import 'package:in_app_purchase/in_app_purchase.dart';
-import 'package:fastyle_iap/fastyle_iap.dart';
-import 'package:tbloc/tbloc.dart';
+// Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_iap/fastyle_iap.dart';
 
 /// The [FastStoreBloc] extends [BidirectionalBloc], which provides the
 /// necessary functionality to handle events and state changes in the store.

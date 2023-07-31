@@ -1,7 +1,7 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-// Package imports:
+// Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
 /// A page widget that displays a status with an optional title, description,

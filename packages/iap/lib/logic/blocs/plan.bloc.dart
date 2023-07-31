@@ -1,7 +1,11 @@
+// Dart imports:
 import 'dart:async';
 
+// Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
 import 'package:fastyle_iap/fastyle_iap.dart';
 
 typedef PlanPurchasedCallback = FastAppFeatures Function(String planId);

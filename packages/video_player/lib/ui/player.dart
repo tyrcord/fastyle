@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:video_player/video_player.dart';

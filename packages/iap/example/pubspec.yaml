@@ -10,13 +10,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_dart: ">=1.5.0 <2.0.0"
+  fastyle_core: ^0.0.5
   go_router: ^10.0.0
   font_awesome_flutter: ^10.5.0
   easy_localization: ^3.0.2
   lingua_core: ^0.0.13
   tbloc: ">=0.21.0 <1.0.0"
-  fastyle_core: ^0.0.5
   fastyle_iap: ^0.0.3
   fastyle_pricing: ^1.6.0
   lingua_purchases: ^0.0.5+1

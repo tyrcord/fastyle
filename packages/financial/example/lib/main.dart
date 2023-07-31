@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:matex_financial/financial.dart';
 
 void main() {
@@ -19,8 +19,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const FastApp(
-      home: Scaffold(
+    return FastApp(
+      homeBuilder: (_) => const Scaffold(
           body: FastSectionPage(
         child: Column(
           children: [

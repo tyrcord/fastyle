@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 
 // Package imports:
 import 'package:fastyle_calculator/fastyle_calculator.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tbloc/tbloc.dart';
 
 // Project imports:

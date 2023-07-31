@@ -10,7 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_dart: ">=1.5.0 <2.0.0"
   font_awesome_flutter: ^10.5.0
   app_tracking_transparency: ^2.0.4
   fastyle_core: ^0.0.5

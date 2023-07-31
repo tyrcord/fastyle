@@ -1,6 +1,6 @@
+// Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
 
 class FastStoreBlocPayload {
   final IFastErrorReporter? errorReporter;

@@ -2,10 +2,11 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:go_router/go_router.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fuzzy/fuzzy.dart';
+import 'package:go_router/go_router.dart';
 
+// Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
 export './edge_insets.constants.dart';

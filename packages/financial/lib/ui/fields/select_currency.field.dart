@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:collection/collection.dart' show IterableExtension;
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_images/fastyle_images.dart';
 import 'package:matex_dart/matex_dart.dart';
 import 'package:t_helpers/helpers.dart';

@@ -10,8 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  fastyle_dart: ">=1.5.0 <2.0.0"
+  fastyle_core: ^0.0.5
   fastyle_home: ^0.0.6
 
 dev_dependencies:

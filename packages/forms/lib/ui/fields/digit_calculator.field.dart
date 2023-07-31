@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_digit_calculator/digit_calculator.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:t_helpers/helpers.dart';

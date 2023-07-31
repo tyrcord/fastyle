@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lingua_core/lingua_core.dart';
 import 'package:lingua_onboarding/generated/codegen_loader.g.dart';
@@ -35,11 +35,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastApp(
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
       routes: kAppRoutes,
-      home: FastSectionPage(
+      homeBuilder: (_) => FastSectionPage(
         titleText: 'Fastyle Onboarding',
         contentPadding: EdgeInsets.zero,
         showAppBar: false,

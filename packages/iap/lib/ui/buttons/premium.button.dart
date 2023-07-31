@@ -1,9 +1,14 @@
-import 'package:fastyle_iap/fastyle_iap.dart';
+// Flutter imports:
 import 'package:flutter/widgets.dart';
-import 'package:lingua_purchases/generated/locale_keys.g.dart';
+
+// Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_buttons/fastyle_buttons.dart';
+import 'package:lingua_purchases/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_iap/fastyle_iap.dart';
 
 class FastIapPurchasePremiumButtton extends StatelessWidget {
   final VoidCallback? onTap;

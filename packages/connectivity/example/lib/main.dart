@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_connectivity/fastyle_connectivity.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const FastApp(
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+    return  FastApp(
+      homeBuilder: (_) => const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }

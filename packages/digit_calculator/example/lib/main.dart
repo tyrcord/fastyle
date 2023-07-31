@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_digit_calculator/digit_calculator.dart';
 
 void main() {
@@ -19,10 +19,8 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const FastApp(
-      home: Scaffold(
-        body: FastDigitCalculator(),
-      ),
+    return FastApp(
+      homeBuilder: (_) => const Scaffold(body: FastDigitCalculator()),
     );
   }
 }

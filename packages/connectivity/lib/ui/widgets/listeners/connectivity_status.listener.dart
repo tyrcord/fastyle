@@ -2,7 +2,7 @@
 import 'package:flutter/widgets.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tbloc/tbloc.dart';
 

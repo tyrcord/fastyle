@@ -2,7 +2,7 @@
 import 'package:flutter/foundation.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
 class FastFirebaseAppErrorReporter extends IFastErrorReporter {

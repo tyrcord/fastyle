@@ -1,11 +1,13 @@
 //FastPlanBloc
 
 // Flutter imports:
-import 'package:fastyle_iap/fastyle_iap.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_iap/fastyle_iap.dart';
 
 typedef FastIapPlanBuilderCallBack = bool Function(
   FastPlanBlocState context,

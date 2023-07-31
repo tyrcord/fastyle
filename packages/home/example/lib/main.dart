@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_home/fastyle_home.dart';
 
 void main() {
@@ -24,7 +24,7 @@ class MyAppState extends State<MyApp> {
     return FastApp(
       lightTheme: FastTheme.light.indigo,
       darkTheme: FastTheme.dark.indigo,
-      home: FastHomeGraphPage(
+      homeBuilder: (_) => FastHomeGraphPage(
         titleText: 'Welcome!',
         subtitleText: 'Have a wonderful day!',
         contentPadding: kFastEdgeInsets16,

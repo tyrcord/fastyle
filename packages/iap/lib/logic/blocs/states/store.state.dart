@@ -1,5 +1,5 @@
+// Package imports:
 import 'package:in_app_purchase/in_app_purchase.dart';
-
 import 'package:tbloc/tbloc.dart';
 
 class FastStoreBlocState extends BlocState {

@@ -12,7 +12,6 @@ dependencies:
     sdk: flutter
   rxdart: ^0.27.7
   fastyle_core: ^0.0.5
-  fastyle_dart: ">=1.5.0 <2.0.0"
   tbloc: ">=0.21.0 <1.0.0"
   t_helpers: ">=0.0.21 <1.0.0"
   firebase_core: ^2.15.0

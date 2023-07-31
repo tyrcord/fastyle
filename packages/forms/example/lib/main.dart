@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_forms/fastyle_forms.dart';
 
 void main() {
@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return FastApp(
-      home: FastSectionPage(
+      homeBuilder: (_) => FastSectionPage(
         child: Column(children: [
           FastDigitCalculatorField(
             labelText: 'Value A',
