@@ -56,13 +56,13 @@ class FastAppSettingsPrimaryCurrencyField extends StatelessWidget {
           selection: state.primaryCurrencyCode,
           itemDescriptionBuilder: descriptor?.itemDescriptionBuilder,
           canClearSelection: false,
-          onSelectionChanged: (FastItem<String>? item) {
-            if (item != null &&
-                item.value != null &&
-                item.value != state.primaryCurrencyCode) {
-              onCurrencyChanged?.call(item.value!);
-            }
-          },
+          // onSelectionChanged: (FastItem<String>? item) {
+          //   if (item != null &&
+          //       item.value != null &&
+          //       item.value != state.primaryCurrencyCode) {
+          //     onCurrencyChanged?.call(item.value!);
+          //   }
+          // },
           searchPlaceholderText:
               descriptor?.searchPlaceholderText ?? searchPlaceholderText,
           placeholderText: descriptor?.placeholderText ?? placeholderText,

@@ -167,14 +167,14 @@ packages:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.5"
+    version: "0.0.6"
   fastyle_digit_calculator:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.10"
+    version: "0.0.10+1"
   ffi:
     dependency: transitive
     description:

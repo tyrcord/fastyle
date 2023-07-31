@@ -13,13 +13,13 @@ dependencies:
   collection: ^1.17.1
   font_awesome_flutter: ^10.5.0
   fastyle_core: ^0.0.6
-  matex_financial: ">=0.0.10 <1.0.0"
-  tbloc: ">=0.21.0 <1.0.0"
+  matex_financial: ^0.0.11
+  tbloc: ^0.21.0
   fastyle_images: ^0.0.13+1
   fastyle_forms: ^0.0.11+1
   easy_localization: ^3.0.2
   lingua_settings: ^0.0.8
-  t_helpers: ">=0.0.21 <1.0.0"
+  t_helpers: ^0.0.21
 
 dev_dependencies:
   flutter_test:

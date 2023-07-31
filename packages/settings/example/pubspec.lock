@@ -253,17 +253,17 @@ packages:
     dependency: transitive
     description:
       name: fastyle_calculator
-      sha256: "512309badbfd451e2aa6af8e2416cd35da5337c16e6c6f6ba2ff961345125cfd"
+      sha256: fc74d59b3f2da5c30e36dc825f365148830d6c6316ab7379efa79d1133354a5a
       url: "https://pub.dev"
     source: hosted
-    version: "1.16.0"
+    version: "1.17.0"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.5"
+    version: "0.0.6"
   fastyle_dart:
     dependency: transitive
     description:
@@ -278,43 +278,43 @@ packages:
       path: "../../digit_calculator"
       relative: true
     source: path
-    version: "0.0.10"
+    version: "0.0.10+1"
   fastyle_financial:
     dependency: transitive
     description:
       name: fastyle_financial
-      sha256: b1363210fedd576376f49c04cc809f6d3d31d7186a93568a630c181d3fcb6466
+      sha256: "8d091d3b304d1fee3d1cf1fb29c1a30fd2ad6841b94a1ab6d7ec35712c18bb98"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.8"
+    version: "0.0.9"
   fastyle_forms:
     dependency: "direct main"
     description:
       path: "../../forms"
       relative: true
     source: path
-    version: "0.0.11"
+    version: "0.0.11+1"
   fastyle_images:
     dependency: "direct overridden"
     description:
       path: "../../images"
       relative: true
     source: path
-    version: "0.0.13"
+    version: "0.0.13+1"
   fastyle_pricing:
     dependency: "direct main"
     description:
       path: "../../pricing"
       relative: true
     source: path
-    version: "1.6.0"
+    version: "1.6.1"
   fastyle_settings:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.14"
+    version: "0.0.14+1"
   ffi:
     dependency: transitive
     description:
@@ -603,10 +603,10 @@ packages:
     dependency: transitive
     description:
       name: matex_core
-      sha256: "54f3dfde7e6ee11de417e97614f261039a187b148c21425b08496b30f6ac55c7"
+      sha256: fc6670a1e6dabadc1186bb5b1e9d89e5916b06d2120cde2401c97aa86d86ce1a
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.6"
+    version: "0.0.7"
   matex_dart:
     dependency: "direct main"
     description:
@@ -619,10 +619,10 @@ packages:
     dependency: transitive
     description:
       name: matex_financial
-      sha256: "515d7a0f4bc3e19eb085562de32ab3de3ec3f20d9a5cf9ba402d1739cde25a31"
+      sha256: "1569c3b7c77fb5072a146e3c7a4f82f2e03a3f79df8393d05ac12ae28a2fd4a9"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.10"
+    version: "0.0.11"
   meta:
     dependency: transitive
     description:

@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   fastyle_core: ^0.0.6
-  tbloc: ">=0.21.0 <1.0.0"
+  tbloc: ^0.21.0
   fastyle_images: ^0.0.13+1
   easy_localization: ^3.0.2
   lingua_core: ^0.0.13
