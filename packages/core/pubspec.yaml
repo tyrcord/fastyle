@@ -10,10 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   package_info_plus: ^4.0.2
   rxdart: ^0.27.7
-  fastyle_dart: ">=1.5.0 <2.0.0"
   tbloc: ">=0.21.0 <1.0.0"
   tstore: ">=0.8.9 <1.0.0"
   devicelocale: ^0.6.0
@@ -26,6 +24,16 @@ dependencies:
   share_plus: ^7.0.2
   lingua_core: ^0.0.13
   font_awesome_flutter: ^10.5.0
+  async: ^2.11.0
+  google_fonts: ^4.0.4
+  intl: ^0.18.0
+  diacritic: ^0.1.4
+  flutter_spinkit: ^5.2.0
+  fuzzy: ^0.4.0-nullsafety.0
+  another_flushbar: ^1.12.30
+  shimmer: ^3.0.0
+  decimal: ^2.3.3
+  tmodel: ^0.5.3
 
 dev_dependencies:
   flutter_test:

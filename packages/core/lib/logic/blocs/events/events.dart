@@ -3,3 +3,7 @@ export './app_info.event.dart';
 export './app_features.event.dart';
 export './app_dict.event.dart';
 export './app_onboarding.event.dart';
+export './app_loader.event.dart';
+export './media_layout.event.dart';
+export './navigation-master-details.event.dart';
+export './theme.event.dart';

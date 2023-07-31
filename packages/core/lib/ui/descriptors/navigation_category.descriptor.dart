@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 
 class FastNavigationCategoryDescriptor<T> extends FastDescriptor {
   final List<FastItem<T>> items;

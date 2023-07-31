@@ -2,7 +2,9 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
+import 'package:fastyle_core/fastyle_core.dart';
+
+//TODO: @need-review: code from fastyle_dart
 
 /// A mixin that provides a method to dispatch a theme mode change event.
 mixin FastSettingsThemeMixin {

@@ -5,11 +5,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:rate_my_app/rate_my_app.dart';
 
 // Project imports:
-import 'package:fastyle_core/logic/logic.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 
 /// A service class for handling app rating functionality.
 class FastAppRatingService {

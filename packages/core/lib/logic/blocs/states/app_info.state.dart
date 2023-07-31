@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
+
 import 'package:tbloc/tbloc.dart';
 
 // Project imports:
@@ -203,7 +203,7 @@ class FastAppInfoBlocState extends BlocState {
     );
   }
 
-  FastAppInfoDocument toDocument() {  
+  FastAppInfoDocument toDocument() {
     return FastAppInfoDocument(
       appAuthor: appAuthor,
       appBuildNumber: appBuildNumber,

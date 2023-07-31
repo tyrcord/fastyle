@@ -1,0 +1,1 @@
+export './tabs.widget.dart';

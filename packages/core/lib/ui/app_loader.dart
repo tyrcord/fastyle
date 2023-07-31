@@ -5,11 +5,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart' hide FastAppLoader;
 import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+
+//TODO: @need-review: code from fastyle_dart
 
 typedef FastAppLoaderBuilder = Widget Function(
   BuildContext context,
@@ -21,7 +22,6 @@ typedef FastAppLoaderErrorBuilder = Widget Function(
   dynamic error,
 );
 
-//TODO: needs review
 class FastAppLoader extends StatefulWidget {
   final Iterable<LocalizationsDelegate>? localizationsDelegates;
   final FastAppLoaderErrorBuilder? errorBuilder;

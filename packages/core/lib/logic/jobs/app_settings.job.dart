@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastyle_dart/fastyle_dart.dart';
+
 import 'package:rxdart/rxdart.dart';
 import 'package:tbloc/tbloc.dart';
 

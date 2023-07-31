@@ -10,15 +10,6 @@ import 'package:tbloc/tbloc.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-//FIXME: migrate away from fastyle_dart
-import 'package:fastyle_dart/fastyle_dart.dart'
-    hide
-        FastApp,
-        FastAppLoader,
-        FastAppLoaderErrorBuilder,
-        FastAppLoaderBuilder;
-
-
 /// The main entry point for a Fastyle Dart application.
 class FastApp extends StatefulWidget {
   /// A list of [BlocProviderSingleChildWidget] to provide the [Bloc] instances

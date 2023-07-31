@@ -1,9 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-// Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
-
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 

@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_dart/fastyle_dart.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:tbloc/tbloc.dart';
 
