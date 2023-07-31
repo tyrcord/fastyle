@@ -4,17 +4,17 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.0.0 <4.0.0"
   flutter: ">=3.10.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_dart: ">=1.4.1 <2.0.0"
-  go_router: ^9.1.1
+  fastyle_dart: ">=1.5.0 <2.0.0"
+  go_router: ^10.0.0
   font_awesome_flutter: ^10.5.0
   easy_localization: ^3.0.2
-  lingua_core: ^0.0.10
+  lingua_core: ^0.0.13
   lingua_onboarding: ^0.0.6+1
 
   fastyle_onboarding: ^0.0.10
@@ -25,6 +25,6 @@ dev_dependencies:
   dart_code_metrics: ^5.7.6
   import_sorter: ^4.6.0
   dependency_validator: ^3.2.2
-  
+
 flutter:
   uses-material-design: true

@@ -4,14 +4,14 @@ version: 0.0.2
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/layouts
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.0.0 <4.0.0"
   flutter: ">=3.10.0"
 
 dependencies:
   flutter:
     sdk: flutter
   fastyle_core: ^0.0.4
-  fastyle_dart: ">=1.4.1 <2.0.0"
+  fastyle_dart: ">=1.5.0 <2.0.0"
 
 dev_dependencies:
   flutter_test:

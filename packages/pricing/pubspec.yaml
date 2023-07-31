@@ -4,13 +4,13 @@ version: 1.5.0
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/pricing
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.0.0 <4.0.0"
   flutter: ">=3.10.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_dart: ">=1.4.1 <2.0.0"
+  fastyle_dart: ">=1.5.0 <2.0.0"
   fastyle_core: ^0.0.4
   tbloc: ^0.21.0
   font_awesome_flutter: ^10.5.0

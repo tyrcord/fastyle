@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  fastyle_dart: ">=1.4.1 <2.0.0"
+  fastyle_dart: ">=1.5.0 <2.0.0"
 
 dev_dependencies:
   flutter_test:
@@ -20,4 +20,3 @@ dev_dependencies:
   dart_code_metrics: ^5.7.6
   import_sorter: ^4.6.0
   dependency_validator: ^3.2.2
-  

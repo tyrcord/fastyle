@@ -244,10 +244,10 @@ packages:
     dependency: "direct main"
     description:
       name: fastyle_dart
-      sha256: "96ab425892c27e68651d847c49b924c06b937cf553c36c158a758cf215f20ced"
+      sha256: "974d005c5f17e6a188697c6a8444c21ab97c3386c4982a90268bab4545b6deea"
       url: "https://pub.dev"
     source: hosted
-    version: "1.4.1"
+    version: "1.5.0"
   ffi:
     dependency: transitive
     description:
@@ -328,10 +328,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: edbceb4c06758652fc9d12e58edb371cd977011b032e298dae0eb357167baad2
+      sha256: b3cadd2cd59a4103fd5f6bc572ca75111264698784e927aa471921c3477d5475
       url: "https://pub.dev"
     source: hosted
-    version: "9.1.1"
+    version: "10.0.0"
   google_fonts:
     dependency: transitive
     description:
@@ -725,10 +725,10 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: d8354e2347f9f70046149b29f976d02685ab3bc037e3d7f38e8f63a2e6421f16
+      sha256: "8e6a977f958f13dd5423dbcd421ab25968d58c1882a57a3c5d36ce0c3182d587"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.19"
+    version: "0.0.21"
   tbloc:
     dependency: transitive
     description:
