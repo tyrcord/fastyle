@@ -1,6 +1,6 @@
 name: fastyle_pricing
 description: A set of pricing widgets for the fastyle library.
-version: 1.6.0
+version: 1.6.1
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/pricing
 
 environment:
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_core: ^0.0.5
+  fastyle_core: ^0.0.6
   tbloc: ^0.21.0
   font_awesome_flutter: ^10.5.0
   lingua_purchases: ^0.0.5+1

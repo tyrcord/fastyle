@@ -15,6 +15,66 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_core` - `v0.0.6`](#fastyle_core---v006)
+ - [`fastyle_home` - `v0.0.6+1`](#fastyle_home---v0061)
+ - [`fastyle_settings` - `v0.0.14+1`](#fastyle_settings---v00141)
+ - [`fastyle_buttons` - `v0.0.3+1`](#fastyle_buttons---v0031)
+ - [`fastyle_forms` - `v0.0.11+1`](#fastyle_forms---v00111)
+ - [`fastyle_financial` - `v0.0.9+1`](#fastyle_financial---v0091)
+ - [`fastyle_images` - `v0.0.13+1`](#fastyle_images---v00131)
+ - [`fastyle_calculator` - `v1.17.1`](#fastyle_calculator---v1171)
+ - [`fastyle_video_player` - `v0.0.2+1`](#fastyle_video_player---v0021)
+ - [`fastyle_pricing` - `v1.6.1`](#fastyle_pricing---v161)
+ - [`fastyle_digit_calculator` - `v0.0.10+1`](#fastyle_digit_calculator---v00101)
+ - [`fastyle_connectivity` - `v0.0.8+1`](#fastyle_connectivity---v0081)
+ - [`fastyle_views` - `v0.0.3+1`](#fastyle_views---v0031)
+ - [`fastyle_ad` - `v0.0.3+1`](#fastyle_ad---v0031)
+ - [`fastyle_layouts` - `v0.0.3+1`](#fastyle_layouts---v0031)
+ - [`fastyle_firebase` - `v0.0.3+1`](#fastyle_firebase---v0031)
+ - [`fastyle_iap` - `v0.0.3+1`](#fastyle_iap---v0031)
+ - [`fastyle_onboarding` - `v0.0.11+1`](#fastyle_onboarding---v00111)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_home` - `v0.0.6+1`
+ - `fastyle_settings` - `v0.0.14+1`
+ - `fastyle_buttons` - `v0.0.3+1`
+ - `fastyle_forms` - `v0.0.11+1`
+ - `fastyle_financial` - `v0.0.9+1`
+ - `fastyle_images` - `v0.0.13+1`
+ - `fastyle_calculator` - `v1.17.1`
+ - `fastyle_video_player` - `v0.0.2+1`
+ - `fastyle_pricing` - `v1.6.1`
+ - `fastyle_digit_calculator` - `v0.0.10+1`
+ - `fastyle_connectivity` - `v0.0.8+1`
+ - `fastyle_views` - `v0.0.3+1`
+ - `fastyle_ad` - `v0.0.3+1`
+ - `fastyle_layouts` - `v0.0.3+1`
+ - `fastyle_firebase` - `v0.0.3+1`
+ - `fastyle_iap` - `v0.0.3+1`
+ - `fastyle_onboarding` - `v0.0.11+1`
+
+---
+
+#### `fastyle_core` - `v0.0.6`
+
+ - **FEAT**: move away from fastyle_dart.
+
+
+## 2023-07-31
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_ad` - `v0.0.3`](#fastyle_ad---v003)
  - [`fastyle_buttons` - `v0.0.3`](#fastyle_buttons---v003)
  - [`fastyle_calculator` - `v1.17.0`](#fastyle_calculator---v1170)

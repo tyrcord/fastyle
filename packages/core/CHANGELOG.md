@@ -1,3 +1,7 @@
+## 0.0.6
+
+ - **FEAT**: move away from fastyle_dart.
+
 ## 0.0.5
 
  - **FIX**: lint.
