@@ -63,7 +63,7 @@ class FastSettingsSupportLinkState extends State<FastSettingsSupportLink> {
     );
   }
 
-  handleAskForSupport() {
+  void handleAskForSupport() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
       final appInfo = appInfoBloc.currentState;

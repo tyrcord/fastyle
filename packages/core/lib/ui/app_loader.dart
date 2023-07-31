@@ -70,7 +70,7 @@ class FastAppLoaderState extends State<FastAppLoader> {
   }
 
   @override
-  initState() {
+  void initState() {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {

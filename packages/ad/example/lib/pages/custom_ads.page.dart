@@ -85,7 +85,8 @@ class _CustomAdsPageState extends State<CustomAdsPage> {
             ),
             descriptionText: 'This is a large ad with a custom icon and '
                 'an install button. It also has a long description.'
-                'I also have a long description. I also have a long description.',
+                'It also have a long description. '
+                'It also have a long description.',
           ),
           kFastSizedBox16,
           const FastTitle(text: 'Medium Video Custom Ad'),
@@ -97,7 +98,8 @@ class _CustomAdsPageState extends State<CustomAdsPage> {
             debugLabel: 'Medium Video Ad',
             descriptionText: 'This is a Medium ad with a Video and '
                 'an install button. It also has a long description.'
-                'I also have a long description. I also have a long description.',
+                'It also have a long description. '
+                'It also have a long description.',
           ),
           kFastSizedBox16,
           kFastSizedBox16,
@@ -107,7 +109,8 @@ class _CustomAdsPageState extends State<CustomAdsPage> {
             titleText: 'Medium Video Ad with error',
             descriptionText: 'This is a Medium ad with a Video and '
                 'an install button. It also has a long description.'
-                'I also have a long description. I also have a long description.',
+                'It also have a long description. '
+                'It also have a long description.',
           ),
           kFastSizedBox16,
           const FastTitle(text: 'Large Video Custom Ad'),
@@ -121,7 +124,8 @@ class _CustomAdsPageState extends State<CustomAdsPage> {
             titleText: 'Large Video Ad',
             descriptionText: 'This is a large ad with a Video and '
                 'an install button. It also has a long description.'
-                'I also have a long description. I also have a long description.',
+                'It also have a long description. '
+                'It also have a long description.',
           ),
           kFastSizedBox16,
         ],

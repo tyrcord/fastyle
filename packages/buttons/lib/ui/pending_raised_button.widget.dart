@@ -30,7 +30,7 @@ class FastPendingRaisedButtonState extends State<FastPendingRaisedButton>
   BoxConstraints? _constraints;
 
   @override
-  didUpdateWidget(FastPendingRaisedButton oldWidget) {
+  void didUpdateWidget(FastPendingRaisedButton oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (widget.isPending != oldWidget.isPending) {

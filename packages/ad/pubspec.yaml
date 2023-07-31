@@ -24,6 +24,7 @@ dependencies:
   lingua_ad: ^0.0.5
   visibility_detector: ^0.3.3
   uuid: ^3.0.7
+  tstore: ^0.8.9
 
 dev_dependencies:
   flutter_test:

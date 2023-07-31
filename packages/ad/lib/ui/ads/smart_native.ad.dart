@@ -28,15 +28,23 @@ class FastSmartNativeAd extends StatelessWidget {
           'Only support native ad with a height of 120px',
         );
 
+  Widget handleAdmobNativeAdFailed(BuildContext context) {
+    if (fallbackBuilder != null) {
+      return fallbackBuilder!(context);
+    }
+
+    return const FastDefaultNativeAd();
+  }
+
   @override
   Widget build(BuildContext context) {
     final canShowAd = delegate?.willShowAd() ?? true;
 
     if (canShowAd) {
       return FastAdmobNativeAd(
+        loadingWidget: getLoadingWidget(adSize),
         fallbackBuilder: fallbackBuilder,
         refreshTimeout: refreshTimeout,
-        loadingWidget: getLoadingWidget(adSize),
         debugLabel: debugLabel,
         country: country,
         adSize: adSize,
@@ -45,13 +53,5 @@ class FastSmartNativeAd extends StatelessWidget {
     }
 
     return placeholder ?? const SizedBox.shrink();
-  }
-
-  handleAdmobNativeAdFailed(BuildContext context) {
-    if (fallbackBuilder != null) {
-      return fallbackBuilder!(context);
-    }
-
-    return const FastDefaultNativeAd();
   }
 }

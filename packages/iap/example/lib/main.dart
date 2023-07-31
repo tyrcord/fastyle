@@ -59,9 +59,9 @@ class MyApp extends StatelessWidget {
   }
 
   Widget buildHome(BuildContext context) {
-    return FastIapPremiumPage(
+    return const FastIapPremiumPage(
       premiumProductId: 'com.fastyle.premium',
-      items: const [
+      items: [
         FastItem(
           labelText: 'No ads',
           descriptor: FastListItemDescriptor(
