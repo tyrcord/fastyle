@@ -1,3 +1,9 @@
+## 0.0.11
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: clean up.
+
 ## 0.0.10
 
  - **FEAT**: add onboarding layout and views.

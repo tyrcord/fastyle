@@ -1,6 +1,6 @@
 name: fastyle_onboarding
 description: Set of onboarding Widgets for the fastyle library.
-version: 0.0.10
+version: 0.0.11
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/onboarding
 
 environment:
@@ -13,8 +13,8 @@ dependencies:
   fastyle_dart: ">=1.5.0 <2.0.0"
   font_awesome_flutter: ^10.5.0
   app_tracking_transparency: ^2.0.4
-  fastyle_core: ^0.0.4
-  fastyle_layouts: ^0.0.2
+  fastyle_core: ^0.0.5
+  fastyle_layouts: ^0.0.3
 
 dev_dependencies:
   flutter_test:

@@ -1,3 +1,10 @@
+## 0.0.11
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: clean up.
+
 ## 0.0.10
 
  - **FEAT**: add FastAppInfoPage.

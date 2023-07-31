@@ -13,7 +13,7 @@ dependencies:
   fastyle_dart: ">=1.5.0 <2.0.0"
   tbloc: ">=0.21.0 <1.0.0"
   decimal: ^2.3.3
-  fastyle_calculator: ^1.16.0
+  fastyle_calculator: ^1.17.0
 
 dev_dependencies:
   flutter_test:

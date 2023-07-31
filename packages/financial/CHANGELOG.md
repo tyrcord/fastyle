@@ -1,3 +1,9 @@
+## 0.0.9
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+
 ## 0.0.8
 
  - **FEAT**: add FastFinanceInvestDisclaimerPage.

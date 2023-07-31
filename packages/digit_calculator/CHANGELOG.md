@@ -1,3 +1,9 @@
+## 0.0.10
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+
 ## 0.0.9
 
  - **FEAT**: update dependencies.

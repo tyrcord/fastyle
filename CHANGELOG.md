@@ -3,6 +3,191 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-07-31
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.3`](#fastyle_ad---v003)
+ - [`fastyle_buttons` - `v0.0.3`](#fastyle_buttons---v003)
+ - [`fastyle_calculator` - `v1.17.0`](#fastyle_calculator---v1170)
+ - [`fastyle_charts` - `v0.0.3+1`](#fastyle_charts---v0031)
+ - [`fastyle_connectivity` - `v0.0.8`](#fastyle_connectivity---v008)
+ - [`fastyle_core` - `v0.0.5`](#fastyle_core---v005)
+ - [`fastyle_digit_calculator` - `v0.0.10`](#fastyle_digit_calculator---v0010)
+ - [`fastyle_financial` - `v0.0.9`](#fastyle_financial---v009)
+ - [`fastyle_firebase` - `v0.0.3`](#fastyle_firebase---v003)
+ - [`fastyle_forms` - `v0.0.11`](#fastyle_forms---v0011)
+ - [`fastyle_home` - `v0.0.6`](#fastyle_home---v006)
+ - [`fastyle_iap` - `v0.0.3`](#fastyle_iap---v003)
+ - [`fastyle_images` - `v0.0.13`](#fastyle_images---v0013)
+ - [`fastyle_layouts` - `v0.0.3`](#fastyle_layouts---v003)
+ - [`fastyle_onboarding` - `v0.0.11`](#fastyle_onboarding---v0011)
+ - [`fastyle_pricing` - `v1.6.0`](#fastyle_pricing---v160)
+ - [`fastyle_settings` - `v0.0.14`](#fastyle_settings---v0014)
+ - [`fastyle_video_player` - `v0.0.2`](#fastyle_video_player---v002)
+ - [`fastyle_views` - `v0.0.3`](#fastyle_views---v003)
+
+---
+
+#### `fastyle_ad` - `v0.0.3`
+
+ - **PERF**: minor improvements.
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add smart native ad.
+ - **FEAT**: make stronger RewardedAd logic.
+ - **FEAT**: FastRewardedAd.
+ - **FEAT**: add splash ad test.
+ - **FEAT**: add auto reload to native ad.
+ - **FEAT**: add better debug log.
+ - **FEAT**: ad an error placeholder when a video fails to load.
+ - **FEAT**: ad video badge.
+ - **FEAT**: ad default ad when native ad failed.
+ - **FEAT**: better ad for android.
+ - **FEAT**: add native ad.
+ - **FEAT**: better native ad for ios.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add VideoNativeAd.
+ - **FEAT**: add loading ads.
+ - **FEAT**: clean up.
+ - **FEAT**: initial commit for ads.
+
+#### `fastyle_buttons` - `v0.0.3`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_calculator` - `v1.17.0`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: clean up.
+
+#### `fastyle_charts` - `v0.0.3+1`
+
+ - **FIX**: lint.
+
+#### `fastyle_connectivity` - `v0.0.8`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_core` - `v0.0.5`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add smart native ad.
+ - **FEAT**: add premium page.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add missing store logic.
+ - **FEAT**: add enable feature event.
+ - **FEAT**: initial logic for fastyle_iap.
+ - **FEAT**: ad an error placeholder when a video fails to load.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastStarRating.
+ - **FEAT**: add default placeholders.
+ - **FEAT**: add FastCover.
+ - **FEAT**: add missing contants.
+ - **FEAT**: clean up.
+
+#### `fastyle_digit_calculator` - `v0.0.10`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+
+#### `fastyle_financial` - `v0.0.9`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+
+#### `fastyle_firebase` - `v0.0.3`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: clean up.
+
+#### `fastyle_forms` - `v0.0.11`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: clean up.
+
+#### `fastyle_home` - `v0.0.6`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_iap` - `v0.0.3`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add premium page.
+ - **FEAT**: minor improvements.
+ - **FEAT**: initial commit for PlanBloc logic.
+ - **FEAT**: minor improvements with the store logic.
+ - **FEAT**: add missing store logic.
+ - **FEAT**: initial logic for fastyle_iap.
+
+#### `fastyle_images` - `v0.0.13`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: clean up.
+
+#### `fastyle_layouts` - `v0.0.3`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_onboarding` - `v0.0.11`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: clean up.
+
+#### `fastyle_pricing` - `v1.6.0`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: clean up.
+
+#### `fastyle_settings` - `v0.0.14`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: clean up.
+
+#### `fastyle_video_player` - `v0.0.2`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: ad an error placeholder when a video fails to load.
+ - **FEAT**: ad video badge.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: initial commit for video_player.
+
+#### `fastyle_views` - `v0.0.3`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+
+
 ## 2023-07-21
 
 ### Changes

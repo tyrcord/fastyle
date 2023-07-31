@@ -1,3 +1,9 @@
+## 1.6.0
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: clean up.
+
 ## 1.5.0
 
  - **FEAT**: add default settings headers.

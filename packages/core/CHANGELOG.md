@@ -1,3 +1,21 @@
+## 0.0.5
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add smart native ad.
+ - **FEAT**: add premium page.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add missing store logic.
+ - **FEAT**: add enable feature event.
+ - **FEAT**: initial logic for fastyle_iap.
+ - **FEAT**: ad an error placeholder when a video fails to load.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastStarRating.
+ - **FEAT**: add default placeholders.
+ - **FEAT**: add FastCover.
+ - **FEAT**: add missing contants.
+ - **FEAT**: clean up.
+
 ## 0.0.4
 
  - **FEAT**: add onboarding layout and views.

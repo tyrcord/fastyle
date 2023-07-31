@@ -1,3 +1,14 @@
+## 0.0.3
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add premium page.
+ - **FEAT**: minor improvements.
+ - **FEAT**: initial commit for PlanBloc logic.
+ - **FEAT**: minor improvements with the store logic.
+ - **FEAT**: add missing store logic.
+ - **FEAT**: initial logic for fastyle_iap.
+
 ## 0.0.2
 
  - **FEAT**: initial commit for fastyle_iap.

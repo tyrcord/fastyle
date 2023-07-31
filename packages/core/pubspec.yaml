@@ -1,6 +1,6 @@
 name: fastyle_core
 description: The core package for the fastyle libraries.
-version: 0.0.4
+version: 0.0.5
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/core
 
 environment:

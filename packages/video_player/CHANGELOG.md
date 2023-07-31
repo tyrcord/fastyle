@@ -1,3 +1,14 @@
+## 0.0.2
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: ad an error placeholder when a video fails to load.
+ - **FEAT**: ad video badge.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: initial commit for video_player.
+
 ## 0.0.1
 
 * TODO: Describe initial release.

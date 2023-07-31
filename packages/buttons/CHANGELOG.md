@@ -1,3 +1,8 @@
+## 0.0.3
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+
 ## 0.0.2
 
  - **FEAT**: add default assetLoader to FastApp.
