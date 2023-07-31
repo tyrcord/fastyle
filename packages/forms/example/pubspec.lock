@@ -207,14 +207,14 @@ packages:
       path: "../../digit_calculator"
       relative: true
     source: path
-    version: "0.0.9"
+    version: "0.0.10"
   fastyle_forms:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.10"
+    version: "0.0.11"
   ffi:
     dependency: transitive
     description:
