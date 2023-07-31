@@ -10,14 +10,14 @@ import 'package:fastyle_iap/fastyle_iap.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-class FastAppOnboardingJob extends FastJob {
-  static FastAppOnboardingJob? _singleton;
+class FastIapStoreJob extends FastJob {
+  static FastIapStoreJob? _singleton;
 
-  factory FastAppOnboardingJob() {
-    return (_singleton ??= FastAppOnboardingJob._());
+  factory FastIapStoreJob() {
+    return (_singleton ??= FastIapStoreJob._());
   }
 
-  FastAppOnboardingJob._() : super(debugLabel: 'fast_iap_store_job');
+  FastIapStoreJob._() : super(debugLabel: 'fast_iap_store_job');
 
   @override
   Future<void> initialize(
@@ -25,8 +25,14 @@ class FastAppOnboardingJob extends FastJob {
     IFastErrorReporter? errorReporter,
   }) async {
     final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
-    final storeBloc = BlocProvider.of<FastStoreBloc>(context);
     final appInfoState = appInfoBloc.currentState;
+
+    if (appInfoState.productIdentifiers == null ||
+        appInfoState.productIdentifiers!.isEmpty) {
+      return;
+    }
+
+    final storeBloc = BlocProvider.of<FastStoreBloc>(context);
     final appInfo = appInfoState.toDocument();
     storeBloc.addEvent(
       FastStoreBlocEvent.init(appInfo, errorReporter: errorReporter),
@@ -37,7 +43,7 @@ class FastAppOnboardingJob extends FastJob {
       storeBloc.onData.where((FastStoreBlocState state) => state.isInitialized),
     ]).first;
 
-    if (onboardingState is! FastAppOnboardingBlocState) {
+    if (onboardingState is! FastStoreBlocState) {
       throw onboardingState;
     }
 
@@ -50,7 +56,7 @@ class FastAppOnboardingJob extends FastJob {
             .where((FastStoreBlocState state) => state.hasLoadedProducts),
       ]).first;
 
-      if (onboardingState is! FastAppOnboardingBlocState) {
+      if (onboardingState is! FastStoreBlocState) {
         throw onboardingState;
       }
     }

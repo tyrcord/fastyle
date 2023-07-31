@@ -4,6 +4,7 @@ import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:fastyle_iap/fastyle_iap.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:t_helpers/helpers.dart';
 
 /// The [FastStoreBloc] extends [BidirectionalBloc], which provides the
 /// necessary functionality to handle events and state changes in the store.
@@ -33,6 +34,22 @@ class FastStoreBloc
 
   @override
   bool canClose() => false;
+
+  Future<ProductDetails?> getProductDetails(String productId) async {
+    if (_isStoreAvailable && isInitialized) {
+      try {
+        return _iapService.queryProductDetails(productId);
+      } catch (error) {
+        debugLog('Error fetching product details for product ID: $productId');
+
+        return null;
+      }
+    } else {
+      debugLog('Store is not available or not yet initialized.');
+
+      return null;
+    }
+  }
 
   /// Maps incoming [FastStoreBlocEvent]s to the appropriate state changes
   /// based on the event type.

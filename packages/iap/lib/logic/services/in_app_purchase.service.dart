@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io' show Platform;
 
 import 'package:collection/collection.dart' show IterableExtension;
+import 'package:fastyle_iap/fastyle_iap.dart';
 import 'package:flutter/material.dart';
 import 'package:in_app_purchase_storekit/store_kit_wrappers.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
@@ -10,6 +11,7 @@ import 'package:rxdart/subjects.dart';
 import 'package:fastyle_dart/fastyle_dart.dart';
 
 class FastInAppPurchaseService {
+  //FIXME: should be a singleton
   Stream<PurchaseDetails> get onPurchase => _eventController.stream;
   Stream<dynamic> get onError => _errorController.stream;
   InAppPurchase get _iapService => InAppPurchase.instance;
@@ -101,6 +103,20 @@ class FastInAppPurchaseService {
     );
 
     return purchase != null;
+  }
+
+  Future<ProductDetails?> queryProductDetails(String productId) async {
+    if (_isStoreAvailable && _products == null) {
+      final response = await _iapService.queryProductDetails({productId});
+
+      if (response.error != null) {
+        throw response.error!;
+      }
+
+      return getProductDetails(response.productDetails, productId);
+    }
+
+    return getProductDetails(_products, productId);
   }
 
   @protected

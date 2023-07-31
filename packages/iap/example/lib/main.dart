@@ -1,14 +1,15 @@
 // Flutter imports:
+import 'package:fastyle_dart/fastyle_dart.dart' hide FastApp;
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:fastyle_dart/fastyle_dart.dart' hide FastApp;
+import 'package:fastyle_iap/fastyle_iap.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lingua_core/lingua_core.dart';
 
 import 'package:lingua_purchases/generated/codegen_loader.g.dart';
-import 'package:lingua_purchases/generated/locale_keys.g.dart';
+import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import './routes.dart';
@@ -48,16 +49,56 @@ class MyApp extends StatelessWidget {
           PurchasesCodegenLoader.mapLocales,
         ]),
       ),
+      blocProviders: [
+        BlocProvider(bloc: FastStoreBloc()),
+      ],
+      loaderJobs: [
+        FastIapStoreJob(),
+      ],
     );
   }
 
   Widget buildHome(BuildContext context) {
-    return FastSectionPage(
-      titleText: PurchasesLocaleKeys.purchases_label_go_premium.tr(),
-      showAppBar: false,
-      child: Column(
-        children: [],
-      ),
+    return FastIapPremiumPage(
+      premiumProductId: 'com.fastyle.premium',
+      items: const [
+        FastItem(
+          labelText: 'No ads',
+          descriptor: FastListItemDescriptor(
+            leading: FaIcon(FontAwesomeIcons.bullhorn),
+          ),
+        ),
+        FastItem(
+          labelText: 'Unlimited access',
+          descriptor: FastListItemDescriptor(
+            leading: FaIcon(FontAwesomeIcons.lockOpen),
+          ),
+        ),
+        FastItem(
+          labelText: 'Better experience',
+          descriptor: FastListItemDescriptor(
+            leading: FaIcon(FontAwesomeIcons.faceSmile),
+          ),
+        ),
+        FastItem(
+          labelText: 'More features',
+          descriptor: FastListItemDescriptor(
+            leading: FaIcon(FontAwesomeIcons.rocket),
+          ),
+        ),
+        FastItem(
+          labelText: 'No tracking',
+          descriptor: FastListItemDescriptor(
+            leading: FaIcon(FontAwesomeIcons.userShield),
+          ),
+        ),
+        FastItem(
+          labelText: 'And more...',
+          descriptor: FastListItemDescriptor(
+            leading: FaIcon(FontAwesomeIcons.ellipsis),
+          ),
+        ),
+      ],
     );
   }
 }
