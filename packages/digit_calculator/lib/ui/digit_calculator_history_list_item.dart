@@ -29,8 +29,9 @@ class FastDigitCalculatorHistoryListItem extends StatelessWidget {
         final isOperator = i == 0;
 
         if (isOperator && operation!.operator != null) {
-          textSpans.add(_buildOperandTextSpan(operand));
-          textSpans.add(_buildOperatorTextSpan(context, operation!.operator!));
+          textSpans
+            ..add(_buildOperandTextSpan(operand))
+            ..add(_buildOperatorTextSpan(context, operation!.operator!));
         } else {
           // If the last operand is a percent, add a '%' sign to it.
           if (i == operation!.operands.length - 1) {
@@ -45,8 +46,9 @@ class FastDigitCalculatorHistoryListItem extends StatelessWidget {
       }
 
       if (operation!.result != null) {
-        textSpans.add(_buildOperatorTextSpan(context, '='));
-        textSpans.add(_buildOperandTextSpan(operation!.result!));
+        textSpans
+          ..add(_buildOperatorTextSpan(context, '='))
+          ..add(_buildOperandTextSpan(operation!.result!));
       }
     }
 

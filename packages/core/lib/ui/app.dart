@@ -313,8 +313,7 @@ class _FastAppState extends State<FastApp> {
   void _askForAppReviewIfNeeded(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       if (widget.askForReview) {
-        final rateService = FastAppRatingService(widget.appInfo);
-        rateService.askForAppReviewIfNeeded(context);
+        FastAppRatingService(widget.appInfo).askForAppReviewIfNeeded(context);
       }
     });
   }

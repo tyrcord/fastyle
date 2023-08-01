@@ -54,64 +54,64 @@ class FastPdfCalculatorReporter {
     final italicStyle = await _getItalicStyle(color: italicTextColor);
     final style = await _getRegularStyle(color: textColor);
     final now = await formatDateTime(DateTime.now());
-    final pdf = pw.Document();
-
-    pdf.addPage(
-      pw.MultiPage(
-        // TODO: support other page format like us letter
-        pageFormat: PdfPageFormat.a4,
-        footer: (context) => _buildFooter(context, style),
-        build: (context) {
-          return [
-            pw.Column(
-              crossAxisAlignment: pw.CrossAxisAlignment.start,
-              children: [
-                // header
-                pw.Wrap(
-                  children: [
-                    _buildHeaderTitle(title, style),
-                    pw.SizedBox(height: 48),
-                    _buildDate(dateTitle, now, italicStyle),
-                    pw.SizedBox(height: 24),
-                    // INPUTS
-                    _buildTableSection(inputTitle, inputs, style),
-                  ],
-                ),
-                pw.SizedBox(height: 24),
-                pw.Wrap(
-                  children: [
-                    // RESULTS
-                    _buildTableSection(resultTitle, results, style),
-                    pw.SizedBox(height: 12),
-                  ],
-                ),
-                if (categories != null)
+    final pdf = pw.Document()
+      ..addPage(
+        pw.MultiPage(
+          // TODO: support other page format like us letter
+          pageFormat: PdfPageFormat.a4,
+          footer: (context) => _buildFooter(context, style),
+          build: (context) {
+            return [
+              pw.Column(
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
+                children: [
+                  // header
                   pw.Wrap(
                     children: [
-                      _buildCategoriesTable(context, categories, style),
+                      _buildHeaderTitle(title, style),
+                      pw.SizedBox(height: 48),
+                      _buildDate(dateTitle, now, italicStyle),
+                      pw.SizedBox(height: 24),
+                      // INPUTS
+                      _buildTableSection(inputTitle, inputs, style),
                     ],
                   ),
-                pw.Wrap(
-                  children: [
-                    // DISCLAIMER
-                    if (disclaimerText != null)
-                      _buildDisclaimer(disclaimerTitle, disclaimerText, style),
-                    if (author != null)
-                      pw.Align(
-                        alignment: pw.Alignment.center,
-                        child: pw.Text(
-                          author,
-                          style: italicStyle.copyWith(fontSize: 7),
+                  pw.SizedBox(height: 24),
+                  pw.Wrap(
+                    children: [
+                      // RESULTS
+                      _buildTableSection(resultTitle, results, style),
+                      pw.SizedBox(height: 12),
+                    ],
+                  ),
+                  if (categories != null)
+                    pw.Wrap(
+                      children: [
+                        _buildCategoriesTable(context, categories, style),
+                      ],
+                    ),
+                  pw.Wrap(
+                    children: [
+                      // DISCLAIMER
+                      if (disclaimerText != null)
+                        _buildDisclaimer(
+                            disclaimerTitle, disclaimerText, style),
+                      if (author != null)
+                        pw.Align(
+                          alignment: pw.Alignment.center,
+                          child: pw.Text(
+                            author,
+                            style: italicStyle.copyWith(fontSize: 7),
+                          ),
                         ),
-                      ),
-                  ],
-                ),
-              ],
-            ),
-          ];
-        },
-      ),
-    );
+                    ],
+                  ),
+                ],
+              ),
+            ];
+          },
+        ),
+      );
 
     return pdf.save();
   }

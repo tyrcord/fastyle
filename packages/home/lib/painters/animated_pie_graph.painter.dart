@@ -46,41 +46,39 @@ class FastAnimatedPieGraphPainter extends CustomPainter {
     final distance = maxRadius - radius;
     final x = centerX - (radius - distance * animation.value);
     final y = diameter - (radius - distance * animation.value);
+    final offset = radius / 4 + distance * animation.value;
     final paint = Paint();
 
-    canvas.drawArc(
-      Rect.fromLTWH(x, y, diameter, diameter),
-      0,
-      _sweepAngle,
-      true,
-      paint..color = _backgroundColor,
-    );
+    canvas
+      ..drawArc(
+        Rect.fromLTWH(x, y, diameter, diameter),
+        0,
+        _sweepAngle,
+        true,
+        paint..color = _backgroundColor,
+      )
+      ..drawArc(
+        Rect.fromLTWH(x, y, diameter, diameter),
+        0,
+        _sweepAngle,
+        true,
+        paint
+          ..color = _borderColor
+          ..strokeWidth = borderWidth
+          ..style = PaintingStyle.stroke,
+      );
 
-    canvas.drawArc(
-      Rect.fromLTWH(x, y, diameter, diameter),
-      0,
-      _sweepAngle,
-      true,
-      paint
-        ..color = _borderColor
-        ..strokeWidth = borderWidth
-        ..style = PaintingStyle.stroke,
-    );
-
-    final textPainter = TextPainter(
+    TextPainter(
       text: TextSpan(
         style: TextStyle(color: _borderColor, fontSize: size.height / 12),
         text: '%',
       ),
       textDirection: TextDirection.ltr,
-    );
-
-    textPainter.layout(minWidth: 0, maxWidth: size.width);
-    final offset = radius / 4 + distance * animation.value;
-
-    textPainter.paint(
-      canvas,
-      Offset(centerX + offset, centerY + offset),
-    );
+    )
+      ..layout(minWidth: 0, maxWidth: size.width)
+      ..paint(
+        canvas,
+        Offset(centerX + offset, centerY + offset),
+      );
   }
 }

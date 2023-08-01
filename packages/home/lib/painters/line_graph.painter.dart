@@ -45,116 +45,111 @@ class FastLineGraphAppBarPainter extends CustomPainter {
     final x = size.width * 0.815;
     final y = size.height * 0.45;
     final center = Offset(x, y);
-    final paint = Paint();
+    final paint = Paint()..color = cursorColor;
 
-    paint.color = cursorColor;
     canvas.drawCircle(center, cursorRadius, paint);
 
-    paint.strokeWidth = 0.5;
-    paint.color = _cursorColor;
+    paint
+      ..strokeWidth = 0.5
+      ..color = _cursorColor;
+
     canvas.drawLine(center, Offset(x, size.height), paint);
   }
 
   void _paintForegroundCurve(Canvas canvas, Size size) {
-    final background = _makeCurve(size, end: false);
-    final paint = Paint();
+    final paint = Paint()..color = _backgroundColor;
+    final background = _makeCurve(size, end: false)
+      ..lineTo(size.width * 0.815, size.height)
+      ..lineTo(0, size.height)
+      ..close();
 
-    paint.color = _backgroundColor;
-    background.lineTo(size.width * 0.815, size.height);
-    background.lineTo(0, size.height);
-    background.close();
     canvas.drawPath(background, paint);
   }
 
   void _paintForegroundBorderCurve(Canvas canvas, Size size) {
     final border = _makeCurve(size, end: false);
-    final paint = Paint();
+    final paint = Paint()
+      ..style = PaintingStyle.stroke
+      ..color = borderColor;
 
-    paint.style = PaintingStyle.stroke;
-    paint.color = borderColor;
     canvas.drawPath(border, paint);
   }
 
   void _paintBackgroundCurve(Canvas canvas, Size size) {
     final background = _makeCurve(size);
-    final paint = Paint();
+    final paint = Paint()..color = _backgroundColor;
 
-    paint.color = _backgroundColor;
-    background.lineTo(size.width, size.height);
-    background.lineTo(0, size.height);
-    background.close();
+    background
+      ..lineTo(size.width, size.height)
+      ..lineTo(0, size.height)
+      ..close();
+
     canvas.drawPath(background, paint);
   }
 
   void _paintBorderCurve(Canvas canvas, Size size) {
     final border = _makeCurve(size);
-    final paint = Paint();
+    final paint = Paint()
+      ..color = _borderColor
+      ..style = PaintingStyle.stroke;
 
-    paint.color = _borderColor;
-    paint.style = PaintingStyle.stroke;
     canvas.drawPath(border, paint);
   }
 
   Path _makeCurve(Size size, {bool end = true}) {
     final height = size.height;
     final width = size.width;
-    final path = Path();
-
-    path.moveTo(0, height);
-    path.moveTo(0, height * 0.75);
-
-    path.cubicTo(
-      0,
-      height * 0.75,
-      width * 0.015,
-      height * 0.55,
-      width * 0.0815,
-      height * 0.5,
-    );
-
-    path.cubicTo(
-      width * 0.15,
-      height * 0.45,
-      width * 0.1875,
-      height * 0.625,
-      width * 0.255,
-      height * 0.625,
-    );
-
-    path.cubicTo(
-      width * 0.315,
-      height * 0.625,
-      width * 0.3,
-      height * 0.45,
-      width * 0.375,
-      height * 0.35,
-    );
-
-    path.cubicTo(
-      width * 0.45,
-      height * 0.25,
-      width * 0.45,
-      height * 0.45,
-      width * 0.515,
-      height * 0.4,
-    );
-
-    path.cubicTo(
-      width * 0.55,
-      height * 0.35,
-      width * 0.575,
-      height * 0.225,
-      width * 0.645,
-      height * 0.1875,
-    );
-    path.cubicTo(
-      width * 0.735,
-      height * 0.15,
-      width * 0.75,
-      height * 0.45,
-      width * 0.815,
-      height * 0.45,
-    );
+    final path = Path()
+      ..moveTo(0, height)
+      ..moveTo(0, height * 0.75)
+      ..cubicTo(
+        0,
+        height * 0.75,
+        width * 0.015,
+        height * 0.55,
+        width * 0.0815,
+        height * 0.5,
+      )
+      ..cubicTo(
+        width * 0.15,
+        height * 0.45,
+        width * 0.1875,
+        height * 0.625,
+        width * 0.255,
+        height * 0.625,
+      )
+      ..cubicTo(
+        width * 0.315,
+        height * 0.625,
+        width * 0.3,
+        height * 0.45,
+        width * 0.375,
+        height * 0.35,
+      )
+      ..cubicTo(
+        width * 0.45,
+        height * 0.25,
+        width * 0.45,
+        height * 0.45,
+        width * 0.515,
+        height * 0.4,
+      )
+      ..cubicTo(
+        width * 0.55,
+        height * 0.35,
+        width * 0.575,
+        height * 0.225,
+        width * 0.645,
+        height * 0.1875,
+      )
+      ..cubicTo(
+        width * 0.735,
+        height * 0.15,
+        width * 0.75,
+        height * 0.45,
+        width * 0.815,
+        height * 0.45,
+      );
 
     if (end) {
       path.cubicTo(

@@ -56,9 +56,11 @@ class FastSearchBarState<T extends FastItem> extends State<FastSearchBar<T>> {
 
   @override
   void dispose() {
-    _textController.removeListener(_handleSearchQueryChanges);
-    _textController.dispose();
     super.dispose();
+
+    _textController
+      ..removeListener(_handleSearchQueryChanges)
+      ..dispose();
   }
 
   @override

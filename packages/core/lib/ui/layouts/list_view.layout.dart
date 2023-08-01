@@ -225,11 +225,10 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
             item.labelText,
           ),
         ) as T;
-      }).toList();
-
-      items.sort(
-        (a, b) => a.normalizedLabelText!.compareTo(b.normalizedLabelText!),
-      );
+      }).toList()
+        ..sort(
+          (a, b) => a.normalizedLabelText!.compareTo(b.normalizedLabelText!),
+        );
     }
 
     return items;

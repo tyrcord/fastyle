@@ -64,8 +64,9 @@ class FastPieGraphAppBarPainter extends CustomPainter {
     final centerY = size.height / 2;
     final center = Offset(centerX, centerY);
 
-    canvas.drawLine(center, Offset(centerX, y + diameter), paint);
-    canvas.drawLine(center, Offset(x + diameter, centerY), paint);
+    canvas
+      ..drawLine(center, Offset(centerX, y + diameter), paint)
+      ..drawLine(center, Offset(x + diameter, centerY), paint);
 
     _paintTopHalfArc(canvas, paint, x, y, diameter);
     _paintBottomLeftArc(canvas, paint, x, y, diameter);

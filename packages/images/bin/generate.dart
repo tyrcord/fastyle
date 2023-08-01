@@ -41,8 +41,7 @@ void main(List<String> args) async {
     _writeList(buffer, className, elements);
     _writeMap(buffer, className, elements);
 
-    final file = File(output);
-    file.writeAsString(buffer.toString());
+    File(output).writeAsString(buffer.toString());
   }
 
   _writeBarrel();
@@ -117,11 +116,10 @@ void _writeMap(
 }
 
 void _writeBarrel() {
-  final buffer = StringBuffer('// Generated, do not edit\n');
-
-  buffer.writeln('library fastyle_images;\n');
-  buffer.writeln('export \'logic/image.dart\';');
-  buffer.writeln('export \'constants.dart\';');
+  final buffer = StringBuffer('// Generated, do not edit\n')
+    ..writeln('library fastyle_images;\n')
+    ..writeln('export \'logic/image.dart\';')
+    ..writeln('export \'constants.dart\';');
 
   for (final asset in _assets) {
     final output = asset['output']!.replaceFirst('lib/', '');
@@ -129,8 +127,7 @@ void _writeBarrel() {
     buffer.writeln('export \'$output\';');
   }
 
-  final file = File('lib/fastyle_images.dart');
-  file.writeAsString(buffer.toString());
+  File('lib/fastyle_images.dart').writeAsString(buffer.toString());
 }
 
 String snakeCaseToCamelCase(String snakeCase) {
