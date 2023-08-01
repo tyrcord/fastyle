@@ -49,7 +49,7 @@ void main() {
     group('#isChecked', () {
       testWidgets('should be set to false by default',
           (WidgetTester tester) async {
-        bool oldValue;
+        late bool oldValue;
 
         await tester.pumpWidget(
           _buildApp(Column(
@@ -73,7 +73,7 @@ void main() {
     group('#isEnabled', () {
       testWidgets('should be set to true by default',
           (WidgetTester tester) async {
-        bool value;
+        late bool value;
 
         await tester.pumpWidget(
           _buildApp(Column(

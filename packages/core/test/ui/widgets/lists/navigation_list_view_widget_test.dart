@@ -42,7 +42,7 @@ void main() {
       testWidgets('should be called when an item is selected',
           (WidgetTester tester) async {
         var called = false;
-        FastItem selection;
+        late FastItem selection;
 
         await tester.pumpWidget(
           _buildApp(FastNavigationListView(

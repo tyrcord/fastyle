@@ -51,7 +51,7 @@ void main() {
         expect(called, isTrue);
         expect(searchQuery, equals('ap'));
         expect(
-          suggestions.map((e) => e.labelText),
+          suggestions?.map((e) => e.labelText),
           containsAll(['apple', 'grappe']),
         );
       });
