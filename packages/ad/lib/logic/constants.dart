@@ -1,5 +1,5 @@
 // Project imports:
-import 'package:fastyle_ad/logic/enums/enums.dart';
+import 'package:fastyle_ad/fastyle_ad.dart';
 
 const kFastAdDefaultTimeout = Duration(seconds: 10);
 
