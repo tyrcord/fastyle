@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_test/flutter_test.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:t_helpers/helpers.dart';
 
 FastApp _buildApp(FastHomePage home) {
   return FastApp(homeBuilder: (_) => home);

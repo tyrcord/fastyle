@@ -1,3 +1,4 @@
+// Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
 const fruitsCategory = FastCategory(labelText: 'Fruits', valueText: 'fruits');

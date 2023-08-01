@@ -1,10 +1,16 @@
 //ignore_for_file: no-empty-block
 
+// Dart imports:
 import 'dart:developer';
 
-import 'package:fastyle_core_example/data/items.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+
+// Project imports:
+import 'package:fastyle_core_example/data/items.dart';
 
 class FieldsPage extends StatelessWidget {
   const FieldsPage({super.key});

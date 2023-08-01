@@ -1,4 +1,11 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:go_router/go_router.dart';
+
+// Project imports:
 import 'package:fastyle_core_example/pages/buttons.dart';
 import 'package:fastyle_core_example/pages/cards.dart';
 import 'package:fastyle_core_example/pages/colors.dart';
@@ -11,8 +18,6 @@ import 'package:fastyle_core_example/pages/responsive.dart';
 import 'package:fastyle_core_example/pages/split_view.dart';
 import 'package:fastyle_core_example/pages/tabs.dart';
 import 'package:fastyle_core_example/pages/typography.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 final options = List<FastItem>.generate(50, (int index) {
   return FastItem(labelText: index.toString(), value: index);
