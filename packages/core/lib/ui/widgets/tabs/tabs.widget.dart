@@ -19,7 +19,7 @@ class FastTabs extends StatelessWidget {
   final List<Tab> tabs;
 
   const FastTabs({
-    Key? key,
+    super.key,
     required this.tabs,
     required this.views,
     this.isViewScrollable = true,
@@ -30,7 +30,7 @@ class FastTabs extends StatelessWidget {
     this.indicatorColor,
     this.labelColor,
     this.labelStyle,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -17,7 +17,7 @@ class FastToggleListItem<T extends FastItem> extends StatefulWidget {
   final T? item;
 
   FastToggleListItem({
-    Key? key,
+    super.key,
     required this.onValueChanged,
     this.isChecked = false,
     this.isEnabled = true,
@@ -26,8 +26,7 @@ class FastToggleListItem<T extends FastItem> extends StatefulWidget {
     this.labelText,
     this.leading,
     this.item,
-  })  : assert(item?.labelText != null || labelText != null),
-        super(key: key);
+  })  : assert(item?.labelText != null || labelText != null);
 
   @override
   State<StatefulWidget> createState() => _FastToggleListItemState();

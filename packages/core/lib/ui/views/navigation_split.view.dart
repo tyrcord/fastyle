@@ -77,7 +77,7 @@ class FastNavigationSplitView extends StatefulWidget {
   final bool showAppBar;
 
   const FastNavigationSplitView({
-    Key? key,
+    super.key,
     required this.detailsBuilder,
     required this.items,
     this.searchPlaceholderText = kFastSearchPlaceholderText,
@@ -100,7 +100,7 @@ class FastNavigationSplitView extends StatefulWidget {
     this.titleText,
     this.actions,
     this.leading,
-  }) : super(key: key);
+  });
 
   @override
   State<FastNavigationSplitView> createState() =>

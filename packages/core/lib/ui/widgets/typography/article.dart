@@ -12,11 +12,11 @@ class FastArticle extends StatelessWidget {
   final String titleText;
 
   const FastArticle({
-    Key? key,
+    super.key,
     required this.titleText,
     this.titleMargin = const EdgeInsets.symmetric(vertical: 16.0),
     this.children,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

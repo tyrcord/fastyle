@@ -27,7 +27,7 @@ class FastSearchField extends StatefulWidget implements IFastInput {
   final bool isEnabled;
 
   const FastSearchField({
-    Key? key,
+    super.key,
     this.debounceTimeDuration = kFastDebounceTimeDuration,
     this.placeholderText = kFastSearchPlaceholderText,
     this.margin = const EdgeInsets.only(bottom: 8.0),
@@ -38,7 +38,7 @@ class FastSearchField extends StatefulWidget implements IFastInput {
     this.isEnabled = true,
     this.textEditingController,
     this.onValueChanged,
-  }) : super(key: key);
+  });
 
   @override
   FastSearchFieldState createState() => FastSearchFieldState();

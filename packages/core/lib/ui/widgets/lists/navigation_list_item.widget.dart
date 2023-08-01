@@ -25,7 +25,7 @@ class FastNavigationListItem<T extends FastItem> extends StatelessWidget {
   final bool showLeading;
 
   const FastNavigationListItem({
-    Key? key,
+    super.key,
     required this.onTap,
     this.trailing = kFastNavigationTrailingIcon,
     this.capitalizeLabelText = true,
@@ -38,8 +38,7 @@ class FastNavigationListItem<T extends FastItem> extends StatelessWidget {
     this.labelText,
     this.leading,
     this.item,
-  })  : assert(item != null || labelText != null),
-        super(key: key);
+  })  : assert(item != null || labelText != null);
 
   @override
   Widget build(BuildContext context) {

@@ -35,7 +35,7 @@ void main() {
       await tester.pumpWidget(
         _buildApp(FastTextButton(
           onTap: () {},
-          child: Text(buttonText),
+          child: const Text(buttonText),
         )),
       );
 
@@ -135,7 +135,7 @@ void main() {
             count++;
           },
           shouldTrottleTime: true,
-          trottleTimeDuration: Duration(milliseconds: 500),
+          trottleTimeDuration: const Duration(milliseconds: 500),
         )),
       );
 
@@ -147,7 +147,7 @@ void main() {
       await tester.tap(button);
       await tester.pump();
       await tester.tap(button);
-      await tester.pump(Duration(milliseconds: 500));
+      await tester.pump(const Duration(milliseconds: 500));
       await tester.tap(button);
       await tester.pump();
 

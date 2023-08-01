@@ -45,7 +45,7 @@ class FastStatusPage extends StatelessWidget {
   /// The [titleText] parameter is required.
   /// The [contentPadding] parameter defaults to [kFastEdgeInsets16].
   const FastStatusPage({
-    Key? key,
+    super.key,
     this.titleText,
     this.descriptionText,
     this.validButtonText,
@@ -57,7 +57,7 @@ class FastStatusPage extends StatelessWidget {
     this.iconColor,
     this.backgroundColor,
     this.icon,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

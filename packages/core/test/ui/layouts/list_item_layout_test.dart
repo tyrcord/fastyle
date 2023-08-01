@@ -55,7 +55,7 @@ void main() {
     group('#leading', () {
       testWidgets('should be drawn when set', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastListItemLayout(
+          _buildApp(const FastListItemLayout(
             labelText: itemText,
             leading: leading,
           )),
@@ -71,7 +71,7 @@ void main() {
     group('#trailing', () {
       testWidgets('should be drawn when set', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastListItemLayout(
+          _buildApp(const FastListItemLayout(
             labelText: itemText,
             trailing: trailing,
           )),
@@ -125,7 +125,7 @@ void main() {
       testWidgets('should be used for setting the leading property',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastListItemLayout(
+          _buildApp(const FastListItemLayout(
             labelText: itemText,
             descriptor: FastListItemDescriptor(leading: leading),
           )),
@@ -139,7 +139,7 @@ void main() {
       testWidgets('should override leading property',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastListItemLayout(
+          _buildApp(const FastListItemLayout(
             labelText: itemText,
             leading: leading,
             descriptor: FastListItemDescriptor(leading: leading2),
@@ -155,7 +155,7 @@ void main() {
       testWidgets('should be used for setting the trailing property',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastListItemLayout(
+          _buildApp(const FastListItemLayout(
             labelText: itemText,
             descriptor: FastListItemDescriptor(trailing: trailing),
           )),
@@ -169,7 +169,7 @@ void main() {
       testWidgets('should override trailing property',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastListItemLayout(
+          _buildApp(const FastListItemLayout(
             labelText: itemText,
             trailing: trailing,
             descriptor: FastListItemDescriptor(trailing: trailing2),

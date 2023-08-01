@@ -39,7 +39,7 @@ class FastSelectableListView<T extends FastItem> extends StatefulWidget {
   final String? listViewEmptyText;
 
   const FastSelectableListView({
-    Key? key,
+    super.key,
     required this.onSelectionChanged,
     required this.items,
     this.searchPlaceholderText = kFastSearchPlaceholderText,
@@ -65,7 +65,7 @@ class FastSelectableListView<T extends FastItem> extends StatefulWidget {
     this.delegate,
     this.listViewEmptyContent,
     this.listViewEmptyText,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _FastSelectableListViewState<T>();

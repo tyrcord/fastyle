@@ -108,7 +108,7 @@ final kLightFastTheme = kBaseFastTheme.copyWith(
       (
         Set<MaterialState> states,
       ) {
-        var base = GoogleFonts.barlowSemiCondensed(
+        final base = GoogleFonts.barlowSemiCondensed(
           fontWeight: kFastFontWeightRegular,
           fontSize: kFastFontSize16,
         );

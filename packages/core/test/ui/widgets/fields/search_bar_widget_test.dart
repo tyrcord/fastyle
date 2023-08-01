@@ -30,9 +30,9 @@ void main() {
       testWidgets('should be called when the search query is not empty',
           (WidgetTester tester) async {
         var called = false;
-        var controller = TextEditingController();
-        var suggestions;
-        var searchQuery;
+        final controller = TextEditingController();
+        List<FastItem>? suggestions;
+        String? searchQuery;
 
         await tester.pumpWidget(
           _buildApp(FastSearchBar(
@@ -46,7 +46,7 @@ void main() {
           )),
         );
         await tester.pumpAndSettle();
-        controller.value = TextEditingValue(text: 'ap');
+        controller.value = const TextEditingValue(text: 'ap');
 
         expect(called, isTrue);
         expect(searchQuery, equals('ap'));
@@ -61,9 +61,9 @@ void main() {
       testWidgets('should be called when the search query is not empty',
           (WidgetTester tester) async {
         var called = false;
-        var controller = TextEditingController();
+        final controller = TextEditingController();
         List<FastItem<dynamic>>? suggestions;
-        var searchQuery;
+        String? searchQuery;
 
         await tester.pumpWidget(
           _buildApp(FastSearchBar(
@@ -80,7 +80,7 @@ void main() {
           )),
         );
         await tester.pumpAndSettle();
-        controller.value = TextEditingValue(text: 'ap');
+        controller.value = const TextEditingValue(text: 'ap');
 
         expect(called, isTrue);
         expect(searchQuery, equals('ap'));
@@ -96,7 +96,7 @@ void main() {
       testWidgets('should allow to set the search placeholder text',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSearchBar(
+          _buildApp(const FastSearchBar(
             items: items,
             placeholderText: 'Search',
           )),
@@ -124,7 +124,7 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        var finder = find.byWidget(kFastBackIcon);
+        final finder = find.byWidget(kFastBackIcon);
 
         await tester.tap(finder);
         await tester.pumpAndSettle();
@@ -137,12 +137,12 @@ void main() {
       testWidgets('should be set to true by default',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSearchBar(
+          _buildApp(const FastSearchBar(
             items: items,
           )),
         );
         await tester.pumpAndSettle();
-        var finder = find.byWidget(kFastBackIcon);
+        final finder = find.byWidget(kFastBackIcon);
 
         expect(finder, findsOneWidget);
       });
@@ -150,14 +150,14 @@ void main() {
       testWidgets('should not draw the leading icon when to false',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSearchBar(
+          _buildApp(const FastSearchBar(
             items: items,
             showLeadingIcon: false,
           )),
-          Duration(milliseconds: 60),
+          const Duration(milliseconds: 60),
         );
 
-        var finder = find.byWidget(kFastBackIcon);
+        final finder = find.byWidget(kFastBackIcon);
 
         expect(finder, findsNothing);
       });
@@ -166,7 +166,7 @@ void main() {
     group('#clearSearchIcon', () {
       testWidgets('should draw it', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSearchBar(
+          _buildApp(const FastSearchBar(
             items: items,
             clearSearchIcon: kFastDoneIcon,
           )),

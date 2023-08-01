@@ -17,7 +17,7 @@ void main() {
 
     group('#titleText', () {
       testWidgets('should draw it', (WidgetTester tester) async {
-        var children = [Text('42')];
+        final children = [const Text('42')];
 
         await tester.pumpWidget(
           _buildApp(FastAlertDialog(
@@ -36,7 +36,7 @@ void main() {
 
     group('#messageText', () {
       testWidgets('should draw them', (WidgetTester tester) async {
-        var children = [Text('42')];
+        final children = [const Text('42')];
 
         await tester.pumpWidget(
           _buildApp(FastAlertDialog(
@@ -56,7 +56,7 @@ void main() {
     group('#messageText', () {
       testWidgets('should draw it', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastAlertDialog(
+          _buildApp(const FastAlertDialog(
             titleText: titleText,
             messageText: '42',
           )),
@@ -72,7 +72,7 @@ void main() {
     group('#onCancel', () {
       testWidgets('should show a cancel button if this property is set',
           (WidgetTester tester) async {
-        var children = [Text('42')];
+        final children = [const Text('42')];
         var cancel = false;
 
         await tester.pumpWidget(
@@ -100,7 +100,7 @@ void main() {
     group('#onValid', () {
       testWidgets('should show a valid button if this property is set',
           (WidgetTester tester) async {
-        var children = [Text('42')];
+        final children = [const Text('42')];
         var valid = false;
 
         await tester.pumpWidget(
@@ -128,7 +128,7 @@ void main() {
     group('#validText', () {
       testWidgets('should be used for the valid button label',
           (WidgetTester tester) async {
-        var children = [Text('42')];
+        final children = [const Text('42')];
         var valid = false;
 
         await tester.pumpWidget(
@@ -157,7 +157,7 @@ void main() {
     group('#cancelText', () {
       testWidgets('should be used for the cancel button label',
           (WidgetTester tester) async {
-        var children = [Text('42')];
+        final children = [const Text('42')];
         var cancel = false;
 
         await tester.pumpWidget(

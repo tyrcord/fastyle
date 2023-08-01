@@ -11,14 +11,14 @@ void main() {
   group('FastListItemDescriptor', () {
     late FastListItemDescriptor itemDescriptor;
     late FastListItemDescriptor itemDescriptor2;
-    final trailing = Text('trailing');
-    final leading = Text('leading');
-    final leading2 = Text('leading2');
-    final trailing2 = Text('trailing2');
+    const trailing = Text('trailing');
+    const leading = Text('leading');
+    const leading2 = Text('leading2');
+    const trailing2 = Text('trailing2');
 
     setUp(() {
-      itemDescriptor = FastListItemDescriptor();
-      itemDescriptor2 = FastListItemDescriptor(
+      itemDescriptor = const FastListItemDescriptor();
+      itemDescriptor2 = const FastListItemDescriptor(
         leading: leading,
         trailing: trailing,
       );
@@ -95,12 +95,12 @@ void main() {
       test(
           'should return true '
           'when two FastListItemDescriptor objects are equal ', () {
-        itemDescriptor = FastListItemDescriptor(
+        itemDescriptor = const FastListItemDescriptor(
           leading: leading2,
           trailing: trailing2,
         );
 
-        itemDescriptor2 = FastListItemDescriptor(
+        itemDescriptor2 = const FastListItemDescriptor(
           leading: leading2,
           trailing: trailing2,
         );
@@ -111,12 +111,12 @@ void main() {
       test(
           'should return false '
           'when two FastListItemDescriptor objects are unequal ', () {
-        itemDescriptor = FastListItemDescriptor(
+        itemDescriptor = const FastListItemDescriptor(
           leading: leading,
           trailing: trailing2,
         );
 
-        itemDescriptor2 = FastListItemDescriptor(
+        itemDescriptor2 = const FastListItemDescriptor(
           leading: leading2,
           trailing: trailing2,
         );

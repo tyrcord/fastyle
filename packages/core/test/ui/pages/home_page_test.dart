@@ -21,7 +21,7 @@ void main() {
     group('children', () {
       testWidgets('should draw them', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastHomePage(
+          _buildApp(const FastHomePage(
             children: [child1, child2],
           )),
         );
@@ -43,7 +43,7 @@ void main() {
             floatingActionButton: FloatingActionButton(
               onPressed: () {},
             ),
-            children: [child1, child2],
+            children: const [child1, child2],
           )),
         );
 
@@ -56,7 +56,7 @@ void main() {
     group('subtitleText', () {
       testWidgets('should draw it', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastHomePage(
+          _buildApp(const FastHomePage(
             subtitleText: 'subtitle',
             children: [child1, child2],
           )),
@@ -72,7 +72,7 @@ void main() {
     group('titleText', () {
       testWidgets('should draw it', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastHomePage(
+          _buildApp(const FastHomePage(
             titleText: 'title',
             children: [child1, child2],
           )),
@@ -88,7 +88,7 @@ void main() {
       testWidgets('should set the size of the app bar',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastHomePage(
+          _buildApp(const FastHomePage(
             appBarExpandedHeight: 240,
             children: [child1, child2],
           )),
@@ -102,10 +102,10 @@ void main() {
 
     group('leading', () {
       testWidgets('should draw them', (WidgetTester tester) async {
-        var icon = Icon(Icons.access_alarm);
+        const icon = Icon(Icons.access_alarm);
 
         await tester.pumpWidget(
-          _buildApp(FastHomePage(
+          _buildApp(const FastHomePage(
             leading: icon,
             children: [child1, child2],
           )),
@@ -118,10 +118,10 @@ void main() {
 
     group('actions', () {
       testWidgets('should draw them', (WidgetTester tester) async {
-        var icon = Icon(Icons.access_alarm);
+        const icon = Icon(Icons.access_alarm);
 
         await tester.pumpWidget(
-          _buildApp(FastHomePage(
+          _buildApp(const FastHomePage(
             actions: [icon],
             children: [child1, child2],
           )),

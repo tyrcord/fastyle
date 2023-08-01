@@ -15,14 +15,14 @@ class FastListHeader extends StatelessWidget {
   final EdgeInsets margin;
 
   const FastListHeader({
-    Key? key,
+    super.key,
     required this.categoryText,
     this.padding = const EdgeInsets.symmetric(horizontal: 16.0),
     this.margin = const EdgeInsets.symmetric(vertical: 16.0),
     this.categoryColor,
     this.captionColor,
     this.captionText,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -24,7 +24,7 @@ void main() {
     group('#control', () {
       testWidgets('should be drawn', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastFieldLayout(
+          _buildApp(const FastFieldLayout(
             labelText: labelText,
             control: control,
           )),
@@ -41,7 +41,7 @@ void main() {
       testWidgets('should be capitalized by default',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastFieldLayout(
+          _buildApp(const FastFieldLayout(
             labelText: labelText,
             control: control,
           )),
@@ -59,7 +59,7 @@ void main() {
         'should not capitalized the label it\'s set to false',
         (WidgetTester tester) async {
           await tester.pumpWidget(
-            _buildApp(FastFieldLayout(
+            _buildApp(const FastFieldLayout(
               labelText: labelText,
               capitalizeLabelText: false,
               control: control,
@@ -77,7 +77,7 @@ void main() {
     group('#captionText', () {
       testWidgets('should be drawn when set', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastFieldLayout(
+          _buildApp(const FastFieldLayout(
             labelText: labelText,
             captionText: captionText,
             control: control,
@@ -94,7 +94,7 @@ void main() {
     group('#helperText', () {
       testWidgets('should be drawn when set', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastFieldLayout(
+          _buildApp(const FastFieldLayout(
             helperText: helperText,
             control: control,
           )),
@@ -109,10 +109,10 @@ void main() {
 
     group('#suffixIcon', () {
       testWidgets('should be drawn when set', (WidgetTester tester) async {
-        var icon = Icon(Icons.access_alarm);
+        const icon = Icon(Icons.access_alarm);
 
         await tester.pumpWidget(
-          _buildApp(FastFieldLayout(
+          _buildApp(const FastFieldLayout(
             suffixIcon: icon,
             control: control,
           )),
@@ -128,7 +128,7 @@ void main() {
     group('#helperTextColor', () {
       testWidgets('should set helper text color', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastFieldLayout(
+          _buildApp(const FastFieldLayout(
             helperText: helperText,
             helperTextColor: Colors.red,
             control: control,

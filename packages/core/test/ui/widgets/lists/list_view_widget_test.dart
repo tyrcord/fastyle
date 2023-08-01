@@ -38,7 +38,7 @@ void main() {
     group('#items', () {
       testWidgets('should draw its items', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastListView(
+          _buildApp(const FastListView(
             items: items,
           )),
         );
@@ -53,7 +53,7 @@ void main() {
       testWidgets('should group items by categories when set to true',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastListView(
+          _buildApp(const FastListView(
             categories: categories,
             groupByCategory: true,
             items: items,
@@ -92,7 +92,7 @@ void main() {
     group('#sortItems', () {
       testWidgets('should sort items by default', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastListView(
+          _buildApp(const FastListView(
             categories: categories,
             groupByCategory: true,
             items: items,
@@ -108,7 +108,7 @@ void main() {
       testWidgets('should not sort items when set to false',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastListView(
+          _buildApp(const FastListView(
             categories: categories,
             groupByCategory: true,
             sortItems: false,

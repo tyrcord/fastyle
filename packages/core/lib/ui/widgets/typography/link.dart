@@ -13,12 +13,12 @@ class FastLink extends StatelessWidget {
   final String text;
 
   const FastLink({
-    Key? key,
+    super.key,
     required this.text,
     required this.onTap,
     this.textAlign = TextAlign.left,
     this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

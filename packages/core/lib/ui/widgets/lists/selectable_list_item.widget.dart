@@ -30,7 +30,7 @@ class FastSelectableListItem<T extends FastItem> extends StatelessWidget {
   final T? item;
 
   FastSelectableListItem({
-    Key? key,
+    super.key,
     required this.onTap,
     this.capitalizeLabelText = true,
     this.isSelected = false,
@@ -45,8 +45,7 @@ class FastSelectableListItem<T extends FastItem> extends StatelessWidget {
     this.trailing,
     this.leading,
     this.item,
-  })  : assert(item?.labelText != null || labelText != null),
-        super(key: key);
+  })  : assert(item?.labelText != null || labelText != null);
 
   @override
   Widget build(BuildContext context) {

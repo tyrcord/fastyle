@@ -12,7 +12,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 class FastThreeBounceIndicator extends StatelessWidget {
   final Color? color;
 
-  const FastThreeBounceIndicator({Key? key, this.color}) : super(key: key);
+  const FastThreeBounceIndicator({super.key, this.color});
 
   @override
   Widget build(BuildContext context) {

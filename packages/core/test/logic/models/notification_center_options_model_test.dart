@@ -16,9 +16,9 @@ void main() {
     const iconColor = Colors.red;
 
     setUp(() {
-      options1 = FastNotificationCenterOptions();
+      options1 = const FastNotificationCenterOptions();
 
-      options2 = FastNotificationCenterOptions(
+      options2 = const FastNotificationCenterOptions(
         iconSize: 20,
         leadingIcon: leadingIcon,
         iconColor: iconColor,
@@ -81,7 +81,7 @@ void main() {
 
     group('#merge()', () {
       test('should combine two FastNotificationCenterOptions objects', () {
-        final options = FastNotificationCenterOptions(
+        const options = FastNotificationCenterOptions(
           iconSize: 42,
         );
 
@@ -97,13 +97,13 @@ void main() {
       test(
           'should return true '
           'when two FastNotificationCenterOptions objects are equal ', () {
-        options1 = FastNotificationCenterOptions(
+        options1 = const FastNotificationCenterOptions(
           iconSize: 20,
           leadingIcon: leadingIcon,
           iconColor: iconColor,
         );
 
-        options2 = FastNotificationCenterOptions(
+        options2 = const FastNotificationCenterOptions(
           iconSize: 20,
           leadingIcon: leadingIcon,
           iconColor: iconColor,
@@ -115,13 +115,13 @@ void main() {
       test(
           'should return false '
           'when two FastNotificationCenterOptions objects are unequal ', () {
-        options1 = FastNotificationCenterOptions(
+        options1 = const FastNotificationCenterOptions(
           iconSize: 20,
           leadingIcon: leadingIcon,
           iconColor: iconColor,
         );
 
-        options2 = FastNotificationCenterOptions(
+        options2 = const FastNotificationCenterOptions(
           iconSize: 42,
           leadingIcon: leadingIcon,
           iconColor: iconColor,

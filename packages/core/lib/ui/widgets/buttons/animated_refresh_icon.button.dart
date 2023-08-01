@@ -23,7 +23,7 @@ class FastAnimatedRotationIconButton extends StatefulWidget {
   final bool rotate;
 
   const FastAnimatedRotationIconButton({
-    Key? key,
+    super.key,
     required this.onTap,
     this.iconAlignment = Alignment.center,
     this.iconSize = kFastIconSizeSmall,
@@ -35,7 +35,7 @@ class FastAnimatedRotationIconButton extends StatefulWidget {
     this.disabledColor,
     this.iconColor,
     this.icon,
-  }) : super(key: key);
+  });
 
   @override
   FastAnimatedRotationIconButtonState createState() =>

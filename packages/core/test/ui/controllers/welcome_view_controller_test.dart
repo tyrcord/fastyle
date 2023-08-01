@@ -18,9 +18,9 @@ FastApp _buildApp(
     homeBuilder: (_) => ValueListenableBuilder(
       valueListenable: valueListenable,
       builder: (BuildContext context, bool isPending, Widget? child) {
-        var text = isPending ? _kPending : _kResumed;
+        final text = isPending ? _kPending : _kResumed;
 
-        return Text('$text');
+        return Text(text);
       },
     ),
   );

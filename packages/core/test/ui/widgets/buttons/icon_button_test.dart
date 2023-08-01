@@ -119,7 +119,7 @@ void main() {
             count++;
           },
           shouldTrottleTime: true,
-          trottleTimeDuration: Duration(milliseconds: 500),
+          trottleTimeDuration: const Duration(milliseconds: 500),
         )),
       );
       await tester.pumpAndSettle();
@@ -130,7 +130,7 @@ void main() {
       await tester.tap(button);
       await tester.pump();
       await tester.tap(button);
-      await tester.pump(Duration(milliseconds: 500));
+      await tester.pump(const Duration(milliseconds: 500));
       await tester.tap(button);
       await tester.pump();
 

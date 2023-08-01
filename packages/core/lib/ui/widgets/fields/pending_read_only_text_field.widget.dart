@@ -29,7 +29,7 @@ class FastPendingReadOnlyTextField extends StatelessWidget {
   final double? fontSize;
 
   const FastPendingReadOnlyTextField({
-    Key? key,
+    super.key,
     required this.labelText,
     this.placeholderText = kFastEmptyString,
     this.enableInteractiveSelection = true,
@@ -47,7 +47,7 @@ class FastPendingReadOnlyTextField extends StatelessWidget {
     this.helperText,
     this.valueText,
     this.fontSize,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

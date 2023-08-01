@@ -17,7 +17,7 @@ class FastCard extends StatelessWidget {
   final Widget? child;
 
   const FastCard({
-    Key? key,
+    super.key,
     required this.titleText,
     this.backgroundColor,
     this.titleTextColor,
@@ -26,7 +26,7 @@ class FastCard extends StatelessWidget {
     this.shadowColor,
     this.padding,
     this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

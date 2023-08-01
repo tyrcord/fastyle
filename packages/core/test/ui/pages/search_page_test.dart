@@ -35,7 +35,7 @@ void main() {
     group('#items', () {
       testWidgets('should draw its items', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSearchPage(
+          _buildApp(const FastSearchPage(
             items: items,
           )),
         );
@@ -51,7 +51,7 @@ void main() {
       testWidgets('should group items by categories when set to true',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSearchPage(
+          _buildApp(const FastSearchPage(
             categories: categories,
             groupByCategory: true,
             items: items,
@@ -74,7 +74,7 @@ void main() {
       testWidgets('should be used for the "All" category',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSearchPage(
+          _buildApp(const FastSearchPage(
             categories: categories,
             groupByCategory: true,
             allCategoryText: 'Toutes',
@@ -97,7 +97,7 @@ void main() {
       testWidgets('should allow to set the search placeholder text',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSearchPage(
+          _buildApp(const FastSearchPage(
             categories: categories,
             groupByCategory: true,
             items: items,
@@ -118,7 +118,7 @@ void main() {
       testWidgets('should be set to true by default',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSearchPage(
+          _buildApp(const FastSearchPage(
             categories: categories,
             groupByCategory: true,
             items: items,
@@ -136,7 +136,7 @@ void main() {
       testWidgets('should not be visible whether set to false',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSearchPage(
+          _buildApp(const FastSearchPage(
             categories: categories,
             groupByCategory: true,
             items: items,
@@ -154,7 +154,7 @@ void main() {
       testWidgets('should be used for the "clear selection" text',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSearchPage(
+          _buildApp(const FastSearchPage(
             categories: categories,
             groupByCategory: true,
             clearSelectionText: 'Nettoyer',
@@ -175,7 +175,7 @@ void main() {
       testWidgets('The "All" category should be selected by default',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSearchPage(
+          _buildApp(const FastSearchPage(
             categories: categories,
             groupByCategory: true,
             items: items,
@@ -191,7 +191,7 @@ void main() {
       testWidgets('should select a category for a given index',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSearchPage(
+          _buildApp(const FastSearchPage(
             categories: categories,
             groupByCategory: true,
             intialCategoryIndex: 1,
@@ -208,7 +208,7 @@ void main() {
     group('#sortItems', () {
       testWidgets('should sort items by default', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSearchPage(
+          _buildApp(const FastSearchPage(
             categories: categories,
             groupByCategory: true,
             intialCategoryIndex: 1,
@@ -226,7 +226,7 @@ void main() {
       testWidgets('should not sort items when set to false',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSearchPage(
+          _buildApp(const FastSearchPage(
             categories: categories,
             groupByCategory: true,
             intialCategoryIndex: 1,

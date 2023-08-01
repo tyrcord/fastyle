@@ -21,7 +21,7 @@ void main() {
     group('#valueText', () {
       testWidgets('should draw it when set', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(Column(
+          _buildApp(const Column(
             children: [
               FastReadOnlyTextField(
                 labelText: labelText,
@@ -40,7 +40,7 @@ void main() {
     group('#placeholderText', () {
       testWidgets('should draw it when set', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(Column(
+          _buildApp(const Column(
             children: [
               FastReadOnlyTextField(
                 labelText: labelText,
@@ -59,7 +59,7 @@ void main() {
     group('#child', () {
       testWidgets('should draw it when set', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(Column(
+          _buildApp(const Column(
             children: [
               FastReadOnlyTextField(
                 labelText: labelText,

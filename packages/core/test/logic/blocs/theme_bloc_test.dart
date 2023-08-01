@@ -41,19 +41,19 @@ void main() {
 
     group('#mapEventToState()', () {
       test('should listen to events', () async {
-        bloc1.addEvent(FastThemeBlocEvent.light());
+        bloc1.addEvent(const FastThemeBlocEvent.light());
 
         var state = await bloc1.onData.skip(1).first;
         expect(state.brightness, equals(Brightness.light));
         expect(state.themeMode, equals(ThemeMode.light));
 
-        bloc1.addEvent(FastThemeBlocEvent.dark());
+        bloc1.addEvent(const FastThemeBlocEvent.dark());
 
         state = await bloc1.onData.skip(1).first;
         expect(state.brightness, equals(Brightness.dark));
         expect(state.themeMode, equals(ThemeMode.dark));
 
-        bloc1.addEvent(FastThemeBlocEvent.system());
+        bloc1.addEvent(const FastThemeBlocEvent.system());
 
         state = await bloc1.onData.skip(1).first;
         expect(state.themeMode, equals(ThemeMode.system));

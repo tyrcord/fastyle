@@ -60,7 +60,7 @@ class FastLinearProgressBarIndicator extends StatefulWidget {
   final bool animate;
 
   const FastLinearProgressBarIndicator({
-    Key? key,
+    super.key,
     this.animationDuration = const Duration(milliseconds: 300),
     this.showProgressLabel = false,
     this.showAsPercentage = false,
@@ -77,7 +77,7 @@ class FastLinearProgressBarIndicator extends StatefulWidget {
     this.onAnimationEnd,
     this.barColor,
     this.palette,
-  }) : super(key: key);
+  });
 
   @override
   State<FastLinearProgressBarIndicator> createState() =>

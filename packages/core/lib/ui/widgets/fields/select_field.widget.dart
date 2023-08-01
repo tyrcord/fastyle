@@ -43,7 +43,7 @@ class FastSelectField<T> extends StatefulWidget {
   final FastFastSelectFieldDelegate<FastItem<T>>? delegate;
 
   const FastSelectField({
-    Key? key,
+    super.key,
     required this.onSelectionChanged,
     required this.labelText,
     required this.items,
@@ -73,7 +73,7 @@ class FastSelectField<T> extends StatefulWidget {
     this.listViewEmptyText,
     this.onSearchPageClose,
     this.delegate,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _FastSelectFieldState<T>();
@@ -120,7 +120,7 @@ class _FastSelectFieldState<T> extends State<FastSelectField<T>> {
   }
 
   Widget buildControl(BuildContext context) {
-    return Container(
+    return DecoratedBox(
       decoration: buildBorderSide(context),
       child: Row(
         children: <Widget>[
@@ -172,7 +172,7 @@ class _FastSelectFieldState<T> extends State<FastSelectField<T>> {
   }
 
   Future<void> handleOnTap() async {
-    var items = widget.items;
+    final items = widget.items;
 
     if (widget.isEnabled && !widget.isReadOnly && items.isNotEmpty) {
       FocusManager.instance.primaryFocus!.unfocus();

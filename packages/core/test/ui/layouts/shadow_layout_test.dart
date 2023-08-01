@@ -17,7 +17,7 @@ void main() {
   group('FastShadowLayout', () {
     testWidgets('should draw its child', (WidgetTester tester) async {
       await tester.pumpWidget(
-        _buildApp(FastShadowLayout(
+        _buildApp(const FastShadowLayout(
           child: Text(cardText),
         )),
       );

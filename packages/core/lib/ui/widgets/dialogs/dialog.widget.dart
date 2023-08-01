@@ -14,13 +14,13 @@ class FastDialog extends AlertDialog {
   final String titleText;
 
   const FastDialog({
-    Key? key,
+    super.key,
     required this.titleText,
     required this.children,
     super.backgroundColor,
     this.titleColor,
     super.actions,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

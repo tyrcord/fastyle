@@ -19,14 +19,14 @@ void main() {
     ];
 
     setUp(() {
-      category1 = FastListItemCategory(
+      category1 = const FastListItemCategory(
         weight: 1,
         labelText: category1Text,
         valueText: category1Text,
         items: items,
       );
 
-      category2 = FastListItemCategory(
+      category2 = const FastListItemCategory(
         weight: 2,
         labelText: category2Text,
         valueText: category2Text,
@@ -40,7 +40,7 @@ void main() {
       });
 
       test('property weight should be equal to 0.0 by default', () {
-        final category = FastListItemCategory(
+        const category = FastListItemCategory(
           labelText: category2Text,
           valueText: category2Text,
           items: items,
@@ -90,7 +90,7 @@ void main() {
 
     group('#merge()', () {
       test('should combine two FastListItemCategory objects', () {
-        final copy = FastListItemCategory(
+        const copy = FastListItemCategory(
           labelText: 'foo',
           valueText: category2Text,
           items: items,
@@ -109,14 +109,14 @@ void main() {
       test(
           'should return true '
           'when two FastListItemCategory objects are equal ', () {
-        category1 = FastListItemCategory(
+        category1 = const FastListItemCategory(
           weight: 1,
           labelText: category2Text,
           valueText: category2Text,
           items: items,
         );
 
-        category2 = FastListItemCategory(
+        category2 = const FastListItemCategory(
           weight: 1,
           labelText: category2Text,
           valueText: category2Text,
@@ -129,14 +129,14 @@ void main() {
       test(
           'should return false '
           'when two FastListItemCategory objects are unequal ', () {
-        category1 = FastListItemCategory(
+        category1 = const FastListItemCategory(
           weight: 1,
           labelText: category2Text,
           valueText: category2Text,
           items: items,
         );
 
-        category2 = FastListItemCategory(
+        category2 = const FastListItemCategory(
           weight: 2,
           labelText: category2Text,
           valueText: category2Text,

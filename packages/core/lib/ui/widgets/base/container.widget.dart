@@ -9,7 +9,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 /// A stateless widget that displays an empty container with the primary
 /// background color of the current theme.
 class FastEmptyContainer extends StatelessWidget {
-  const FastEmptyContainer({Key? key}) : super(key: key);
+  const FastEmptyContainer({super.key});
 
   @override
   Widget build(BuildContext context) {

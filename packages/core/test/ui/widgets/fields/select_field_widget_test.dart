@@ -73,7 +73,7 @@ void main() {
         await tester.tap(find.byType(FastSelectField));
         await tester.pumpAndSettle();
 
-        var listItems = find.byType(FastSelectableListItem);
+        final listItems = find.byType(FastSelectableListItem);
 
         await tester.tap(listItems.first);
         expect(called, isTrue);
@@ -216,7 +216,7 @@ void main() {
         await tester.tap(find.byType(FastSelectField));
         await tester.pumpAndSettle();
 
-        var listItems = find.byType(FastSelectableListItem);
+        final listItems = find.byType(FastSelectableListItem);
 
         await tester.tap(listItems.first);
         await tester.pumpAndSettle();

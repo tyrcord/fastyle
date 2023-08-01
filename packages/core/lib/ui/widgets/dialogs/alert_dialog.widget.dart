@@ -18,7 +18,7 @@ class FastAlertDialog extends AlertDialog {
   final String titleText;
 
   const FastAlertDialog({
-    Key? key,
+    super.key,
     required this.titleText,
     super.backgroundColor,
     this.messageColor,
@@ -32,8 +32,7 @@ class FastAlertDialog extends AlertDialog {
     this.onValid,
   })  : assert(messageText == null || children == null),
         assert(messageText != null || children != null),
-        assert(actions == null || cancelText == null),
-        super(key: key);
+        assert(actions == null || cancelText == null);
 
   @override
   Widget build(BuildContext context) {

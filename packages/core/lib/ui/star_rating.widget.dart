@@ -57,7 +57,7 @@ class FastStarRatingState extends State<FastStarRating> {
     FaIcon icon;
 
     // Calculate the difference between the index and current rating.
-    double difference = _currentRating - index;
+    final double difference = _currentRating - index;
 
     if (difference >= 0.75) {
       icon = FaIcon(

@@ -13,13 +13,13 @@ void main() {
     const category2Text = 'category2';
 
     setUp(() {
-      category1 = FastCategory(
+      category1 = const FastCategory(
         weight: 1,
         labelText: category1Text,
         valueText: category1Text,
       );
 
-      category2 = FastCategory(
+      category2 = const FastCategory(
         weight: 2,
         labelText: category2Text,
         valueText: category2Text,
@@ -32,7 +32,7 @@ void main() {
       });
 
       test('property weight should be equal to 0.0 by default', () {
-        final category = FastCategory(
+        const category = FastCategory(
           labelText: category2Text,
           valueText: category2Text,
         );
@@ -77,7 +77,7 @@ void main() {
 
     group('#merge()', () {
       test('should combine two FastCategory objects', () {
-        final copy = FastCategory(
+        const copy = FastCategory(
           labelText: 'foo',
           valueText: category2Text,
         );
@@ -94,13 +94,13 @@ void main() {
       test(
           'should return true '
           'when two FastCategory objects are equal ', () {
-        category1 = FastCategory(
+        category1 = const FastCategory(
           weight: 1,
           labelText: category2Text,
           valueText: category2Text,
         );
 
-        category2 = FastCategory(
+        category2 = const FastCategory(
           weight: 1,
           labelText: category2Text,
           valueText: category2Text,
@@ -112,13 +112,13 @@ void main() {
       test(
           'should return false '
           'when two FastCategory objects are unequal ', () {
-        category1 = FastCategory(
+        category1 = const FastCategory(
           weight: 1,
           labelText: category2Text,
           valueText: category2Text,
         );
 
-        category2 = FastCategory(
+        category2 = const FastCategory(
           weight: 2,
           labelText: category2Text,
           valueText: category2Text,

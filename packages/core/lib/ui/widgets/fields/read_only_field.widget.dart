@@ -24,7 +24,7 @@ class FastReadOnlyTextField extends StatelessWidget {
   final double? fontSize;
 
   const FastReadOnlyTextField({
-    Key? key,
+    super.key,
     required this.labelText,
     this.placeholderText = kFastEmptyString,
     this.enableInteractiveSelection = true,
@@ -40,7 +40,7 @@ class FastReadOnlyTextField extends StatelessWidget {
     this.valueText,
     this.fontSize,
     this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

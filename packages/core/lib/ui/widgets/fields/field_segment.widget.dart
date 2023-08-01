@@ -19,7 +19,7 @@ class FastSegmentField<T> extends StatefulWidget {
   final bool isReadOnly;
 
   const FastSegmentField({
-    Key? key,
+    super.key,
     required this.labelText,
     required this.options,
     this.showHelperBoundaries = true,
@@ -27,7 +27,7 @@ class FastSegmentField<T> extends StatefulWidget {
     this.selectedIndex = 0,
     this.onValueChanged,
     this.captionText,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _FastSegmentFieldState<T>();

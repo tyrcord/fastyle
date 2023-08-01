@@ -1,5 +1,4 @@
 // Flutter imports:
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 // Package imports:
@@ -44,8 +43,8 @@ void main() {
         expect(
           numberInputFormatter
               .formatEditUpdate(
-                TextEditingValue(text: '0'),
-                TextEditingValue(text: '0,'),
+                const TextEditingValue(text: '0'),
+                const TextEditingValue(text: '0,'),
               )
               .text,
           equals('0.'),
@@ -57,7 +56,7 @@ void main() {
           numberInputFormatter
               .formatEditUpdate(
                 empty,
-                TextEditingValue(text: '.'),
+                const TextEditingValue(text: '.'),
               )
               .text,
           equals(zeroAndDecimalSeparator.text),
@@ -67,7 +66,7 @@ void main() {
           numberInputFormatter
               .formatEditUpdate(
                 empty,
-                TextEditingValue(text: ','),
+                const TextEditingValue(text: ','),
               )
               .text,
           equals(zeroAndDecimalSeparator.text),
@@ -102,14 +101,14 @@ void main() {
 
         expect(
           numberInputFormatter
-              .formatEditUpdate(zero, TextEditingValue(text: '0.0'))
+              .formatEditUpdate(zero, const TextEditingValue(text: '0.0'))
               .text,
           equals('0.0'),
         );
 
         expect(
           numberInputFormatter
-              .formatEditUpdate(zero, TextEditingValue(text: '0. 0'))
+              .formatEditUpdate(zero, const TextEditingValue(text: '0. 0'))
               .text,
           equals(zero.text),
         );
@@ -118,7 +117,7 @@ void main() {
           numberInputFormatter
               .formatEditUpdate(
                 zeroAndDecimalSeparator,
-                TextEditingValue(text: '0..'),
+                const TextEditingValue(text: '0..'),
               )
               .text,
           equals(zeroAndDecimalSeparator.text),
@@ -140,7 +139,7 @@ void main() {
           numberInputFormatter
               .formatEditUpdate(
                 bigNumberLength16,
-                TextEditingValue(text: '1234567890123456.'),
+                const TextEditingValue(text: '1234567890123456.'),
               )
               .text,
           equals(bigNumberLength16.text),
@@ -151,8 +150,8 @@ void main() {
         expect(
           numberInputFormatter
               .formatEditUpdate(
-                TextEditingValue(text: '1234'),
-                TextEditingValue(text: '12345'),
+                const TextEditingValue(text: '1234'),
+                const TextEditingValue(text: '12345'),
               )
               .text,
           equals('12345'),
@@ -161,8 +160,8 @@ void main() {
         expect(
           numberInputFormatter
               .formatEditUpdate(
-                TextEditingValue(text: '12345'),
-                TextEditingValue(text: '123456'),
+                const TextEditingValue(text: '12345'),
+                const TextEditingValue(text: '123456'),
               )
               .text,
           equals('12345'),
@@ -171,8 +170,8 @@ void main() {
         expect(
           numberInputFormatter
               .formatEditUpdate(
-                TextEditingValue(text: '1234.'),
-                TextEditingValue(text: '1234.5'),
+                const TextEditingValue(text: '1234.'),
+                const TextEditingValue(text: '1234.5'),
               )
               .text,
           equals('1234.5'),
@@ -190,8 +189,8 @@ void main() {
         expect(
           numberInputFormatter
               .formatEditUpdate(
-                TextEditingValue(text: '98'),
-                TextEditingValue(text: '99'),
+                const TextEditingValue(text: '98'),
+                const TextEditingValue(text: '99'),
               )
               .text,
           equals('99'),
@@ -200,7 +199,7 @@ void main() {
         expect(
           numberInputFormatter
               .formatEditUpdate(
-                TextEditingValue(text: '99'),
+                const TextEditingValue(text: '99'),
                 hundred,
               )
               .text,
@@ -209,7 +208,7 @@ void main() {
 
         expect(
           numberInputFormatter
-              .formatEditUpdate(hundred, TextEditingValue(text: '101'))
+              .formatEditUpdate(hundred, const TextEditingValue(text: '101'))
               .text,
           equals(hundred.text),
         );
@@ -220,42 +219,42 @@ void main() {
           'if transformInvalidNumber is set to true', () {
         expect(
           numberInputFormatter
-              .formatEditUpdate(zero, TextEditingValue(text: '00'))
+              .formatEditUpdate(zero, const TextEditingValue(text: '00'))
               .text,
           equals(zero.text),
         );
 
         expect(
           numberInputFormatter
-              .formatEditUpdate(zero, TextEditingValue(text: '010'))
+              .formatEditUpdate(zero, const TextEditingValue(text: '010'))
               .text,
           equals('10'),
         );
 
         expect(
           numberInputFormatter
-              .formatEditUpdate(zero, TextEditingValue(text: '00.'))
+              .formatEditUpdate(zero, const TextEditingValue(text: '00.'))
               .text,
           equals('0.'),
         );
 
         expect(
           numberInputFormatter
-              .formatEditUpdate(zero, TextEditingValue(text: '010.'))
+              .formatEditUpdate(zero, const TextEditingValue(text: '010.'))
               .text,
           equals('10.'),
         );
 
         expect(
           numberInputFormatter
-              .formatEditUpdate(zero, TextEditingValue(text: '00.01'))
+              .formatEditUpdate(zero, const TextEditingValue(text: '00.01'))
               .text,
           equals('0.01'),
         );
 
         expect(
           numberInputFormatter
-              .formatEditUpdate(zero, TextEditingValue(text: '010.01'))
+              .formatEditUpdate(zero, const TextEditingValue(text: '010.01'))
               .text,
           equals('10.01'),
         );
@@ -272,7 +271,7 @@ void main() {
           numberInputFormatter
               .formatEditUpdate(
                 zero,
-                TextEditingValue(text: '00'),
+                const TextEditingValue(text: '00'),
               )
               .text,
           equals('00'),
@@ -282,7 +281,7 @@ void main() {
           numberInputFormatter
               .formatEditUpdate(
                 zero,
-                TextEditingValue(text: '010'),
+                const TextEditingValue(text: '010'),
               )
               .text,
           equals('010'),
@@ -292,7 +291,7 @@ void main() {
           numberInputFormatter
               .formatEditUpdate(
                 zero,
-                TextEditingValue(text: '00.'),
+                const TextEditingValue(text: '00.'),
               )
               .text,
           equals('00.'),
@@ -302,7 +301,7 @@ void main() {
           numberInputFormatter
               .formatEditUpdate(
                 zero,
-                TextEditingValue(text: '010.'),
+                const TextEditingValue(text: '010.'),
               )
               .text,
           equals('010.'),
@@ -310,14 +309,14 @@ void main() {
 
         expect(
           numberInputFormatter
-              .formatEditUpdate(zero, TextEditingValue(text: '00.01'))
+              .formatEditUpdate(zero, const TextEditingValue(text: '00.01'))
               .text,
           equals('00.01'),
         );
 
         expect(
           numberInputFormatter
-              .formatEditUpdate(zero, TextEditingValue(text: '010.01'))
+              .formatEditUpdate(zero, const TextEditingValue(text: '010.01'))
               .text,
           equals('010.01'),
         );

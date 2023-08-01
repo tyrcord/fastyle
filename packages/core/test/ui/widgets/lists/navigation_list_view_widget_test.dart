@@ -42,7 +42,7 @@ void main() {
       testWidgets('should be called when an item is selected',
           (WidgetTester tester) async {
         var called = false;
-        var selection;
+        FastItem selection;
 
         await tester.pumpWidget(
           _buildApp(FastNavigationListView(
@@ -59,7 +59,7 @@ void main() {
         await tester.tap(listItems.first);
         await tester.pumpAndSettle();
 
-        var found = tester.firstWidget(listItems) as FastListItemLayout;
+        final found = tester.firstWidget(listItems) as FastListItemLayout;
 
         expect(called, isTrue);
         expect(selection.labelText, equals(found.labelText));

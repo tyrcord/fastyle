@@ -22,7 +22,7 @@ void main() {
       testWidgets('should display the first slide',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastOnboardingView(
+          _buildApp(const FastOnboardingView(
             slides: [slide1, slide2],
           )),
         );
@@ -36,7 +36,7 @@ void main() {
       testWidgets('should display the second slide after tapping on next',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastOnboardingView(
+          _buildApp(const FastOnboardingView(
             slides: [slide1, slide2],
           )),
         );
@@ -54,7 +54,7 @@ void main() {
       testWidgets('should be set to false by default',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastOnboardingView(
+          _buildApp(const FastOnboardingView(
             slides: [slide1, slide2],
           )),
         );
@@ -66,7 +66,7 @@ void main() {
       testWidgets('should allow to skip the onboarding view when set to true',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastOnboardingView(
+          _buildApp(const FastOnboardingView(
             slides: [slide1, slide2],
             allowToSkip: true,
           )),
@@ -80,7 +80,7 @@ void main() {
           'should not displayed a skip option when there is only one slide',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastOnboardingView(
+          _buildApp(const FastOnboardingView(
             slides: [slide1],
             allowToSkip: true,
           )),
@@ -95,7 +95,7 @@ void main() {
       testWidgets('should allow to override the done label',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastOnboardingView(
+          _buildApp(const FastOnboardingView(
             slides: [slide1],
             doneText: 'OK',
           )),
@@ -110,7 +110,7 @@ void main() {
       testWidgets('should allow to override the next label',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastOnboardingView(
+          _buildApp(const FastOnboardingView(
             slides: [slide1, slide2],
             nextText: 'CONTINUE',
           )),
@@ -125,7 +125,7 @@ void main() {
       testWidgets('should allow to override the skip label',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastOnboardingView(
+          _buildApp(const FastOnboardingView(
             slides: [slide1, slide2],
             allowToSkip: true,
             skipText: 'PASS',
@@ -144,7 +144,7 @@ void main() {
 
         await tester.pumpWidget(
           _buildApp(FastOnboardingView(
-            slides: [slide1],
+            slides: const [slide1],
             onDone: () => done = true,
           )),
         );
@@ -164,7 +164,7 @@ void main() {
 
         await tester.pumpWidget(
           _buildApp(FastOnboardingView(
-            slides: [slide1, slide2],
+            slides: const [slide1, slide2],
             allowToSkip: true,
             onSkip: () => skipped = true,
           )),

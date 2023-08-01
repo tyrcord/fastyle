@@ -21,7 +21,7 @@ class FastBaseTypography extends StatelessWidget {
   final String text;
 
   const FastBaseTypography({
-    Key? key,
+    super.key,
     required this.text,
     this.enableInteractiveSelection = false,
     this.lineHeight = kFastLineHeight,
@@ -34,7 +34,7 @@ class FastBaseTypography extends StatelessWidget {
     this.maxLines,
     this.overflow,
     this.softWrap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

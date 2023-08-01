@@ -32,7 +32,7 @@ class FastTextField extends StatefulWidget implements IFastInput {
   final bool isEnabled;
 
   const FastTextField({
-    Key? key,
+    super.key,
     required this.labelText,
     this.debounceTimeDuration = kFastDebounceTimeDuration,
     this.textAlign = TextAlign.start,
@@ -47,7 +47,7 @@ class FastTextField extends StatefulWidget implements IFastInput {
     this.initialValue,
     this.captionText,
     this.helperText,
-  }) : super(key: key);
+  });
 
   @override
   FastTextFieldState createState() => FastTextFieldState();

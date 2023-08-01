@@ -16,7 +16,7 @@ void main() {
     const titleText = 'dialog';
 
     testWidgets('should draw its title', (WidgetTester tester) async {
-      var children = [Text('42')];
+      final children = [const Text('42')];
 
       await tester.pumpWidget(
         _buildApp(FastDialog(
@@ -33,7 +33,7 @@ void main() {
     });
 
     testWidgets('should draw its children', (WidgetTester tester) async {
-      var children = [Text('42')];
+      final children = [const Text('42')];
 
       await tester.pumpWidget(
         _buildApp(FastDialog(

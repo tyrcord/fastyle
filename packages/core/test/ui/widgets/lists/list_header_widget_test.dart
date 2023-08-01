@@ -19,7 +19,7 @@ void main() {
     group('#categoryText', () {
       testWidgets('should draw it when set', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastListHeader(
+          _buildApp(const FastListHeader(
             categoryText: labelText,
           )),
         );
@@ -33,7 +33,7 @@ void main() {
     group('#captionText', () {
       testWidgets('should draw it when set', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastListHeader(
+          _buildApp(const FastListHeader(
             categoryText: labelText,
             captionText: captionText,
           )),

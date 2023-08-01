@@ -13,13 +13,12 @@ class FastParagraph extends StatelessWidget {
   final double? fontSize;
 
   const FastParagraph({
-    Key? key,
+    super.key,
     this.margin = const EdgeInsets.symmetric(vertical: 8.0),
     this.text,
     this.child,
     this.fontSize,
-  })  : assert(text != null || child != null),
-        super(key: key);
+  })  : assert(text != null || child != null);
 
   @override
   Widget build(BuildContext context) {

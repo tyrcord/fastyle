@@ -20,8 +20,8 @@ void main() {
     );
 
     setUp(() {
-      item = FastItem(labelText: label1);
-      item2 = FastItem(labelText: label2);
+      item = const FastItem(labelText: label1);
+      item2 = const FastItem(labelText: label2);
     });
 
     group('#constructor()', () {
@@ -164,7 +164,7 @@ void main() {
 
     group('#merge()', () {
       test('should combine two FastItem objects', () {
-        final copy = FastItem(
+        const copy = FastItem(
           labelText: label2,
           value: 42,
           categories: [category],
@@ -186,7 +186,7 @@ void main() {
       test(
           'should return true '
           'when two FastListItemDescriptor objects are equal ', () {
-        item = FastItem(
+        item = const FastItem(
           labelText: 'foo',
           isEnabled: false,
           normalizedLabelText: 'bar',
@@ -196,7 +196,7 @@ void main() {
           value: 42,
         );
 
-        item2 = FastItem(
+        item2 = const FastItem(
           labelText: 'foo',
           isEnabled: false,
           normalizedLabelText: 'bar',
@@ -212,7 +212,7 @@ void main() {
       test(
           'should return false '
           'when two FastListItemDescriptor objects are unequal ', () {
-        item = FastItem(
+        item = const FastItem(
           labelText: 'foo',
           isEnabled: false,
           normalizedLabelText: 'bar',
@@ -222,7 +222,7 @@ void main() {
           value: 42,
         );
 
-        item2 = FastItem(
+        item2 = const FastItem(
           labelText: 'foo',
           isEnabled: false,
           normalizedLabelText: 'bar',

@@ -27,7 +27,7 @@ void main() {
     group('#labelText', () {
       testWidgets('should draw it when set', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(Column(
+          _buildApp(const Column(
             children: [
               FastSegmentField<int>(
                 labelText: labelText,
@@ -47,7 +47,7 @@ void main() {
     group('#options', () {
       testWidgets('should draw it when set', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(Column(
+          _buildApp(const Column(
             children: [
               FastSegmentField<int>(
                 labelText: labelText,
@@ -83,14 +83,14 @@ void main() {
 
         await tester.pumpAndSettle();
 
-        var finder = find.widgetWithText(FastBody, 'option 2');
+        final finder = find.widgetWithText(FastBody, 'option 2');
 
         await tester.tap(finder);
         await tester.pumpAndSettle();
 
-        var option = tester.firstWidget(finder) as FastBody;
+        final option = tester.firstWidget(finder) as FastBody;
 
-        expect(option.textColor, equals(Color(0xFFfcfcfc)));
+        expect(option.textColor, equals(const Color(0xFFfcfcfc)));
         expect(called, isTrue);
       });
     });
@@ -99,7 +99,7 @@ void main() {
       testWidgets('should select the first segment by default',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(Column(
+          _buildApp(const Column(
             children: [
               FastSegmentField<int>(
                 labelText: labelText,
@@ -111,14 +111,14 @@ void main() {
 
         await tester.pumpAndSettle();
 
-        var option1 = tester.firstWidget(find.byType(FastBody)) as FastBody;
-        expect(option1.textColor, equals(Color(0xFFfcfcfc)));
+        final option1 = tester.firstWidget(find.byType(FastBody)) as FastBody;
+        expect(option1.textColor, equals(const Color(0xFFfcfcfc)));
       });
 
       testWidgets('should select the second segment by default',
           (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(Column(
+          _buildApp(const Column(
             children: [
               FastSegmentField<int>(
                 labelText: labelText,
@@ -131,10 +131,10 @@ void main() {
 
         await tester.pumpAndSettle();
 
-        var finder = find.widgetWithText(FastBody, 'option 2');
-        var option = tester.firstWidget(finder) as FastBody;
+        final finder = find.widgetWithText(FastBody, 'option 2');
+        final option = tester.firstWidget(finder) as FastBody;
 
-        expect(option.textColor, equals(Color(0xFFfcfcfc)));
+        expect(option.textColor, equals(const Color(0xFFfcfcfc)));
       });
     });
   });

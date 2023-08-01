@@ -168,12 +168,12 @@ class FastSearchBarState<T extends FastItem> extends State<FastSearchBar<T>> {
 
     // TODO: workaround https://github.com/comigor/fuzzy/issues/8
     final rawResults = fuse.search(queryText);
-    for (var r in rawResults) {
+    for (final r in rawResults) {
       r.score = r.matches[0].score;
     }
     rawResults.sort((a, b) => a.score.compareTo(b.score));
 
-    for (var result in rawResults) {
+    for (final result in rawResults) {
       results.add(result.item as T);
     }
 

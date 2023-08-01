@@ -17,7 +17,7 @@ class FastExpansionPanel extends StatefulWidget {
   final bool isEnabled;
 
   const FastExpansionPanel({
-    Key? key,
+    super.key,
     required this.bodyBuilder,
     this.animationDuration = const Duration(milliseconds: 300),
     this.headerIcon = Icons.expand_more,
@@ -26,7 +26,7 @@ class FastExpansionPanel extends StatefulWidget {
     this.isEnabled = true,
     this.titleTextColor,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   FastExpansionPanelState createState() => FastExpansionPanelState();

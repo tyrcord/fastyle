@@ -21,7 +21,7 @@ void main() {
     group('#child', () {
       testWidgets('should draw it', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSectionPage(
+          _buildApp(const FastSectionPage(
             child: child1,
           )),
         );
@@ -56,7 +56,7 @@ void main() {
           (WidgetTester tester) async {
         await tester.pumpWidget(
           _buildApp(FastSectionPage(
-            footerBuilder: (_) => Text('footer'),
+            footerBuilder: (_) => const Text('footer'),
             child: child1,
           )),
         );
@@ -86,10 +86,10 @@ void main() {
 
     group('#leading', () {
       testWidgets('should draw it', (WidgetTester tester) async {
-        var icon = Icon(Icons.access_alarm);
+        const icon = Icon(Icons.access_alarm);
 
         await tester.pumpWidget(
-          _buildApp(FastSectionPage(
+          _buildApp(const FastSectionPage(
             leading: icon,
             child: child1,
           )),
@@ -103,10 +103,10 @@ void main() {
 
     group('#actions', () {
       testWidgets('should draw them', (WidgetTester tester) async {
-        var icon = Icon(Icons.access_alarm);
+        const icon = Icon(Icons.access_alarm);
 
         await tester.pumpWidget(
-          _buildApp(FastSectionPage(
+          _buildApp(const FastSectionPage(
             actions: [icon],
             child: child1,
           )),
@@ -119,7 +119,7 @@ void main() {
 
     group('#footer', () {
       testWidgets('should draw it', (WidgetTester tester) async {
-        var key = Key('test');
+        const key = Key('test');
 
         await tester.pumpWidget(
           _buildApp(FastSectionPage(
@@ -137,7 +137,7 @@ void main() {
     group('#titleText', () {
       testWidgets('should draw it', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastSectionPage(
+          _buildApp(const FastSectionPage(
             titleText: 'title',
             child: child1,
           )),
@@ -154,7 +154,7 @@ void main() {
           (WidgetTester tester) async {
         await tester.pumpWidget(
           _buildApp(FastSectionPage(
-            loadingBuilder: (_) => Text('loading'),
+            loadingBuilder: (_) => const Text('loading'),
             loadingFuture: Future.delayed(
               const Duration(milliseconds: 600),
               () => true,
@@ -182,18 +182,18 @@ void main() {
           (WidgetTester tester) async {
         await tester.pumpWidget(
           _buildApp(FastSectionPage(
-            loadingBuilder: (_) => Text('loading'),
-            errorBuilder: (_) => Text('error'),
+            loadingBuilder: (_) => const Text('loading'),
+            errorBuilder: (_) => const Text('error'),
             loadingFuture: Future.delayed(
               const Duration(milliseconds: 2500),
               () => true,
             ),
-            loadingTimeout: Duration(milliseconds: 300),
+            loadingTimeout: const Duration(milliseconds: 300),
             child: child1,
           )),
         );
 
-        await tester.pumpAndSettle(Duration(milliseconds: 600));
+        await tester.pumpAndSettle(const Duration(milliseconds: 600));
 
         final text = find.text('error');
         expect(text, findsOneWidget);

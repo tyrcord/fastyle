@@ -18,12 +18,12 @@ class FastUrlLink extends StatelessWidget {
   final String url;
 
   const FastUrlLink({
-    Key? key,
+    super.key,
     required this.onTap,
     required this.text,
     required this.url,
     this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

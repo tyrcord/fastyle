@@ -55,7 +55,7 @@ void main() {
     group('#isSelected', () {
       testWidgets('should be set to false by default',
           (WidgetTester tester) async {
-        var item = FastSelectableListItem(
+        final item = FastSelectableListItem(
           onTap: () {},
           labelText: labelText,
         );
@@ -160,7 +160,7 @@ void main() {
 
     group('#leading', () {
       testWidgets('should draw it when set', (WidgetTester tester) async {
-        final icon = Icon(Icons.pages);
+        const icon = Icon(Icons.pages);
 
         await tester.pumpWidget(
           _buildApp(Column(
@@ -182,7 +182,7 @@ void main() {
 
     group('#trailing', () {
       testWidgets('should draw it when set', (WidgetTester tester) async {
-        final icon = Icon(Icons.pages);
+        const icon = Icon(Icons.pages);
 
         await tester.pumpWidget(
           _buildApp(Column(
@@ -209,7 +209,7 @@ void main() {
     group('#item', () {
       testWidgets('should be used when titleText is set',
           (WidgetTester tester) async {
-        final icon = Icon(Icons.pages);
+        const icon = Icon(Icons.pages);
 
         await tester.pumpWidget(
           _buildApp(Column(
@@ -232,7 +232,7 @@ void main() {
 
       testWidgets('should be used when descriptionText is set',
           (WidgetTester tester) async {
-        final icon = Icon(Icons.pages);
+        const icon = Icon(Icons.pages);
 
         await tester.pumpWidget(
           _buildApp(Column(
@@ -254,7 +254,7 @@ void main() {
 
       testWidgets('should be used when isEnabled is set',
           (WidgetTester tester) async {
-        final icon = Icon(Icons.pages);
+        const icon = Icon(Icons.pages);
         var called = false;
 
         await tester.pumpWidget(
@@ -281,7 +281,7 @@ void main() {
 
       testWidgets('should be used when descriptor\'s leading is set',
           (WidgetTester tester) async {
-        final icon = Icon(Icons.pages);
+        const icon = Icon(Icons.pages);
 
         await tester.pumpWidget(
           _buildApp(Column(
@@ -303,7 +303,7 @@ void main() {
 
       testWidgets('should be used when descriptor\'s trailing is set',
           (WidgetTester tester) async {
-        final icon = Icon(Icons.pages);
+        const icon = Icon(Icons.pages);
 
         await tester.pumpWidget(
           _buildApp(Column(
