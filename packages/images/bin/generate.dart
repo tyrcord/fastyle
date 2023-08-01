@@ -134,7 +134,7 @@ void _writeBarrel() {
 }
 
 String snakeCaseToCamelCase(String snakeCase) {
-  List<String> parts = snakeCase.split('_');
+  final List<String> parts = snakeCase.split('_');
   var result = parts[0];
 
   for (int i = 1; i < parts.length; i++) {

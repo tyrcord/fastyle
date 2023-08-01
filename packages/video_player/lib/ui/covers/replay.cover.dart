@@ -19,7 +19,7 @@ class FastVideoReplayCover extends StatelessWidget {
     final palettes = ThemeHelper.getPaletteColors(context);
     final palette = palettes.gray;
 
-    return Container(
+    return ColoredBox(
       color: palette.ultraDark.withOpacity(0.75),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

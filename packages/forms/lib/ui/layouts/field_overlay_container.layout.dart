@@ -84,7 +84,7 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
     final size = MediaQuery.sizeOf(context);
     final isSmallScreen = size.height < kSmallScreenHeight;
 
-    return Container(
+    return ColoredBox(
       color: ThemeHelper.colors.getSecondaryBackgroundColor(context),
       child: SafeArea(
         bottom: false,

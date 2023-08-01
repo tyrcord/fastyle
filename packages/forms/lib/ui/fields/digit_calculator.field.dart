@@ -73,6 +73,12 @@ class _FastDigitCalculatorFieldState extends State<FastDigitCalculatorField> {
   // Holds the instance of the TSimpleOperation object.
   TSimpleOperation? _operation;
 
+  /// Handles the value change event from the digit calculator.
+  ///
+  /// Stores the [TSimpleOperation] object in the [_operation] instance
+  /// variable.
+  set operation(TSimpleOperation operation) => _operation = operation;
+
   @override
   Widget build(BuildContext context) {
     return FastNumberField(
@@ -104,7 +110,7 @@ class _FastDigitCalculatorFieldState extends State<FastDigitCalculatorField> {
               willValid: _onValid,
               willClose: _onClose,
               child: FastDigitCalculator(
-                onValueChanged: _onValueChanged,
+                onValueChanged: (op) => operation = op,
                 valueText: widget.valueText,
               ),
             );
@@ -112,14 +118,6 @@ class _FastDigitCalculatorFieldState extends State<FastDigitCalculatorField> {
         ),
       );
     }
-  }
-
-  /// Handles the value change event from the digit calculator.
-  ///
-  /// Stores the [TSimpleOperation] object in the [_operation] instance
-  /// variable.
-  void _onValueChanged(TSimpleOperation operation) {
-    _operation = operation;
   }
 
   /// Validates the digit calculator overlay and updates the input field value.

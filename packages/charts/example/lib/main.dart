@@ -35,7 +35,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    List<BarItem> data = [
+    final data = <BarItem>[
       BarItem(label: 'Item 1', value: 80),
       BarItem(label: 'Item 2', value: -20),
       BarItem(label: 'Item 3', value: 40),

@@ -13,8 +13,8 @@ class BarChart extends StatelessWidget {
 
   double get barItemHeight => barHeight + barPadding * 2;
 
-  const BarChart({super.key, 
-    super..key,
+  const BarChart({
+    super.key,
     required this.items,
     this.separatorWidth = 6.0,
     this.separatorPadding = 8.0,
@@ -23,7 +23,9 @@ class BarChart extends StatelessWidget {
     this.barPadding = 6.0,
     this.labelsBackgroundColor,
     this.chartBackgroundColor,
-  }@override
+  });
+
+  @override
   Widget build(BuildContext context) {
     return Row(
       children: [

@@ -58,7 +58,7 @@ class FastDigitCalculatorDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      return Container(
+      return ColoredBox(
         color: _getBackgroundColor(context),
         child: SafeArea(
           bottom: false,

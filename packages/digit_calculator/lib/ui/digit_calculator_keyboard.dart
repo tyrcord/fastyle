@@ -41,7 +41,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // The overall container for the keyboard, with a secondary background color
-    return Container(
+    return ColoredBox(
       color: ThemeHelper.colors.getSecondaryBackgroundColor(context),
       child: FastDigitCalculatorKeyboardListener(
         onKeyPressed: onKeyPressed,
