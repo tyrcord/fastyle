@@ -3,6 +3,123 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-08-01
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.4`](#fastyle_ad---v004)
+ - [`fastyle_buttons` - `v0.0.4`](#fastyle_buttons---v004)
+ - [`fastyle_calculator` - `v1.19.0`](#fastyle_calculator---v1190)
+ - [`fastyle_charts` - `v0.0.4`](#fastyle_charts---v004)
+ - [`fastyle_connectivity` - `v0.0.10`](#fastyle_connectivity---v0010)
+ - [`fastyle_core` - `v0.0.7`](#fastyle_core---v007)
+ - [`fastyle_digit_calculator` - `v0.0.12`](#fastyle_digit_calculator---v0012)
+ - [`fastyle_financial` - `v0.0.11`](#fastyle_financial---v0011)
+ - [`fastyle_firebase` - `v0.0.4`](#fastyle_firebase---v004)
+ - [`fastyle_forms` - `v0.0.13`](#fastyle_forms---v0013)
+ - [`fastyle_home` - `v0.0.8`](#fastyle_home---v008)
+ - [`fastyle_iap` - `v0.0.4`](#fastyle_iap---v004)
+ - [`fastyle_images` - `v0.0.15`](#fastyle_images---v0015)
+ - [`fastyle_layouts` - `v0.0.4`](#fastyle_layouts---v004)
+ - [`fastyle_onboarding` - `v0.0.13`](#fastyle_onboarding---v0013)
+ - [`fastyle_pricing` - `v1.8.0`](#fastyle_pricing---v180)
+ - [`fastyle_settings` - `v0.0.16`](#fastyle_settings---v0016)
+ - [`fastyle_video_player` - `v0.0.3`](#fastyle_video_player---v003)
+ - [`fastyle_views` - `v0.0.5`](#fastyle_views---v005)
+
+---
+
+#### `fastyle_ad` - `v0.0.4`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_buttons` - `v0.0.4`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_calculator` - `v1.19.0`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_charts` - `v0.0.4`
+
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_connectivity` - `v0.0.10`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_core` - `v0.0.7`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_digit_calculator` - `v0.0.12`
+
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_financial` - `v0.0.11`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_firebase` - `v0.0.4`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_forms` - `v0.0.13`
+
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_home` - `v0.0.8`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_iap` - `v0.0.4`
+
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_images` - `v0.0.15`
+
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_layouts` - `v0.0.4`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_onboarding` - `v0.0.13`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_pricing` - `v1.8.0`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_settings` - `v0.0.16`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_video_player` - `v0.0.3`
+
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_views` - `v0.0.5`
+
+ - **FEAT**: minor improvements.
+
+
 ## 2023-07-31
 
 ### Changes

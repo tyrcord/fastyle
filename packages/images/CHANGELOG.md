@@ -1,3 +1,8 @@
+## 0.0.15
+
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+
 ## 0.0.14
 
  - **FEAT**: update dependencies.
