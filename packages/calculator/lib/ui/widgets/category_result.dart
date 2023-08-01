@@ -11,9 +11,9 @@ class FastCalculatorCategoryResult extends StatelessWidget {
 
   /// Creates a new [FastCalculatorCategoryResult] instance.
   const FastCalculatorCategoryResult({
-    Key? key,
+    super.key,
     required this.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class FastCalculatorCategoryResult extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         kFastSizedBox12,
-        Container(
+        DecoratedBox(
           decoration: ThemeHelper.createBorderSide(context),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,

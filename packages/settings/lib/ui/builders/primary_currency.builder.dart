@@ -18,9 +18,9 @@ class FastAppSettingsPrimaryCurrencyBuilder extends StatelessWidget {
   /// [BuildContext] and [FastAppSettingsBlocState] as input and returns
   /// a widget.
   const FastAppSettingsPrimaryCurrencyBuilder({
-    Key? key,
+    super.key,
     required this.builder,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

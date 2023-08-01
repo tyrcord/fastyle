@@ -46,7 +46,7 @@ class ColorsPage extends StatelessWidget {
   }
 
   Widget buildColors(BuildContext context, FastPaletteScheme scheme) {
-    var spacing = ThemeHelper.spacing.getSpacing(context);
+    final spacing = ThemeHelper.spacing.getSpacing(context);
 
     return Wrap(
       runSpacing: spacing,

@@ -12,10 +12,10 @@ class FastNativeAdBuilder extends StatelessWidget {
   final FastNativeAdBloc bloc;
 
   const FastNativeAdBuilder({
-    Key? key,
+    super.key,
     required this.builder,
     required this.bloc,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

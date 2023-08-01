@@ -202,7 +202,7 @@ class FastAdmobRewardedAdService {
   }
 
   void _notifyListeners(Function(AdEventListener listener) callback) {
-    for (var listener in _listeners) {
+    for (final listener in _listeners) {
       callback(listener);
     }
   }

@@ -45,7 +45,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
       color: ThemeHelper.colors.getSecondaryBackgroundColor(context),
       child: FastDigitCalculatorKeyboardListener(
         onKeyPressed: onKeyPressed,
-        child: Container(
+        child: DecoratedBox(
           decoration: BoxDecoration(
             color: _getBackgroundColor(context),
             borderRadius: const BorderRadius.only(
@@ -271,7 +271,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     return ValueListenableBuilder<TSimpleOperation>(
       valueListenable: operationNotifier,
       builder: (context, operation, child) {
-        var isEnabled = operation.isValid &&
+        final isEnabled = operation.isValid &&
             (operation.operator == '+' || operation.operator == '-');
 
         return _buildKeyboardButton(

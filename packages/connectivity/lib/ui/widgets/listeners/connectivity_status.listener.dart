@@ -25,7 +25,7 @@ class FastConnectivityStatusListener extends StatefulWidget {
   final int? checkPort;
 
   const FastConnectivityStatusListener({
-    Key? key,
+    super.key,
     this.disconnectedText = kFastConnectivityDisconnectedText,
     this.connectedText = kFastConnectivityConnectedText,
     this.connectedIcon = FontAwesomeIcons.wifi,
@@ -39,7 +39,7 @@ class FastConnectivityStatusListener extends StatefulWidget {
     this.checkAddress,
     this.description,
     this.checkPort,
-  }) : super(key: key);
+  });
 
   @override
   FastConnectivityStatusListenerState createState() =>

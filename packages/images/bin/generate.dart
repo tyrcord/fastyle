@@ -30,7 +30,7 @@ const _assets = [
 ];
 
 void main(List<String> args) async {
-  for (var asset in _assets) {
+  for (final asset in _assets) {
     final className = asset['className']!;
     final input = asset['input']!;
     final output = asset['output']!;
@@ -53,7 +53,7 @@ Map<String, String> _listFiles(String path) {
   final List<FileSystemEntity> entities = dir.listSync();
   final elements = <String, String>{};
 
-  for (var entity in entities) {
+  for (final entity in entities) {
     final stat = entity.statSync();
     final path = entity.path;
 
@@ -74,7 +74,7 @@ void _writeClass(
 ) {
   buffer.writeln('class $className {\n');
 
-  for (MapEntry<String, String> entry in elements.entries) {
+  for (final MapEntry<String, String> entry in elements.entries) {
     final name = entry.key;
     final path = entry.value;
 
@@ -91,7 +91,7 @@ void _writeList(
 ) {
   buffer.writeln('const k$className = [');
 
-  for (MapEntry<String, String> entry in elements.entries) {
+  for (final MapEntry<String, String> entry in elements.entries) {
     final name = entry.key;
 
     buffer.writeln('  \'$name\',');
@@ -107,7 +107,7 @@ void _writeMap(
 ) {
   buffer.writeln('const k${className}Map = {');
 
-  for (MapEntry<String, String> entry in elements.entries) {
+  for (final MapEntry<String, String> entry in elements.entries) {
     final name = entry.key;
 
     buffer.writeln('  \'$name\': $className.$name,');
@@ -123,7 +123,7 @@ void _writeBarrel() {
   buffer.writeln('export \'logic/image.dart\';');
   buffer.writeln('export \'constants.dart\';');
 
-  for (var asset in _assets) {
+  for (final asset in _assets) {
     final output = asset['output']!.replaceFirst('lib/', '');
 
     buffer.writeln('export \'$output\';');

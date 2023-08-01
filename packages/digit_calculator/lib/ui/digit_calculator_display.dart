@@ -47,13 +47,13 @@ class FastDigitCalculatorDisplay extends StatelessWidget {
   /// * [onTap]: The callback function to trigger when the user taps on
   /// the current operation display widget.
   const FastDigitCalculatorDisplay({
-    Key? key,
+    super.key,
     required this.operationNotifier,
     required this.scrollController,
     required this.historyNotifier,
     this.backgroundColor,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

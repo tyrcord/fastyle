@@ -8,9 +8,9 @@ class FastConnectivityStatusBlocEvent extends BlocEvent<
     FastConnectivityStatusBlocEventType,
     FastConnectivityStatusBlocEventPayload> {
   const FastConnectivityStatusBlocEvent({
-    required FastConnectivityStatusBlocEventType type,
-    FastConnectivityStatusBlocEventPayload? payload,
-  }) : super(type: type, payload: payload);
+    required FastConnectivityStatusBlocEventType super.type,
+    super.payload,
+  });
 
   factory FastConnectivityStatusBlocEvent.connectivityStatusChanged(
     bool hasConnection,

@@ -58,7 +58,7 @@ class FastHomeGraphPage extends StatefulWidget {
   final FastHomeGraphType graphType;
 
   const FastHomeGraphPage({
-    Key? key,
+    super.key,
     required this.children,
     this.graphType = FastHomeGraphType.line,
     this.appBarExpandedHeight = kFastExpandedHeight,
@@ -73,8 +73,7 @@ class FastHomeGraphPage extends StatefulWidget {
     this.leading,
   })  : assert(
           appBarExpandedHeight >= kFastExpandedHeight ? true : false,
-        ),
-        super(key: key);
+        );
 
   @override
   FastHomePageState createState() => FastHomePageState();

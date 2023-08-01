@@ -48,7 +48,7 @@ class ResponsivePage extends StatelessWidget {
   }
 
   List<Widget> buildBoxes(BuildContext context, bool hasSpacing) {
-    var count = List<int>.filled(50, 0);
+    final count = List<int>.filled(50, 0);
     var i = 0;
 
     return count.map((e) {

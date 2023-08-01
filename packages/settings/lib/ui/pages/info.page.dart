@@ -57,7 +57,7 @@ class FastAppInfoPage<T> extends StatelessWidget {
   List<Widget> buildNavigationCategories(BuildContext context) {
     final List<Widget> categories = [];
 
-    for (var navigationCategoryDescriptor in categoryDescriptors) {
+    for (final navigationCategoryDescriptor in categoryDescriptors) {
       final items = navigationCategoryDescriptor.items;
 
       categories.add(FastListHeader(
@@ -67,8 +67,8 @@ class FastAppInfoPage<T> extends StatelessWidget {
         captionColor: navigationCategoryDescriptor.captionColor,
       ));
 
-      for (var item in items) {
-        Widget listItem = buildNavigationListItem(context, item);
+      for (final item in items) {
+        final Widget listItem = buildNavigationListItem(context, item);
         categories.add(listItem);
       }
     }

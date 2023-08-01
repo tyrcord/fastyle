@@ -6,6 +6,8 @@ packages:
 scripts:
   analyze:
     exec: dart analyze .
+  fix:
+    exec: dart fix --apply
   import_sort:
     exec: dart pub run import_sorter:main
   dependency_validator:

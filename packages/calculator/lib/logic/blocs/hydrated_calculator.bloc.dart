@@ -219,7 +219,7 @@ abstract class HydratedFastCalculatorBloc<
   ) async* {
     final key = payload.key!;
     final value = payload.value;
-    var state = await patchCalculatorState(key, value);
+    final state = await patchCalculatorState(key, value);
 
     if (state != null) {
       debugLog(

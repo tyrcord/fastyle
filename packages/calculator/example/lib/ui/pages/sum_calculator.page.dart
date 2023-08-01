@@ -101,13 +101,13 @@ class SumCalculatorPageState extends State<SumCalculatorPage> {
     return BlocBuilderWidget<SumCalculatorBloState>(
       bloc: _bloc,
       buildWhen: (SumCalculatorBloState previous, SumCalculatorBloState next) {
-        var previousValue = previous.fields.numberA;
-        var nextValue = next.fields.numberA;
+        final previousValue = previous.fields.numberA;
+        final nextValue = next.fields.numberA;
 
         return previousValue != nextValue;
       },
       builder: (_, SumCalculatorBloState state) {
-        var value = state.fields.numberA;
+        final value = state.fields.numberA;
 
         return _buildNumberField(
           valueText: value,
@@ -124,13 +124,13 @@ class SumCalculatorPageState extends State<SumCalculatorPage> {
     return BlocBuilderWidget<SumCalculatorBloState>(
       bloc: _bloc,
       buildWhen: (SumCalculatorBloState previous, SumCalculatorBloState next) {
-        var previousValue = previous.fields.numberB;
-        var nextValue = next.fields.numberB;
+        final previousValue = previous.fields.numberB;
+        final nextValue = next.fields.numberB;
 
         return previousValue != nextValue;
       },
       builder: (_, SumCalculatorBloState state) {
-        var value = state.fields.numberB;
+        final value = state.fields.numberB;
 
         return _buildNumberField(
           valueText: value,
@@ -232,8 +232,8 @@ class SumCalculatorPageState extends State<SumCalculatorPage> {
     return BlocBuilderWidget<SumCalculatorBloState>(
       bloc: _bloc,
       buildWhen: (SumCalculatorBloState previous, SumCalculatorBloState next) {
-        var oldMetadata = previous.metadata;
-        var newMetadata = next.metadata;
+        final oldMetadata = previous.metadata;
+        final newMetadata = next.metadata;
 
         return oldMetadata['isFetchingAsyncValue'] !=
                 newMetadata['isFetchingAsyncValue'] ||

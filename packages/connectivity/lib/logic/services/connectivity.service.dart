@@ -68,7 +68,7 @@ class FastConnectivityService {
 
   Stream<FastConnectivityStatus> _checkConnectivityStatusPericodically() {
     return Stream.periodic(checkInterval).asyncMap((_) async {
-      var hasConnection = await checkInternetConnectivity();
+      final hasConnection = await checkInternetConnectivity();
 
       return FastConnectivityStatus(
         connectivityResult: await Connectivity().checkConnectivity(),

@@ -31,7 +31,7 @@ class FastOnboardingView extends StatefulWidget {
   final String? skipText;
 
   const FastOnboardingView({
-    Key? key,
+    super.key,
     required this.slides,
     this.stepDotSize = _kStepDotSize,
     this.doneText,
@@ -43,7 +43,7 @@ class FastOnboardingView extends StatefulWidget {
     this.doneRoute,
     this.onDone,
     this.onSkip,
-  }) : super(key: key);
+  });
 
   @override
   FastOnboardingViewState createState() => FastOnboardingViewState();

@@ -12,9 +12,9 @@ class FastDigitCalculatorHistoryListItem extends StatelessWidget {
 
   /// Constructor for the FastDigitCalculatorHistoryListItem widget
   const FastDigitCalculatorHistoryListItem({
-    Key? key,
+    super.key,
     required this.operation,
-  }) : super(key: key);
+  });
 
   /// This method returns a list of TextSpan objects, which is used to display
   /// the calculation history.

@@ -6,12 +6,12 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastSplashAdBlocEvent
     extends BlocEvent<FastSplashAdBlocEventType, FastSplashAdBlocEventPayload> {
-  const FastSplashAdBlocEvent.init({FastSplashAdBlocEventPayload? payload})
-      : super(type: FastSplashAdBlocEventType.init, payload: payload);
+  const FastSplashAdBlocEvent.init({super.payload})
+      : super(type: FastSplashAdBlocEventType.init);
 
   const FastSplashAdBlocEvent.initialized({
-    FastSplashAdBlocEventPayload? payload,
-  }) : super(type: FastSplashAdBlocEventType.initialized, payload: payload);
+    super.payload,
+  }) : super(type: FastSplashAdBlocEventType.initialized);
 
   const FastSplashAdBlocEvent.loadAd()
       : super(type: FastSplashAdBlocEventType.loadAd);

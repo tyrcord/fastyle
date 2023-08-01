@@ -8,9 +8,9 @@ class FastFirebaseRemoteConfigBlocEvent extends BlocEvent<
     FastFirebaseRemoteConfigBlocEventType,
     FastFirebaseRemoteConfigBlocEventPayload> {
   const FastFirebaseRemoteConfigBlocEvent({
-    required FastFirebaseRemoteConfigBlocEventType type,
-    FastFirebaseRemoteConfigBlocEventPayload? payload,
-  }) : super(type: type, payload: payload);
+    required FastFirebaseRemoteConfigBlocEventType super.type,
+    super.payload,
+  });
 
   FastFirebaseRemoteConfigBlocEvent.init({Map<String, dynamic>? defaultConfig})
       : super(

@@ -8,11 +8,10 @@ class FastCalculatorBlocEvent<R extends FastCalculatorResults>
     extends BlocEvent<FastCalculatorBlocEventType,
         FastCalculatorBlocEventPayload<R>> {
   const FastCalculatorBlocEvent({
-    required FastCalculatorBlocEventType type, // The type of the event.
-    FastCalculatorBlocEventPayload<R>?
-        payload, // An optional payload associated with the event.
+    required FastCalculatorBlocEventType super.type, // The type of the event.
+    super.payload, // An optional payload associated with the event.
     super.forceBuild,
-  }) : super(type: type, payload: payload);
+  });
 
   // Returns an event with the type `FastCalculatorBlocEventType.init`
   // and no payload.

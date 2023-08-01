@@ -28,11 +28,11 @@ class FastDigitCalculatorHistoryList extends StatelessWidget {
   /// * [backgroundColor]: The background color of the list. If null,
   /// the default background color of the parent widget is used.
   const FastDigitCalculatorHistoryList({
-    Key? key,
+    super.key,
     required this.scrollController,
     required this.history,
     this.backgroundColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

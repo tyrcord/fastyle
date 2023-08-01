@@ -126,7 +126,7 @@ class FastInAppPurchaseService {
 
   @protected
   void handlePurchase(List<PurchaseDetails> purchases) async {
-    for (PurchaseDetails purchase in purchases) {
+    for (final PurchaseDetails purchase in purchases) {
       if (_verifyPurchaseStatus(purchase)) {
         await _notifyPurchase(purchase);
       } else if (purchase.status == PurchaseStatus.error) {
@@ -174,10 +174,10 @@ class FastInAppPurchaseService {
 
   Future<void> _finishPendingTransaction({String? productIdentifier}) async {
     if (Platform.isIOS) {
-      var paymentWrapper = SKPaymentQueueWrapper();
-      var transactions = await paymentWrapper.transactions();
+      final paymentWrapper = SKPaymentQueueWrapper();
+      final transactions = await paymentWrapper.transactions();
 
-      for (var transaction in transactions) {
+      for (final transaction in transactions) {
         if (productIdentifier != null) {
           if (transaction.payment.productIdentifier == productIdentifier) {
             await paymentWrapper.finishTransaction(transaction);
@@ -201,11 +201,11 @@ class FastInAppPurchaseService {
     // transactions are really to be really finished before purchasing the same
     // productId. let's wait for the next event-loop iteration.
     await Future.delayed(const Duration(seconds: 0));
-    var transactions = await paymentWrapper.transactions();
+    final transactions = await paymentWrapper.transactions();
     bool shouldWait = transactions.isNotEmpty;
 
     if (productIdentifier != null) {
-      var transaction = transactions.firstWhereOrNull(
+      final transaction = transactions.firstWhereOrNull(
         (transaction) =>
             transaction.payment.productIdentifier == productIdentifier,
       );

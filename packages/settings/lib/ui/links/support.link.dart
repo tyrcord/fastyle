@@ -11,10 +11,10 @@ class FastSettingsSupportLink extends StatefulWidget {
   final String linkText;
 
   const FastSettingsSupportLink({
-    Key? key,
+    super.key,
     required this.email,
     required this.linkText,
-  }) : super(key: key);
+  });
 
   @override
   FastSettingsSupportLinkState createState() => FastSettingsSupportLinkState();

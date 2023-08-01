@@ -10,10 +10,10 @@ class FastSwitchFieldMenuButton<T> extends StatelessWidget {
   final Function(T) onOptionChanged;
 
   const FastSwitchFieldMenuButton({
-    Key? key,
+    super.key,
     required this.options,
     required this.onOptionChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

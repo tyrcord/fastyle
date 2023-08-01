@@ -377,7 +377,7 @@ abstract class FastCalculatorBloc<
   Stream<S> handlePatchValueEvent(
     FastCalculatorBlocEventPayload payload,
   ) async* {
-    var state = await patchCalculatorState(payload.key!, payload.value);
+    final state = await patchCalculatorState(payload.key!, payload.value);
 
     if (state != null) {
       await saveCalculatorState();

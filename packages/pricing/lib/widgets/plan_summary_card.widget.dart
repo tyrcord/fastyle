@@ -22,14 +22,13 @@ class FastPlanSummaryCard extends StatelessWidget {
   final Widget? icon;
 
   const FastPlanSummaryCard({
-    Key? key,
+    super.key,
     this.iconBuilder,
     this.titleText,
     this.titleColor,
     this.icon,
     this.footer,
-  })  : assert(icon == null || iconBuilder == null),
-        super(key: key);
+  })  : assert(icon == null || iconBuilder == null);
 
   @override
   Widget build(BuildContext context) {

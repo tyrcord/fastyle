@@ -14,9 +14,9 @@ class FastPremiumSettingsHeader extends StatelessWidget {
   final VoidCallback onGoPremium;
 
   const FastPremiumSettingsHeader({
-    Key? key,
+    super.key,
     required this.onGoPremium,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
