@@ -11,6 +11,9 @@ linter:
     - avoid_init_to_null
     - avoid_null_checks_in_equality_operators
     - avoid_unused_constructor_parameters
+    - avoid_slow_async_io
+    - avoid_type_to_string
+    - avoid_types_as_parameter_names
     - await_only_futures
     - camel_case_types
     - cancel_subscriptions
@@ -42,6 +45,17 @@ linter:
     - unrelated_type_equality_checks
     - valid_regexps
     - lines_longer_than_80_chars
+    - use_super_parameters
+    - use_to_and_as_if_applicable
+    - use_setters_to_change_properties
+    - use_enums
+    - use_decorated_box
+    - use_is_even_rather_than_modulo
+    - use_colored_box
+    - unnecessary_breaks
+    - prefer_final_locals
+    - prefer_final_in_for_each
+    - unnecessary_await_in_return
 dart_code_metrics:
   anti-patterns:
     - long-method
