@@ -263,7 +263,7 @@ packages:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.6"
+    version: "0.0.7"
   fastyle_dart:
     dependency: transitive
     description:
@@ -278,7 +278,7 @@ packages:
       path: "../../digit_calculator"
       relative: true
     source: path
-    version: "0.0.11"
+    version: "0.0.12"
   fastyle_financial:
     dependency: transitive
     description:
@@ -293,28 +293,28 @@ packages:
       path: "../../forms"
       relative: true
     source: path
-    version: "0.0.12"
+    version: "0.0.13"
   fastyle_images:
     dependency: "direct overridden"
     description:
       path: "../../images"
       relative: true
     source: path
-    version: "0.0.14"
+    version: "0.0.15"
   fastyle_pricing:
     dependency: "direct main"
     description:
       path: "../../pricing"
       relative: true
     source: path
-    version: "1.7.0"
+    version: "1.8.0"
   fastyle_settings:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.15"
+    version: "0.0.16"
   ffi:
     dependency: transitive
     description:

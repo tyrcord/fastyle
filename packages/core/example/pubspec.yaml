@@ -18,6 +18,7 @@ dependencies:
   tbloc: ">=0.21.0 <1.0.0"
   tmodel: ">=0.5.3 <1.0.0"
   fastyle_core: ^0.0.7
+  fastyle_views: ^0.0.5
 
 dev_dependencies:
   flutter_test:

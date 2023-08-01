@@ -194,7 +194,7 @@ class _FastAppState extends State<FastApp> {
         errorReporter: widget.errorReporter,
         loaderBuilder: widget.loaderBuilder,
         locale: easyLocalization.locale,
-        appBuilder: buildAppOrOnboarding,
+        appBuilder: buildApp,
         loaderJobs: [
           // FIXME: onDatabaseVersionChanged should be called once the app
           // has been initialized.
@@ -213,22 +213,6 @@ class _FastAppState extends State<FastApp> {
         errorBuilder: widget.errorBuilder ?? handleAppError,
       ),
     );
-  }
-
-  /// Builds the app or onboarding widget depending on the app state.
-  Widget buildAppOrOnboarding(BuildContext context) {
-    final bloc = BlocProvider.of<FastAppOnboardingBloc>(context);
-    final onboardingState = bloc.currentState;
-
-    if (!onboardingState.isCompleted || widget.forceOnboarding) {
-      if (widget.onboardingBuilder != null) {
-        return Builder(builder: widget.onboardingBuilder!);
-      }
-    } else {
-      _askForAppReviewIfNeeded(context);
-    }
-
-    return buildApp(context);
   }
 
   /// Builds the main app widget.
@@ -253,7 +237,18 @@ class _FastAppState extends State<FastApp> {
   }
 
   /// Builds the home widget.
-  Widget buildHome(BuildContext context) {
+  Widget buildAppEntry(BuildContext context) {
+    final bloc = BlocProvider.of<FastAppOnboardingBloc>(context);
+    final onboardingState = bloc.currentState;
+
+    if (!onboardingState.isCompleted || widget.forceOnboarding) {
+      if (widget.onboardingBuilder != null) {
+        return Builder(builder: widget.onboardingBuilder!);
+      }
+    }
+
+    _askForAppReviewIfNeeded(context);
+
     if (widget.initialRoute != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         context.go(widget.initialRoute!);
@@ -276,7 +271,7 @@ class _FastAppState extends State<FastApp> {
       routes: [
         GoRoute(
           path: '/',
-          builder: (context, state) => buildHome(context),
+          builder: (context, state) => buildAppEntry(context),
           routes: widget.routes,
         ),
       ],

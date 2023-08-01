@@ -39,17 +39,15 @@ class FastFirebaseApp extends FastApp {
     super.loaderJobs,
     super.lightTheme,
     super.darkTheme,
+    super.appInformation,
     this.defaultRemoteConfig,
     this.firebaseOptions,
-    FastAppInfoDocument? appInformation,
     String? localizationPath,
     Locale? fallbackLocale,
   }) : super(
           localizationPath: localizationPath ?? kFastLocalizationPath,
           fallbackLocale: fallbackLocale ?? kFastAppSettingsDefaultLocale,
-        ) {
-    appInfo = appInformation ?? kFastAppInfo;
-  }
+        );
 
   @override
   State<FastFirebaseApp> createState() => _FastFirebaseAppState();
@@ -106,8 +104,8 @@ class _FastFirebaseAppState extends State<FastFirebaseApp> {
           FastFirebaseRemoteConfigJob(
             defaultConfig: widget.defaultRemoteConfig,
           ),
-          ...?widget.loaderJobs,
           FastFirebaseMessagingJob(),
+          ...?widget.loaderJobs,
         ],
         appInformation: widget.appInfo,
         onDatabaseVersionChanged: widget.onDatabaseVersionChanged,

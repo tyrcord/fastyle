@@ -239,21 +239,21 @@ packages:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.6"
+    version: "0.0.7"
   fastyle_layouts:
     dependency: "direct overridden"
     description:
       path: "../../layouts"
       relative: true
     source: path
-    version: "0.0.3+1"
+    version: "0.0.4"
   fastyle_onboarding:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.12"
+    version: "0.0.13"
   ffi:
     dependency: transitive
     description:

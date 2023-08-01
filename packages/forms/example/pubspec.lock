@@ -231,21 +231,21 @@ packages:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.6"
+    version: "0.0.7"
   fastyle_digit_calculator:
     dependency: "direct overridden"
     description:
       path: "../../digit_calculator"
       relative: true
     source: path
-    version: "0.0.11"
+    version: "0.0.12"
   fastyle_forms:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.12"
+    version: "0.0.13"
   ffi:
     dependency: transitive
     description:

@@ -231,14 +231,14 @@ packages:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.6"
+    version: "0.0.7"
   fastyle_images:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.14"
+    version: "0.0.15"
   ffi:
     dependency: transitive
     description:

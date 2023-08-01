@@ -9,9 +9,9 @@ import 'package:go_router/go_router.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
 
-const _kStepDotSize = 10.0;
+//TODO: @need-review: code from fastyle_dart
 
-typedef BoolCallback = bool Function();
+const _kStepDotSize = 10.0;
 
 class FastOnboardingView extends StatefulWidget {
   final FastOnboardingViewController? controller;
@@ -217,9 +217,9 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
       const FastAppOnboardingBlocEvent.initializationCompleted(),
     );
 
-    widget.onDone?.call();
-
     await appInfoBloc.onData.firstWhere((state) => state.isCompleted);
+
+    widget.onDone?.call();
 
     // ignore: use_build_context_synchronously
     GoRouter.of(context).pushReplacement('/');

@@ -23,10 +23,7 @@ class FastFirebaseMessagingJob extends FastJob {
   }
 
   FastFirebaseMessagingJob._()
-      : super(
-          debugLabel: 'fast_firebase_messaging_job',
-          requestUserInteraction: true,
-        );
+      : super(debugLabel: 'fast_firebase_messaging_job');
 
   /// Initializes the Firebase Messaging service.
   @override

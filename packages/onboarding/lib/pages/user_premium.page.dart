@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_layouts/fastyle_layouts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lingua_onboarding/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 /// A page that displays a layout with an icon, a primary text, a secondary text
 /// and a list of children widgets.
@@ -60,20 +62,35 @@ class FastOnboardingPremiumUser extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastOnboardingPage(
-      titleText: titleText ?? 'Premium User',
+      titleText: _getRestorePurchasesText(),
       children: [
         FastOnboardingContentLayout(
           icon: icon ?? const FaIcon(FontAwesomeIcons.crown),
+          secondaryText: _getSecondaryText(),
           handsetIconSize: handsetIconSize,
+          primaryText: _getPrimaryText(),
           tabletIconSize: tabletIconSize,
-          secondaryText: secondaryText,
-          primaryText: primaryText,
-          actionText: actionText,
           onActionTap: onActionTap,
+          actionText: actionText,
           palette: palette,
           children: children,
         ),
       ],
     );
+  }
+
+  String _getRestorePurchasesText() {
+    return titleText ??
+        OnboardingLocaleKeys.onboarding_restore_premium_title.tr();
+  }
+
+  String _getPrimaryText() {
+    return primaryText ??
+        OnboardingLocaleKeys.onboarding_restore_premium_description.tr();
+  }
+
+  String _getSecondaryText() {
+    return secondaryText ??
+        OnboardingLocaleKeys.onboarding_restore_premium_notes.tr();
   }
 }

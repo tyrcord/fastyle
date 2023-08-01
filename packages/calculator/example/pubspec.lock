@@ -255,14 +255,14 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.18.0"
+    version: "1.19.0"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.6"
+    version: "0.0.7"
   ffi:
     dependency: transitive
     description:

@@ -27,12 +27,12 @@ class FastCopyButton extends StatelessWidget {
 
   const FastCopyButton({
     super.key,
-    this.valueText = kFastEmptyString,
+    String? valueText,
     this.showNotification = true,
     this.isEnabled = true,
     this.message,
     this.icon,
-  });
+  }) : valueText = valueText ?? kFastEmptyString;
 
   @override
   Widget build(BuildContext context) {
