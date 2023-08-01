@@ -2,6 +2,8 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
 
 class ResponsivePage extends StatelessWidget {
+  const ResponsivePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return FastMediaLayoutBuilder(builder: ((context, mediaType) {
@@ -15,8 +17,8 @@ class ResponsivePage extends StatelessWidget {
 
       return FastSectionPage(
         titleText: 'Responsive (${mediaType.name})',
-        child: Container(child: content),
         isViewScrollable: true,
+        child: Container(child: content),
       );
     }));
   }
@@ -37,11 +39,11 @@ class ResponsivePage extends StatelessWidget {
     return GridView.count(
       crossAxisCount: mediaType.index,
       childAspectRatio: (itemWidth / itemHeight),
-      children: buildBoxes(context, false),
       shrinkWrap: true,
       mainAxisSpacing: spacing,
       crossAxisSpacing: spacing,
       padding: const EdgeInsets.all(0),
+      children: buildBoxes(context, false),
     );
   }
 
@@ -60,11 +62,11 @@ class ResponsivePage extends StatelessWidget {
 
     return Container(
       color: palette.blue.mid,
+      height: 64,
+      margin: EdgeInsets.only(bottom: spacing),
       child: Center(
         child: FastBody(text: index.toString()),
       ),
-      height: 64,
-      margin: EdgeInsets.only(bottom: spacing),
     );
   }
 }

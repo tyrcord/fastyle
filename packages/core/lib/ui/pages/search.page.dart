@@ -151,7 +151,7 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
   }
 
   Widget _buildHeader(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: ThemeHelper.colors.getSecondaryBackgroundColor(context),
       child: SafeArea(
         bottom: false,
@@ -232,7 +232,7 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
       child: Stack(
         children: [
           Positioned.fill(
-            child: Container(
+            child: ColoredBox(
               color: ThemeHelper.colors.getPrimaryBackgroundColor(context),
               child: FastSelectableListView(
                 sortItems: shouldSortItems,

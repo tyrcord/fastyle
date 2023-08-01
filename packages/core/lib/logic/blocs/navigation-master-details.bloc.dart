@@ -19,7 +19,7 @@ class FastNavigationSplitViewBloc extends BidirectionalBloc<
     FastNavigationSplitViewBlocEvent event,
   ) async* {
     if (event.type == FastNavigationSplitViewEventType.changed) {
-      var item = event.payload;
+      final item = event.payload;
 
       yield currentState.copyWith(item: item);
     }

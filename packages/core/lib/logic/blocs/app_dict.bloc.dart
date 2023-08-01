@@ -40,16 +40,12 @@ class FastAppDictBloc
       switch (type) {
         case FastAppDictBlocEventType.retrieveEntries:
           yield* handleRetrieveEntriesEvent();
-          break;
         case FastAppDictBlocEventType.entriesRetrieved:
           if (payload is List<FastDictEntryEntity>) {
             yield* handleEntriesRetrievedEvent(payload);
           }
-          break;
         case FastAppDictBlocEventType.deleteEntries:
           yield* handleDeleteEntriesEvent();
-          break;
-
         default:
           break;
       }

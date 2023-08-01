@@ -33,17 +33,19 @@ class DummyCrashLoaderJob extends FastJob {
 void main() {
   GoogleFonts.config.allowRuntimeFetching = false;
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return FastApp(
       lightTheme: FastTheme.light.blue,
       darkTheme: FastTheme.dark.blue,
-      homeBuilder: (_) => MyHomePage(),
-      routes: AppRoutes,
+      homeBuilder: (_) => const MyHomePage(),
+      routes: kAppRoutes,
       loaderJobs: [
         DummyLoaderJob(),
         DummyLoaderJob(),
@@ -77,7 +79,8 @@ class MyApp extends StatelessWidget {
               maxValue: 1,
             ),
             kFastSizedBox16,
-            FastBody(text: 'Please wait while the application is loading...'),
+            const FastBody(
+                text: 'Please wait while the application is loading...'),
           ],
         );
       },
@@ -86,13 +89,13 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final palette = ThemeHelper.getPaletteColors(context);
@@ -100,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return FastHomePage(
       leading: FastIconButton(
         onTap: () => context.go('/onboarding'),
-        icon: Icon(Icons.account_circle),
+        icon: const Icon(Icons.account_circle),
         iconColor: palette.whiteColor,
         iconSize: kFastIconSizeMedium,
       ),
@@ -110,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
             final response = await Navigator.push(
               context,
               CupertinoPageRoute(
-                builder: (context) => FastSearchPage(
+                builder: (context) => const FastSearchPage(
                   items: demoItems,
                   categories: demoCategories,
                   groupByCategory: true,
@@ -124,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
               debugPrint(response.value.toString());
             }
           },
-          icon: Icon(Icons.search),
+          icon: const Icon(Icons.search),
           iconColor: palette.whiteColor,
           iconSize: kFastIconSizeMedium,
         ),
@@ -134,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         tooltip: 'Settings',
-        child: Icon(Icons.settings),
+        child: const Icon(Icons.settings),
       ),
       children: _buildList(context),
     );
@@ -145,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final palette = ThemeHelper.getPaletteColors(context);
 
     return [
-      FastListHeader(
+      const FastListHeader(
         categoryText: 'options',
         captionText: 'Favorites',
       ),
@@ -155,18 +158,18 @@ class _MyHomePageState extends State<MyHomePage> {
         isChecked: themeBloc.currentState.brightness == Brightness.dark,
         onValueChanged: (bool shouldSwitchToDarkMode) {
           if (shouldSwitchToDarkMode) {
-            themeBloc.addEvent(FastThemeBlocEvent.dark());
+            themeBloc.addEvent(const FastThemeBlocEvent.dark());
           } else {
-            themeBloc.addEvent(FastThemeBlocEvent.light());
+            themeBloc.addEvent(const FastThemeBlocEvent.light());
           }
         },
       ),
-      FastListHeader(
+      const FastListHeader(
         categoryText: 'ui categories',
       ),
       FastNavigationListItem(
         leading: FastRoundedDuotoneIcon(
-          icon: Icon(Icons.radio_button_checked),
+          icon: const Icon(Icons.radio_button_checked),
           palette: palette.purple,
         ),
         labelText: 'Buttons',
@@ -175,7 +178,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       FastNavigationListItem(
         leading: FastRoundedDuotoneIcon(
-          icon: Icon(Icons.text_fields),
+          icon: const Icon(Icons.text_fields),
           palette: palette.green,
         ),
         labelText: 'Typography',
@@ -184,7 +187,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       FastNavigationListItem(
         leading: FastRoundedDuotoneIcon(
-          icon: Icon(Icons.table_chart),
+          icon: const Icon(Icons.table_chart),
           palette: palette.blue,
         ),
         labelText: 'Tabs',
@@ -192,7 +195,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       FastNavigationListItem(
         leading: FastRoundedDuotoneIcon(
-          icon: Icon(Icons.view_agenda),
+          icon: const Icon(Icons.view_agenda),
           palette: palette.blueGray,
         ),
         labelText: 'Cards',
@@ -200,7 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       FastNavigationListItem(
         leading: FastRoundedDuotoneIcon(
-          icon: Icon(Icons.view_list),
+          icon: const Icon(Icons.view_list),
           palette: palette.pink,
         ),
         labelText: 'List',
@@ -208,7 +211,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       FastNavigationListItem(
         leading: FastRoundedDuotoneIcon(
-          icon: Icon(Icons.edit),
+          icon: const Icon(Icons.edit),
           palette: palette.teal,
         ),
         labelText: 'Fields',
@@ -216,7 +219,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       FastNavigationListItem(
         leading: FastRoundedDuotoneIcon(
-          icon: Icon(Icons.message),
+          icon: const Icon(Icons.message),
           palette: palette.orange,
         ),
         labelText: 'Notifications',
@@ -224,7 +227,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       FastNavigationListItem(
         leading: FastRoundedDuotoneIcon(
-          icon: Icon(Icons.colorize),
+          icon: const Icon(Icons.colorize),
           palette: palette.red,
         ),
         labelText: 'Colors',
@@ -232,7 +235,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       FastNavigationListItem(
         leading: FastRoundedDuotoneIcon(
-          icon: Icon(Icons.description),
+          icon: const Icon(Icons.description),
           palette: palette.brown,
         ),
         labelText: 'Page',
@@ -240,7 +243,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       FastNavigationListItem(
         leading: FastRoundedDuotoneIcon(
-          icon: Icon(Icons.dashboard),
+          icon: const Icon(Icons.dashboard),
           palette: palette.yellow,
         ),
         labelText: 'responsive',
@@ -248,7 +251,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       FastNavigationListItem(
         leading: FastRoundedDuotoneIcon(
-          icon: FaIcon(FontAwesomeIcons.tableColumns),
+          icon: const FaIcon(FontAwesomeIcons.tableColumns),
           palette: palette.blue,
         ),
         labelText: 'Split View',
@@ -256,7 +259,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       FastNavigationListItem(
         leading: FastRoundedDuotoneIcon(
-          icon: FaIcon(FontAwesomeIcons.tablet),
+          icon: const FaIcon(FontAwesomeIcons.tablet),
           palette: palette.green,
         ),
         labelText: 'Navigation Bar View',
@@ -264,7 +267,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       FastNavigationListItem(
         leading: FastRoundedDuotoneIcon(
-          icon: FaIcon(FontAwesomeIcons.spinner),
+          icon: const FaIcon(FontAwesomeIcons.spinner),
           palette: palette.blue,
         ),
         labelText: 'Indicators',

@@ -9,8 +9,6 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 // Package imports:
 
-
-
 /// Represents information about a fast app.
 class FastAppInfoDocument extends TDocument {
   /// The name of the app.
@@ -200,10 +198,10 @@ class FastAppInfoDocument extends TDocument {
 
   factory FastAppInfoDocument.fromJson(Map<String, dynamic> json) {
     final productIdentifiers = json['productIdentifiers'] as List<dynamic>?;
-    List<String>? productIdentifiersSafe = [];
+    final productIdentifiersSafe = <String>[];
 
     if (productIdentifiers != null) {
-      for (var productIdentifier in productIdentifiers) {
+      for (final productIdentifier in productIdentifiers) {
         if (productIdentifier is String) {
           productIdentifiersSafe.add(productIdentifier);
         }

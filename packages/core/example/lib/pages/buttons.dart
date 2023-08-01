@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:t_helpers/helpers.dart';
 
 class ButtonsPage extends StatelessWidget {
+  const ButtonsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return FastSectionPage(
@@ -81,20 +83,20 @@ class ButtonsPage extends StatelessWidget {
             isEnabled: false,
           ),
           FastIconButton(
-            icon: Icon(Icons.android),
+            icon: const Icon(Icons.android),
             onTap: () {
               log('icon button');
             },
           ),
           FastIconButton(
-            icon: Icon(Icons.android),
+            icon: const Icon(Icons.android),
             onTap: () {
               log('icon button disabled');
             },
             isEnabled: false,
           ),
           FastIconButton(
-            icon: Icon(Icons.android),
+            icon: const Icon(Icons.android),
             onTap: () {
               log('icon button disabled');
             },

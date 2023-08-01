@@ -59,7 +59,7 @@ class FastSplitLayout extends StatelessWidget {
 
   Widget buildSecondary(BuildContext context, FastMediaType mediaType) {
     return Expanded(
-      child: Container(
+      child: ColoredBox(
         color: _getMasterBackgroundColor(context),
         child: Builder(builder: secondaryBuilder),
       ),

@@ -2,6 +2,8 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
 
 class CardsPage extends StatelessWidget {
+  const CardsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return FastSectionPage(
@@ -10,11 +12,11 @@ class CardsPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          FastCard(
+          const FastCard(
             titleText: 'Empty Card',
           ),
           kFastSizedBox16,
-          FastCard(
+          const FastCard(
             titleText: 'French',
             child: FastSecondaryBody(text: 'Bonjour le monde !'),
           ),
@@ -26,15 +28,15 @@ class CardsPage extends StatelessWidget {
                 onTap: () {
                   _showPopup(context, 'Thanks!');
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.favorite,
                 ),
               ),
             ],
-            child: FastSecondaryBody(text: 'Hello World!'),
+            child: const FastSecondaryBody(text: 'Hello World!'),
           ),
           kFastSizedBox16,
-          FastCard(
+          const FastCard(
             titleText: 'Spanish',
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -50,7 +52,7 @@ class CardsPage extends StatelessWidget {
             headerActions: <Widget>[
               FastIconButton(
                 onTap: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.favorite,
                 ),
               ),
@@ -59,16 +61,16 @@ class CardsPage extends StatelessWidget {
               FastTextButton(
                 text: 'cancel',
                 onTap: () {},
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
               ),
               FastTextButton(
                 text: 'Valid',
                 onTap: () {},
                 emphasis: FastButtonEmphasis.high,
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
               ),
             ],
-            child: FastBody(text: 'With Shadow ;)'),
+            child: const FastBody(text: 'With Shadow ;)'),
           ),
           kFastSizedBox16,
           FastCard(
@@ -76,7 +78,7 @@ class CardsPage extends StatelessWidget {
             headerActions: <Widget>[
               FastIconButton(
                 onTap: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.favorite,
                 ),
               ),
@@ -85,13 +87,13 @@ class CardsPage extends StatelessWidget {
               FastTextButton(
                 text: 'cancel',
                 onTap: () {},
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
               ),
               FastTextButton(
                 text: 'Valid',
                 onTap: () {},
                 emphasis: FastButtonEmphasis.high,
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
               ),
             ],
           ),
@@ -100,8 +102,8 @@ class CardsPage extends StatelessWidget {
             titleText: 'Calculator',
             child: Column(
               children: [
-                FastSecondaryBody(text: 'Content 1'),
-                FastSecondaryBody(text: 'Content 2'),
+                const FastSecondaryBody(text: 'Content 1'),
+                const FastSecondaryBody(text: 'Content 2'),
                 kFastSizedBox16,
                 FastExpansionPanel(
                   titleText: 'More...',

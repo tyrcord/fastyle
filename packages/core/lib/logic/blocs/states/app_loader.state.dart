@@ -12,8 +12,8 @@ class FastAppLoaderBlocState extends BlocState {
     this.isLoading = false,
     this.isLoaded = false,
     this.progress = 0,
-    dynamic error,
-  }) : super(error: error);
+    super.error,
+  });
 
   @override
   FastAppLoaderBlocState clone() => copyWith();

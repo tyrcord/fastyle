@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 
 class FieldsPage extends StatelessWidget {
+  const FieldsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).primaryColor;
@@ -18,25 +20,25 @@ class FieldsPage extends StatelessWidget {
             categoryText: 'category 1',
             categoryColor: primaryColor,
             padding: EdgeInsets.zero,
-            margin: EdgeInsets.only(bottom: 16.0),
+            margin: const EdgeInsets.only(bottom: 16.0),
           ),
-          FastNumberField(
+          const FastNumberField(
             labelText: 'Number 1',
             placeholderText: '0',
             captionText: 'required',
           ),
-          FastTextField(
+          const FastTextField(
             labelText: 'Text 1',
             helperText: 'Do you need some help?',
           ),
-          FastNumberField(
+          const FastNumberField(
             labelText: 'Number 2',
             placeholderText: '1000',
             captionText: 'optional',
           ),
           FastSegmentField(
             labelText: 'Position',
-            options: [
+            options: const [
               FastItem(
                 labelText: 'Long',
                 value: 'long',
@@ -50,7 +52,7 @@ class FieldsPage extends StatelessWidget {
               log(option.value.toString());
             },
           ),
-          FastNumberField(
+          const FastNumberField(
             labelText: 'Number 3',
             placeholderText: '42',
             captionText: 'optional',
@@ -58,26 +60,24 @@ class FieldsPage extends StatelessWidget {
           FastNumberField(
             labelText: 'Number with a suffix icon',
             placeholderText: '0',
-            suffixIcon: Container(
-              child: FastPopupMenuButton(
-                itemBuilder: (context) => [
-                  PopupMenuItem(
-                    value: 1,
-                    child: Text('Option 1'),
-                  ),
-                  PopupMenuItem(
-                    value: 2,
-                    child: Text('Option 2'),
-                  ),
-                ],
-                padding: EdgeInsets.zero,
-                icon: Align(
-                  alignment: Alignment.centerRight,
-                  child: Icon(
-                    Icons.more_vert,
-                    size: kFastIconSizeSmall,
-                    color: ThemeHelper.texts.getBodyTextStyle(context).color,
-                  ),
+            suffixIcon: FastPopupMenuButton(
+              itemBuilder: (context) => [
+                const PopupMenuItem(
+                  value: 1,
+                  child: Text('Option 1'),
+                ),
+                const PopupMenuItem(
+                  value: 2,
+                  child: Text('Option 2'),
+                ),
+              ],
+              padding: EdgeInsets.zero,
+              icon: Align(
+                alignment: Alignment.centerRight,
+                child: Icon(
+                  Icons.more_vert,
+                  size: kFastIconSizeSmall,
+                  color: ThemeHelper.texts.getBodyTextStyle(context).color,
                 ),
               ),
             ),
@@ -86,7 +86,7 @@ class FieldsPage extends StatelessWidget {
             categoryText: 'category 2',
             categoryColor: primaryColor,
             padding: EdgeInsets.zero,
-            margin: EdgeInsets.only(bottom: 16.0),
+            margin: const EdgeInsets.only(bottom: 16.0),
           ),
           FastNumberField(
             labelText: 'Number 3',
@@ -132,16 +132,16 @@ class FieldsPage extends StatelessWidget {
             onSelectionChanged: (FastItem<String>? value) {},
             isEnabled: false,
           ),
-          FastTextField(
+          const FastTextField(
             labelText: 'Text 2',
             placeholderText: 'value',
             captionText: 'optional',
           ),
-          FastReadOnlyTextField(
+          const FastReadOnlyTextField(
             labelText: 'Read Only',
             valueText: 'Can select text',
           ),
-          FastPendingReadOnlyTextField(
+          const FastPendingReadOnlyTextField(
             labelText: 'Pending Read Only',
             valueText: 'Pending',
             pendingText: '\$0.000',

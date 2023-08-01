@@ -8,7 +8,7 @@ import 'package:fastyle_core_example/pages/lists.dart';
 import 'package:fastyle_core_example/pages/naviagtion_bar_view.dart';
 import 'package:fastyle_core_example/pages/notifications.dart';
 import 'package:fastyle_core_example/pages/responsive.dart';
-import 'package:fastyle_core_example/pages/split-view.dart';
+import 'package:fastyle_core_example/pages/split_view.dart';
 import 'package:fastyle_core_example/pages/tabs.dart';
 import 'package:fastyle_core_example/pages/typography.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +21,7 @@ final options = List<FastItem>.generate(50, (int index) {
 final GlobalKey<NavigatorState> _shellNavigatorKey =
     GlobalKey<NavigatorState>();
 
-final AppRoutes = [
+final kAppRoutes = [
   GoRoute(
     path: 'onboarding',
     pageBuilder: (context, state) {
@@ -30,7 +30,7 @@ final AppRoutes = [
       const slide1 = Text(slideText1);
       const slide2 = Text(slideText2);
 
-      return MaterialPage(
+      return const MaterialPage(
         fullscreenDialog: true,
         child: FastOnboardingView(
           slides: [slide1, slide2],
@@ -41,62 +41,60 @@ final AppRoutes = [
   ),
   GoRoute(
     path: 'buttons',
-    builder: (context, state) => ButtonsPage(),
+    builder: (context, state) => const ButtonsPage(),
   ),
   GoRoute(
     path: 'typography',
-    builder: (context, state) => TypographyPage(),
+    builder: (context, state) => const TypographyPage(),
   ),
   GoRoute(
     path: 'tabs',
-    builder: (context, state) => TabsPage(),
+    builder: (context, state) => const TabsPage(),
   ),
   GoRoute(
     path: 'cards',
-    builder: (context, state) => CardsPage(),
+    builder: (context, state) => const CardsPage(),
   ),
   GoRoute(
     path: 'list',
-    builder: (context, state) => ListsPage(),
+    builder: (context, state) => const ListsPage(),
   ),
   GoRoute(
     path: 'fields',
-    builder: (context, state) => FieldsPage(),
+    builder: (context, state) => const FieldsPage(),
   ),
   GoRoute(
     path: 'notifications',
-    builder: (context, state) => NotificationsPage(),
+    builder: (context, state) => const NotificationsPage(),
   ),
   GoRoute(
     path: 'colors',
-    builder: (context, state) => ColorsPage(),
+    builder: (context, state) => const ColorsPage(),
   ),
   GoRoute(
     path: 'page',
     builder: (context, state) => FastSectionPage(
       loadingBuilder: (_) {
-        return Text('loading...');
+        return const Text('loading...');
       },
       errorBuilder: (_) {
-        return Text('An error occured');
+        return const Text('An error occured');
       },
       loadingFuture: Future.delayed(
         const Duration(milliseconds: 10000),
         () => true,
       ),
-      loadingTimeout: Duration(milliseconds: 5000),
-      child: Container(
-        child: Text('done'),
-      ),
+      loadingTimeout: const Duration(milliseconds: 5000),
+      child: const Text('done'),
     ),
   ),
   GoRoute(
     path: 'responsive',
-    builder: (context, state) => ResponsivePage(),
+    builder: (context, state) => const ResponsivePage(),
   ),
   GoRoute(
     path: 'split-view',
-    builder: (context, state) => SplitViewPage(),
+    builder: (context, state) => const SplitViewPage(),
   ),
   ShellRoute(
     navigatorKey: _shellNavigatorKey,
@@ -109,7 +107,7 @@ final AppRoutes = [
         path: 'navigation-bar-view/explore',
         pageBuilder: (context, state) {
           return FastFadeTransitionPage(
-            child: FastSectionPage(
+            child: const FastSectionPage(
               titleText: 'Commute',
               showAppBar: false,
             ),
@@ -145,7 +143,7 @@ final AppRoutes = [
         path: 'navigation-bar-view/saved',
         pageBuilder: (context, state) {
           return FastFadeTransitionPage(
-            child: FastSectionPage(
+            child: const FastSectionPage(
               titleText: 'Saved',
               showAppBar: false,
             ),
@@ -157,6 +155,6 @@ final AppRoutes = [
   ),
   GoRoute(
     path: 'indicators',
-    builder: (context, state) => IndicatorsPage(),
+    builder: (context, state) => const IndicatorsPage(),
   ),
 ];

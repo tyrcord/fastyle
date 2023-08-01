@@ -11,10 +11,10 @@ class FastOnboardingPage extends StatelessWidget {
   final List<Widget>? children;
 
   const FastOnboardingPage({
-    Key? key,
+    super.key,
     required this.titleText,
     this.children,
-  }) : super(key: key);
+  });
 
   // TODO improvements
   // https://github.com/flutter/flutter/issues/18711#issuecomment-505791677

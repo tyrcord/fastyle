@@ -44,22 +44,16 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
       switch (type) {
         case FastAppSettingsBlocEventType.languageCodeChanged:
           yield* handleLanguageCodeChangedEvent(payload);
-          break;
         case FastAppSettingsBlocEventType.themeChanged:
           yield* handleThemeChangedEvent(payload);
-          break;
         case FastAppSettingsBlocEventType.countryCodeChanged:
           yield* handleCountryCodeChangedEvent(payload);
-          break;
         case FastAppSettingsBlocEventType.primaryCurrencyCodeChanged:
           yield* handlePrimaryCurrencyCodeChangedEvent(payload);
-          break;
         case FastAppSettingsBlocEventType.secondaryCurrencyCodeChanged:
           yield* handleSecondaryCurrencyCodeChangedEvent(payload);
-          break;
         case FastAppSettingsBlocEventType.saveEntryChanged:
           yield* handleSaveEntryChangedEvent(payload);
-          break;
         default:
           break;
       }

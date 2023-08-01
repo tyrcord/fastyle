@@ -16,9 +16,9 @@ class FastAppSettingsLanguagesBuilder extends StatelessWidget {
   /// [BuildContext] and [FastAppInfoBlocState] as input and returns
   /// a widget.
   const FastAppSettingsLanguagesBuilder({
-    Key? key,
+    super.key,
     required this.builder,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

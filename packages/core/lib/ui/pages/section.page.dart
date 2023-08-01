@@ -113,7 +113,7 @@ class FastSectionPage extends StatelessWidget {
   final bool showAppBar;
 
   const FastSectionPage({
-    Key? key,
+    super.key,
     this.appBarHeightSize = _kAppBarHeightSize,
     this.isTitlePositionBelowAppBar = true,
     this.isViewScrollable = false,
@@ -144,8 +144,7 @@ class FastSectionPage extends StatelessWidget {
           footerBuilder == null || footer == null,
           'footerBuilder and footer properties '
           'should not be initialized together',
-        ),
-        super(key: key);
+        );
 
   @override
   Widget build(BuildContext context) {

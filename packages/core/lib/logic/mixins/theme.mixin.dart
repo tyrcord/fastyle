@@ -14,10 +14,8 @@ mixin FastSettingsThemeMixin {
     switch (themeMode) {
       case ThemeMode.light:
         themeBloc.addEvent(const FastThemeBlocEvent.light());
-        break;
       case ThemeMode.dark:
         themeBloc.addEvent(const FastThemeBlocEvent.dark());
-        break;
       default:
         themeBloc.addEvent(const FastThemeBlocEvent.system());
     }

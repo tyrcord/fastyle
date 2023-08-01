@@ -57,7 +57,7 @@ class FastHomePage extends StatelessWidget {
   final ScrollController? scrollController;
 
   const FastHomePage({
-    Key? key,
+    super.key,
     required this.children,
     this.appBarExpandedHeight = kFastExpandedHeight,
     this.appBarBackgroundLinearGradient,
@@ -70,8 +70,7 @@ class FastHomePage extends StatelessWidget {
     this.titleText,
     this.actions,
     this.leading,
-  })  : assert(appBarExpandedHeight >= kFastExpandedHeight ? true : false),
-        super(key: key);
+  })  : assert(appBarExpandedHeight >= kFastExpandedHeight ? true : false);
 
   @override
   Widget build(BuildContext context) {

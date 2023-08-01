@@ -9,8 +9,6 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 // Package imports:
 
-
-
 const _kFooterMargin = EdgeInsets.only(top: 16.0);
 
 class FastAppInfoPage<T> extends StatelessWidget {
@@ -63,7 +61,7 @@ class FastAppInfoPage<T> extends StatelessWidget {
   List<Widget> buildNavigationCategories(BuildContext context) {
     final List<Widget> categories = [];
 
-    for (var navigationCategoryDescriptor in categoryDescriptors) {
+    for (final navigationCategoryDescriptor in categoryDescriptors) {
       final items = navigationCategoryDescriptor.items;
 
       categories.add(FastListHeader(
@@ -73,8 +71,8 @@ class FastAppInfoPage<T> extends StatelessWidget {
         captionColor: navigationCategoryDescriptor.captionColor,
       ));
 
-      for (var item in items) {
-        Widget listItem = buildNavigationListItem(context, item);
+      for (final item in items) {
+        final listItem = buildNavigationListItem(context, item);
         categories.add(listItem);
       }
     }

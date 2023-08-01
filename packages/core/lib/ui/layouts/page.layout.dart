@@ -73,7 +73,7 @@ class FastPageLayout extends StatelessWidget {
   bool get _hasFooter => footer != null || footerBuilder != null;
 
   const FastPageLayout({
-    Key? key,
+    super.key,
     this.avoidOperatingSystemInterfaces = true,
     this.isViewScrollable = false,
     this.contentPadding,
@@ -96,8 +96,7 @@ class FastPageLayout extends StatelessWidget {
           footerBuilder == null || footer == null,
           'footerBuilder and footer properties '
           'should not be initialized together',
-        ),
-        super(key: key);
+        );
 
   @override
   Widget build(BuildContext context) {

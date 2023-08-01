@@ -39,8 +39,8 @@ class FastAppLoaderBloc
     if (eventType == FastAppLoaderBlocEventType.init &&
         !isInitialized &&
         !isInitializing) {
-      var jobs = eventPayload!.jobs;
-      var errorReporter = eventPayload.errorReporter;
+      final jobs = eventPayload!.jobs;
+      final errorReporter = eventPayload.errorReporter;
       isInitializing = true;
 
       yield currentState.copyWith(isLoading: isInitializing);

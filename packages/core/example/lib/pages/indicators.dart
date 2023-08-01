@@ -2,6 +2,8 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
 
 class IndicatorsPage extends StatefulWidget {
+  const IndicatorsPage({super.key});
+
   @override
   State<IndicatorsPage> createState() => _IndicatorsPageState();
 }
@@ -13,14 +15,14 @@ class _IndicatorsPageState extends State<IndicatorsPage> {
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       if (mounted) {
         setState(() {
           _progress = 0.75;
         });
       }
 
-      Future.delayed(Duration(seconds: 1), () {
+      Future.delayed(const Duration(seconds: 1), () {
         if (mounted) {
           setState(() {
             _progress = 0.25;
@@ -39,7 +41,7 @@ class _IndicatorsPageState extends State<IndicatorsPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          FastTitle(text: 'Progress Bars'),
+          const FastTitle(text: 'Progress Bars'),
           kFastSizedBox32,
           FastLinearProgressBarIndicator(
             value: _progress,

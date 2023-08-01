@@ -4,6 +4,8 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
 
 class TabsPage extends StatelessWidget {
+  const TabsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final options = List<FastItem>.generate(50, (int index) {
@@ -14,7 +16,7 @@ class TabsPage extends StatelessWidget {
       titleText: 'Tabs',
       contentPadding: EdgeInsets.zero,
       child: FastTabs(
-        tabs: [
+        tabs: const [
           Tab(text: 'Favorites'),
           Tab(text: 'All'),
           Tab(text: 'Forex'),
@@ -23,7 +25,7 @@ class TabsPage extends StatelessWidget {
           Tab(text: 'Stocks'),
         ],
         views: <Widget>[
-          Icon(Icons.favorite),
+          const Icon(Icons.favorite),
           FastSelectableListView(
             showItemDivider: true,
             items: options,
@@ -32,10 +34,10 @@ class TabsPage extends StatelessWidget {
               log('${option.labelText} selected');
             },
           ),
-          Icon(Icons.euro_symbol),
-          Icon(Icons.donut_small),
-          Icon(Icons.attach_money),
-          Icon(Icons.home),
+          const Icon(Icons.euro_symbol),
+          const Icon(Icons.donut_small),
+          const Icon(Icons.attach_money),
+          const Icon(Icons.home),
         ],
       ),
     );

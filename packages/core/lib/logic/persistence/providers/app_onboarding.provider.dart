@@ -8,8 +8,8 @@ import 'package:fastyle_core/fastyle_core.dart';
 /// [FastAppOnboardingDocument] objects.
 class FastAppOnboardingDataProvider extends TDocumentDataProvider {
   FastAppOnboardingDataProvider({
-    String storeName = kFastAppOnboardingStoreName,
-  }) : super(storeName: storeName);
+    super.storeName = kFastAppOnboardingStoreName,
+  });
 
   /// Retrieves the onboarding document.
   Future<FastAppOnboardingDocument> retrieveOnboarding() async {

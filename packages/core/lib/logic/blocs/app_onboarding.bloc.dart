@@ -37,7 +37,6 @@ class FastAppOnboardingBloc extends BidirectionalBloc<
       switch (type) {
         case FastAppOnboardingBlocEventType.initializationCompleted:
           yield* handleInitializationCompletedEvent();
-          break;
         default:
           break;
       }

@@ -2,6 +2,8 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
 
 class NotificationsPage extends StatelessWidget {
+  const NotificationsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return FastSectionPage(
@@ -16,7 +18,7 @@ class NotificationsPage extends StatelessWidget {
               FastNotificationCenter.info(
                 context,
                 'info message',
-                options: FastNotificationCenterOptions(
+                options: const FastNotificationCenterOptions(
                   leadingIcon: Icon(Icons.message),
                 ),
               );
@@ -28,7 +30,7 @@ class NotificationsPage extends StatelessWidget {
               FastNotificationCenter.error(
                 context,
                 'error message',
-                options: FastNotificationCenterOptions(
+                options: const FastNotificationCenterOptions(
                   leadingIcon: Icon(Icons.bug_report),
                 ),
               );

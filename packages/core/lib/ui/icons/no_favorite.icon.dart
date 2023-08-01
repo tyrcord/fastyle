@@ -27,7 +27,7 @@ class FastNoFavoriteIcon extends StatelessWidget {
   final Widget? icon;
 
   const FastNoFavoriteIcon({
-    Key? key,
+    super.key,
     this.color,
     this.icon,
     double? size,
@@ -35,8 +35,7 @@ class FastNoFavoriteIcon extends StatelessWidget {
     bool? hideText,
   })  : text = text ?? CoreLocaleKeys.core_message_no_favorites,
         size = size ?? kFastIconSizeXxl,
-        hideText = hideText ?? false,
-        super(key: key);
+        hideText = hideText ?? false;
 
   @override
   Widget build(BuildContext context) {

@@ -17,7 +17,7 @@ class FastMediaLayoutBloc extends BidirectionalBloc<FastMediaLayoutBlocEvent,
     FastMediaLayoutBlocEvent event,
   ) async* {
     if (event.type == FastMediaLayoutBlocEventType.changed) {
-      var mediaType = event.payload as FastMediaType;
+      final mediaType = event.payload as FastMediaType;
 
       yield currentState.copyWith(mediaType: mediaType);
     }

@@ -85,7 +85,7 @@ class _RenderMediaLayoutChangedWithCallback extends RenderProxyBox {
   void performLayout() {
     super.performLayout();
 
-    var mediaType = _getFastMediaType(size);
+    final mediaType = _getFastMediaType(size);
 
     if (mediaType != _currentMediaType) {
       _currentMediaType = mediaType;

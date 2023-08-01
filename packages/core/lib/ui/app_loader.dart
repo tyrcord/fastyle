@@ -164,7 +164,7 @@ class FastAppLoaderState extends State<FastAppLoader> {
               data: theme,
               child: Builder(
                 builder: (context) {
-                  return Container(
+                  return ColoredBox(
                     color:
                         ThemeHelper.colors.getPrimaryBackgroundColor(context),
                     child: FastPageLayout(child: child),

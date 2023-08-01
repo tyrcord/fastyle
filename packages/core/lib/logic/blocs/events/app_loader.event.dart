@@ -32,9 +32,9 @@ class FastAppLoaderBlocEventPayload {
 class FastAppLoaderBlocEvent extends BlocEvent<FastAppLoaderBlocEventType,
     FastAppLoaderBlocEventPayload> {
   const FastAppLoaderBlocEvent({
-    required FastAppLoaderBlocEventType type,
-    FastAppLoaderBlocEventPayload? payload,
-  }) : super(type: type, payload: payload);
+    required FastAppLoaderBlocEventType super.type,
+    super.payload,
+  });
 
   FastAppLoaderBlocEvent.init(
     BuildContext context, {

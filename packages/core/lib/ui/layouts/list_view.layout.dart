@@ -93,7 +93,7 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
   /// Builds a tab view widget with categories.
   Widget _buildTabViews(BuildContext context, List<T> items) {
     // Group the items into categories
-    var listCategories = _buildListCategories(items);
+    final listCategories = _buildListCategories(items);
 
     // If an extraTabBuilder function is provided, call it to add additional
     // categories
@@ -108,9 +108,9 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
     final views = <Widget>[];
     final tabs = <Tab>[];
 
-    for (var listCategory in listCategories) {
+    for (final listCategory in listCategories) {
       // Create a tab for the category
-      Tab tab = Tab(text: toBeginningOfSentenceCase(listCategory.labelText));
+      final tab = Tab(text: toBeginningOfSentenceCase(listCategory.labelText));
       Widget? view;
 
       // If a delegate is provided, call its willBuildListViewForCategory method
@@ -248,7 +248,7 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
     final allCategory =
         categoriesMap[kFastListTileCategoryAll.valueText]!.items;
 
-    for (var item in items) {
+    for (final item in items) {
       item.categories?.forEach((FastCategory category) {
         if (!categoriesMap.containsKey(category.valueText)) {
           categoriesMap[category.valueText] = _buildListCategory(category);

@@ -8,7 +8,7 @@ const vegetablesCategory = FastCategory(
 
 const demoCategories = [fruitsCategory, vegetablesCategory];
 
-final List<FastItem<String>> demoItems = [
+const List<FastItem<String>> demoItems = [
   FastItem(
     labelText: 'Apples',
     value: 'apples',

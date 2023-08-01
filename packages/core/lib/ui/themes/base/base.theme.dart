@@ -37,13 +37,9 @@ class NoSplashFactory extends InteractiveInkFeatureFactory {
 
 class NoSplashInk extends InteractiveInkFeature {
   NoSplashInk({
-    required MaterialInkController controller,
-    required RenderBox referenceBox,
-  }) : super(
-          controller: controller,
-          referenceBox: referenceBox,
-          color: Colors.transparent,
-        );
+    required super.controller,
+    required super.referenceBox,
+  }) : super(color: Colors.transparent);
 
   @override
   // ignore: no-empty-block

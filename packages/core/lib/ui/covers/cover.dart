@@ -16,7 +16,7 @@ class FastCover extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: getBackgroundColor(context),
       child: child,
     );
