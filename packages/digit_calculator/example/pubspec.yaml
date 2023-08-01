@@ -13,7 +13,7 @@ dependencies:
 
   cupertino_icons: ^1.0.5
   decimal: ^2.3.3
-  t_helpers: ">=0.0.21 <1.0.0"
+  t_helpers: ^0.0.22
   intl: ^0.18.0
   fastyle_core: ^0.0.6
   font_awesome_flutter: ^10.5.0

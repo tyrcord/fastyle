@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:t_helpers/helpers.dart';
 
 FastApp _buildApp(Widget child) {
   return FastApp(homeBuilder: (_) => FastHomePage(children: [child]));
@@ -17,8 +18,8 @@ void main() {
 
     testWidgets('should draw its text', (WidgetTester tester) async {
       await tester.pumpWidget(
-        _buildApp(FastOutlineButton(
-          onTap: () {},
+        _buildApp(const FastOutlineButton(
+          onTap: noop,
           text: buttonText,
         )),
       );
@@ -34,9 +35,9 @@ void main() {
 
     testWidgets('should draw its child', (WidgetTester tester) async {
       await tester.pumpWidget(
-        _buildApp(FastOutlineButton(
-          onTap: () {},
-          child: const Text(buttonText),
+        _buildApp(const FastOutlineButton(
+          onTap: noop,
+          child: Text(buttonText),
         )),
       );
       await tester.pumpAndSettle();

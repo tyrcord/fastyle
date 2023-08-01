@@ -15,7 +15,7 @@ dependencies:
   tbloc: ">=0.21.0 <1.0.0"
   tstore: ">=0.8.9 <1.0.0"
   devicelocale: ^0.6.0
-  t_helpers: ">=0.0.21 <1.0.0"
+  t_helpers: ^0.0.22
   collection: ^1.17.1
   easy_localization: ^3.0.2
   rate_my_app: ^2.0.0

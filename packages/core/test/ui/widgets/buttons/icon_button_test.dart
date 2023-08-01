@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:t_helpers/helpers.dart';
 
 FastApp _buildApp(Widget child) {
   return FastApp(homeBuilder: (_) => FastHomePage(children: [child]));
@@ -17,9 +18,9 @@ void main() {
 
     testWidgets('should draw its icon', (WidgetTester tester) async {
       await tester.pumpWidget(
-        _buildApp(FastIconButton(
+        _buildApp(const FastIconButton(
           icon: pageviewIcon,
-          onTap: () {},
+          onTap: noop,
         )),
       );
 

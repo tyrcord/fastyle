@@ -1,3 +1,5 @@
+//ignore_for_file: no-empty-block
+
 // Flutter imports:
 import 'package:flutter/material.dart';
 

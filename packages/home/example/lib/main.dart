@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_home/fastyle_home.dart';
+import 'package:t_helpers/helpers.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,16 +29,14 @@ class MyAppState extends State<MyApp> {
         titleText: 'Welcome!',
         subtitleText: 'Have a wonderful day!',
         contentPadding: kFastEdgeInsets16,
-        leading: IconButton(
-          // ignore: no-empty-block
-          onPressed: () {},
-          icon: const Icon(Icons.settings),
+        leading: const IconButton(
+          onPressed: noop,
+          icon: Icon(Icons.settings),
         ),
-        actions: [
+        actions: const [
           IconButton(
-            // ignore: no-empty-block
-            onPressed: () {},
-            icon: const Icon(Icons.search),
+            onPressed: noop,
+            icon: Icon(Icons.search),
           ),
         ],
         floatingActionButton: const Icon(Icons.settings),

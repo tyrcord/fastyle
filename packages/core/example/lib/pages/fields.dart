@@ -1,3 +1,5 @@
+//ignore_for_file: no-empty-block
+
 import 'dart:developer';
 
 import 'package:fastyle_core_example/data/items.dart';

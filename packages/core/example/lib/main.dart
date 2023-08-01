@@ -8,6 +8,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:t_helpers/helpers.dart';
 
 class DummyLoaderJob extends FastJob {
   @override
@@ -134,10 +135,10 @@ class MyHomePageState extends State<MyHomePage> {
       ],
       titleText: 'Fastyle Demo',
       subtitleText: 'Hello stranger! Have a wonderful day! :)',
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+      floatingActionButton: const FloatingActionButton(
+        onPressed: noop,
         tooltip: 'Settings',
-        child: const Icon(Icons.settings),
+        child: Icon(Icons.settings),
       ),
       children: _buildList(context),
     );

@@ -1,3 +1,5 @@
+//ignore_for_file: no-empty-block
+
 // Package imports:
 import 'package:flutter_test/flutter_test.dart';
 
@@ -56,14 +58,12 @@ void main() {
       testWidgets('should be called when a user select an item',
           (WidgetTester tester) async {
         var called = false;
-        FastItem<dynamic>? selection;
 
         await tester.pumpWidget(
           _buildApp(FastSelectField(
             labelText: labelText,
             onSelectionChanged: (FastItem<dynamic>? item) {
               called = true;
-              selection = item;
             },
             items: items,
           )),

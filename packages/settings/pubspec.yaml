@@ -19,7 +19,7 @@ dependencies:
   fastyle_forms: ^0.0.12
   easy_localization: ^3.0.2
   lingua_settings: ^0.0.8
-  t_helpers: ^0.0.21
+  t_helpers: ^0.0.22
 
 dev_dependencies:
   flutter_test:

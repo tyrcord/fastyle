@@ -71,6 +71,7 @@ void main() {
             textEditingController: controller,
             onSearchFilter: (FastItem option, String? query) {
               called = true;
+
               return option.labelText == 'apple';
             },
             onSuggestions: (List<FastItem<dynamic>>? items, String? query) {

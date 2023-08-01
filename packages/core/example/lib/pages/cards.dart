@@ -1,5 +1,6 @@
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
+import 'package:t_helpers/helpers.dart';
 
 class CardsPage extends StatelessWidget {
   const CardsPage({super.key});
@@ -47,12 +48,12 @@ class CardsPage extends StatelessWidget {
             ),
           ),
           kFastSizedBox16,
-          FastCard(
+          const FastCard(
             titleText: 'English',
             headerActions: <Widget>[
               FastIconButton(
-                onTap: () {},
-                icon: const Icon(
+                onTap: noop,
+                icon: Icon(
                   Icons.favorite,
                 ),
               ),
@@ -60,25 +61,25 @@ class CardsPage extends StatelessWidget {
             footerActions: <Widget>[
               FastTextButton(
                 text: 'cancel',
-                onTap: () {},
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                onTap: noop,
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
               ),
               FastTextButton(
                 text: 'Valid',
-                onTap: () {},
+                onTap: noop,
                 emphasis: FastButtonEmphasis.high,
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
               ),
             ],
-            child: const FastBody(text: 'With Shadow ;)'),
+            child: FastBody(text: 'With Shadow ;)'),
           ),
           kFastSizedBox16,
-          FastCard(
+          const FastCard(
             titleText: 'English',
             headerActions: <Widget>[
               FastIconButton(
-                onTap: () {},
-                icon: const Icon(
+                onTap: noop,
+                icon: Icon(
                   Icons.favorite,
                 ),
               ),
@@ -86,14 +87,14 @@ class CardsPage extends StatelessWidget {
             footerActions: <Widget>[
               FastTextButton(
                 text: 'cancel',
-                onTap: () {},
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                onTap: noop,
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
               ),
               FastTextButton(
                 text: 'Valid',
-                onTap: () {},
+                onTap: noop,
                 emphasis: FastButtonEmphasis.high,
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
               ),
             ],
           ),

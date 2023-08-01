@@ -1,3 +1,5 @@
+//ignore_for_file: no-empty-block
+
 // Flutter imports:
 import 'package:flutter/material.dart';
 
@@ -6,6 +8,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:t_helpers/helpers.dart';
 
 FastApp _buildApp(Widget child) {
   return FastApp(homeBuilder: (_) => Material(child: child));
@@ -103,7 +106,7 @@ void main() {
             items: items,
             onSelectionChanged: (FastItem item) {},
             listItemBuilder: (BuildContext context, FastItem item, int index) {
-              return FastLink(text: item.labelText, onTap: () {});
+              return FastLink(text: item.labelText, onTap: noop);
             },
           )),
         );

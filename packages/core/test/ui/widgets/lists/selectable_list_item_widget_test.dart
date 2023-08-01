@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:t_helpers/helpers.dart';
 
 FastApp _buildApp(Widget child) {
   return FastApp(homeBuilder: (_) => FastHomePage(children: [child]));
@@ -56,7 +57,7 @@ void main() {
       testWidgets('should be set to false by default',
           (WidgetTester tester) async {
         final item = FastSelectableListItem(
-          onTap: () {},
+          onTap: noop,
           labelText: labelText,
         );
 
@@ -126,7 +127,7 @@ void main() {
           _buildApp(Column(
             children: [
               FastSelectableListItem(
-                onTap: () {},
+                onTap: noop,
                 labelText: labelText,
                 capitalizeLabelText: false,
               ),
@@ -145,7 +146,7 @@ void main() {
           _buildApp(Column(
             children: [
               FastSelectableListItem(
-                onTap: () {},
+                onTap: noop,
                 labelText: labelText,
                 descriptionText: descriptionText,
               ),
@@ -166,7 +167,7 @@ void main() {
           _buildApp(Column(
             children: [
               FastSelectableListItem(
-                onTap: () {},
+                onTap: noop,
                 labelText: labelText,
                 descriptionText: descriptionText,
                 leading: icon,
@@ -188,7 +189,7 @@ void main() {
           _buildApp(Column(
             children: [
               FastSelectableListItem(
-                onTap: () {},
+                onTap: noop,
                 labelText: labelText,
                 descriptionText: descriptionText,
                 trailing: icon,
@@ -215,7 +216,7 @@ void main() {
           _buildApp(Column(
             children: [
               FastSelectableListItem(
-                onTap: () {},
+                onTap: noop,
                 labelText: labelText,
                 descriptionText: descriptionText,
                 capitalizeLabelText: false,
@@ -238,7 +239,7 @@ void main() {
           _buildApp(Column(
             children: [
               FastSelectableListItem(
-                onTap: () {},
+                onTap: noop,
                 labelText: labelText,
                 descriptionText: descriptionText,
                 leading: icon,
@@ -287,7 +288,7 @@ void main() {
           _buildApp(Column(
             children: [
               FastSelectableListItem(
-                onTap: () {},
+                onTap: noop,
                 labelText: labelText,
                 descriptionText: descriptionText,
                 leading: icon,
@@ -309,7 +310,7 @@ void main() {
           _buildApp(Column(
             children: [
               FastSelectableListItem(
-                onTap: () {},
+                onTap: noop,
                 labelText: labelText,
                 descriptionText: descriptionText,
                 trailing: icon,

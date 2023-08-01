@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:t_helpers/helpers.dart';
 
 FastApp _buildApp(FastHomePage home) {
   return FastApp(homeBuilder: (_) => home);
@@ -39,11 +40,11 @@ void main() {
     group('floatingActionButton', () {
       testWidgets('should draw it', (WidgetTester tester) async {
         await tester.pumpWidget(
-          _buildApp(FastHomePage(
+          _buildApp(const FastHomePage(
             floatingActionButton: FloatingActionButton(
-              onPressed: () {},
+              onPressed: noop,
             ),
-            children: const [child1, child2],
+            children: [child1, child2],
           )),
         );
 

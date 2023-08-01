@@ -59,7 +59,7 @@ void main() {
         expect(state.themeMode, equals(ThemeMode.system));
         expect(
           state.brightness,
-          equals(WidgetsBinding.instance.window.platformBrightness),
+          equals(WidgetsBinding.instance.platformDispatcher.platformBrightness),
         );
       });
     });
