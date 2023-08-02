@@ -9,10 +9,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fastyle_connectivity/logic/logic.dart';
 
 class FastConnectivityStatusIcon extends StatelessWidget {
-  final IconData? disconnectedIcon;
+  final Widget? disconnectedIcon;
   final Color? disconnectedColor;
   final String disconnectedText;
-  final IconData connectedIcon;
+  final Widget? connectedIcon;
   final Color? connectedColor;
   final bool showDescription;
   final String connectedText;
@@ -27,7 +27,6 @@ class FastConnectivityStatusIcon extends StatelessWidget {
     this.disconnectedText = kFastConnectivityDisconnectedText,
     this.connectedText = kFastConnectivityConnectedText,
     this.checkingText = kFastConnectivityCheckingText,
-    this.connectedIcon = FontAwesomeIcons.wifi,
     this.iconSize = kFastIconSizeXl,
     this.showDescription = false,
     this.hasConnection = false,
@@ -36,29 +35,64 @@ class FastConnectivityStatusIcon extends StatelessWidget {
     this.disconnectedIcon,
     this.connectedColor,
     this.description,
+    this.connectedIcon,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisSize: MainAxisSize.min,
       children: [
-        _buildIcon(context),
+        buildIcon(context),
         if (showDescription) _buildDescription(context),
       ],
     );
   }
 
-  Widget _buildIcon(BuildContext context) {
-    final icon =
-        hasConnection ? connectedIcon : disconnectedIcon ?? connectedIcon;
+  Widget buildIcon(BuildContext context) {
+    final icon = hasConnection
+        ? buildConnectedIcon(context)
+        : buildDisconnectedIcon(context);
     final color = isChecking
-        ? getCheckingColor(context)
+        ? _getCheckingColor(context)
         : hasConnection
-            ? getConnectedColor(context)
-            : getDisconnectedColor(context);
+            ? _getConnectedColor(context)
+            : _getDisconnectedColor(context);
 
-    return FaIcon(icon, color: color, size: iconSize);
+    if (icon is Icon) {
+      return Icon(icon.icon, color: color, size: icon.size);
+    } else if (icon is FaIcon) {
+      return FaIcon(icon.icon, color: color, size: icon.size);
+    }
+
+    return icon;
+  }
+
+  Widget buildConnectedIcon(BuildContext context) {
+    if (connectedIcon != null) {
+      return connectedIcon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.lightWifi);
+    }
+
+    return const FaIcon(FontAwesomeIcons.wifi);
+  }
+
+  Widget buildDisconnectedIcon(BuildContext context) {
+    if (disconnectedIcon != null) {
+      return disconnectedIcon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.lightWifi);
+    }
+
+    return const FaIcon(FontAwesomeIcons.wifi);
   }
 
   Widget _buildDescription(BuildContext context) {
@@ -80,19 +114,19 @@ class FastConnectivityStatusIcon extends StatelessWidget {
     );
   }
 
-  Color getCheckingColor(BuildContext context) {
+  Color _getCheckingColor(BuildContext context) {
     final palette = ThemeHelper.getPaletteColors(context);
 
     return connectedColor ?? palette.gray.mid;
   }
 
-  Color getConnectedColor(BuildContext context) {
+  Color _getConnectedColor(BuildContext context) {
     final palette = ThemeHelper.getPaletteColors(context);
 
     return connectedColor ?? palette.green.mid;
   }
 
-  Color getDisconnectedColor(BuildContext context) {
+  Color _getDisconnectedColor(BuildContext context) {
     final palette = ThemeHelper.getPaletteColors(context);
 
     return disconnectedColor ?? palette.red.mid;

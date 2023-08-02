@@ -9,10 +9,13 @@ class FastSwitchFieldMenuButton<T> extends StatelessWidget {
   final List<PopupMenuItem<T>> options;
   final Function(T) onOptionChanged;
 
+  final Widget? icon;
+
   const FastSwitchFieldMenuButton({
     super.key,
     required this.options,
     required this.onOptionChanged,
+    this.icon,
   });
 
   @override
@@ -22,11 +25,29 @@ class FastSwitchFieldMenuButton<T> extends StatelessWidget {
       iconAlignment: Alignment.centerRight,
       onSelected: onOptionChanged,
       padding: EdgeInsets.zero,
-      icon: Icon(
-        FontAwesomeIcons.ellipsisVertical,
+      icon: buildIcon(context),
+    );
+  }
+
+  Widget buildIcon(BuildContext context) {
+    if (icon != null) {
+      return icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return FaIcon(
+        FastFontAwesomeIcons.lightEllipsisVertical,
         color: ThemeHelper.texts.getBodyTextStyle(context).color,
         size: kFastIconSizeSmall,
-      ),
+      );
+    }
+
+    return FaIcon(
+      FontAwesomeIcons.ellipsisVertical,
+      color: ThemeHelper.texts.getBodyTextStyle(context).color,
+      size: kFastIconSizeSmall,
     );
   }
 }

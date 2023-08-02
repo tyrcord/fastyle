@@ -248,7 +248,7 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
       final spacing = ThemeHelper.spacing.getSpacing(context);
 
       return Padding(
-        padding: EdgeInsets.symmetric(vertical: spacing / 2),
+        padding: EdgeInsets.symmetric(vertical: spacing),
         child: Builder(builder: dividerBuilder!),
       );
     }

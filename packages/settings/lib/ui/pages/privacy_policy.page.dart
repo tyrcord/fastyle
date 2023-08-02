@@ -14,10 +14,12 @@ import 'package:fastyle_settings/fastyle_settings.dart';
 class FastSettingsPrivacyPolicyPage extends StatelessWidget {
   final List<Widget>? children;
   final double iconSize;
+  final Widget? icon;
 
   const FastSettingsPrivacyPolicyPage({
     super.key,
     this.children,
+    this.icon,
     double? iconSize,
   }) : iconSize = iconSize ?? kFastSettingIconHeight;
 
@@ -73,11 +75,25 @@ class FastSettingsPrivacyPolicyPage extends StatelessWidget {
 
     return Center(
       child: FastRoundedDuotoneIcon(
-        icon: const FaIcon(FontAwesomeIcons.userSecret),
-        palette: palette.blueGray,
         size: iconSize * textScaleFactor,
+        palette: palette.blueGray,
+        icon: buildIcon(context),
       ),
     );
+  }
+
+  Widget buildIcon(BuildContext context) {
+    if (icon != null) {
+      return icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.userSecret);
+    }
+
+    return const FaIcon(FontAwesomeIcons.userSecret);
   }
 
   Widget buildAppIntroductionSection(String appAuthor, String appName) {

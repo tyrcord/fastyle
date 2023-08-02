@@ -40,6 +40,7 @@ class FastFirebaseApp extends FastApp {
     super.lightTheme,
     super.darkTheme,
     super.appInformation,
+    super.useProIcons,
     this.defaultRemoteConfig,
     this.firebaseOptions,
     String? localizationPath,
@@ -91,6 +92,7 @@ class _FastFirebaseAppState extends State<FastFirebaseApp> {
       bloc: _remoteConfigBloc,
       child: FastApp(
         routes: widget.routes,
+        useProIcons: widget.useProIcons,
         errorReporter: FastFirebaseAppErrorReporter(),
         homeBuilder: widget.homeBuilder,
         localizationPath: widget.localizationPath,

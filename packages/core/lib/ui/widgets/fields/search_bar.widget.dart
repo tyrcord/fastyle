@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fuzzy/fuzzy.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -17,21 +19,21 @@ class FastSearchBar<T extends FastItem> extends StatefulWidget {
   final bool shouldUseFuzzySearch;
   final bool showShowBottomBorder;
   final String placeholderText;
-  final Widget clearSearchIcon;
+  final Widget? clearSearchIcon;
   final bool showLeadingIcon;
-  final Widget closeIcon;
-  final Widget backIcon;
+  final Widget? closeIcon;
+  final Widget? backIcon;
   final List<T> items;
 
   const FastSearchBar({
     super.key,
     required this.items,
     this.placeholderText = kFastSearchPlaceholderText,
-    this.clearSearchIcon = kFastClearSearchIcon,
+    this.clearSearchIcon,
     this.shouldUseFuzzySearch = false,
     this.showShowBottomBorder = true,
-    this.closeIcon = kFastCloseIcon,
-    this.backIcon = kFastBackIcon,
+    this.closeIcon,
+    this.backIcon,
     this.showLeadingIcon = true,
     this.textEditingController,
     this.onLeadingButtonTap,
@@ -90,18 +92,20 @@ class FastSearchBarState<T extends FastItem> extends State<FastSearchBar<T>> {
     );
   }
 
-  FastIconButton _buildLeadingIcon(BuildContext context) {
+  Widget _buildLeadingIcon(BuildContext context) {
     final ModalRoute<dynamic>? parentRoute = ModalRoute.of(context);
     final useCloseButton =
         parentRoute is PageRoute<dynamic> && parentRoute.fullscreenDialog;
 
-    return FastIconButton(
-      icon: useCloseButton ? widget.closeIcon : widget.backIcon,
-      onTap: () {
-        if (widget.onLeadingButtonTap != null) {
-          widget.onLeadingButtonTap!();
-        }
-      },
+    if (useCloseButton) {
+      return FastCloseButton(
+        onTap: widget.onLeadingButtonTap,
+        iconSize: kFastIconSizeMedium,
+      );
+    }
+
+    return FastBackButton(
+      onTap: widget.onLeadingButtonTap,
       iconSize: kFastIconSizeMedium,
     );
   }
@@ -122,11 +126,25 @@ class FastSearchBarState<T extends FastItem> extends State<FastSearchBar<T>> {
     final theme = Theme.of(context);
 
     return FastIconButton(
-      icon: widget.clearSearchIcon,
       iconColor: _searchQuery == null ? theme.hintColor : null,
       onTap: () => _textController.clear(),
       iconSize: kFastIconSizeMedium,
+      icon: buildClearIcon(context),
     );
+  }
+
+  Widget buildClearIcon(BuildContext context) {
+    if (widget.clearSearchIcon != null) {
+      return widget.clearSearchIcon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.lightTrash);
+    }
+
+    return const FaIcon(FontAwesomeIcons.trash);
   }
 
   void _handleSearchQueryChanges() {

@@ -7,8 +7,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class FastVideoReplayButton extends StatelessWidget {
   final VoidCallback? onTap;
+  final Widget? icon;
 
-  const FastVideoReplayButton({super.key, this.onTap});
+  const FastVideoReplayButton({
+    super.key,
+    this.onTap,
+    this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +23,25 @@ class FastVideoReplayButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: FastRoundedIcon(
-        icon: const FaIcon(FontAwesomeIcons.rotateLeft),
         backgroundColor: palette.mid.withOpacity(0.5),
         iconColor: palette.ultraLight,
         size: kFastIconSizeMedium,
+        icon: buildIcon(context),
       ),
     );
+  }
+
+  Widget buildIcon(BuildContext context) {
+    if (icon != null) {
+      return icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.lightRotateLeft);
+    }
+
+    return const FaIcon(FontAwesomeIcons.rotateLeft);
   }
 }

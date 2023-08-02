@@ -72,11 +72,7 @@ class FastStarRatingState extends State<FastStarRating> {
         size: widget.size,
       );
     } else {
-      icon = FaIcon(
-        FontAwesomeIcons.star,
-        color: _getEmptyColor(context),
-        size: widget.size,
-      );
+      icon = buildStarIcon(context);
     }
 
     return GestureDetector(
@@ -90,6 +86,16 @@ class FastStarRatingState extends State<FastStarRating> {
       },
       child: icon,
     );
+  }
+
+  FaIcon buildStarIcon(BuildContext context) {
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.lightStar);
+    }
+
+    return const FaIcon(FontAwesomeIcons.star);
   }
 
   Color _getFilledColor(BuildContext context) {

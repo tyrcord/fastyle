@@ -17,7 +17,7 @@ class FastNavigationSplitView extends StatefulWidget {
   final EdgeInsets? itemContentPadding;
   final String searchPlaceholderText;
   final bool shouldUseFuzzySearch;
-  final Widget clearSearchIcon;
+  final Widget? clearSearchIcon;
   final bool showItemDivider;
   final bool showSearchBar;
   final bool sortItems;
@@ -81,7 +81,7 @@ class FastNavigationSplitView extends StatefulWidget {
     required this.detailsBuilder,
     required this.items,
     this.searchPlaceholderText = kFastSearchPlaceholderText,
-    this.clearSearchIcon = kFastClearSearchIcon,
+    this.clearSearchIcon,
     this.shouldUseFuzzySearch = false,
     this.showItemDivider = false,
     this.showSearchBar = false,

@@ -120,10 +120,7 @@ class _FastVideoPlayerState extends State<FastVideoPlayer> {
 
             return FastBoxPlaceholder(
               child: Center(
-                child: FaIcon(
-                  FontAwesomeIcons.videoSlash,
-                  color: color,
-                ),
+                child: buildNoVideoIcon(context, color),
               ),
             );
           } else if (_controller.value.isInitialized) {
@@ -134,6 +131,16 @@ class _FastVideoPlayerState extends State<FastVideoPlayer> {
         return const FastLoadingBoxPlaceholder();
       },
     );
+  }
+
+  Widget buildNoVideoIcon(BuildContext context, Color color) {
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return FaIcon(FastFontAwesomeIcons.lightVideoSlash, color: color);
+    }
+
+    return FaIcon(FontAwesomeIcons.videoSlash, color: color);
   }
 
   Widget buildVideoPlayer() {

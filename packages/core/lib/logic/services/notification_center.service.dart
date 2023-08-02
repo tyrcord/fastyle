@@ -46,6 +46,13 @@ class FastNotificationCenter {
     FastNotificationCenterOptions options = _kDefaultErrorOptions,
   }) {
     final palette = ThemeHelper.getPaletteColors(context);
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      options = options.copyWith(
+        leadingIcon: const FaIcon(FastFontAwesomeIcons.lightCircleXmark),
+      );
+    }
 
     _buildNotification(
       context,
@@ -64,6 +71,15 @@ class FastNotificationCenter {
     FastNotificationCenterOptions options = _kDefaultWarnOptions,
   }) {
     final palette = ThemeHelper.getPaletteColors(context);
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      options = options.copyWith(
+        leadingIcon: const FaIcon(
+          FastFontAwesomeIcons.lightTriangleExclamation,
+        ),
+      );
+    }
 
     _buildNotification(
       context,
@@ -82,6 +98,13 @@ class FastNotificationCenter {
     FastNotificationCenterOptions options = _kDefaultInfoOptions,
   }) {
     final palette = ThemeHelper.getPaletteColors(context);
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      options = options.copyWith(
+        leadingIcon: const FaIcon(FastFontAwesomeIcons.lightCircleInfo),
+      );
+    }
 
     _buildNotification(
       context,
@@ -100,6 +123,13 @@ class FastNotificationCenter {
     FastNotificationCenterOptions options = _kDefaultSuccessOptions,
   }) {
     final palette = ThemeHelper.getPaletteColors(context);
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      options = options.copyWith(
+        leadingIcon: const FaIcon(FastFontAwesomeIcons.lightCircleCheck),
+      );
+    }
 
     _buildNotification(
       context,

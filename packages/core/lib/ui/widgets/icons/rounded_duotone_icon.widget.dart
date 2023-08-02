@@ -25,7 +25,6 @@ class FastRoundedDuotoneIcon extends FastRoundedIcon {
     final colors = ThemeHelper.colors;
     var backgroundColor0 = backgroundColor;
     var iconColor0 = iconColor;
-    final icon0 = icon;
 
     if (palette != null && backgroundColor0 == null && iconColor0 == null) {
       backgroundColor0 = palette!.lightest;
@@ -38,7 +37,7 @@ class FastRoundedDuotoneIcon extends FastRoundedIcon {
       backgroundColor: backgroundColor0,
       iconColor: iconColor0,
       shape: shape,
-      icon: icon0,
+      icon: icon,
       size: size,
     );
   }

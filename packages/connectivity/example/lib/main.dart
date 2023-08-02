@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  FastApp(
+    return FastApp(
       homeBuilder: (_) => const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }

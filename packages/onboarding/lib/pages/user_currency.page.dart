@@ -63,17 +63,31 @@ class FastOnboardingUserCurrency extends StatelessWidget {
       titleText: titleText ?? 'User Currency',
       children: [
         FastOnboardingContentLayout(
-          icon: icon ?? const FaIcon(FontAwesomeIcons.coins),
           handsetIconSize: handsetIconSize,
           tabletIconSize: tabletIconSize,
           secondaryText: secondaryText,
+          onActionTap: onActionTap,
+          icon: buildIcon(context),
           primaryText: primaryText,
           actionText: actionText,
-          onActionTap: onActionTap,
           palette: palette,
           children: children,
         ),
       ],
     );
+  }
+
+  Widget buildIcon(BuildContext context) {
+    if (icon != null) {
+      return icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.lightCoins);
+    }
+
+    return const FaIcon(FontAwesomeIcons.coins);
   }
 }

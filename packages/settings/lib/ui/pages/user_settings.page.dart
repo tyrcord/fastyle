@@ -98,6 +98,14 @@ class FastAppSettingsPage extends FastSettingPageLayout {
 
   @override
   Widget buildSettingsHeaderIcon(BuildContext context) {
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FastSettingPageHeaderRoundedDuotoneIconLayout(
+        icon: FaIcon(FontAwesomeIcons.userGear),
+      );
+    }
+
     return const FastSettingPageHeaderRoundedDuotoneIconLayout(
       icon: FaIcon(FontAwesomeIcons.solidUser),
     );

@@ -58,10 +58,18 @@ class FastSettingPageLayout extends StatelessWidget {
   @protected
   Widget buildSettingsHeader(BuildContext context) {
     return FastSettingPageHeaderLayout(
-      icon: headerIcon ?? buildSettingsHeaderIcon(context),
       descriptionText: headerDescriptionText,
+      icon: buildHeaderIcon(context),
       iconHeight: iconHeight,
     );
+  }
+
+  Widget? buildHeaderIcon(BuildContext context) {
+    if (headerIcon != null) {
+      return headerIcon!;
+    }
+
+    return buildSettingsHeaderIcon(context);
   }
 
   @protected

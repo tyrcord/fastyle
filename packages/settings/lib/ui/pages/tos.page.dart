@@ -14,10 +14,12 @@ import 'package:fastyle_settings/fastyle_settings.dart';
 class FastSettingsTermsOfServicePage extends StatelessWidget {
   final List<Widget>? children;
   final double iconSize;
+  final Widget? icon;
 
   const FastSettingsTermsOfServicePage({
     super.key,
     this.children,
+    this.icon,
     double? iconSize,
   }) : iconSize = iconSize ?? kFastSettingIconHeight;
 
@@ -68,11 +70,25 @@ class FastSettingsTermsOfServicePage extends StatelessWidget {
 
     return Center(
       child: FastRoundedDuotoneIcon(
-        icon: const FaIcon(FontAwesomeIcons.fileContract),
-        palette: palette.blueGray,
         size: iconSize * textScaleFactor,
+        palette: palette.blueGray,
+        icon: buildIcon(context),
       ),
     );
+  }
+
+  Widget buildIcon(BuildContext context) {
+    if (icon != null) {
+      return icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.lightFileContract);
+    }
+
+    return const FaIcon(FontAwesomeIcons.fileContract);
   }
 
   Widget buildAppTermOfServiceParagraph(String appName) {

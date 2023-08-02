@@ -1,21 +1,21 @@
 // Flutter imports:
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_connectivity/fastyle_connectivity.dart';
 
 class FastConnectivityStatusListener extends StatefulWidget {
-  final IconData? disconnectedIcon;
+  final Widget? disconnectedIcon;
   final Color? disconnectedColor;
   final String disconnectedText;
   final Duration? checkInterval;
   final Duration? checkTimeout;
-  final IconData connectedIcon;
+  final Widget? connectedIcon;
   final Color? connectedColor;
   final bool showDescription;
   final String connectedText;
@@ -28,13 +28,13 @@ class FastConnectivityStatusListener extends StatefulWidget {
     super.key,
     this.disconnectedText = kFastConnectivityDisconnectedText,
     this.connectedText = kFastConnectivityConnectedText,
-    this.connectedIcon = FontAwesomeIcons.wifi,
     this.iconSize = kFastIconSizeXl,
     this.showDescription = false,
     this.disconnectedColor,
     this.disconnectedIcon,
     this.connectedColor,
     this.checkInterval,
+    this.connectedIcon,
     this.checkTimeout,
     this.checkAddress,
     this.description,

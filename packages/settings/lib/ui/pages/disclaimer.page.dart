@@ -14,10 +14,12 @@ import 'package:fastyle_settings/fastyle_settings.dart';
 class FastSettingsDisclaimerPage extends StatelessWidget {
   final List<Widget>? children;
   final double iconSize;
+  final Widget? icon;
 
   const FastSettingsDisclaimerPage({
     super.key,
     this.children,
+    this.icon,
     double? iconSize,
   }) : iconSize = iconSize ?? kFastSettingIconHeight;
 
@@ -66,9 +68,9 @@ class FastSettingsDisclaimerPage extends StatelessWidget {
 
     return Center(
       child: FastRoundedDuotoneIcon(
-        icon: const FaIcon(FontAwesomeIcons.bullhorn),
-        palette: palette.blueGray,
         size: iconSize * textScaleFactor,
+        palette: palette.blueGray,
+        icon: buildIcon(context),
       ),
     );
   }
@@ -84,5 +86,19 @@ class FastSettingsDisclaimerPage extends StatelessWidget {
 
   Widget buildDisclaimerParagraph(String text) {
     return FastParagraph(text: text);
+  }
+
+  Widget buildIcon(BuildContext context) {
+    if (icon != null) {
+      return icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.megaphone);
+    }
+
+    return const FaIcon(FontAwesomeIcons.bullhorn);
   }
 }

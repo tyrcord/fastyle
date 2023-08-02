@@ -45,7 +45,7 @@ class FastSelectableListItem<T extends FastItem> extends StatelessWidget {
     this.trailing,
     this.leading,
     this.item,
-  })  : assert(item?.labelText != null || labelText != null);
+  }) : assert(item?.labelText != null || labelText != null);
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +83,8 @@ class FastSelectableListItem<T extends FastItem> extends StatelessWidget {
   }
 
   Widget _buildTrailingIcon(BuildContext context) {
-    var icon = item?.descriptor?.trailing ?? trailing ?? kFastDoneIcon;
+    final descriptor = item?.descriptor;
+    var icon = descriptor?.trailing ?? trailing ?? buildDefaultIcon(context);
 
     if (icon is Icon) {
       icon = Icon(
@@ -100,6 +101,16 @@ class FastSelectableListItem<T extends FastItem> extends StatelessWidget {
     }
 
     return icon;
+  }
+
+  Widget buildDefaultIcon(BuildContext context) {
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.lightCheck);
+    }
+
+    return const FaIcon(FontAwesomeIcons.check);
   }
 
   Color _getSelectionTrailingColor(BuildContext context) {

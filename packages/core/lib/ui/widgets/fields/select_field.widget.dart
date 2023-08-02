@@ -24,7 +24,7 @@ class FastSelectField<T> extends StatefulWidget {
   final int intialCategoryIndex;
   final String? allCategoryText;
   final FastItem<T>? selection;
-  final Widget clearSearchIcon;
+  final Widget? clearSearchIcon;
   final bool canClearSelection;
   final String searchTitleText;
   final bool groupByCategory;
@@ -32,8 +32,8 @@ class FastSelectField<T> extends StatefulWidget {
   final String? captionText;
   final String? helperText;
   final String labelText;
-  final Widget closeIcon;
-  final Widget backIcon;
+  final Widget? closeIcon;
+  final Widget? backIcon;
   final bool isReadOnly;
   final bool isEnabled;
   final bool sortItems;
@@ -49,11 +49,9 @@ class FastSelectField<T> extends StatefulWidget {
     required this.items,
     this.searchPlaceholderText = kFastSearchPlaceholderText,
     this.clearSelectionText = kFastClearSelectionText,
-    this.clearSearchIcon = kFastClearSearchIcon,
+    this.clearSearchIcon,
     this.searchTitleText = kFastSelectTitleText,
     this.showHelperBoundaries = true,
-    this.closeIcon = kFastCloseIcon,
-    this.backIcon = kFastBackIcon,
     this.canClearSelection = true,
     this.intialCategoryIndex = 0,
     this.groupByCategory = false,
@@ -67,6 +65,8 @@ class FastSelectField<T> extends StatefulWidget {
     this.captionText,
     this.helperText,
     this.categories,
+    this.closeIcon,
+    this.backIcon,
     this.searchPageDelegate,
     this.selection,
     this.listViewEmptyContent,

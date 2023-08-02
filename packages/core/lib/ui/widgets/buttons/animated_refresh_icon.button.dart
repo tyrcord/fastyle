@@ -87,7 +87,7 @@ class FastAnimatedRotationIconButtonState
         onTap: widget.onTap,
         icon: RotationTransition(
           turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
-          child: widget.icon ?? const FaIcon(FontAwesomeIcons.arrowsRotate),
+          child: buildIcon(context),
         ),
       ),
     );
@@ -99,5 +99,19 @@ class FastAnimatedRotationIconButtonState
     } else {
       _controller.reset();
     }
+  }
+
+  Widget buildIcon(BuildContext context) {
+    if (widget.icon != null) {
+      return widget.icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.lightArrowsRotate);
+    }
+
+    return const FaIcon(FontAwesomeIcons.arrowsRotate);
   }
 }

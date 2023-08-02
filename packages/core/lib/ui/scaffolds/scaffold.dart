@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 
 // Package imports:
 import 'package:tbloc/tbloc.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';

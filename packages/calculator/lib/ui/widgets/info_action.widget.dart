@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // Project imports:
 import 'package:fastyle_calculator/fastyle_calculator.dart';
@@ -30,7 +30,7 @@ class FastCalculatorInfoAction<B extends FastCalculatorBloc,
       onlyWhenInitializing: true,
       builder: (_, FastCalculatorBlocState state) {
         return FastIconButton(
-          icon: icon ?? const FaIcon(FontAwesomeIcons.circleInfo),
+          icon: buildIcon(context),
           isEnabled: shouldEnableInteractions(state),
           iconAlignment: Alignment.centerRight,
           emphasis: FastButtonEmphasis.high,
@@ -46,5 +46,19 @@ class FastCalculatorInfoAction<B extends FastCalculatorBloc,
   @override
   bool shouldEnableInteractions(FastCalculatorBlocState state) {
     return state.isInitialized;
+  }
+
+  Widget buildIcon(BuildContext context) {
+    if (icon != null) {
+      return icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.lightCircleInfo);
+    }
+
+    return const FaIcon(FontAwesomeIcons.circleInfo);
   }
 }

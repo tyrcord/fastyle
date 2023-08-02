@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fuzzy/fuzzy.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,6 +11,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 export './edge_insets.constants.dart';
 export './sized_box.constants.dart';
 export './app_info.constants.dart';
+export 'font_awesome.constants.dart';
 
 const kFastSettingThemeModeMap = {
   'system': ThemeMode.system,
@@ -171,13 +171,5 @@ const kFastTrottleTimeDuration = Duration(seconds: 1);
 // Languages
 
 const kFastSupportedLocales = <Locale>[Locale('en', 'US')];
-
-// Icons
-
-const kFastCloseIcon = FaIcon(FontAwesomeIcons.xmark);
-const kFastBackIcon = FaIcon(FontAwesomeIcons.chevronLeft);
-const kFastDoneIcon = FaIcon(FontAwesomeIcons.check);
-const kFastClearSearchIcon = FaIcon(FontAwesomeIcons.trash);
-const kFastNavigationTrailingIcon = FaIcon(FontAwesomeIcons.chevronRight);
 
 const kFastExpandedHeight = 176.0;

@@ -13,7 +13,7 @@ class FastNavigationListView<T extends FastItem> extends StatefulWidget {
   final String searchPlaceholderText;
   final bool shouldUseFuzzySearch;
   final bool isViewScrollable;
-  final Widget clearSearchIcon;
+  final Widget? clearSearchIcon;
   final bool showItemDivider;
   final EdgeInsets padding;
   final bool showSearchBar;
@@ -30,7 +30,7 @@ class FastNavigationListView<T extends FastItem> extends StatefulWidget {
     required this.onSelectionChanged,
     required this.items,
     this.searchPlaceholderText = kFastSearchPlaceholderText,
-    this.clearSearchIcon = kFastClearSearchIcon,
+    this.clearSearchIcon,
     this.shouldUseFuzzySearch = false,
     this.padding = EdgeInsets.zero,
     this.isViewScrollable = true,

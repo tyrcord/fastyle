@@ -59,17 +59,31 @@ class FastOnboardingNotifications extends StatelessWidget {
       titleText: titleText ?? 'Notifications',
       children: [
         FastOnboardingContentLayout(
-          icon: icon ?? const FaIcon(FontAwesomeIcons.bell),
           handsetIconSize: handsetIconSize,
           tabletIconSize: tabletIconSize,
           secondaryText: secondaryText,
           primaryText: primaryText,
           onActionTap: onActionTap,
+          icon: buildIcon(context),
           actionText: actionText,
           palette: palette,
           children: children,
         ),
       ],
     );
+  }
+
+  Widget buildIcon(BuildContext context) {
+    if (icon != null) {
+      return icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.lightBells);
+    }
+
+    return const FaIcon(FontAwesomeIcons.bell);
   }
 }

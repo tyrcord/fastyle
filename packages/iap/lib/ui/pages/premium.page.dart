@@ -21,6 +21,8 @@ class FastIapPremiumPage extends StatefulWidget {
   final String? titleText;
   final bool showAppBar;
 
+  final Widget? icon;
+
   const FastIapPremiumPage({
     super.key,
     required this.premiumProductId,
@@ -31,6 +33,7 @@ class FastIapPremiumPage extends StatefulWidget {
     this.onBuyPremium,
     this.titleText,
     this.items,
+    this.icon,
   });
 
   @override
@@ -94,14 +97,31 @@ class _FastIapPremiumPageState extends State<FastIapPremiumPage> {
   }
 
   Widget buildBackgroundDecoration(BuildContext context) {
-    final palette = ThemeHelper.getPaletteColors(context);
     final padding = ThemeHelper.spacing.getVerticalPadding(context);
 
     return Container(
       padding: padding,
       alignment: Alignment.centerRight,
-      child: Icon(FontAwesomeIcons.solidStar, color: palette.orange.lighter),
+      child: buildStarIcon(context),
     );
+  }
+
+  Widget buildStarIcon(BuildContext context) {
+    if (widget.icon != null) {
+      return widget.icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+    final palettes = ThemeHelper.getPaletteColors(context);
+    late final IconData iconData;
+
+    if (useProIcons) {
+      iconData = FastFontAwesomeIcons.solidStars;
+    } else {
+      iconData = FontAwesomeIcons.solidStar;
+    }
+
+    return FaIcon(iconData, color: palettes.orange.lighter);
   }
 
   Widget buildFeaturesList() {

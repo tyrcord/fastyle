@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 /// A custom [StatelessWidget] that creates a scaffold with a customizable
 /// header.
@@ -24,10 +25,10 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
   final Widget? validIcon;
 
   /// The close icon to display in the header.
-  final Widget closeIcon;
+  final Widget? closeIcon;
 
   /// The back icon to display in the header.
-  final Widget backIcon;
+  final Widget? backIcon;
 
   /// The main content of the overlay container.
   final Widget child;
@@ -48,8 +49,8 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
     super.key,
     required this.titleText,
     required this.child,
-    this.closeIcon = kFastCloseIcon,
-    this.backIcon = kFastBackIcon,
+    this.closeIcon,
+    this.backIcon,
     this.validIcon,
     this.willClose,
     this.willValid,
@@ -158,9 +159,14 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
       final useCloseButton =
           parentRoute is PageRoute<dynamic> && parentRoute.fullscreenDialog;
 
-      // Return a FastIconButton with the appropriate icon.
-      return FastIconButton(
-        icon: useCloseButton ? closeIcon : backIcon,
+      if (useCloseButton) {
+        return FastCloseButton(
+          onTap: () => _close(context),
+          iconSize: kFastIconSizeLarge,
+        );
+      }
+
+      return FastBackButton(
         onTap: () => _close(context),
         iconSize: kFastIconSizeLarge,
       );

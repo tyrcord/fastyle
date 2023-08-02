@@ -88,6 +88,9 @@ class FastApp extends StatefulWidget {
   /// when certain conditions are met.
   final bool askForReview;
 
+  /// A flag indicating whether to use the pro icons.
+  final bool useProIcons;
+
   FastApp({
     super.key,
     this.delayBeforeShowingLoader = kFastDelayBeforeShowingLoader,
@@ -111,7 +114,9 @@ class FastApp extends StatefulWidget {
     AssetLoader? assetLoader,
     String? localizationPath,
     Locale? fallbackLocale,
-  })  : assetLoader = assetLoader ?? const LinguaLoader(),
+    bool? useProIcons,
+  })  : useProIcons = useProIcons ?? false,
+        assetLoader = assetLoader ?? const LinguaLoader(),
         localizationPath = localizationPath ?? kFastLocalizationPath,
         fallbackLocale = fallbackLocale ?? kFastAppSettingsDefaultLocale {
     appInfo = appInformation ?? kFastAppInfo;
@@ -185,32 +190,35 @@ class _FastAppState extends State<FastApp> {
   Widget buildAppLoader(BuildContext context) {
     final easyLocalization = EasyLocalization.of(context)!;
 
-    return FastAppSettingsThemeListener(
-      child: FastAppLoader(
-        debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
-        delayBeforeShowingLoader: widget.delayBeforeShowingLoader,
-        supportedLocales: widget.appInfo.supportedLocales,
-        localizationsDelegates: easyLocalization.delegates,
-        errorReporter: widget.errorReporter,
-        loaderBuilder: widget.loaderBuilder,
-        locale: easyLocalization.locale,
-        appBuilder: buildApp,
-        loaderJobs: [
-          // FIXME: onDatabaseVersionChanged should be called once the app
-          // has been initialized.
-          FastAppInfoJob(
-            widget.appInfo,
-            onDatabaseVersionChanged: widget.onDatabaseVersionChanged,
-          ),
-          FastAppSettingsJob(),
-          FastAppDictJob(),
-          FastAppFeaturesJob(),
-          FastAppOnboardingJob(),
-          ...?widget.loaderJobs,
-        ],
-        lightTheme: widget.lightTheme,
-        darkTheme: widget.darkTheme,
-        errorBuilder: widget.errorBuilder ?? handleAppError,
+    return FastIconHelper(
+      useProIcons: widget.useProIcons,
+      child: FastAppSettingsThemeListener(
+        child: FastAppLoader(
+          debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
+          delayBeforeShowingLoader: widget.delayBeforeShowingLoader,
+          supportedLocales: widget.appInfo.supportedLocales,
+          localizationsDelegates: easyLocalization.delegates,
+          errorReporter: widget.errorReporter,
+          loaderBuilder: widget.loaderBuilder,
+          locale: easyLocalization.locale,
+          appBuilder: buildApp,
+          loaderJobs: [
+            // FIXME: onDatabaseVersionChanged should be called once the app
+            // has been initialized.
+            FastAppInfoJob(
+              widget.appInfo,
+              onDatabaseVersionChanged: widget.onDatabaseVersionChanged,
+            ),
+            FastAppSettingsJob(),
+            FastAppDictJob(),
+            FastAppFeaturesJob(),
+            FastAppOnboardingJob(),
+            ...?widget.loaderJobs,
+          ],
+          lightTheme: widget.lightTheme,
+          darkTheme: widget.darkTheme,
+          errorBuilder: widget.errorBuilder ?? handleAppError,
+        ),
       ),
     );
   }

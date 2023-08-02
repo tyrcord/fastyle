@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 // Package imports:
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:tbloc/tbloc.dart';
 
 // Project imports:
@@ -39,7 +40,7 @@ class FastSearchPage<T extends FastItem> extends StatefulWidget {
   ///
   /// The widget used to clear the search query.
   ///
-  final Widget clearSearchIcon;
+  final Widget? clearSearchIcon;
 
   ///
   /// Indicates whether the selection can be cleared.
@@ -65,12 +66,12 @@ class FastSearchPage<T extends FastItem> extends StatefulWidget {
   ///
   /// The widget used to close the page.
   ///
-  final Widget closeIcon;
+  final Widget? closeIcon;
 
   ///
   /// The widget used to go back to the previous page.
   ///
-  final Widget backIcon;
+  final Widget? backIcon;
 
   ///
   /// Indicates whether the list should sort the items.
@@ -101,10 +102,8 @@ class FastSearchPage<T extends FastItem> extends StatefulWidget {
     required this.items,
     this.searchPlaceholderText = kFastSearchPlaceholderText,
     this.clearSelectionText = kFastClearSelectionText,
-    this.clearSearchIcon = kFastClearSearchIcon,
+    this.clearSearchIcon,
     this.titleText = kFastSelectTitleText,
-    this.closeIcon = kFastCloseIcon,
-    this.backIcon = kFastBackIcon,
     this.canClearSelection = true,
     this.groupByCategory = false,
     this.intialCategoryIndex = 0,
@@ -117,6 +116,8 @@ class FastSearchPage<T extends FastItem> extends StatefulWidget {
     this.selection,
     this.listViewEmptyContent,
     this.listViewEmptyText,
+    this.closeIcon,
+    this.backIcon,
   });
 
   @override
@@ -203,8 +204,14 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
       final useCloseButton =
           parentRoute is PageRoute<dynamic> && parentRoute.fullscreenDialog;
 
-      return FastIconButton(
-        icon: useCloseButton ? widget.closeIcon : widget.backIcon,
+      if (useCloseButton) {
+        return FastCloseButton(
+          onTap: () => _close(context, widget.selection),
+          iconSize: kFastIconSizeLarge,
+        );
+      }
+
+      return FastBackButton(
         onTap: () => _close(context, widget.selection),
         iconSize: kFastIconSizeLarge,
       );

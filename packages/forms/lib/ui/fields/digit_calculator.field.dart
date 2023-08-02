@@ -28,10 +28,10 @@ class FastDigitCalculatorField extends StatefulWidget {
   final Widget? suffixIcon;
 
   // Valid icon for the digit calculator overlay.
-  final Widget validIcon;
+  final Widget? validIcon;
 
   // Close icon for the digit calculator overlay.
-  final Widget closeIcon;
+  final Widget? closeIcon;
 
   // Label text for the input field.
   final String labelText;
@@ -51,17 +51,15 @@ class FastDigitCalculatorField extends StatefulWidget {
   const FastDigitCalculatorField({
     super.key,
     required this.labelText,
-    Widget? closeIcon,
-    Widget? validIcon,
+    this.closeIcon,
+    this.validIcon,
     this.isEnabled = true,
     String? valueText,
     this.placeholderText,
     this.onValueChanged,
     this.captionText,
     this.suffixIcon,
-  })  : valueText = valueText ?? '',
-        validIcon = validIcon ?? kFastDoneIcon,
-        closeIcon = closeIcon ?? kFastCloseIcon;
+  }) : valueText = valueText ?? '';
 
   @override
   State<FastDigitCalculatorField> createState() =>
@@ -84,7 +82,7 @@ class _FastDigitCalculatorFieldState extends State<FastDigitCalculatorField> {
     return FastNumberField(
       suffixIcon: GestureDetector(
         onTap: () => _handleOnTapCalculator(context),
-        child: widget.suffixIcon ?? const FaIcon(FontAwesomeIcons.calculator),
+        child: buildSuffixIcon(context),
       ),
       placeholderText: widget.placeholderText,
       onValueChanged: widget.onValueChanged,
@@ -93,6 +91,20 @@ class _FastDigitCalculatorFieldState extends State<FastDigitCalculatorField> {
       labelText: widget.labelText,
       valueText: widget.valueText,
     );
+  }
+
+  Widget buildSuffixIcon(BuildContext context) {
+    if (widget.suffixIcon != null) {
+      return widget.suffixIcon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.solidCalculatorSimple);
+    }
+
+    return const FaIcon(FontAwesomeIcons.calculator);
   }
 
   /// Handles tap on the calculator icon and opens the digit calculator overlay.

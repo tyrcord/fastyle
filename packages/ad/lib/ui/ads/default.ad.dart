@@ -35,13 +35,19 @@ class FastDefaultNativeAd extends StatelessWidget {
       color: palette.lightest,
       width: double.infinity,
       height: double.infinity,
-      child: Center(
-        child: FaIcon(
-          FontAwesomeIcons.bullhorn,
-          color: palette.mid,
-          size: 80,
-        ),
-      ),
+      child: Center(child: _getIcon(context, palette)),
     );
+  }
+
+  Widget _getIcon(BuildContext context, FastPaletteScheme palette) {
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+    final color = palette.mid;
+    const size = 80.0;
+
+    if (useProIcons) {
+      return FaIcon(FastFontAwesomeIcons.megaphone, color: color, size: size);
+    }
+
+    return FaIcon(FontAwesomeIcons.bullhorn, color: color, size: size);
   }
 }

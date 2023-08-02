@@ -40,6 +40,8 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
     // The overall container for the keyboard, with a secondary background color
     return ColoredBox(
       color: ThemeHelper.colors.getSecondaryBackgroundColor(context),
@@ -61,11 +63,11 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
               child: Column(
                 // The rows of keys on the keyboard
                 children: [
-                  _buildRow1(context),
-                  _buildRow2(context),
-                  _buildRow3(context),
-                  _buildRow4(context),
-                  _buildRow5(context),
+                  _buildRow1(context, useProIcons),
+                  _buildRow2(context, useProIcons),
+                  _buildRow3(context, useProIcons),
+                  _buildRow4(context, useProIcons),
+                  _buildRow5(context, useProIcons),
                 ],
               ),
             ),
@@ -77,69 +79,69 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
 
   // Builds the first row of the calculator keyboard, including the 'AC',
   // 'delete',
-  Widget _buildRow1(BuildContext context) {
+  Widget _buildRow1(BuildContext context, bool useProIcons) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         _buildClearButton(context),
-        _buildDeleteButton(context),
-        _buildCustomButton(context),
-        _buildDivideButton(context),
+        _buildDeleteButton(context, useProIcons),
+        _buildCustomButton(context, useProIcons),
+        _buildDivideButton(context, useProIcons),
       ],
     );
   }
 
   // Builds the second row of the calculator keyboard, including the '7', '8',
   // '9',
-  Widget _buildRow2(BuildContext context) {
+  Widget _buildRow2(BuildContext context, bool useProIcons) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         _buildNumberButton(context, '7'),
         _buildNumberButton(context, '8'),
         _buildNumberButton(context, '9'),
-        _buildMultiplyButton(context),
+        _buildMultiplyButton(context, useProIcons),
       ],
     );
   }
 
   // Builds the third row of the calculator keyboard, including the '4', '5',
   // '6',
-  Widget _buildRow3(BuildContext context) {
+  Widget _buildRow3(BuildContext context, bool useProIcons) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         _buildNumberButton(context, '4'),
         _buildNumberButton(context, '5'),
         _buildNumberButton(context, '6'),
-        _buildMinusButton(context),
+        _buildMinusButton(context, useProIcons),
       ],
     );
   }
 
   // Builds the fourth row of the calculator keyboard, including the '1', '2',
   // '3',
-  Widget _buildRow4(BuildContext context) {
+  Widget _buildRow4(BuildContext context, bool useProIcons) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         _buildNumberButton(context, '1'),
         _buildNumberButton(context, '2'),
         _buildNumberButton(context, '3'),
-        _buildPlusButton(context),
+        _buildPlusButton(context, useProIcons),
       ],
     );
   }
 
   // Builds the fifth row of the calculator keyboard, including the '0', '.',
   // and '=
-  Widget _buildRow5(BuildContext context) {
+  Widget _buildRow5(BuildContext context, bool useProIcons) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         _buildNumberButton(context, '0', flex: 2),
         _buildNumberButton(context, '.'),
-        _buildEqualsButton(context),
+        _buildEqualsButton(context, useProIcons),
       ],
     );
   }
@@ -164,110 +166,146 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
   }
 
   // Builds the backspace button with a value "<" and a deleteLeft icon
-  Widget _buildDeleteButton(BuildContext context) {
+  Widget _buildDeleteButton(BuildContext context, bool useProIcons) {
+    late IconData iconData;
+
+    if (useProIcons) {
+      iconData = FastFontAwesomeIcons.lightDeleteLeft;
+    } else {
+      iconData = FontAwesomeIcons.deleteLeft;
+    }
+
     return _buildKeyboardButton(
       context,
       '<',
-      icon: FaIcon(
-        FontAwesomeIcons.deleteLeft,
-        color: _getMintColor(context),
-        size: 16,
-      ),
+      icon: FaIcon(iconData, color: _getMintColor(context), size: 16),
     );
   }
 
   // Builds the division button with a value "÷" and a division icon
-  Widget _buildDivideButton(BuildContext context) {
+  Widget _buildDivideButton(BuildContext context, bool useProIcons) {
+    late IconData iconData;
+
+    if (useProIcons) {
+      iconData = FastFontAwesomeIcons.lightDivide;
+    } else {
+      iconData = FontAwesomeIcons.divide;
+    }
+
     return _buildKeyboardButton(
       context,
       '÷',
-      icon: FaIcon(
-        FontAwesomeIcons.divide,
-        size: 16,
-        color: _getPinkColor(context),
-      ),
+      icon: FaIcon(iconData, size: 16, color: _getPinkColor(context)),
     );
   }
 
   // Builds the multiplication button with a value "×" and a multiplication icon
-  Widget _buildMultiplyButton(BuildContext context) {
+  Widget _buildMultiplyButton(BuildContext context, bool useProIcons) {
+    late IconData iconData;
+
+    if (useProIcons) {
+      iconData = FastFontAwesomeIcons.lightXmark;
+    } else {
+      iconData = FontAwesomeIcons.xmark;
+    }
+
     return _buildKeyboardButton(
       context,
       '×',
-      icon: FaIcon(
-        FontAwesomeIcons.xmark,
-        size: 16,
-        color: _getPinkColor(context),
-      ),
+      icon: FaIcon(iconData, size: 16, color: _getPinkColor(context)),
     );
   }
 
   // Builds the subtraction button with a value "-" and a subtraction icon
-  Widget _buildMinusButton(BuildContext context) {
+  Widget _buildMinusButton(BuildContext context, bool useProIcons) {
+    late IconData iconData;
+
+    if (useProIcons) {
+      iconData = FastFontAwesomeIcons.lightMinus;
+    } else {
+      iconData = FontAwesomeIcons.minus;
+    }
+
     return _buildKeyboardButton(
       context,
       '-',
-      icon: FaIcon(
-        FontAwesomeIcons.minus,
-        size: 16,
-        color: _getPinkColor(context),
-      ),
+      icon: FaIcon(iconData, size: 16, color: _getPinkColor(context)),
     );
   }
 
   // Builds the addition button with a value "+" and a addition icon
-  Widget _buildPlusButton(BuildContext context) {
+  Widget _buildPlusButton(BuildContext context, bool useProIcons) {
+    late IconData iconData;
+
+    if (useProIcons) {
+      iconData = FastFontAwesomeIcons.lightPlus;
+    } else {
+      iconData = FontAwesomeIcons.plus;
+    }
+
     return _buildKeyboardButton(
       context,
       '+',
-      icon: FaIcon(
-        FontAwesomeIcons.plus,
-        color: _getPinkColor(context),
-        size: 16,
-      ),
+      icon: FaIcon(iconData, size: 16, color: _getPinkColor(context)),
     );
   }
 
   // Builds the equals button with a value "=" and a equals icon
-  Widget _buildEqualsButton(BuildContext context) {
+  Widget _buildEqualsButton(BuildContext context, bool useProIcons) {
+    late IconData iconData;
+
+    if (useProIcons) {
+      iconData = FastFontAwesomeIcons.lightEquals;
+    } else {
+      iconData = FontAwesomeIcons.equals;
+    }
+
     return _buildKeyboardButton(
       context,
       '=',
-      icon: FaIcon(
-        FontAwesomeIcons.equals,
-        size: 16,
-        color: _getPinkColor(context),
-      ),
+      icon: FaIcon(iconData, size: 16, color: _getPinkColor(context)),
     );
   }
 
   // Builds a custom button based on the provided CustomButtonType
-  Widget _buildCustomButton(BuildContext context) {
+  Widget _buildCustomButton(BuildContext context, bool useProIcons) {
     switch (customButtonType) {
       case CustomButtonType.plusMinus:
-        return _buildPlusMinusButton(context);
+        return _buildPlusMinusButton(context, useProIcons);
       case CustomButtonType.percent:
-        return _buildPercentButton(context);
+        return _buildPercentButton(context, useProIcons);
       default:
         return const SizedBox.shrink();
     }
   }
 
   // Builds the plus-minus button with a value "±" and a plus-minus icon
-  Widget _buildPlusMinusButton(BuildContext context) {
+  Widget _buildPlusMinusButton(BuildContext context, bool useProIcons) {
+    late IconData iconData;
+
+    if (useProIcons) {
+      iconData = FastFontAwesomeIcons.lightPlusMinus;
+    } else {
+      iconData = FontAwesomeIcons.plusMinus;
+    }
+
     return _buildKeyboardButton(
       context,
       '±',
-      icon: FaIcon(
-        FontAwesomeIcons.plusMinus,
-        color: _getMintColor(context),
-        size: 16,
-      ),
+      icon: FaIcon(iconData, color: _getMintColor(context), size: 16),
     );
   }
 
   // Builds the percent button with a value "%" and a percent icon
-  Widget _buildPercentButton(BuildContext context) {
+  Widget _buildPercentButton(BuildContext context, bool useProIcons) {
+    late IconData iconData;
+
+    if (useProIcons) {
+      iconData = FastFontAwesomeIcons.lightPercent;
+    } else {
+      iconData = FontAwesomeIcons.percent;
+    }
+
     return ValueListenableBuilder<TSimpleOperation>(
       valueListenable: operationNotifier,
       builder: (context, operation, child) {
@@ -278,11 +316,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
           context,
           '%',
           isEnabled: isEnabled,
-          icon: FaIcon(
-            FontAwesomeIcons.percent,
-            color: _getMintColor(context),
-            size: 16,
-          ),
+          icon: FaIcon(iconData, color: _getMintColor(context), size: 16),
         );
       },
     );

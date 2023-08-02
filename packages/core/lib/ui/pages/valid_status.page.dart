@@ -33,11 +33,11 @@ class FastValidStatusPage extends FastStatusPage {
     return FastStatusPage(
       validButtonText:
           validButtonText ?? CoreLocaleKeys.core_label_confirm.tr(),
-      icon: icon ?? const FaIcon(FontAwesomeIcons.circleCheck),
       titleText: CoreLocaleKeys.core_label_success.tr(),
       palette: _getPaletteColor(context),
       backgroundColor: backgroundColor,
       contentPadding: contentPadding,
+      icon: _getIcon(context),
       onValidTap: onValidTap,
       iconColor: iconColor,
       descriptionText:
@@ -53,5 +53,19 @@ class FastValidStatusPage extends FastStatusPage {
     final palettes = ThemeHelper.getPaletteColors(context);
 
     return palette ?? palettes.green;
+  }
+
+  Widget _getIcon(BuildContext context) {
+    if (icon != null) {
+      return icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.lightCircleCheck);
+    }
+
+    return const FaIcon(FontAwesomeIcons.circleCheck);
   }
 }

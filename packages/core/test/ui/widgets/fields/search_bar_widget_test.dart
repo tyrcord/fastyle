@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_test/flutter_test.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+
+const _kFastBackIcon = FaIcon(FontAwesomeIcons.chevronLeft);
+const _kFastDoneIcon = FaIcon(FontAwesomeIcons.check);
 
 FastApp _buildApp(Widget child) {
   return FastApp(
@@ -125,7 +129,7 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        final finder = find.byWidget(kFastBackIcon);
+        final finder = find.byWidget(_kFastBackIcon);
 
         await tester.tap(finder);
         await tester.pumpAndSettle();
@@ -143,7 +147,7 @@ void main() {
           )),
         );
         await tester.pumpAndSettle();
-        final finder = find.byWidget(kFastBackIcon);
+        final finder = find.byWidget(_kFastBackIcon);
 
         expect(finder, findsOneWidget);
       });
@@ -158,7 +162,7 @@ void main() {
           const Duration(milliseconds: 60),
         );
 
-        final finder = find.byWidget(kFastBackIcon);
+        final finder = find.byWidget(_kFastBackIcon);
 
         expect(finder, findsNothing);
       });
@@ -169,12 +173,12 @@ void main() {
         await tester.pumpWidget(
           _buildApp(const FastSearchBar(
             items: items,
-            clearSearchIcon: kFastDoneIcon,
+            clearSearchIcon: _kFastDoneIcon,
           )),
         );
         await tester.pumpAndSettle();
 
-        expect(find.byWidget(kFastDoneIcon), findsOneWidget);
+        expect(find.byWidget(_kFastDoneIcon), findsOneWidget);
       });
     });
   });

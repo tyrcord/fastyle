@@ -65,11 +65,11 @@ class FastOnboardingPremiumUser extends StatelessWidget {
       titleText: _getRestorePurchasesText(),
       children: [
         FastOnboardingContentLayout(
-          icon: icon ?? const FaIcon(FontAwesomeIcons.crown),
           secondaryText: _getSecondaryText(),
           handsetIconSize: handsetIconSize,
           primaryText: _getPrimaryText(),
           tabletIconSize: tabletIconSize,
+          icon: buildIcon(context),
           onActionTap: onActionTap,
           actionText: actionText,
           palette: palette,
@@ -77,6 +77,20 @@ class FastOnboardingPremiumUser extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Widget buildIcon(BuildContext context) {
+    if (icon != null) {
+      return icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.userCrown);
+    }
+
+    return const FaIcon(FontAwesomeIcons.crown);
   }
 
   String _getRestorePurchasesText() {

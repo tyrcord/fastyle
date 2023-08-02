@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:t_helpers/helpers.dart';
 
 //TODO: @need-review: code from fastyle_dart
 
@@ -14,7 +15,7 @@ abstract class FastButton extends StatefulWidget {
   final Color? highlightColor;
   final Color? disabledColor;
   final Color? overlayColor;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final Color? textColor;
   final bool isEnabled;
   final bool upperCase;
@@ -23,7 +24,7 @@ abstract class FastButton extends StatefulWidget {
 
   const FastButton({
     super.key,
-    required this.onTap,
+    this.onTap = noop,
     this.trottleTimeDuration = kFastTrottleTimeDuration,
     this.emphasis = FastButtonEmphasis.low,
     this.shouldTrottleTime = false,

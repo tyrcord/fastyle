@@ -43,8 +43,8 @@ abstract class FastRoundedPlanSummaryCard extends FastPlanSummaryCard {
       icon: getIcon(context),
       palette: palette ?? palettes.blueGray,
       backgroundColor: backgroundColor,
-      iconColor: iconColor,
       size: kFastImageSizeXxl,
+      iconColor: iconColor,
     );
   }
 

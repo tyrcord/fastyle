@@ -64,10 +64,10 @@ class FastOnboardingPersonalizedAds extends StatelessWidget {
       titleText: titleText ?? 'Personalized Ads',
       children: [
         FastOnboardingContentLayout(
-          icon: icon ?? const FaIcon(FontAwesomeIcons.bullhorn),
           handsetIconSize: handsetIconSize,
           tabletIconSize: tabletIconSize,
           secondaryText: secondaryText,
+          icon: buildIcon(context),
           primaryText: primaryText,
           actionText: actionText,
           onActionTap: () async {
@@ -81,5 +81,19 @@ class FastOnboardingPersonalizedAds extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Widget buildIcon(BuildContext context) {
+    if (icon != null) {
+      return icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.megaphone);
+    }
+
+    return const FaIcon(FontAwesomeIcons.bullhorn);
   }
 }

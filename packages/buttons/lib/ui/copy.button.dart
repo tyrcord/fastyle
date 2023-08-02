@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// A button widget used to copy text to the clipboard.
 class FastCopyButton extends StatelessWidget {
@@ -23,7 +23,7 @@ class FastCopyButton extends StatelessWidget {
   final bool isEnabled;
 
   /// Custom icon for the button (optional).
-  final Icon? icon;
+  final Widget? icon;
 
   const FastCopyButton({
     super.key,
@@ -38,9 +38,9 @@ class FastCopyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FastIconButton(
       iconColor: ThemeHelper.texts.getSecondaryBodyTextStyle(context).color,
-      icon: const Icon(FontAwesomeIcons.clipboard),
       iconAlignment: Alignment.centerRight,
       onTap: () => handleTap(context),
+      icon: buildIcon(context),
       padding: EdgeInsets.zero,
       shouldTrottleTime: true,
       isEnabled: isEnabled,
@@ -64,5 +64,19 @@ class FastCopyButton extends StatelessWidget {
     return CoreLocaleKeys.core_message_copied_value_to_clipboard.tr(
       namedArgs: {'value': valueText},
     );
+  }
+
+  Widget buildIcon(BuildContext context) {
+    if (icon != null) {
+      return icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.lightClipboard);
+    }
+
+    return const FaIcon(FontAwesomeIcons.clipboard);
   }
 }

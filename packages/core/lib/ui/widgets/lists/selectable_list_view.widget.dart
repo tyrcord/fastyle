@@ -27,7 +27,7 @@ class FastSelectableListView<T extends FastItem> extends StatefulWidget {
   final bool showSearchBar;
   final String searchPlaceholderText;
   final bool shouldUseFuzzySearch;
-  final Widget clearSearchIcon;
+  final Widget? clearSearchIcon;
 
   /// A function that creates additional tab views.
   final List<FastListItemCategory<T>> Function()? extraTabBuilder;
@@ -43,7 +43,7 @@ class FastSelectableListView<T extends FastItem> extends StatefulWidget {
     required this.onSelectionChanged,
     required this.items,
     this.searchPlaceholderText = kFastSearchPlaceholderText,
-    this.clearSearchIcon = kFastClearSearchIcon,
+    this.clearSearchIcon,
     this.shouldUseFuzzySearch = false,
     this.showSearchBar = false,
     this.padding = EdgeInsets.zero,

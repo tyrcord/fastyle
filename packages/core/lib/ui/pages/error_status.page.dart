@@ -34,11 +34,11 @@ class FastErrorStatusPage extends FastStatusPage {
   Widget build(BuildContext context) {
     return FastStatusPage(
       validButtonText: validButtonText ?? CoreLocaleKeys.core_label_retry.tr(),
-      icon: icon ?? const FaIcon(FontAwesomeIcons.circleExclamation),
       titleText: CoreLocaleKeys.core_label_error.tr(),
       palette: _getPaletteColor(context),
       backgroundColor: backgroundColor,
       contentPadding: contentPadding,
+      icon: _getIcon(context),
       onCancelTap: onCancelTap,
       onValidTap: onValidTap,
       iconColor: iconColor,
@@ -57,5 +57,19 @@ class FastErrorStatusPage extends FastStatusPage {
     final palettes = ThemeHelper.getPaletteColors(context);
 
     return palette ?? palettes.red;
+  }
+
+  Widget _getIcon(BuildContext context) {
+    if (icon != null) {
+      return icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(FastFontAwesomeIcons.lightCircleExclamation);
+    }
+
+    return const FaIcon(FontAwesomeIcons.circleExclamation);
   }
 }
