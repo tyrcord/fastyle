@@ -91,4 +91,15 @@ class FastConnectivityStatusListenerState
       ),
     );
   }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+      DiagnosticsProperty<bool>(
+        'hasConnection',
+        _connectivityStatusBloc.currentState.hasConnection,
+      ),
+    );
+  }
 }

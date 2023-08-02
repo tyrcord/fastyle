@@ -51,16 +51,16 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
       );
 
       subxList.add(service.onInternetConnectivityChanged.listen((status) {
-        if (isInitializing) {
-          addEvent(FastConnectivityStatusBlocEvent.initialized(
-            status.hasConnection,
-          ));
-        } else {
+        if (isInitialized) {
           addEvent(FastConnectivityStatusBlocEvent.connectivityStatusChanged(
             status.hasConnection,
           ));
         }
       }));
+
+      addEvent(FastConnectivityStatusBlocEvent.initialized(
+        await service.checkInternetConnectivity(),
+      ));
     }
   }
 
