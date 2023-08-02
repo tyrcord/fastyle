@@ -1,6 +1,6 @@
 name: fastyle_core
 description: The core package for the fastyle libraries.
-version: 0.0.7
+version: 0.0.8
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/core
 
 environment:
@@ -34,7 +34,7 @@ dependencies:
   shimmer: ^3.0.0
   decimal: ^2.3.3
   tmodel: ^0.5.3
-  fastyle_buttons: ^0.0.4
+  fastyle_buttons: ^0.0.5
 
 dev_dependencies:
   flutter_test:

@@ -1,3 +1,9 @@
+## 0.0.14
+
+ - **FIX**: back and close default buttons.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+
 ## 0.0.13
 
  - **FEAT**: minor improvements.

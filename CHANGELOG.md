@@ -3,6 +3,130 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-08-02
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.5`](#fastyle_ad---v005)
+ - [`fastyle_buttons` - `v0.0.5`](#fastyle_buttons---v005)
+ - [`fastyle_calculator` - `v1.20.0`](#fastyle_calculator---v1200)
+ - [`fastyle_connectivity` - `v0.0.11`](#fastyle_connectivity---v0011)
+ - [`fastyle_core` - `v0.0.8`](#fastyle_core---v008)
+ - [`fastyle_digit_calculator` - `v0.0.13`](#fastyle_digit_calculator---v0013)
+ - [`fastyle_firebase` - `v0.0.5`](#fastyle_firebase---v005)
+ - [`fastyle_forms` - `v0.0.14`](#fastyle_forms---v0014)
+ - [`fastyle_home` - `v0.0.9`](#fastyle_home---v009)
+ - [`fastyle_iap` - `v0.0.5`](#fastyle_iap---v005)
+ - [`fastyle_images` - `v0.0.16`](#fastyle_images---v0016)
+ - [`fastyle_onboarding` - `v0.0.14`](#fastyle_onboarding---v0014)
+ - [`fastyle_pricing` - `v1.9.0`](#fastyle_pricing---v190)
+ - [`fastyle_settings` - `v0.0.17`](#fastyle_settings---v0017)
+ - [`fastyle_video_player` - `v0.0.4`](#fastyle_video_player---v004)
+ - [`fastyle_views` - `v0.0.6`](#fastyle_views---v006)
+ - [`fastyle_financial` - `v0.0.11+1`](#fastyle_financial---v00111)
+ - [`fastyle_layouts` - `v0.0.4+1`](#fastyle_layouts---v0041)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_financial` - `v0.0.11+1`
+ - `fastyle_layouts` - `v0.0.4+1`
+
+---
+
+#### `fastyle_ad` - `v0.0.5`
+
+ - **FEAT**: allow to use font awesome pro icons if provided.
+
+#### `fastyle_buttons` - `v0.0.5`
+
+ - **FIX**: back and close default buttons.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+
+#### `fastyle_calculator` - `v1.20.0`
+
+ - **FEAT**: better default icons.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+
+#### `fastyle_connectivity` - `v0.0.11`
+
+ - **FIX**: check internet connectivity status.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+
+#### `fastyle_core` - `v0.0.8`
+
+ - **FIX**: back and close default buttons.
+ - **FEAT**: better default icons.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: add showAnimatedFastOverlay.
+ - **FEAT**: clean up.
+
+#### `fastyle_digit_calculator` - `v0.0.13`
+
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+
+#### `fastyle_firebase` - `v0.0.5`
+
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+
+#### `fastyle_forms` - `v0.0.14`
+
+ - **FIX**: back and close default buttons.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+
+#### `fastyle_home` - `v0.0.9`
+
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+
+#### `fastyle_iap` - `v0.0.5`
+
+ - **FEAT**: allow to use font awesome pro icons if provided.
+
+#### `fastyle_images` - `v0.0.16`
+
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+
+#### `fastyle_onboarding` - `v0.0.14`
+
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+
+#### `fastyle_pricing` - `v1.9.0`
+
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+
+#### `fastyle_settings` - `v0.0.17`
+
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+
+#### `fastyle_video_player` - `v0.0.4`
+
+ - **FEAT**: allow to use font awesome pro icons if provided.
+
+#### `fastyle_views` - `v0.0.6`
+
+ - **FEAT**: clean up.
+
+
 ## 2023-08-01
 
 ### Changes

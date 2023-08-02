@@ -1,3 +1,9 @@
+## 1.20.0
+
+ - **FEAT**: better default icons.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+
 ## 1.19.0
 
  - **FEAT**: minor improvements.

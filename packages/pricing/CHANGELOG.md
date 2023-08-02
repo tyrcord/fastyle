@@ -1,3 +1,8 @@
+## 1.9.0
+
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+
 ## 1.8.0
 
  - **FEAT**: minor improvements.

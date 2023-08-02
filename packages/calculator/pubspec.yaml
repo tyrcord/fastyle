@@ -1,6 +1,6 @@
 name: fastyle_calculator
 description: Set of calculator Widgets for the fastyle library.
-version: 1.19.0
+version: 1.20.0
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/calculator
 
 environment:
@@ -18,7 +18,7 @@ dependencies:
 
   # internal dependencies
 
-  fastyle_core: ^0.0.7
+  fastyle_core: ^0.0.8
   tbloc: ">=0.21.0 <1.0.0"
   tmodel: ">=0.5.3 <1.0.0"
   tstore: ">=0.8.9 <1.0.0"

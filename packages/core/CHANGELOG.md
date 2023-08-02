@@ -1,3 +1,11 @@
+## 0.0.8
+
+ - **FIX**: back and close default buttons.
+ - **FEAT**: better default icons.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: add showAnimatedFastOverlay.
+ - **FEAT**: clean up.
+
 ## 0.0.7
 
  - **FEAT**: minor improvements.

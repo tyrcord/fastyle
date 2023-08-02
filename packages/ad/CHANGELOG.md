@@ -1,3 +1,7 @@
+## 0.0.5
+
+ - **FEAT**: allow to use font awesome pro icons if provided.
+
 ## 0.0.4
 
  - **FEAT**: minor improvements.

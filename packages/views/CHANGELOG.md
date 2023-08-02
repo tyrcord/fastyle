@@ -1,3 +1,7 @@
+## 0.0.6
+
+ - **FEAT**: clean up.
+
 ## 0.0.5
 
  - **FEAT**: minor improvements.

@@ -1,3 +1,9 @@
+## 0.0.11
+
+ - **FIX**: check internet connectivity status.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+
 ## 0.0.10
 
  - **FEAT**: minor improvements.
