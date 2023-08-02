@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 //TODO: @need-review: code from fastyle_dart
 
@@ -26,7 +27,7 @@ class FastCloseButton extends FastButton {
     super.onTap,
     super.key,
     this.iconAlignment = Alignment.center,
-    this.iconSize = kFastIconSizeSmall,
+    this.iconSize = kFastIconSizeLarge,
     this.iconColor,
     this.tooltip,
     this.icon,
@@ -45,6 +46,16 @@ class FastCloseButtonState extends State<FastCloseButton>
     trottler.close();
   }
 
+  void handleTap(BuildContext context) {
+    if (widget.onTap != null) {
+      widget.onTap!();
+    } else {
+      if (context.canPop()) {
+        context.pop();
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return FastIconButton(
@@ -53,6 +64,7 @@ class FastCloseButtonState extends State<FastCloseButton>
       highlightColor: widget.highlightColor,
       iconAlignment: widget.iconAlignment,
       disabledColor: widget.disabledColor,
+      onTap: () => handleTap(context),
       textColor: widget.textColor,
       iconColor: widget.iconColor,
       isEnabled: widget.isEnabled,
@@ -61,7 +73,6 @@ class FastCloseButtonState extends State<FastCloseButton>
       icon: buildIcon(context),
       padding: widget.padding,
       tooltip: widget.tooltip,
-      onTap: widget.onTap,
     );
   }
 

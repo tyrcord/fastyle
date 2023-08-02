@@ -98,16 +98,10 @@ class FastSearchBarState<T extends FastItem> extends State<FastSearchBar<T>> {
         parentRoute is PageRoute<dynamic> && parentRoute.fullscreenDialog;
 
     if (useCloseButton) {
-      return FastCloseButton(
-        onTap: widget.onLeadingButtonTap,
-        iconSize: kFastIconSizeMedium,
-      );
+      return FastCloseButton(onTap: widget.onLeadingButtonTap);
     }
 
-    return FastBackButton(
-      onTap: widget.onLeadingButtonTap,
-      iconSize: kFastIconSizeMedium,
-    );
+    return FastBackButton(onTap: widget.onLeadingButtonTap);
   }
 
   Widget _buildSearchTextInput(BuildContext context) {

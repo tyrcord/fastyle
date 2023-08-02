@@ -27,7 +27,7 @@ class FastBackButton extends FastButton {
     super.onTap,
     super.key,
     this.iconAlignment = Alignment.center,
-    this.iconSize = kFastIconSizeSmall,
+    this.iconSize = kFastIconSizeLarge,
     this.iconColor,
     this.tooltip,
     this.icon,

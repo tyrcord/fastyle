@@ -160,16 +160,10 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
           parentRoute is PageRoute<dynamic> && parentRoute.fullscreenDialog;
 
       if (useCloseButton) {
-        return FastCloseButton(
-          onTap: () => _close(context),
-          iconSize: kFastIconSizeLarge,
-        );
+        return FastCloseButton(onTap: () => _close(context));
       }
 
-      return FastBackButton(
-        onTap: () => _close(context),
-        iconSize: kFastIconSizeLarge,
-      );
+      return FastBackButton(onTap: () => _close(context));
     }
 
     // If the route can't be popped, return an empty Container.
