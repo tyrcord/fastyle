@@ -42,3 +42,23 @@ Future<void> showFastAlertDialog({
     },
   );
 }
+
+/// Shows a dialog with an animated overlay.
+Future<T?> showAnimatedFastOverlay<T extends Object?>({
+  required BuildContext context,
+  required Widget child,
+  bool barrierDismissible = true,
+}) {
+  return showGeneralDialog<T>(
+    barrierDismissible: barrierDismissible,
+    barrierLabel: kFastEmptyString,
+    context: context,
+    pageBuilder: (_, __, ___) => child,
+    transitionBuilder: (ctx, a1, a2, child) {
+      final curve = Curves.linear.transform(a1.value);
+
+      return Transform.scale(scale: curve, child: child);
+    },
+    transitionDuration: const Duration(milliseconds: 300),
+  );
+}
