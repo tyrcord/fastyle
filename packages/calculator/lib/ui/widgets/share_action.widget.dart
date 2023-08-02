@@ -7,6 +7,7 @@ import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_calculator/fastyle_calculator.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// A [FastCalculatorAction] that clears the calculator state.
 class FastCalculatorShareAction<B extends FastCalculatorBloc,
@@ -26,14 +27,34 @@ class FastCalculatorShareAction<B extends FastCalculatorBloc,
       builder: (BuildContext context, FastCalculatorBlocState state) {
         return FastIconButton(
           isEnabled: shouldEnableInteractions(state),
-          icon: icon ?? const Icon(Icons.share),
           disabledColor: disabledColor,
+          icon: buildIcon(context),
           shouldTrottleTime: true,
           onTap: () => calculatorBloc.addEvent(
             FastCalculatorBlocEvent.custom<R>('share', value: context),
           ),
         );
       },
+    );
+  }
+
+  Widget buildIcon(BuildContext context) {
+    if (icon != null) {
+      return icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(
+        FastFontAwesomeIcons.lightArrowUpFromBracket,
+        size: kFastIconSizeSmall,
+      );
+    }
+
+    return const FaIcon(
+      FontAwesomeIcons.arrowUpFromBracket,
+      size: kFastIconSizeSmall,
     );
   }
 

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //TODO: @need-review: code from fastyle_dart
 
@@ -41,6 +42,7 @@ class FastSelectField<T> extends StatefulWidget {
   final String? listViewEmptyText;
   final VoidCallback? onSearchPageClose;
   final FastFastSelectFieldDelegate<FastItem<T>>? delegate;
+  final Widget? icon;
 
   const FastSelectField({
     super.key,
@@ -73,6 +75,7 @@ class FastSelectField<T> extends StatefulWidget {
     this.listViewEmptyText,
     this.onSearchPageClose,
     this.delegate,
+    this.icon,
   });
 
   @override
@@ -154,10 +157,24 @@ class _FastSelectFieldState<T> extends State<FastSelectField<T>> {
   }
 
   Widget buildIcon(BuildContext context) {
-    return Icon(
-      Icons.arrow_drop_down,
+    if (widget.icon != null) {
+      return widget.icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return FaIcon(
+        FastFontAwesomeIcons.lightChevronDown,
+        color: _getLabelColor(context),
+        size: kFastIconSizeXs,
+      );
+    }
+
+    return FaIcon(
+      FontAwesomeIcons.chevronDown,
       color: _getLabelColor(context),
-      size: kFastIconSizeMedium,
+      size: kFastIconSizeXs,
     );
   }
 

@@ -34,7 +34,7 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
       errorReporter: errorReporter,
     );
 
-    await applySettings(context, settingsState);
+    return applySettings(context, settingsState);
   }
 
   /// Initializes the [FastAppSettingsBloc] by retrieving the settings

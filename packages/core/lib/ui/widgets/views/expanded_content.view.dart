@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //TODO: @need-review: code from fastyle_dart
 
@@ -11,7 +12,7 @@ class FastExpansionPanel extends StatefulWidget {
   final WidgetBuilder bodyBuilder;
   final GestureTapCallback? onTap;
   final Color? titleTextColor;
-  final IconData headerIcon;
+  final Widget? headerIcon;
   final String titleText;
   final bool isExpanded;
   final bool isEnabled;
@@ -20,11 +21,11 @@ class FastExpansionPanel extends StatefulWidget {
     super.key,
     required this.bodyBuilder,
     this.animationDuration = const Duration(milliseconds: 300),
-    this.headerIcon = Icons.expand_more,
     this.titleText = kFastPanelText,
     this.isExpanded = false,
     this.isEnabled = true,
     this.titleTextColor,
+    this.headerIcon,
     this.onTap,
   });
 
@@ -119,21 +120,37 @@ class FastExpansionPanelState extends State<FastExpansionPanel>
           ),
           Align(
             alignment: Alignment.centerRight,
-            child: _buildHeaderIcon(color),
+            child: _buildHeaderIcon(context, color),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildHeaderIcon(Color color) {
+  Widget _buildHeaderIcon(BuildContext context, Color color) {
     return RotationTransition(
       turns: _animation,
-      child: Icon(
-        widget.headerIcon,
-        size: kFastIconSizeMedium,
-        color: color,
-      ),
+      child: buildIcon(context),
+    );
+  }
+
+  Widget buildIcon(BuildContext context) {
+    if (widget.headerIcon != null) {
+      return widget.headerIcon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(
+        FastFontAwesomeIcons.lightChevronDown,
+        size: kFastIconSizeXs,
+      );
+    }
+
+    return const FaIcon(
+      FontAwesomeIcons.chevronDown,
+      size: kFastIconSizeXs,
     );
   }
 }

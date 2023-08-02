@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // Project imports:
 import 'package:fastyle_calculator/fastyle_calculator.dart';
@@ -28,9 +29,9 @@ class FastCalculatorClearAction<B extends FastCalculatorBloc,
       builder: (_, FastCalculatorBlocState state) {
         return FastIconButton(
           isEnabled: shouldEnableInteractions(state),
-          icon: icon ?? const Icon(Icons.delete),
           iconAlignment: Alignment.centerRight,
           disabledColor: disabledColor,
+          icon: buildIcon(context),
           iconColor: primaryColor,
           shouldTrottleTime: true,
           onTap: () => calculatorBloc.addEvent(
@@ -38,6 +39,26 @@ class FastCalculatorClearAction<B extends FastCalculatorBloc,
           ),
         );
       },
+    );
+  }
+
+  Widget buildIcon(BuildContext context) {
+    if (icon != null) {
+      return icon!;
+    }
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return const FaIcon(
+        FastFontAwesomeIcons.lightEraser,
+        size: kFastIconSizeSmall,
+      );
+    }
+
+    return const FaIcon(
+      FontAwesomeIcons.eraser,
+      size: kFastIconSizeSmall,
     );
   }
 
