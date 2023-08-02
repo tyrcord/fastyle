@@ -15,6 +15,7 @@ dependencies:
   fastyle_core: ^0.0.8
   fastyle_layouts: ^0.0.4+1
   lingua_onboarding: ^0.0.6+1
+  easy_localization: ^3.0.2
 
 dev_dependencies:
   flutter_test:
