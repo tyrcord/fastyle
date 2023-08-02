@@ -1,3 +1,5 @@
+// ignore_for_file: type=lint
+
 library font_awesome_flutter;
 
 import 'package:flutter/widgets.dart';
