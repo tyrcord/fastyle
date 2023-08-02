@@ -255,21 +255,21 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.4"
+    version: "0.0.5"
   fastyle_connectivity:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.10"
+    version: "0.0.11"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.7"
+    version: "0.0.8"
   ffi:
     dependency: transitive
     description:
