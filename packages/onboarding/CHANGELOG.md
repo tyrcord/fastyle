@@ -1,3 +1,7 @@
+## 0.0.14+1
+
+ - **FIX**: missing dependency.
+
 ## 0.0.14
 
  - **FEAT**: allow to use font awesome pro icons if provided.

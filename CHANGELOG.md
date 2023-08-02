@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_onboarding` - `v0.0.14+1`](#fastyle_onboarding---v00141)
+
+---
+
+#### `fastyle_onboarding` - `v0.0.14+1`
+
+ - **FIX**: missing dependency.
+
+
+## 2023-08-02
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_ad` - `v0.0.5`](#fastyle_ad---v005)
  - [`fastyle_buttons` - `v0.0.5`](#fastyle_buttons---v005)
  - [`fastyle_calculator` - `v1.20.0`](#fastyle_calculator---v1200)
