@@ -14,6 +14,7 @@ dependencies:
   collection: ^1.17.1
   fastyle_core: ^0.0.8
   tbloc: ">=0.21.0 <1.0.0"
+  tmodel: ^0.5.4
   easy_localization: ^3.0.2
   google_mobile_ads: ^3.0.0
   t_helpers: ^0.0.22
@@ -23,7 +24,8 @@ dependencies:
   lingua_ad: ^0.0.5
   visibility_detector: ^0.3.3
   uuid: ^3.0.7
-  tstore: ^0.8.9
+  tstore: ^0.8.10
+  http: ^0.13.6
 
 dev_dependencies:
   flutter_test:
