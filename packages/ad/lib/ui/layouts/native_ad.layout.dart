@@ -12,7 +12,7 @@ class FastNativeAdLayout extends StatelessWidget {
   final String? buttonText;
   final Widget? icon;
   final bool loading;
-  final double? rating;
+  final double? ranking;
   final bool showAdBadge;
 
   const FastNativeAdLayout({
@@ -23,7 +23,7 @@ class FastNativeAdLayout extends StatelessWidget {
     this.buttonText,
     this.titleText,
     this.icon,
-    this.rating,
+    this.ranking,
     this.loading = false,
     this.showAdBadge = true,
   });
@@ -66,7 +66,7 @@ class FastNativeAdLayout extends StatelessWidget {
       onButtonTap: onButtonTap,
       buttonText: buttonText,
       titleText: titleText,
-      rating: rating,
+      rating: ranking,
       icon: icon,
     );
   }
@@ -77,7 +77,7 @@ class FastNativeAdLayout extends StatelessWidget {
       onButtonTap: onButtonTap,
       buttonText: buttonText,
       titleText: titleText,
-      rating: rating,
+      rating: ranking,
       icon: icon,
     );
   }
@@ -88,7 +88,7 @@ class FastNativeAdLayout extends StatelessWidget {
       onButtonTap: onButtonTap,
       buttonText: buttonText,
       titleText: titleText,
-      rating: rating,
+      rating: ranking,
       icon: icon,
     );
   }

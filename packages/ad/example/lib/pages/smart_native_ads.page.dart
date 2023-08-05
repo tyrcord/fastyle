@@ -5,26 +5,26 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_ad/fastyle_ad.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 
-class SmartAdsPage extends StatefulWidget {
-  const SmartAdsPage({super.key});
+class SmartNativeAdsPage extends StatefulWidget {
+  const SmartNativeAdsPage({super.key});
 
   @override
-  State<SmartAdsPage> createState() => SmartAdsPageState();
+  State<SmartNativeAdsPage> createState() => _SmartNativeAdsPageState();
 }
 
-class SmartAdsPageState extends State<SmartAdsPage> {
+class _SmartNativeAdsPageState extends State<SmartNativeAdsPage> {
   @override
   Widget build(BuildContext context) {
     return const FastSectionPage(
-      titleText: 'Smart Ads',
+      titleText: 'Smart Native Ads',
       isViewScrollable: true,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          FastTitle(text: 'Medium smart Ad'),
+          FastTitle(text: 'Medium native Ad'),
           kFastSizedBox16,
           FastSmartNativeAd(
-            debugLabel: 'Smart Medium Native Ad',
+            debugLabel: 'Admob Medium Native Ad',
           ),
         ],
       ),

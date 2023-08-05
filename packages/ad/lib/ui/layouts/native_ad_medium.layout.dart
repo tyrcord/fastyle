@@ -46,10 +46,14 @@ class FastMediumNativeAdLayout extends StatelessWidget {
             child: Column(
               children: [
                 Expanded(child: buildContent()),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: FastAdButton(text: buttonText, onTap: onButtonTap),
-                ),
+                if (buttonText != null)
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: FastRaisedButton(
+                      text: buttonText,
+                      onTap: onButtonTap,
+                    ),
+                  ),
               ],
             ),
           ),
@@ -64,6 +68,7 @@ class FastMediumNativeAdLayout extends StatelessWidget {
     }
 
     return FastAdDetails(
+      maxLines: buttonText != null ? 2 : 5,
       descriptionText: descriptionText,
       titleText: titleText,
       adSize: adSize,

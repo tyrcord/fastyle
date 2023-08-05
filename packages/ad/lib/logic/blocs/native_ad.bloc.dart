@@ -10,7 +10,8 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastNativeAdBloc
     extends BidirectionalBloc<FastNativeAdBlocEvent, FastNativeAdBlocState> {
-  final _service = FastAdmobNativeAdService();
+  final _admobService = FastAdmobNativeAdService();
+  FastAdService? _adService;
 
   FastNativeAdBloc({
     FastNativeAdBlocState? initialState,
@@ -55,6 +56,12 @@ class FastNativeAdBloc
       isInitializing = true;
       yield currentState.copyWith(isInitializing: true);
 
+      final adInfo = payload.adInfo;
+
+      if (adInfo.adServiceUriAuthority != null) {
+        _adService = FastAdService(adInfo.adServiceUriAuthority!);
+      }
+
       addEvent(FastNativeAdBlocEvent.initialized(payload));
     }
   }
@@ -78,12 +85,15 @@ class FastNativeAdBloc
   ) async* {
     final adInfo = payload.adInfo;
     final country = payload.country;
+    final language = payload.language;
+
     AdWithView? adView;
+    FastResponseAd? ad;
 
     yield currentState.copyWith(isLoadingAd: true, showFallback: false);
 
     if (adInfo.nativeAdUnitId != null) {
-      adView = await _service.requestAd(
+      adView = await _admobService.requestAd(
         adInfo.nativeAdUnitId!,
         countryWhiteList: adInfo.countries,
         keywords: adInfo.keywords,
@@ -91,7 +101,20 @@ class FastNativeAdBloc
       );
     }
 
-    addEvent(FastNativeAdBlocEvent.adLoaded(payload.copyWith(adView: adView)));
+    if (adView == null && _adService != null) {
+      if (language != null && country != null) {
+        ad = await _adService!.getAdByCountryAndLanguage(country, language);
+      }
+
+      if (language != null && ad == null) {
+        ad = await _adService!.getAdByLanguage(language);
+      }
+    }
+
+    addEvent(FastNativeAdBlocEvent.adLoaded(payload.copyWith(
+      adView: adView,
+      ad: ad,
+    )));
   }
 
   Stream<FastNativeAdBlocState> handleAdLoaded(
@@ -99,11 +122,13 @@ class FastNativeAdBloc
   ) async* {
     if (currentState.isLoadingAd) {
       final adView = payload.adView;
+      final ad = payload.ad;
 
       yield currentState.copyWith(
-        showFallback: adView == null,
+        showFallback: adView == null && ad == null,
         isLoadingAd: false,
         adView: adView,
+        ad: ad,
       );
     }
   }

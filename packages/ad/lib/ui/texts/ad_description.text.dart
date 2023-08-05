@@ -10,20 +10,22 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 class FastAdDescription extends StatelessWidget {
   final String text;
   final FastAdSize adSize;
+  final int? maxLines;
 
   const FastAdDescription({
     super.key,
     required this.text,
     this.adSize = FastAdSize.medium,
-  });
+    int? maxLines,
+  }) : maxLines = maxLines ?? (adSize == FastAdSize.large ? 3 : 2);
 
   @override
   Widget build(BuildContext context) {
     return FastSecondaryBody(
-      maxLines: adSize == FastAdSize.large ? 3 : 2,
       overflow: TextOverflow.ellipsis,
-      text: text,
+      maxLines: maxLines,
       fontSize: 14,
+      text: text,
     );
   }
 }

@@ -33,7 +33,7 @@ final kAppInfo = kFastAppInfo.copyWith(
   ],
 );
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget with FastAdInformationJobDelegate {
   const MyApp({super.key});
 
   @override
@@ -52,11 +52,19 @@ class MyApp extends StatelessWidget {
         BlocProvider(bloc: FastRewardedAdBloc()),
       ],
       loaderJobs: [
-        FastAdInfoJob(),
+        FastAdInfoJob(delegate: this),
         FastSplashAdJob(),
         FastRewardedAdJob(),
       ],
       homeBuilder: (BuildContext context) => const MyHomePage(),
+    );
+  }
+
+  @override
+  FastAdInfo onGetAdInformationModel(BuildContext context) {
+    return const FastAdInfo(
+      // FIXME
+      adServiceUriAuthority: 'services.lumen.tyrcord.com',
     );
   }
 }
@@ -74,8 +82,7 @@ class MyHomePage extends StatelessWidget {
           GoRouter.of(context).go('/${item.value}');
         },
         items: const [
-          FastItem(labelText: 'Admob Native Ads', value: 'admob-native'),
-          FastItem(labelText: 'Smart Ads', value: 'smart'),
+          FastItem(labelText: 'Smart Native Ads', value: 'smart-native'),
           FastItem(labelText: 'Custom Ads', value: 'custom'),
           FastItem(labelText: 'Loading Ads', value: 'loading'),
           FastItem(labelText: 'Rewarded Ads', value: 'rewarded'),

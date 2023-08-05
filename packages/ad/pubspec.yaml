@@ -17,7 +17,7 @@ dependencies:
   tmodel: ^0.5.4
   easy_localization: ^3.0.2
   google_mobile_ads: ^3.0.0
-  t_helpers: ^0.0.22
+  t_helpers: ^0.0.24
   fastyle_video_player: ^0.0.4
   font_awesome_flutter: ^10.5.0
   lingua_core: ^0.0.13
@@ -26,6 +26,7 @@ dependencies:
   uuid: ^3.0.7
   tstore: ^0.8.10
   http: ^0.13.6
+  url_launcher: ^6.1.12
 
 dev_dependencies:
   flutter_test:

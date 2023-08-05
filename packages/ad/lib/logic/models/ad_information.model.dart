@@ -57,6 +57,9 @@ class FastAdInfo extends TDocument {
   /// The threshold value for splash ads.
   final int splashAdThreshold;
 
+  /// The authority of the ad service URI.
+  final String? adServiceUriAuthority;
+
   /// Get the Ad Unit ID for native ads.
   String? get nativeAdUnitId {
     if (Platform.isIOS || Platform.isAndroid) {
@@ -176,6 +179,7 @@ class FastAdInfo extends TDocument {
     this.keywords,
     this.countries,
     this.splashAdThreshold = 10,
+    this.adServiceUriAuthority,
   });
 
   /// Create a new [FastAdInfo] instance from a JSON map.
@@ -198,6 +202,8 @@ class FastAdInfo extends TDocument {
           json['iosRewardedInterstitialAdUnitId'] as String?,
       countries: json['countries'] as List<String>?,
       keywords: json['keywords'] as List<String>?,
+      splashAdThreshold: json['splashAdThreshold'] as int? ?? 10,
+      adServiceUriAuthority: json['adServiceUriAuthority'] as String?,
     );
   }
 
@@ -222,6 +228,8 @@ class FastAdInfo extends TDocument {
     String? iosRewardedInterstitialAdUnitId,
     List<String>? keywords,
     List<String>? countries,
+    int? splashAdThreshold,
+    String? adServiceUriAuthority,
   }) =>
       FastAdInfo(
         iosNativeAdUnitId: iosNativeAdUnitId ?? this.iosNativeAdUnitId,
@@ -247,6 +255,9 @@ class FastAdInfo extends TDocument {
         androidRewardedInterstitialAdUnitId:
             androidRewardedInterstitialAdUnitId ??
                 this.androidRewardedInterstitialAdUnitId,
+        splashAdThreshold: splashAdThreshold ?? this.splashAdThreshold,
+        adServiceUriAuthority:
+            adServiceUriAuthority ?? this.adServiceUriAuthority,
       );
 
   /// Merges the properties of another [FastAdInfo] instance into this one.
@@ -268,6 +279,8 @@ class FastAdInfo extends TDocument {
       iosRewardedInterstitialAdUnitId: model.iosRewardedInterstitialAdUnitId,
       androidRewardedInterstitialAdUnitId:
           model.androidRewardedInterstitialAdUnitId,
+      splashAdThreshold: model.splashAdThreshold,
+      adServiceUriAuthority: model.adServiceUriAuthority,
     );
   }
 
@@ -289,6 +302,8 @@ class FastAdInfo extends TDocument {
         'iosRewardedInterstitialAdUnitId': iosRewardedInterstitialAdUnitId,
         'countries': countries,
         'keywords': keywords,
+        'splashAdThreshold': splashAdThreshold,
+        'adServiceUriAuthority': adServiceUriAuthority,
       };
 
   /// Returns a list of properties used to determine if two [FastAdInfo]
@@ -309,5 +324,7 @@ class FastAdInfo extends TDocument {
         iosRewardedInterstitialAdUnitId,
         keywords,
         countries,
+        splashAdThreshold,
+        adServiceUriAuthority,
       ];
 }

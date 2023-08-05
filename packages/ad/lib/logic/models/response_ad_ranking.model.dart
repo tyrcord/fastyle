@@ -4,7 +4,7 @@ import 'package:tmodel/tmodel.dart';
 /// Extends the `TModel` class from the `tmodel` package.
 class FastResponseAdRanking extends TModel {
   /// The value of the ad ranking.
-  final int value;
+  final double value;
 
   /// The factor of the ad ranking.
   final int factor;
@@ -20,7 +20,7 @@ class FastResponseAdRanking extends TModel {
   /// JSON [Map]. Expects the JSON map to have 'value' and 'factor' fields.
   factory FastResponseAdRanking.fromJson(Map<String, dynamic> json) {
     return FastResponseAdRanking(
-      value: json['value'] as int,
+      value: json['value'] as double,
       factor: json['factor'] as int,
     );
   }
@@ -34,7 +34,7 @@ class FastResponseAdRanking extends TModel {
   /// [value] and/or [factor].
   @override
   FastResponseAdRanking copyWith({
-    int? value,
+    double? value,
     int? factor,
   }) {
     return FastResponseAdRanking(

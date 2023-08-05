@@ -27,7 +27,7 @@ class _CustomAdsPageState extends State<CustomAdsPage> {
           FastNativeAdLayout(
             adSize: FastAdSize.small,
             titleText: 'Medium Ad',
-            rating: 4.5,
+            ranking: 4.5,
             icon: Container(
               color: Colors.blueGrey[100],
               width: double.infinity,
@@ -49,7 +49,7 @@ class _CustomAdsPageState extends State<CustomAdsPage> {
           FastNativeAdLayout(
             adSize: FastAdSize.medium,
             titleText: 'Medium Ad',
-            rating: 4,
+            ranking: 4,
             icon: Container(
               color: Colors.blueGrey[100],
               width: double.infinity,

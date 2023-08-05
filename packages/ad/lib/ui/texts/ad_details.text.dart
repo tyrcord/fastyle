@@ -12,6 +12,7 @@ class FastAdDetails extends StatelessWidget {
   final String? titleText;
   final FastAdSize adSize;
   final double? rating;
+  final int? maxLines;
 
   const FastAdDetails({
     super.key,
@@ -19,6 +20,7 @@ class FastAdDetails extends StatelessWidget {
     this.descriptionText,
     this.titleText,
     this.rating,
+    this.maxLines,
   });
 
   @override
@@ -34,7 +36,11 @@ class FastAdDetails extends StatelessWidget {
         if (hasDescription)
           Container(
             margin: const EdgeInsets.symmetric(vertical: 8),
-            child: FastAdDescription(text: descriptionText!, adSize: adSize),
+            child: FastAdDescription(
+              text: descriptionText!,
+              adSize: adSize,
+              maxLines: maxLines,
+            ),
           ),
       ],
     );
@@ -45,19 +51,25 @@ class FastAdDetails extends StatelessWidget {
       return buildSmallHeader();
     }
 
-    return Row(
-      children: [
-        FastAdTitle(text: titleText!),
-        if (rating != null && rating! > 0)
-          Container(
-            margin: const EdgeInsets.only(left: 8),
-            child: FastStarRating(
-              initialRating: rating!,
-              size: kFastIconSizeXxs,
-              readOnly: true,
-            ),
-          ),
-      ],
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return Row(
+          children: [
+            Flexible(child: FastAdTitle(text: titleText!)),
+            if (rating != null && rating! > 0 && constraints.maxWidth > 200)
+              Flexible(
+                child: Container(
+                  margin: const EdgeInsets.only(left: 8),
+                  child: FastStarRating(
+                    initialRating: rating!,
+                    size: kFastIconSizeXxs,
+                    readOnly: true,
+                  ),
+                ),
+              )
+          ],
+        );
+      },
     );
   }
 

@@ -2,11 +2,10 @@
 import 'package:go_router/go_router.dart';
 
 // Project imports:
-import 'package:fastyle_ad_example/pages/admob_native_ads.page.dart';
+import 'package:fastyle_ad_example/pages/smart_native_ads.page.dart';
 import 'package:fastyle_ad_example/pages/admob_rewarded_ads.page.dart';
 import 'package:fastyle_ad_example/pages/custom_ads.page.dart';
 import 'package:fastyle_ad_example/pages/loading_ads.page.dart';
-import 'package:fastyle_ad_example/pages/smart_ads.page.dart';
 
 final kAppRoutes = [
   GoRoute(
@@ -18,15 +17,11 @@ final kAppRoutes = [
     builder: (context, state) => const LoadingAdsPage(),
   ),
   GoRoute(
-    path: 'admob-native',
-    builder: (context, state) => const AdmobNativeAdsPage(),
+    path: 'smart-native',
+    builder: (context, state) => const SmartNativeAdsPage(),
   ),
   GoRoute(
     path: 'rewarded',
     builder: (context, state) => const AdmobRewardedAdsPage(),
-  ),
-  GoRoute(
-    path: 'smart',
-    builder: (context, state) => const SmartAdsPage(),
   ),
 ];

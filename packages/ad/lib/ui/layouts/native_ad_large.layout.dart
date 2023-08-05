@@ -37,7 +37,8 @@ class FastLargeNativeAdLayout extends StatelessWidget {
         FastNativeAdIcon(adSize: adSize, icon: icon),
         kFastVerticalSizedBox8,
         Expanded(child: buildContent()),
-        FastAdButton(text: buttonText, onTap: onButtonTap),
+        if (buttonText != null)
+        FastRaisedButton(text: buttonText, onTap: onButtonTap),
       ],
     );
   }

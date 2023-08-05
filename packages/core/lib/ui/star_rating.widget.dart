@@ -8,14 +8,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 
 class FastStarRating extends StatefulWidget {
-  final int maxRating;
-  final double initialRating;
   final Function(double)? onRatingChanged;
-  final Color? emptyColor;
+  final double initialRating;
   final Color? filledColor;
-  final double size;
+  final Color? emptyColor;
+  final int maxRating;
   final bool disabled;
   final bool readOnly;
+  final double size;
 
   const FastStarRating({
     super.key,
@@ -90,12 +90,17 @@ class FastStarRatingState extends State<FastStarRating> {
 
   FaIcon buildStarIcon(BuildContext context) {
     final useProIcons = FastIconHelper.of(context).useProIcons;
+    IconData iconData = FontAwesomeIcons.star;
 
     if (useProIcons) {
-      return const FaIcon(FastFontAwesomeIcons.lightStar);
+      iconData = FastFontAwesomeIcons.lightStar;
     }
 
-    return const FaIcon(FontAwesomeIcons.star);
+    return FaIcon(
+      iconData,
+      color: _getEmptyColor(context),
+      size: widget.size,
+    );
   }
 
   Color _getFilledColor(BuildContext context) {

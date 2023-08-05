@@ -1,4 +1,5 @@
 // Package imports:
+import 'package:fastyle_ad/fastyle_ad.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tbloc/tbloc.dart';
 
@@ -6,6 +7,7 @@ class FastNativeAdBlocState extends BlocState {
   final AdWithView? adView;
   final bool showFallback;
   final bool isLoadingAd;
+  final FastResponseAd? ad;
 
   FastNativeAdBlocState({
     super.isInitializing = false,
@@ -13,6 +15,7 @@ class FastNativeAdBlocState extends BlocState {
     this.showFallback = false,
     this.isLoadingAd = false,
     this.adView,
+    this.ad,
   });
 
   @override
@@ -22,6 +25,7 @@ class FastNativeAdBlocState extends BlocState {
     AdWithView? adView,
     bool? showFallback,
     bool? isLoadingAd,
+    FastResponseAd? ad,
   }) {
     return FastNativeAdBlocState(
       isInitializing: isInitializing ?? this.isInitializing,
@@ -29,6 +33,7 @@ class FastNativeAdBlocState extends BlocState {
       showFallback: showFallback ?? this.showFallback,
       isLoadingAd: isLoadingAd ?? this.isLoadingAd,
       adView: adView ?? this.adView,
+      ad: ad ?? this.ad,
     );
   }
 
@@ -43,6 +48,7 @@ class FastNativeAdBlocState extends BlocState {
       showFallback: model.showFallback,
       isLoadingAd: model.isLoadingAd,
       adView: model.adView,
+      ad: model.ad,
     );
   }
 
@@ -53,5 +59,6 @@ class FastNativeAdBlocState extends BlocState {
         showFallback,
         isLoadingAd,
         adView,
+        ad,
       ];
 }

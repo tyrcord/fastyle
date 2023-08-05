@@ -47,7 +47,7 @@ class FastVideoNativeAd extends StatelessWidget {
       titleText: titleText,
       showAdBadge: false,
       adSize: adSize,
-      rating: rating,
+      ranking: rating,
     );
   }
 }

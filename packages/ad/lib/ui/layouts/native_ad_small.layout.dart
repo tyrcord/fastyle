@@ -41,8 +41,8 @@ class FastSmallNativeAdLayout extends StatelessWidget {
             child: buildContent(),
           ),
         ),
-        if (detailsPlaceholder == null)
-          FastAdButton(text: buttonText, onTap: onButtonTap),
+        if (detailsPlaceholder == null && buttonText != null)
+          FastRaisedButton(text: buttonText, onTap: onButtonTap),
       ],
     );
   }

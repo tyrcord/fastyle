@@ -20,9 +20,12 @@ class FastMessenger {
   }
 
   /// Launches a URL using the provided URL string.
-  static Future<void> launchUrl(String url) async {
+  static Future<void> launchUrl(
+    String url, {
+    LaunchMode mode = LaunchMode.platformDefault,
+  }) async {
     if (await canLaunchUrlString(url)) {
-      await launchUrlString(url);
+      await launchUrlString(url, mode: mode);
     } else {
       // TODO: handle errors
     }
