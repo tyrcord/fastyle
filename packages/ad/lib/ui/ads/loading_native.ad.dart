@@ -9,6 +9,17 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastLoadingNativeAd extends StatelessWidget {
   static const placeholder = FastBoxPlaceholder();
+
+  static const placeholders = [
+    FastBoxPlaceholder(height: 14, width: 96),
+    kFastVerticalSizedBox16,
+    FastBoxPlaceholder(height: 14),
+    kFastVerticalSizedBox8,
+    FastBoxPlaceholder(height: 14),
+    kFastVerticalSizedBox8,
+    FastBoxPlaceholder(height: 14, width: 72),
+  ];
+
   final FastAdSize adSize;
 
   const FastLoadingNativeAd({
@@ -43,12 +54,7 @@ class FastLoadingNativeAd extends StatelessWidget {
       icon: placeholder,
       detailsPlaceholder: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          FastBoxPlaceholder(height: 14, width: 96),
-          FastBoxPlaceholder(height: 14),
-          FastBoxPlaceholder(height: 14, width: 72),
-        ],
+        children: placeholders,
       ),
     );
   }
@@ -58,12 +64,7 @@ class FastLoadingNativeAd extends StatelessWidget {
       icon: placeholder,
       detailsPlaceholder: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          FastBoxPlaceholder(height: 14, width: 96),
-          FastBoxPlaceholder(height: 14),
-          FastBoxPlaceholder(height: 14, width: 72),
-        ],
+        children: placeholders,
       ),
     );
   }
