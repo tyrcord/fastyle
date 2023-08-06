@@ -17,7 +17,7 @@ dependencies:
   tmodel: ^0.5.4
   easy_localization: ^3.0.2
   google_mobile_ads: ^3.0.0
-  t_helpers: ^0.0.24
+  t_helpers: ^0.0.25
   fastyle_video_player: ^0.0.4
   font_awesome_flutter: ^10.5.0
   lingua_core: ^0.0.13

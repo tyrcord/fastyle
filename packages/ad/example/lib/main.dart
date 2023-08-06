@@ -63,7 +63,6 @@ class MyApp extends StatelessWidget with FastAdInformationJobDelegate {
   @override
   FastAdInfo onGetAdInformationModel(BuildContext context) {
     return const FastAdInfo(
-      // FIXME
       adServiceUriAuthority: 'services.lumen.tyrcord.com',
     );
   }

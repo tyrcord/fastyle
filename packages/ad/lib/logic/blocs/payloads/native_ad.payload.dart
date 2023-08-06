@@ -11,6 +11,7 @@ class FastNativeAdBlocEventPayload {
   final AdWithView? adView;
   final String? language;
   final FastResponseAd? ad;
+  final String? adId;
 
   FastNativeAdBlocEventPayload({
     required this.adInfo,
@@ -18,6 +19,7 @@ class FastNativeAdBlocEventPayload {
     this.adView,
     this.language,
     this.ad,
+    this.adId,
   });
 
   FastNativeAdBlocEventPayload copyWith({
@@ -26,6 +28,7 @@ class FastNativeAdBlocEventPayload {
     AdWithView? adView,
     String? language,
     FastResponseAd? ad,
+    String? adId,
   }) {
     return FastNativeAdBlocEventPayload(
       adInfo: adInfo ?? this.adInfo,
@@ -33,6 +36,7 @@ class FastNativeAdBlocEventPayload {
       adView: adView ?? this.adView,
       language: language ?? this.language,
       ad: ad ?? this.ad,
+      adId: adId ?? this.adId,
     );
   }
 }

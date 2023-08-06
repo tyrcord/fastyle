@@ -79,20 +79,24 @@ class FastNativeAdBloc
     }
   }
 
-  // TODO: Add support for other ad providers.
   Stream<FastNativeAdBlocState> handleLoadAd(
     FastNativeAdBlocEventPayload payload,
   ) async* {
     final adInfo = payload.adInfo;
     final country = payload.country;
     final language = payload.language;
+    final adId = payload.adId;
 
     AdWithView? adView;
     FastResponseAd? ad;
 
     yield currentState.copyWith(isLoadingAd: true, showFallback: false);
 
-    if (adInfo.nativeAdUnitId != null) {
+    if (adId != null && _adService != null) {
+      ad = await _adService!.getAdById(adId);
+    }
+
+    if (ad == null && adInfo.nativeAdUnitId != null) {
       adView = await _admobService.requestAd(
         adInfo.nativeAdUnitId!,
         countryWhiteList: adInfo.countries,
@@ -101,7 +105,7 @@ class FastNativeAdBloc
       );
     }
 
-    if (adView == null && _adService != null) {
+    if (adView == null && ad == null && _adService != null) {
       if (language != null && country != null) {
         ad = await _adService!.getAdByCountryAndLanguage(country, language);
       }

@@ -7,6 +7,7 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 class FastNativeAdLayout extends StatelessWidget {
   final VoidCallback? onButtonTap;
   final String? descriptionText;
+  final String? merchantLogoUrl;
   final FastAdSize adSize;
   final String? titleText;
   final String? buttonText;
@@ -24,6 +25,7 @@ class FastNativeAdLayout extends StatelessWidget {
     this.titleText,
     this.icon,
     this.ranking,
+    this.merchantLogoUrl,
     this.loading = false,
     this.showAdBadge = true,
   });
@@ -74,6 +76,7 @@ class FastNativeAdLayout extends StatelessWidget {
   Widget buildMediumAdContent() {
     return FastMediumNativeAdLayout(
       descriptionText: descriptionText,
+      merchantLogoUrl: merchantLogoUrl,
       onButtonTap: onButtonTap,
       buttonText: buttonText,
       titleText: titleText,

@@ -1,32 +1,45 @@
+import 'package:t_helpers/helpers.dart';
 import 'package:tmodel/tmodel.dart';
 
 /// A class representing a fast response ad asset with different sizes.
 /// This class extends the `TModel` class.
 class FastResponseAdAsset extends TModel {
   /// The URL of the small-sized ad asset.
-  final String small;
+  final String? small;
 
   /// The URL of the medium-sized ad asset.
-  final String medium;
+  final String? medium;
 
   /// The URL of the large-sized ad asset.
-  final String large;
+  final String? large;
 
   /// Constructor for creating a [FastResponseAdAsset] object.
   const FastResponseAdAsset({
-    required this.small,
-    required this.medium,
-    required this.large,
+    this.small,
+    this.medium,
+    this.large,
   });
 
   /// Factory constructor to create a [FastResponseAdAsset] object from a
   /// JSON map.
   factory FastResponseAdAsset.fromJson(Map<String, dynamic> json) {
-    return FastResponseAdAsset(
-      small: json['small'] as String,
-      medium: json['medium'] as String,
-      large: json['large'] as String,
-    );
+    var small = json['small'] as String?;
+    var medium = json['medium'] as String?;
+    var large = json['large'] as String?;
+
+    if (small == null || !isValidUrl(small)) {
+      small = null;
+    }
+
+    if (medium == null || !isValidUrl(medium)) {
+      medium = null;
+    }
+
+    if (large == null || !isValidUrl(large)) {
+      large = null;
+    }
+
+    return FastResponseAdAsset(small: small, medium: medium, large: large);
   }
 
   /// Factory constructor to create an empty [FastResponseAdAsset] object.

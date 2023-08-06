@@ -24,6 +24,7 @@ class FastSmartNativeAd extends StatefulWidget {
   final String? language;
   final FastAdSlotDelegate? delegate;
   final Widget? placeholder;
+  final String? adId;
 
   const FastSmartNativeAd({
     super.key,
@@ -36,6 +37,7 @@ class FastSmartNativeAd extends StatefulWidget {
     this.language,
     this.placeholder,
     this.delegate,
+    this.adId,
     Duration? refreshTimeout,
   })  : refreshTimeout = refreshTimeout ?? kFastRefreshTimeout,
         assert(
@@ -61,6 +63,7 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
       country: country,
       language: language,
       adInfo: _getAdInfo(),
+      adId: widget.adId,
     );
 
     _nativeAdBloc = FastNativeAdBloc();
@@ -104,11 +107,7 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
           return buildFallback(context);
         }
 
-        if (state.isLoadingAd || state.isInitializing) {
-          return widget.loadingWidget ?? getLoadingWidget(widget.adSize);
-        }
-
-        return buildDefaultNativeAd();
+        return widget.loadingWidget ?? getLoadingWidget(widget.adSize);
       },
     );
   }

@@ -1,14 +1,10 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
-
-// Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastMediumNativeAdLayout extends StatelessWidget {
   final FastAdSize adSize = FastAdSize.medium;
+  final String? merchantLogoUrl;
   final Widget? detailsPlaceholder;
   final VoidCallback? onButtonTap;
   final String? descriptionText;
@@ -26,6 +22,7 @@ class FastMediumNativeAdLayout extends StatelessWidget {
     this.titleText,
     this.rating,
     this.icon,
+    this.merchantLogoUrl,
   });
 
   @override
@@ -34,26 +31,18 @@ class FastMediumNativeAdLayout extends StatelessWidget {
 
     return Row(
       children: [
-        FastNativeAdIcon(
-          alignment: Alignment.topCenter,
-          adSize: adSize,
-          icon: icon,
-        ),
+        _buildNativeAdIcon(),
         kFastHorizontalSizedBox16,
         Expanded(
           child: SizedBox(
             height: iconSize,
             child: Column(
               children: [
-                Expanded(child: buildContent()),
+                Expanded(child: _buildAdContent()),
                 if (buttonText != null)
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: FastRaisedButton(
-                      text: buttonText,
-                      onTap: onButtonTap,
-                    ),
-                  ),
+                  _buildAdButton()
+                else if (merchantLogoUrl != null)
+                  _buildMerchantLogo(),
               ],
             ),
           ),
@@ -62,17 +51,43 @@ class FastMediumNativeAdLayout extends StatelessWidget {
     );
   }
 
-  Widget buildContent() {
-    if (detailsPlaceholder != null) {
-      return detailsPlaceholder!;
-    }
-
-    return FastAdDetails(
-      maxLines: buttonText != null ? 2 : 5,
-      descriptionText: descriptionText,
-      titleText: titleText,
+  Widget _buildNativeAdIcon() {
+    return FastNativeAdIcon(
+      alignment: Alignment.topCenter,
       adSize: adSize,
-      rating: rating,
+      icon: icon,
     );
+  }
+
+  Widget _buildAdButton() {
+    return Align(
+      alignment: Alignment.bottomRight,
+      child: FastRaisedButton(
+        text: buttonText!,
+        onTap: onButtonTap,
+      ),
+    );
+  }
+
+  Widget _buildMerchantLogo() {
+    return Align(
+      alignment: Alignment.bottomRight,
+      child: Image.network(
+        merchantLogoUrl!,
+        height: kFastIconSizeSmall,
+      ),
+    );
+  }
+
+  Widget _buildAdContent() {
+    return detailsPlaceholder != null
+        ? detailsPlaceholder!
+        : FastAdDetails(
+            maxLines: buttonText != null ? 2 : 5,
+            descriptionText: descriptionText,
+            titleText: titleText,
+            adSize: adSize,
+            rating: rating,
+          );
   }
 }

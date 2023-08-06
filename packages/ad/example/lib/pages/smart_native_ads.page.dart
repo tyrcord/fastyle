@@ -26,6 +26,14 @@ class _SmartNativeAdsPageState extends State<SmartNativeAdsPage> {
           FastSmartNativeAd(
             debugLabel: 'Admob Medium Native Ad',
           ),
+          kFastSizedBox16,
+          FastTitle(text: 'Native Ad with a ID'),
+          kFastSizedBox16,
+          FastSmartNativeAd(
+            debugLabel: 'Native Ad with a Id',
+            adId: 'lg_monitor_trader',
+          ),
+          kFastSizedBox16,
         ],
       ),
     );

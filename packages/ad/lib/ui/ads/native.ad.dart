@@ -27,24 +27,39 @@ class FastNativeAd extends StatelessWidget {
     return GestureDetector(
       onTap: _openLink,
       child: FastNativeAdLayout(
+        merchantLogoUrl: ad.merchant?.logo,
         descriptionText: ad.description,
+        onButtonTap: _openLink,
         buttonText: ad.button,
         titleText: ad.title,
         icon: buildIcon(),
         ranking: ranking,
         adSize: adSize,
-        onButtonTap: _openLink,
       ),
     );
   }
 
   Widget buildIcon() {
-    return FastShadowLayout(
-      borderRadius: 4,
-      child: Center(
-        child: Image.network(ad.image.medium, fit: BoxFit.contain),
-      ),
-    );
+    String? imageUrl;
+
+    if (adSize == FastAdSize.small) {
+      imageUrl = ad.image.small;
+    } else if (adSize == FastAdSize.medium) {
+      imageUrl = ad.image.medium;
+    } else if (adSize == FastAdSize.large) {
+      imageUrl = ad.image.large;
+    }
+
+    if (imageUrl != null) {
+      return FastShadowLayout(
+        borderRadius: 4,
+        child: Center(
+          child: Image.network(imageUrl, fit: BoxFit.contain),
+        ),
+      );
+    }
+
+    return const SizedBox.shrink();
   }
 
   void _openLink() {

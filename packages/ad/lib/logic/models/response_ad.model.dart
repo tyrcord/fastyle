@@ -36,6 +36,8 @@ class FastResponseAd extends TModel {
   /// The price text associated with the ad.
   final String? price;
 
+  final FastResponseAdMerchant? merchant;
+
   /// Creates a [FastResponseAd] object with the given properties.
   const FastResponseAd({
     required this.language,
@@ -46,6 +48,7 @@ class FastResponseAd extends TModel {
     this.ranking,
     this.video,
     this.discount,
+    this.merchant,
     this.button,
     this.price,
   });
@@ -55,6 +58,7 @@ class FastResponseAd extends TModel {
     late FastResponseAdAsset image;
     FastResponseAdRanking? ranking;
     FastResponseAdAsset? video;
+    FastResponseAdMerchant? merchant;
 
     if (json['image'] is Map<String, dynamic>) {
       image = FastResponseAdAsset.fromJson(
@@ -77,6 +81,12 @@ class FastResponseAd extends TModel {
       );
     }
 
+    if (json['merchant'] is Map<String, dynamic>) {
+      merchant = FastResponseAdMerchant.fromJson(
+        json['merchant'] as Map<String, dynamic>,
+      );
+    }
+
     return FastResponseAd(
       language: json['language'] as String,
       title: json['title'] as String,
@@ -85,6 +95,7 @@ class FastResponseAd extends TModel {
       discount: json['discount'] as String?,
       button: json['button'] as String?,
       price: json['price'] as String?,
+      merchant: merchant,
       ranking: ranking,
       video: video,
       image: image,
@@ -95,16 +106,17 @@ class FastResponseAd extends TModel {
   @override
   FastResponseAd clone() {
     return FastResponseAd(
-      language: language,
-      title: title,
-      description: description,
-      image: image.clone(),
-      url: url,
+      merchant: merchant?.clone(),
       ranking: ranking?.clone(),
+      description: description,
       video: video?.clone(),
+      image: image.clone(),
+      language: language,
       discount: discount,
       button: button,
       price: price,
+      title: title,
+      url: url,
     );
   }
 
@@ -117,6 +129,7 @@ class FastResponseAd extends TModel {
     String? description,
     FastResponseAdAsset? image,
     String? url,
+    FastResponseAdMerchant? merchant,
     FastResponseAdRanking? ranking,
     FastResponseAdAsset? video,
     String? discount,
@@ -132,6 +145,7 @@ class FastResponseAd extends TModel {
       ranking: ranking ?? this.ranking,
       video: video ?? this.video,
       discount: discount ?? this.discount,
+      merchant: merchant ?? this.merchant,
       button: button ?? this.button,
       price: price ?? this.price,
     );
@@ -149,6 +163,7 @@ class FastResponseAd extends TModel {
       url: model.url,
       ranking: model.ranking,
       video: model.video,
+      merchant: model.merchant,
       discount: model.discount,
       button: model.button,
       price: model.price,
@@ -162,6 +177,7 @@ class FastResponseAd extends TModel {
         title,
         description,
         image,
+        merchant,
         url,
         ranking,
         video,
