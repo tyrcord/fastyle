@@ -74,7 +74,7 @@ class FastMediumNativeAdLayout extends StatelessWidget {
       alignment: Alignment.bottomRight,
       child: Image.network(
         merchantLogoUrl!,
-        height: kFastIconSizeSmall,
+        height: kFastIconSizeXxs,
       ),
     );
   }
@@ -83,7 +83,7 @@ class FastMediumNativeAdLayout extends StatelessWidget {
     return detailsPlaceholder != null
         ? detailsPlaceholder!
         : FastAdDetails(
-            maxLines: buttonText != null ? 2 : 5,
+            maxLines: buttonText != null ? 2 : 4,
             descriptionText: descriptionText,
             titleText: titleText,
             adSize: adSize,
