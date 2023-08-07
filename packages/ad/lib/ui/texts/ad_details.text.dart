@@ -35,7 +35,7 @@ class FastAdDetails extends StatelessWidget {
         if (titleText != null) buildHeader(),
         if (hasDescription)
           Container(
-            margin: const EdgeInsets.symmetric(vertical: 8),
+            margin: kFastVerticalEdgeInsets8,
             child: FastAdDescription(
               text: descriptionText!,
               adSize: adSize,

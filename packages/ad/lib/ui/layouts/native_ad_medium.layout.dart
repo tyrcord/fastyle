@@ -62,7 +62,7 @@ class FastMediumNativeAdLayout extends StatelessWidget {
   Widget _buildAdButton() {
     return Align(
       alignment: Alignment.bottomRight,
-      child: FastRaisedButton(
+      child: FastAdRaisedButton(
         text: buttonText!,
         onTap: onButtonTap,
       ),
