@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:tbloc/tbloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -13,7 +15,7 @@ const _kFooterMargin = EdgeInsets.only(top: 16.0);
 
 class FastAppInfoPage<T> extends StatelessWidget {
   final List<FastNavigationCategoryDescriptor<T>> categoryDescriptors;
-  final void Function(FastItem<T>) onNavigationItemTap;
+  final void Function(BuildContext context, FastItem<T>)? onNavigationItemTap;
   final EdgeInsets? contentPadding;
   final EdgeInsets? footerPadding;
   final EdgeInsets? headerPadding;
@@ -26,7 +28,7 @@ class FastAppInfoPage<T> extends StatelessWidget {
 
   const FastAppInfoPage({
     super.key,
-    required this.onNavigationItemTap,
+    this.onNavigationItemTap,
     this.headerPadding,
     this.contentPadding,
     this.footerPadding,
@@ -85,7 +87,7 @@ class FastAppInfoPage<T> extends StatelessWidget {
     FastItem<T> item,
   ) {
     return FastNavigationListItem<FastItem<T>>(
-      onTap: () => onNavigationItemTap(item),
+      onTap: () => handleNavigationItemTap(context, item),
       item: item,
     );
   }
@@ -114,5 +116,72 @@ class FastAppInfoPage<T> extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void handleNavigationItemTap(BuildContext context, FastItem<T> item) {
+    if (onNavigationItemTap != null) {
+      onNavigationItemTap!(context, item);
+    } else if (item.value != null && item.value is String) {
+      final value = item.value as String;
+
+      if (value.startsWith('action://')) {
+        final action = value.replaceFirst('action://', '');
+        final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
+        final appInfo = appInfoBloc.currentState;
+
+        switch (action) {
+          case 'contact-us':
+            if (appInfo.supportEmail != null) {
+              FastMessenger.writeEmail(
+                appInfo.supportEmail!,
+                subject: appInfo.appName,
+              );
+            }
+          case 'bug-report':
+            if (appInfo.supportEmail != null) {
+              FastMessenger.writeEmail(
+                appInfo.bugReportEmail!,
+                subject: appInfo.appName,
+              );
+            }
+          case 'rate-us':
+            final rateService = FastAppRatingService(appInfo.toDocument());
+            rateService.showAppRatingDialog(context);
+          case 'share':
+            FastShare.shareApp(context);
+          case 'site':
+            if (appInfo.homepageUrl != null) {
+              FastMessenger.launchUrl(appInfo.homepageUrl!);
+            }
+          case 'facebook':
+            if (appInfo.facebookUrl != null) {
+              FastMessenger.launchUrl(
+                appInfo.facebookUrl!,
+                mode: LaunchMode.externalApplication,
+              );
+            }
+          case 'twitter':
+            if (appInfo.twitterUrl != null) {
+              FastMessenger.launchUrl(
+                appInfo.twitterUrl!,
+                mode: LaunchMode.externalApplication,
+              );
+            }
+          case 'instagram':
+            if (appInfo.instagramUrl != null) {
+              FastMessenger.launchUrl(
+                appInfo.instagramUrl!,
+                mode: LaunchMode.externalApplication,
+              );
+            }
+
+          default:
+            debugPrint('Unknown action: $action');
+            break;
+        }
+      } else {
+        GoRouter.of(context).go(value);
+      }
+    }
   }
 }
