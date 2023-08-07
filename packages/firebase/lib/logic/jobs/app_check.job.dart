@@ -23,7 +23,7 @@ class FastFirebaseAppCheckJob extends FastJob {
     return _singleton!;
   }
 
-  FastFirebaseAppCheckJob._({
+  const FastFirebaseAppCheckJob._({
     this.webRecaptchaSiteKey,
     this.androidProvider,
   }) : super(debugLabel: 'fast_firebase_app_check_job');

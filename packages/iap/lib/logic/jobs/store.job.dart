@@ -13,10 +13,10 @@ class FastIapStoreJob extends FastJob {
   static FastIapStoreJob? _singleton;
 
   factory FastIapStoreJob() {
-    return (_singleton ??= FastIapStoreJob._());
+    return (_singleton ??= const FastIapStoreJob._());
   }
 
-  FastIapStoreJob._() : super(debugLabel: 'fast_iap_store_job');
+  const FastIapStoreJob._() : super(debugLabel: 'fast_iap_store_job');
 
   @override
   Future<void> initialize(

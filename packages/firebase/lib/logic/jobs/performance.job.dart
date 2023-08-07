@@ -9,12 +9,12 @@ class FastFirebasePerformanceJob extends FastJob {
   static FastFirebasePerformanceJob? _singleton;
 
   factory FastFirebasePerformanceJob() {
-    _singleton ??= FastFirebasePerformanceJob._();
+    _singleton ??= const FastFirebasePerformanceJob._();
 
     return _singleton!;
   }
 
-  FastFirebasePerformanceJob._()
+  const FastFirebasePerformanceJob._()
       : super(debugLabel: 'fast_firebase_performance_job');
 
   @override

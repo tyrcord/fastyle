@@ -17,12 +17,12 @@ class FastFirebaseMessagingJob extends FastJob {
       FirebaseInAppMessaging.instance;
 
   factory FastFirebaseMessagingJob() {
-    _singleton ??= FastFirebaseMessagingJob._();
+    _singleton ??= const FastFirebaseMessagingJob._();
 
     return _singleton!;
   }
 
-  FastFirebaseMessagingJob._()
+  const FastFirebaseMessagingJob._()
       : super(debugLabel: 'fast_firebase_messaging_job');
 
   /// Initializes the Firebase Messaging service.

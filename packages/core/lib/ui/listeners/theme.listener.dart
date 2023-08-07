@@ -10,10 +10,6 @@ import 'package:tbloc/tbloc.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-// Package imports:
-
-
-
 /// The [FastAppSettingsThemeListener] class is a [StatefulWidget] that listens
 /// to the [FastAppSettingsBloc] and updates the [FastThemeBloc] when the theme
 /// mode changes.
@@ -41,17 +37,19 @@ class _FastAppSettingsThemeListenerState
   void initState() {
     super.initState();
 
-    _settingsBloc = BlocProvider.of<FastAppSettingsBloc>(context);
-    _themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _settingsBloc = BlocProvider.of<FastAppSettingsBloc>(context);
+      _themeBloc = BlocProvider.of<FastThemeBloc>(context);
 
-    // Listen to the onData stream of FastAppSettingsBloc.
-    // Skip the initial states until the bloc is initialized.
-    // Distinct states based on the theme to prevent unnecessary updates.
-    // Call handleThemeModeChanged when a new theme mode is received.
-    _subscription = _settingsBloc.onData
-        .skipWhile((state) => !state.isInitialized)
-        .distinct((previous, next) => previous.theme == next.theme)
-        .listen((state) => handleThemeModeChanged(state.themeMode));
+      // Listen to the onData stream of FastAppSettingsBloc.
+      // Skip the initial states until the bloc is initialized.
+      // Distinct states based on the theme to prevent unnecessary updates.
+      // Call handleThemeModeChanged when a new theme mode is received.
+      _subscription = _settingsBloc.onData
+          .skipWhile((state) => !state.isInitialized)
+          .distinct((previous, next) => previous.theme == next.theme)
+          .listen((state) => handleThemeModeChanged(state.themeMode));
+    });
   }
 
   @override

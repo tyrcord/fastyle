@@ -10,16 +10,14 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 // Package imports:
 
-
-
 class FastAppOnboardingJob extends FastJob {
   static FastAppOnboardingJob? _singleton;
 
   factory FastAppOnboardingJob() {
-    return (_singleton ??= FastAppOnboardingJob._());
+    return (_singleton ??= const FastAppOnboardingJob._());
   }
 
-  FastAppOnboardingJob._() : super(debugLabel: 'fast_app_onboarding_job');
+  const FastAppOnboardingJob._() : super(debugLabel: 'fast_app_onboarding_job');
 
   @override
   Future<void> initialize(

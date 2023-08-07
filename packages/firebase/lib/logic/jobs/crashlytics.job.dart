@@ -22,7 +22,7 @@ class FastFirebaseCrashlyticsJob extends FastJob {
     return _singleton!;
   }
 
-  FastFirebaseCrashlyticsJob._({this.shouldEnableInDevMode = false})
+  const FastFirebaseCrashlyticsJob._({this.shouldEnableInDevMode = false})
       : super(debugLabel: 'fast_firebase_crashlytics_job');
 
   @override

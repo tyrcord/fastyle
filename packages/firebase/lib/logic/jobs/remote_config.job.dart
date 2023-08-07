@@ -22,7 +22,7 @@ class FastFirebaseRemoteConfigJob extends FastJob {
     return _singleton!;
   }
 
-  FastFirebaseRemoteConfigJob._({this.defaultConfig})
+  const FastFirebaseRemoteConfigJob._({this.defaultConfig})
       : super(debugLabel: 'fast_firebase_remote_config_job');
 
   @override

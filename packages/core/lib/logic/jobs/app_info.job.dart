@@ -28,7 +28,7 @@ class FastAppInfoJob extends FastJob {
     ));
   }
 
-  FastAppInfoJob._(
+  const FastAppInfoJob._(
     this.appInfoDocument, {
     this.onDatabaseVersionChanged,
   }) : super(debugLabel: 'fast_app_info_job');

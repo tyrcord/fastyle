@@ -16,10 +16,10 @@ class FastAppFeaturesJob extends FastJob {
   static FastAppFeaturesJob? _singleton;
 
   factory FastAppFeaturesJob() {
-    return (_singleton ??= FastAppFeaturesJob._());
+    return (_singleton ??= const FastAppFeaturesJob._());
   }
 
-  FastAppFeaturesJob._() : super(debugLabel: 'fast_app_features_job');
+ const FastAppFeaturesJob._() : super(debugLabel: 'fast_app_features_job');
 
   @override
   Future<void> initialize(

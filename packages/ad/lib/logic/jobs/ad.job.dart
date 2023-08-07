@@ -23,7 +23,8 @@ class FastAdInfoJob extends FastJob {
 
   final FastAdInformationJobDelegate? delegate;
 
-  FastAdInfoJob._({this.delegate}) : super(debugLabel: 'fast_ad_info_job');
+  const FastAdInfoJob._({this.delegate})
+      : super(debugLabel: 'fast_ad_info_job');
 
   @override
   Future<void> initialize(

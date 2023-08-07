@@ -12,10 +12,10 @@ class FastAppDictJob extends FastJob {
   static FastAppDictJob? _singleton;
 
   factory FastAppDictJob() {
-    return (_singleton ??= FastAppDictJob._());
+    return (_singleton ??= const FastAppDictJob._());
   }
 
-  FastAppDictJob._() : super(debugLabel: 'fast_app_dict_job');
+  const FastAppDictJob._() : super(debugLabel: 'fast_app_dict_job');
 
   @override
   Future<void> initialize(
