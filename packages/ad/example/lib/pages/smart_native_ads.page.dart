@@ -31,7 +31,7 @@ class _SmartNativeAdsPageState extends State<SmartNativeAdsPage> {
           kFastSizedBox16,
           FastSmartNativeAd(
             debugLabel: 'Native Ad with a Id',
-            adId: 'lg_monitor_trader',
+            adId: 'fx_qal',
           ),
           kFastSizedBox16,
         ],
