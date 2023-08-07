@@ -36,27 +36,27 @@ const kFastSettingsItemDescriptors = {
   ),
   FastSettingsItems.privacyPolicy: FastItem(
     labelText: SettingsLocaleKeys.settings_label_privacy_policy,
-    value: 'privacy-policy',
+    value: '/settings/privacy-policy',
   ),
   FastSettingsItems.termsOfService: FastItem(
     labelText: SettingsLocaleKeys.settings_label_terms_of_service,
-    value: 'terms-of-service',
+    value: '/settings/terms-of-service',
   ),
   FastSettingsItems.disclaimer: FastItem(
     labelText: SettingsLocaleKeys.settings_label_disclaimer,
-    value: 'disclaimer',
+    value: '/settings/disclaimer',
   ),
   FastSettingsItems.appearance: FastItem(
     labelText: SettingsLocaleKeys.settings_label_appearance,
-    value: 'appearance',
+    value: '/settings/appearance',
   ),
   FastSettingsItems.language: FastItem(
     labelText: SettingsLocaleKeys.settings_label_languages,
-    value: 'language',
+    value: '/settings/language',
   ),
   FastSettingsItems.calculator: FastItem(
     labelText: CalculatorLocaleKeys.calculator_label_calculator,
-    value: 'calculator',
+    value: '/settings/calculator',
   ),
 };
 
