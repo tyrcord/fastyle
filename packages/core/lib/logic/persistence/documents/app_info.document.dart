@@ -50,6 +50,9 @@ class FastAppInfoDocument extends TDocument {
   /// The Instagram URL for the app.
   final String? instagramUrl;
 
+  /// The Twitter URL for the app.
+  final String? twitterUrl;
+
   /// The share app URL for the app.
   final String? shareAppUrl;
 
@@ -135,6 +138,7 @@ class FastAppInfoDocument extends TDocument {
     this.appDisclaimerLastModified,
     this.appPrivacyPolicyLastModified,
     this.appTermsOfServiceLastModified,
+    this.twitterUrl,
     int? remindForReviewMinLaunches,
     List<Locale>? supportedLocales,
     int? askForReviewMinLaunches,
@@ -193,6 +197,7 @@ class FastAppInfoDocument extends TDocument {
       appDisclaimerLastModified: state.appDisclaimerLastModified,
       appPrivacyPolicyLastModified: state.appPrivacyPolicyLastModified,
       appTermsOfServiceLastModified: state.appTermsOfServiceLastModified,
+      twitterUrl: state.twitterUrl,
     );
   }
 
@@ -253,6 +258,7 @@ class FastAppInfoDocument extends TDocument {
       previousDatabaseVersion: json['previousDatabaseVersion'] as int?,
       deviceLanguageCode: json['deviceLanguageCode'] as String?,
       deviceCountryCode: json['deviceCountryCode'] as String?,
+      twitterUrl: json['twitterUrl'] as String?,
       appDisclaimerLastModified: appDisclaimerLastModified != null
           ? DateTime.parse(appDisclaimerLastModified)
           : null,
@@ -300,6 +306,7 @@ class FastAppInfoDocument extends TDocument {
     DateTime? appDisclaimerLastModified,
     DateTime? appPrivacyPolicyLastModified,
     DateTime? appTermsOfServiceLastModified,
+    String? twitterUrl,
   }) {
     return FastAppInfoDocument(
       appName: appName ?? this.appName,
@@ -343,6 +350,7 @@ class FastAppInfoDocument extends TDocument {
           appPrivacyPolicyLastModified ?? this.appPrivacyPolicyLastModified,
       appTermsOfServiceLastModified:
           appTermsOfServiceLastModified ?? this.appTermsOfServiceLastModified,
+      twitterUrl: twitterUrl ?? this.twitterUrl,
     );
   }
 
@@ -382,6 +390,7 @@ class FastAppInfoDocument extends TDocument {
       appDisclaimerLastModified: model.appDisclaimerLastModified,
       appPrivacyPolicyLastModified: model.appPrivacyPolicyLastModified,
       appTermsOfServiceLastModified: model.appTermsOfServiceLastModified,
+      twitterUrl: model.twitterUrl,
     );
   }
 
@@ -423,6 +432,7 @@ class FastAppInfoDocument extends TDocument {
             appPrivacyPolicyLastModified?.toIso8601String(),
         'appTermsOfServiceLastModified':
             appTermsOfServiceLastModified?.toIso8601String(),
+        'twitterUrl': twitterUrl,
       };
 
   @override
@@ -463,5 +473,6 @@ class FastAppInfoDocument extends TDocument {
         appDisclaimerLastModified,
         appPrivacyPolicyLastModified,
         appTermsOfServiceLastModified,
+        twitterUrl,
       ];
 }

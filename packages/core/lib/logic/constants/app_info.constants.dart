@@ -9,6 +9,7 @@ final kFastAppInfo = FastAppInfoDocument(
   promoUrl: 'https://tyrcord.com/apps',
   homepageUrl: 'https://tyrcord.com',
   supportEmail: 'contact@tyrcord.com',
+  twitterUrl: 'https://twitter.com/tyrcord',
   bugReportEmail: 'dev@tyrcord.com',
   appAuthor: kFastAppAuthor,
   appVersion: '0.0.1',

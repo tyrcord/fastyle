@@ -9,8 +9,6 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 // Package imports:
 
-
-
 /// The [FastAppInfoBlocState] class represents the state of the application's
 /// information.
 class FastAppInfoBlocState extends BlocState {
@@ -52,6 +50,9 @@ class FastAppInfoBlocState extends BlocState {
 
   /// The Instagram URL for the app.
   final String? instagramUrl;
+
+  /// The Twitter URL for the app.
+  final String? twitterUrl;
 
   /// The share app URL for the app.
   final String? shareAppUrl;
@@ -142,6 +143,7 @@ class FastAppInfoBlocState extends BlocState {
     this.appDisclaimerLastModified,
     this.appPrivacyPolicyLastModified,
     this.appTermsOfServiceLastModified,
+    this.twitterUrl,
     int? remindForReviewMinLaunches,
     List<Locale>? supportedLocales,
     int? askForReviewMinLaunches,
@@ -203,6 +205,7 @@ class FastAppInfoBlocState extends BlocState {
       appDisclaimerLastModified: document.appDisclaimerLastModified,
       appPrivacyPolicyLastModified: document.appPrivacyPolicyLastModified,
       appTermsOfServiceLastModified: document.appTermsOfServiceLastModified,
+      twitterUrl: document.twitterUrl,
     );
   }
 
@@ -241,6 +244,7 @@ class FastAppInfoBlocState extends BlocState {
       appDisclaimerLastModified: appDisclaimerLastModified,
       appPrivacyPolicyLastModified: appPrivacyPolicyLastModified,
       appTermsOfServiceLastModified: appTermsOfServiceLastModified,
+      twitterUrl: twitterUrl,
     );
   }
 
@@ -285,6 +289,7 @@ class FastAppInfoBlocState extends BlocState {
     DateTime? appDisclaimerLastModified,
     DateTime? appPrivacyPolicyLastModified,
     DateTime? appTermsOfServiceLastModified,
+    String? twitterUrl,
   }) =>
       FastAppInfoBlocState(
         supportedLocales: supportedLocales ?? this.supportedLocales,
@@ -330,6 +335,7 @@ class FastAppInfoBlocState extends BlocState {
             appPrivacyPolicyLastModified ?? this.appPrivacyPolicyLastModified,
         appTermsOfServiceLastModified:
             appTermsOfServiceLastModified ?? this.appTermsOfServiceLastModified,
+        twitterUrl: twitterUrl ?? this.twitterUrl,
       );
 
   /// Creates a new [FastAppInfoBlocState] instance with the same property
@@ -377,6 +383,7 @@ class FastAppInfoBlocState extends BlocState {
       appDisclaimerLastModified: model.appDisclaimerLastModified,
       appPrivacyPolicyLastModified: model.appPrivacyPolicyLastModified,
       appTermsOfServiceLastModified: model.appTermsOfServiceLastModified,
+      twitterUrl: model.twitterUrl,
     );
   }
 
@@ -415,5 +422,6 @@ class FastAppInfoBlocState extends BlocState {
         appDisclaimerLastModified,
         appPrivacyPolicyLastModified,
         appTermsOfServiceLastModified,
+        twitterUrl,
       ];
 }
