@@ -44,7 +44,7 @@ class FastAppInfoPage<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastSectionPage(
-      titleText: titleText ?? 'App Info',
+      titleText: titleText,
       contentPadding: contentPadding ?? EdgeInsets.zero,
       isViewScrollable: true,
       showAppBar: showAppBar,
