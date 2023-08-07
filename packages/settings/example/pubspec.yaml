@@ -23,9 +23,10 @@ dependencies:
   lingua_finance_instrument: ^0.0.2
   fastyle_forms: ^0.0.14
   fastyle_settings: ^0.0.17
-  matex_dart: ^0.11.1
+  matex_financial: ^0.0.13+1
   lingua_share: ^0.0.2+1
   fastyle_pricing: ^1.9.0
+  matex_dart: ^0.11.1
 
 dev_dependencies:
   flutter_test:

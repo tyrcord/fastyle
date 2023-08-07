@@ -68,7 +68,7 @@ class FastSettingsSupportLinkState extends State<FastSettingsSupportLink> {
       final appInfo = appInfoBloc.currentState;
 
       _emailTapRecognizer.onTap = () {
-        FastMessenger.askForSupport(appInfo.supportEmail!);
+        FastMessenger.writeEmail(appInfo.supportEmail!);
       };
     });
   }

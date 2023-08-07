@@ -13,13 +13,15 @@ dependencies:
   collection: ^1.17.1
   font_awesome_flutter: ^10.5.0
   fastyle_core: ^0.0.8
-  matex_financial: ^0.0.11
-  tbloc: ^0.21.0
+  matex_financial: ^0.0.13+1
+  tbloc: ^0.21.1
   fastyle_images: ^0.0.16
   fastyle_forms: ^0.0.14
   easy_localization: ^3.0.2
   lingua_settings: ^0.0.8
-  t_helpers: ^0.0.22
+  t_helpers: ^0.0.25
+  lingua_core: ^0.0.14
+  lingua_calculator: ^0.0.2+1
 
 dev_dependencies:
   flutter_test:

@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:fastyle_pricing/fastyle_pricing.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:go_router/go_router.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_core/lingua_core.dart';
 import 'package:lingua_finance/generated/codegen_loader.g.dart';
@@ -16,7 +15,6 @@ import 'package:lingua_purchases/generated/codegen_loader.g.dart';
 import 'package:lingua_settings/generated/codegen_loader.g.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:lingua_share/generated/codegen_loader.g.dart';
-import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import './routes.dart';
@@ -77,181 +75,42 @@ class MyApp extends StatelessWidget {
         FastNavigationCategoryDescriptor(
           titleText: SettingsLocaleKeys.settings_label_app_settings.tr(),
           items: [
-            FastItem(
-              labelText: SettingsLocaleKeys.settings_label_appearance.tr(),
-              value: '/appearance',
-              descriptor: buildListItemDescriptor(
-                context,
-                icon: FontAwesomeIcons.palette,
-              ),
-            ),
-            FastItem(
-              labelText: SettingsLocaleKeys.settings_label_languages.tr(),
-              value: '/languages',
-              descriptor: buildListItemDescriptor(
-                context,
-                icon: FontAwesomeIcons.globe,
-              ),
-            ),
-            FastItem(
-              labelText: SettingsLocaleKeys.settings_label_user_settings.tr(),
-              value: '/user-settings',
-              descriptor: buildListItemDescriptor(
-                context,
-                icon: FontAwesomeIcons.solidCircleUser,
-              ),
-            ),
+            FastSettingsItem.getItem(context, FastSettingsItems.appearance),
+            FastSettingsItem.getItem(context, FastSettingsItems.language),
+            FastSettingsItem.getItem(context, FastSettingsItems.calculator),
           ],
         ),
         FastNavigationCategoryDescriptor(
           titleText: SettingsLocaleKeys.settings_label_customer_support.tr(),
           items: [
-            FastItem(
-              labelText:
-                  SettingsLocaleKeys.settings_label_help_and_support.tr(),
-              value: 'contact-us',
-              descriptor: buildListItemDescriptor(context,
-                  icon: FontAwesomeIcons.lifeRing),
-            ),
-            FastItem(
-              labelText:
-                  SettingsLocaleKeys.settings_label_submit_bug_report.tr(),
-              value: 'bug-report',
-              descriptor: buildListItemDescriptor(
-                context,
-                icon: FontAwesomeIcons.bug,
-              ),
-            ),
+            FastSettingsItem.getItem(context, FastSettingsItems.contactUs),
+            FastSettingsItem.getItem(context, FastSettingsItems.bugReport),
           ],
         ),
         FastNavigationCategoryDescriptor(
           titleText: SettingsLocaleKeys.settings_label_legal.tr(),
           items: [
-            FastItem(
-              labelText: SettingsLocaleKeys.settings_label_privacy_policy.tr(),
-              value: '/privacy-policy',
-              descriptor: buildListItemDescriptor(
-                context,
-                icon: FontAwesomeIcons.userSecret,
-              ),
-            ),
-            FastItem(
-              labelText:
-                  SettingsLocaleKeys.settings_label_terms_of_service.tr(),
-              value: '/tos',
-              descriptor: buildListItemDescriptor(
-                context,
-                icon: FontAwesomeIcons.fileContract,
-              ),
-            ),
-            FastItem(
-              labelText: SettingsLocaleKeys.settings_label_disclaimer.tr(),
-              value: '/disclaimer',
-              descriptor: buildListItemDescriptor(
-                context,
-                icon: FontAwesomeIcons.bullhorn,
-              ),
-            ),
+            FastSettingsItem.getItem(context, FastSettingsItems.privacyPolicy),
+            FastSettingsItem.getItem(context, FastSettingsItems.termsOfService),
+            FastSettingsItem.getItem(context, FastSettingsItems.disclaimer),
           ],
         ),
         FastNavigationCategoryDescriptor(
           titleText: 'Fastyle',
           items: [
-            FastItem(
-              labelText: SettingsLocaleKeys.settings_label_rate_us.tr(),
-              value: 'action://rate-us',
-              descriptor: buildListItemDescriptor(
-                context,
-                icon: FontAwesomeIcons.thumbsUp,
-              ),
-            ),
-            FastItem(
-              labelText: CoreLocaleKeys.core_label_share_app.tr(),
-              value: 'action://share',
-              descriptor: buildListItemDescriptor(
-                context,
-                icon: FontAwesomeIcons.arrowUpRightFromSquare,
-              ),
-            ),
+            FastSettingsItem.getItem(context, FastSettingsItems.share),
+            FastSettingsItem.getItem(context, FastSettingsItems.rateUs),
           ],
         ),
         FastNavigationCategoryDescriptor(
           titleText: CoreLocaleKeys.core_label_follow_us.tr(),
           items: [
-            FastItem(
-              labelText: CoreLocaleKeys.core_label_website.tr(),
-              value: 'action://site',
-              descriptor: buildListItemDescriptor(
-                context,
-                icon: FontAwesomeIcons.house,
-              ),
-            ),
-            FastItem(
-              labelText: 'Twitter',
-              value: 'action://twitter',
-              descriptor: buildListItemDescriptor(
-                context,
-                icon: FontAwesomeIcons.twitter,
-              ),
-            ),
-            FastItem(
-              labelText: 'Facebook',
-              value: 'action://facebook',
-              descriptor: buildListItemDescriptor(
-                context,
-                icon: FontAwesomeIcons.facebook,
-              ),
-            ),
+            FastSettingsItem.getItem(context, FastSettingsItems.website),
+            FastSettingsItem.getItem(context, FastSettingsItems.twitter),
+            FastSettingsItem.getItem(context, FastSettingsItems.facebook),
           ],
         ),
       ],
-      onNavigationItemTap: (FastItem<String> item) {
-        if (item.value != null) {
-          final value = item.value!;
-
-          if (value.startsWith('action://')) {
-            final action = value.replaceFirst('action://', '');
-            final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
-            final appInfo = appInfoBloc.currentState;
-
-            switch (action) {
-              case 'rate-us':
-                final rateService = FastAppRatingService(appInfo.toDocument());
-
-                rateService.showAppRatingDialog(context);
-              case 'share':
-                FastShare.shareApp(context);
-              case 'site':
-                if (appInfo.homepageUrl != null) {
-                  FastMessenger.launchUrl(appInfo.homepageUrl!);
-                }
-              case 'facebook':
-                if (appInfo.facebookUrl != null) {
-                  FastMessenger.launchUrl(appInfo.facebookUrl!);
-                }
-              default:
-                debugPrint('Unknown action: $action');
-                break;
-            }
-          } else {
-            GoRouter.of(context).go(item.value!);
-          }
-        }
-      },
-    );
-  }
-
-  FastListItemDescriptor buildListItemDescriptor(
-    BuildContext context, {
-    required IconData icon,
-  }) {
-    final scaleFactor = MediaQuery.textScaleFactorOf(context);
-
-    return FastListItemDescriptor(
-      leading: FaIcon(
-        icon,
-        size: kFastIconSizeSmall * scaleFactor,
-      ),
     );
   }
 }

@@ -1,0 +1,15 @@
+enum FastSettingsItems {
+  twitter,
+  facebook,
+  website,
+  share,
+  rateUs,
+  privacyPolicy,
+  termsOfService,
+  disclaimer,
+  contactUs,
+  bugReport,
+  appearance,
+  language,
+  calculator,
+}
