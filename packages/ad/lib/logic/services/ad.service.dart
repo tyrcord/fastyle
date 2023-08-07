@@ -1,8 +1,12 @@
+// Dart imports:
 import 'dart:convert';
 
-import 'package:fastyle_ad/fastyle_ad.dart';
+// Package imports:
 import 'package:http/http.dart' as http;
 import 'package:t_helpers/helpers.dart';
+
+// Project imports:
+import 'package:fastyle_ad/fastyle_ad.dart';
 
 /// A service class to interact with the Fastyle Ad API.
 class FastAdService {

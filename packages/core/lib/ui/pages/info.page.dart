@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:tbloc/tbloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:tbloc/tbloc.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 // Project imports:

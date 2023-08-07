@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:fastyle_pricing/fastyle_pricing.dart';
+import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_core/lingua_core.dart';
 import 'package:lingua_finance/generated/codegen_loader.g.dart';

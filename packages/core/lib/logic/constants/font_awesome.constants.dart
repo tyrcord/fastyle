@@ -2,8 +2,12 @@
 
 library font_awesome_flutter;
 
+// Flutter imports:
 import 'package:flutter/widgets.dart';
+
+// Package imports:
 import 'package:font_awesome_flutter/src/icon_data.dart';
+
 export 'package:font_awesome_flutter/src/fa_icon.dart';
 export 'package:font_awesome_flutter/src/icon_data.dart';
 

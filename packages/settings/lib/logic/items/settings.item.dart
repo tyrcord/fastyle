@@ -1,6 +1,11 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
 
 class FastSettingsItemIcon {

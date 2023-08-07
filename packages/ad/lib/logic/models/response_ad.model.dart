@@ -1,5 +1,8 @@
-import 'package:fastyle_ad/fastyle_ad.dart';
+// Package imports:
 import 'package:tmodel/tmodel.dart';
+
+// Project imports:
+import 'package:fastyle_ad/fastyle_ad.dart';
 
 /// The [FastResponseAd] class represents a fast response advertisement,
 /// extending the [TModel] base class. It contains properties that describe

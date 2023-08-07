@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:collection/collection.dart' show IterableExtension;
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_images/fastyle_images.dart';
-import 'package:tbloc/tbloc.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';

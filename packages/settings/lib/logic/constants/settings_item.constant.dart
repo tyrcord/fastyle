@@ -1,9 +1,12 @@
+// Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lingua_calculator/generated/locale_keys.g.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
-import 'package:lingua_calculator/generated/locale_keys.g.dart';
+
+// Project imports:
+import 'package:fastyle_settings/fastyle_settings.dart';
 
 const kFastSettingsItemDescriptors = {
   FastSettingsItems.twitter: FastItem(

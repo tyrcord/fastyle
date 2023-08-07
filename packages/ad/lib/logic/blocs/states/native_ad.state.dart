@@ -1,7 +1,9 @@
 // Package imports:
-import 'package:fastyle_ad/fastyle_ad.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastNativeAdBlocState extends BlocState {
   final AdWithView? adView;

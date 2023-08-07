@@ -1,9 +1,8 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-// Project imports:
+// Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
-
 
 class FastAdRaisedButton extends FastButton {
   final Color? backgroundColor;
