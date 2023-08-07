@@ -17,7 +17,7 @@ class FastAdDescription extends StatelessWidget {
     required this.text,
     this.adSize = FastAdSize.medium,
     int? maxLines,
-  }) : maxLines = maxLines ?? (adSize == FastAdSize.large ? 3 : 2);
+  }) : maxLines = maxLines ?? 3;
 
   @override
   Widget build(BuildContext context) {

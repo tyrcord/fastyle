@@ -83,7 +83,7 @@ class FastMediumNativeAdLayout extends StatelessWidget {
     return detailsPlaceholder != null
         ? detailsPlaceholder!
         : FastAdDetails(
-            maxLines: buttonText != null ? 2 : 4,
+            maxLines: buttonText != null ? 3 : 4,
             descriptionText: descriptionText,
             titleText: titleText,
             adSize: adSize,
