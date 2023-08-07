@@ -12,7 +12,7 @@ dependencies:
     sdk: flutter
 
   fastyle_core: ^0.0.8
-  t_helpers: ^0.0.22
+  t_helpers: ^0.0.25
   matex_dart: ^0.11.1
   collection: ^1.17.1
   fastyle_images: ^0.0.16

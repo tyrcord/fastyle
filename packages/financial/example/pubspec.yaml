@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   fastyle_core: ^0.0.8
-  matex_financial: ^0.0.11
+  matex_financial: ^0.0.13+1
 
 dev_dependencies:
   flutter_test:
