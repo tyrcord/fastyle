@@ -8,10 +8,6 @@ import 'package:tbloc/tbloc.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-// Package imports:
-
-
-
 class FastAppFeaturesJob extends FastJob {
   static FastAppFeaturesJob? _singleton;
 
@@ -19,7 +15,7 @@ class FastAppFeaturesJob extends FastJob {
     return (_singleton ??= const FastAppFeaturesJob._());
   }
 
- const FastAppFeaturesJob._() : super(debugLabel: 'fast_app_features_job');
+  const FastAppFeaturesJob._() : super(debugLabel: 'fast_app_features_job');
 
   @override
   Future<void> initialize(

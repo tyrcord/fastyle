@@ -39,8 +39,6 @@ class FastSettingsDisclaimerPage extends StatelessWidget {
   Widget buildContent(BuildContext context) {
     final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
     final appInfo = appInfoBloc.currentState;
-    final appAuthor = appInfo.appAuthor;
-    final appName = appInfo.appName;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -56,7 +54,6 @@ class FastSettingsDisclaimerPage extends StatelessWidget {
           SettingsLocaleKeys.settings_disclaimer_data.tr(),
         ),
         ...?children,
-        FastAppCopyright(author: appAuthor, name: appName),
       ],
     );
   }

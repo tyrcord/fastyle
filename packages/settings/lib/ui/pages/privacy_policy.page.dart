@@ -63,7 +63,6 @@ class FastSettingsPrivacyPolicyPage extends StatelessWidget {
         buildChangesToPrivacyPolicySection(),
         buildContactUsSection(appInfo.supportEmail),
         ...?children,
-        FastAppCopyright(author: appAuthor, name: appName),
       ],
     );
   }

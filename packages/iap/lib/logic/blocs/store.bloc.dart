@@ -126,7 +126,7 @@ class FastStoreBloc
 
       _iapDataProvider = FastInAppPurchaseDataProvider();
       _iapService = FastInAppPurchaseService(
-        payload.appInfo!,
+        appInfo: payload.appInfo!,
         errorReporter: payload.errorReporter,
       );
 

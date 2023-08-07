@@ -40,7 +40,6 @@ class FastSettingsTermsOfServicePage extends StatelessWidget {
     final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
     final appInfo = appInfoBloc.currentState;
     final appName = appInfo.appName;
-    final appAuthor = appInfo.appAuthor;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -58,7 +57,6 @@ class FastSettingsTermsOfServicePage extends StatelessWidget {
         buildThirdPartyServicesArticle(),
         buildIntellectualPropertyArticle(appName),
         ...?children,
-        FastAppCopyright(author: appAuthor, name: appName),
       ],
     );
   }

@@ -16,7 +16,7 @@ import 'package:rxdart/subjects.dart';
 import 'package:fastyle_iap/fastyle_iap.dart';
 
 class FastInAppPurchaseService {
-  //FIXME: should be a singleton
+  static FastInAppPurchaseService? _singleton;
   Stream<PurchaseDetails> get onPurchase => _eventController.stream;
   Stream<dynamic> get onError => _errorController.stream;
   InAppPurchase get _iapService => InAppPurchase.instance;
@@ -33,7 +33,19 @@ class FastInAppPurchaseService {
   List<ProductDetails>? _products;
   late List<String> _productIds;
 
-  FastInAppPurchaseService(
+  factory FastInAppPurchaseService({
+    required FastAppInfoDocument appInfo,
+    IFastErrorReporter? errorReporter,
+  }) {
+    _singleton ??= FastInAppPurchaseService._(
+      appInfo,
+      errorReporter: errorReporter,
+    );
+
+    return _singleton!;
+  }
+
+  FastInAppPurchaseService._(
     FastAppInfoDocument appInfo, {
     this.errorReporter,
   }) {

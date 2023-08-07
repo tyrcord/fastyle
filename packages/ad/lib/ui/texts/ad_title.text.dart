@@ -16,7 +16,7 @@ class FastAdTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return FastBody(
       textColor: ThemeHelper.texts.getLabelColor(context),
-      fontWeight: kFastFontWeightMedium,
+      fontWeight: kFastFontWeightSemiBold,
       overflow: TextOverflow.ellipsis,
       text: text,
       fontSize: 16,

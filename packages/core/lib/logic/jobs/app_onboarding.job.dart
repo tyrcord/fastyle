@@ -8,8 +8,6 @@ import 'package:tbloc/tbloc.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-// Package imports:
-
 class FastAppOnboardingJob extends FastJob {
   static FastAppOnboardingJob? _singleton;
 
