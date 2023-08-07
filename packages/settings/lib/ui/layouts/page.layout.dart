@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
@@ -41,17 +42,21 @@ class FastSettingPageLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FastSectionPage(
-      contentPadding: contentPadding ?? kFastVerticalEdgeInsets16,
-      isViewScrollable: true,
-      titleText: titleText,
-      actions: actions,
-      child: Column(
-        children: [
-          buildSettingsHeader(context),
-          buildSettingsContent(context),
-        ],
-      ),
+    return FastAppSettingsLanguageBuilder(
+      builder: (context, state) {
+        return FastSectionPage(
+          contentPadding: contentPadding ?? kFastVerticalEdgeInsets16,
+          isViewScrollable: true,
+          titleText: titleText?.tr(),
+          actions: actions,
+          child: Column(
+            children: [
+              buildSettingsHeader(context),
+              buildSettingsContent(context),
+            ],
+          ),
+        );
+      },
     );
   }
 

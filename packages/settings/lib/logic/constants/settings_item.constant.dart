@@ -51,7 +51,7 @@ const kFastSettingsItemDescriptors = {
     value: '/settings/appearance',
   ),
   FastSettingsItems.language: FastItem(
-    labelText: SettingsLocaleKeys.settings_label_languages,
+    labelText: SettingsLocaleKeys.settings_label_language,
     value: '/settings/language',
   ),
   FastSettingsItems.calculator: FastItem(

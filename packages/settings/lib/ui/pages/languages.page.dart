@@ -9,6 +9,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_images/fastyle_images.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:lingua_languages/languages.dart';
+import 'package:lingua_settings/generated/locale_keys.g.dart';
 
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
@@ -36,23 +38,30 @@ class FastSettingsLanguagePage extends FastSettingPageLayout {
 
   const FastSettingsLanguagePage({
     super.key,
-    super.headerDescriptionText,
     super.contentPadding,
     super.iconHeight,
     super.headerIcon,
-    super.titleText,
     super.actions,
     this.languageFormatter,
     this.listItemDescriptor,
-    this.subtitleText,
     this.assetPackage = kFastImagesPackageName,
-  });
+    String? headerDescriptionText,
+    String? titleText,
+    String? subtitleText,
+  })  : subtitleText =
+            subtitleText ?? SettingsLocaleKeys.settings_label_languages,
+        super(
+          headerDescriptionText: headerDescriptionText ??
+              SettingsLocaleKeys.settings_select_language,
+          titleText: titleText ?? SettingsLocaleKeys.settings_label_language,
+        );
 
   @override
   Widget buildSettingsContent(BuildContext context) {
     return Column(
       children: [
-        if (subtitleText != null) FastListHeader(categoryText: subtitleText!),
+        if (subtitleText != null)
+          FastListHeader(categoryText: subtitleText!.tr()),
         FastAppSettingsLanguagesBuilder(builder: (
           BuildContext context,
           FastAppInfoBlocState appInfoBlocState,
@@ -99,7 +108,7 @@ class FastSettingsLanguagePage extends FastSettingPageLayout {
       if (languageFormatter != null) {
         languageName = languageFormatter!(locale.languageCode);
       } else {
-        languageName = locale.languageCode.toUpperCase();
+        languageName = languageCodeToName(locale.languageCode);
       }
 
       return buildLanguageItem(languageName, locale.languageCode);

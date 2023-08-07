@@ -10,7 +10,6 @@ import 'package:go_router/go_router.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_finance/generated/locale_keys.g.dart';
 import 'package:lingua_finance_instrument/lingua_finance_instrument.dart';
-import 'package:lingua_languages/languages.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:matex_dart/matex_dart.dart';
 
@@ -26,30 +25,11 @@ final kAppRoutes = [
   ),
   GoRoute(
     path: 'languages',
-    builder: (context, state) => FastSettingsLanguagePage(
-      subtitleText: SettingsLocaleKeys.settings_label_languages.tr(),
-      titleText: SettingsLocaleKeys.settings_label_languages.tr(),
-      headerDescriptionText: SettingsLocaleKeys.settings_select_language.tr(),
-      languageFormatter: languageCodeToName,
-    ),
+    builder: (context, state) => const FastSettingsLanguagePage(),
   ),
   GoRoute(
     path: 'appearance',
-    builder: (context, state) => FastThemeSettingPage(
-      titleText: SettingsLocaleKeys.settings_label_appearance.tr(),
-      subtitleText: SettingsLocaleKeys.settings_label_appearance.tr(),
-      headerDescriptionText: SettingsLocaleKeys.settings_note_appearance.tr(),
-      themeModeFormatter: (mode) {
-        switch (mode) {
-          case ThemeMode.system:
-            return SettingsLocaleKeys.settings_label_system.tr();
-          case ThemeMode.light:
-            return SettingsLocaleKeys.settings_label_light.tr();
-          case ThemeMode.dark:
-            return SettingsLocaleKeys.settings_label_dark.tr();
-        }
-      },
-    ),
+    builder: (context, state) => const FastSettingsThemePage(),
   ),
   GoRoute(
     path: 'user-settings',

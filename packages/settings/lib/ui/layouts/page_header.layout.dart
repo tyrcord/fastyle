@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
@@ -21,8 +22,8 @@ class FastSettingPageHeaderLayout extends StatelessWidget {
 
   const FastSettingPageHeaderLayout({
     super.key,
-    required this.descriptionText,
     this.iconHeight = kFastSettingIconHeight,
+    this.descriptionText,
     this.icon,
   });
 
@@ -38,7 +39,7 @@ class FastSettingPageHeaderLayout extends StatelessWidget {
           if (descriptionText != null)
             FastSecondaryBody(
               textAlign: TextAlign.center,
-              text: descriptionText!,
+              text: descriptionText!.tr(),
             ),
         ],
       ),
