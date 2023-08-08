@@ -135,10 +135,10 @@ class FastSearchBarState<T extends FastItem> extends State<FastSearchBar<T>> {
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return const FaIcon(FastFontAwesomeIcons.lightTrash);
+      return const FaIcon(FastFontAwesomeIcons.lightEraser);
     }
 
-    return const FaIcon(FontAwesomeIcons.trash);
+    return const FaIcon(FontAwesomeIcons.eraser);
   }
 
   void _handleSearchQueryChanges() {
