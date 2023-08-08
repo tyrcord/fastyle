@@ -20,21 +20,22 @@ class FastIapPremiumPage extends StatefulWidget {
   final bool shouldSortItems;
   final String? titleText;
   final bool showAppBar;
-
+  final double iconSize;
   final Widget? icon;
 
   const FastIapPremiumPage({
     super.key,
     required this.premiumProductId,
     this.shouldSortItems = false,
-    this.showAppBar = false,
+    this.showAppBar = true,
     this.restorePremiumText,
     this.onRestorePremium,
     this.onBuyPremium,
     this.titleText,
     this.items,
     this.icon,
-  });
+    double? iconSize,
+  }) : iconSize = iconSize ?? 160;
 
   @override
   State<FastIapPremiumPage> createState() => _FastIapPremiumPageState();
@@ -57,7 +58,7 @@ class _FastIapPremiumPageState extends State<FastIapPremiumPage> {
   }
 
   FastAppFeatures handlePlanPurchased(String planId) {
-    // planBloc.handlePlanPurchased(planId);
+    // planBloc.addEvent(planId);
 
     return FastAppFeatures.premium;
   }
@@ -76,12 +77,31 @@ class _FastIapPremiumPageState extends State<FastIapPremiumPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            buildTreasureIcon(context),
+            ThemeHelper.spacing.getVerticalSpacing(context),
             buildDescription(context),
             buildFeaturesList(),
             buildBackgroundDecoration(context),
           ],
         ),
       ),
+    );
+  }
+
+  Widget buildTreasureIcon(BuildContext context) {
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+    final palette = ThemeHelper.getPaletteColors(context).orange;
+
+    if (useProIcons) {
+      return FastPageHeaderRoundedDuotoneIconLayout(
+        icon: const FaIcon(FastFontAwesomeIcons.lightTreasureChest),
+        palette: palette,
+      );
+    }
+
+    return FastPageHeaderRoundedDuotoneIconLayout(
+      icon: const FaIcon(FontAwesomeIcons.gem),
+      palette: palette,
     );
   }
 
@@ -107,10 +127,6 @@ class _FastIapPremiumPageState extends State<FastIapPremiumPage> {
   }
 
   Widget buildStarIcon(BuildContext context) {
-    if (widget.icon != null) {
-      return widget.icon!;
-    }
-
     final useProIcons = FastIconHelper.of(context).useProIcons;
     final palettes = ThemeHelper.getPaletteColors(context);
     late final IconData iconData;
@@ -174,12 +190,9 @@ class _FastIapPremiumPageState extends State<FastIapPremiumPage> {
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        FastOutlineButton(
-          text: _getRestorePremiumText(),
-          // isPending: state.isRestoringPurchases,
-          onTap: () {
-            widget.onRestorePremium?.call();
-          },
+        FastIapRestorePremiumButtton(
+          premiumProductId: widget.premiumProductId,
+          onTap: widget.onRestorePremium,
         ),
         FastIapPurchasePremiumButtton(
           premiumProductId: widget.premiumProductId,
@@ -192,10 +205,5 @@ class _FastIapPremiumPageState extends State<FastIapPremiumPage> {
   String _getTitleText() {
     return widget.titleText ??
         PurchasesLocaleKeys.purchases_label_go_premium.tr();
-  }
-
-  String _getRestorePremiumText() {
-    return widget.restorePremiumText ??
-        PurchasesLocaleKeys.purchases_label_restore_purchases.tr();
   }
 }

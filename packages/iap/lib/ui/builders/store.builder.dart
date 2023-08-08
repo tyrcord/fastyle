@@ -17,12 +17,12 @@ typedef FastStorePlanBuilderCallBack = bool Function(
 class FastStorePlanBuilder extends StatelessWidget {
   final BlocBuilder<FastStoreBlocState> builder;
   final FastStorePlanBuilderCallBack? buildWhen;
-  final bool onlyWhenProductsChnages;
+  final bool onlyWhenProductsChanges;
 
   const FastStorePlanBuilder({
     super.key,
     required this.builder,
-    this.onlyWhenProductsChnages = false,
+    this.onlyWhenProductsChanges = false,
     this.buildWhen,
   });
 
@@ -36,11 +36,15 @@ class FastStorePlanBuilder extends StatelessWidget {
   }
 
   bool _shouldBuild(FastStoreBlocState previous, FastStoreBlocState next) {
+    if (next.hasError) {
+      return true;
+    }
+
     if (buildWhen != null) {
       return buildWhen!.call(previous, next);
     }
 
-    if (onlyWhenProductsChnages) {
+    if (onlyWhenProductsChanges) {
       return previous.products != next.products;
     }
 

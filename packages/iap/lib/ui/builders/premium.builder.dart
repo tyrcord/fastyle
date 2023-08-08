@@ -17,11 +17,15 @@ typedef FastIapPlanBuilderCallBack = bool Function(
 class FastIapPlanBuilder extends StatelessWidget {
   final BlocBuilder<FastPlanBlocState> builder;
   final FastIapPlanBuilderCallBack? buildWhen;
+  final bool onlyWhenIsRestoringPlanChanges;
+  final bool onlyWhenPurchaseChanges;
 
   const FastIapPlanBuilder({
     super.key,
     required this.builder,
     this.buildWhen,
+    this.onlyWhenIsRestoringPlanChanges = false,
+    this.onlyWhenPurchaseChanges = false,
   });
 
   @override
@@ -34,8 +38,20 @@ class FastIapPlanBuilder extends StatelessWidget {
   }
 
   bool _shouldBuild(FastPlanBlocState previous, FastPlanBlocState next) {
+    if (next.hasError) {
+      return true;
+    }
+
     if (buildWhen != null) {
       return buildWhen!.call(previous, next);
+    }
+
+    if (onlyWhenIsRestoringPlanChanges) {
+      return previous.isRestoringPlan != next.isRestoringPlan;
+    }
+
+    if (onlyWhenPurchaseChanges) {
+      return previous.isPlanPurcharsePending != next.isPlanPurcharsePending;
     }
 
     return true;

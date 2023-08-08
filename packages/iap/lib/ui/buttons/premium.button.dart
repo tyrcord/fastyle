@@ -22,33 +22,42 @@ class FastIapPurchasePremiumButtton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FastStorePlanBuilder(builder: (_, storeState) {
-      final products = storeState.products;
-      final product = getProductDetails(products, premiumProductId);
+    return FastStorePlanBuilder(
+      onlyWhenProductsChanges: true,
+      builder: (_, storeState) {
+        final products = storeState.products;
+        final product = getProductDetails(products, premiumProductId);
 
-      if (product != null) {
-        return FastIapPlanBuilder(builder: (context, state) {
-          if (!state.hasPurchasedPlan && state.isInitialized) {
-            return FastPendingRaisedButton(
-              text: PurchasesLocaleKeys.purchases_label_premium_price.tr(
-                namedArgs: {'price': product.price},
-              ),
-              isPending: state.isPlanPurcharsePending,
-              onTap: () {
-                final bloc = BlocProvider.of<FastPlanBloc>(context);
+        if (product != null) {
+          return FastIapPlanBuilder(
+            onlyWhenPurchaseChanges: true,
+            builder: (context, state) {
+              if (!state.hasPurchasedPlan) {
+                return FastPendingRaisedButton(
+                  isEnabled: state.isInitialized,
+                  text: PurchasesLocaleKeys.purchases_label_premium_price.tr(
+                    namedArgs: {'price': product.price},
+                  ),
+                  isPending: state.isPlanPurcharsePending,
+                  onTap: () {
+                    final bloc = BlocProvider.of<FastPlanBloc>(context);
 
-                bloc.addEvent(FastPlanBlocEvent.purchasePlan(premiumProductId));
+                    bloc.addEvent(
+                      FastPlanBlocEvent.purchasePlan(premiumProductId),
+                    );
 
-                onTap?.call();
-              },
-            );
-          }
+                    onTap?.call();
+                  },
+                );
+              }
 
-          return const SizedBox.shrink();
-        });
-      }
+              return const SizedBox.shrink();
+            },
+          );
+        }
 
-      return const SizedBox.shrink();
-    });
+        return const SizedBox.shrink();
+      },
+    );
   }
 }
