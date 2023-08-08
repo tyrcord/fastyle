@@ -53,7 +53,7 @@ Future<T?> showAnimatedFastOverlay<T extends Object?>({
     barrierDismissible: barrierDismissible,
     barrierLabel: kFastEmptyString,
     context: context,
-    pageBuilder: (_, __, ___) => child,
+    pageBuilder: (_, __, ___) => SafeArea(child: child),
     transitionBuilder: (ctx, a1, a2, child) {
       final curve = Curves.linear.transform(a1.value);
 
@@ -81,17 +81,19 @@ Future<T?> showAnimatedFastAlertDialog<T extends Object?>({
     barrierDismissible: barrierDismissible,
     barrierLabel: kFastEmptyString,
     context: context,
-    pageBuilder: (_, __, ___) => FastAlertDialog(
-      titleText: titleText,
-      cancelText: cancelText,
-      validText: validText,
-      titleColor: titleColor,
-      actions: actions,
-      backgroundColor: backgroundColor,
-      onValid: onValid,
-      onCancel: onCancel,
-      messageText: messageText,
-      children: children,
+    pageBuilder: (_, __, ___) => SafeArea(
+      child: FastAlertDialog(
+        titleText: titleText,
+        cancelText: cancelText,
+        validText: validText,
+        titleColor: titleColor,
+        actions: actions,
+        backgroundColor: backgroundColor,
+        onValid: onValid,
+        onCancel: onCancel,
+        messageText: messageText,
+        children: children,
+      ),
     ),
     transitionBuilder: (ctx, a1, a2, child) {
       final curve = Curves.linear.transform(a1.value);
