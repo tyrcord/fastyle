@@ -44,7 +44,7 @@ class FastSettingsTermsOfServicePage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        buildTermsOfServiceIcon(context),
+        FastPageHeaderRoundedDuotoneIconLayout(icon: buildIcon(context)),
         kFastSizedBox32,
         if (appInfo.appTermsOfServiceLastModified != null)
           FastSettingsLastModified(
@@ -58,20 +58,6 @@ class FastSettingsTermsOfServicePage extends StatelessWidget {
         buildIntellectualPropertyArticle(appName),
         ...?children,
       ],
-    );
-  }
-
-  Widget buildTermsOfServiceIcon(BuildContext context) {
-    final scaleFactor = MediaQuery.textScaleFactorOf(context);
-    final textScaleFactor = scaleFactor > 1 ? scaleFactor : scaleFactor;
-    final palette = ThemeHelper.getPaletteColors(context);
-
-    return Center(
-      child: FastRoundedDuotoneIcon(
-        size: iconSize * textScaleFactor,
-        palette: palette.blueGray,
-        icon: buildIcon(context),
-      ),
     );
   }
 

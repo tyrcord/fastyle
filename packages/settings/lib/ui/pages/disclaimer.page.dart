@@ -43,7 +43,7 @@ class FastSettingsDisclaimerPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        buildDisclaimerIcon(context),
+        FastPageHeaderRoundedDuotoneIconLayout(icon: buildIcon(context)),
         kFastSizedBox32,
         if (appInfo.appDisclaimerLastModified != null)
           FastSettingsLastModified(
@@ -55,20 +55,6 @@ class FastSettingsDisclaimerPage extends StatelessWidget {
         ),
         ...?children,
       ],
-    );
-  }
-
-  Widget buildDisclaimerIcon(BuildContext context) {
-    final scaleFactor = MediaQuery.textScaleFactorOf(context);
-    final textScaleFactor = scaleFactor > 1 ? scaleFactor : scaleFactor;
-    final palette = ThemeHelper.getPaletteColors(context);
-
-    return Center(
-      child: FastRoundedDuotoneIcon(
-        size: iconSize * textScaleFactor,
-        palette: palette.blueGray,
-        icon: buildIcon(context),
-      ),
     );
   }
 
@@ -93,7 +79,7 @@ class FastSettingsDisclaimerPage extends StatelessWidget {
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return const FaIcon(FastFontAwesomeIcons.megaphone);
+      return const FaIcon(FastFontAwesomeIcons.lightMegaphone);
     }
 
     return const FaIcon(FontAwesomeIcons.bullhorn);

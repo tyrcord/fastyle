@@ -45,7 +45,7 @@ class FastSettingsPrivacyPolicyPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        buildPrivacyPolicyIcon(context),
+        FastPageHeaderRoundedDuotoneIconLayout(icon: buildIcon(context)),
         kFastSizedBox32,
         if (appInfo.appPrivacyPolicyLastModified != null)
           FastSettingsLastModified(
@@ -67,20 +67,6 @@ class FastSettingsPrivacyPolicyPage extends StatelessWidget {
     );
   }
 
-  Widget buildPrivacyPolicyIcon(BuildContext context) {
-    final scaleFactor = MediaQuery.textScaleFactorOf(context);
-    final textScaleFactor = scaleFactor > 1 ? scaleFactor : scaleFactor;
-    final palette = ThemeHelper.getPaletteColors(context);
-
-    return Center(
-      child: FastRoundedDuotoneIcon(
-        size: iconSize * textScaleFactor,
-        palette: palette.blueGray,
-        icon: buildIcon(context),
-      ),
-    );
-  }
-
   Widget buildIcon(BuildContext context) {
     if (icon != null) {
       return icon!;
@@ -89,7 +75,7 @@ class FastSettingsPrivacyPolicyPage extends StatelessWidget {
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return const FaIcon(FastFontAwesomeIcons.userSecret);
+      return const FaIcon(FastFontAwesomeIcons.lightUserSecret);
     }
 
     return const FaIcon(FontAwesomeIcons.userSecret);
