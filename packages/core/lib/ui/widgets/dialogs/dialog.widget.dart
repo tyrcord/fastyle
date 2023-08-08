@@ -25,7 +25,14 @@ class FastDialog extends AlertDialog {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: SingleChildScrollView(child: ListBody(children: children)),
+      content: SingleChildScrollView(
+        child: ListBody(
+          children: [
+            ...children,
+            kFastVerticalSizedBox16,
+          ],
+        ),
+      ),
       title: FastTitle(text: titleText, textColor: titleColor),
       surfaceTintColor: _getBackgroundColor(context),
       contentPadding: _kPaddingContent,

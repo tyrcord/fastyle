@@ -62,3 +62,42 @@ Future<T?> showAnimatedFastOverlay<T extends Object?>({
     transitionDuration: const Duration(milliseconds: 300),
   );
 }
+
+Future<T?> showAnimatedFastAlertDialog<T extends Object?>({
+  required BuildContext context,
+  required String titleText,
+  bool barrierDismissible = true,
+  Color? backgroundColor,
+  List<Widget>? children,
+  VoidCallback? onCancel,
+  List<Widget>? actions,
+  VoidCallback? onValid,
+  String? messageText,
+  String? cancelText,
+  String? validText,
+  Color? titleColor,
+}) {
+  return showGeneralDialog<T>(
+    barrierDismissible: barrierDismissible,
+    barrierLabel: kFastEmptyString,
+    context: context,
+    pageBuilder: (_, __, ___) => FastAlertDialog(
+      titleText: titleText,
+      cancelText: cancelText,
+      validText: validText,
+      titleColor: titleColor,
+      actions: actions,
+      backgroundColor: backgroundColor,
+      onValid: onValid,
+      onCancel: onCancel,
+      messageText: messageText,
+      children: children,
+    ),
+    transitionBuilder: (ctx, a1, a2, child) {
+      final curve = Curves.linear.transform(a1.value);
+
+      return Transform.scale(scale: curve, child: child);
+    },
+    transitionDuration: const Duration(milliseconds: 300),
+  );
+}
