@@ -117,6 +117,12 @@ const kFastImageSizeXxxl = 160.0;
 
 const kFastLineHeight = 1.2;
 
+// Page Header Icon Size
+
+const kFastPageHeaderIconSizeSmall = 160.0;
+const kFastPageHeaderIconSizeMedium = 192.0;
+const kFastPageHeaderIconSizeLarge = 256.0;
+
 // Radius
 
 const kFastBorderRadius = 12.0;

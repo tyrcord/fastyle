@@ -4,10 +4,6 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-// Project imports:
-
-const _tabletIconSize = 192.0;
-
 class FastPageHeaderRoundedDuotoneIconLayout extends StatelessWidget {
   /// The size of the icon to display on a handset.
   final double handsetIconSize;
@@ -27,8 +23,8 @@ class FastPageHeaderRoundedDuotoneIconLayout extends StatelessWidget {
     double? handsetIconSize,
     double? tabletIconSize,
     this.palette,
-  })  : handsetIconSize = handsetIconSize ?? 160,
-        tabletIconSize = tabletIconSize ?? _tabletIconSize;
+  })  : handsetIconSize = handsetIconSize ?? kFastPageHeaderIconSizeSmall,
+        tabletIconSize = tabletIconSize ?? kFastPageHeaderIconSizeMedium;
 
   @override
   Widget build(BuildContext context) {
