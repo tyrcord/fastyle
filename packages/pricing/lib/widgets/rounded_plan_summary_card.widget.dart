@@ -37,13 +37,11 @@ abstract class FastRoundedPlanSummaryCard extends FastPlanSummaryCard {
       return icon!;
     }
 
-    final palettes = ThemeHelper.getPaletteColors(context);
-
     return FastRoundedDuotoneIcon(
-      icon: getIcon(context),
-      palette: palette ?? palettes.blueGray,
       backgroundColor: backgroundColor,
+      palette: getPalette(context),
       size: kFastImageSizeXxl,
+      icon: getIcon(context),
       iconColor: iconColor,
     );
   }
@@ -53,4 +51,12 @@ abstract class FastRoundedPlanSummaryCard extends FastPlanSummaryCard {
   }
 
   String getTitleText();
+
+  FastPaletteScheme getPalette(BuildContext context) {
+    return palette ?? getDefaultPalette(context);
+  }
+
+  FastPaletteScheme getDefaultPalette(BuildContext context) {
+    return ThemeHelper.getPaletteColors(context).blueGray;
+  }
 }

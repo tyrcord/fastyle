@@ -1,5 +1,4 @@
 // Flutter imports:
-import 'package:fastyle_core/ui/ui.dart';
 import 'package:flutter/widgets.dart';
 
 // Package imports:
@@ -31,10 +30,6 @@ class FastIapRestorePremiumButtton extends StatelessWidget {
         final products = state.products;
         final product = getProductDetails(products, premiumProductId);
 
-        if (state.hasError) {
-          handleError(context, state.error);
-        }
-
         if (product != null) {
           return FastIapPlanBuilder(builder: buildButton);
         }
@@ -45,14 +40,10 @@ class FastIapRestorePremiumButtton extends StatelessWidget {
   }
 
   Widget buildButton(BuildContext context, FastPlanBlocState state) {
-    if (state.hasError) {
-      handleError(context, state.error);
-    }
-
     return FastPendingOutlineButton(
-      isEnabled: state.isInitialized,
-      text: _getRestorePremiumText(),
+      isEnabled: state.isInitialized && !state.isPlanPurcharsePending,
       isPending: state.isRestoringPlan,
+      text: _getLabelText(),
       onTap: () {
         final bloc = BlocProvider.of<FastPlanBloc>(context);
         bloc.addEvent(FastPlanBlocEvent.restorePlan(premiumProductId));
@@ -61,18 +52,7 @@ class FastIapRestorePremiumButtton extends StatelessWidget {
     );
   }
 
-  void handleError(BuildContext context, dynamic error) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      showAnimatedFastAlertDialog(
-        context: context,
-        titleText: 'Error',
-        messageText: error.toString(),
-        validText: 'OK',
-      );
-    });
-  }
-
-  String _getRestorePremiumText() {
+  String _getLabelText() {
     return labelText ??
         PurchasesLocaleKeys.purchases_label_restore_purchases.tr();
   }

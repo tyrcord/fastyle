@@ -6,4 +6,5 @@ enum FastPlanBlocEventType {
   restorePlan,
   planRestored,
   restorePlanFailed,
+  resetError,
 }

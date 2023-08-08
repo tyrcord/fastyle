@@ -1,4 +1,6 @@
 // Flutter imports:
+import 'dart:async';
+
 import 'package:flutter/widgets.dart';
 
 // Package imports:
@@ -7,6 +9,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lingua_purchases/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
 
 // Project imports:
 import 'package:fastyle_iap/fastyle_iap.dart';
@@ -42,25 +45,43 @@ class FastIapPremiumPage extends StatefulWidget {
 }
 
 class _FastIapPremiumPageState extends State<FastIapPremiumPage> {
+  late StreamSubscription<FastPlanBlocState> errorSubscription;
   late final FastPlanBloc planBloc;
 
   @override
   void initState() {
     super.initState();
-
-    planBloc = FastPlanBloc(onPlanPurchased: handlePlanPurchased);
+    planBloc = FastPlanBloc(getFeatureForPlan: handlePlanPurchased);
+    errorSubscription = planBloc.onData
+        .where((state) => state.error != null)
+        .listen((state) => handleError(state.error));
   }
 
   @override
   void dispose() {
     super.dispose();
     planBloc.close();
+    errorSubscription.cancel();
   }
 
   FastAppFeatures handlePlanPurchased(String planId) {
-    // planBloc.addEvent(planId);
-
     return FastAppFeatures.premium;
+  }
+
+  void handleError(dynamic error) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      showAnimatedFastAlertDialog(
+        titleText: CoreLocaleKeys.core_label_error.tr(),
+        validText: CoreLocaleKeys.core_label_ok.tr(),
+        messageText: error.toString(),
+        barrierDismissible: false,
+        context: context,
+        onValid: () {
+          planBloc.addEvent(const FastPlanBlocEvent.resetError());
+          Navigator.pop(context);
+        },
+      );
+    });
   }
 
   @override
@@ -90,7 +111,7 @@ class _FastIapPremiumPageState extends State<FastIapPremiumPage> {
 
   Widget buildTreasureIcon(BuildContext context) {
     final useProIcons = FastIconHelper.of(context).useProIcons;
-    final palette = ThemeHelper.getPaletteColors(context).orange;
+    final palette = ThemeHelper.getPaletteColors(context).purple;
 
     if (useProIcons) {
       return FastPageHeaderRoundedDuotoneIconLayout(

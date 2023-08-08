@@ -20,6 +20,7 @@ class FastInAppPurchaseService {
   Stream<PurchaseDetails> get onPurchase => _eventController.stream;
   Stream<dynamic> get onError => _errorController.stream;
   InAppPurchase get _iapService => InAppPurchase.instance;
+  bool _isRestoringPurchases = false;
 
   late PublishSubject<PurchaseDetails> _eventController;
   late PublishSubject<dynamic> _errorController;
@@ -80,7 +81,13 @@ class FastInAppPurchaseService {
     }
   }
 
-  Future<void> restorePurchases() async => _iapService.restorePurchases();
+  Future<void> restorePurchases() async {
+    if (!_isRestoringPurchases) {
+      _isRestoringPurchases = true;
+
+      return _iapService.restorePurchases();
+    }
+  }
 
   List<PurchaseDetails> listPurchases() => _purchases;
 
@@ -159,6 +166,16 @@ class FastInAppPurchaseService {
       if (purchase.pendingCompletePurchase) {
         await _iapService.completePurchase(purchase);
       }
+    }
+
+    if (_isRestoringPurchases) {
+      if (purchases.isEmpty) {
+        _errorController.sink.add(
+          const FastIapError(FastIapError.noPurchasesFound),
+        );
+      }
+
+      _isRestoringPurchases = false;
     }
   }
 

@@ -28,7 +28,8 @@ class FastPlanBlocEvent
     dynamic error,
   ) : super(
           type: FastPlanBlocEventType.purchasePlanFailed,
-          payload: FastPlanBlocEventPayload(productId: productId, error: error),
+          payload: FastPlanBlocEventPayload(productId: productId),
+          error: error,
         );
 
   // Named Constructor for 'purchasePlanCanceled' event
@@ -53,9 +54,15 @@ class FastPlanBlocEvent
         );
 
   // Named Constructor for 'restorePlanFailed' event
-  FastPlanBlocEvent.restorePlanFailed(String productId)
-      : super(
+  FastPlanBlocEvent.restorePlanFailed(
+    String productId,
+    dynamic error,
+  ) : super(
           type: FastPlanBlocEventType.restorePlanFailed,
           payload: FastPlanBlocEventPayload(productId: productId),
+          error: error,
         );
+
+  const FastPlanBlocEvent.resetError()
+      : super(type: FastPlanBlocEventType.resetError);
 }

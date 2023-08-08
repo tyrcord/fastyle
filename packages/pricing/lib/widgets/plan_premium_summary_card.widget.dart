@@ -10,8 +10,8 @@ import 'package:lingua_purchases/generated/locale_keys.g.dart';
 // Project imports:
 import 'package:fastyle_pricing/fastyle_pricing.dart';
 
-class FastFreePlanSummaryCard extends FastRoundedPlanSummaryCard {
-  const FastFreePlanSummaryCard({
+class FastPremiumPlanSummaryCard extends FastRoundedPlanSummaryCard {
+  const FastPremiumPlanSummaryCard({
     super.key,
     super.titleColor,
     super.footer,
@@ -26,14 +26,19 @@ class FastFreePlanSummaryCard extends FastRoundedPlanSummaryCard {
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return const FaIcon(FastFontAwesomeIcons.lightBicycle);
+      return const FaIcon(FastFontAwesomeIcons.rocketLaunch);
     }
 
-    return const FaIcon(FontAwesomeIcons.bicycle);
+    return const FaIcon(FontAwesomeIcons.rocket);
   }
 
   @override
   String getTitleText() {
-    return PurchasesLocaleKeys.purchases_label_free_version.tr();
+    return PurchasesLocaleKeys.purchases_label_premium.tr();
+  }
+
+  @override
+  FastPaletteScheme getDefaultPalette(BuildContext context) {
+    return ThemeHelper.getPaletteColors(context).green;
   }
 }

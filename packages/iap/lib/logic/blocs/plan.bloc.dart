@@ -3,6 +3,7 @@ import 'dart:async';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
 
 // Project imports:
@@ -16,9 +17,10 @@ class FastPlanBloc
     extends BidirectionalBloc<FastPlanBlocEvent, FastPlanBlocState> {
   final FastAppFeaturesBloc _fastAppFeaturesBloc = FastAppFeaturesBloc();
   final FastStoreBloc _fastStoreBloc = FastStoreBloc();
+  final FastAppInfoBloc _fastAppInfoBloc = FastAppInfoBloc();
   late StreamSubscription _fastStoreBlocSubscription;
-  final PlanPurchasedCallback onPlanPurchased;
-  final List<String> productIds;
+  final PlanPurchasedCallback getFeatureForPlan;
+  late List<String> productIds;
 
   // Store-related flags
   bool _isRestoringPlan = false;
@@ -26,10 +28,13 @@ class FastPlanBloc
   String? _pendingPlanRestoring;
 
   FastPlanBloc({
-    required this.onPlanPurchased,
-    this.productIds = const <String>[],
+    required this.getFeatureForPlan,
+    List<String>? productIds,
     FastPlanBlocState? initialState,
   }) : super(initialState: initialState ?? FastPlanBlocState()) {
+    final appInfo = _fastAppInfoBloc.currentState;
+    this.productIds = productIds ?? appInfo.productIdentifiers ?? [];
+
     _fastStoreBlocSubscription = _fastStoreBloc.onEvent
         .where(_filterStoreBlocEvents)
         .listen(handleStoreEvents);
@@ -63,13 +68,17 @@ class FastPlanBloc
       } else if (type == FastPlanBlocEventType.planRestored) {
         yield* handlePlanRestoredEvent(productId);
       } else if (type == FastPlanBlocEventType.restorePlanFailed) {
-        yield* handleRestorePlanFailedEvent(productId);
+        yield* handleRestorePlanFailedEvent(productId, error);
+      } else if (type == FastPlanBlocEventType.resetError) {
+        yield* handleResetErrorEvent();
       }
     }
   }
 
   Stream<FastPlanBlocState> handlePurchasePlanEvent(String productId) async* {
-    if (!_isPurchasePending) {
+    if (!_isRestoringPlan && !_isPurchasePending) {
+      debugLog('Purchase plan: $productId');
+
       _isPurchasePending = true;
       yield currentState.copyWith(isPlanPurcharsePending: true);
 
@@ -79,6 +88,8 @@ class FastPlanBloc
 
   Stream<FastPlanBlocState> handlePlanPurchasedEvent(String productId) async* {
     if (_isPurchasePending) {
+      debugLog('Plan purchased: $productId');
+
       _isPurchasePending = false;
 
       await _enablePlan(productId);
@@ -96,7 +107,10 @@ class FastPlanBloc
     dynamic error,
   ) async* {
     if (_isPurchasePending) {
+      debugLog('Purchase plan failed: $productId - $error');
+
       _isPurchasePending = false;
+
       yield currentState.copyWith(isPlanPurcharsePending: false, error: error);
     }
   }
@@ -105,15 +119,21 @@ class FastPlanBloc
     String productId,
   ) async* {
     if (_isPurchasePending) {
+      debugLog('Purchase plan canceled: $productId');
+
       _isPurchasePending = false;
+
       yield currentState.copyWith(isPlanPurcharsePending: false);
     }
   }
 
   Stream<FastPlanBlocState> handleRestorePlanEvent(String productId) async* {
-    if (!_isRestoringPlan) {
+    if (!_isRestoringPlan && !_isPurchasePending) {
+      debugLog('Restore plan: $productId');
+
       _isRestoringPlan = true;
       _pendingPlanRestoring = productId;
+
       yield currentState.copyWith(isRestoringPlan: true);
 
       _fastStoreBloc.addEvent(const FastStoreBlocEvent.restorePurchases());
@@ -122,8 +142,11 @@ class FastPlanBloc
 
   Stream<FastPlanBlocState> handlePlanRestoredEvent(String productId) async* {
     if (_isRestoringPlan) {
+      debugLog('Plan restored: $productId');
+
       _isRestoringPlan = false;
       _pendingPlanRestoring = null;
+
       yield currentState.copyWith(
         isRestoringPlan: false,
         hasPurchasedPlan: true,
@@ -134,12 +157,20 @@ class FastPlanBloc
 
   Stream<FastPlanBlocState> handleRestorePlanFailedEvent(
     String productId,
+    dynamic error,
   ) async* {
     if (_isRestoringPlan) {
+      debugLog('Restore plan failed: $productId - $error');
+
       _isRestoringPlan = false;
       _pendingPlanRestoring = null;
-      yield currentState.copyWith(isRestoringPlan: false);
+
+      yield currentState.copyWith(isRestoringPlan: false, error: error);
     }
+  }
+
+  Stream<FastPlanBlocState> handleResetErrorEvent() async* {
+    yield currentState.copyWith(error: null);
   }
 
   void handleStoreEvents(FastStoreBlocEvent event) {
@@ -147,6 +178,8 @@ class FastPlanBloc
     final productId = payload?.productId ?? _pendingPlanRestoring!;
     final type = event.type;
     final error = event.error;
+
+    debugLog('Store event: $type - $productId - $error');
 
     if (type == FastStoreBlocEventType.productPurchased) {
       addEvent(FastPlanBlocEvent.planPurchased(productId));
@@ -157,24 +190,28 @@ class FastPlanBloc
     } else if (type == FastStoreBlocEventType.purchaseRestored) {
       addEvent(FastPlanBlocEvent.planRestored(productId));
     } else if (type == FastStoreBlocEventType.restorePurchasesFailed) {
-      addEvent(FastPlanBlocEvent.restorePlanFailed(productId));
+      addEvent(FastPlanBlocEvent.restorePlanFailed(productId, error));
     }
   }
 
   bool _filterStoreBlocEvents(event) {
     final type = event.type;
+    bool willHandle = false;
 
-    if (type == FastStoreBlocEventType.restorePurchasesFailed) {
-      return _pendingPlanRestoring != null;
+    if (type == FastStoreBlocEventType.restorePurchasesFailed ||
+        type == FastStoreBlocEventType.purchaseRestored) {
+      willHandle = _pendingPlanRestoring != null;
     } else if (event.payload?.productId != null) {
-      return productIds.contains(event.payload!.productId);
+      willHandle = productIds.contains(event.payload!.productId);
     }
 
-    return false;
+    debugLog('Filter store event: $type - $willHandle');
+
+    return willHandle;
   }
 
   Future<void> _enablePlan(String planId) async {
-    final feature = onPlanPurchased(planId);
+    final feature = getFeatureForPlan(planId);
 
     _fastAppFeaturesBloc.addEvent(
       FastAppFeaturesBlocEvent.enableFeature(feature),
