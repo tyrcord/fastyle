@@ -8,3 +8,4 @@ export './media_layout_observer.dart';
 export './page.layout.dart';
 export './shadow.layout.dart';
 export './split.layout.dart';
+export './page_header_icon.layout.dart';

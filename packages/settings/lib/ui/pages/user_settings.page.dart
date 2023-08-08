@@ -101,12 +101,12 @@ class FastAppSettingsPage extends FastSettingPageLayout {
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return const FastSettingPageHeaderRoundedDuotoneIconLayout(
-        icon: FaIcon(FontAwesomeIcons.userGear),
+      return const FastPageHeaderRoundedDuotoneIconLayout(
+        icon: FaIcon(FastFontAwesomeIcons.lightUserGear),
       );
     }
 
-    return const FastSettingPageHeaderRoundedDuotoneIconLayout(
+    return const FastPageHeaderRoundedDuotoneIconLayout(
       icon: FaIcon(FontAwesomeIcons.solidUser),
     );
   }
