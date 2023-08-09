@@ -230,10 +230,10 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
   }
 
   String _getNextText() {
-    return widget.nextText ?? CoreLocaleKeys.core_label_next.tr();
+    return widget.nextText ?? CoreLocaleKeys.core_label_next_text.tr();
   }
 
   String _getSkipText() {
-    return widget.skipText ?? CoreLocaleKeys.core_label_skip.tr();
+    return widget.skipText ?? CoreLocaleKeys.core_label_skip_text.tr();
   }
 }
