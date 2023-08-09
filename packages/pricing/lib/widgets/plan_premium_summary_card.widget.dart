@@ -26,7 +26,7 @@ class FastPremiumPlanSummaryCard extends FastRoundedPlanSummaryCard {
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return const FaIcon(FastFontAwesomeIcons.rocketLaunch);
+      return const FaIcon(FastFontAwesomeIcons.lightRocketLaunch);
     }
 
     return const FaIcon(FontAwesomeIcons.rocket);

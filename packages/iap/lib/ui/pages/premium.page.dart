@@ -6,8 +6,6 @@ import 'package:flutter/widgets.dart';
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:lingua_purchases/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 
@@ -88,143 +86,36 @@ class _FastIapPremiumPageState extends State<FastIapPremiumPage> {
   Widget build(BuildContext context) {
     return BlocProvider(
       bloc: planBloc,
-      child: FastSectionPage(
-        titleText: _getTitleText(),
-        showAppBar: widget.showAppBar,
-        isViewScrollable: false,
-        // FIXME: FastSectionPage layout should be a stack, content is
-        // displayed behind the footer.
-        footerBuilder: buildFooter,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            buildTreasureIcon(context),
-            ThemeHelper.spacing.getVerticalSpacing(context),
-            buildDescription(context),
-            buildFeaturesList(),
-            buildBackgroundDecoration(context),
-          ],
-        ),
+      child: BlocBuilderWidget(
+        buildWhen: (_, next) => next.isFeatureEnabled(FastAppFeatures.premium),
+        bloc: BlocProvider.of<FastAppFeaturesBloc>(context),
+        builder: (context, state) {
+          if (state.isFeatureEnabled(FastAppFeatures.premium)) {
+            return FastIapThankPremiumPage(
+              restorePremiumText: widget.restorePremiumText,
+              onRestorePremium: widget.onRestorePremium,
+              premiumProductId: widget.premiumProductId,
+              shouldSortItems: widget.shouldSortItems,
+              showAppBar: widget.showAppBar,
+              titleText: widget.titleText,
+              iconSize: widget.iconSize,
+              items: widget.items,
+            );
+          }
+
+          return FastIapGoPremiumPage(
+            premiumProductId: widget.premiumProductId,
+            restorePremiumText: widget.restorePremiumText,
+            onRestorePremium: widget.onRestorePremium,
+            shouldSortItems: widget.shouldSortItems,
+            onBuyPremium: widget.onBuyPremium,
+            showAppBar: widget.showAppBar,
+            titleText: widget.titleText,
+            iconSize: widget.iconSize,
+            items: widget.items,
+          );
+        },
       ),
     );
-  }
-
-  Widget buildTreasureIcon(BuildContext context) {
-    final useProIcons = FastIconHelper.of(context).useProIcons;
-    final palette = ThemeHelper.getPaletteColors(context).purple;
-
-    if (useProIcons) {
-      return FastPageHeaderRoundedDuotoneIconLayout(
-        icon: const FaIcon(FastFontAwesomeIcons.lightTreasureChest),
-        palette: palette,
-      );
-    }
-
-    return FastPageHeaderRoundedDuotoneIconLayout(
-      icon: const FaIcon(FontAwesomeIcons.gem),
-      palette: palette,
-    );
-  }
-
-  Widget buildDescription(BuildContext context) {
-    final padding = ThemeHelper.spacing.getVerticalPadding(context);
-
-    return Padding(
-      padding: padding,
-      child: FastBody(
-        text: PurchasesLocaleKeys.purchases_message_go_premium_description.tr(),
-      ),
-    );
-  }
-
-  Widget buildBackgroundDecoration(BuildContext context) {
-    final padding = ThemeHelper.spacing.getVerticalPadding(context);
-
-    return Container(
-      padding: padding,
-      alignment: Alignment.centerRight,
-      child: buildStarIcon(context),
-    );
-  }
-
-  Widget buildStarIcon(BuildContext context) {
-    final useProIcons = FastIconHelper.of(context).useProIcons;
-    final palettes = ThemeHelper.getPaletteColors(context);
-    late final IconData iconData;
-
-    if (useProIcons) {
-      iconData = FastFontAwesomeIcons.solidStars;
-    } else {
-      iconData = FontAwesomeIcons.solidStar;
-    }
-
-    return FaIcon(iconData, color: palettes.orange.lighter);
-  }
-
-  Widget buildFeaturesList() {
-    if (widget.items != null && widget.items!.isNotEmpty) {
-      return FastListView(
-        listItemBuilder: buildFeatureListItem,
-        sortItems: widget.shouldSortItems,
-        items: widget.items!,
-      );
-    }
-
-    return const SizedBox.shrink();
-  }
-
-  Widget buildFeatureListItem(BuildContext context, FastItem item, int index) {
-    return Padding(
-      padding: kFastVerticalEdgeInsets12,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          if (item.descriptor?.leading != null)
-            buildIcon(item.descriptor!.leading!),
-          Expanded(child: FastBody(text: item.labelText)),
-        ],
-      ),
-    );
-  }
-
-  //TODO: add color to descriptor
-  Widget buildIcon(Widget icon) {
-    if (icon is FaIcon) {
-      icon = FaIcon(
-        icon.icon,
-        color: ThemeHelper.colors.getPrimaryColor(context),
-        size: kFastIconSizeSmall,
-      );
-    } else if (icon is Icon) {
-      icon = Icon(
-        icon.icon,
-        color: ThemeHelper.colors.getPrimaryColor(context),
-        size: kFastIconSizeSmall,
-      );
-    }
-
-    return SizedBox(width: 40.0, child: icon);
-  }
-
-  Widget buildFooter(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        FastIapRestorePremiumButtton(
-          premiumProductId: widget.premiumProductId,
-          onTap: widget.onRestorePremium,
-        ),
-        FastIapPurchasePremiumButtton(
-          premiumProductId: widget.premiumProductId,
-          onTap: widget.onBuyPremium,
-        ),
-      ],
-    );
-  }
-
-  String _getTitleText() {
-    return widget.titleText ??
-        PurchasesLocaleKeys.purchases_label_go_premium.tr();
   }
 }
