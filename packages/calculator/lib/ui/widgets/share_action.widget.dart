@@ -47,13 +47,13 @@ class FastCalculatorShareAction<B extends FastCalculatorBloc,
 
     if (useProIcons) {
       return const FaIcon(
-        FastFontAwesomeIcons.lightArrowUpFromBracket,
+        FastFontAwesomeIcons.lightArrowUpRightFromSquare,
         size: kFastIconSizeSmall,
       );
     }
 
     return const FaIcon(
-      FontAwesomeIcons.arrowUpFromBracket,
+      FontAwesomeIcons.arrowUpRightFromSquare,
       size: kFastIconSizeSmall,
     );
   }
