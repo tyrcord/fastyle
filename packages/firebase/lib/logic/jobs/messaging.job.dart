@@ -31,18 +31,6 @@ class FastFirebaseMessagingJob extends FastJob {
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
-    // FIXME: should be handle by the onboarding process or within the
-    // application settings.
-    // await messagingService.requestPermission(
-    //   alert: true,
-    //   announcement: false,
-    //   badge: true,
-    //   carPlay: false,
-    //   criticalAlert: false,
-    //   provisional: false,
-    //   sound: true,
-    // );
-
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       debugPrint('Message data: ${message.data}');
     });
