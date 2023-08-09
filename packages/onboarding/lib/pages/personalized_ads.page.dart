@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_layouts/fastyle_layouts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lingua_onboarding/generated/locale_keys.g.dart';
 
 /// A page that displays a layout with an icon, a primary text, a secondary text
 /// and a list of children widgets.
@@ -58,25 +60,27 @@ class FastOnboardingPersonalizedAds extends StatelessWidget {
     this.icon,
   });
 
+  void handleTap() async {
+    controller?.pause();
+    await AppTrackingTransparency.requestTrackingAuthorization();
+    onActionTap?.call();
+    await Future.microtask(() => controller?.resume());
+  }
+
   @override
   Widget build(BuildContext context) {
     return FastOnboardingPage(
-      titleText: titleText ?? 'Personalized Ads',
+      titleText: _getTitleText(),
       children: [
         FastOnboardingContentLayout(
+          secondaryText: _getSecondaryText(),
           handsetIconSize: handsetIconSize,
           tabletIconSize: tabletIconSize,
-          secondaryText: secondaryText,
+          primaryText: _getPrimaryText(),
+          palette: _getPalette(context),
+          actionText: _getActionText(),
           icon: buildIcon(context),
-          primaryText: primaryText,
-          actionText: actionText,
-          onActionTap: () async {
-            controller?.pause();
-            await AppTrackingTransparency.requestTrackingAuthorization();
-            onActionTap?.call();
-            await Future.microtask(() => controller?.resume());
-          },
-          palette: palette,
+          onActionTap: handleTap,
           children: children,
         ),
       ],
@@ -95,5 +99,33 @@ class FastOnboardingPersonalizedAds extends StatelessWidget {
     }
 
     return const FaIcon(FontAwesomeIcons.bullhorn);
+  }
+
+  String _getTitleText() {
+    return titleText ??
+        OnboardingLocaleKeys.onboarding_personalized_ads_title.tr();
+  }
+
+  String _getPrimaryText() {
+    return primaryText ??
+        OnboardingLocaleKeys.onboarding_personalized_ads_description.tr();
+  }
+
+  String _getSecondaryText() {
+    return secondaryText ??
+        OnboardingLocaleKeys.onboarding_personalized_ads_notes.tr();
+  }
+
+  String _getActionText() {
+    return actionText ??
+        OnboardingLocaleKeys.onboarding_personalized_ads_action.tr();
+  }
+
+  FastPaletteScheme _getPalette(BuildContext context) {
+    if (palette == null) {
+      return ThemeHelper.getPaletteColors(context).pink;
+    }
+
+    return palette!;
   }
 }
