@@ -1,3 +1,15 @@
+## 0.0.6
+
+ - **PERF**: minor improvements.
+ - **PERF**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: change default max line for ad description.
+ - **FEAT**: ad FastAdRaisedButton.
+ - **FEAT**: better ads with merchant.
+ - **FEAT**: improvement with smart native ad.
+ - **FEAT**: smart native ad.
+ - **FEAT**: add a default ad service.
+
 ## 0.0.5
 
  - **FEAT**: allow to use font awesome pro icons if provided.

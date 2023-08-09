@@ -1,6 +1,6 @@
 name: fastyle_financial
 description: Set of Financial Widgets for the fastyle library.
-version: 0.0.11+1
+version: 0.0.12
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/fastyle_financial
 
 environment:
@@ -11,14 +11,15 @@ dependencies:
   flutter:
     sdk: flutter
 
-  fastyle_core: ^0.0.8
+  fastyle_core: ^0.0.9
   t_helpers: ^0.0.25
   matex_dart: ^0.11.1
   collection: ^1.17.1
-  fastyle_images: ^0.0.16
+  fastyle_images: ^0.0.16+1
   lingua_finance: ^0.0.8
-  fastyle_settings: ^0.0.17
+  fastyle_settings: ^0.0.18
   easy_localization: ^3.0.2
+  tbloc: ^0.21.1
 
 dev_dependencies:
   flutter_test:

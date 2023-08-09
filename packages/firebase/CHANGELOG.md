@@ -1,3 +1,7 @@
+## 0.0.5+1
+
+ - **PERF**: minor improvements.
+
 ## 0.0.5
 
  - **FEAT**: allow to use font awesome pro icons if provided.

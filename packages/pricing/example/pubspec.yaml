@@ -10,8 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_core: ^0.0.8
-  fastyle_pricing: ^1.9.0
+  fastyle_core: ^0.0.9
+  fastyle_pricing: ^1.10.0
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,6 @@
 name: fastyle_connectivity
 description: Set of connectivity Widgets for the fastyle library.
-version: 0.0.11
+version: 0.0.11+1
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/connectivity
 
 environment:
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_core: ^0.0.8
+  fastyle_core: ^0.0.9
   font_awesome_flutter: ^10.5.0
   connectivity_plus: ^4.0.1
   rxdart: ^0.27.7

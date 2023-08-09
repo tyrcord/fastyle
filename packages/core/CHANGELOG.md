@@ -1,3 +1,17 @@
+## 0.0.9
+
+ - **PERF**: minor improvements.
+ - **FIX**: AnimatedFastOverlay uses SafeArea.
+ - **FEAT**: change clear icon.
+ - **FEAT**: add showAnimatedFastAlertDialog.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastPageHeaderRoundedDuotoneIconLayout.
+ - **FEAT**: minor improvements.
+ - **FEAT**: cleaning.
+ - **FEAT**: add default navigation handler.
+ - **FEAT**: add twitterUrl.
+ - **FEAT**: smart native ad.
+
 ## 0.0.8
 
  - **FIX**: back and close default buttons.

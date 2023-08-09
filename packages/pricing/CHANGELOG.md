@@ -1,3 +1,7 @@
+## 1.10.0
+
+ - **FEAT**: improvements with the premium page.
+
 ## 1.9.0
 
  - **FEAT**: allow to use font awesome pro icons if provided.

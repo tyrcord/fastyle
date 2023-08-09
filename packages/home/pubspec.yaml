@@ -1,6 +1,6 @@
 name: fastyle_home
 description: Set of home Widgets for the fastyle library.
-version: 0.0.9
+version: 0.0.9+1
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/home
 
 environment:
@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  fastyle_core: ^0.0.8
+  fastyle_core: ^0.0.9
 
 dev_dependencies:
   flutter_test:

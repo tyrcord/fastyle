@@ -1,3 +1,14 @@
+## 0.0.18
+
+ - **PERF**: minor improvements.
+ - **FIX**: remove dead code.
+ - **FIX**: default routes.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastPageHeaderRoundedDuotoneIconLayout.
+ - **FEAT**: minor improvements.
+ - **FEAT**: improvements.
+ - **FEAT**: add default setting items.
+
 ## 0.0.17
 
  - **FEAT**: allow to use font awesome pro icons if provided.

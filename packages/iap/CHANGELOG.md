@@ -1,3 +1,10 @@
+## 0.0.6
+
+ - **PERF**: minor improvements.
+ - **FEAT**: improvements with the premium page.
+ - **FEAT**: better premium page.
+ - **FEAT**: minor improvements.
+
 ## 0.0.5
 
  - **FEAT**: allow to use font awesome pro icons if provided.
