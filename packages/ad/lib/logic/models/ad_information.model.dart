@@ -3,6 +3,7 @@ import 'dart:io';
 
 // Flutter imports:
 import 'package:flutter/foundation.dart' show kDebugMode;
+import 'package:t_helpers/helpers.dart';
 
 // Package imports:
 import 'package:tstore/tstore.dart';
@@ -327,4 +328,75 @@ class FastAdInfo extends TDocument {
         splashAdThreshold,
         adServiceUriAuthority,
       ];
+
+  /// Print the values of properties in debug mode.
+  void debug({String? debugLabel}) {
+    if (kDebugMode) {
+      debugLog(
+        'androidNativeAdUnitId: $androidNativeAdUnitId',
+        debugLabel: debugLabel,
+      );
+      debugLog(
+        'iosNativeAdUnitId: $iosNativeAdUnitId',
+        debugLabel: debugLabel,
+      );
+      debugLog(
+        'androidBannerAdUnitId: $androidBannerAdUnitId',
+        debugLabel: debugLabel,
+      );
+      debugLog(
+        'iosBannerAdUnitId: $iosBannerAdUnitId',
+        debugLabel: debugLabel,
+      );
+      debugLog(
+        'androidInterstitialAdUnitId: $androidInterstitialAdUnitId',
+        debugLabel: debugLabel,
+      );
+      debugLog(
+        'iosInterstitialAdUnitId: $iosInterstitialAdUnitId',
+        debugLabel: debugLabel,
+      );
+      debugLog(
+        'androidRewardedAdUnitId: $androidRewardedAdUnitId',
+        debugLabel: debugLabel,
+      );
+      debugLog(
+        'iosRewardedAdUnitId: $iosRewardedAdUnitId',
+        debugLabel: debugLabel,
+      );
+      debugLog(
+        'androidSplashAdUnitId: $androidSplashAdUnitId',
+        debugLabel: debugLabel,
+      );
+      debugLog(
+        'iosSplashAdUnitId: $iosSplashAdUnitId',
+        debugLabel: debugLabel,
+      );
+      debugLog(
+        'androidRewardedInterstitialAdUnitId: '
+        '$androidRewardedInterstitialAdUnitId',
+        debugLabel: debugLabel,
+      );
+      debugLog(
+        'iosRewardedInterstitialAdUnitId: $iosRewardedInterstitialAdUnitId',
+        debugLabel: debugLabel,
+      );
+      debugLog(
+        'keywords: $keywords',
+        debugLabel: debugLabel,
+      );
+      debugLog(
+        'countries: $countries',
+        debugLabel: debugLabel,
+      );
+      debugLog(
+        'splashAdThreshold: $splashAdThreshold',
+        debugLabel: debugLabel,
+      );
+      debugLog(
+        'adServiceUriAuthority: $adServiceUriAuthority',
+        debugLabel: debugLabel,
+      );
+    }
+  }
 }

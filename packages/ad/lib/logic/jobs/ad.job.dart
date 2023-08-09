@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -23,8 +24,7 @@ class FastAdInfoJob extends FastJob {
 
   final FastAdInformationJobDelegate? delegate;
 
-  const FastAdInfoJob._({this.delegate})
-      : super(debugLabel: 'fast_ad_info_job');
+  const FastAdInfoJob._({this.delegate}) : super(debugLabel: 'FastAdInfoJob');
 
   @override
   Future<void> initialize(
@@ -34,13 +34,18 @@ class FastAdInfoJob extends FastJob {
     if (isWeb) return;
 
     final adInfoBloc = BlocProvider.of<FastAdInfoBloc>(context);
-    FastAdInfo appInfo = adInfoBloc.currentState.adInfo;
+    FastAdInfo adInfo = adInfoBloc.currentState.adInfo;
 
     if (delegate != null) {
-      appInfo = delegate!.onGetAdInformationModel(context);
+      adInfo = delegate!.onGetAdInformationModel(context);
     }
 
-    adInfoBloc.addEvent(FastAdInfoBlocEvent.init(adInfo: appInfo));
+    if (kDebugMode) {
+      debugLog('will use Ad Info:', debugLabel: debugLabel);
+      adInfo.debug(debugLabel: 'AdInfo');
+    }
+
+    adInfoBloc.addEvent(FastAdInfoBlocEvent.init(adInfo: adInfo));
 
     await adInfoBloc.onData.firstWhere((state) => state.isInitialized);
 
