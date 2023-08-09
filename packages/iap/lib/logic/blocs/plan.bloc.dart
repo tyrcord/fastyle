@@ -144,6 +144,8 @@ class FastPlanBloc
     if (_isRestoringPlan) {
       debugLog('Plan restored: $productId');
 
+      await _enablePlan(productId);
+
       _isRestoringPlan = false;
       _pendingPlanRestoring = null;
 
