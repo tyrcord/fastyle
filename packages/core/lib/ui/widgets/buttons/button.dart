@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 //TODO: @need-review: code from fastyle_dart
 

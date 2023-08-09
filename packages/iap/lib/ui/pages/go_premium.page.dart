@@ -19,7 +19,6 @@ class FastIapGoPremiumPage extends StatelessWidget {
   final bool shouldSortItems;
   final String? titleText;
   final bool showAppBar;
-  final double iconSize;
   final Widget? icon;
 
   const FastIapGoPremiumPage({
@@ -33,8 +32,7 @@ class FastIapGoPremiumPage extends StatelessWidget {
     this.titleText,
     this.items,
     this.icon,
-    double? iconSize,
-  }) : iconSize = iconSize ?? 160;
+  });
 
   @override
   Widget build(BuildContext context) {

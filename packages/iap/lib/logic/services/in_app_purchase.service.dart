@@ -85,7 +85,12 @@ class FastInAppPurchaseService {
     if (!_isRestoringPurchases) {
       _isRestoringPurchases = true;
 
-      return _iapService.restorePurchases();
+      try {
+        await _iapService.restorePurchases();
+      } catch (error) {
+        _isRestoringPurchases = false;
+        _errorController.add(error);
+      }
     }
   }
 
@@ -166,6 +171,10 @@ class FastInAppPurchaseService {
       if (purchase.pendingCompletePurchase) {
         await _iapService.completePurchase(purchase);
       }
+
+      if (purchase.status != PurchaseStatus.pending) {
+        _isRestoringPurchases = false;
+      }
     }
 
     if (_isRestoringPurchases) {
@@ -180,6 +189,8 @@ class FastInAppPurchaseService {
   }
 
   void handlePurchaseError(dynamic error) {
+    _isRestoringPurchases = false;
+
     if (!_errorController.isClosed) {
       _errorController.add(error);
     }

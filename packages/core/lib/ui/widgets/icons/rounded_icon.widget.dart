@@ -17,6 +17,9 @@ class FastRoundedIcon extends StatelessWidget {
   final double ratio;
   final Widget icon;
   final double size;
+  final Color? shadowColor;
+  final double blurRadius;
+  final bool hasShadow;
 
   const FastRoundedIcon({
     super.key,
@@ -27,6 +30,9 @@ class FastRoundedIcon extends StatelessWidget {
     this.iconColor,
     this.iconSize,
     this.shape,
+    this.shadowColor,
+    this.blurRadius = kFastBlurRadius,
+    this.hasShadow = false,
   });
 
   @override
@@ -47,11 +53,23 @@ class FastRoundedIcon extends StatelessWidget {
       width: size,
       decoration: BoxDecoration(
         color: backgroundColor ?? ThemeHelper.colors.getPrimaryColor(context),
+        boxShadow: _getBoxShadows(context),
         borderRadius: radius,
         shape: shape0,
       ),
       child: Center(child: icon0),
     );
+  }
+
+  List<BoxShadow> _getBoxShadows(BuildContext context) {
+    if (!hasShadow) return [];
+
+    return [
+      BoxShadow(
+        color: shadowColor ?? ThemeHelper.colors.getShadowColor(context),
+        blurRadius: blurRadius,
+      ),
+    ];
   }
 
   BoxShape _getShape() {

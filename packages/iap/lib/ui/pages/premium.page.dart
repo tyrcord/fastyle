@@ -4,10 +4,8 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 
 // Package imports:
-import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tbloc/tbloc.dart';
-import 'package:lingua_core/generated/locale_keys.g.dart';
 
 // Project imports:
 import 'package:fastyle_iap/fastyle_iap.dart';
@@ -21,7 +19,6 @@ class FastIapPremiumPage extends StatefulWidget {
   final bool shouldSortItems;
   final String? titleText;
   final bool showAppBar;
-  final double iconSize;
   final Widget? icon;
 
   const FastIapPremiumPage({
@@ -35,24 +32,24 @@ class FastIapPremiumPage extends StatefulWidget {
     this.titleText,
     this.items,
     this.icon,
-    double? iconSize,
-  }) : iconSize = iconSize ?? 160;
+  });
 
   @override
   State<FastIapPremiumPage> createState() => _FastIapPremiumPageState();
 }
 
-class _FastIapPremiumPageState extends State<FastIapPremiumPage> {
+class _FastIapPremiumPageState extends State<FastIapPremiumPage>
+    with FastPremiumPlanMixin {
   late StreamSubscription<FastPlanBlocState> errorSubscription;
   late final FastPlanBloc planBloc;
 
   @override
   void initState() {
     super.initState();
-    planBloc = FastPlanBloc(getFeatureForPlan: handlePlanPurchased);
+    planBloc = FastPlanBloc(getFeatureForPlan: getFeatureForPlan);
     errorSubscription = planBloc.onData
         .where((state) => state.error != null)
-        .listen((state) => handleError(state.error));
+        .listen((state) => handleError(context, planBloc, state.error));
   }
 
   @override
@@ -60,26 +57,6 @@ class _FastIapPremiumPageState extends State<FastIapPremiumPage> {
     super.dispose();
     planBloc.close();
     errorSubscription.cancel();
-  }
-
-  FastAppFeatures handlePlanPurchased(String planId) {
-    return FastAppFeatures.premium;
-  }
-
-  void handleError(dynamic error) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      showAnimatedFastAlertDialog(
-        titleText: CoreLocaleKeys.core_label_error.tr(),
-        validText: CoreLocaleKeys.core_label_ok.tr(),
-        messageText: error.toString(),
-        barrierDismissible: false,
-        context: context,
-        onValid: () {
-          planBloc.addEvent(const FastPlanBlocEvent.resetError());
-          Navigator.pop(context);
-        },
-      );
-    });
   }
 
   @override
@@ -98,7 +75,6 @@ class _FastIapPremiumPageState extends State<FastIapPremiumPage> {
               shouldSortItems: widget.shouldSortItems,
               showAppBar: widget.showAppBar,
               titleText: widget.titleText,
-              iconSize: widget.iconSize,
               items: widget.items,
             );
           }
@@ -111,7 +87,6 @@ class _FastIapPremiumPageState extends State<FastIapPremiumPage> {
             onBuyPremium: widget.onBuyPremium,
             showAppBar: widget.showAppBar,
             titleText: widget.titleText,
-            iconSize: widget.iconSize,
             items: widget.items,
           );
         },

@@ -7,6 +7,8 @@ import 'package:fastyle_layouts/fastyle_layouts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lingua_onboarding/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fastyle_settings/fastyle_settings.dart';
+import 'package:tbloc/tbloc.dart';
 
 /// A page that displays a layout with an icon, a primary text, a secondary text
 /// and a list of children widgets.
@@ -65,15 +67,27 @@ class FastOnboardingUserCurrency extends StatelessWidget {
       titleText: _getTitleText(),
       children: [
         FastOnboardingContentLayout(
-          secondaryText: _getSecondaryText(),
+          notesText: _getSecondaryText(),
           handsetIconSize: handsetIconSize,
           tabletIconSize: tabletIconSize,
           primaryText: _getPrimaryText(),
           palette: _getPalette(context),
-          actionText: _getActionText(),
           icon: buildIcon(context),
           onActionTap: onActionTap,
           children: children,
+          actionBuilder: (context) {
+            return FastAppSettingsPrimaryCurrencyField(
+              // descriptor: ,
+              onCurrencyChanged: (String currencyCode) {
+                _dispatchEvent(
+                  context,
+                  FastAppSettingsBlocEvent.primaryCurrencyCodeChanged(
+                    currencyCode,
+                  ),
+                );
+              },
+            );
+          },
         ),
       ],
     );
@@ -108,16 +122,18 @@ class FastOnboardingUserCurrency extends StatelessWidget {
         OnboardingLocaleKeys.onboarding_user_currency_notes.tr();
   }
 
-  String _getActionText() {
-    return actionText ??
-        OnboardingLocaleKeys.onboarding_user_currency_action.tr();
-  }
-
   FastPaletteScheme _getPalette(BuildContext context) {
     if (palette == null) {
       return ThemeHelper.getPaletteColors(context).brown;
     }
 
     return palette!;
+  }
+
+  /// Dispatches the given [event] to the [FastAppSettingsBloc].
+  void _dispatchEvent(BuildContext context, FastAppSettingsBlocEvent event) {
+    final bloc = BlocProvider.of<FastAppSettingsBloc>(context);
+
+    bloc.addEvent(event);
   }
 }

@@ -17,12 +17,15 @@ class FastPageHeaderRoundedDuotoneIconLayout extends StatelessWidget {
   /// The icon to display at the top of the layout.
   final Widget icon;
 
+  final bool hasShadow;
+
   const FastPageHeaderRoundedDuotoneIconLayout({
     super.key,
     required this.icon,
     double? handsetIconSize,
     double? tabletIconSize,
     this.palette,
+    this.hasShadow = true,
   })  : handsetIconSize = handsetIconSize ?? kFastPageHeaderIconSizeSmall,
         tabletIconSize = tabletIconSize ?? kFastPageHeaderIconSizeMedium;
 
@@ -44,6 +47,7 @@ class FastPageHeaderRoundedDuotoneIconLayout extends StatelessWidget {
     return FastRoundedDuotoneIcon(
       size: _getIconSize(context, mediaType),
       palette: _getPalette(context),
+      hasShadow: hasShadow,
       icon: icon,
     );
   }

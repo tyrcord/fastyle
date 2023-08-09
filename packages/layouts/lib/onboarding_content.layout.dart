@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-const _tabletIconSize = 192.0;
-
 /// A layout that displays a centered icon, a primary text, a secondary text
 /// and a list of children widgets.
 class FastOnboardingContentLayout extends StatelessWidget {
@@ -36,6 +34,10 @@ class FastOnboardingContentLayout extends StatelessWidget {
   /// The icon to display at the top of the layout.
   final Widget icon;
 
+  final WidgetBuilder? actionBuilder;
+
+  final String? notesText;
+
   const FastOnboardingContentLayout({
     super.key,
     required this.icon,
@@ -47,6 +49,8 @@ class FastOnboardingContentLayout extends StatelessWidget {
     this.actionText,
     this.children,
     this.palette,
+    this.actionBuilder,
+    this.notesText,
   });
 
   @override
@@ -74,7 +78,9 @@ class FastOnboardingContentLayout extends StatelessWidget {
         padding,
         if (primaryText != null) buildPrimaryText(context, mediaType),
         if (secondaryText != null) buildSecondaryText(context, mediaType),
-        if (actionText != null) buildAction(context, mediaType),
+        if (actionText != null || actionBuilder != null)
+          buildAction(context, mediaType),
+        if (notesText != null) buildNotesText(context, mediaType),
         if (children != null) ...children!,
       ],
     );
@@ -102,37 +108,41 @@ class FastOnboardingContentLayout extends StatelessWidget {
     );
   }
 
-  Widget buildAction(BuildContext context, FastMediaType mediaType) {
+  Widget buildNotesText(BuildContext context, FastMediaType mediaType) {
     final isHandset = mediaType < FastMediaType.tablet;
 
     return Column(
       children: [
-        FastRaisedButton(
-          onTap: () => onActionTap?.call(),
-          text: actionText!,
+        FastSecondaryBody(
+          text: notesText!,
+          textAlign: TextAlign.center,
+          fontSize: 14,
         ),
         isHandset ? kFastSizedBox24 : kFastSizedBox32,
       ],
     );
   }
 
-  Widget buildIcon(BuildContext context, FastMediaType mediaType) {
-    return FastRoundedDuotoneIcon(
-      size: _getIconSize(context, mediaType),
-      palette: _getPalette(context),
-      icon: icon,
+  Widget buildAction(BuildContext context, FastMediaType mediaType) {
+    final isHandset = mediaType < FastMediaType.tablet;
+
+    return Column(
+      children: [
+        if (actionBuilder != null)
+          Builder(builder: actionBuilder!)
+        else
+          FastRaisedButton(onTap: () => onActionTap?.call(), text: actionText!),
+        isHandset ? kFastSizedBox24 : kFastSizedBox32,
+      ],
     );
   }
 
-  double _getIconSize(BuildContext context, FastMediaType mediaType) {
-    final scaleFactor = MediaQuery.textScaleFactorOf(context);
-    final textScaleFactor = scaleFactor > 1 ? scaleFactor : scaleFactor;
-
-    if (mediaType == FastMediaType.tablet) {
-      return (tabletIconSize ?? _tabletIconSize) * textScaleFactor;
-    }
-
-    return (handsetIconSize ?? kFastImageSizeXxxl) * textScaleFactor;
+  Widget buildIcon(BuildContext context, FastMediaType mediaType) {
+    return FastPageHeaderRoundedDuotoneIconLayout(
+      palette: _getPalette(context),
+      hasShadow: true,
+      icon: icon,
+    );
   }
 
   FastPaletteScheme _getPalette(BuildContext context) {

@@ -23,6 +23,7 @@ class FastStoreBloc
   late FastInAppPurchaseDataProvider _iapDataProvider;
   late FastInAppPurchaseService _iapService;
   StreamSubscription? _purchasesSubscription;
+  final String debugLabel;
 
   // Store-related flags
   bool _isLoadingProducts = false;
@@ -33,12 +34,15 @@ class FastStoreBloc
 
   /// A factory constructor that returns an instance of [FastStoreBloc].
   /// It ensures that only one instance is created.
-  factory FastStoreBloc({FastStoreBlocState? initialState}) {
-    return (_singleton ??= FastStoreBloc._(initialState: initialState));
+  factory FastStoreBloc(
+      {FastStoreBlocState? initialState, String? debugLabel}) {
+    return (_singleton ??=
+        FastStoreBloc._(initialState: initialState, debugLabel: debugLabel));
   }
 
-  FastStoreBloc._({FastStoreBlocState? initialState})
-      : super(initialState: initialState ?? FastStoreBlocState());
+  FastStoreBloc._({FastStoreBlocState? initialState, String? debugLabel})
+      : debugLabel = debugLabel ?? 'FastStoreBloc',
+        super(initialState: initialState ?? FastStoreBlocState());
 
   @override
   bool canClose() => false;
@@ -48,12 +52,18 @@ class FastStoreBloc
       try {
         return _iapService.queryProductDetails(productId);
       } catch (error) {
-        debugLog('Error fetching product details for product ID: $productId');
+        debugLog(
+          'Error fetching product details for product ID: $productId',
+          debugLabel: debugLabel,
+        );
 
         return null;
       }
     } else {
-      debugLog('Store is not available or not yet initialized.');
+      debugLog(
+        'Store is not available or not yet initialized.',
+        debugLabel: debugLabel,
+      );
 
       return null;
     }
@@ -163,18 +173,14 @@ class FastStoreBloc
   /// purchases from the store.
   Stream<FastStoreBlocState> handleRestorePurchasesEvent() async* {
     if (!_isRestoringPurchases && !_isPurchasePending) {
-      debugLog('Restoring purchases...');
+      debugLog('Restoring purchases...', debugLabel: debugLabel);
 
       _isRestoringPurchases = true;
 
       yield currentState.copyWith(isRestoringPurchases: true);
 
-      try {
-        // Purchase status handled by _listenToPurchases
-        await _iapService.restorePurchases().timeout(kFastAsyncTimeout);
-      } catch (error) {
-        addEvent(FastStoreBlocEvent.restorePurchasesFailed(error));
-      }
+      // Purchase status handled by _listenToPurchases
+      await _iapService.restorePurchases();
     }
   }
 
@@ -184,7 +190,7 @@ class FastStoreBloc
     dynamic error,
   ) async* {
     if (_isRestoringPurchases) {
-      debugLog('Restoring purchases failed: $error');
+      debugLog('Restoring purchases failed: $error', debugLabel: debugLabel);
 
       _isRestoringPurchases = false;
       yield currentState.copyWith(isRestoringPurchases: false, error: error);
@@ -195,7 +201,7 @@ class FastStoreBloc
   /// purchase has been successfully restored.
   Stream<FastStoreBlocState> handlePurchasesRestoredEvent() async* {
     if (_isRestoringPurchases) {
-      debugLog('Purchase restored');
+      debugLog('Purchase restored', debugLabel: debugLabel);
 
       _isRestoringPurchases = false;
       yield currentState.copyWith(isRestoringPurchases: false);
@@ -208,24 +214,26 @@ class FastStoreBloc
     if (!_isLoadingProducts) {
       _isLoadingProducts = true;
       yield currentState.copyWith(isLoadingProducts: true);
-      debugLog('Loading products...');
+      debugLog('Loading products...', debugLabel: debugLabel);
 
       try {
         final products = await _iapService
             .listAvailableProducts()
             .timeout(kFastAsyncTimeout);
 
-        debugLog('Products found: ${products?.length}');
+        debugLog('Products found: ${products?.length}', debugLabel: debugLabel);
 
         if (products != null && kDebugMode) {
           for (final product in products) {
-            debugLog('Product ID: ${product.id}');
+            debugLog('Product ID: ${product.id}', debugLabel: debugLabel);
           }
         }
 
         addEvent(FastStoreBlocEvent.productsLoaded(products));
       } catch (error) {
-        addEvent(FastStoreBlocEvent.loadProductsFailed(error));
+        addEvent(FastStoreBlocEvent.loadProductsFailed(
+          _formartError(error),
+        ));
       }
     } else {
       addEvent(
@@ -240,7 +248,7 @@ class FastStoreBloc
     FastStoreBlocPayload payload,
   ) async* {
     if (_isLoadingProducts) {
-      debugLog('Products loaded');
+      debugLog('Products loaded', debugLabel: debugLabel);
 
       _isLoadingProducts = false;
 
@@ -257,7 +265,7 @@ class FastStoreBloc
     dynamic error,
   ) async* {
     if (_isLoadingProducts) {
-      debugLog('Loading products failed: $error');
+      debugLog('Loading products failed: $error', debugLabel: debugLabel);
 
       _isLoadingProducts = false;
 
@@ -274,7 +282,7 @@ class FastStoreBloc
         payload.productId != null &&
         !_isRestoringPurchases) {
       final productId = payload.productId!;
-      debugLog('Purchasing product: $productId');
+      debugLog('Purchasing product: $productId', debugLabel: debugLabel);
 
       _pendingPurchaseProductId = productId;
       _isPurchasePending = true;
@@ -285,7 +293,10 @@ class FastStoreBloc
         // Purchase status handled by _listenToPurchases
         await _iapService.purchaseProduct(productId);
       } catch (error) {
-        addEvent(FastStoreBlocEvent.purchaseProductFailed(error, productId));
+        addEvent(FastStoreBlocEvent.purchaseProductFailed(
+          _formartError(error),
+          productId,
+        ));
       }
     }
   }
@@ -296,7 +307,7 @@ class FastStoreBloc
     dynamic error,
   ) async* {
     if (_isPurchasePending) {
-      debugLog('Restoring purchases failed: $error');
+      debugLog('Restoring purchases failed: $error', debugLabel: debugLabel);
 
       _isPurchasePending = false;
       _pendingPurchaseProductId = null;
@@ -311,7 +322,7 @@ class FastStoreBloc
     FastStoreBlocPayload payload,
   ) async* {
     if (_isPurchasePending) {
-      debugLog('Product purchased');
+      debugLog('Product purchased', debugLabel: debugLabel);
 
       _isPurchasePending = false;
       _pendingPurchaseProductId = null;
@@ -331,7 +342,7 @@ class FastStoreBloc
   /// product purchase has been canceled.
   Stream<FastStoreBlocState> handlePurchaseProductCanceledEvent() async* {
     if (_isPurchasePending) {
-      debugLog('Product purchase canceled');
+      debugLog('Product purchase canceled', debugLabel: debugLabel);
 
       _isPurchasePending = false;
 
@@ -353,7 +364,7 @@ class FastStoreBloc
           addEvent(FastStoreBlocEvent.purchaseRestored(purchaseDetails));
         } else if (purchaseDetails.status == PurchaseStatus.error) {
           final payload = FastStoreBlocEvent.purchaseProductFailed(
-            purchaseDetails.error,
+            _formartError(purchaseDetails.error),
             purchaseDetails.productID,
           );
 

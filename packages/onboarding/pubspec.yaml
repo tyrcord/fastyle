@@ -17,7 +17,12 @@ dependencies:
   lingua_onboarding: ^0.0.7
   lingua_core: ^0.0.15
   easy_localization: ^3.0.2
-  firebase_messaging: ^11.4.4
+  firebase_messaging: ^14.6.5
+  fastyle_settings: ^0.0.18
+  fastyle_iap: ^0.0.6
+  tbloc: ^0.21.1
+  fastyle_buttons: ^0.0.5+1
+  lingua_purchases: ^0.0.7
 
 dev_dependencies:
   flutter_test:

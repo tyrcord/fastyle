@@ -78,7 +78,9 @@ class FastAppSettingsPage extends FastSettingPageLayout {
     return [
       FastListHeader(categoryText: categoryDescriptor.titleText),
       if (_canShowField(
-          categoryDescriptor, FastAppSettingsFields.primaryCurrency))
+        categoryDescriptor,
+        FastAppSettingsFields.primaryCurrency,
+      ))
         FastAppSettingsPrimaryCurrencyField(
           descriptor: _getFieldDescriptor(
             categoryDescriptor,

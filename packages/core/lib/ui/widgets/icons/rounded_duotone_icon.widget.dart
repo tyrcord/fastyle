@@ -18,6 +18,9 @@ class FastRoundedDuotoneIcon extends FastRoundedIcon {
     this.palette,
     super.shape,
     super.size,
+    super.shadowColor,
+    super.blurRadius,
+    super.hasShadow,
   });
 
   @override
@@ -39,6 +42,9 @@ class FastRoundedDuotoneIcon extends FastRoundedIcon {
       shape: shape,
       icon: icon,
       size: size,
+      shadowColor: shadowColor,
+      blurRadius: blurRadius,
+      hasShadow: hasShadow,
     );
   }
 }
