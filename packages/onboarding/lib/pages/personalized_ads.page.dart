@@ -60,11 +60,12 @@ class FastOnboardingPersonalizedAds extends StatelessWidget {
     this.icon,
   });
 
-  void handleTap() async {
+  void handleAction() async {
     controller?.pause();
     await AppTrackingTransparency.requestTrackingAuthorization();
+
     onActionTap?.call();
-    await Future.microtask(() => controller?.resume());
+    WidgetsBinding.instance.addPostFrameCallback((_) => controller?.resume());
   }
 
   @override
@@ -79,8 +80,8 @@ class FastOnboardingPersonalizedAds extends StatelessWidget {
           primaryText: _getPrimaryText(),
           palette: _getPalette(context),
           actionText: _getActionText(),
+          onActionTap: handleAction,
           icon: buildIcon(context),
-          onActionTap: handleTap,
           children: children,
         ),
       ],
@@ -123,7 +124,7 @@ class FastOnboardingPersonalizedAds extends StatelessWidget {
 
   FastPaletteScheme _getPalette(BuildContext context) {
     if (palette == null) {
-      return ThemeHelper.getPaletteColors(context).pink;
+      return ThemeHelper.getPaletteColors(context).teal;
     }
 
     return palette!;

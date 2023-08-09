@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_layouts/fastyle_layouts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lingua_onboarding/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 /// A page that displays a layout with an icon, a primary text, a secondary text
 /// and a list of children widgets.
@@ -60,17 +62,17 @@ class FastOnboardingUserCurrency extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastOnboardingPage(
-      titleText: titleText ?? 'User Currency',
+      titleText: _getTitleText(),
       children: [
         FastOnboardingContentLayout(
+          secondaryText: _getSecondaryText(),
           handsetIconSize: handsetIconSize,
           tabletIconSize: tabletIconSize,
-          secondaryText: secondaryText,
-          onActionTap: onActionTap,
+          primaryText: _getPrimaryText(),
+          palette: _getPalette(context),
+          actionText: _getActionText(),
           icon: buildIcon(context),
-          primaryText: primaryText,
-          actionText: actionText,
-          palette: palette,
+          onActionTap: onActionTap,
           children: children,
         ),
       ],
@@ -89,5 +91,33 @@ class FastOnboardingUserCurrency extends StatelessWidget {
     }
 
     return const FaIcon(FontAwesomeIcons.coins);
+  }
+
+  String _getTitleText() {
+    return titleText ??
+        OnboardingLocaleKeys.onboarding_user_currency_title.tr();
+  }
+
+  String _getPrimaryText() {
+    return primaryText ??
+        OnboardingLocaleKeys.onboarding_user_currency_description.tr();
+  }
+
+  String _getSecondaryText() {
+    return secondaryText ??
+        OnboardingLocaleKeys.onboarding_user_currency_notes.tr();
+  }
+
+  String _getActionText() {
+    return actionText ??
+        OnboardingLocaleKeys.onboarding_user_currency_action.tr();
+  }
+
+  FastPaletteScheme _getPalette(BuildContext context) {
+    if (palette == null) {
+      return ThemeHelper.getPaletteColors(context).brown;
+    }
+
+    return palette!;
   }
 }

@@ -19,11 +19,6 @@ final kAppRoutes = [
         onActionTap: () {
           debugPrint('Notifications action tapped');
         },
-        titleText: OnboardingLocaleKeys.onboarding_notifications_title.tr(),
-        primaryText:
-            OnboardingLocaleKeys.onboarding_notifications_description.tr(),
-        secondaryText: OnboardingLocaleKeys.onboarding_notifications_notes.tr(),
-        actionText: OnboardingLocaleKeys.onboarding_notifications_action.tr(),
       ),
     ),
   ),
@@ -36,13 +31,6 @@ final kAppRoutes = [
         onActionTap: () {
           debugPrint('Personalized Ads action tapped');
         },
-        titleText: OnboardingLocaleKeys.onboarding_personalized_ads_title.tr(),
-        primaryText:
-            OnboardingLocaleKeys.onboarding_personalized_ads_description.tr(),
-        secondaryText:
-            OnboardingLocaleKeys.onboarding_personalized_ads_notes.tr(),
-        actionText:
-            OnboardingLocaleKeys.onboarding_personalized_ads_action.tr(),
       ),
     ),
   ),
@@ -55,10 +43,6 @@ final kAppRoutes = [
         onActionTap: () {
           debugPrint('Select currency action tapped');
         },
-        titleText: OnboardingLocaleKeys.onboarding_user_currency_title.tr(),
-        primaryText:
-            OnboardingLocaleKeys.onboarding_user_currency_description.tr(),
-        secondaryText: OnboardingLocaleKeys.onboarding_user_currency_notes.tr(),
         actionText: OnboardingLocaleKeys.onboarding_user_currency_action.tr(),
       ),
     ),
@@ -72,11 +56,6 @@ final kAppRoutes = [
         onActionTap: () {
           debugPrint('Select currency action tapped');
         },
-        titleText: OnboardingLocaleKeys.onboarding_restore_premium_title.tr(),
-        primaryText:
-            OnboardingLocaleKeys.onboarding_restore_premium_description.tr(),
-        secondaryText:
-            OnboardingLocaleKeys.onboarding_restore_premium_notes.tr(),
         actionText: OnboardingLocaleKeys.onboarding_restore_premium_action.tr(),
       ),
     ),

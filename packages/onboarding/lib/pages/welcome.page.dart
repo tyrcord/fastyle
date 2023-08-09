@@ -90,11 +90,9 @@ class FastOnboardingWelcome extends StatelessWidget {
     return titleText ?? CoreLocaleKeys.core_message_welcome.tr();
   }
 
- 
-
   FastPaletteScheme _getPalette(BuildContext context) {
     if (palette == null) {
-      return ThemeHelper.getPaletteColors(context).teal;
+      return ThemeHelper.getPaletteColors(context).orange;
     }
 
     return palette!;

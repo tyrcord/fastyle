@@ -108,12 +108,8 @@ class FastOnboardingContentLayout extends StatelessWidget {
     return Column(
       children: [
         FastRaisedButton(
+          onTap: () => onActionTap?.call(),
           text: actionText!,
-          onTap: () {
-            if (onActionTap != null) {
-              onActionTap!();
-            }
-          },
         ),
         isHandset ? kFastSizedBox24 : kFastSizedBox32,
       ],

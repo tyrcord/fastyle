@@ -62,17 +62,17 @@ class FastOnboardingPremiumUser extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastOnboardingPage(
-      titleText: _getRestorePurchasesText(),
+      titleText: _getTitleText(),
       children: [
         FastOnboardingContentLayout(
           secondaryText: _getSecondaryText(),
           handsetIconSize: handsetIconSize,
           primaryText: _getPrimaryText(),
           tabletIconSize: tabletIconSize,
+          palette: _getPalette(context),
           icon: buildIcon(context),
           onActionTap: onActionTap,
           actionText: actionText,
-          palette: palette,
           children: children,
         ),
       ],
@@ -87,13 +87,13 @@ class FastOnboardingPremiumUser extends StatelessWidget {
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return const FaIcon(FastFontAwesomeIcons.userCrown);
+      return const FaIcon(FastFontAwesomeIcons.lightTreasureChest);
     }
 
     return const FaIcon(FontAwesomeIcons.crown);
   }
 
-  String _getRestorePurchasesText() {
+  String _getTitleText() {
     return titleText ??
         OnboardingLocaleKeys.onboarding_restore_premium_title.tr();
   }
@@ -106,5 +106,13 @@ class FastOnboardingPremiumUser extends StatelessWidget {
   String _getSecondaryText() {
     return secondaryText ??
         OnboardingLocaleKeys.onboarding_restore_premium_notes.tr();
+  }
+
+  FastPaletteScheme _getPalette(BuildContext context) {
+    if (palette == null) {
+      return ThemeHelper.getPaletteColors(context).purple;
+    }
+
+    return palette!;
   }
 }
