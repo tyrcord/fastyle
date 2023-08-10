@@ -11,3 +11,5 @@ typedef IntCallback<V> = int Function(V value);
 
 /// A callback that takes a [dynamic] value and returns a [double].
 typedef DoubleCallback<V> = double Function(V value);
+
+typedef FutureBoolCallback<V> = Future<bool> Function();

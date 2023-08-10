@@ -8,6 +8,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 export './alert_dialog.widget.dart';
 export './dialog.widget.dart';
+export './operation_controlled.dialog.dart';
 
 Future<void> showFastAlertDialog({
   required BuildContext context,
@@ -65,7 +66,7 @@ Future<T?> showAnimatedFastOverlay<T extends Object?>({
 
 Future<T?> showAnimatedFastAlertDialog<T extends Object?>({
   required BuildContext context,
-  required String titleText,
+  String? titleText,
   bool barrierDismissible = true,
   Color? backgroundColor,
   List<Widget>? children,
@@ -101,5 +102,45 @@ Future<T?> showAnimatedFastAlertDialog<T extends Object?>({
       return Transform.scale(scale: curve, child: child);
     },
     transitionDuration: const Duration(milliseconds: 300),
+  );
+}
+
+void showOperationControlledDialog({
+  required BuildContext context,
+  required WidgetBuilder intialBuilder,
+  required FutureBoolCallback onCreateOperation,
+  String? Function(FastOperationStatus)? onGetValidText,
+  String? Function(FastOperationStatus)? onGetCancelText,
+  String? Function(FastOperationStatus)? onGetTitleText,
+  bool barrierDismissible = false,
+  OperationStatusChanged? onOperationStatusChanged,
+  FutureBoolCallback? onVerifyRights,
+  FutureBoolCallback? onGrantRights,
+  WidgetBuilder? verifyingRightsBuilder,
+  WidgetBuilder? grantingRightsBuilder,
+  WidgetBuilder? rightsDeniedBuillder,
+  WidgetBuilder? operationInProgressBuilder,
+  WidgetBuilder? operationSucceededBuilder,
+  WidgetBuilder? operationFailedBuilder,
+}) {
+  showAnimatedFastOverlay(
+    context: context,
+    barrierDismissible: barrierDismissible,
+    child: FastOperationControlledDialog(
+      onGetTitleText: onGetTitleText,
+      onGetCancelText: onGetCancelText,
+      onGetValidText: onGetValidText,
+      onCreateOperation: onCreateOperation,
+      intialBuilder: intialBuilder,
+      onOperationStatusChanged: onOperationStatusChanged,
+      onGrantRights: onGrantRights,
+      onVerifyRights: onVerifyRights,
+      verifyingRightsBuilder: verifyingRightsBuilder,
+      grantingRightsBuilder: grantingRightsBuilder,
+      rightsDeniedBuillder: rightsDeniedBuillder,
+      operationInProgressBuilder: operationInProgressBuilder,
+      operationSucceededBuilder: operationSucceededBuilder,
+      operationFailedBuilder: operationFailedBuilder,
+    ),
   );
 }

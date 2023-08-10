@@ -6,16 +6,14 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 //TODO: @need-review: code from fastyle_dart
 
-const _kPaddingContent = EdgeInsets.symmetric(horizontal: 16.0);
-
 class FastDialog extends AlertDialog {
   final List<Widget> children;
   final Color? titleColor;
-  final String titleText;
+  final String? titleText;
 
   const FastDialog({
     super.key,
-    required this.titleText,
+    this.titleText,
     required this.children,
     super.backgroundColor,
     this.titleColor,
@@ -33,10 +31,11 @@ class FastDialog extends AlertDialog {
           ],
         ),
       ),
-      title: FastTitle(text: titleText, textColor: titleColor),
+      title: buildTitle(),
       surfaceTintColor: _getBackgroundColor(context),
-      contentPadding: _kPaddingContent,
-      titlePadding: kFastEdgeInsets16,
+      contentPadding: _getContentPadding(),
+      titlePadding: _getTitlePadding(),
+      actionsPadding: _getActionsPadding(),
       actions: actions,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -47,5 +46,38 @@ class FastDialog extends AlertDialog {
   Color _getBackgroundColor(BuildContext context) {
     return backgroundColor ??
         ThemeHelper.colors.getSecondaryBackgroundColor(context);
+  }
+
+  Widget? buildTitle() {
+    if (titleText != null) {
+      return FastTitle(text: titleText!, textColor: titleColor);
+    }
+
+    return null;
+  }
+
+  EdgeInsets _getTitlePadding() {
+    if (titleText != null) {
+      return const EdgeInsets.only(
+        top: 16.0,
+        bottom: 32.0,
+        left: 16.0,
+        right: 16.0,
+      );
+    }
+
+    return const EdgeInsets.only(bottom: 32.0, left: 16.0, right: 16.0);
+  }
+
+  EdgeInsetsGeometry _getActionsPadding() {
+    return const EdgeInsets.only(bottom: 16.0, left: 16.0, right: 16.0);
+  }
+
+  EdgeInsets _getContentPadding() {
+    if (titleText != null) {
+      return const EdgeInsets.only(left: 16.0, right: 16.0);
+    }
+
+    return const EdgeInsets.only(top: 48.0, left: 16.0, right: 16.0);
   }
 }

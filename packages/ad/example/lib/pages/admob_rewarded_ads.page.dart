@@ -67,6 +67,75 @@ class AdmobRewardedAdsPageState extends State<AdmobRewardedAdsPage> {
                 );
               }),
             ],
+          ),
+          kFastVerticalSizedBox48,
+          FastRaisedButton(
+            text: 'Show controlled operation',
+            onTap: () => showOperationControlledDialog(
+              onGetTitleText: (status) {
+                if (status == FastOperationStatus.initial) {
+                  return 'Operation';
+                } else if (status == FastOperationStatus.missingRights) {
+                  return 'Free Plan';
+                } else if (status == FastOperationStatus.operationSucceeded) {
+                  return 'Succeeded';
+                } else if (status == FastOperationStatus.operationFailed) {
+                  return 'Failed';
+                } else if (status == FastOperationStatus.rightsDenied) {
+                  return 'Oops!';
+                } else if (status == FastOperationStatus.error) {
+                  return 'Error';
+                }
+
+                return 'Loading...';
+              },
+              onGetValidText: (status) {
+                if (status == FastOperationStatus.initial) {
+                  return 'Perform';
+                } else if (status == FastOperationStatus.missingRights) {
+                  return 'Watch an Ad';
+                } else if (status == FastOperationStatus.operationSucceeded ||
+                    status == FastOperationStatus.operationFailed ||
+                    status == FastOperationStatus.rightsDenied ||
+                    status == FastOperationStatus.error) {
+                  return 'Done';
+                }
+
+                return null;
+              },
+              context: context,
+              intialBuilder: (context) {
+                return const FastBody(
+                  text: 'Do you want to obtain a reward?',
+                  textAlign: TextAlign.center,
+                );
+              },
+              onCreateOperation: ({value}) async {
+                await Future.delayed(const Duration(seconds: 3));
+
+                // await Future.error('An error occured');
+
+                return true;
+              },
+              onVerifyRights: () async {
+                final hasRights = await Future.delayed(
+                    const Duration(seconds: 1), () => false);
+
+                // await Future.error('An error occured');
+
+                return hasRights;
+              },
+              onGrantRights: () async {
+                final hasRights = await Future.delayed(
+                  const Duration(seconds: 3),
+                  () => true,
+                );
+
+                // await Future.error('An error occured');
+
+                return hasRights;
+              },
+            ),
           )
         ],
       ),

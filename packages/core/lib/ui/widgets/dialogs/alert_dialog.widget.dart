@@ -16,11 +16,13 @@ class FastAlertDialog extends AlertDialog {
   final String? cancelText;
   final String? validText;
   final Color? titleColor;
-  final String titleText;
+  final String? titleText;
+  final bool showCancel;
+  final bool showValid;
 
   const FastAlertDialog({
     super.key,
-    required this.titleText,
+    this.titleText,
     super.backgroundColor,
     this.messageColor,
     this.messageText,
@@ -31,6 +33,8 @@ class FastAlertDialog extends AlertDialog {
     this.children,
     super.actions,
     this.onValid,
+    this.showCancel = true,
+    this.showValid = true,
   })  : assert(messageText == null || children == null),
         assert(messageText != null || children != null),
         assert(actions == null || cancelText == null);
@@ -52,22 +56,23 @@ class FastAlertDialog extends AlertDialog {
 
   List<Widget> _buildDefaultActions(BuildContext context) {
     return [
-      if (onCancel != null)
+      if (onCancel != null && showCancel)
         FastTextButton(
           text: cancelText ?? kFastCancelText,
           onTap: onCancel!,
         ),
-      FastTextButton(
-        onTap: () {
-          if (onValid != null) {
-            onValid!();
-          } else {
-            Navigator.pop(context);
-          }
-        },
-        text: validText ?? kFastValidText,
-        emphasis: FastButtonEmphasis.high,
-      ),
+      if (showValid)
+        FastTextButton(
+          onTap: () {
+            if (onValid != null) {
+              onValid!();
+            } else {
+              Navigator.pop(context);
+            }
+          },
+          text: validText ?? kFastValidText,
+          emphasis: FastButtonEmphasis.high,
+        ),
     ];
   }
 }
