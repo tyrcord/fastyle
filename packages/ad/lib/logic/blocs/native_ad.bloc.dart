@@ -21,6 +21,7 @@ class FastNativeAdBloc
   void close() {
     super.close();
     currentState.adView?.dispose();
+    _adService?.dispose();
   }
 
   @override
