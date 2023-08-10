@@ -32,7 +32,7 @@ bool isAdRequestAllowedForCountry({
   return normalizedWhiteList.contains(normalizedCountry);
 }
 
-Widget getLoadingWidget(FastAdSize adSize) {
+Widget getNativeAdLoadingWidget(FastAdSize adSize) {
   if (adSize == FastAdSize.medium) {
     return const FastLoadingNativeAd();
   } else if (adSize == FastAdSize.large) {

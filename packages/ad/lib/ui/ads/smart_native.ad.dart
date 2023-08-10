@@ -107,7 +107,7 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
           return buildFallback(context);
         }
 
-        return widget.loadingWidget ?? getLoadingWidget(widget.adSize);
+        return widget.loadingWidget ?? getNativeAdLoadingWidget(widget.adSize);
       },
     );
   }
