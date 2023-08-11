@@ -12,13 +12,17 @@ dependencies:
     sdk: flutter
   # internals
   fastyle_core: ^0.0.9
-  tbloc: ">=0.21.0 <1.0.0"
+  tbloc: ^0.21.2
   fastyle_ad: ^0.0.6
   go_router: ^10.0.0
   font_awesome_flutter: ^10.5.0
   video_player: ^2.7.0
-  lingua_core: ^0.0.13
-  lingua_ad: ^0.0.5
+  lingua_core: ^0.0.15
+  lingua_ad: ^0.0.6
+  lingua_purchases: ^0.0.10
+  rxdart: ^0.27.7
+  google_mobile_ads: ^3.0.0
+  easy_localization: ^3.0.2
 
 dev_dependencies:
   flutter_test:

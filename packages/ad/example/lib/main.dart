@@ -6,6 +6,7 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lingua_ad/generated/codegen_loader.g.dart';
+import 'package:lingua_purchases/generated/codegen_loader.g.dart';
 import 'package:lingua_core/lingua_core.dart';
 import 'package:tbloc/tbloc.dart';
 
@@ -40,11 +41,10 @@ class MyApp extends StatelessWidget with FastAdInformationJobDelegate {
   Widget build(BuildContext context) {
     return FastApp(
       appInformation: kAppInfo,
-      assetLoader: LinguaLoader(
-        mapLocales: LinguaLoader.mergeMapLocales([
-          AdCodegenLoader.mapLocales,
-        ]),
-      ),
+      assetLoader: LinguaLoader.withLocales(mapLocales: [
+        AdCodegenLoader.mapLocales,
+        PurchasesCodegenLoader.mapLocales,
+      ]),
       routes: kAppRoutes,
       blocProviders: [
         BlocProvider(bloc: FastAdInfoBloc()),
