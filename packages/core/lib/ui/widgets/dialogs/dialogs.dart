@@ -112,6 +112,7 @@ void showOperationControlledDialog({
   String? Function(FastOperationStatus)? onGetValidText,
   String? Function(FastOperationStatus)? onGetCancelText,
   String? Function(FastOperationStatus)? onGetTitleText,
+  Widget Function(BuildContext context, dynamic error)? errorBuilder,
   bool barrierDismissible = false,
   OperationStatusChanged? onOperationStatusChanged,
   FutureBoolCallback? onVerifyRights,
@@ -122,6 +123,9 @@ void showOperationControlledDialog({
   WidgetBuilder? operationInProgressBuilder,
   WidgetBuilder? operationSucceededBuilder,
   WidgetBuilder? operationFailedBuilder,
+  WidgetBuilder? missingRightsBuilder,
+  OperationStatusChanged? onCancel,
+  OperationStatusChanged? onValid,
 }) {
   showAnimatedFastOverlay(
     context: context,
@@ -141,6 +145,10 @@ void showOperationControlledDialog({
       operationInProgressBuilder: operationInProgressBuilder,
       operationSucceededBuilder: operationSucceededBuilder,
       operationFailedBuilder: operationFailedBuilder,
+      missingRightsBuilder: missingRightsBuilder,
+      errorBuilder: errorBuilder,
+      onCancel: onCancel,
+      onValid: onValid,
     ),
   );
 }

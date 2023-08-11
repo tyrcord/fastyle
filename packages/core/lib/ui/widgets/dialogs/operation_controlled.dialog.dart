@@ -47,7 +47,7 @@ class FastOperationControlledDialog extends StatefulWidget {
   final WidgetBuilder? rightsDeniedBuillder;
 
   /// Builder for the error state.
-  final WidgetBuilder? errorBuilder;
+  final Widget Function(BuildContext context, dynamic error)? errorBuilder;
 
   /// Builder for the operation in progress state.
   final WidgetBuilder? operationInProgressBuilder;
@@ -57,6 +57,12 @@ class FastOperationControlledDialog extends StatefulWidget {
 
   /// Builder for the operation failed state.
   final WidgetBuilder? operationFailedBuilder;
+
+  /// Callback for when the cancel button is tapped.
+  final OperationStatusChanged? onCancel;
+
+  /// Callback for when the valid button is tapped.
+  final OperationStatusChanged? onValid;
 
   /// Constructs a [FastOperationControlledDialog].
   const FastOperationControlledDialog({
@@ -77,6 +83,8 @@ class FastOperationControlledDialog extends StatefulWidget {
     this.errorBuilder,
     this.onGetCancelText,
     this.onGetTitleText,
+    this.onCancel,
+    this.onValid,
   });
 
   @override
@@ -89,9 +97,12 @@ class FastOperationControlledDialogState
     extends State<FastOperationControlledDialog> {
   /// Current status of the operation.
   FastOperationStatus _currentStatus = FastOperationStatus.initial;
+  dynamic _currentError;
 
   /// Handles valid tap events based on the current operation status.
   void handleValidTap() {
+    widget.onValid?.call(_currentStatus);
+
     if (_currentStatus == FastOperationStatus.initial) {
       _verifyRights();
     } else if (_currentStatus == FastOperationStatus.missingRights) {
@@ -102,6 +113,11 @@ class FastOperationControlledDialogState
         _currentStatus == FastOperationStatus.error) {
       Navigator.of(context).pop();
     }
+  }
+
+  void handleCancelTap() {
+    widget.onCancel?.call(_currentStatus);
+    Navigator.of(context).pop();
   }
 
   @override
@@ -144,7 +160,7 @@ class FastOperationControlledDialogState
     return FastAlertDialog(
       showValid: showValidButton,
       showCancel: showCancelButton,
-      onCancel: () => Navigator.of(context).pop(),
+      onCancel: handleCancelTap,
       onValid: handleValidTap,
       titleText: titleText,
       validText: validText,
@@ -187,77 +203,91 @@ class FastOperationControlledDialogState
 
   /// Returns a widget representing the verifying rights state.
   Widget _getVerifyingRightsBuilder(BuildContext context) {
-    if (widget.operationInProgressBuilder != null) {
-      return widget.operationInProgressBuilder!(context);
-    }
-
-    return const FastThreeBounceIndicator();
+    return _getWidget(
+      context,
+      widget.verifyingRightsBuilder,
+      _getDefaultLoadingBuilder(),
+    );
   }
 
   /// Returns a widget representing the missing rights state.
   Widget _getMissingRightsBuilder(BuildContext context) {
-    if (widget.missingRightsBuilder != null) {
-      return widget.missingRightsBuilder!(context);
-    }
-
-    return const FastBody(text: 'Missing rights');
+    return _getWidget(
+      context,
+      widget.missingRightsBuilder,
+      const FastBody(text: 'Missing rights'),
+    );
   }
 
   /// Returns a widget representing the granting rights state.
   Widget _getGrantingRightsBuilder(BuildContext context) {
-    if (widget.operationInProgressBuilder != null) {
-      return widget.operationInProgressBuilder!(context);
-    }
-
-    return const FastThreeBounceIndicator();
+    return _getWidget(
+      context,
+      widget.grantingRightsBuilder,
+      _getDefaultLoadingBuilder(),
+    );
   }
 
   /// Returns a widget representing the rights denied state.
   Widget _getRightsDeniedBuillder(BuildContext context) {
-    if (widget.rightsDeniedBuillder != null) {
-      return widget.rightsDeniedBuillder!(context);
-    }
-
-    return const FastBody(text: 'Rights denied');
+    return _getWidget(
+      context,
+      widget.rightsDeniedBuillder,
+      const FastBody(text: 'Rights denied'),
+    );
   }
 
   /// Returns a widget representing the operation in progress state.
   Widget _getOperationInProgressBuilder(BuildContext context) {
-    if (widget.operationInProgressBuilder != null) {
-      return widget.operationInProgressBuilder!(context);
-    }
-
-    return const FastThreeBounceIndicator();
+    return _getWidget(
+      context,
+      widget.operationInProgressBuilder,
+      _getDefaultLoadingBuilder(),
+    );
   }
 
   /// Returns a widget representing the operation succeeded state.
   Widget _getOperationSucceededBuilder(BuildContext context) {
-    if (widget.operationSucceededBuilder != null) {
-      return widget.operationSucceededBuilder!(context);
-    }
-
-    return const FastBody(text: 'Operation succeeded');
+    return _getWidget(
+      context,
+      widget.operationSucceededBuilder,
+      const FastBody(text: 'Operation succeeded'),
+    );
   }
 
   /// Returns a widget representing the operation failed state.
   Widget _getOperationFailedBuilder(BuildContext context) {
-    if (widget.operationFailedBuilder != null) {
-      return widget.operationFailedBuilder!(context);
-    }
-
-    return const FastBody(text: 'Failed to perform operation');
+    return _getWidget(
+      context,
+      widget.operationFailedBuilder,
+      const FastBody(text: 'Failed to perform operation'),
+    );
   }
 
   /// Returns a widget representing the error state.
   Widget _getErrorBuilder(BuildContext context) {
     if (widget.errorBuilder != null) {
-      return widget.errorBuilder!(context);
+      return widget.errorBuilder!(context, _currentError);
     }
 
     return const FastBody(text: 'An error occurred');
   }
 
-  /// Verifies if the user has the necessary rights to proceed with the operation.
+  /// Returns the widget built by the given builder or the default widget if
+  /// the builder is null.
+  Widget _getWidget(
+    BuildContext context,
+    WidgetBuilder? builder,
+    Widget defaultWidget,
+  ) {
+    return builder != null ? builder(context) : defaultWidget;
+  }
+
+  /// Returns the default loading widget.
+  Widget _getDefaultLoadingBuilder() => const FastThreeBounceIndicator();
+
+  /// Verifies if the user has the necessary rights to proceed with the
+  /// operation.
   void _verifyRights() async {
     _updateStatus(FastOperationStatus.verifyingRights);
 
@@ -266,8 +296,8 @@ class FastOperationControlledDialogState
     if (widget.onVerifyRights != null) {
       try {
         hasRights = await widget.onVerifyRights!();
-      } catch (_) {
-        _updateStatus(FastOperationStatus.error);
+      } catch (error) {
+        _updateStatus(FastOperationStatus.error, error);
 
         return;
       }
@@ -289,8 +319,8 @@ class FastOperationControlledDialogState
     if (widget.onGrantRights != null) {
       try {
         hasRights = await widget.onGrantRights!();
-      } catch (_) {
-        _updateStatus(FastOperationStatus.error);
+      } catch (error) {
+        _updateStatus(FastOperationStatus.error, error);
 
         return;
       }
@@ -311,23 +341,31 @@ class FastOperationControlledDialogState
 
     try {
       operationSuccess = await widget.onCreateOperation();
-    } catch (_) {
-      operationSuccess = false;
-    }
 
-    _updateStatus(
-      operationSuccess
-          ? FastOperationStatus.operationSucceeded
-          : FastOperationStatus.operationFailed,
-    );
+      _updateStatus(
+        operationSuccess
+            ? FastOperationStatus.operationSucceeded
+            : FastOperationStatus.operationFailed,
+      );
+    } catch (error) {
+      operationSuccess = false;
+
+      _updateStatus(
+        FastOperationStatus.operationFailed,
+        error,
+      );
+    }
   }
 
   /// Updates the operation status and optionally notifies listeners.
-  void _updateStatus(FastOperationStatus status) {
+  void _updateStatus(FastOperationStatus status, [dynamic error]) {
     if (widget.onOperationStatusChanged != null) {
       widget.onOperationStatusChanged!(status);
     }
 
-    setState(() => _currentStatus = status);
+    setState(() {
+      _currentStatus = status;
+      _currentError = error;
+    });
   }
 }
