@@ -13,6 +13,7 @@ import 'package:tbloc/tbloc.dart';
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 
+/// BLoC class for managing rewarded ads with AdMob integration.
 class FastRewardedAdBloc
     extends BidirectionalBloc<FastRewardedAdBlocEvent, FastRewardedAdBlocState>
     implements AdEventListener {
@@ -24,11 +25,13 @@ class FastRewardedAdBloc
 
   final rewardController = PublishSubject<RewardItem>();
 
+  /// Stream to listen for earned rewards.
   Stream<RewardItem> get onReward => rewardController.stream;
 
   bool isRequestBlocked = false;
   Timer? blockTimer;
 
+  /// Factory constructor to create an instance of [FastRewardedAdBloc].
   factory FastRewardedAdBloc({FastRewardedAdBlocState? initialState}) {
     return (_singleton ??= FastRewardedAdBloc._(initialState: initialState));
   }
@@ -79,6 +82,7 @@ class FastRewardedAdBloc
     }
   }
 
+  /// Handles the init event and initializes the BLoC.
   Stream<FastRewardedAdBlocState> handleInitEvent(
     FastRewardedAdBlocEventPayload payload,
   ) async* {
@@ -98,6 +102,7 @@ class FastRewardedAdBloc
     }
   }
 
+  /// Handles the initialized event after successful initialization.
   Stream<FastRewardedAdBlocState> handleInitializedEvent() async* {
     if (isInitializing) {
       isInitialized = true;
@@ -109,6 +114,7 @@ class FastRewardedAdBloc
     }
   }
 
+  /// Handles the event to load and show the rewarded ad.
   Stream<FastRewardedAdBlocState> handleLoadAndShowAd() async* {
     debugLog('Loading ad...', debugLabel: debugLabel);
 
@@ -150,6 +156,7 @@ class FastRewardedAdBloc
     );
   }
 
+  /// Handles the event when an ad is successfully loaded.
   Stream<FastRewardedAdBlocState> handleAdLoaded() async* {
     if (currentState.isLoadingAd && currentState.requestId != null) {
       debugLog(
@@ -166,6 +173,7 @@ class FastRewardedAdBloc
     }
   }
 
+  /// Handles the event when an ad is successfully showed.
   Stream<FastRewardedAdBlocState> handleAdShowed() async* {
     debugLog(
       'Ad showed. Request id: ${currentState.requestId}',
@@ -175,6 +183,7 @@ class FastRewardedAdBloc
     yield currentState.copyWith(isShowingAd: true);
   }
 
+  /// Handles the event when an earned reward is received.
   Stream<FastRewardedAdBlocState> handleEarnedReward(
     FastRewardedAdBlocEventPayload payload,
   ) async* {
@@ -188,6 +197,7 @@ class FastRewardedAdBloc
     }
   }
 
+  /// Handles the event when an ad is dismissed.
   Stream<FastRewardedAdBlocState> handleAdDismissed() async* {
     debugLog(
       'Ad dismissed. Request id: ${currentState.requestId}',
@@ -205,6 +215,7 @@ class FastRewardedAdBloc
     );
   }
 
+  /// Handles the event when an ad loading or showing error occurs.
   Stream<FastRewardedAdBlocState> handleAdError(
     FastRewardedAdBlocEventPayload payload,
   ) async* {
@@ -222,6 +233,7 @@ class FastRewardedAdBloc
     );
   }
 
+  /// Handles the event to clear and cancel an ad request.
   Stream<FastRewardedAdBlocState> handleClearAndCancelAdRequest() async* {
     debugLog(
       'Ad request canceled. Request id: ${currentState.requestId}',
