@@ -5,45 +5,45 @@ import 'package:tbloc/tbloc.dart';
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 
-class FastRewardedAdBlocEvent extends BlocEvent<
-    FastAdmobRewardedAdBlocEventType, FastRewardedAdBlocEventPayload> {
+class FastRewardedAdBlocEvent extends BlocEvent<FastRewardedAdBlocEventType,
+    FastRewardedAdBlocEventPayload> {
   const FastRewardedAdBlocEvent.init(
     FastRewardedAdBlocEventPayload payload,
-  ) : super(type: FastAdmobRewardedAdBlocEventType.init, payload: payload);
+  ) : super(type: FastRewardedAdBlocEventType.init, payload: payload);
 
   const FastRewardedAdBlocEvent.initialized()
-      : super(type: FastAdmobRewardedAdBlocEventType.initalized);
+      : super(type: FastRewardedAdBlocEventType.initalized);
 
   const FastRewardedAdBlocEvent.loadAndShowAd()
-      : super(type: FastAdmobRewardedAdBlocEventType.loadAndShowAd);
+      : super(type: FastRewardedAdBlocEventType.loadAndShowAd);
 
   const FastRewardedAdBlocEvent.adLoaded()
-      : super(type: FastAdmobRewardedAdBlocEventType.adLoaded);
+      : super(type: FastRewardedAdBlocEventType.adLoaded);
 
   FastRewardedAdBlocEvent.adLoadingError(dynamic error)
       : super(
-          type: FastAdmobRewardedAdBlocEventType.adLoadingError,
+          type: FastRewardedAdBlocEventType.adLoadingError,
           payload: FastRewardedAdBlocEventPayload(error: error),
         );
 
   FastRewardedAdBlocEvent.adShowingError(dynamic error)
       : super(
-          type: FastAdmobRewardedAdBlocEventType.adShowingError,
+          type: FastRewardedAdBlocEventType.adShowingError,
           payload: FastRewardedAdBlocEventPayload(error: error),
         );
 
   const FastRewardedAdBlocEvent.adShowed()
-      : super(type: FastAdmobRewardedAdBlocEventType.adShowed);
+      : super(type: FastRewardedAdBlocEventType.adShowed);
 
   FastRewardedAdBlocEvent.earnedReward(RewardItem reward)
       : super(
-          type: FastAdmobRewardedAdBlocEventType.earnedReward,
+          type: FastRewardedAdBlocEventType.earnedReward,
           payload: FastRewardedAdBlocEventPayload(reward: reward),
         );
 
   const FastRewardedAdBlocEvent.adDismissed()
-      : super(type: FastAdmobRewardedAdBlocEventType.adDismissed);
+      : super(type: FastRewardedAdBlocEventType.adDismissed);
 
-  const FastRewardedAdBlocEvent.cancelAdRequest()
-      : super(type: FastAdmobRewardedAdBlocEventType.cancelAdRequest);
+  const FastRewardedAdBlocEvent.clearAndCancelAdRequest()
+      : super(type: FastRewardedAdBlocEventType.clearAndCancelAdRequest);
 }

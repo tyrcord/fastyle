@@ -1,4 +1,4 @@
-enum FastAdmobRewardedAdBlocEventType {
+enum FastRewardedAdBlocEventType {
   init,
   initalized,
   loadAndShowAd,
@@ -8,5 +8,5 @@ enum FastAdmobRewardedAdBlocEventType {
   adLoadingError,
   adShowingError,
   adDismissed,
-  cancelAdRequest,
+  clearAndCancelAdRequest,
 }
