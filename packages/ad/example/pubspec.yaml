@@ -17,8 +17,8 @@ dependencies:
   go_router: ^10.0.0
   font_awesome_flutter: ^10.5.0
   video_player: ^2.7.0
-  lingua_core: ^0.0.15
-  lingua_ad: ^0.0.6
+  lingua_core: ^0.0.17
+  lingua_ad: ^0.0.8
   lingua_purchases: ^0.0.10
   rxdart: ^0.27.7
   google_mobile_ads: ^3.0.0

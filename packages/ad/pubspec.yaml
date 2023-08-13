@@ -20,8 +20,8 @@ dependencies:
   t_helpers: ^0.0.26
   fastyle_video_player: ^0.0.4+1
   font_awesome_flutter: ^10.5.0
-  lingua_core: ^0.0.16
-  lingua_ad: ^0.0.7
+  lingua_core: ^0.0.17
+  lingua_ad: ^0.0.8
   visibility_detector: ^0.3.3
   uuid: ^3.0.7
   tstore: ^0.8.10

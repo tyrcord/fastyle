@@ -20,7 +20,7 @@ dependencies:
   easy_localization: ^3.0.2
   lingua_settings: ^0.0.8
   t_helpers: ^0.0.25
-  lingua_core: ^0.0.14
+  lingua_core: ^0.0.17
   lingua_calculator: ^0.0.2+1
   lingua_languages: ^0.0.4+1
 
