@@ -28,6 +28,6 @@ class FastSettingsSupportLink extends StatelessWidget {
     final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
     final appInfo = appInfoBloc.currentState;
 
-    FastMessenger.writeEmail(appInfo.supportEmail!);
+    FastMessenger.writeEmail(appInfo.supportEmail!, subject: appInfo.appName);
   }
 }
