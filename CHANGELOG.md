@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_calculator` - `v1.21.1`](#fastyle_calculator---v1211)
+
+---
+
+#### `fastyle_calculator` - `v1.21.1`
+
+ - **FIX**: showExportPdfDialog.
+
+
+## 2023-08-13
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_ad` - `v0.0.7`](#fastyle_ad---v007)
  - [`fastyle_buttons` - `v0.0.6`](#fastyle_buttons---v006)
  - [`fastyle_calculator` - `v1.21.0`](#fastyle_calculator---v1210)

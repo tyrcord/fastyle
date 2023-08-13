@@ -1,3 +1,7 @@
+## 1.21.1
+
+ - **FIX**: showExportPdfDialog.
+
 ## 1.21.0
 
  - **FEAT**: add FastExportPdfRewardedDialog.
