@@ -7,8 +7,8 @@ export './export_pdf.dialog.dart';
 
 void showExportPdfDialog({
   required BuildContext context,
-  required WidgetBuilder intialBuilder,
   required FutureBoolCallback onCreateOperation,
+  WidgetBuilder? intialBuilder,
   String? Function(FastOperationStatus)? onGetValidText,
   String? Function(FastOperationStatus)? onGetCancelText,
   String? Function(FastOperationStatus)? onGetTitleText,
