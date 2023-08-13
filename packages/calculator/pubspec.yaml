@@ -15,6 +15,11 @@ dependencies:
 
   pdf: ^3.10.4
   printing: ^5.11.0
+  lingua_core: ^0.0.17
+  fastyle_ad: ^0.0.6
+  lingua_purchases: ^0.0.10
+  lingua_ad: ^0.0.8
+  easy_localization: ^3.0.2
 
   # internal dependencies
 
