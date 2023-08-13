@@ -31,7 +31,7 @@ class FastStatus extends StatelessWidget {
 
   List<Widget> appendText(BuildContext context) {
     return [
-      kFastVerticalSizedBox8,
+      kFastVerticalSizedBox16,
       FastSecondaryBody(textColor: _getTextColor(context), text: text!),
     ];
   }

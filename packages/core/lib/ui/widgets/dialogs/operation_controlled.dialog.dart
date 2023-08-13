@@ -2,7 +2,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
 
 /// Callback for when the operation status changes.
-typedef OperationStatusChanged = void Function(FastOperationStatus)?;
+typedef FastOperationStatusChanged = void Function(FastOperationStatus)?;
 
 /// This widget manages and displays various states of an operation.
 ///
@@ -11,7 +11,7 @@ typedef OperationStatusChanged = void Function(FastOperationStatus)?;
 ///
 class FastOperationControlledDialog extends StatefulWidget {
   /// Callback triggered when the operation status changes.
-  final OperationStatusChanged? onOperationStatusChanged;
+  final FastOperationStatusChanged? onOperationStatusChanged;
 
   /// Callback to create an operation.
   final FutureBoolCallback onCreateOperation;
@@ -59,10 +59,12 @@ class FastOperationControlledDialog extends StatefulWidget {
   final WidgetBuilder? operationFailedBuilder;
 
   /// Callback for when the cancel button is tapped.
-  final OperationStatusChanged? onCancel;
+  final FastOperationStatusChanged? onCancel;
 
   /// Callback for when the valid button is tapped.
-  final OperationStatusChanged? onValid;
+  final FastOperationStatusChanged? onValid;
+
+  final double tabletWidthFactor;
 
   /// Constructs a [FastOperationControlledDialog].
   const FastOperationControlledDialog({
@@ -85,7 +87,8 @@ class FastOperationControlledDialog extends StatefulWidget {
     this.onGetTitleText,
     this.onCancel,
     this.onValid,
-  });
+    double? tabletWidthFactor = 0.6,
+  }): tabletWidthFactor = tabletWidthFactor ?? 0.6;
 
   @override
   FastOperationControlledDialogState createState() =>
@@ -157,20 +160,29 @@ class FastOperationControlledDialogState
     }
 
     // Build the main dialog widget.
-    return FastAlertDialog(
-      showValid: showValidButton,
-      showCancel: showCancelButton,
-      onCancel: handleCancelTap,
-      onValid: handleValidTap,
-      titleText: titleText,
-      validText: validText,
-      cancelText: cancelText,
-      children: [
-        ConstrainedBox(
-          constraints: const BoxConstraints(minHeight: 40),
-          child: Center(child: currentWidget),
-        ),
-      ],
+    return FastMediaLayoutBuilder(
+      builder: (BuildContext context, FastMediaType mediaType) {
+        final isHandset = mediaType < FastMediaType.tablet;
+
+        return FractionallySizedBox(
+          widthFactor: isHandset ? 1 : widget.tabletWidthFactor,
+          child: FastAlertDialog(
+            showValid: showValidButton,
+            showCancel: showCancelButton,
+            onCancel: handleCancelTap,
+            onValid: handleValidTap,
+            titleText: titleText,
+            validText: validText,
+            cancelText: cancelText,
+            children: [
+              ConstrainedBox(
+                constraints: const BoxConstraints(minHeight: 40),
+                child: Center(child: currentWidget),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 

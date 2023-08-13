@@ -114,7 +114,7 @@ void showOperationControlledDialog({
   String? Function(FastOperationStatus)? onGetTitleText,
   Widget Function(BuildContext context, dynamic error)? errorBuilder,
   bool barrierDismissible = false,
-  OperationStatusChanged? onOperationStatusChanged,
+  FastOperationStatusChanged? onOperationStatusChanged,
   FutureBoolCallback? onVerifyRights,
   FutureBoolCallback? onGrantRights,
   WidgetBuilder? verifyingRightsBuilder,
@@ -124,8 +124,8 @@ void showOperationControlledDialog({
   WidgetBuilder? operationSucceededBuilder,
   WidgetBuilder? operationFailedBuilder,
   WidgetBuilder? missingRightsBuilder,
-  OperationStatusChanged? onCancel,
-  OperationStatusChanged? onValid,
+  FastOperationStatusChanged? onCancel,
+  FastOperationStatusChanged? onValid,
 }) {
   showAnimatedFastOverlay(
     context: context,
