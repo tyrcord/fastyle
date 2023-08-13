@@ -59,6 +59,6 @@ class FastValidStatusPage extends FastStatusPage {
       return icon!;
     }
 
-    return const FastValidIcon();
+    return const FastSuccessIcon();
   }
 }

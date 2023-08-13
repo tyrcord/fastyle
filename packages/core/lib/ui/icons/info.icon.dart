@@ -7,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-class FastNoFavoriteIcon extends StatelessWidget {
+class FastInfoIcon extends StatelessWidget {
   final Color? backgroundColor;
   final FastBoxShape? shape;
   final Color? iconColor;
@@ -17,7 +17,7 @@ class FastNoFavoriteIcon extends StatelessWidget {
   final double blurRadius;
   final bool hasShadow;
 
-  const FastNoFavoriteIcon({
+  const FastInfoIcon({
     super.key,
     this.size = kFastIconSizeMedium,
     this.backgroundColor,
@@ -36,14 +36,14 @@ class FastNoFavoriteIcon extends StatelessWidget {
     late IconData iconData;
 
     if (useProIcons) {
-      iconData = FastFontAwesomeIcons.lightHeartCrack;
+      iconData = FastFontAwesomeIcons.lightInfo;
     } else {
-      iconData = FontAwesomeIcons.heartCrack;
+      iconData = FontAwesomeIcons.info;
     }
 
     return FastRoundedDuotoneIcon(
       icon: FaIcon(iconData),
-      palette: palettes.gray,
+      palette: palettes.teal,
       size: size,
       backgroundColor: backgroundColor,
       iconColor: iconColor,
