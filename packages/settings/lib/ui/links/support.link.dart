@@ -1,75 +1,33 @@
 // Flutter imports:
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tbloc/tbloc.dart';
 
-class FastSettingsSupportLink extends StatefulWidget {
-  final String? email;
-  final String linkText;
+class FastSettingsSupportLink extends StatelessWidget {
+  final String emailText;
+  final String prefixText;
 
   const FastSettingsSupportLink({
     super.key,
-    required this.email,
-    required this.linkText,
+    required this.emailText,
+    required this.prefixText,
   });
 
   @override
-  FastSettingsSupportLinkState createState() => FastSettingsSupportLinkState();
-}
-
-class FastSettingsSupportLinkState extends State<FastSettingsSupportLink> {
-  late TapGestureRecognizer _emailTapRecognizer;
-
-  @override
-  void initState() {
-    super.initState();
-    _emailTapRecognizer = TapGestureRecognizer();
-    handleAskForSupport();
-  }
-
-  @override
-  void dispose() {
-    _emailTapRecognizer.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final bodyTextStyle = ThemeHelper.texts.getBodyTextStyle(context);
-    final scaleFactor = MediaQuery.textScaleFactorOf(context);
-    final palette = ThemeHelper.getPaletteColors(context);
-    final blueColor = palette.blue.mid;
-    final spanTextStyle = bodyTextStyle.copyWith(
-      fontSize: bodyTextStyle.fontSize! * scaleFactor,
-    );
-    final linkTextStyle = spanTextStyle.copyWith(color: blueColor);
-
-    return RichText(
-      text: TextSpan(
-        style: spanTextStyle,
-        text: widget.linkText,
-        children: [
-          TextSpan(
-            recognizer: _emailTapRecognizer,
-            style: linkTextStyle,
-            text: widget.email,
-          ),
-        ],
-      ),
+    return FastRichTextLink(
+      onTap: () => handleAskForSupport(context),
+      prefixText: prefixText,
+      linkText: emailText,
     );
   }
 
-  void handleAskForSupport() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
-      final appInfo = appInfoBloc.currentState;
+  void handleAskForSupport(BuildContext context) {
+    final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
+    final appInfo = appInfoBloc.currentState;
 
-      _emailTapRecognizer.onTap = () {
-        FastMessenger.writeEmail(appInfo.supportEmail!);
-      };
-    });
+    FastMessenger.writeEmail(appInfo.supportEmail!);
   }
 }

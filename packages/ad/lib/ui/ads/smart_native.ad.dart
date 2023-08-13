@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
@@ -25,6 +26,8 @@ class FastSmartNativeAd extends StatefulWidget {
   final FastAdSlotDelegate? delegate;
   final Widget? placeholder;
   final String? adId;
+  final bool showRemoveAdLink;
+  final VoidCallback? onRemoveAdLinkTap;
 
   const FastSmartNativeAd({
     super.key,
@@ -39,6 +42,8 @@ class FastSmartNativeAd extends StatefulWidget {
     this.delegate,
     this.adId,
     Duration? refreshTimeout,
+    this.onRemoveAdLinkTap,
+    this.showRemoveAdLink = false,
   })  : refreshTimeout = refreshTimeout ?? kFastRefreshTimeout,
         assert(
           adSize == FastAdSize.medium,
@@ -50,6 +55,7 @@ class FastSmartNativeAd extends StatefulWidget {
 }
 
 class FastSmartNativeAdState extends State<FastSmartNativeAd> {
+  final _featuresBloc = FastAppFeaturesBloc();
   FastNativeAdBloc? _nativeAdBloc;
   Timer? _refreshTimer;
   NativeAd? _adView;
@@ -86,30 +92,57 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
 
   @override
   Widget build(BuildContext context) {
-    final canShowAd = widget.delegate?.willShowAd() ?? true;
+    return BlocBuilderWidget(
+        buildWhen: (_, next) => next.isFeatureEnabled(FastAppFeatures.premium),
+        bloc: _featuresBloc,
+        builder: (context, state) {
+          final canShowAd = widget.delegate?.willShowAd() ?? !isUserPremium();
 
-    if (!canShowAd) {
-      return widget.placeholder ?? const SizedBox.shrink();
+          if (!canShowAd) {
+            return widget.placeholder ?? const SizedBox.shrink();
+          }
+
+          if (_nativeAdBloc == null && _adView != null) {
+            return buildAdmobNativeAd(_adView!, widget.adSize);
+          }
+
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              FastNativeAdBuilder(
+                bloc: _nativeAdBloc!,
+                builder: (BuildContext context, FastNativeAdBlocState state) {
+                  if (state.adView != null) {
+                    return buildAdmobNativeAd(
+                      state.adView as NativeAd,
+                      widget.adSize,
+                    );
+                  } else if (state.ad != null) {
+                    return FastNativeAd(ad: state.ad!, adSize: widget.adSize);
+                  } else if (state.showFallback) {
+                    return buildFallback(context);
+                  }
+
+                  return widget.loadingWidget ??
+                      getNativeAdLoadingWidget(widget.adSize);
+                },
+              ),
+              ...appendAdLink(),
+            ],
+          );
+        });
+  }
+
+  List<Widget> appendAdLink() {
+    if (!widget.showRemoveAdLink) {
+      return [];
     }
 
-    if (_nativeAdBloc == null && _adView != null) {
-      return buildAdmobNativeAd(_adView!, widget.adSize);
-    }
-
-    return FastNativeAdBuilder(
-      bloc: _nativeAdBloc!,
-      builder: (BuildContext context, FastNativeAdBlocState state) {
-        if (state.adView != null) {
-          return buildAdmobNativeAd(state.adView as NativeAd, widget.adSize);
-        } else if (state.ad != null) {
-          return FastNativeAd(ad: state.ad!, adSize: widget.adSize);
-        } else if (state.showFallback) {
-          return buildFallback(context);
-        }
-
-        return widget.loadingWidget ?? getNativeAdLoadingWidget(widget.adSize);
-      },
-    );
+    return [
+      kFastVerticalSizedBox8,
+      FastGoodbyeAdLink(onTap: widget.onRemoveAdLinkTap),
+    ];
   }
 
   Widget buildFallback(BuildContext context) {

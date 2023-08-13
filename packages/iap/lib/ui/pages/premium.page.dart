@@ -42,6 +42,7 @@ class _FastIapPremiumPageState extends State<FastIapPremiumPage>
     with FastPremiumPlanMixin {
   late StreamSubscription<FastPlanBlocState> errorSubscription;
   late final FastPlanBloc planBloc;
+  final _featuresBloc = FastAppFeaturesBloc();
 
   @override
   void initState() {
@@ -65,7 +66,7 @@ class _FastIapPremiumPageState extends State<FastIapPremiumPage>
       bloc: planBloc,
       child: BlocBuilderWidget(
         buildWhen: (_, next) => next.isFeatureEnabled(FastAppFeatures.premium),
-        bloc: BlocProvider.of<FastAppFeaturesBloc>(context),
+        bloc: _featuresBloc,
         builder: (context, state) {
           if (state.isFeatureEnabled(FastAppFeatures.premium)) {
             return FastIapThankPremiumPage(

@@ -51,7 +51,8 @@ class FastSettingsTermsOfServicePage extends StatelessWidget {
             lastModifiedAt: appInfo.appTermsOfServiceLastModified!,
           ),
         buildAppTermOfServiceParagraph(appName),
-        buildAcceptingTermsArticle(appName, email: appInfo.supportEmail),
+        if (appInfo.supportEmail != null)
+          buildAcceptingTermsArticle(appName, appInfo.supportEmail!),
         buildChangesToTermsArticle(appName),
         buildGovernLawArticle(),
         buildThirdPartyServicesArticle(),
@@ -82,22 +83,19 @@ class FastSettingsTermsOfServicePage extends StatelessWidget {
     );
   }
 
-  Widget buildAcceptingTermsArticle(
-    String appName, {
-    String? email = '',
-  }) {
+  Widget buildAcceptingTermsArticle(String appName, String email) {
     return FastArticle(
       titleText: 'Accepting these Terms',
       children: [
         FastParagraph(
           child: FastSettingsSupportLink(
-            email: email,
-            linkText: 'If you access or use the Service, it means you '
+            emailText: email,
+            prefixText: 'If you access or use the Service, it means you '
                 'agree to be bound by all of the terms below. So, '
                 'before you use the Service, please read all of the '
                 'terms. If you do not agree to all of the terms below, '
                 'please do not use the Service. Also, if a term does not '
-                'make sense to you, please let us know by e-mailing ',
+                'make sense to you, please let us know by e-mailing',
           ),
         ),
       ],

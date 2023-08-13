@@ -255,35 +255,35 @@ packages:
       path: "../../ad"
       relative: true
     source: path
-    version: "0.0.6"
+    version: "0.0.7"
   fastyle_buttons:
     dependency: "direct overridden"
     description:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.5+1"
+    version: "0.0.6"
   fastyle_calculator:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "1.20.1"
+    version: "1.21.1"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.9"
+    version: "0.0.10"
   fastyle_video_player:
     dependency: "direct overridden"
     description:
       path: "../../video_player"
       relative: true
     source: path
-    version: "0.0.4+1"
+    version: "0.0.4+2"
   ffi:
     dependency: transitive
     description:
@@ -492,26 +492,26 @@ packages:
     dependency: transitive
     description:
       name: lingua_ad
-      sha256: "80100b17e851896c483cf0fffc0b601cdf355238aa3da9b504bda416e93aeb9f"
+      sha256: "42c25235ef632d2122ebad5791aa50d82e96d7e6fefdbe6f68b4e4ef5a62ccba"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.8"
+    version: "0.0.9"
   lingua_core:
     dependency: transitive
     description:
       name: lingua_core
-      sha256: "59f6b480abd17945d28408d6c5949147996d22a6ad28f18b0cceb7155b3ae7da"
+      sha256: a31e02af3a6af48280e779358413b6cb4018bebfba7b69b9884f6156c1195885
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.17"
+    version: "0.0.18"
   lingua_purchases:
     dependency: transitive
     description:
       name: lingua_purchases
-      sha256: "8da3126135638d66e2f8bf187bc5d3cc2932b5806221cc628ee460fdcdefb0fd"
+      sha256: e2576a382dad13bf516cd5f9db881897a9116114e96045e76cf3bb20915e4c94
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.10"
+    version: "0.0.11"
   lints:
     dependency: transitive
     description:

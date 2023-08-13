@@ -255,7 +255,7 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.5+1"
+    version: "0.0.6"
   fastyle_calculator:
     dependency: transitive
     description:
@@ -270,14 +270,14 @@ packages:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.9"
+    version: "0.0.10"
   fastyle_digit_calculator:
     dependency: "direct overridden"
     description:
       path: "../../digit_calculator"
       relative: true
     source: path
-    version: "0.0.13+1"
+    version: "0.0.13+2"
   fastyle_financial:
     dependency: transitive
     description:
@@ -292,28 +292,28 @@ packages:
       path: "../../forms"
       relative: true
     source: path
-    version: "0.0.14+1"
+    version: "0.0.14+2"
   fastyle_images:
     dependency: "direct overridden"
     description:
       path: "../../images"
       relative: true
     source: path
-    version: "0.0.16+1"
+    version: "0.0.16+2"
   fastyle_pricing:
     dependency: "direct main"
     description:
       path: "../../pricing"
       relative: true
     source: path
-    version: "1.10.0"
+    version: "1.11.0"
   fastyle_settings:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.18"
+    version: "0.0.19"
   ffi:
     dependency: transitive
     description:

@@ -231,21 +231,21 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.5+1"
+    version: "0.0.6"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.9"
+    version: "0.0.10"
   fastyle_pricing:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "1.10.0"
+    version: "1.11.0"
   ffi:
     dependency: transitive
     description:

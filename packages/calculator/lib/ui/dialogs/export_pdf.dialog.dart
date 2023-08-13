@@ -86,13 +86,7 @@ class FastExportPdfRewardedDialog extends StatelessWidget {
     this.onValid,
   });
 
-  Future<bool> handleVerifyRights() async {
-    final featureBloc = FastAppFeaturesBloc();
-    final state = featureBloc.currentState;
-
-    return state.isFeatureEnabled(FastAppFeatures.pro) ||
-        state.isFeatureEnabled(FastAppFeatures.premium);
-  }
+  Future<bool> handleVerifyRights() async => isUserPremium();
 
   @override
   Widget build(BuildContext context) {
@@ -102,6 +96,7 @@ class FastExportPdfRewardedDialog extends StatelessWidget {
       operationInProgressBuilder: operationInProgressBuilder,
       operationSucceededBuilder: operationSucceededBuilder,
       onVerifyRights: onVerifyRights ?? handleVerifyRights,
+      onGetTitleText: onGetTitleText ?? handleTitleChange,
       onOperationStatusChanged: onOperationStatusChanged,
       operationFailedBuilder: operationFailedBuilder,
       verifyingRightsBuilder: verifyingRightsBuilder,
@@ -110,7 +105,6 @@ class FastExportPdfRewardedDialog extends StatelessWidget {
       rightsDeniedBuillder: rightsDeniedBuillder,
       onCreateOperation: onCreateOperation,
       onGetCancelText: onGetCancelText,
-      onGetTitleText: onGetTitleText,
       onGrantRights: onGrantRights,
       errorBuilder: errorBuilder,
       onCancel: onCancel,

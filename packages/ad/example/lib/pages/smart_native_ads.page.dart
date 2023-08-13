@@ -25,6 +25,7 @@ class _SmartNativeAdsPageState extends State<SmartNativeAdsPage> {
           kFastSizedBox16,
           FastSmartNativeAd(
             debugLabel: 'Admob Medium Native Ad',
+            showRemoveAdLink: true,
           ),
           kFastSizedBox16,
           FastTitle(text: 'Native Ad with a ID'),

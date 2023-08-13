@@ -61,7 +61,8 @@ class FastSettingsPrivacyPolicyPage extends StatelessWidget {
         buildLinksToOtherSitesSection(),
         buildChildrensPrivacySection(),
         buildChangesToPrivacyPolicySection(),
-        buildContactUsSection(appInfo.supportEmail),
+        if (appInfo.supportEmail != null)
+          buildContactUsSection(appInfo.supportEmail!),
         ...?children,
       ],
     );
@@ -244,15 +245,15 @@ class FastSettingsPrivacyPolicyPage extends StatelessWidget {
     );
   }
 
-  Widget buildContactUsSection(String? email) {
+  Widget buildContactUsSection(String email) {
     return FastArticle(
       titleText: 'Contact Us',
       children: [
         FastParagraph(
           child: FastSettingsSupportLink(
-            email: email,
-            linkText: 'If you have any questions or suggestions about our '
-                'Privacy Policy, do not hesitate to contact us ',
+            emailText: email,
+            prefixText: 'If you have any questions or suggestions about our '
+                'Privacy Policy, do not hesitate to contact us',
           ),
         ),
       ],
