@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_buttons/fastyle_buttons.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 //TODO: @need-review: code from fastyle_dart
 
@@ -58,7 +60,7 @@ class FastAlertDialog extends AlertDialog {
     return [
       if (onCancel != null && showCancel)
         FastTextButton(
-          text: cancelText ?? kFastCancelText,
+          text: cancelText ?? CoreLocaleKeys.core_label_cancel.tr(),
           onTap: onCancel!,
         ),
       if (showValid)
@@ -70,7 +72,7 @@ class FastAlertDialog extends AlertDialog {
               Navigator.pop(context);
             }
           },
-          text: validText ?? kFastValidText,
+          text: validText ?? CoreLocaleKeys.core_label_valid.tr(),
           emphasis: FastButtonEmphasis.high,
         ),
     ];

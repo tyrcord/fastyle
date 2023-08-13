@@ -7,6 +7,9 @@ import 'package:flutter_test/flutter_test.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
+const _kFastCancelText = 'cancel';
+const _kFastValidText = 'valid';
+
 FastApp _buildApp(Widget child) {
   return FastApp(homeBuilder: (_) => FastHomePage(children: [child]));
 }
@@ -86,7 +89,7 @@ void main() {
         await tester.pumpAndSettle();
 
         final dialog = find.byType(FastAlertDialog);
-        final cancelText = find.text(kFastCancelText);
+        final cancelText = find.text(_kFastCancelText);
 
         await tester.tap(cancelText);
         await tester.pump();
@@ -114,7 +117,7 @@ void main() {
         await tester.pumpAndSettle();
 
         final dialog = find.byType(FastAlertDialog);
-        final validText = find.text(kFastValidText);
+        final validText = find.text(_kFastValidText);
 
         await tester.tap(validText);
         await tester.pump();
