@@ -3,6 +3,115 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-08-13
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.7`](#fastyle_ad---v007)
+ - [`fastyle_buttons` - `v0.0.6`](#fastyle_buttons---v006)
+ - [`fastyle_calculator` - `v1.21.0`](#fastyle_calculator---v1210)
+ - [`fastyle_core` - `v0.0.10`](#fastyle_core---v0010)
+ - [`fastyle_firebase` - `v0.0.6`](#fastyle_firebase---v006)
+ - [`fastyle_iap` - `v0.0.7`](#fastyle_iap---v007)
+ - [`fastyle_layouts` - `v0.0.5`](#fastyle_layouts---v005)
+ - [`fastyle_onboarding` - `v0.0.16`](#fastyle_onboarding---v0016)
+ - [`fastyle_pricing` - `v1.11.0`](#fastyle_pricing---v1110)
+ - [`fastyle_settings` - `v0.0.19`](#fastyle_settings---v0019)
+ - [`fastyle_views` - `v0.0.6+2`](#fastyle_views---v0062)
+ - [`fastyle_forms` - `v0.0.14+2`](#fastyle_forms---v00142)
+ - [`fastyle_home` - `v0.0.9+2`](#fastyle_home---v0092)
+ - [`fastyle_financial` - `v0.0.12+1`](#fastyle_financial---v00121)
+ - [`fastyle_connectivity` - `v0.0.11+2`](#fastyle_connectivity---v00112)
+ - [`fastyle_images` - `v0.0.16+2`](#fastyle_images---v00162)
+ - [`fastyle_video_player` - `v0.0.4+2`](#fastyle_video_player---v0042)
+ - [`fastyle_digit_calculator` - `v0.0.13+2`](#fastyle_digit_calculator---v00132)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_forms` - `v0.0.14+2`
+ - `fastyle_home` - `v0.0.9+2`
+ - `fastyle_financial` - `v0.0.12+1`
+ - `fastyle_connectivity` - `v0.0.11+2`
+ - `fastyle_images` - `v0.0.16+2`
+ - `fastyle_video_player` - `v0.0.4+2`
+ - `fastyle_digit_calculator` - `v0.0.13+2`
+
+---
+
+#### `fastyle_ad` - `v0.0.7`
+
+ - **REFACTOR**: ad service.
+ - **FEAT**: FastOperationRewardedDialog.
+ - **FEAT**: preparatory works for rewarded ads.
+ - **FEAT**: make stronger the FastRewardedAdBloc.
+ - **FEAT**: FastOperationControlledDialog.
+ - **FEAT**: rename to getNativeAdLoadingWidget.
+ - **FEAT**: debug ad info.
+
+#### `fastyle_buttons` - `v0.0.6`
+
+ - **FEAT**: better restore premium feature page.
+
+#### `fastyle_calculator` - `v1.21.0`
+
+ - **FEAT**: add FastExportPdfRewardedDialog.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: minor improvement.
+
+#### `fastyle_core` - `v0.0.10`
+
+ - **FIX**: FastOperationControlledDialog.
+ - **FEAT**: FastOperationRewardedDialog.
+ - **FEAT**: add status icons/messages.
+ - **FEAT**: preparatory works for rewarded ads.
+ - **FEAT**: FastOperationControlledDialog.
+ - **FEAT**: better restore premium feature page.
+
+#### `fastyle_firebase` - `v0.0.6`
+
+ - **FEAT**: better notifications onboading.
+
+#### `fastyle_iap` - `v0.0.7`
+
+ - **FIX**: enable plan after restoring it.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: better premium page.
+
+#### `fastyle_layouts` - `v0.0.5`
+
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: better onboarding pages.
+
+#### `fastyle_onboarding` - `v0.0.16`
+
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: better onboarding pages.
+ - **FEAT**: better notifications onboading.
+ - **FEAT**: better FastOnboardingPersonalizedAds.
+
+#### `fastyle_pricing` - `v1.11.0`
+
+ - **FEAT**: better premium page.
+
+#### `fastyle_settings` - `v0.0.19`
+
+ - **FEAT**: better restore premium feature page.
+
+#### `fastyle_views` - `v0.0.6+2`
+
+ - **FIX**: localization.
+
+
 ## 2023-08-09
 
 ### Changes

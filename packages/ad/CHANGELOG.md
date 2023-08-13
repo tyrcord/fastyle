@@ -1,3 +1,13 @@
+## 0.0.7
+
+ - **REFACTOR**: ad service.
+ - **FEAT**: FastOperationRewardedDialog.
+ - **FEAT**: preparatory works for rewarded ads.
+ - **FEAT**: make stronger the FastRewardedAdBloc.
+ - **FEAT**: FastOperationControlledDialog.
+ - **FEAT**: rename to getNativeAdLoadingWidget.
+ - **FEAT**: debug ad info.
+
 ## 0.0.6
 
  - **PERF**: minor improvements.

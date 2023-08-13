@@ -1,3 +1,8 @@
+## 0.0.5
+
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: better onboarding pages.
+
 ## 0.0.4+2
 
  - Update a dependency to the latest release.

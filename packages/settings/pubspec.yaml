@@ -1,6 +1,6 @@
 name: fastyle_settings
 description: Set of settings Widgets for the fastyle library.
-version: 0.0.18
+version: 0.0.19
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/settings
 
 environment:
@@ -12,11 +12,11 @@ dependencies:
     sdk: flutter
   collection: ^1.17.1
   font_awesome_flutter: ^10.5.0
-  fastyle_core: ^0.0.9
+  fastyle_core: ^0.0.10
   matex_financial: ^0.0.13+1
   tbloc: ^0.21.1
-  fastyle_images: ^0.0.16+1
-  fastyle_forms: ^0.0.14+1
+  fastyle_images: ^0.0.16+2
+  fastyle_forms: ^0.0.14+2
   easy_localization: ^3.0.2
   lingua_settings: ^0.0.8
   t_helpers: ^0.0.25

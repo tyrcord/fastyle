@@ -1,3 +1,9 @@
+## 1.21.0
+
+ - **FEAT**: add FastExportPdfRewardedDialog.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: minor improvement.
+
 ## 1.20.1
 
  - Update a dependency to the latest release.

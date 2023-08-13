@@ -1,3 +1,7 @@
+## 0.0.19
+
+ - **FEAT**: better restore premium feature page.
+
 ## 0.0.18
 
  - **PERF**: minor improvements.

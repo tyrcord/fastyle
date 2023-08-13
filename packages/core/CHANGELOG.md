@@ -1,3 +1,12 @@
+## 0.0.10
+
+ - **FIX**: FastOperationControlledDialog.
+ - **FEAT**: FastOperationRewardedDialog.
+ - **FEAT**: add status icons/messages.
+ - **FEAT**: preparatory works for rewarded ads.
+ - **FEAT**: FastOperationControlledDialog.
+ - **FEAT**: better restore premium feature page.
+
 ## 0.0.9
 
  - **PERF**: minor improvements.

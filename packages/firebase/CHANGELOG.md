@@ -1,3 +1,7 @@
+## 0.0.6
+
+ - **FEAT**: better notifications onboading.
+
 ## 0.0.5+1
 
  - **PERF**: minor improvements.

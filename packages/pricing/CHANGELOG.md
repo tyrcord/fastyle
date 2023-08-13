@@ -1,3 +1,7 @@
+## 1.11.0
+
+ - **FEAT**: better premium page.
+
 ## 1.10.0
 
  - **FEAT**: improvements with the premium page.

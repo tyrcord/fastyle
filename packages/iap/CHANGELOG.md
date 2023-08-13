@@ -1,3 +1,9 @@
+## 0.0.7
+
+ - **FIX**: enable plan after restoring it.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: better premium page.
+
 ## 0.0.6
 
  - **PERF**: minor improvements.

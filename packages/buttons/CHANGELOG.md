@@ -1,3 +1,7 @@
+## 0.0.6
+
+ - **FEAT**: better restore premium feature page.
+
 ## 0.0.5+1
 
  - Update a dependency to the latest release.
