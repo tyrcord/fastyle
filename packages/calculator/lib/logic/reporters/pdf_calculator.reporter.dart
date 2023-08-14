@@ -8,6 +8,9 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:lingua_settings/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 // Project imports:
 import 'package:fastyle_calculator/fastyle_calculator.dart';
@@ -41,19 +44,33 @@ class FastPdfCalculatorReporter {
     required String title,
     required List<FastReportEntry> inputs,
     required List<FastReportEntry> results,
-    String inputTitle = 'INPUTS',
-    String resultTitle = 'RESULTS',
-    String dateTitle = 'Date:',
-    String disclaimerTitle = 'DISCLAIMER',
+    String? inputTitle,
+    String? resultTitle,
+    String? dateTitle,
+    String? disclaimerTitle,
     String? disclaimerText,
     Color? italicTextColor,
     Color? textColor,
     String? author,
     List<FastReportCategoryEntry>? categories,
+    String languageCode = 'en',
+    String? countryCode,
+    bool alwaysUse24HourFormat = false,
   }) async {
+    inputTitle ??= CoreLocaleKeys.core_label_inputs.tr();
+    resultTitle ??= CoreLocaleKeys.core_label_results.tr();
+    dateTitle ??= CoreLocaleKeys.core_label_date.tr();
+    disclaimerTitle ??= SettingsLocaleKeys.settings_label_disclaimer.tr();
+
     final italicStyle = await _getItalicStyle(color: italicTextColor);
     final style = await _getRegularStyle(color: textColor);
-    final now = await formatDateTime(DateTime.now());
+    final now = await formatDateTime(
+      DateTime.now(),
+      alwaysUse24HourFormat: alwaysUse24HourFormat,
+      languageCode: languageCode,
+      countryCode: countryCode,
+    );
+
     final pdf = pw.Document()
       ..addPage(
         pw.MultiPage(
@@ -70,17 +87,17 @@ class FastPdfCalculatorReporter {
                     children: [
                       _buildHeaderTitle(title, style),
                       pw.SizedBox(height: 48),
-                      _buildDate(dateTitle, now, italicStyle),
+                      _buildDate(dateTitle!, now, italicStyle),
                       pw.SizedBox(height: 24),
                       // INPUTS
-                      _buildTableSection(inputTitle, inputs, style),
+                      _buildTableSection(inputTitle!, inputs, style),
                     ],
                   ),
                   pw.SizedBox(height: 24),
                   pw.Wrap(
                     children: [
                       // RESULTS
-                      _buildTableSection(resultTitle, results, style),
+                      _buildTableSection(resultTitle!, results, style),
                       pw.SizedBox(height: 12),
                     ],
                   ),
@@ -95,7 +112,10 @@ class FastPdfCalculatorReporter {
                       // DISCLAIMER
                       if (disclaimerText != null)
                         _buildDisclaimer(
-                            disclaimerTitle, disclaimerText, style),
+                          disclaimerTitle!,
+                          disclaimerText,
+                          style,
+                        ),
                       if (author != null)
                         pw.Align(
                           alignment: pw.Alignment.center,
