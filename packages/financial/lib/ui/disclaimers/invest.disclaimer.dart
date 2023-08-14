@@ -11,11 +11,15 @@ class FastFinanceInvestDisclaimer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FastParagraph(
-      child: FastSecondaryBody(
-        text: FinanceLocaleKeys.finance_disclaimer_intervening_markets.tr(),
-        textAlign: TextAlign.center,
-      ),
+    return FastAppSettingsLanguageBuilder(
+      builder: (context, state) {
+        return FastParagraph(
+          child: FastSecondaryBody(
+            text: FinanceLocaleKeys.finance_disclaimer_intervening_markets.tr(),
+            textAlign: TextAlign.center,
+          ),
+        );
+      },
     );
   }
 }
