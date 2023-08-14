@@ -17,8 +17,8 @@ class FastListHeader extends StatelessWidget {
   const FastListHeader({
     super.key,
     required this.categoryText,
-    this.padding = const EdgeInsets.symmetric(horizontal: 16.0),
     this.margin = const EdgeInsets.symmetric(vertical: 16.0),
+    this.padding = EdgeInsets.zero,
     this.categoryColor,
     this.captionColor,
     this.captionText,

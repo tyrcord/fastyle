@@ -39,7 +39,7 @@ class FastSelectableListItem<T extends FastItem> extends StatelessWidget {
     this.selectionTralingColor,
     this.selectionLabelColor,
     this.descriptionText,
-    this.contentPadding,
+    this.contentPadding = EdgeInsets.zero,
     this.selectionColor,
     this.labelText,
     this.trailing,

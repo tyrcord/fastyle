@@ -24,9 +24,6 @@ class FastAppSettingsPrimaryCurrencyField extends StatelessWidget {
   /// The text to display in the label.
   final String? labelText;
 
-  /// The padding to apply to the widget.
-  final EdgeInsetsGeometry padding;
-
   /// The text to display as a placeholder in the search field.
   final String? searchPlaceholderText;
 
@@ -37,7 +34,6 @@ class FastAppSettingsPrimaryCurrencyField extends StatelessWidget {
     super.key,
     this.onCurrencyChanged,
     this.descriptor,
-    this.padding = kFastHorizontalEdgeInsets16,
     this.searchPlaceholderText,
     this.placeholderText,
     String? searchTitleText,
@@ -47,27 +43,24 @@ class FastAppSettingsPrimaryCurrencyField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: padding,
-      child: FastAppSettingsPrimaryCurrencyBuilder(builder: (_, state) {
-        return MatexSelectCurrencyField(
-          searchTitleText: descriptor?.searchTitleText ?? searchTitleText,
-          labelText: descriptor?.labelText ?? labelText,
-          selection: state.primaryCurrencyCode,
-          itemDescriptionBuilder: descriptor?.itemDescriptionBuilder,
-          canClearSelection: false,
-          onSelectionChanged: (FastItem<String>? item) {
-            if (item != null &&
-                item.value != null &&
-                item.value != state.primaryCurrencyCode) {
-              onCurrencyChanged?.call(item.value!);
-            }
-          },
-          searchPlaceholderText:
-              descriptor?.searchPlaceholderText ?? searchPlaceholderText,
-          placeholderText: descriptor?.placeholderText ?? placeholderText,
-        );
-      }),
-    );
+    return FastAppSettingsPrimaryCurrencyBuilder(builder: (_, state) {
+      return MatexSelectCurrencyField(
+        searchTitleText: descriptor?.searchTitleText ?? searchTitleText,
+        labelText: descriptor?.labelText ?? labelText,
+        selection: state.primaryCurrencyCode,
+        itemDescriptionBuilder: descriptor?.itemDescriptionBuilder,
+        canClearSelection: false,
+        onSelectionChanged: (FastItem<String>? item) {
+          if (item != null &&
+              item.value != null &&
+              item.value != state.primaryCurrencyCode) {
+            onCurrencyChanged?.call(item.value!);
+          }
+        },
+        searchPlaceholderText:
+            descriptor?.searchPlaceholderText ?? searchPlaceholderText,
+        placeholderText: descriptor?.placeholderText ?? placeholderText,
+      );
+    });
   }
 }

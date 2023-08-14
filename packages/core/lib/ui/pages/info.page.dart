@@ -45,15 +45,14 @@ class FastAppInfoPage<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return FastSectionPage(
       titleText: titleText,
-      contentPadding: contentPadding ?? EdgeInsets.zero,
+      contentPadding: contentPadding,
       isViewScrollable: true,
       showAppBar: showAppBar,
       actions: actions,
       footer: buildFooter(context),
       child: Column(
         children: [
-          if (header != null)
-            Padding(padding: kFastEdgeInsets16, child: header),
+          if (header != null) header!,
           Column(children: buildNavigationCategories(context)),
         ],
       ),

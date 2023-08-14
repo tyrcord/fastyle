@@ -60,6 +60,7 @@ class FastOnboardingFinanceTraderWelcome extends StatelessWidget {
       secondaryText: _getSecondaryText(),
       primaryText: _getPrimaryText(),
       titleText: _getTitleText(),
+      children: children,
     );
   }
 

@@ -11,6 +11,7 @@ class FastParagraph extends StatelessWidget {
   final Widget? child;
   final String? text;
   final double? fontSize;
+  final Color? textColor;
 
   const FastParagraph({
     super.key,
@@ -18,13 +19,19 @@ class FastParagraph extends StatelessWidget {
     this.text,
     this.child,
     this.fontSize,
-  })  : assert(text != null || child != null);
+    this.textColor,
+  }) : assert(text != null || child != null);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: margin,
-      child: child ?? FastBody(text: text!, fontSize: fontSize),
+      child: child ??
+          FastBody(
+            text: text!,
+            fontSize: fontSize,
+            textColor: textColor,
+          ),
     );
   }
 }

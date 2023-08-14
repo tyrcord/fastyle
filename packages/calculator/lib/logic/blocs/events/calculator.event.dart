@@ -10,7 +10,6 @@ class FastCalculatorBlocEvent<R extends FastCalculatorResults>
   const FastCalculatorBlocEvent({
     required FastCalculatorBlocEventType super.type, // The type of the event.
     super.payload, // An optional payload associated with the event.
-    super.forceBuild,
   });
 
   // Returns an event with the type `FastCalculatorBlocEventType.init`
@@ -58,12 +57,9 @@ class FastCalculatorBlocEvent<R extends FastCalculatorResults>
 
   // Returns an event with the type `FastCalculatorBlocEventType.compute`
   // and no payload.
-  static FastCalculatorBlocEvent<R> compute<R extends FastCalculatorResults>({
-    bool forceBuild = false,
-  }) {
+  static FastCalculatorBlocEvent<R> compute<R extends FastCalculatorResults>() {
     return FastCalculatorBlocEvent<R>(
       type: FastCalculatorBlocEventType.compute,
-      forceBuild: forceBuild,
     );
   }
 

@@ -45,7 +45,7 @@ class FastSettingPageLayout extends StatelessWidget {
     return FastAppSettingsLanguageBuilder(
       builder: (context, state) {
         return FastSectionPage(
-          contentPadding: contentPadding ?? kFastVerticalEdgeInsets16,
+          contentPadding: contentPadding,
           isViewScrollable: true,
           titleText: titleText?.tr(),
           actions: actions,

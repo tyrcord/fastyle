@@ -26,7 +26,7 @@ class FastToggleListItem<T extends FastItem> extends StatefulWidget {
     this.labelText,
     this.leading,
     this.item,
-  })  : assert(item?.labelText != null || labelText != null);
+  }) : assert(item?.labelText != null || labelText != null);
 
   @override
   State<StatefulWidget> createState() => _FastToggleListItemState();
@@ -57,6 +57,7 @@ class _FastToggleListItemState extends State<FastToggleListItem> {
       child: SwitchListTile.adaptive(
         activeColor: ThemeHelper.colors.getPrimaryColor(context),
         inactiveTrackColor: ThemeHelper.colors.getHintColor(context),
+        contentPadding: EdgeInsets.zero,
         dense: widget.isDense,
         title: _buildLabel(),
         subtitle: _buildDescription(),

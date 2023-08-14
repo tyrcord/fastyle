@@ -34,10 +34,6 @@ abstract class FastCalculatorBloc<
   /// The function to add debounce events to the calculator bloc.
   late FastCalculatorBlocDebounceEventCallback<E> addDebounceEvent;
 
-  /// The user settings bloc used by the calculator.
-  @protected
-  FastAppSettingsBloc userSettingsBloc = FastAppSettingsBloc();
-
   /// The app settings bloc used by the calculator.
   @protected
   FastAppSettingsBloc appSettingsBloc = FastAppSettingsBloc();
@@ -70,10 +66,7 @@ abstract class FastCalculatorBloc<
       addDebounceEvent = addEvent;
     }
 
-    subxList.addAll([
-      userSettingsBloc.onData.listen(handleSettingsChanges),
-      appSettingsBloc.onData.listen(handleSettingsChanges),
-    ]);
+    subxList.add(appSettingsBloc.onData.listen(handleSettingsChanges));
   }
 
   /// Updates a single field in the calculator state.
@@ -174,8 +167,8 @@ abstract class FastCalculatorBloc<
   /// Handles settings changes.
   void handleSettingsChanges(BlocState state) {
     if (isInitialized) {
+      debugLog('Settings changed, reloading metadata', debugLabel: debugLabel);
       addEvent(FastCalculatorBlocEvent.loadMetadata<R>());
-      addEvent(FastCalculatorBlocEvent.compute<R>(forceBuild: true));
     }
   }
 
@@ -361,6 +354,8 @@ abstract class FastCalculatorBloc<
   @protected
   Stream<S> handleLoadMetadataEvent() async* {
     yield currentState.copyWith(metadata: await loadMetadata()) as S;
+
+    addEvent(FastCalculatorBlocEvent.compute<R>());
   }
 
   /// Handles the patch value event by updating a single field in the

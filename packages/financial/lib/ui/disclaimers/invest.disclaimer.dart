@@ -7,7 +7,9 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:lingua_finance/generated/locale_keys.g.dart';
 
 class FastFinanceInvestDisclaimer extends StatelessWidget {
-  const FastFinanceInvestDisclaimer({super.key});
+  final double? fontSize;
+
+  const FastFinanceInvestDisclaimer({super.key, this.fontSize});
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +18,7 @@ class FastFinanceInvestDisclaimer extends StatelessWidget {
         return FastParagraph(
           child: FastSecondaryBody(
             text: FinanceLocaleKeys.finance_disclaimer_intervening_markets.tr(),
+            fontSize: fontSize ?? kFastFontSize10,
             textAlign: TextAlign.center,
           ),
         );

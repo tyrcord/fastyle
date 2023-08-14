@@ -9,7 +9,6 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 // Project imports:
 
-
 //TODO: @need-review: code from fastyle_dart
 
 class FastListItemLayout extends StatelessWidget {
@@ -61,13 +60,13 @@ class FastListItemLayout extends StatelessWidget {
     this.isDense = true,
     this.selectionLabelColor,
     this.descriptionText,
-    this.contentPadding,
+    EdgeInsets? contentPadding,
     this.selectionColor,
     this.descriptor,
     this.trailing,
     this.leading,
     this.onTap,
-  });
+  }) : contentPadding = contentPadding ?? EdgeInsets.zero;
 
   @override
   Widget build(BuildContext context) {
