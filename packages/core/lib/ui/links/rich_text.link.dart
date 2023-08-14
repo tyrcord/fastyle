@@ -10,6 +10,7 @@ class FastRichTextLink extends StatefulWidget {
   final String prefixText;
   final Color? linkColor;
   final VoidCallback? onTap;
+  final double? fontSize;
 
   const FastRichTextLink({
     super.key,
@@ -17,6 +18,7 @@ class FastRichTextLink extends StatefulWidget {
     required this.prefixText,
     this.linkColor,
     this.onTap,
+    this.fontSize,
   });
 
   @override
@@ -45,7 +47,7 @@ class FastRichTextLinkState extends State<FastRichTextLink> {
     final scaleFactor = MediaQuery.textScaleFactorOf(context);
     final palette = ThemeHelper.getPaletteColors(context);
     final spanTextStyle = bodyTextStyle.copyWith(
-      fontSize: bodyTextStyle.fontSize! * scaleFactor,
+      fontSize: (widget.fontSize ?? bodyTextStyle.fontSize!) * scaleFactor,
     );
 
     final linkTextStyle = spanTextStyle.copyWith(

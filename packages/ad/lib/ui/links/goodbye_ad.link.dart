@@ -26,6 +26,7 @@ class FastGoodbyeAdLink extends StatelessWidget {
     return FastRichTextLink(
       prefixText: prefixText ?? AdLocaleKeys.ad_message_say_goodbye_to_ads.tr(),
       linkText: linkText ?? PurchasesLocaleKeys.purchases_label_go_premium.tr(),
+      fontSize: kFastFontSize12,
       onTap: onTap,
     );
   }
