@@ -140,7 +140,7 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
     }
 
     return [
-      kFastVerticalSizedBox8,
+      kFastVerticalSizedBox12,
       FastGoodbyeAdLink(onTap: widget.onRemoveAdLinkTap),
     ];
   }
