@@ -61,6 +61,9 @@ class FastAdInfo extends TDocument {
   /// The authority of the ad service URI.
   final String? adServiceUriAuthority;
 
+  /// The refresh interval for ads. The default value is 60 seconds.
+  final int refreshInterval;
+
   /// Get the Ad Unit ID for native ads.
   String? get nativeAdUnitId {
     if (Platform.isIOS || Platform.isAndroid) {
@@ -181,6 +184,7 @@ class FastAdInfo extends TDocument {
     this.countries,
     this.splashAdThreshold = 10,
     this.adServiceUriAuthority,
+    this.refreshInterval = 60,
   });
 
   /// Create a new [FastAdInfo] instance from a JSON map.
@@ -205,6 +209,7 @@ class FastAdInfo extends TDocument {
       keywords: json['keywords'] as List<String>?,
       splashAdThreshold: json['splashAdThreshold'] as int? ?? 10,
       adServiceUriAuthority: json['adServiceUriAuthority'] as String?,
+      refreshInterval: json['refreshInterval'] as int? ?? 60,
     );
   }
 
@@ -231,6 +236,7 @@ class FastAdInfo extends TDocument {
     List<String>? countries,
     int? splashAdThreshold,
     String? adServiceUriAuthority,
+    int? refreshInterval,
   }) =>
       FastAdInfo(
         iosNativeAdUnitId: iosNativeAdUnitId ?? this.iosNativeAdUnitId,
@@ -259,6 +265,7 @@ class FastAdInfo extends TDocument {
         splashAdThreshold: splashAdThreshold ?? this.splashAdThreshold,
         adServiceUriAuthority:
             adServiceUriAuthority ?? this.adServiceUriAuthority,
+        refreshInterval: refreshInterval ?? this.refreshInterval,
       );
 
   /// Merges the properties of another [FastAdInfo] instance into this one.
@@ -282,6 +289,7 @@ class FastAdInfo extends TDocument {
           model.androidRewardedInterstitialAdUnitId,
       splashAdThreshold: model.splashAdThreshold,
       adServiceUriAuthority: model.adServiceUriAuthority,
+      refreshInterval: model.refreshInterval,
     );
   }
 
@@ -305,6 +313,7 @@ class FastAdInfo extends TDocument {
         'keywords': keywords,
         'splashAdThreshold': splashAdThreshold,
         'adServiceUriAuthority': adServiceUriAuthority,
+        'refreshInterval': refreshInterval,
       };
 
   /// Returns a list of properties used to determine if two [FastAdInfo]
@@ -327,6 +336,7 @@ class FastAdInfo extends TDocument {
         countries,
         splashAdThreshold,
         adServiceUriAuthority,
+        refreshInterval,
       ];
 
   /// Print the values of properties in debug mode.
@@ -395,6 +405,10 @@ class FastAdInfo extends TDocument {
       );
       debugLog(
         'adServiceUriAuthority: $adServiceUriAuthority',
+        debugLabel: debugLabel,
+      );
+      debugLog(
+        'refreshInterval: $refreshInterval',
         debugLabel: debugLabel,
       );
     }
