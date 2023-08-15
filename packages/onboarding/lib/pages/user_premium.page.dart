@@ -49,11 +49,11 @@ class FastOnboardingPremiumUser extends StatefulWidget {
 
   final String? notesText;
 
-  final String premiumProductId;
+  final String? premiumProductId;
 
   const FastOnboardingPremiumUser({
     super.key,
-    required this.premiumProductId,
+    this.premiumProductId,
     this.handsetIconSize,
     this.tabletIconSize,
     this.secondaryText,
@@ -82,6 +82,7 @@ class _FastOnboardingPremiumUserState extends State<FastOnboardingPremiumUser>
   @override
   void initState() {
     super.initState();
+
     planBloc = FastPlanBloc(getFeaturesForPlan: getFeatureForPlan);
     errorSubscription = planBloc.onData
         .where((state) => state.error != null)
@@ -108,12 +109,12 @@ class _FastOnboardingPremiumUserState extends State<FastOnboardingPremiumUser>
 
   Widget buildContent(BuildContext context) {
     return BlocBuilderWidget(
-      buildWhen: (_, next) {
-        return next.hasPurchasedProduct(widget.premiumProductId);
-      },
       bloc: _storeBloc,
+      buildWhen: (_, next) {
+        return next.hasPurchasedProduct(_getPremiumProductId());
+      },
       builder: (context, state) {
-        if (state.hasPurchasedProduct(widget.premiumProductId)) {
+        if (state.hasPurchasedProduct(_getPremiumProductId())) {
           return FastOnboardingThanksPremiumContent(
             handsetIconSize: widget.handsetIconSize,
             tabletIconSize: widget.tabletIconSize,
@@ -143,5 +144,14 @@ class _FastOnboardingPremiumUserState extends State<FastOnboardingPremiumUser>
   String _getTitleText() {
     return widget.titleText ??
         OnboardingLocaleKeys.onboarding_restore_premium_title.tr();
+  }
+
+  String _getPremiumProductId() {
+    String? id = widget.premiumProductId;
+    id ??= getPremiumProductId();
+
+    assert(id != null, 'The premium product id must not be null');
+
+    return id!;
   }
 }

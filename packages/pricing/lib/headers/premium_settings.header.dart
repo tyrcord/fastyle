@@ -14,11 +14,11 @@ import 'package:fastyle_pricing/fastyle_pricing.dart';
 class FastPremiumSettingsHeader extends StatelessWidget {
   final _storeBloc = FastStoreBloc();
   final VoidCallback onGoPremium;
-  final String premiumProductId;
+  final String? premiumProductId;
 
   FastPremiumSettingsHeader({
     super.key,
-    required this.premiumProductId,
+    this.premiumProductId,
     required this.onGoPremium,
   });
 
@@ -27,7 +27,7 @@ class FastPremiumSettingsHeader extends StatelessWidget {
     return BlocBuilderWidget(
       bloc: _storeBloc,
       builder: (context, state) {
-        final isPremium = state.hasPurchasedProduct(premiumProductId);
+        final isPremium = state.hasPurchasedProduct(_getPremiumProductId());
 
         if (isPremium) {
           return FastPremiumPlanSummaryCard(
@@ -52,5 +52,14 @@ class FastPremiumSettingsHeader extends StatelessWidget {
       onTap: onGoPremium,
       text: linkText,
     );
+  }
+
+  String _getPremiumProductId() {
+    String? id = premiumProductId;
+    id ??= getPremiumProductId();
+
+    assert(id != null, 'The premium product id must not be null');
+
+    return id!;
   }
 }

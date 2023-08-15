@@ -14,7 +14,7 @@ class FastIapGoPremiumPage extends StatelessWidget {
   final VoidCallback? onRestorePremium;
   final VoidCallback? onBuyPremium;
   final String? restorePremiumText;
-  final String premiumProductId;
+  final String? premiumProductId;
   final List<FastItem>? items;
   final bool shouldSortItems;
   final String? titleText;
@@ -23,7 +23,7 @@ class FastIapGoPremiumPage extends StatelessWidget {
 
   const FastIapGoPremiumPage({
     super.key,
-    required this.premiumProductId,
+    this.premiumProductId,
     this.shouldSortItems = false,
     this.showAppBar = true,
     this.restorePremiumText,
@@ -158,14 +158,8 @@ class FastIapGoPremiumPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        FastIapRestorePremiumButtton(
-          premiumProductId: premiumProductId,
-          onTap: onRestorePremium,
-        ),
-        FastIapPurchasePremiumButtton(
-          premiumProductId: premiumProductId,
-          onTap: onBuyPremium,
-        ),
+        FastIapRestorePremiumButtton(onTap: onRestorePremium),
+        FastIapPurchasePremiumButtton(onTap: onBuyPremium),
       ],
     );
   }

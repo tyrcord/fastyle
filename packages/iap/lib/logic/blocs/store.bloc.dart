@@ -92,7 +92,9 @@ class FastStoreBloc
           case FastStoreBlocEventType.restorePurchases:
             yield* handleRestorePurchasesEvent();
           case FastStoreBlocEventType.purchaseRestored:
-            yield* handlePurchasesRestoredEvent();
+            if (payload is FastStoreBlocPayload) {
+              yield* handlePurchasesRestoredEvent(payload);
+            }
           case FastStoreBlocEventType.restorePurchasesFailed:
             yield* handleRestorePurchasesFailedEvent(error);
 
@@ -162,8 +164,8 @@ class FastStoreBloc
       isInitialized = true;
 
       yield currentState.copyWith(
-        isStoreAvailable: _isStoreAvailable,
         purchases: await _iapDataProvider.listAllPurchases(),
+        isStoreAvailable: _isStoreAvailable,
         isInitializing: false,
         isInitialized: true,
       );
@@ -200,12 +202,28 @@ class FastStoreBloc
 
   /// Handles the [FastStoreBlocEventType.purchaseRestored] event when a
   /// purchase has been successfully restored.
-  Stream<FastStoreBlocState> handlePurchasesRestoredEvent() async* {
+  Stream<FastStoreBlocState> handlePurchasesRestoredEvent(
+    FastStoreBlocPayload payload,
+  ) async* {
     if (_isRestoringPurchases) {
       debugLog('Purchase restored', debugLabel: debugLabel);
 
       _isRestoringPurchases = false;
-      yield currentState.copyWith(isRestoringPurchases: false);
+
+      if (payload.purchaseDetails != null) {
+        final purchase = FastInAppPurchase.fromPurchaseDetails(
+          payload.purchaseDetails!,
+        );
+
+        await _iapDataProvider.enablePurchaseWithProductId(purchase.productId);
+
+        yield currentState.copyWith(
+          purchases: [...currentState.purchases, purchase],
+          isRestoringPurchases: false,
+        );
+      } else {
+        yield currentState.copyWith(isRestoringPurchases: false);
+      }
     }
   }
 

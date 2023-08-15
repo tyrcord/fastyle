@@ -42,7 +42,7 @@ class FastAppFeaturesBlocEvent extends BlocEvent<FastAppFeaturesBlocEventType,
   FastAppFeaturesBlocEvent.enableFeatures(
     List<FastAppFeatures> features,
   ) : super(
-          type: FastAppFeaturesBlocEventType.enableFeature,
+          type: FastAppFeaturesBlocEventType.enableFeatures,
           payload: FastAppFeaturesBlocEventPayload(
             features: features.map((feature) {
               return FastFeatureEntity(
@@ -70,7 +70,7 @@ class FastAppFeaturesBlocEvent extends BlocEvent<FastAppFeaturesBlocEventType,
   FastAppFeaturesBlocEvent.disableFeatures(
     List<FastAppFeatures> features,
   ) : super(
-          type: FastAppFeaturesBlocEventType.disableFeature,
+          type: FastAppFeaturesBlocEventType.disableFeatures,
           payload: FastAppFeaturesBlocEventPayload(
             features: features.map((feature) {
               return FastFeatureEntity(

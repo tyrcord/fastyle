@@ -45,12 +45,12 @@ class FastStoreBlocEvent
           payload: FastStoreBlocPayload(productId: productId),
         );
 
-  FastStoreBlocEvent.productPurchased(PurchaseDetails purchaseDetails)
+  FastStoreBlocEvent.productPurchased(PurchaseDetails purchase)
       : super(
           type: FastStoreBlocEventType.productPurchased,
           payload: FastStoreBlocPayload(
-            productId: purchaseDetails.productID,
-            purchaseDetails: purchaseDetails,
+            productId: purchase.productID,
+            purchaseDetails: purchase,
           ),
         );
 
@@ -69,7 +69,10 @@ class FastStoreBlocEvent
   FastStoreBlocEvent.purchaseRestored(PurchaseDetails purchase)
       : super(
           type: FastStoreBlocEventType.purchaseRestored,
-          payload: FastStoreBlocPayload(purchase: purchase),
+          payload: FastStoreBlocPayload(
+            productId: purchase.productID,
+            purchaseDetails: purchase,
+          ),
         );
 
   const FastStoreBlocEvent.restorePurchasesFailed(dynamic error)

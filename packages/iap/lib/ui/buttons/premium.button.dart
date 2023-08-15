@@ -7,18 +7,19 @@ import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:lingua_purchases/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 
 // Project imports:
 import 'package:fastyle_iap/fastyle_iap.dart';
 
 class FastIapPurchasePremiumButtton extends StatelessWidget {
   final VoidCallback? onTap;
-  final String premiumProductId;
+  final String? premiumProductId;
   final String? labelText;
 
   const FastIapPurchasePremiumButtton({
     super.key,
-    required this.premiumProductId,
+    this.premiumProductId,
     this.labelText,
     this.onTap,
   });
@@ -29,7 +30,7 @@ class FastIapPurchasePremiumButtton extends StatelessWidget {
       onlyWhenProductsChanges: true,
       builder: (_, storeState) {
         final products = storeState.products;
-        final product = getProductDetails(products, premiumProductId);
+        final product = getProductDetails(products, _getPremiumProductId());
 
         if (product != null) {
           return FastIapPlanBuilder(
@@ -56,7 +57,7 @@ class FastIapPurchasePremiumButtton extends StatelessWidget {
         text: _getLabelText(product),
         onTap: () {
           final bloc = BlocProvider.of<FastPlanBloc>(context);
-          bloc.addEvent(FastPlanBlocEvent.purchasePlan(premiumProductId));
+          bloc.addEvent(FastPlanBlocEvent.purchasePlan(_getPremiumProductId()));
           onTap?.call();
         },
       );
@@ -70,5 +71,14 @@ class FastIapPurchasePremiumButtton extends StatelessWidget {
         PurchasesLocaleKeys.purchases_label_premium_price.tr(
           namedArgs: {'price': product.price},
         );
+  }
+
+  String _getPremiumProductId() {
+    String? id = premiumProductId;
+    id ??= getPremiumProductId();
+
+    assert(id != null, 'The premium product id must not be null');
+
+    return id!;
   }
 }
