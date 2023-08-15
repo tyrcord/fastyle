@@ -48,7 +48,9 @@ class FastJobRunner {
                 );
 
                 completer.complete(response);
-              }, (error, stackTrace) => completer.completeError(error));
+              }, (error, stackTrace) {
+                completer.completeError(error, stackTrace);
+              });
             });
 
             return Stream.fromFuture(completer.future);
