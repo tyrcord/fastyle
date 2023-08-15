@@ -239,21 +239,25 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
           Positioned.fill(
             child: ColoredBox(
               color: ThemeHelper.colors.getPrimaryBackgroundColor(context),
-              child: FastSelectableListView(
-                sortItems: shouldSortItems,
-                items: _suggestions ?? widget.items,
-                onSelectionChanged: (T item) => _close(context, item),
-                categories: widget.categories,
-                extraTabBuilder: widget.extraTabBuilder,
-                groupByCategory:
-                    _searchQuery == null ? widget.groupByCategory : false,
-                selection: widget.selection,
-                intialCategoryIndex: widget.intialCategoryIndex,
-                allCategoryText: widget.allCategoryText,
-                delegate: widget.delegate,
-                listViewEmptyContent: widget.listViewEmptyContent,
-                listViewEmptyText: widget.listViewEmptyText,
-                padding: ThemeHelper.spacing.getHorizontalPadding(context),
+              child: SafeArea(
+                bottom: !widget.canClearSelection,
+                top: false,
+                child: FastSelectableListView(
+                  sortItems: shouldSortItems,
+                  items: _suggestions ?? widget.items,
+                  onSelectionChanged: (T item) => _close(context, item),
+                  categories: widget.categories,
+                  extraTabBuilder: widget.extraTabBuilder,
+                  groupByCategory:
+                      _searchQuery == null ? widget.groupByCategory : false,
+                  selection: widget.selection,
+                  intialCategoryIndex: widget.intialCategoryIndex,
+                  allCategoryText: widget.allCategoryText,
+                  delegate: widget.delegate,
+                  listViewEmptyContent: widget.listViewEmptyContent,
+                  listViewEmptyText: widget.listViewEmptyText,
+                  padding: ThemeHelper.spacing.getHorizontalPadding(context),
+                ),
               ),
             ),
           ),
