@@ -6,6 +6,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_forms/fastyle_forms.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
@@ -53,7 +54,7 @@ class FastAppSettingsPage extends FastSettingPageLayout {
     BuildContext context,
   ) {
     return [
-      FastListHeader(categoryText: categoryDescriptor.titleText),
+      FastListHeader(categoryText: categoryDescriptor.titleText.tr()),
       if (_canShowField(categoryDescriptor, FastAppSettingsFields.saveEntry))
         FastAppSettingsToggleSaveEntryField(
           descriptor: _getFieldDescriptor(
@@ -76,7 +77,7 @@ class FastAppSettingsPage extends FastSettingPageLayout {
     BuildContext context,
   ) {
     return [
-      FastListHeader(categoryText: categoryDescriptor.titleText),
+      FastListHeader(categoryText: categoryDescriptor.titleText.tr()),
       if (_canShowField(
         categoryDescriptor,
         FastAppSettingsFields.primaryCurrency,

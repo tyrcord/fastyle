@@ -26,12 +26,6 @@ class FastSettingsThemePage extends FastSettingPageLayout {
   ///
   /// E.g.: (mode) => mode.toString().capitalize()
   ///
-  /// If the [themeModeFormatter] parameter is not null, the [systemText],
-  /// [lightText] and [darkText] parameters will be ignored.
-  ///
-  /// If the [themeModeFormatter] parameter is null, the [systemText],
-  /// [lightText] and [darkText] parameters will be used to build the list
-  /// items.
   final ThemeModeFormatter? themeModeFormatter;
 
   /// The path of the light icon.
@@ -46,15 +40,6 @@ class FastSettingsThemePage extends FastSettingPageLayout {
   /// The text that will be displayed above the list items.
   final String? subtitleText;
 
-  /// The text that will be displayed for the system theme.
-  final String systemText;
-
-  /// The text that will be displayed for the light theme.
-  final String lightText;
-
-  /// The text that will be displayed for the dark theme.
-  final String darkText;
-
   const FastSettingsThemePage({
     super.key,
     super.contentPadding,
@@ -66,16 +51,10 @@ class FastSettingsThemePage extends FastSettingPageLayout {
     this.darkIconPath = FastImageMobile.dark,
     this.themeModeFormatter,
     this.listItemDescriptor,
-    String? systemText,
-    String? lightText,
-    String? darkText,
     String? headerDescriptionText,
     String? titleText,
     String? subtitleText,
-  })  : systemText = systemText ?? kFastSettingsSystemThemeText,
-        lightText = lightText ?? kFastSettingsLightThemeText,
-        darkText = darkText ?? kFastSettingsDarkThemeText,
-        subtitleText =
+  })  : subtitleText =
             subtitleText ?? SettingsLocaleKeys.settings_label_appearance,
         super(
           headerDescriptionText: headerDescriptionText ??
@@ -139,13 +118,6 @@ class FastSettingsThemePage extends FastSettingPageLayout {
 
   /// Builds the list of [FastItem] that will be used to build the list items.
   /// The list items are used to change the theme of the application.
-  ///
-  /// If the [themeModeFormatter] parameter is not null, the [systemText],
-  /// [lightText] and [darkText] parameters will be ignored.
-  ///
-  /// If the [themeModeFormatter] parameter is null, the [systemText],
-  /// [lightText] and [darkText] parameters will be used to build the list
-  /// items.
   List<FastItem<ThemeMode>> buildThemeItems() {
     final formatThemeMode = themeModeFormatter ?? _formatThemeMode;
     final systemLabel = formatThemeMode(ThemeMode.system);

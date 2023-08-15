@@ -35,7 +35,7 @@ class FastSearchPage<T extends FastItem> extends StatefulWidget {
   ///
   /// Text that describes the search placeholder.
   ///
-  final String searchPlaceholderText;
+  final String? searchPlaceholderText;
 
   ///
   /// The widget used to clear the search query.
@@ -100,7 +100,7 @@ class FastSearchPage<T extends FastItem> extends StatefulWidget {
   const FastSearchPage({
     super.key,
     required this.items,
-    this.searchPlaceholderText = kFastSearchPlaceholderText,
+    this.searchPlaceholderText,
     this.clearSelectionText = kFastClearSelectionText,
     this.clearSearchIcon,
     this.titleText = kFastSelectTitleText,

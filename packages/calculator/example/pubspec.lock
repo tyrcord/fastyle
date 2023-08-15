@@ -512,6 +512,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.11"
+  lingua_settings:
+    dependency: transitive
+    description:
+      name: lingua_settings
+      sha256: "5b50438397d1dbf0fdb29de26ba43709b9fbb73bede50fbab745583ded59872e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.9"
   lints:
     dependency: transitive
     description:

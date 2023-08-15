@@ -3,11 +3,13 @@ import 'package:fastyle_forms/fastyle_forms.dart';
 
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:lingua_settings/generated/locale_keys.g.dart';
 
 /// The default fields for the `FastAppSettingsInputsCategoryDescriptor` class.
 const kDefaultFastAppSettingsInputsFields = {
   FastAppSettingsFields.saveEntry: FastFormFieldDescriptor(
-    labelText: 'Auto-save',
+    labelText: CoreLocaleKeys.core_label_auto_save,
   ),
 };
 
@@ -28,7 +30,7 @@ class FastAppSettingsInputsCategoryDescriptor
     bool? show,
   }) : super(
           fields: fields ?? kDefaultFastAppSettingsInputsFields,
-          titleText: titleText ?? 'USER INPUTS',
+          titleText: titleText ?? SettingsLocaleKeys.settings_label_user_inputs,
           show: show ?? true,
         );
 }

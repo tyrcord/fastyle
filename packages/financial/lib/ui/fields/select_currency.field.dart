@@ -41,7 +41,7 @@ class FastSelectCurrencyField extends StatelessWidget {
   final bool isEnabled;
 
   /// The placeholder text displayed in the search field.
-  final String searchPlaceholderText;
+  final String? searchPlaceholderText;
 
   /// The placeholder text displayed in the selection field.
   final String? placeholderText;
@@ -62,7 +62,7 @@ class FastSelectCurrencyField extends StatelessWidget {
     this.captionText,
     this.selection,
     List<MatexInstrumentMetadata>? currencies,
-    String? searchPlaceholderText,
+    this.searchPlaceholderText,
     String? searchTitleText,
     bool? isEnabled = true,
     double? flagIconWidth,
@@ -70,8 +70,6 @@ class FastSelectCurrencyField extends StatelessWidget {
     bool? canClearSelection,
   })  : searchTitleText = searchTitleText ?? 'Search a Financial Instrument',
         labelText = labelText ?? 'Financial Instrument',
-        searchPlaceholderText =
-            searchPlaceholderText ?? kFastSearchPlaceholderText,
         canClearSelection = canClearSelection ?? true,
         flagIconWidth = flagIconWidth ?? 40.0,
         currencies = currencies ?? const [],

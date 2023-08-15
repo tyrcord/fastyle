@@ -1,14 +1,16 @@
 // Flutter imports:
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
 
 //TODO: @need-review: code from fastyle_dart
 
 class FastSearchField extends StatefulWidget implements IFastInput {
   final TextEditingController? textEditingController;
-  final String placeholderText;
+  final String? placeholderText;
   final bool allowAutocorrect;
   final TextAlign textAlign;
   final EdgeInsets margin;
@@ -29,7 +31,7 @@ class FastSearchField extends StatefulWidget implements IFastInput {
   const FastSearchField({
     super.key,
     this.debounceTimeDuration = kFastDebounceTimeDuration,
-    this.placeholderText = kFastSearchPlaceholderText,
+    this.placeholderText,
     this.margin = const EdgeInsets.only(bottom: 8.0),
     this.textAlign = TextAlign.start,
     this.shouldDebounceTime = false,
@@ -73,7 +75,8 @@ class FastSearchFieldState extends State<FastSearchField>
       cursorColor: ThemeHelper.colors.getPrimaryColor(context),
       keyboardType: TextInputType.text,
       decoration: InputDecoration(
-        hintText: widget.placeholderText,
+        hintText:
+            widget.placeholderText ?? CoreLocaleKeys.core_message_search.tr(),
         border: InputBorder.none,
         enabledBorder: InputBorder.none,
         focusedBorder: InputBorder.none,

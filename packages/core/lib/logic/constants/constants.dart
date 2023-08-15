@@ -81,7 +81,6 @@ const kFastRefreshTimeout = Duration(seconds: 60);
 // Strings
 
 const kFastClearSelectionText = 'Clear Selection';
-const kFastSearchPlaceholderText = 'Search...';
 const kFastSelectTitleText = 'Select';
 const kFastNoItemsString = 'No items';
 const kFastButtonLabel = 'Button';

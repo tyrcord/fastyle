@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_forms/fastyle_forms.dart';
 import 'package:matex_financial/financial.dart';
+import 'package:matex_dart/matex_dart.dart';
+import 'package:lingua_finance/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
@@ -36,32 +39,42 @@ class FastAppSettingsPrimaryCurrencyField extends StatelessWidget {
     this.descriptor,
     this.searchPlaceholderText,
     this.placeholderText,
-    String? searchTitleText,
-    String? labelText,
-  })  : searchTitleText = searchTitleText ?? 'Primary currency',
-        labelText = labelText ?? 'Select a currency';
+    this.searchTitleText,
+    this.labelText,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return FastAppSettingsPrimaryCurrencyBuilder(builder: (_, state) {
-      return MatexSelectCurrencyField(
-        searchTitleText: descriptor?.searchTitleText ?? searchTitleText,
-        labelText: descriptor?.labelText ?? labelText,
-        selection: state.primaryCurrencyCode,
-        itemDescriptionBuilder: descriptor?.itemDescriptionBuilder,
-        canClearSelection: false,
-        onSelectionChanged: (FastItem<String>? item) {
-          if (item != null &&
-              item.value != null &&
-              item.value!.code != null &&
-              item.value!.code != state.primaryCurrencyCode) {
-            onCurrencyChanged?.call(item.value!.code!);
-          }
-        },
-        searchPlaceholderText:
-            descriptor?.searchPlaceholderText ?? searchPlaceholderText,
-        placeholderText: descriptor?.placeholderText ?? placeholderText,
-      );
-    });
+    return FastAppSettingsPrimaryCurrencyBuilder(
+      builder: (_, state) {
+        return MatexSelectCurrencyField(
+          searchTitleText:
+              (descriptor?.searchTitleText ?? _getSearchTitleText()).tr(),
+          labelText: (descriptor?.labelText ?? _getLabelText()).tr(),
+          selection: state.primaryCurrencyCode,
+          itemDescriptionBuilder: descriptor?.itemDescriptionBuilder,
+          canClearSelection: false,
+          onSelectionChanged: (FastItem<MatexInstrumentMetadata>? item) {
+            if (item != null &&
+                item.value != null &&
+                item.value!.code != null &&
+                item.value!.code != state.primaryCurrencyCode) {
+              onCurrencyChanged?.call(item.value!.code!);
+            }
+          },
+          searchPlaceholderText:
+              descriptor?.searchPlaceholderText ?? searchPlaceholderText,
+          placeholderText: descriptor?.placeholderText ?? placeholderText,
+        );
+      },
+    );
+  }
+
+  String _getLabelText() {
+    return searchTitleText ?? FinanceLocaleKeys.finance_label_primary_currency;
+  }
+
+  String _getSearchTitleText() {
+    return searchTitleText ?? FinanceLocaleKeys.finance_select_primary_currency;
   }
 }

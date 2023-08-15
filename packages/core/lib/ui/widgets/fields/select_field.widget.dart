@@ -19,7 +19,7 @@ class FastSelectField<T> extends StatefulWidget {
 
   final ValueChanged<FastItem<T>?> onSelectionChanged;
   final List<FastCategory>? categories;
-  final String searchPlaceholderText;
+  final String? searchPlaceholderText;
   final String clearSelectionText;
   final bool showHelperBoundaries;
   final String? placeholderText;
@@ -52,7 +52,7 @@ class FastSelectField<T> extends StatefulWidget {
     required this.onSelectionChanged,
     required this.labelText,
     required this.items,
-    this.searchPlaceholderText = kFastSearchPlaceholderText,
+    this.searchPlaceholderText,
     this.clearSelectionText = kFastClearSelectionText,
     this.clearSearchIcon,
     this.searchTitleText = kFastSelectTitleText,

@@ -3,12 +3,14 @@ import 'package:fastyle_forms/fastyle_forms.dart';
 
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
+import 'package:lingua_finance/generated/locale_keys.g.dart';
+import 'package:lingua_settings/generated/locale_keys.g.dart';
 
 /// The default values for the user settings fields.
 const kDefaultFastAppSettingsDefaultValuesFields = {
   FastAppSettingsFields.primaryCurrency: FastFormFieldDescriptor(
-    labelText: 'Select primary currency',
-    searchTitleText: 'Primary currency',
+    searchTitleText: FinanceLocaleKeys.finance_label_primary_currency,
+    labelText: FinanceLocaleKeys.finance_select_primary_currency,
   ),
 };
 
@@ -29,7 +31,7 @@ class FastAppSettingsDefaultValuesCategoryDescriptor
     bool? show,
   }) : super(
           fields: fields ?? kDefaultFastAppSettingsDefaultValuesFields,
-          titleText: titleText ?? 'DEFAULT VALUES',
+          titleText: titleText ?? SettingsLocaleKeys.settings_label_default,
           show: show ?? true,
         );
 }

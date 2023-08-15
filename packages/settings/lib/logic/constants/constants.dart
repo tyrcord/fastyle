@@ -6,11 +6,6 @@ export 'settings_item.constant.dart';
 /// Default settings page icon height.
 const kFastSettingIconHeight = 160.0;
 
-// Default theme texts.
-const kFastSettingsSystemThemeText = 'System';
-const kFastSettingsLightThemeText = 'Light';
-const kFastSettingsDarkThemeText = 'Dark';
-
 const kFastSettingsLanguageIcons = {
   'de': FastImageFlag.germany,
   'en': FastImageFlag.uk,

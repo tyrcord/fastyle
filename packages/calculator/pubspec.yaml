@@ -20,6 +20,7 @@ dependencies:
   lingua_purchases: ^0.0.10
   lingua_ad: ^0.0.8
   easy_localization: ^3.0.2
+  lingua_settings: ^0.0.9
 
   # internal dependencies
 

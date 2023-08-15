@@ -25,7 +25,7 @@ class FastSelectableListView<T extends FastItem> extends StatefulWidget {
   final List<T> items;
   final T? selection;
   final bool showSearchBar;
-  final String searchPlaceholderText;
+  final String? searchPlaceholderText;
   final bool shouldUseFuzzySearch;
   final Widget? clearSearchIcon;
 
@@ -42,7 +42,7 @@ class FastSelectableListView<T extends FastItem> extends StatefulWidget {
     super.key,
     required this.onSelectionChanged,
     required this.items,
-    this.searchPlaceholderText = kFastSearchPlaceholderText,
+    this.searchPlaceholderText,
     this.clearSearchIcon,
     this.shouldUseFuzzySearch = false,
     this.showSearchBar = false,

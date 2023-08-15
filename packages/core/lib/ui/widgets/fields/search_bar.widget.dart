@@ -18,7 +18,7 @@ class FastSearchBar<T extends FastItem> extends StatefulWidget {
   final VoidCallback? onLeadingButtonTap;
   final bool shouldUseFuzzySearch;
   final bool showShowBottomBorder;
-  final String placeholderText;
+  final String? placeholderText;
   final Widget? clearSearchIcon;
   final bool showLeadingIcon;
   final Widget? closeIcon;
@@ -28,7 +28,7 @@ class FastSearchBar<T extends FastItem> extends StatefulWidget {
   const FastSearchBar({
     super.key,
     required this.items,
-    this.placeholderText = kFastSearchPlaceholderText,
+    this.placeholderText,
     this.clearSearchIcon,
     this.shouldUseFuzzySearch = false,
     this.showShowBottomBorder = true,

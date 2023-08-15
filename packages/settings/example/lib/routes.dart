@@ -40,25 +40,11 @@ final kAppRoutes = [
         descriptor: FastSettingsDescriptor(
           categories: {
             FastAppSettingsCategories.inputs:
-                FastAppSettingsInputsCategoryDescriptor(
-              titleText: SettingsLocaleKeys.settings_label_user_inputs.tr(),
-              fields: {
-                FastAppSettingsFields.saveEntry: FastFormFieldDescriptor(
-                  labelText: CoreLocaleKeys.core_label_auto_save.tr(),
-                ),
-              },
-            ),
+                const FastAppSettingsInputsCategoryDescriptor(),
             FastAppSettingsCategories.defaultValues:
                 FastAppSettingsDefaultValuesCategoryDescriptor(
-              titleText: SettingsLocaleKeys.settings_label_default.tr(),
               fields: {
                 FastAppSettingsFields.primaryCurrency: FastFormFieldDescriptor(
-                  labelText:
-                      FinanceLocaleKeys.finance_select_primary_currency.tr(),
-                  searchTitleText:
-                      FinanceLocaleKeys.finance_label_primary_currency.tr(),
-                  searchPlaceholderText:
-                      CoreLocaleKeys.core_message_search.tr(),
                   itemDescriptionBuilder: (dynamic metadata) {
                     if (metadata is MatexInstrumentMetadata &&
                         metadata.name != null) {
