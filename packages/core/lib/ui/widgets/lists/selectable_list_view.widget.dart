@@ -19,7 +19,7 @@ class FastSelectableListView<T extends FastItem> extends StatefulWidget {
   final bool isViewScrollable;
   final bool showItemDivider;
   final bool groupByCategory;
-  final EdgeInsets padding;
+  final EdgeInsets? padding;
   final bool sortItems;
   final bool isEnabled;
   final List<T> items;
@@ -46,7 +46,7 @@ class FastSelectableListView<T extends FastItem> extends StatefulWidget {
     this.clearSearchIcon,
     this.shouldUseFuzzySearch = false,
     this.showSearchBar = false,
-    this.padding = EdgeInsets.zero,
+    this.padding,
     this.groupByCategory = false,
     this.isViewScrollable = true,
     this.showItemDivider = false,

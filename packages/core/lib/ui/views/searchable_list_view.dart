@@ -31,7 +31,7 @@ class FastSearchableListView<T extends FastItem> extends StatefulWidget {
   final bool isViewScrollable;
   final Widget? clearSearchIcon;
   final bool showItemDivider;
-  final EdgeInsets padding;
+  final EdgeInsets? padding;
   final bool showSearchBar;
   final bool sortItems;
   final bool isEnabled;
@@ -55,7 +55,7 @@ class FastSearchableListView<T extends FastItem> extends StatefulWidget {
     this.searchPlaceholderText = kFastSearchPlaceholderText,
     this.clearSearchIcon,
     this.shouldUseFuzzySearch = false,
-    this.padding = EdgeInsets.zero,
+    this.padding,
     this.intialCategoryIndex = 0,
     this.groupByCategory = false,
     this.isViewScrollable = true,
@@ -90,14 +90,15 @@ class _FastSearchableListViewState<T extends FastItem>
       isViewScrollable: widget.isViewScrollable,
       showItemDivider: widget.showItemDivider,
       sortItems: widget.shouldUseFuzzySearch ? false : widget.sortItems,
-      padding: widget.padding,
       intialCategoryIndex: widget.intialCategoryIndex,
       allCategoryText: widget.allCategoryText,
       groupByCategory: widget.groupByCategory,
       extraTabBuilder: widget.extraTabBuilder,
-      delegate: widget.delegate,
       emptyContent: widget.emptyContent,
+      delegate: widget.delegate,
       emptyText: widget.emptyText,
+      padding:
+          widget.padding ?? ThemeHelper.spacing.getHorizontalPadding(context),
     );
 
     if (widget.isViewScrollable) {
