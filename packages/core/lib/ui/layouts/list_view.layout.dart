@@ -24,7 +24,7 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
   final List<T> items;
 
   /// The amount of padding around the content.
-  final EdgeInsets padding;
+  final EdgeInsets? padding;
 
   /// The index of the initial category to display.
   final int intialCategoryIndex;
@@ -64,7 +64,7 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
     super.key,
     required this.listItemBuilder,
     required this.items,
-    this.padding = EdgeInsets.zero,
+    this.padding,
     this.intialCategoryIndex = 0,
     this.groupByCategory = false,
     this.isViewScrollable = true,
@@ -195,7 +195,7 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
     final lastIndex = rows.length - 1;
 
     return Padding(
-      padding: padding,
+      padding: padding ?? EdgeInsets.zero,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: rows.asMap().entries.map((MapEntry<int, T> entry) {

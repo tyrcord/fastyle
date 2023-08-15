@@ -97,8 +97,7 @@ class _FastSearchableListViewState<T extends FastItem>
       emptyContent: widget.emptyContent,
       delegate: widget.delegate,
       emptyText: widget.emptyText,
-      padding:
-          widget.padding ?? ThemeHelper.spacing.getHorizontalPadding(context),
+      padding: widget.padding,
     );
 
     if (widget.isViewScrollable) {

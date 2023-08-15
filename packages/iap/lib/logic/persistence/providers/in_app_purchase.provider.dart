@@ -12,7 +12,13 @@ class FastInAppPurchaseDataProvider extends TDataProvider {
   }) : super(storeName: storeName ?? _kStoreName);
 
   Future<List<FastInAppPurchase>> listAllPurchases() async {
-    return store.list<FastInAppPurchase>();
+    final rawList = await store.list<Map<dynamic, dynamic>>();
+
+    return rawList.map((Map<dynamic, dynamic> raw) {
+      final json = Map<String, dynamic>.from(raw);
+
+      return FastInAppPurchase.fromJson(json);
+    }).toList();
   }
 
   Future<Map<String, FastInAppPurchase>> listAllPurchasesAsMap() async {

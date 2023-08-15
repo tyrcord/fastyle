@@ -253,6 +253,7 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
                 delegate: widget.delegate,
                 listViewEmptyContent: widget.listViewEmptyContent,
                 listViewEmptyText: widget.listViewEmptyText,
+                padding: ThemeHelper.spacing.getHorizontalPadding(context),
               ),
             ),
           ),
