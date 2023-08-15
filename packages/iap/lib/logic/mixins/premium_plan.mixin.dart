@@ -5,8 +5,12 @@ import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 mixin FastPremiumPlanMixin {
-  FastAppFeatures getFeatureForPlan(String planId) {
-    return FastAppFeatures.premium;
+  List<FastAppFeatures> getFeatureForPlan(String planId) {
+    // default ones, should be app specific.
+    return [
+      FastAppFeatures.adFree,
+      FastAppFeatures.exportPdf,
+    ];
   }
 
   void handleError(BuildContext context, FastPlanBloc bloc, dynamic error) {

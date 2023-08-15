@@ -1,9 +1,10 @@
 // Package imports:
+import 'package:fastyle_iap/fastyle_iap.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:tbloc/tbloc.dart';
 
 class FastStoreBlocState extends BlocState {
-  final List<PurchaseDetails?> purchases;
+  final List<FastInAppPurchase> purchases;
   final List<ProductDetails>? products;
   final bool isRestoringPurchases;
   final bool isPurchasePending;
@@ -24,6 +25,12 @@ class FastStoreBlocState extends BlocState {
     this.products,
   });
 
+  bool hasPurchasedProduct(String productId) {
+    return purchases
+        .where((element) => element.enabled)
+        .any((purchase) => purchase.productId == productId);
+  }
+
   @override
   FastStoreBlocState copyWith({
     String? priceText,
@@ -34,7 +41,7 @@ class FastStoreBlocState extends BlocState {
     bool? isRestoringPurchases,
     bool? isLoadingProducts,
     bool? isStoreAvailable,
-    List<PurchaseDetails?>? purchases,
+    List<FastInAppPurchase>? purchases,
     List<ProductDetails>? products,
     dynamic error,
   }) {

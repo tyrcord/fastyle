@@ -50,7 +50,25 @@ class FastAppFeaturesBloc extends BidirectionalBloc<FastAppFeaturesBlocEvent,
         case FastAppFeaturesBlocEventType.enableFeature:
           if (payload is FastAppFeaturesBlocEventPayload) {
             assert(payload.feature != null);
-            yield* handleEnableFeatureEvent(payload.feature!);
+            yield* handleEnableFeaturesEvent([payload.feature!]);
+          }
+
+        case FastAppFeaturesBlocEventType.enableFeatures:
+          if (payload is FastAppFeaturesBlocEventPayload) {
+            assert(payload.features != null);
+            yield* handleEnableFeaturesEvent(payload.features!);
+          }
+
+        case FastAppFeaturesBlocEventType.disableFeature:
+          if (payload is FastAppFeaturesBlocEventPayload) {
+            assert(payload.feature != null);
+            yield* handleDisableFeaturesEvent([payload.feature!]);
+          }
+
+        case FastAppFeaturesBlocEventType.disableFeatures:
+          if (payload is FastAppFeaturesBlocEventPayload) {
+            assert(payload.features != null);
+            yield* handleDisableFeaturesEvent(payload.features!);
           }
 
         default:
@@ -113,14 +131,21 @@ class FastAppFeaturesBloc extends BidirectionalBloc<FastAppFeaturesBlocEvent,
     }
   }
 
-  Stream<FastAppFeaturesBlocState> handleEnableFeatureEvent(
-    FastFeatureEntity feature,
+  Stream<FastAppFeaturesBlocState> handleEnableFeaturesEvent(
+    List<FastFeatureEntity> features,
   ) async* {
     if (isInitialized) {
-      await _dataProvider.enableFeature(feature);
-      final features = await _retrieveFeatures();
+      await _dataProvider.enableFeatures(features);
+      yield currentState.copyWith(features: await _retrieveFeatures());
+    }
+  }
 
-      yield currentState.copyWith(features: features);
+  Stream<FastAppFeaturesBlocState> handleDisableFeaturesEvent(
+    List<FastFeatureEntity> features,
+  ) async* {
+    if (isInitialized) {
+      await _dataProvider.disableFeatures(features);
+      yield currentState.copyWith(features: await _retrieveFeatures());
     }
   }
 

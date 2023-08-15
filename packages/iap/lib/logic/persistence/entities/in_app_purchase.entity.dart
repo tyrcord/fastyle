@@ -1,4 +1,5 @@
 // Package imports:
+import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:tstore/tstore.dart';
 
 class FastInAppPurchase extends TEntity {
@@ -14,6 +15,14 @@ class FastInAppPurchase extends TEntity {
     return FastInAppPurchase(
       enabled: json['enabled'] as bool,
       productId: json['id'] as String,
+    );
+  }
+
+  factory FastInAppPurchase.fromPurchaseDetails(PurchaseDetails details) {
+    return FastInAppPurchase(
+      enabled: details.status == PurchaseStatus.purchased ||
+          details.status == PurchaseStatus.restored,
+      productId: details.productID,
     );
   }
 

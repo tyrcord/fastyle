@@ -6,26 +6,28 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:lingua_purchases/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:fastyle_iap/fastyle_iap.dart';
 
 // Project imports:
 import 'package:fastyle_pricing/fastyle_pricing.dart';
 
 class FastPremiumSettingsHeader extends StatelessWidget {
+  final _storeBloc = FastStoreBloc();
   final VoidCallback onGoPremium;
+  final String premiumProductId;
 
-  const FastPremiumSettingsHeader({
+  FastPremiumSettingsHeader({
     super.key,
+    required this.premiumProductId,
     required this.onGoPremium,
   });
 
   @override
   Widget build(BuildContext context) {
-    final featuresBloc = BlocProvider.of<FastAppFeaturesBloc>(context);
-
     return BlocBuilderWidget(
-      bloc: featuresBloc,
-      builder: (BuildContext context, FastAppFeaturesBlocState state) {
-        final isPremium = state.isFeatureEnabled(FastAppFeatures.premium);
+      bloc: _storeBloc,
+      builder: (context, state) {
+        final isPremium = state.hasPurchasedProduct(premiumProductId);
 
         if (isPremium) {
           return FastPremiumPlanSummaryCard(

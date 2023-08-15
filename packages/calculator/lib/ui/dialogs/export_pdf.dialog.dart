@@ -86,7 +86,9 @@ class FastExportPdfRewardedDialog extends StatelessWidget {
     this.onValid,
   });
 
-  Future<bool> handleVerifyRights() async => isUserPremium();
+  Future<bool> handleVerifyRights() async {
+    return isAdFreeEnabled();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -52,6 +52,7 @@ final kAppRoutes = [
     builder: (context, state) => FastSectionPage(
       contentPadding: EdgeInsets.zero,
       child: FastOnboardingPremiumUser(
+        premiumProductId: 'premium',
         palette: ThemeHelper.getPaletteColors(context).orange,
         onActionTap: () {
           debugPrint('Select currency action tapped');

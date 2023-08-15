@@ -9,7 +9,7 @@ import 'package:tbloc/tbloc.dart';
 // Project imports:
 import 'package:fastyle_iap/fastyle_iap.dart';
 
-typedef PlanPurchasedCallback = FastAppFeatures Function(String planId);
+typedef PlanPurchasedCallback = List<FastAppFeatures> Function(String planId);
 
 /// The [FastPlanBloc] extends [Bloc], which provides the
 /// necessary functionality to handle events and state changes.
@@ -19,7 +19,7 @@ class FastPlanBloc
   final FastStoreBloc _fastStoreBloc = FastStoreBloc();
   final FastAppInfoBloc _fastAppInfoBloc = FastAppInfoBloc();
   late StreamSubscription _fastStoreBlocSubscription;
-  final PlanPurchasedCallback getFeatureForPlan;
+  final PlanPurchasedCallback getFeaturesForPlan;
   late List<String> productIds;
 
   // Store-related flags
@@ -28,7 +28,7 @@ class FastPlanBloc
   String? _pendingPlanRestoring;
 
   FastPlanBloc({
-    required this.getFeatureForPlan,
+    required this.getFeaturesForPlan,
     List<String>? productIds,
     FastPlanBlocState? initialState,
   }) : super(initialState: initialState ?? FastPlanBlocState()) {
@@ -213,10 +213,10 @@ class FastPlanBloc
   }
 
   Future<void> _enablePlan(String planId) async {
-    final feature = getFeatureForPlan(planId);
+    final feature = getFeaturesForPlan(planId);
 
     _fastAppFeaturesBloc.addEvent(
-      FastAppFeaturesBlocEvent.enableFeature(feature),
+      FastAppFeaturesBlocEvent.enableFeatures(feature),
     );
   }
 }

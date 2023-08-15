@@ -1,10 +1,16 @@
 import 'package:fastyle_core/fastyle_core.dart';
 
-// TODO: implement better user rights
-bool isUserPremium() {
+bool isAdFreeEnabled() {
+  return isFeatureEnabled(FastAppFeatures.adFree);
+}
+
+bool isExportPdfEnabled() {
+  return isFeatureEnabled(FastAppFeatures.exportPdf);
+}
+
+bool isFeatureEnabled(FastAppFeatures feature) {
   final featureBloc = FastAppFeaturesBloc();
   final state = featureBloc.currentState;
 
-  return state.isFeatureEnabled(FastAppFeatures.pro) ||
-      state.isFeatureEnabled(FastAppFeatures.premium);
+  return state.isFeatureEnabled(feature);
 }

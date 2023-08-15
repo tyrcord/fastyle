@@ -42,12 +42,12 @@ class _FastIapPremiumPageState extends State<FastIapPremiumPage>
     with FastPremiumPlanMixin {
   late StreamSubscription<FastPlanBlocState> errorSubscription;
   late final FastPlanBloc planBloc;
-  final _featuresBloc = FastAppFeaturesBloc();
+  final _storeBloc = FastStoreBloc();
 
   @override
   void initState() {
     super.initState();
-    planBloc = FastPlanBloc(getFeatureForPlan: getFeatureForPlan);
+    planBloc = FastPlanBloc(getFeaturesForPlan: getFeatureForPlan);
     errorSubscription = planBloc.onData
         .where((state) => state.error != null)
         .listen((state) => handleError(context, planBloc, state.error));
@@ -65,10 +65,12 @@ class _FastIapPremiumPageState extends State<FastIapPremiumPage>
     return BlocProvider(
       bloc: planBloc,
       child: BlocBuilderWidget(
-        buildWhen: (_, next) => next.isFeatureEnabled(FastAppFeatures.premium),
-        bloc: _featuresBloc,
+        buildWhen: (_, next) {
+          return next.hasPurchasedProduct(widget.premiumProductId);
+        },
+        bloc: _storeBloc,
         builder: (context, state) {
-          if (state.isFeatureEnabled(FastAppFeatures.premium)) {
+          if (state.hasPurchasedProduct(widget.premiumProductId)) {
             return FastIapThankPremiumPage(
               restorePremiumText: widget.restorePremiumText,
               onRestorePremium: widget.onRestorePremium,

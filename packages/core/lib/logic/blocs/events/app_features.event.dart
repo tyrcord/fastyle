@@ -38,4 +38,48 @@ class FastAppFeaturesBlocEvent extends BlocEvent<FastAppFeaturesBlocEventType,
             ),
           ),
         );
+
+  FastAppFeaturesBlocEvent.enableFeatures(
+    List<FastAppFeatures> features,
+  ) : super(
+          type: FastAppFeaturesBlocEventType.enableFeature,
+          payload: FastAppFeaturesBlocEventPayload(
+            features: features.map((feature) {
+              return FastFeatureEntity(
+                name: feature.name.toLowerCase(),
+                isActivated: true,
+                isEnabled: true,
+              );
+            }).toList(),
+          ),
+        );
+
+  FastAppFeaturesBlocEvent.disableFeature(
+    FastAppFeatures feature,
+  ) : super(
+          type: FastAppFeaturesBlocEventType.disableFeature,
+          payload: FastAppFeaturesBlocEventPayload(
+            feature: FastFeatureEntity(
+              name: feature.name.toLowerCase(),
+              isActivated: true,
+              isEnabled: false,
+            ),
+          ),
+        );
+
+  FastAppFeaturesBlocEvent.disableFeatures(
+    List<FastAppFeatures> features,
+  ) : super(
+          type: FastAppFeaturesBlocEventType.disableFeature,
+          payload: FastAppFeaturesBlocEventPayload(
+            features: features.map((feature) {
+              return FastFeatureEntity(
+                name: feature.name.toLowerCase(),
+                isActivated: true,
+                isEnabled: false,
+              );
+            }).toList(),
+          ),
+        );
+
 }

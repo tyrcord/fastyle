@@ -4,4 +4,7 @@ enum FastAppFeaturesBlocEventType {
   retrieveFeatures,
   featuresRetrieved,
   enableFeature,
+  enableFeatures,
+  disableFeature,
+  disableFeatures,
 }

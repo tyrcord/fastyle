@@ -67,6 +67,7 @@ class MyApp extends StatelessWidget {
       titleText: SettingsLocaleKeys.settings_label_app_settings.tr(),
       showAppBar: false,
       header: FastPremiumSettingsHeader(
+        premiumProductId: 'premium',
         onGoPremium: () {
           debugPrint('Go premium');
         },

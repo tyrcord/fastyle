@@ -1,8 +1,8 @@
 /// Enum representing fast app features.
 enum FastAppFeatures {
-  /// Represents the premium feature.
-  premium,
+  /// Represents the ad-free feature.
+  adFree,
 
-  /// Represents the pro feature.
-  pro,
+  /// Represents the export pdf feature.
+  exportPdf,
 }

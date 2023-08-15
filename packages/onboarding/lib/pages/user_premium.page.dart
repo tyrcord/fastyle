@@ -49,8 +49,11 @@ class FastOnboardingPremiumUser extends StatefulWidget {
 
   final String? notesText;
 
+  final String premiumProductId;
+
   const FastOnboardingPremiumUser({
     super.key,
+    required this.premiumProductId,
     this.handsetIconSize,
     this.tabletIconSize,
     this.secondaryText,
@@ -74,11 +77,12 @@ class _FastOnboardingPremiumUserState extends State<FastOnboardingPremiumUser>
     with FastPremiumPlanMixin {
   late StreamSubscription<FastPlanBlocState> errorSubscription;
   late final FastPlanBloc planBloc;
+  final _storeBloc = FastStoreBloc();
 
   @override
   void initState() {
     super.initState();
-    planBloc = FastPlanBloc(getFeatureForPlan: getFeatureForPlan);
+    planBloc = FastPlanBloc(getFeaturesForPlan: getFeatureForPlan);
     errorSubscription = planBloc.onData
         .where((state) => state.error != null)
         .listen((state) => handleError(context, planBloc, state.error));
@@ -104,10 +108,12 @@ class _FastOnboardingPremiumUserState extends State<FastOnboardingPremiumUser>
 
   Widget buildContent(BuildContext context) {
     return BlocBuilderWidget(
-      buildWhen: (_, next) => next.isFeatureEnabled(FastAppFeatures.premium),
-      bloc: BlocProvider.of<FastAppFeaturesBloc>(context),
+      buildWhen: (_, next) {
+        return next.hasPurchasedProduct(widget.premiumProductId);
+      },
+      bloc: _storeBloc,
       builder: (context, state) {
-        if (state.isFeatureEnabled(FastAppFeatures.premium)) {
+        if (state.hasPurchasedProduct(widget.premiumProductId)) {
           return FastOnboardingThanksPremiumContent(
             handsetIconSize: widget.handsetIconSize,
             tabletIconSize: widget.tabletIconSize,

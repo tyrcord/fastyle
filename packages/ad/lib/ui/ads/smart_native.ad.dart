@@ -94,54 +94,56 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
       key: _key,
       onVisibilityChanged: handleVisibilityChanged,
       child: BlocBuilderWidget(
-          buildWhen: (_, next) =>
-              next.isFeatureEnabled(FastAppFeatures.premium),
-          bloc: _featuresBloc,
-          builder: (context, state) {
-            final canShowAd = widget.delegate?.willShowAd() ?? !isUserPremium();
+        buildWhen: (_, next) {
+          return next.isFeatureEnabled(FastAppFeatures.adFree);
+        },
+        bloc: _featuresBloc,
+        builder: (context, state) {
+          final canShowAd = widget.delegate?.willShowAd() ?? !isAdFreeEnabled();
 
-            if (!canShowAd) {
-              return widget.placeholder ?? const SizedBox.shrink();
-            }
+          if (!canShowAd) {
+            return widget.placeholder ?? const SizedBox.shrink();
+          }
 
-            return Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                FastNativeAdBuilder(
-                  bloc: _nativeAdBloc,
-                  builder: (BuildContext context, FastNativeAdBlocState state) {
-                    if (state.adView != null) {
-                      return buildAdmobNativeAd(
-                        state.adView as NativeAd,
-                        widget.adSize,
-                      );
-                    } else if (state.ad != null) {
-                      return FastNativeAd(ad: state.ad!, adSize: widget.adSize);
-                    } else if (state.showFallback) {
-                      return buildFallback(context);
-                    }
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              FastNativeAdBuilder(
+                bloc: _nativeAdBloc,
+                builder: (BuildContext context, FastNativeAdBlocState state) {
+                  if (state.adView != null) {
+                    return buildAdmobNativeAd(
+                      state.adView as NativeAd,
+                      widget.adSize,
+                    );
+                  } else if (state.ad != null) {
+                    return FastNativeAd(ad: state.ad!, adSize: widget.adSize);
+                  } else if (state.showFallback) {
+                    return buildFallback(context);
+                  }
 
-                    return widget.loadingWidget ??
-                        getNativeAdLoadingWidget(widget.adSize);
-                  },
-                ),
-                ...appendAdLink(),
-              ],
-            );
-          }),
+                  return widget.loadingWidget ??
+                      getNativeAdLoadingWidget(widget.adSize);
+                },
+              ),
+              ...?appendAdLink(),
+            ],
+          );
+        },
+      ),
     );
   }
 
-  List<Widget> appendAdLink() {
-    if (!widget.showRemoveAdLink) {
-      return [];
+  List<Widget>? appendAdLink() {
+    if (widget.showRemoveAdLink) {
+      return [
+        kFastVerticalSizedBox12,
+        FastGoodbyeAdLink(onTap: widget.onRemoveAdLinkTap),
+      ];
     }
 
-    return [
-      kFastVerticalSizedBox12,
-      FastGoodbyeAdLink(onTap: widget.onRemoveAdLinkTap),
-    ];
+    return null;
   }
 
   Widget buildFallback(BuildContext context) {

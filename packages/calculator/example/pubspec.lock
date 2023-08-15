@@ -255,35 +255,35 @@ packages:
       path: "../../ad"
       relative: true
     source: path
-    version: "0.0.7"
+    version: "0.0.9"
   fastyle_buttons:
     dependency: "direct overridden"
     description:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.6"
+    version: "0.0.6+1"
   fastyle_calculator:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "1.21.1"
+    version: "1.22.1"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.10"
+    version: "0.0.11"
   fastyle_video_player:
     dependency: "direct overridden"
     description:
       path: "../../video_player"
       relative: true
     source: path
-    version: "0.0.4+2"
+    version: "0.0.4+3"
   ffi:
     dependency: transitive
     description:

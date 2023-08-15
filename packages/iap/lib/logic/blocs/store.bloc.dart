@@ -163,6 +163,7 @@ class FastStoreBloc
 
       yield currentState.copyWith(
         isStoreAvailable: _isStoreAvailable,
+        purchases: await _iapDataProvider.listAllPurchases(),
         isInitializing: false,
         isInitialized: true,
       );
@@ -328,8 +329,14 @@ class FastStoreBloc
       _pendingPurchaseProductId = null;
 
       if (payload.purchaseDetails != null) {
+        final purchase = FastInAppPurchase.fromPurchaseDetails(
+          payload.purchaseDetails!,
+        );
+
+        await _iapDataProvider.enablePurchaseWithProductId(purchase.productId);
+
         yield currentState.copyWith(
-          purchases: [...currentState.purchases, payload.purchaseDetails],
+          purchases: [...currentState.purchases, purchase],
           isPurchasePending: false,
         );
       } else {
