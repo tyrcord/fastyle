@@ -17,7 +17,7 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 // TODO: support more native ad heights
 class FastSmartNativeAd extends StatefulWidget {
   final WidgetBuilder? fallbackBuilder;
-  final Duration refreshTimeout;
+  final Duration? refreshInterval;
   final Widget? loadingWidget;
   final String? debugLabel;
   final FastAdInfo? adInfo;
@@ -42,11 +42,10 @@ class FastSmartNativeAd extends StatefulWidget {
     this.placeholder,
     this.delegate,
     this.adId,
-    Duration? refreshTimeout,
+    this.refreshInterval,
     this.onRemoveAdLinkTap,
     this.showRemoveAdLink = false,
-  })  : refreshTimeout = refreshTimeout ?? kFastRefreshTimeout,
-        assert(
+  }) : assert(
           adSize == FastAdSize.medium,
           'Only support native ad with a height of 120px',
         );
@@ -186,6 +185,17 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
     return adInfoBloc.currentState.adInfo;
   }
 
+  Duration _getAdRefreshInterval() {
+    if (widget.refreshInterval != null) {
+      return widget.refreshInterval!;
+    }
+
+    final adInfo = _getAdInfo();
+    final refreshInterval = adInfo.refreshInterval;
+
+    return Duration(seconds: refreshInterval);
+  }
+
   (String, String?) _getUserInfo() {
     final appInfoBloc = FastAppInfoBloc();
     final appSettingsBloc = FastAppSettingsBloc();
@@ -211,8 +221,9 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
   void _startRefreshingAd() {
     debugLog('start refreshing ad', debugLabel: widget.debugLabel);
     _refreshTimer?.cancel();
+    final refreshInterval = _getAdRefreshInterval();
 
-    _refreshTimer = Timer.periodic(widget.refreshTimeout, (Timer timer) {
+    _refreshTimer = Timer.periodic(refreshInterval, (Timer timer) {
       final payload = _getInitBlocEventPayload();
       _loadAd(payload);
     });
