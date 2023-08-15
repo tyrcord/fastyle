@@ -21,6 +21,22 @@ class FastImageAsset extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
+    if (path.startsWith('http')) {
+      if (path.endsWith('.svg')) {
+        return SvgPicture.network(
+          path,
+          height: height,
+          width: width,
+        );
+      }
+
+      return Image.network(
+        path,
+        height: height,
+        width: width,
+      );
+    }
+
     if (path.endsWith('.svg')) {
       return SvgPicture.asset(
         path,
