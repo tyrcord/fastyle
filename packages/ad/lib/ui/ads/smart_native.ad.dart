@@ -79,12 +79,10 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
   }
 
   Future<void> handleVisibilityChanged(VisibilityInfo info) async {
-    if (mounted) {
-      if (info.visibleFraction == 1) {
-        _startRefreshingAd();
-      } else {
-        _stopRefreshingAd();
-      }
+    if (info.visibleFraction == 1) {
+      _startRefreshingAd();
+    } else {
+      _stopRefreshingAd();
     }
   }
 
