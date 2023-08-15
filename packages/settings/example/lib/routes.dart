@@ -7,8 +7,6 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_forms/fastyle_forms.dart';
 import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:go_router/go_router.dart';
-import 'package:lingua_core/generated/locale_keys.g.dart';
-import 'package:lingua_finance/generated/locale_keys.g.dart';
 import 'package:lingua_finance_instrument/lingua_finance_instrument.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:matex_dart/matex_dart.dart';
