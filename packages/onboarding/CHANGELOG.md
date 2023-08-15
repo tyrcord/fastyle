@@ -1,3 +1,9 @@
+## 0.0.17
+
+ - **FIX**: bunch of fixes.
+ - **FEAT**: more localization.
+ - **FEAT**: minor improvements.
+
 ## 0.0.16
 
  - **FEAT**: better restore premium feature page.

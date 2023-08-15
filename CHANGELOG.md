@@ -3,6 +3,123 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-08-15
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.8`](#fastyle_ad---v008)
+ - [`fastyle_calculator` - `v1.22.0`](#fastyle_calculator---v1220)
+ - [`fastyle_connectivity` - `v0.0.12`](#fastyle_connectivity---v0012)
+ - [`fastyle_core` - `v0.0.11`](#fastyle_core---v0011)
+ - [`fastyle_digit_calculator` - `v0.0.14`](#fastyle_digit_calculator---v0014)
+ - [`fastyle_financial` - `v0.0.13`](#fastyle_financial---v0013)
+ - [`fastyle_forms` - `v0.0.15`](#fastyle_forms---v0015)
+ - [`fastyle_home` - `v0.0.10`](#fastyle_home---v0010)
+ - [`fastyle_iap` - `v0.0.8`](#fastyle_iap---v008)
+ - [`fastyle_images` - `v0.0.17`](#fastyle_images---v0017)
+ - [`fastyle_onboarding` - `v0.0.17`](#fastyle_onboarding---v0017)
+ - [`fastyle_pricing` - `v1.12.0`](#fastyle_pricing---v1120)
+ - [`fastyle_settings` - `v0.0.20`](#fastyle_settings---v0020)
+ - [`fastyle_buttons` - `v0.0.6+1`](#fastyle_buttons---v0061)
+ - [`fastyle_firebase` - `v0.0.6+1`](#fastyle_firebase---v0061)
+ - [`fastyle_video_player` - `v0.0.4+3`](#fastyle_video_player---v0043)
+ - [`fastyle_layouts` - `v0.0.5+1`](#fastyle_layouts---v0051)
+ - [`fastyle_views` - `v0.0.6+3`](#fastyle_views---v0063)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_buttons` - `v0.0.6+1`
+ - `fastyle_firebase` - `v0.0.6+1`
+ - `fastyle_video_player` - `v0.0.4+3`
+ - `fastyle_layouts` - `v0.0.5+1`
+ - `fastyle_views` - `v0.0.6+3`
+
+---
+
+#### `fastyle_ad` - `v0.0.8`
+
+ - **FIX**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_calculator` - `v1.22.0`
+
+ - **FIX**: bunch of fixes.
+ - **FEAT**: more localization.
+ - **FEAT**: more option to FastPdfCalculatorReporter.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_connectivity` - `v0.0.12`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_core` - `v0.0.11`
+
+ - **FIX**: remove default spacing for FastSelectableListView.
+ - **FIX**: minor improvements.
+ - **FIX**: bunch of fixes.
+ - **FEAT**: more localization.
+ - **FEAT**: add leading icon to FastSelectCurrencyField.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_digit_calculator` - `v0.0.14`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_financial` - `v0.0.13`
+
+ - **FIX**: minor improvements.
+ - **FIX**: bunch of fixes.
+ - **FIX**: rebuild FastFinanceInvestDisclaimer when language changes.
+ - **FEAT**: more localization.
+ - **FEAT**: add leading icon to FastSelectCurrencyField.
+
+#### `fastyle_forms` - `v0.0.15`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_home` - `v0.0.10`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_iap` - `v0.0.8`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_images` - `v0.0.17`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_onboarding` - `v0.0.17`
+
+ - **FIX**: bunch of fixes.
+ - **FEAT**: more localization.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_pricing` - `v1.12.0`
+
+ - **FEAT**: minor improvements.
+
+#### `fastyle_settings` - `v0.0.20`
+
+ - **FIX**: bunch of fixes.
+ - **FEAT**: more localization.
+ - **FEAT**: add leading icon to FastSelectCurrencyField.
+ - **FEAT**: add app name to FastSettingsSupportLink.
+ - **FEAT**: minor improvements.
+
+
 ## 2023-08-13
 
 ### Changes

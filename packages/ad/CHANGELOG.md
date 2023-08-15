@@ -1,3 +1,9 @@
+## 0.0.8
+
+ - **FIX**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+
 ## 0.0.7
 
  - **REFACTOR**: ad service.

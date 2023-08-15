@@ -12,8 +12,8 @@ dependencies:
     sdk: flutter
   easy_localization: ^3.0.2
   lingua_core: ^0.0.17
-  fastyle_core: ^0.0.10
-  fastyle_buttons: ^0.0.6
+  fastyle_core: ^0.0.11
+  fastyle_buttons: ^0.0.6+1
 
 dev_dependencies:
   flutter_test:

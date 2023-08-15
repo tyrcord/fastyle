@@ -1,3 +1,11 @@
+## 0.0.20
+
+ - **FIX**: bunch of fixes.
+ - **FEAT**: more localization.
+ - **FEAT**: add leading icon to FastSelectCurrencyField.
+ - **FEAT**: add app name to FastSettingsSupportLink.
+ - **FEAT**: minor improvements.
+
 ## 0.0.19
 
  - **FEAT**: better restore premium feature page.

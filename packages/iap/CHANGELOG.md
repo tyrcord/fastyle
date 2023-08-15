@@ -1,3 +1,7 @@
+## 0.0.8
+
+ - **FEAT**: minor improvements.
+
 ## 0.0.7
 
  - **FIX**: enable plan after restoring it.

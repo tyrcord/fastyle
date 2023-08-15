@@ -1,3 +1,13 @@
+## 0.0.11
+
+ - **FIX**: remove default spacing for FastSelectableListView.
+ - **FIX**: minor improvements.
+ - **FIX**: bunch of fixes.
+ - **FEAT**: more localization.
+ - **FEAT**: add leading icon to FastSelectCurrencyField.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+
 ## 0.0.10
 
  - **FIX**: FastOperationControlledDialog.

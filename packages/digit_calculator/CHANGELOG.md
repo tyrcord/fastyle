@@ -1,3 +1,7 @@
+## 0.0.14
+
+ - **FEAT**: minor improvements.
+
 ## 0.0.13+2
 
  - Update a dependency to the latest release.

@@ -1,3 +1,11 @@
+## 0.0.13
+
+ - **FIX**: minor improvements.
+ - **FIX**: bunch of fixes.
+ - **FIX**: rebuild FastFinanceInvestDisclaimer when language changes.
+ - **FEAT**: more localization.
+ - **FEAT**: add leading icon to FastSelectCurrencyField.
+
 ## 0.0.12+1
 
  - Update a dependency to the latest release.

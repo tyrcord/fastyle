@@ -1,3 +1,10 @@
+## 1.22.0
+
+ - **FIX**: bunch of fixes.
+ - **FEAT**: more localization.
+ - **FEAT**: more option to FastPdfCalculatorReporter.
+ - **FEAT**: minor improvements.
+
 ## 1.21.1
 
  - **FIX**: showExportPdfDialog.
