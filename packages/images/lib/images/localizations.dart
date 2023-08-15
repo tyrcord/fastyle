@@ -1,7 +1,6 @@
 // Generated, do not edit
 class FastImageLocalization {
-
-  static const languages = 'assets/images/localizations/languages.png';
+  static const languages = 'assets/images/localizations/languages.svg';
 }
 
 const kFastImageLocalization = [

@@ -34,9 +34,6 @@ class FastSettingsThemePage extends FastSettingPageLayout {
   /// The path of the dark icon.
   final String darkIconPath;
 
-  /// The package of the light and dark icons.
-  final String assetPackage;
-
   /// The text that will be displayed above the list items.
   final String? subtitleText;
 
@@ -46,7 +43,6 @@ class FastSettingsThemePage extends FastSettingPageLayout {
     super.iconHeight,
     super.headerIcon,
     super.actions,
-    this.assetPackage = kFastImagesPackageName,
     this.lightIconPath = FastImageMobile.light,
     this.darkIconPath = FastImageMobile.dark,
     this.themeModeFormatter,
@@ -108,10 +104,11 @@ class FastSettingsThemePage extends FastSettingPageLayout {
 
     return GestureDetector(
       onTap: () => handleThemeSelectionChanged(context, themeMode),
-      child: Image.asset(
-        icon,
-        package: assetPackage,
-        height: iconHeight,
+      child: FastShadowLayout(
+        child: FastImageAsset(
+          height: iconHeight,
+          path: icon,
+        ),
       ),
     );
   }

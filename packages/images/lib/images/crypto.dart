@@ -1,12 +1,11 @@
 // Generated, do not edit
 class FastImageCrypto {
-
-  static const dash = 'assets/images/crypto/dash.png';
-  static const litecoin = 'assets/images/crypto/litecoin.png';
-  static const bitcoin = 'assets/images/crypto/bitcoin.png';
-  static const ethereum = 'assets/images/crypto/ethereum.png';
-  static const ripple = 'assets/images/crypto/ripple.png';
-  static const bitcoinCash = 'assets/images/crypto/bitcoin_cash.png';
+  static const dash = 'assets/images/crypto/dash.svg';
+  static const litecoin = 'assets/images/crypto/litecoin.svg';
+  static const bitcoin = 'assets/images/crypto/bitcoin.svg';
+  static const ethereum = 'assets/images/crypto/ethereum.svg';
+  static const ripple = 'assets/images/crypto/ripple.svg';
+  static const bitcoinCash = 'assets/images/crypto/bitcoin_cash.svg';
 }
 
 const kFastImageCrypto = [

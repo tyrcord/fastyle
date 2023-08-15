@@ -56,7 +56,7 @@ Map<String, String> _listFiles(String path) {
     final stat = entity.statSync();
     final path = entity.path;
 
-    if (stat.type == FileSystemEntityType.file && path.endsWith('.png')) {
+    if (stat.type == FileSystemEntityType.file && path.endsWith('.svg')) {
       final name = path.split('/').last.split('.').first;
 
       elements.putIfAbsent(snakeCaseToCamelCase(name), () => path);

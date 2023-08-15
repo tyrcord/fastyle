@@ -33,9 +33,6 @@ class FastSettingsLanguagePage extends FastSettingPageLayout {
   /// The text that will be displayed above the list items.
   final String? subtitleText;
 
-  /// The package of the light and dark icons.
-  final String assetPackage;
-
   const FastSettingsLanguagePage({
     super.key,
     super.contentPadding,
@@ -44,7 +41,6 @@ class FastSettingsLanguagePage extends FastSettingPageLayout {
     super.actions,
     this.languageFormatter,
     this.listItemDescriptor,
-    this.assetPackage = kFastImagesPackageName,
     String? headerDescriptionText,
     String? titleText,
     String? subtitleText,
@@ -62,26 +58,25 @@ class FastSettingsLanguagePage extends FastSettingPageLayout {
       children: [
         if (subtitleText != null)
           FastListHeader(categoryText: subtitleText!.tr()),
-        FastAppSettingsLanguagesBuilder(builder: (
-          BuildContext context,
-          FastAppInfoBlocState appInfoBlocState,
-        ) {
-          final items = buildLanguageItems(appInfoBlocState.supportedLocales);
+        FastAppSettingsLanguagesBuilder(
+          builder: (context, appInfoBlocState) {
+            final items = buildLanguageItems(appInfoBlocState.supportedLocales);
 
-          return FastAppSettingsLanguageBuilder(
-            builder: (BuildContext context, FastAppSettingsBlocState state) {
-              return FastSelectableListView<FastItem<String>>(
-                isViewScrollable: false,
-                sortItems: false,
-                items: items,
-                selection: _findSelection(state.languageCode, items),
-                onSelectionChanged: (FastItem<String> item) {
-                  handleLanguageSelectionChanged(context, item.value!);
-                },
-              );
-            },
-          );
-        }),
+            return FastAppSettingsLanguageBuilder(
+              builder: (BuildContext context, FastAppSettingsBlocState state) {
+                return FastSelectableListView<FastItem<String>>(
+                  isViewScrollable: false,
+                  sortItems: false,
+                  items: items,
+                  selection: _findSelection(state.languageCode, items),
+                  onSelectionChanged: (FastItem<String> item) {
+                    handleLanguageSelectionChanged(context, item.value!);
+                  },
+                );
+              },
+            );
+          },
+        ),
       ],
     );
   }
@@ -94,9 +89,8 @@ class FastSettingsLanguagePage extends FastSettingPageLayout {
   }
 
   Widget buildIcon() {
-    return Image.asset(
-      FastImageLocalization.languages,
-      package: assetPackage,
+    return FastImageAsset(
+      path: FastImageLocalization.languages,
       height: iconHeight,
     );
   }
