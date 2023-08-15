@@ -114,9 +114,11 @@ class FastSettingsLanguagePage extends FastSettingPageLayout {
     Widget? flagIcon;
 
     if (kFastSettingsLanguageIcons.containsKey(languageCode)) {
-      flagIcon = FastImageAsset(
-        path: kFastSettingsLanguageIcons[languageCode]!,
-        width: 36,
+      flagIcon = FastShadowLayout(
+        child: FastImageAsset(
+          path: kFastSettingsLanguageIcons[languageCode]!,
+          width: 36,
+        ),
       );
     }
 

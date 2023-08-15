@@ -92,8 +92,9 @@ class FastSelectCurrencyField extends StatelessWidget {
       labelText: labelText,
       useFuzzySearch: true,
       items: options,
-      leading:
-          selectedOption != null ? _buildFlagIcon(selectedOption.value!) : null,
+      leading: selectedOption != null
+          ? _buildFlagIcon(selectedOption.value!, hasShadow: false)
+          : null,
     );
   }
 
@@ -137,7 +138,10 @@ class FastSelectCurrencyField extends StatelessWidget {
     );
   }
 
-  Widget? _buildFlagIcon(MatexInstrumentMetadata instrument) {
+  Widget? _buildFlagIcon(
+    MatexInstrumentMetadata instrument, {
+    bool hasShadow = true,
+  }) {
     final iconKey = toCamelCase(instrument.icon);
     final hasIcon = kFastImageFlagMap.containsKey(iconKey);
     Widget? flagIcon;
@@ -151,6 +155,10 @@ class FastSelectCurrencyField extends StatelessWidget {
       );
     }
 
-    return FastShadowLayout(child: flagIcon);
+    if (hasShadow) {
+      return FastShadowLayout(child: flagIcon);
+    }
+
+    return flagIcon;
   }
 }
