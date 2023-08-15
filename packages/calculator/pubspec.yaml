@@ -1,6 +1,6 @@
 name: fastyle_calculator
 description: Set of calculator Widgets for the fastyle library.
-version: 1.22.0
+version: 1.22.1
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/calculator
 
 environment:
@@ -16,7 +16,7 @@ dependencies:
   pdf: ^3.10.4
   printing: ^5.11.0
   lingua_core: ^0.0.17
-  fastyle_ad: ^0.0.8
+  fastyle_ad: ^0.0.9
   lingua_purchases: ^0.0.10
   lingua_ad: ^0.0.8
   easy_localization: ^3.0.2

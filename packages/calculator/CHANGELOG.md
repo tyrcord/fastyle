@@ -1,3 +1,7 @@
+## 1.22.1
+
+ - Update a dependency to the latest release.
+
 ## 1.22.0
 
  - **FIX**: bunch of fixes.

@@ -1,3 +1,8 @@
+## 0.0.9
+
+ - **FEAT**: ad refreshInterval to adInfo.
+ - **FEAT**: avoid to refresh ad when not visible.
+
 ## 0.0.8
 
  - **FIX**: minor improvements.

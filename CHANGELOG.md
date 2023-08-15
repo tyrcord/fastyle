@@ -15,6 +15,35 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_ad` - `v0.0.9`](#fastyle_ad---v009)
+ - [`fastyle_calculator` - `v1.22.1`](#fastyle_calculator---v1221)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_calculator` - `v1.22.1`
+
+---
+
+#### `fastyle_ad` - `v0.0.9`
+
+ - **FEAT**: ad refreshInterval to adInfo.
+ - **FEAT**: avoid to refresh ad when not visible.
+
+
+## 2023-08-15
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_ad` - `v0.0.8`](#fastyle_ad---v008)
  - [`fastyle_calculator` - `v1.22.0`](#fastyle_calculator---v1220)
  - [`fastyle_connectivity` - `v0.0.12`](#fastyle_connectivity---v0012)
