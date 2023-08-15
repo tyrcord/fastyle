@@ -16,7 +16,7 @@ class FastSelectCurrencyField extends StatelessWidget {
 
   /// A callback function that will be called when the selection changes.
   /// It takes a [FastItem<String>] object representing the selected item.
-  final Function(FastItem<String>?)? onSelectionChanged;
+  final Function(FastItem<MatexInstrumentMetadata>?)? onSelectionChanged;
 
   /// A list of [MatexInstrumentMetadata] objects representing the financial
   /// instruments.
@@ -82,55 +82,66 @@ class FastSelectCurrencyField extends StatelessWidget {
     final options = _buildSelectOptions();
     final selectedOption = _findSelection(options);
 
-    return FastSelectField<String>(
+    return FastSelectField<MatexInstrumentMetadata>(
       onSelectionChanged: (selection) => onSelectionChanged?.call(selection),
       searchPlaceholderText: searchPlaceholderText,
-      selection: selectedOption,
-      searchTitleText: searchTitleText,
-      placeholderText: placeholderText,
       canClearSelection: canClearSelection,
+      placeholderText: placeholderText,
+      searchTitleText: searchTitleText,
+      selection: selectedOption,
       captionText: captionText,
       isReadOnly: !isEnabled,
       labelText: labelText,
       useFuzzySearch: true,
       items: options,
+      leading:
+          selectedOption != null ? _buildFlagIcon(selectedOption.value!) : null,
     );
   }
 
-  /// Finds the selected item in the list of options.
-  ///
-  /// Returns the selected [FastItem<String>] object if found, or `null` if not
-  /// found.
-  FastItem<String>? _findSelection(List<FastItem<String>> options) {
+  FastItem<MatexInstrumentMetadata>? _findSelection(
+    List<FastItem<MatexInstrumentMetadata>> options,
+  ) {
     if (selection == null) {
       return null;
     }
 
     final currency = selection!.toLowerCase();
 
-    return options
-        .where((element) => element.value != null)
-        .firstWhereOrNull((item) => item.value!.toLowerCase() == currency);
+    return options.where((element) {
+      return element.value != null && element.value!.code != null;
+    }).firstWhereOrNull((item) => item.value!.code!.toLowerCase() == currency);
   }
 
-  /// Builds the list of selectable options based on the provided [currencies].
-  ///
-  /// Returns a list of [FastItem<String>] objects representing the options.
-  List<FastItem<String>> _buildSelectOptions() {
+  List<FastItem<MatexInstrumentMetadata>> _buildSelectOptions() {
     return currencies
         .where((MatexInstrumentMetadata instrument) => instrument.code != null)
         .map(_buildItem)
         .toList();
   }
 
-  /// Builds a single option item based on the provided [instrument].
-  ///
-  /// Returns a [FastItem<String>] object representing the option item.
-  FastItem<String> _buildItem(MatexInstrumentMetadata instrument) {
-    final iconKey = toCamelCase(instrument.icon);
-    final hasIcon = kFastImageFlagMap.containsKey(iconKey);
+  FastItem<MatexInstrumentMetadata> _buildItem(
+    MatexInstrumentMetadata instrument,
+  ) {
+    final flagIcon = _buildFlagIcon(instrument);
     final code = instrument.code!;
     var description = code;
+
+    if (itemDescriptionBuilder != null) {
+      description = itemDescriptionBuilder!(instrument);
+    }
+
+    return FastItem(
+      descriptor: FastListItemDescriptor(leading: flagIcon),
+      descriptionText: description,
+      value: instrument,
+      labelText: code,
+    );
+  }
+
+  Widget? _buildFlagIcon(MatexInstrumentMetadata instrument) {
+    final iconKey = toCamelCase(instrument.icon);
+    final hasIcon = kFastImageFlagMap.containsKey(iconKey);
     Widget? flagIcon;
 
     if (flagIconBuilder != null) {
@@ -142,15 +153,6 @@ class FastSelectCurrencyField extends StatelessWidget {
       );
     }
 
-    if (itemDescriptionBuilder != null) {
-      description = itemDescriptionBuilder!(instrument);
-    }
-
-    return FastItem(
-      descriptor: FastListItemDescriptor(leading: flagIcon),
-      descriptionText: description,
-      value: instrument.code,
-      labelText: code,
-    );
+    return FastShadowLayout(child: flagIcon);
   }
 }

@@ -45,6 +45,7 @@ class FastSelectField<T> extends StatefulWidget {
   final VoidCallback? onSearchPageClose;
   final FastFastSelectFieldDelegate<FastItem<T>>? delegate;
   final Widget? icon;
+  final Widget? leading;
 
   const FastSelectField({
     super.key,
@@ -78,6 +79,7 @@ class FastSelectField<T> extends StatefulWidget {
     this.onSearchPageClose,
     this.delegate,
     this.icon,
+    this.leading,
   });
 
   @override
@@ -129,10 +131,19 @@ class _FastSelectFieldState<T> extends State<FastSelectField<T>> {
       decoration: buildBorderSide(context),
       child: Row(
         children: <Widget>[
+          if (widget.leading != null) buildLeading(context),
           Expanded(child: buildLabel(context)),
           buildIcon(context),
         ],
       ),
+    );
+  }
+
+  Widget buildLeading(BuildContext context) {
+    return Container(
+      constraints: const BoxConstraints.tightFor(width: kFastIconSizeSmall),
+      margin: const EdgeInsets.only(right: 8),
+      child: widget.leading,
     );
   }
 
