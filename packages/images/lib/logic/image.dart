@@ -1,6 +1,7 @@
 // Flutter imports:
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class FastImageAsset extends StatelessWidget {
   final double? height;
@@ -24,6 +25,17 @@ class FastImageAsset extends StatelessWidget {
       return SvgPicture.asset(
         path,
         package: 'fastyle_images',
+        height: height,
+        width: width,
+      );
+    }
+
+    if (path.endsWith('.svg.vec')) {
+      return SvgPicture(
+        AssetBytesLoader(
+          path,
+          packageName: 'fastyle_images',
+        ),
         height: height,
         width: width,
       );

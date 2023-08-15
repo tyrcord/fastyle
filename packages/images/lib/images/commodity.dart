@@ -1,10 +1,10 @@
 // Generated, do not edit
 class FastImageCommodity {
-  static const oil = 'assets/images/commodity/oil.svg';
-  static const gas = 'assets/images/commodity/gas.svg';
-  static const silver = 'assets/images/commodity/silver.svg';
-  static const gold = 'assets/images/commodity/gold.svg';
-  static const platinum = 'assets/images/commodity/platinum.svg';
+  static const oil = 'assets/images/commodity/oil.svg.vec';
+  static const gas = 'assets/images/commodity/gas.svg.vec';
+  static const silver = 'assets/images/commodity/silver.svg.vec';
+  static const gold = 'assets/images/commodity/gold.svg.vec';
+  static const platinum = 'assets/images/commodity/platinum.svg.vec';
 }
 
 const kFastImageCommodity = [

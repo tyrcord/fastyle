@@ -1,7 +1,7 @@
 // Generated, do not edit
 class FastImageMobile {
-  static const dark = 'assets/images/mobile/dark.svg';
-  static const light = 'assets/images/mobile/light.svg';
+  static const dark = 'assets/images/mobile/dark.svg.vec';
+  static const light = 'assets/images/mobile/light.svg.vec';
 }
 
 const kFastImageMobile = [
