@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:go_router/go_router.dart';
 
 class SmartNativeAdsPage extends StatefulWidget {
   const SmartNativeAdsPage({super.key});
@@ -15,10 +16,14 @@ class SmartNativeAdsPage extends StatefulWidget {
 class _SmartNativeAdsPageState extends State<SmartNativeAdsPage> {
   @override
   Widget build(BuildContext context) {
-    return const FastSectionPage(
+    return FastSectionPage(
+      floatingActionButton: FastRaisedButton(
+        text: 'Show',
+        onTap: () => GoRouter.of(context).go('/smart-native/cover'),
+      ),
       titleText: 'Smart Native Ads',
       isViewScrollable: true,
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           FastTitle(text: 'Medium native Ad'),

@@ -75,7 +75,6 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return FastSectionPage(
       titleText: 'Fastyle Ads Demo',
-      contentPadding: EdgeInsets.zero,
       child: FastNavigationListView(
         onSelectionChanged: (FastItem<String> item) {
           GoRouter.of(context).go('/${item.value}');

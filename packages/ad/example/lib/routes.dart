@@ -1,4 +1,6 @@
 // Package imports:
+import 'package:fastyle_core/fastyle_core.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
@@ -19,6 +21,15 @@ final kAppRoutes = [
   GoRoute(
     path: 'smart-native',
     builder: (context, state) => const SmartNativeAdsPage(),
+    routes: [
+      GoRoute(
+        path: 'cover',
+        pageBuilder: (context, state) => const MaterialPage(
+          fullscreenDialog: true,
+          child: FastSectionPage(),
+        ),
+      ),
+    ],
   ),
   GoRoute(
     path: 'rewarded',
