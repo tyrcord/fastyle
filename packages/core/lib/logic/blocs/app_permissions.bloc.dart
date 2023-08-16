@@ -42,7 +42,7 @@ class FastAppPermissionsBloc extends BidirectionalBloc<
       if (payload is FastAppPermission) {
         yield* handleInitializedEvent(payload);
       }
-    } else if (isInitialized && type != null) {
+    } else if (isInitialized) {
       switch (type) {
         case FastAppPermissionsBlocEventType.updateNotificationPermission:
           if (payload is FastAppPermission) {

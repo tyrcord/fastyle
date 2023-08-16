@@ -57,7 +57,7 @@ class FastOnboardingRequestNotificationsContent extends StatelessWidget {
 
   Future<void> handleAction() async {
     controller?.pause();
-    await messagingService.requestPermission(
+    final notificationSettings = await messagingService.requestPermission(
       announcement: false,
       criticalAlert: false,
       provisional: false,
@@ -66,6 +66,14 @@ class FastOnboardingRequestNotificationsContent extends StatelessWidget {
       badge: true,
       sound: true,
     );
+
+    final status = notificationSettings.authorizationStatus;
+    final permission = getNotificationPermission(status);
+    final event = FastAppPermissionsBlocEvent.updateNotificationPermission(
+      permission,
+    );
+
+    FastAppPermissionsBloc.instance.addEvent(event);
 
     onActionTap?.call();
 
@@ -81,6 +89,7 @@ class FastOnboardingRequestNotificationsContent extends StatelessWidget {
       primaryText: _getPrimaryText(),
       palette: _getPalette(context),
       actionText: _getActionText(),
+      onActionTap: handleAction,
       icon: buildIcon(context),
       children: children,
     );
@@ -121,5 +130,15 @@ class FastOnboardingRequestNotificationsContent extends StatelessWidget {
     }
 
     return palette!;
+  }
+
+  FastAppPermission getNotificationPermission(AuthorizationStatus status) {
+    if (status == AuthorizationStatus.authorized) {
+      return FastAppPermission.granted;
+    } else if (status == AuthorizationStatus.denied) {
+      return FastAppPermission.denied;
+    }
+
+    return FastAppPermission.unknown;
   }
 }

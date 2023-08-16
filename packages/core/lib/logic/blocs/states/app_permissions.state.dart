@@ -77,7 +77,9 @@ class FastAppPermissionsBlocState extends BlocState {
   FastAppPermissionsBlocState clone() => copyWith();
 
   @override
-  FastAppPermissionsBlocState merge(covariant FastAppPermissionsBlocState model) {
+  FastAppPermissionsBlocState merge(
+    covariant FastAppPermissionsBlocState model,
+  ) {
     return copyWith(
       isInitializing: model.isInitializing,
       isInitialized: model.isInitialized,
@@ -94,6 +96,8 @@ class FastAppPermissionsBlocState extends BlocState {
 
   @override
   List<Object?> get props => [
+        isInitializing,
+        isInitialized,
         trackingPermission,
         locationPermission,
         notificationPermission,
