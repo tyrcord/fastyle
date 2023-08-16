@@ -65,7 +65,7 @@ class FastAppPermissionsBloc extends BidirectionalBloc<
       isInitializing = true;
       yield currentState.copyWith(isInitializing: true);
 
-      final permission = await _getTrackingStatus();
+      final permission = await _getTrackingPermission();
 
       debugLog('Tracking permission: $permission', debugLabel: debugLabel);
 
@@ -99,21 +99,9 @@ class FastAppPermissionsBloc extends BidirectionalBloc<
     yield currentState.copyWith(trackingPermission: permission);
   }
 
-  Future<FastAppPermission> _getTrackingStatus() async {
+  Future<FastAppPermission> _getTrackingPermission() async {
     final status = await AppTrackingTransparency.trackingAuthorizationStatus;
 
-    if (status == TrackingStatus.authorized ||
-        status == TrackingStatus.notSupported) {
-      // The user authorizes access to tracking or the platform is not
-      // iOS or the iOS version is below 14.0
-
-      return FastAppPermission.granted;
-    } else if (status == TrackingStatus.restricted) {
-      return FastAppPermission.restricted;
-    } else if (status == TrackingStatus.denied) {
-      return FastAppPermission.denied;
-    }
-
-    return FastAppPermission.unknown;
+    return getTrackingPermission(status);
   }
 }

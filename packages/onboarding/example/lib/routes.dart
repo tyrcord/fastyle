@@ -25,7 +25,6 @@ final kAppRoutes = [
     builder: (context, state) => FastSectionPage(
       contentPadding: EdgeInsets.zero,
       child: FastOnboardingPersonalizedAds(
-        palette: ThemeHelper.getPaletteColors(context).mint,
         onActionTap: () {
           debugPrint('Personalized Ads action tapped');
         },
