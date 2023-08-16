@@ -35,6 +35,7 @@ dependencies:
   decimal: ^2.3.3
   tmodel: ^0.5.4
   fastyle_buttons: ^0.0.6+1
+  app_tracking_transparency: ^2.0.4
 
 dev_dependencies:
   flutter_test:
