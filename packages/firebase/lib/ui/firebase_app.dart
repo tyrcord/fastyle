@@ -107,6 +107,7 @@ class _FastFirebaseAppState extends State<FastFirebaseApp> {
           FastFirebaseRemoteConfigJob(
             defaultConfig: widget.defaultRemoteConfig,
           ),
+          ...?widget.loaderJobs,
         ],
         appInformation: widget.appInfo,
         onDatabaseVersionChanged: widget.onDatabaseVersionChanged,
