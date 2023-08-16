@@ -477,10 +477,10 @@ packages:
     dependency: transitive
     description:
       name: lingua_core
-      sha256: "59f6b480abd17945d28408d6c5949147996d22a6ad28f18b0cceb7155b3ae7da"
+      sha256: "8a7bd53e8d03e25b10a4308188ab97695471a7880b40a06b32806b51e7fe8e6a"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.17"
+    version: "0.0.20"
   lingua_purchases:
     dependency: transitive
     description:

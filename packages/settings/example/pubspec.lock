@@ -601,18 +601,18 @@ packages:
     dependency: "direct main"
     description:
       name: lingua_core
-      sha256: "6947ad951e18099d45dd9a952029a2786297a23d344540c83e83a810a55fef19"
+      sha256: "8a7bd53e8d03e25b10a4308188ab97695471a7880b40a06b32806b51e7fe8e6a"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.19"
+    version: "0.0.20"
   lingua_finance:
     dependency: "direct main"
     description:
       name: lingua_finance
-      sha256: da025ff844f2d3d6d5324502746eb3ce2172d14410c4c092741a8577b110bfc8
+      sha256: "40ba6454eaac2cf7fb3b44af9280ea9a2bf52565c93f346c42685f621ecd74ec"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.10"
+    version: "0.0.11"
   lingua_finance_instrument:
     dependency: "direct main"
     description:
@@ -626,6 +626,14 @@ packages:
     description:
       name: lingua_finance_stock
       sha256: f51072e5f38ae9d9045c11252bd310b88697a4dd729ebf6d7470758d7e61eabe
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.5"
+  lingua_help:
+    dependency: transitive
+    description:
+      name: lingua_help
+      sha256: "4dee560d0c980cff57d0d6be61065f883973ba8736a62239609646f3a7f4f08a"
       url: "https://pub.dev"
     source: hosted
     version: "0.0.5"
@@ -649,10 +657,10 @@ packages:
     dependency: "direct main"
     description:
       name: lingua_settings
-      sha256: "5b50438397d1dbf0fdb29de26ba43709b9fbb73bede50fbab745583ded59872e"
+      sha256: efd56687682abb463e1fac08927a043cf0e155fcbd7aa50f3628fff8e87dded7
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.9"
+    version: "0.0.10"
   lingua_share:
     dependency: "direct main"
     description:
@@ -1086,10 +1094,10 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: "6b6fcac773787b06401f9595c99c0d652383d39ace927ef1b5134ba751813879"
+      sha256: "819af3c51905488a6ea79d82f116bd31ce7031c1f88ba1ad0158397d51e46e32"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.26"
+    version: "0.0.26+1"
   tbloc:
     dependency: "direct main"
     description:
