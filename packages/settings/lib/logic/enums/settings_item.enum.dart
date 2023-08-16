@@ -12,4 +12,5 @@ enum FastSettingsItems {
   appearance,
   language,
   calculator,
+  manual,
 }

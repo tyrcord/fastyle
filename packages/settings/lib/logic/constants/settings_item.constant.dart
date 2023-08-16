@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lingua_calculator/generated/locale_keys.g.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
+import 'package:lingua_help/generated/locale_keys.g.dart';
 
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
@@ -61,6 +62,10 @@ const kFastSettingsItemDescriptors = {
     labelText: CalculatorLocaleKeys.calculator_label_calculator,
     value: '/settings/calculator',
   ),
+  FastSettingsItems.manual: FastItem(
+    labelText: HelpLocaleKeys.help_label_manual,
+    value: '/settings/manual',
+  ),
 };
 
 const kFastSettingsItemIcons = {
@@ -115,5 +120,9 @@ const kFastSettingsItemIcons = {
   FastSettingsItems.calculator: FastSettingsItemIcon(
     pro: FastFontAwesomeIcons.lightCalculatorSimple,
     free: FontAwesomeIcons.calculator,
+  ),
+  FastSettingsItems.manual: FastSettingsItemIcon(
+    pro: FastFontAwesomeIcons.lightBook,
+    free: FontAwesomeIcons.book,
   ),
 };
