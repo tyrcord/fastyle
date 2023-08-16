@@ -3,11 +3,13 @@ import 'dart:async';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:rxdart/rxdart.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:firebase_in_app_messaging/firebase_in_app_messaging.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:t_helpers/helpers.dart';
 
 /// A job that initializes the Firebase Messaging service.
 class FastFirebaseMessagingJob extends FastJob {
@@ -23,7 +25,7 @@ class FastFirebaseMessagingJob extends FastJob {
   }
 
   const FastFirebaseMessagingJob._()
-      : super(debugLabel: 'fast_firebase_messaging_job');
+      : super(debugLabel: 'FastFirebaseMessagingJob');
 
   /// Initializes the Firebase Messaging service.
   @override
@@ -32,7 +34,39 @@ class FastFirebaseMessagingJob extends FastJob {
     IFastErrorReporter? errorReporter,
   }) async {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      debugPrint('Message data: ${message.data}');
+      debugLog('Message data: ${message.data}', debugLabel: debugLabel);
     });
+
+    final permission = await _getNotificationStatus();
+    debugLog('Notification permission: $permission', debugLabel: debugLabel);
+
+    final bloc = FastAppPermissionsBloc.instance;
+    final event = FastAppPermissionsBlocEvent.updateNotificationPermission(
+      permission,
+    );
+
+    bloc.addEvent(event);
+
+    final blocState = await RaceStream([
+      bloc.onData.where((state) => state.notificationPermission == permission),
+      bloc.onError,
+    ]).first;
+
+    if (blocState is! FastAppPermissionsBlocState) {
+      throw blocState;
+    }
+  }
+
+  Future<FastAppPermission> _getNotificationStatus() async {
+    final settings = await messagingService.getNotificationSettings();
+    final status = settings.authorizationStatus;
+
+    if (status == AuthorizationStatus.authorized) {
+      return FastAppPermission.granted;
+    } else if (status == AuthorizationStatus.denied) {
+      return FastAppPermission.denied;
+    }
+
+    return FastAppPermission.unknown;
   }
 }

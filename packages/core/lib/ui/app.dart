@@ -158,6 +158,7 @@ class _FastAppState extends State<FastApp> {
         child: MultiBlocProvider(
           blocProviders: [
             BlocProvider(bloc: FastAppInfoBloc()),
+            BlocProvider(bloc: FastAppPermissionsBloc()),
             BlocProvider(bloc: FastAppSettingsBloc()),
             BlocProvider(bloc: FastAppDictBloc()),
             BlocProvider(bloc: FastAppFeaturesBloc()),
@@ -306,6 +307,7 @@ class _FastAppState extends State<FastApp> {
         widget.appInfo,
         onDatabaseVersionChanged: widget.onDatabaseVersionChanged,
       ),
+      FastAppPermissionsJob(),
       FastAppSettingsJob(),
       FastAppDictJob(),
       FastAppFeaturesJob(),

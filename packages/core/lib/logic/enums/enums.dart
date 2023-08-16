@@ -6,3 +6,4 @@ export './position.enum.dart';
 export './section_page_load_event.enum.dart';
 export './split_supplementary_behavior.enum.dart';
 export './operation_controlled_status.enum.dart';
+export './app_permissions.enum.dart';
