@@ -8,6 +8,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_images/fastyle_images.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
@@ -60,7 +61,7 @@ class FastSettingsThemePage extends FastSettingPageLayout {
 
   @override
   Widget buildSettingsContent(BuildContext context) {
-    final items = buildThemeItems();
+    final items = buildThemeItems(context);
 
     return Column(
       children: [
@@ -115,23 +116,41 @@ class FastSettingsThemePage extends FastSettingPageLayout {
 
   /// Builds the list of [FastItem] that will be used to build the list items.
   /// The list items are used to change the theme of the application.
-  List<FastItem<ThemeMode>> buildThemeItems() {
+  List<FastItem<ThemeMode>> buildThemeItems(BuildContext context) {
     final formatThemeMode = themeModeFormatter ?? _formatThemeMode;
     final systemLabel = formatThemeMode(ThemeMode.system);
     final lightLabel = formatThemeMode(ThemeMode.light);
     final darkLabel = formatThemeMode(ThemeMode.dark);
 
     return [
-      buildThemeItem(systemLabel, ThemeMode.system),
-      buildThemeItem(lightLabel, ThemeMode.light),
-      buildThemeItem(darkLabel, ThemeMode.dark),
+      buildThemeItem(
+        systemLabel,
+        ThemeMode.system,
+        buildLeadingIcon(_getSystemIcon(context)),
+      ),
+      buildThemeItem(
+        lightLabel,
+        ThemeMode.light,
+        buildLeadingIcon(_getLightIcon(context)),
+      ),
+      buildThemeItem(
+        darkLabel,
+        ThemeMode.dark,
+        buildLeadingIcon(_getDarkIcon(context)),
+      ),
     ];
   }
 
   /// Builds a [FastItem] that will be used to build a list item.
-  FastItem<ThemeMode> buildThemeItem(String name, ThemeMode themeMode) {
+  FastItem<ThemeMode> buildThemeItem(
+    String name,
+    ThemeMode themeMode,
+    Widget icon,
+  ) {
+    final descriptor = listItemDescriptor ?? const FastListItemDescriptor();
+
     return FastItem(
-      descriptor: listItemDescriptor,
+      descriptor: descriptor.copyWith(leading: icon),
       value: themeMode,
       labelText: name,
     );
@@ -165,5 +184,39 @@ class FastSettingsThemePage extends FastSettingPageLayout {
       case ThemeMode.dark:
         return SettingsLocaleKeys.settings_label_dark.tr();
     }
+  }
+
+  Widget buildLeadingIcon(IconData icon) {
+    return Icon(icon, size: kFastIconSizeSmall);
+  }
+
+  IconData _getDarkIcon(BuildContext context) {
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return FastFontAwesomeIcons.lightMoon;
+    }
+
+    return FontAwesomeIcons.moon;
+  }
+
+  IconData _getLightIcon(BuildContext context) {
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return FastFontAwesomeIcons.lightSunBright;
+    }
+
+    return FontAwesomeIcons.sun;
+  }
+
+  IconData _getSystemIcon(BuildContext context) {
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return FastFontAwesomeIcons.lightGear;
+    }
+
+    return FontAwesomeIcons.gear;
   }
 }
