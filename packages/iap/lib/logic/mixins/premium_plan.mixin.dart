@@ -7,10 +7,7 @@ import 'package:easy_localization/easy_localization.dart';
 mixin FastPremiumPlanMixin {
   List<FastAppFeatures> getFeatureForPlan(String planId) {
     // default ones, should be app specific.
-    return [
-      FastAppFeatures.adFree,
-      FastAppFeatures.exportPdf,
-    ];
+    return [FastAppFeatures.adFree];
   }
 
   void handleError(BuildContext context, FastPlanBloc bloc, dynamic error) {

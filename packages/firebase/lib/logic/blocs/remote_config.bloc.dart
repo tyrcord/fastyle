@@ -1,6 +1,8 @@
 // Package imports:
 import 'package:firebase_remote_config/firebase_remote_config.dart';
+import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 
 // Project imports:
 import 'package:fastyle_firebase/fastyle_firebase.dart';
@@ -8,6 +10,7 @@ import 'package:fastyle_firebase/fastyle_firebase.dart';
 class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
     FastFirebaseRemoteConfigBlocEvent, FastFirebaseRemoteConfigBlocState> {
   static FastFirebaseRemoteConfigBloc? _singleton;
+  static String debugLabel = 'FastFirebaseRemoteConfigBloc';
 
   FastFirebaseRemoteConfigBloc._({
     FastFirebaseRemoteConfigBlocState? initialState,
@@ -58,6 +61,11 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
       // TODO: listen on config changes ?
       final enabled = await remoteConfig.fetchAndActivate();
 
+      if (enabled) {
+        final config = remoteConfig.getAll();
+        await _updateAppFeatures(config);
+      }
+
       addEvent(FastFirebaseRemoteConfigBlocEvent.initialized(enabled: enabled));
     }
   }
@@ -76,5 +84,43 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
         isInitialized: true,
       );
     }
+  }
+
+  Future<void> _updateAppFeatures(Map<String, RemoteConfigValue> config) async {
+    final featureToEnable = <FastAppFeatures>[];
+    final featureToDisable = <FastAppFeatures>[];
+
+    config.forEach((key, value) {
+      if (key.startsWith('feature')) {
+        key = key.replaceFirst('feature', '');
+        final featureKey = toCamelCase(key);
+
+        try {
+          final feature = FastAppFeatures.values.byName(featureKey);
+          final isFeatureEnabled = value.asBool();
+
+          if (isFeatureEnabled) {
+            debugLog('enabling feature: $featureKey', debugLabel: debugLabel);
+            featureToEnable.add(feature);
+          } else {
+            debugLog('disabling feature: $featureKey', debugLabel: debugLabel);
+            featureToDisable.add(feature);
+          }
+        } catch (e) {
+          debugLog('unknown feature: $featureKey', debugLabel: debugLabel);
+        }
+      }
+    });
+
+    final appFeaturesBloc = FastAppFeaturesBloc.instance;
+    final enableFeaturesEvent = FastAppFeaturesBlocEvent.enableFeatures(
+      featureToEnable,
+    );
+    final disableFeaturesEvent = FastAppFeaturesBlocEvent.disableFeatures(
+      featureToDisable,
+    );
+
+    appFeaturesBloc.addEvent(enableFeaturesEvent);
+    appFeaturesBloc.addEvent(disableFeaturesEvent);
   }
 }

@@ -33,7 +33,6 @@ class FastAppFeaturesBlocEvent extends BlocEvent<FastAppFeaturesBlocEventType,
           payload: FastAppFeaturesBlocEventPayload(
             feature: FastFeatureEntity(
               name: feature.name.toLowerCase(),
-              isActivated: true,
               isEnabled: true,
             ),
           ),
@@ -47,7 +46,6 @@ class FastAppFeaturesBlocEvent extends BlocEvent<FastAppFeaturesBlocEventType,
             features: features.map((feature) {
               return FastFeatureEntity(
                 name: feature.name.toLowerCase(),
-                isActivated: true,
                 isEnabled: true,
               );
             }).toList(),
@@ -61,7 +59,6 @@ class FastAppFeaturesBlocEvent extends BlocEvent<FastAppFeaturesBlocEventType,
           payload: FastAppFeaturesBlocEventPayload(
             feature: FastFeatureEntity(
               name: feature.name.toLowerCase(),
-              isActivated: true,
               isEnabled: false,
             ),
           ),
@@ -75,11 +72,9 @@ class FastAppFeaturesBlocEvent extends BlocEvent<FastAppFeaturesBlocEventType,
             features: features.map((feature) {
               return FastFeatureEntity(
                 name: feature.name.toLowerCase(),
-                isActivated: true,
                 isEnabled: false,
               );
             }).toList(),
           ),
         );
-
 }

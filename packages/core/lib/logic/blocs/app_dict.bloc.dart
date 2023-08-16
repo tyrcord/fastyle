@@ -1,4 +1,5 @@
 // Package imports:
+import 'package:collection/collection.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:tstore/tstore.dart';
 
@@ -7,7 +8,9 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppDictBloc
     extends BidirectionalBloc<FastAppDictBlocEvent, FastAppDictBlocState> {
-  static FastAppDictBloc? _singleton;
+  static bool _hasBeenInstantiated = false;
+  static late FastAppDictBloc instance;
+
   FastAppDictDataProvider _dataProvider;
 
   FastAppDictBloc._({FastAppDictBlocState? initialState})
@@ -15,13 +18,24 @@ class FastAppDictBloc
         super(initialState: initialState ?? FastAppDictBlocState());
 
   factory FastAppDictBloc({FastAppDictBlocState? initialState}) {
-    _singleton ??= FastAppDictBloc._(initialState: initialState);
+    if (!_hasBeenInstantiated) {
+      instance = FastAppDictBloc._(initialState: initialState);
+      _hasBeenInstantiated = true;
+    }
 
-    return _singleton!;
+    return instance;
   }
 
   @override
   bool canClose() => false;
+
+  dynamic getValue(String name) {
+    final entry = currentState.entries.firstWhereOrNull(
+      (e) => e.name == name,
+    );
+
+    return entry?.value;
+  }
 
   @override
   Stream<FastAppDictBlocState> mapEventToState(

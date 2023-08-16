@@ -3,6 +3,6 @@ enum FastAppFeatures {
   /// Represents the ad-free feature.
   adFree,
 
-  /// Represents the export pdf feature.
-  exportPdf,
+  /// Represents the export report feature.
+  exportReportPdf,
 }

@@ -31,7 +31,7 @@ class FastAppFeaturesBlocState extends BlocState {
       (FastFeatureEntity model) => model.name.toLowerCase() == name,
     );
 
-    return feature != null ? feature.isActivated && feature.isEnabled : false;
+    return feature != null ? feature.isEnabled : false;
   }
 
   @override

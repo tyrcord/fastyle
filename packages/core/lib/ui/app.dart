@@ -91,6 +91,8 @@ class FastApp extends StatefulWidget {
   /// A flag indicating whether to use the pro icons.
   final bool useProIcons;
 
+  final bool overrideLoaderJobs;
+
   FastApp({
     super.key,
     this.delayBeforeShowingLoader = kFastDelayBeforeShowingLoader,
@@ -115,7 +117,9 @@ class FastApp extends StatefulWidget {
     String? localizationPath,
     Locale? fallbackLocale,
     bool? useProIcons,
+    bool? overrideLoaderJobs,
   })  : useProIcons = useProIcons ?? false,
+        overrideLoaderJobs = overrideLoaderJobs ?? false,
         assetLoader = assetLoader ?? const LinguaLoader(),
         localizationPath = localizationPath ?? kFastLocalizationPath,
         fallbackLocale = fallbackLocale ?? kFastAppSettingsDefaultLocale {
@@ -201,20 +205,8 @@ class _FastAppState extends State<FastApp> {
           errorReporter: widget.errorReporter,
           loaderBuilder: widget.loaderBuilder,
           locale: easyLocalization.locale,
+          loaderJobs: _getLoaderJobs(),
           appBuilder: buildApp,
-          loaderJobs: [
-            // FIXME: onDatabaseVersionChanged should be called once the app
-            // has been initialized.
-            FastAppInfoJob(
-              widget.appInfo,
-              onDatabaseVersionChanged: widget.onDatabaseVersionChanged,
-            ),
-            FastAppSettingsJob(),
-            FastAppDictJob(),
-            FastAppFeaturesJob(),
-            FastAppOnboardingJob(),
-            ...?widget.loaderJobs,
-          ],
           lightTheme: widget.lightTheme,
           darkTheme: widget.darkTheme,
           errorBuilder: widget.errorBuilder ?? handleAppError,
@@ -300,6 +292,26 @@ class _FastAppState extends State<FastApp> {
     debugPrint('handleAppError: $error');
 
     return const FastErrorStatusPage();
+  }
+
+  Iterable<FastJob>? _getLoaderJobs() {
+    if (widget.overrideLoaderJobs) {
+      return widget.loaderJobs;
+    }
+
+    return [
+      // FIXME: onDatabaseVersionChanged should be called once the app
+      // has been initialized.
+      FastAppInfoJob(
+        widget.appInfo,
+        onDatabaseVersionChanged: widget.onDatabaseVersionChanged,
+      ),
+      FastAppSettingsJob(),
+      FastAppDictJob(),
+      FastAppFeaturesJob(),
+      FastAppOnboardingJob(),
+      ...?widget.loaderJobs,
+    ];
   }
 
   /// Builds the FastThemeBloc instance.

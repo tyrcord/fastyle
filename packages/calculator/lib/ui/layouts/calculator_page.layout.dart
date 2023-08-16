@@ -208,10 +208,11 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
   /// Builds a list of action widgets based on the [shareIcon] parameter.
   List<Widget> _buildPageActions() {
     return [
-      FastCalculatorShareAction<B, R>(
-        calculatorBloc: calculatorBloc,
-        icon: shareIcon,
-      ),
+      if (isExportReportPdfEnabled())
+        FastCalculatorShareAction<B, R>(
+          calculatorBloc: calculatorBloc,
+          icon: shareIcon,
+        ),
     ];
   }
 

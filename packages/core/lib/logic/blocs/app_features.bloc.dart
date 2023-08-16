@@ -7,7 +7,9 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppFeaturesBloc extends BidirectionalBloc<FastAppFeaturesBlocEvent,
     FastAppFeaturesBlocState> {
-  static FastAppFeaturesBloc? _singleton;
+  static bool _hasBeenInstantiated = false;
+  static late FastAppFeaturesBloc instance;
+
   FastAppFeaturesDataProvider _dataProvider;
 
   FastAppFeaturesBloc._({FastAppFeaturesBlocState? initialState})
@@ -15,13 +17,20 @@ class FastAppFeaturesBloc extends BidirectionalBloc<FastAppFeaturesBlocEvent,
         super(initialState: initialState ?? FastAppFeaturesBlocState());
 
   factory FastAppFeaturesBloc({FastAppFeaturesBlocState? initialState}) {
-    _singleton ??= FastAppFeaturesBloc._(initialState: initialState);
+    if (!_hasBeenInstantiated) {
+      instance = FastAppFeaturesBloc._(initialState: initialState);
+      _hasBeenInstantiated = true;
+    }
 
-    return _singleton!;
+    return instance;
   }
 
   @override
   bool canClose() => false;
+
+  bool isFeatureEnabled(FastAppFeatures appFeature) {
+    return currentState.isFeatureEnabled(appFeature);
+  }
 
   @override
   Stream<FastAppFeaturesBlocState> mapEventToState(
