@@ -15,6 +15,32 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_ad` - `v0.0.10+1`](#fastyle_ad---v00101)
+ - [`fastyle_calculator` - `v1.24.0`](#fastyle_calculator---v1240)
+
+---
+
+#### `fastyle_ad` - `v0.0.10+1`
+
+ - **FIX**: minor improvements.
+
+#### `fastyle_calculator` - `v1.24.0`
+
+ - **FEAT**: PDF support subtitle and authorUrl.
+
+
+## 2023-08-17
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_ad` - `v0.0.10`](#fastyle_ad---v0010)
  - [`fastyle_buttons` - `v0.0.7`](#fastyle_buttons---v007)
  - [`fastyle_calculator` - `v1.23.0`](#fastyle_calculator---v1230)

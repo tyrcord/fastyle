@@ -1,3 +1,7 @@
+## 0.0.10+1
+
+ - **FIX**: minor improvements.
+
 ## 0.0.10
 
  - **FIX**: smart ad visibility.

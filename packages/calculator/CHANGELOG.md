@@ -1,3 +1,7 @@
+## 1.24.0
+
+ - **FEAT**: PDF support subtitle and authorUrl.
+
 ## 1.23.0
 
  - **FEAT**: update dependencies.
