@@ -240,6 +240,8 @@ abstract class FastCalculatorBloc<
   @protected
   Stream<S> handleInitEvent() async* {
     if (canInitialize) {
+      debugLog('Initializing calculator', debugLabel: debugLabel);
+
       isInitializing = true;
       yield currentState.copyWith(isInitializing: isInitializing) as S;
 
@@ -273,6 +275,8 @@ abstract class FastCalculatorBloc<
   @protected
   Stream<S> handleInitializedEvent() async* {
     if (isInitializing) {
+      debugLog('Calculator initialized', debugLabel: debugLabel);
+
       isInitialized = true;
 
       defaultCalculatorState = defaultCalculatorState.copyWith(
@@ -338,6 +342,8 @@ abstract class FastCalculatorBloc<
   /// Yields a stream of state changes.
   @protected
   Stream<S> handleResetEvent() async* {
+    debugLog('Resetting calculator', debugLabel: debugLabel);
+
     isInitialized = false;
     isInitializing = false;
 
