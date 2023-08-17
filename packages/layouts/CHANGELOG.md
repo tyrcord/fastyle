@@ -1,3 +1,8 @@
+## 0.0.6
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: better onboarding pages.
+
 ## 0.0.5+1
 
  - Update a dependency to the latest release.

@@ -1,3 +1,10 @@
+## 0.0.10
+
+ - **FIX**: smart ad visibility.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: allow to set the refresh Interval from the adInfo.
+
 ## 0.0.9
 
  - **FEAT**: ad refreshInterval to adInfo.

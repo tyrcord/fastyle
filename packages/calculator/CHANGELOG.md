@@ -1,3 +1,9 @@
+## 1.23.0
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: enable firebase config to disable/enable features.
+ - **FEAT**: stronger feature mechanism.
+
 ## 1.22.1
 
  - Update a dependency to the latest release.

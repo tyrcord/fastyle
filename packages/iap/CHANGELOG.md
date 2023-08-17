@@ -1,3 +1,11 @@
+## 0.0.9
+
+ - **FIX**: bunch of fixes.
+ - **FIX**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: enable firebase config to disable/enable features.
+ - **FEAT**: stronger feature mechanism.
+
 ## 0.0.8
 
  - **FEAT**: minor improvements.

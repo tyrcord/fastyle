@@ -1,3 +1,12 @@
+## 0.0.21
+
+ - **FIX**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastSettingsItems.manual.
+ - **FEAT**: add icon to the theme page.
+ - **FEAT**: migrate pngs to svgs.
+ - **FEAT**: stronger feature mechanism.
+
 ## 0.0.20
 
  - **FIX**: bunch of fixes.

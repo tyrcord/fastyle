@@ -1,3 +1,14 @@
+## 0.0.18
+
+ - **FIX**: notifications onboarding.
+ - **FIX**: minor improvements.
+ - **FIX**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better onboarding pages.
+ - **FEAT**: FastOnboardingPersonalizedAds has different states.
+ - **FEAT**: FastOnboardingNotifications has different states.
+ - **FEAT**: stronger feature mechanism.
+
 ## 0.0.17
 
  - **FIX**: bunch of fixes.

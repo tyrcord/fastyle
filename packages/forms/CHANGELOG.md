@@ -1,3 +1,8 @@
+## 0.0.16
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+
 ## 0.0.15
 
  - **FEAT**: minor improvements.

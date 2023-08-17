@@ -1,3 +1,9 @@
+## 1.13.0
+
+ - **FIX**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+
 ## 1.12.0
 
  - **FEAT**: minor improvements.

@@ -3,6 +3,163 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-08-17
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.10`](#fastyle_ad---v0010)
+ - [`fastyle_buttons` - `v0.0.7`](#fastyle_buttons---v007)
+ - [`fastyle_calculator` - `v1.23.0`](#fastyle_calculator---v1230)
+ - [`fastyle_connectivity` - `v0.0.13`](#fastyle_connectivity---v0013)
+ - [`fastyle_core` - `v0.0.12`](#fastyle_core---v0012)
+ - [`fastyle_digit_calculator` - `v0.0.15`](#fastyle_digit_calculator---v0015)
+ - [`fastyle_financial` - `v0.0.14`](#fastyle_financial---v0014)
+ - [`fastyle_firebase` - `v0.0.7`](#fastyle_firebase---v007)
+ - [`fastyle_forms` - `v0.0.16`](#fastyle_forms---v0016)
+ - [`fastyle_home` - `v0.0.11`](#fastyle_home---v0011)
+ - [`fastyle_iap` - `v0.0.9`](#fastyle_iap---v009)
+ - [`fastyle_images` - `v0.0.18`](#fastyle_images---v0018)
+ - [`fastyle_layouts` - `v0.0.6`](#fastyle_layouts---v006)
+ - [`fastyle_onboarding` - `v0.0.18`](#fastyle_onboarding---v0018)
+ - [`fastyle_pricing` - `v1.13.0`](#fastyle_pricing---v1130)
+ - [`fastyle_settings` - `v0.0.21`](#fastyle_settings---v0021)
+ - [`fastyle_video_player` - `v0.0.5`](#fastyle_video_player---v005)
+ - [`fastyle_views` - `v0.0.7`](#fastyle_views---v007)
+
+---
+
+#### `fastyle_ad` - `v0.0.10`
+
+ - **FIX**: smart ad visibility.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: allow to set the refresh Interval from the adInfo.
+
+#### `fastyle_buttons` - `v0.0.7`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_calculator` - `v1.23.0`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: enable firebase config to disable/enable features.
+ - **FEAT**: stronger feature mechanism.
+
+#### `fastyle_connectivity` - `v0.0.13`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+
+#### `fastyle_core` - `v0.0.12`
+
+ - **FIX**: notifications onboarding.
+ - **FIX**: padding issue.
+ - **FIX**: bunch of fixes.
+ - **FIX**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better onboarding pages.
+ - **FEAT**: FastOnboardingPersonalizedAds has different states.
+ - **FEAT**: FastOnboardingNotifications has different states.
+ - **FEAT**: add FastAppPermissionsBloc.
+ - **FEAT**: add FastExampleBlock.
+ - **FEAT**: enable firebase config to disable/enable features.
+ - **FEAT**: minor improvement.
+ - **FEAT**: stronger feature mechanism.
+
+#### `fastyle_digit_calculator` - `v0.0.15`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+
+#### `fastyle_financial` - `v0.0.14`
+
+ - **FIX**: minor improvements.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_firebase` - `v0.0.7`
+
+ - **FIX**: regression.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastAppPermissionsBloc.
+ - **FEAT**: enable firebase config to disable/enable features.
+
+#### `fastyle_forms` - `v0.0.16`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+
+#### `fastyle_home` - `v0.0.11`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+
+#### `fastyle_iap` - `v0.0.9`
+
+ - **FIX**: bunch of fixes.
+ - **FIX**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: enable firebase config to disable/enable features.
+ - **FEAT**: stronger feature mechanism.
+
+#### `fastyle_images` - `v0.0.18`
+
+ - **PERF**: precompiled svgs.
+ - **PERF**: smaller svgs.
+ - **PERF**: smaller svgs.
+ - **FIX**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: support network images.
+ - **FEAT**: migrate pngs to svgs.
+ - **FEAT**: stronger feature mechanism.
+
+#### `fastyle_layouts` - `v0.0.6`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: better onboarding pages.
+
+#### `fastyle_onboarding` - `v0.0.18`
+
+ - **FIX**: notifications onboarding.
+ - **FIX**: minor improvements.
+ - **FIX**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better onboarding pages.
+ - **FEAT**: FastOnboardingPersonalizedAds has different states.
+ - **FEAT**: FastOnboardingNotifications has different states.
+ - **FEAT**: stronger feature mechanism.
+
+#### `fastyle_pricing` - `v1.13.0`
+
+ - **FIX**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+
+#### `fastyle_settings` - `v0.0.21`
+
+ - **FIX**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastSettingsItems.manual.
+ - **FEAT**: add icon to the theme page.
+ - **FEAT**: migrate pngs to svgs.
+ - **FEAT**: stronger feature mechanism.
+
+#### `fastyle_video_player` - `v0.0.5`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_views` - `v0.0.7`
+
+ - **FEAT**: update dependencies.
+
+
 ## 2023-08-15
 
 ### Changes

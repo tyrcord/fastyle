@@ -1,3 +1,10 @@
+## 0.0.7
+
+ - **FIX**: regression.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastAppPermissionsBloc.
+ - **FEAT**: enable firebase config to disable/enable features.
+
 ## 0.0.6+1
 
  - Update a dependency to the latest release.

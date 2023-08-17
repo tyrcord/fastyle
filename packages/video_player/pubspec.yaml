@@ -1,6 +1,6 @@
 name: fastyle_video_player
 description: Set of Video Player Widgets for the fastyle library.
-version: 0.0.4+3
+version: 0.0.5
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/video_player
 
 environment:
@@ -23,7 +23,7 @@ dependencies:
   lingua_core: ^0.0.21
 
   # Fastyle
-  fastyle_core: ^0.0.11
+  fastyle_core: ^0.0.12
 
   # T
   tbloc: ^0.21.2

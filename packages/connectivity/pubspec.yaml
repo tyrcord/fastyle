@@ -1,6 +1,6 @@
 name: fastyle_connectivity
 description: Set of connectivity Widgets for the fastyle library.
-version: 0.0.12
+version: 0.0.13
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/connectivity
 
 environment:
@@ -17,7 +17,7 @@ dependencies:
   rxdart: ^0.27.7
 
   # Fastyle
-  fastyle_core: ^0.0.11
+  fastyle_core: ^0.0.12
 
   # T
   tmodel: ^0.5.4

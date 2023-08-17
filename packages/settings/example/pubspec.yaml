@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_core: ^0.0.11
+  fastyle_core: ^0.0.12
   go_router: ^10.0.0
   font_awesome_flutter: ^10.5.0
   easy_localization: ^3.0.2
@@ -21,11 +21,11 @@ dependencies:
   lingua_finance: ^0.0.8
   lingua_purchases: ^0.0.5+1
   lingua_finance_instrument: ^0.0.2
-  fastyle_forms: ^0.0.15
-  fastyle_settings: ^0.0.20
+  fastyle_forms: ^0.0.16
+  fastyle_settings: ^0.0.21
   matex_financial: ^0.0.13+1
   lingua_share: ^0.0.2+1
-  fastyle_pricing: ^1.12.0
+  fastyle_pricing: ^1.13.0
   matex_dart: ^0.11.1
 
 dev_dependencies:

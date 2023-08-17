@@ -1,3 +1,19 @@
+## 0.0.12
+
+ - **FIX**: notifications onboarding.
+ - **FIX**: padding issue.
+ - **FIX**: bunch of fixes.
+ - **FIX**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better onboarding pages.
+ - **FEAT**: FastOnboardingPersonalizedAds has different states.
+ - **FEAT**: FastOnboardingNotifications has different states.
+ - **FEAT**: add FastAppPermissionsBloc.
+ - **FEAT**: add FastExampleBlock.
+ - **FEAT**: enable firebase config to disable/enable features.
+ - **FEAT**: minor improvement.
+ - **FEAT**: stronger feature mechanism.
+
 ## 0.0.11
 
  - **FIX**: remove default spacing for FastSelectableListView.
