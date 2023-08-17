@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:lingua_ad/generated/locale_keys.g.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
@@ -20,9 +22,9 @@ class FastDefaultNativeAd extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastNativeAdLayout(
-      descriptionText: 'This is the default ad description.',
+      descriptionText: AdLocaleKeys.ad_message_no_ads_now.tr(),
+      titleText: AdLocaleKeys.ad_message_lucky_you.tr(),
       icon: buildIcon(context),
-      titleText: 'Default Ad',
       adSize: adSize,
     );
   }
@@ -45,9 +47,13 @@ class FastDefaultNativeAd extends StatelessWidget {
     const size = 80.0;
 
     if (useProIcons) {
-      return FaIcon(FastFontAwesomeIcons.megaphone, color: color, size: size);
+      return FaIcon(
+        FastFontAwesomeIcons.lightFaceSmile,
+        color: color,
+        size: size,
+      );
     }
 
-    return FaIcon(FontAwesomeIcons.bullhorn, color: color, size: size);
+    return FaIcon(FontAwesomeIcons.faceSmile, color: color, size: size);
   }
 }

@@ -40,9 +40,9 @@ class FastAdService {
     Duration? ttl,
   }) {
     if (kDebugMode) {
-      this.ttl = const Duration(minutes: 5);
+      this.ttl = kFastAdServiceCacheTTLDebug;
     } else {
-      this.ttl = ttl ?? const Duration(minutes: 60);
+      this.ttl = ttl ?? kFastAdServiceCacheTTL;
     }
   }
 
@@ -70,16 +70,21 @@ class FastAdService {
 
     final path = '$_adsPath$adId';
     final uri = Uri.https(uriAuthority, path);
-    final response = await http.get(uri);
 
-    if (response.statusCode == 200) {
-      final ad = await compute(tryDecodeAd, response.body);
+    try {
+      final response = await _requestAd(uri);
 
-      if (ad != null) {
-        _cache.put(adId, response.body, ttl: ttl);
+      if (response.statusCode == 200) {
+        final ad = await compute(tryDecodeAd, response.body);
 
-        return ad;
+        if (ad != null) {
+          _cache.put(adId, response.body, ttl: ttl);
+
+          return ad;
+        }
       }
+    } catch (e) {
+      debugLog('Failed to fetch ads: $e', debugLabel: debugLabel);
     }
 
     return null;
@@ -218,24 +223,29 @@ class FastAdService {
     };
 
     final uri = Uri.https(uriAuthority, path, queryParameters);
-    final response = await http.get(uri);
 
-    if (response.statusCode == 200) {
-      final ads = await compute(tryDecodeAds, response.body);
+    try {
+      final response = await _requestAd(uri);
 
-      if (ads != null && ads.isNotEmpty) {
-        final cacheId = _buildCacheIdForAds(
-          language,
-          providerId: providerId,
-          country: country,
-          appId: appId,
-          limit: limit,
-        );
+      if (response.statusCode == 200) {
+        final ads = await compute(tryDecodeAds, response.body);
 
-        _cache.put(cacheId, response.body, ttl: ttl); // Cache the fetched ads
+        if (ads != null && ads.isNotEmpty) {
+          final cacheId = _buildCacheIdForAds(
+            language,
+            providerId: providerId,
+            country: country,
+            appId: appId,
+            limit: limit,
+          );
 
-        return ads;
+          _cache.put(cacheId, response.body, ttl: ttl); // Cache the fetched ads
+
+          return ads;
+        }
       }
+    } catch (e) {
+      debugLog('Failed to fetch ads: $e', debugLabel: debugLabel);
     }
 
     return [];
@@ -324,5 +334,14 @@ class FastAdService {
     buffer.write("language/$language");
 
     return buffer.toString();
+  }
+
+  /// Requests an ad from the API.
+  /// Returns the response of the request.
+  /// Throws an exception if the request fails.
+  /// Throws a [TimeoutException] if the request takes longer than the
+  /// specified timeout. The default timeout is 15 seconds.
+  Future<http.Response> _requestAd(Uri url) {
+    return http.get(url).timeout(kFastAdDefaultTimeout);
   }
 }

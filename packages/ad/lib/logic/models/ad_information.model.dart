@@ -2,6 +2,7 @@
 import 'dart:io';
 
 // Flutter imports:
+import 'package:fastyle_ad/fastyle_ad.dart';
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:t_helpers/helpers.dart';
 
@@ -61,7 +62,7 @@ class FastAdInfo extends TDocument {
   /// The authority of the ad service URI.
   final String? adServiceUriAuthority;
 
-  /// The refresh interval for ads. The default value is 60 seconds.
+  /// The refresh interval for ads. The default value is 90 seconds.
   final int refreshInterval;
 
   /// Get the Ad Unit ID for native ads.
@@ -182,9 +183,9 @@ class FastAdInfo extends TDocument {
     this.iosRewardedInterstitialAdUnitId,
     this.keywords,
     this.countries,
-    this.splashAdThreshold = 10,
+    this.splashAdThreshold = kFastSplashAdThreshold,
     this.adServiceUriAuthority,
-    this.refreshInterval = 60,
+    this.refreshInterval = kFastAdRefreshInterval,
   });
 
   /// Create a new [FastAdInfo] instance from a JSON map.
@@ -207,9 +208,11 @@ class FastAdInfo extends TDocument {
           json['iosRewardedInterstitialAdUnitId'] as String?,
       countries: json['countries'] as List<String>?,
       keywords: json['keywords'] as List<String>?,
-      splashAdThreshold: json['splashAdThreshold'] as int? ?? 10,
+      splashAdThreshold:
+          json['splashAdThreshold'] as int? ?? kFastSplashAdThreshold,
       adServiceUriAuthority: json['adServiceUriAuthority'] as String?,
-      refreshInterval: json['refreshInterval'] as int? ?? 60,
+      refreshInterval:
+          json['refreshInterval'] as int? ?? kFastAdRefreshInterval,
     );
   }
 
