@@ -45,6 +45,7 @@ class FastPdfCalculatorReporter {
     required List<FastReportEntry> inputs,
     required List<FastReportEntry> results,
     String? inputTitle,
+    String? subtitle,
     String? resultTitle,
     String? dateTitle,
     String? disclaimerTitle,
@@ -52,6 +53,7 @@ class FastPdfCalculatorReporter {
     Color? italicTextColor,
     Color? textColor,
     String? author,
+    String? authorUrl,
     List<FastReportCategoryEntry>? categories,
     String languageCode = 'en',
     String? countryCode,
@@ -87,8 +89,14 @@ class FastPdfCalculatorReporter {
                     children: [
                       _buildHeaderTitle(title, style),
                       pw.SizedBox(height: 48),
-                      _buildDate(dateTitle!, now, italicStyle),
-                      pw.SizedBox(height: 24),
+                      if (subtitle != null) ...[
+                        _buildHeaderSubTitle(subtitle, style),
+                        pw.SizedBox(height: 24),
+                      ],
+                      if (dateTitle != null) ...[
+                        _buildDate(dateTitle, now, italicStyle),
+                        pw.SizedBox(height: 24),
+                      ],
                       // INPUTS
                       _buildTableSection(inputTitle!, inputs, style),
                     ],
@@ -122,6 +130,19 @@ class FastPdfCalculatorReporter {
                           child: pw.Text(
                             author,
                             style: italicStyle.copyWith(fontSize: 7),
+                          ),
+                        ),
+                      if (author != null && authorUrl != null)
+                        pw.SizedBox(height: 24),
+                      if (authorUrl != null)
+                        pw.Align(
+                          alignment: pw.Alignment.center,
+                          child: pw.UrlLink(
+                            child: pw.Text(
+                              authorUrl,
+                              style: italicStyle.copyWith(fontSize: 7),
+                            ),
+                            destination: authorUrl,
                           ),
                         ),
                     ],
@@ -193,6 +214,10 @@ class FastPdfCalculatorReporter {
         style: style.copyWith(fontSize: 20),
       ),
     );
+  }
+
+  pw.Widget _buildHeaderSubTitle(String subtitle, pw.TextStyle style) {
+    return pw.Text(subtitle, style: style.copyWith(fontSize: 14));
   }
 
   /// Builds the date section of the report.
