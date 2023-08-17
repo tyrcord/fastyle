@@ -14,7 +14,6 @@ class FastOnboardingPersonalizedAds extends StatelessWidget {
   /// The title text to display.
   final String? titleText;
 
-  /// A list of widgets to display below the primary and secondary texts.
   final List<Widget>? children;
 
   /// The size of the icon to display on a handset.

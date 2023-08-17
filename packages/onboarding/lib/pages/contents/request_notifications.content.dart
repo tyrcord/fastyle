@@ -18,14 +18,11 @@ class FastOnboardingRequestNotificationsContent extends StatelessWidget {
   /// The palette to use for the icon.
   final FastPaletteScheme? palette;
 
-  /// A list of widgets to display below the primary and secondary texts.
   final List<Widget>? children;
 
-  /// The text to display below the icon.
-  final String? primaryText;
+  final String? introText;
 
-  /// The text to display below the primary text.
-  final String? secondaryText;
+  final String? descriptionText;
 
   /// The size of the icon to display on a handset.
   final double? handsetIconSize;
@@ -40,19 +37,21 @@ class FastOnboardingRequestNotificationsContent extends StatelessWidget {
 
   /// The callback to call when the action is tapped.
   final VoidCallback? onActionTap;
+  final String? notesText;
 
   const FastOnboardingRequestNotificationsContent({
     super.key,
     this.handsetIconSize,
     this.tabletIconSize,
-    this.secondaryText,
-    this.primaryText,
+    this.descriptionText,
+    this.introText,
     this.controller,
     this.children,
     this.palette,
     this.onActionTap,
     this.actionText,
     this.icon,
+    this.notesText,
   });
 
   Future<void> handleAction() async {
@@ -85,10 +84,11 @@ class FastOnboardingRequestNotificationsContent extends StatelessWidget {
     return FastOnboardingContentLayout(
       handsetIconSize: handsetIconSize,
       tabletIconSize: tabletIconSize,
-      secondaryText: _getSecondaryText(),
-      primaryText: _getPrimaryText(),
+      descriptionText: _getDescriptionText(),
+      introText: _getIntroText(),
       palette: _getPalette(context),
       actionText: _getActionText(),
+      notesText: _getNotesText(),
       onActionTap: handleAction,
       icon: buildIcon(context),
       children: children,
@@ -114,13 +114,18 @@ class FastOnboardingRequestNotificationsContent extends StatelessWidget {
         OnboardingLocaleKeys.onboarding_notifications_action.tr();
   }
 
-  String _getPrimaryText() {
-    return primaryText ??
+  String _getIntroText() {
+    return introText ??
+        OnboardingLocaleKeys.onboarding_notifications_intro.tr();
+  }
+
+  String _getDescriptionText() {
+    return descriptionText ??
         OnboardingLocaleKeys.onboarding_notifications_description.tr();
   }
 
-  String _getSecondaryText() {
-    return secondaryText ??
+  String _getNotesText() {
+    return notesText ??
         OnboardingLocaleKeys.onboarding_notifications_notes.tr();
   }
 

@@ -13,14 +13,11 @@ class FastOnboardingRequestPersonalizedAdsContent extends StatelessWidget {
   /// The palette to use for the icon.
   final FastPaletteScheme? palette;
 
-  /// A list of widgets to display below the primary and secondary texts.
   final List<Widget>? children;
 
-  /// The text to display below the icon.
-  final String? primaryText;
+  final String? introText;
 
-  /// The text to display below the primary text.
-  final String? secondaryText;
+  final String? descriptionText;
 
   /// The size of the icon to display on a handset.
   final double? handsetIconSize;
@@ -43,8 +40,8 @@ class FastOnboardingRequestPersonalizedAdsContent extends StatelessWidget {
     super.key,
     this.handsetIconSize,
     this.tabletIconSize,
-    this.secondaryText,
-    this.primaryText,
+    this.descriptionText,
+    this.introText,
     this.controller,
     this.children,
     this.palette,
@@ -72,14 +69,15 @@ class FastOnboardingRequestPersonalizedAdsContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastOnboardingContentLayout(
-      secondaryText: _getSecondaryText(),
+      descriptionText: _getDescriptionText(),
       handsetIconSize: handsetIconSize,
       tabletIconSize: tabletIconSize,
-      primaryText: _getPrimaryText(),
+      introText: _getIntroText(),
       palette: _getPalette(context),
       actionText: _getActionText(),
       onActionTap: handleAction,
       icon: buildIcon(context),
+      notesText: notesText,
       children: children,
     );
   }
@@ -98,14 +96,14 @@ class FastOnboardingRequestPersonalizedAdsContent extends StatelessWidget {
     return const FaIcon(FontAwesomeIcons.bullhorn);
   }
 
-  String _getPrimaryText() {
-    return primaryText ??
-        OnboardingLocaleKeys.onboarding_personalized_ads_description.tr();
+  String _getIntroText() {
+    return introText ??
+        OnboardingLocaleKeys.onboarding_personalized_ads_intro.tr();
   }
 
-  String _getSecondaryText() {
-    return secondaryText ??
-        OnboardingLocaleKeys.onboarding_personalized_ads_notes.tr();
+  String _getDescriptionText() {
+    return descriptionText ??
+        OnboardingLocaleKeys.onboarding_personalized_ads_description.tr();
   }
 
   String _getActionText() {

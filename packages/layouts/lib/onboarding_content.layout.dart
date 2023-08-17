@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-/// A layout that displays a centered icon, a primary text, a secondary text
-/// and a list of children widgets.
 class FastOnboardingContentLayout extends StatelessWidget {
   /// The palette to use for the icon.
   final FastPaletteScheme? palette;
@@ -13,11 +11,9 @@ class FastOnboardingContentLayout extends StatelessWidget {
   /// A list of widgets to display below the primary and secondary texts.
   final List<Widget>? children;
 
-  /// The text to display below the icon.
-  final String? primaryText;
+  final String? introText;
 
-  /// The text to display below the primary text.
-  final String? secondaryText;
+  final String? descriptionText;
 
   /// The size of the icon to display on a handset.
   final double? handsetIconSize;
@@ -43,8 +39,8 @@ class FastOnboardingContentLayout extends StatelessWidget {
     required this.icon,
     this.handsetIconSize,
     this.tabletIconSize,
-    this.secondaryText,
-    this.primaryText,
+    this.descriptionText,
+    this.introText,
     this.onActionTap,
     this.actionText,
     this.children,
@@ -76,8 +72,8 @@ class FastOnboardingContentLayout extends StatelessWidget {
         padding,
         Center(child: buildIcon(context, mediaType)),
         padding,
-        if (primaryText != null) buildPrimaryText(context, mediaType),
-        if (secondaryText != null) buildSecondaryText(context, mediaType),
+        if (introText != null) buildIntroText(context, mediaType),
+        if (descriptionText != null) buildDescriptionText(context, mediaType),
         if (actionText != null || actionBuilder != null)
           buildAction(context, mediaType),
         if (notesText != null) buildNotesText(context, mediaType),
@@ -86,38 +82,39 @@ class FastOnboardingContentLayout extends StatelessWidget {
     );
   }
 
-  Widget buildPrimaryText(BuildContext context, FastMediaType mediaType) {
+  Widget buildIcon(BuildContext context, FastMediaType mediaType) {
+    return FastPageHeaderRoundedDuotoneIconLayout(
+      palette: _getPalette(context),
+      hasShadow: true,
+      icon: icon,
+    );
+  }
+
+  FastPaletteScheme _getPalette(BuildContext context) {
+    if (palette == null) {
+      return ThemeHelper.getPaletteColors(context).blueGray;
+    }
+
+    return palette!;
+  }
+
+  Widget buildIntroText(BuildContext context, FastMediaType mediaType) {
     final isHandset = mediaType < FastMediaType.tablet;
 
     return Column(
       children: [
-        FastBody(text: primaryText!, textAlign: TextAlign.center),
+        FastBody(text: introText!, textAlign: TextAlign.center),
         isHandset ? kFastSizedBox24 : kFastSizedBox32,
       ],
     );
   }
 
-  Widget buildSecondaryText(BuildContext context, FastMediaType mediaType) {
+  Widget buildDescriptionText(BuildContext context, FastMediaType mediaType) {
     final isHandset = mediaType < FastMediaType.tablet;
 
     return Column(
       children: [
-        FastSecondaryBody(text: secondaryText!, textAlign: TextAlign.center),
-        isHandset ? kFastSizedBox24 : kFastSizedBox32,
-      ],
-    );
-  }
-
-  Widget buildNotesText(BuildContext context, FastMediaType mediaType) {
-    final isHandset = mediaType < FastMediaType.tablet;
-
-    return Column(
-      children: [
-        FastSecondaryBody(
-          text: notesText!,
-          textAlign: TextAlign.center,
-          fontSize: 14,
-        ),
+        FastSecondaryBody(text: descriptionText!, textAlign: TextAlign.center),
         isHandset ? kFastSizedBox24 : kFastSizedBox32,
       ],
     );
@@ -137,19 +134,18 @@ class FastOnboardingContentLayout extends StatelessWidget {
     );
   }
 
-  Widget buildIcon(BuildContext context, FastMediaType mediaType) {
-    return FastPageHeaderRoundedDuotoneIconLayout(
-      palette: _getPalette(context),
-      hasShadow: true,
-      icon: icon,
+  Widget buildNotesText(BuildContext context, FastMediaType mediaType) {
+    final isHandset = mediaType < FastMediaType.tablet;
+
+    return Column(
+      children: [
+        FastSecondaryBody(
+          text: notesText!,
+          textAlign: TextAlign.center,
+          fontSize: 14,
+        ),
+        isHandset ? kFastSizedBox24 : kFastSizedBox32,
+      ],
     );
-  }
-
-  FastPaletteScheme _getPalette(BuildContext context) {
-    if (palette == null) {
-      return ThemeHelper.getPaletteColors(context).blueGray;
-    }
-
-    return palette!;
   }
 }

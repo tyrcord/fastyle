@@ -12,14 +12,12 @@ class FastOnboardingThanksPremiumContent extends StatelessWidget {
   /// The palette to use for the icon.
   final FastPaletteScheme? palette;
 
-  /// A list of widgets to display below the primary and secondary texts.
   final List<Widget>? children;
 
   /// The text to display below the icon.
-  final String? primaryText;
+  final String? introText;
 
-  /// The text to display below the primary text.
-  final String? secondaryText;
+  final String? descriptionText;
 
   /// The size of the icon to display on a handset.
   final double? handsetIconSize;
@@ -36,8 +34,8 @@ class FastOnboardingThanksPremiumContent extends StatelessWidget {
     super.key,
     this.handsetIconSize,
     this.tabletIconSize,
-    this.secondaryText,
-    this.primaryText,
+    this.descriptionText,
+    this.introText,
     this.controller,
     this.children,
     this.palette,
@@ -48,13 +46,13 @@ class FastOnboardingThanksPremiumContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastOnboardingContentLayout(
-      notesText: notesText,
       handsetIconSize: handsetIconSize,
-      primaryText: _getPrimaryText(),
-      secondaryText: secondaryText,
+      descriptionText: descriptionText,
       tabletIconSize: tabletIconSize,
       palette: _getPalette(context),
+      introText: _getIntroText(),
       icon: buildIcon(context),
+      notesText: notesText,
       children: children,
     );
   }
@@ -73,8 +71,8 @@ class FastOnboardingThanksPremiumContent extends StatelessWidget {
     return const FaIcon(FontAwesomeIcons.rocket);
   }
 
-  String _getPrimaryText() {
-    return primaryText ??
+  String _getIntroText() {
+    return introText ??
         PurchasesLocaleKeys.purchases_message_enjoy_premium_version.tr();
   }
 

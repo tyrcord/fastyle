@@ -11,8 +11,6 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:lingua_onboarding/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
 
-/// A page that displays a layout with an icon, a primary text, a secondary text
-/// and a list of children widgets.
 class FastOnboardingPremiumUser extends StatefulWidget {
   /// The controller to use to pause and resume the onboarding.
   final FastOnboardingViewController? controller;
@@ -23,14 +21,11 @@ class FastOnboardingPremiumUser extends StatefulWidget {
   /// The palette to use for the icon.
   final FastPaletteScheme? palette;
 
-  /// A list of widgets to display below the primary and secondary texts.
   final List<Widget>? children;
 
-  /// The text to display below the icon.
-  final String? primaryText;
+  final String? introText;
 
-  /// The text to display below the primary text.
-  final String? secondaryText;
+  final String? descriptionText;
 
   /// The size of the icon to display on a handset.
   final double? handsetIconSize;
@@ -56,8 +51,8 @@ class FastOnboardingPremiumUser extends StatefulWidget {
     this.premiumProductId,
     this.handsetIconSize,
     this.tabletIconSize,
-    this.secondaryText,
-    this.primaryText,
+    this.descriptionText,
+    this.introText,
     this.onActionTap,
     this.controller,
     this.actionText,
@@ -96,6 +91,10 @@ class _FastOnboardingPremiumUserState extends State<FastOnboardingPremiumUser>
     errorSubscription.cancel();
   }
 
+  bool handleBuildWhen(_, FastStoreBlocState next) {
+    return next.hasPurchasedProduct(_getPremiumProductId());
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -109,17 +108,15 @@ class _FastOnboardingPremiumUserState extends State<FastOnboardingPremiumUser>
 
   Widget buildContent(BuildContext context) {
     return BlocBuilderWidget(
+      buildWhen: handleBuildWhen,
       bloc: _storeBloc,
-      buildWhen: (_, next) {
-        return next.hasPurchasedProduct(_getPremiumProductId());
-      },
       builder: (context, state) {
         if (state.hasPurchasedProduct(_getPremiumProductId())) {
           return FastOnboardingThanksPremiumContent(
             handsetIconSize: widget.handsetIconSize,
             tabletIconSize: widget.tabletIconSize,
-            secondaryText: widget.secondaryText,
-            primaryText: widget.primaryText,
+            descriptionText: widget.descriptionText,
+            introText: widget.introText,
             notesText: widget.notesText,
             palette: widget.palette,
             icon: widget.icon,
@@ -130,8 +127,8 @@ class _FastOnboardingPremiumUserState extends State<FastOnboardingPremiumUser>
         return FastOnboardingRestorePremiumContent(
           handsetIconSize: widget.handsetIconSize,
           tabletIconSize: widget.tabletIconSize,
-          secondaryText: widget.secondaryText,
-          primaryText: widget.primaryText,
+          descriptionText: widget.descriptionText,
+          introText: widget.introText,
           notesText: widget.notesText,
           palette: widget.palette,
           icon: widget.icon,

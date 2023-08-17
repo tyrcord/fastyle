@@ -18,14 +18,16 @@ class FastOnboardingWelcome extends StatelessWidget {
   /// The palette to use for the icon.
   final FastPaletteScheme? palette;
 
-  /// A list of widgets to display below the primary and secondary texts.
   final List<Widget>? children;
 
-  /// The text to display below the icon.
-  final String? primaryText;
+  final String? introText;
 
-  /// The text to display below the primary text.
-  final String? secondaryText;
+  final String? descriptionText;
+
+  final String? notesText;
+
+  /// The text to display as an action.
+  final String? actionText;
 
   /// The size of the icon to display on a handset.
   final double? handsetIconSize;
@@ -43,14 +45,16 @@ class FastOnboardingWelcome extends StatelessWidget {
     super.key,
     this.handsetIconSize,
     this.tabletIconSize,
-    this.secondaryText,
-    this.primaryText,
+    this.descriptionText,
+    this.introText,
     this.onActionTap,
     this.controller,
     this.titleText,
     this.children,
     this.palette,
     this.icon,
+    this.notesText,
+    this.actionText,
   });
 
   @override
@@ -59,13 +63,15 @@ class FastOnboardingWelcome extends StatelessWidget {
       titleText: _getTitleText(),
       children: [
         FastOnboardingContentLayout(
-          secondaryText: secondaryText,
+          descriptionText: descriptionText,
           handsetIconSize: handsetIconSize,
           tabletIconSize: tabletIconSize,
           palette: _getPalette(context),
           icon: buildIcon(context),
-          primaryText: primaryText,
           onActionTap: onActionTap,
+          actionText: actionText,
+          introText: introText,
+          notesText: notesText,
           children: children,
         ),
       ],

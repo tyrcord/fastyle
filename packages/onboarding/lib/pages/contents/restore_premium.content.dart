@@ -15,14 +15,11 @@ class FastOnboardingRestorePremiumContent extends StatelessWidget {
   /// The palette to use for the icon.
   final FastPaletteScheme? palette;
 
-  /// A list of widgets to display below the primary and secondary texts.
   final List<Widget>? children;
 
-  /// The text to display below the icon.
-  final String? primaryText;
+  final String? introText;
 
-  /// The text to display below the primary text.
-  final String? secondaryText;
+  final String? descriptionText;
 
   /// The size of the icon to display on a handset.
   final double? handsetIconSize;
@@ -39,8 +36,8 @@ class FastOnboardingRestorePremiumContent extends StatelessWidget {
     super.key,
     this.handsetIconSize,
     this.tabletIconSize,
-    this.secondaryText,
-    this.primaryText,
+    this.descriptionText,
+    this.introText,
     this.controller,
     this.children,
     this.palette,
@@ -53,8 +50,8 @@ class FastOnboardingRestorePremiumContent extends StatelessWidget {
     return FastOnboardingContentLayout(
       notesText: _getNotesText(),
       handsetIconSize: handsetIconSize,
-      primaryText: _getPrimaryText(),
-      secondaryText: secondaryText,
+      introText: _getIntroText(),
+      descriptionText: descriptionText,
       tabletIconSize: tabletIconSize,
       palette: _getPalette(context),
       icon: buildIcon(context),
@@ -90,9 +87,9 @@ class FastOnboardingRestorePremiumContent extends StatelessWidget {
     return const FaIcon(FontAwesomeIcons.crown);
   }
 
-  String _getPrimaryText() {
-    return primaryText ??
-        OnboardingLocaleKeys.onboarding_restore_premium_description.tr();
+  String _getIntroText() {
+    return introText ??
+        OnboardingLocaleKeys.onboarding_restore_premium_intro.tr();
   }
 
   String _getNotesText() {

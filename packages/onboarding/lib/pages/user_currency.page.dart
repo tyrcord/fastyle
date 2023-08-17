@@ -8,10 +8,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lingua_onboarding/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_settings/fastyle_settings.dart';
-import 'package:tbloc/tbloc.dart';
 
-/// A page that displays a layout with an icon, a primary text, a secondary text
-/// and a list of children widgets.
 class FastOnboardingUserCurrency extends StatelessWidget {
   /// The controller to use to pause and resume the onboarding.
   final FastOnboardingViewController? controller;
@@ -22,14 +19,13 @@ class FastOnboardingUserCurrency extends StatelessWidget {
   /// The palette to use for the icon.
   final FastPaletteScheme? palette;
 
-  /// A list of widgets to display below the primary and secondary texts.
   final List<Widget>? children;
 
-  /// The text to display below the icon.
-  final String? primaryText;
+  final String? introText;
 
-  /// The text to display below the primary text.
-  final String? secondaryText;
+  final String? notesText;
+
+  final String? descriptionText;
 
   /// The size of the icon to display on a handset.
   final double? handsetIconSize;
@@ -50,8 +46,9 @@ class FastOnboardingUserCurrency extends StatelessWidget {
     super.key,
     this.handsetIconSize,
     this.tabletIconSize,
-    this.secondaryText,
-    this.primaryText,
+    this.notesText,
+    this.introText,
+    this.descriptionText,
     this.onActionTap,
     this.controller,
     this.actionText,
@@ -61,35 +58,39 @@ class FastOnboardingUserCurrency extends StatelessWidget {
     this.icon,
   });
 
+  void handleCurrencyChanged(String currencyCode) {
+    final bloc = FastAppSettingsBloc.instance;
+    final event = FastAppSettingsBlocEvent.primaryCurrencyCodeChanged(
+      currencyCode,
+    );
+
+    bloc.addEvent(event);
+  }
+
   @override
   Widget build(BuildContext context) {
     return FastOnboardingPage(
       titleText: _getTitleText(),
       children: [
         FastOnboardingContentLayout(
-          notesText: _getSecondaryText(),
+          descriptionText: descriptionText,
           handsetIconSize: handsetIconSize,
           tabletIconSize: tabletIconSize,
-          primaryText: _getPrimaryText(),
           palette: _getPalette(context),
-          icon: buildIcon(context),
+          notesText: _getNotesText(),
+          introText: _getIntroText(),
+          actionBuilder: buildAction,
           onActionTap: onActionTap,
+          icon: buildIcon(context),
           children: children,
-          actionBuilder: (context) {
-            return FastAppSettingsPrimaryCurrencyField(
-              // descriptor: ,
-              onCurrencyChanged: (String currencyCode) {
-                _dispatchEvent(
-                  context,
-                  FastAppSettingsBlocEvent.primaryCurrencyCodeChanged(
-                    currencyCode,
-                  ),
-                );
-              },
-            );
-          },
         ),
       ],
+    );
+  }
+
+  Widget buildAction(BuildContext context) {
+    return FastAppSettingsPrimaryCurrencyField(
+      onCurrencyChanged: handleCurrencyChanged,
     );
   }
 
@@ -112,13 +113,13 @@ class FastOnboardingUserCurrency extends StatelessWidget {
         OnboardingLocaleKeys.onboarding_user_currency_title.tr();
   }
 
-  String _getPrimaryText() {
-    return primaryText ??
-        OnboardingLocaleKeys.onboarding_user_currency_description.tr();
+  String _getIntroText() {
+    return introText ??
+        OnboardingLocaleKeys.onboarding_user_currency_intro.tr();
   }
 
-  String _getSecondaryText() {
-    return secondaryText ??
+  String _getNotesText() {
+    return notesText ??
         OnboardingLocaleKeys.onboarding_user_currency_notes.tr();
   }
 
@@ -128,12 +129,5 @@ class FastOnboardingUserCurrency extends StatelessWidget {
     }
 
     return palette!;
-  }
-
-  /// Dispatches the given [event] to the [FastAppSettingsBloc].
-  void _dispatchEvent(BuildContext context, FastAppSettingsBlocEvent event) {
-    final bloc = BlocProvider.of<FastAppSettingsBloc>(context);
-
-    bloc.addEvent(event);
   }
 }

@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lingua_onboarding/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
-
 import 'package:fastyle_onboarding/fastyle_onboarding.dart';
 
 class FastOnboardingFinanceTraderWelcome extends StatelessWidget {
@@ -19,14 +17,16 @@ class FastOnboardingFinanceTraderWelcome extends StatelessWidget {
   /// The palette to use for the icon.
   final FastPaletteScheme? palette;
 
-  /// A list of widgets to display below the primary and secondary texts.
   final List<Widget>? children;
 
-  /// The text to display below the icon.
-  final String? primaryText;
+  final String? introText;
 
-  /// The text to display below the primary text.
-  final String? secondaryText;
+  final String? descriptionText;
+
+  final String? notesText;
+
+  /// The text to display as an action.
+  final String? actionText;
 
   /// The size of the icon to display on a handset.
   final double? handsetIconSize;
@@ -44,38 +44,34 @@ class FastOnboardingFinanceTraderWelcome extends StatelessWidget {
     super.key,
     this.handsetIconSize,
     this.tabletIconSize,
-    this.secondaryText,
-    this.primaryText,
+    this.descriptionText,
+    this.introText,
     this.onActionTap,
     this.controller,
     this.titleText,
     this.children,
     this.palette,
     this.icon,
+    this.notesText,
+    this.actionText,
   });
 
   @override
   Widget build(BuildContext context) {
     return FastOnboardingWelcome(
-      secondaryText: _getSecondaryText(),
-      primaryText: _getPrimaryText(),
+      descriptionText: _getDescriptionText(),
+      handsetIconSize: handsetIconSize,
+      tabletIconSize: tabletIconSize,
+      introText: _getIntroText(),
       titleText: _getTitleText(),
+      onActionTap: onActionTap,
+      controller: controller,
+      actionText: actionText,
+      notesText: notesText,
+      palette: palette,
+      icon: icon,
       children: children,
     );
-  }
-
-  Widget buildIcon(BuildContext context) {
-    if (icon != null) {
-      return icon!;
-    }
-
-    final useProIcons = FastIconHelper.of(context).useProIcons;
-
-    if (useProIcons) {
-      return const FaIcon(FastFontAwesomeIcons.lightDoorOpen);
-    }
-
-    return const FaIcon(FontAwesomeIcons.doorOpen);
   }
 
   String _getTitleText() {
@@ -83,14 +79,14 @@ class FastOnboardingFinanceTraderWelcome extends StatelessWidget {
         OnboardingLocaleKeys.onboarding_welcome_finance_traders_title.tr();
   }
 
-  String _getPrimaryText() {
+  String _getIntroText() {
     return titleText ??
-        OnboardingLocaleKeys.onboarding_welcome_finance_traders_description
-            .tr();
+        OnboardingLocaleKeys.onboarding_welcome_finance_traders_intro.tr();
   }
 
-  String _getSecondaryText() {
-    return secondaryText ??
-        OnboardingLocaleKeys.onboarding_welcome_finance_traders_notes.tr();
+  String _getDescriptionText() {
+    return descriptionText ??
+        OnboardingLocaleKeys.onboarding_welcome_finance_traders_description
+            .tr();
   }
 }

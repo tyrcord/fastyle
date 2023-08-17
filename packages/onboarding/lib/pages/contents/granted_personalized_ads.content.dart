@@ -9,11 +9,9 @@ class FastOnboardingGrantedPersonalizedAdsContent extends StatelessWidget {
   /// The palette to use for the icon.
   final FastPaletteScheme? palette;
 
-  /// A list of widgets to display below the primary and secondary texts.
   final List<Widget>? children;
 
-  /// The text to display below the icon.
-  final String? primaryText;
+  final String? introText;
 
   /// The size of the icon to display on a handset.
   final double? handsetIconSize;
@@ -25,25 +23,28 @@ class FastOnboardingGrantedPersonalizedAdsContent extends StatelessWidget {
   final Widget? icon;
 
   final String? notesText;
+  final String? descriptionText;
 
   const FastOnboardingGrantedPersonalizedAdsContent({
     super.key,
     this.handsetIconSize,
     this.tabletIconSize,
-    this.primaryText,
+    this.introText,
     this.children,
     this.palette,
     this.notesText,
+    this.descriptionText,
     this.icon,
   });
 
   @override
   Widget build(BuildContext context) {
     return FastOnboardingContentLayout(
+      descriptionText: _getDescriptionText(),
       handsetIconSize: handsetIconSize,
-      primaryText: _getPrimaryText(),
-      tabletIconSize: tabletIconSize,
+      introText: _getIntroText(),
       notesText: _getNotesText(),
+      tabletIconSize: tabletIconSize,
       palette: _getPalette(context),
       icon: buildIcon(context),
       children: children,
@@ -64,12 +65,20 @@ class FastOnboardingGrantedPersonalizedAdsContent extends StatelessWidget {
     return const FaIcon(FontAwesomeIcons.bullhorn);
   }
 
-  String _getPrimaryText() {
-    return primaryText ?? 'Thanks for your support!';
+  String _getIntroText() {
+    return introText ??
+        OnboardingLocaleKeys.onboarding_personalized_ads_granted_intro.tr();
+  }
+
+  String _getDescriptionText() {
+    return descriptionText ??
+        OnboardingLocaleKeys.onboarding_personalized_ads_granted_description
+            .tr();
   }
 
   String _getNotesText() {
-    return notesText ?? 'Note that you can always change your mind later.';
+    return notesText ??
+        OnboardingLocaleKeys.onboarding_personalized_ads_granted_notes.tr();
   }
 
   FastPaletteScheme _getPalette(BuildContext context) {
