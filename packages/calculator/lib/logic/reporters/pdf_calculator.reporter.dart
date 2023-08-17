@@ -77,7 +77,15 @@ class FastPdfCalculatorReporter {
       ..addPage(
         pw.MultiPage(
           // TODO: support other page format like us letter
-          pageFormat: PdfPageFormat.a4,
+          // Format A4 with less margin
+          pageFormat: const PdfPageFormat(
+            21.0 * PdfPageFormat.cm,
+            29.7 * PdfPageFormat.cm,
+            marginBottom: 1 * PdfPageFormat.cm,
+            marginTop: 1 * PdfPageFormat.cm,
+            marginLeft: 1.75 * PdfPageFormat.cm,
+            marginRight: 1.75 * PdfPageFormat.cm,
+          ),
           footer: (context) => _buildFooter(context, style),
           build: (context) {
             return [
