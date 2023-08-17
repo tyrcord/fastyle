@@ -10,12 +10,20 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_core: ^0.0.11
-  tbloc: ^0.21.0
-  fastyle_images: ^0.0.17
+
+  # Public
   easy_localization: ^3.0.2
-  lingua_core: ^0.0.17
   go_router: ^10.0.0
+
+  # Lingua
+  lingua_core: ^0.0.21
+
+  # T
+  tbloc: ^0.21.2
+
+  # Fastyle
+  fastyle_core: ^0.0.11
+  fastyle_images: ^0.0.17
 
 dev_dependencies:
   flutter_test:

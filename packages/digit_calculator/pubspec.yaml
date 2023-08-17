@@ -10,9 +10,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  # Public
   font_awesome_flutter: ^10.5.0
+
+  # Fastyle
   fastyle_core: ^0.0.11
-  t_helpers: ^0.0.22
+
+  # T
+  t_helpers: ^0.0.26+1
 
 dev_dependencies:
   flutter_test:

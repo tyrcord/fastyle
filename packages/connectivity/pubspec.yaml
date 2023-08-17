@@ -10,12 +10,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_core: ^0.0.11
+
+  # Public
   font_awesome_flutter: ^10.5.0
-  connectivity_plus: ^4.0.1
+  connectivity_plus: ^4.0.2
   rxdart: ^0.27.7
-  tmodel: ">=0.5.3 <1.0.0"
-  tbloc: ">=0.21.0 <1.0.0"
+
+  # Fastyle
+  fastyle_core: ^0.0.11
+
+  # T
+  tmodel: ^0.5.4
+  tbloc: ^0.21.2
 
 dev_dependencies:
   flutter_test:

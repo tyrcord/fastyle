@@ -10,12 +10,20 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_core: ^0.0.11
-  tbloc: ^0.21.0
+
+  # Public
   font_awesome_flutter: ^10.5.0
-  lingua_purchases: ^0.0.5+1
   easy_localization: ^3.0.2
-  fastyle_iap: ^0.0.1
+
+  # Fastyle
+  fastyle_core: ^0.0.11
+  fastyle_iap: ^0.0.8
+
+  # Lingua
+  lingua_purchases: ^0.0.11
+
+  # T
+  tbloc: ^0.21.2
 
 dev_dependencies:
   flutter_test:

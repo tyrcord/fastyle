@@ -10,10 +10,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_core: ^0.0.11
 
+  # Public
   flutter_svg: ^2.0.7
   vector_graphics: ^1.1.7
+
+  # Fastyle
+  fastyle_core: ^0.0.11
 
 flutter:
   assets:

@@ -30,7 +30,7 @@ dependencies:
   matex_dart: ^0.11.1
 
   # Lingua
-  lingua_core: ^0.0.20
+  lingua_core: ^0.0.21
   lingua_calculator: ^0.0.2+1
   lingua_languages: ^0.0.4+1
   lingua_finance: ^0.0.11

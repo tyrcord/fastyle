@@ -508,10 +508,10 @@ packages:
     dependency: transitive
     description:
       name: lingua_core
-      sha256: "8a7bd53e8d03e25b10a4308188ab97695471a7880b40a06b32806b51e7fe8e6a"
+      sha256: "8abbd7d5d74dd0d2531134c27a45fc9e0a65757c65245f71eca25244ea6efba6"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.20"
+    version: "0.0.21"
   lingua_purchases:
     dependency: transitive
     description:
@@ -524,10 +524,10 @@ packages:
     dependency: transitive
     description:
       name: lingua_settings
-      sha256: "5b50438397d1dbf0fdb29de26ba43709b9fbb73bede50fbab745583ded59872e"
+      sha256: efd56687682abb463e1fac08927a043cf0e155fcbd7aa50f3628fff8e87dded7
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.9"
+    version: "0.0.10"
   lints:
     dependency: transitive
     description:
@@ -596,10 +596,10 @@ packages:
     dependency: transitive
     description:
       name: package_info_plus
-      sha256: ceb027f6bc6a60674a233b4a90a7658af1aebdea833da0b5b53c1e9821a78c7b
+      sha256: "6ff267fcd9d48cb61c8df74a82680e8b82e940231bb5f68356672fde0397334a"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.2"
+    version: "4.1.0"
   package_info_plus_platform_interface:
     dependency: transitive
     description:
@@ -796,18 +796,18 @@ packages:
     dependency: transitive
     description:
       name: share_plus
-      sha256: ed3fcea4f789ed95913328e629c0c53e69e80e08b6c24542f1b3576046c614e8
+      sha256: "6cec740fa0943a826951223e76218df002804adb588235a8910dc3d6b0654e11"
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.2"
+    version: "7.1.0"
   share_plus_platform_interface:
     dependency: transitive
     description:
       name: share_plus_platform_interface
-      sha256: "0c6e61471bd71b04a138b8b588fa388e66d8b005e6f2deda63371c5c505a0981"
+      sha256: "357412af4178d8e11d14f41723f80f12caea54cf0d5cd29af9dcdab85d58aea7"
       url: "https://pub.dev"
     source: hosted
-    version: "3.2.1"
+    version: "3.3.0"
   shared_preferences:
     dependency: transitive
     description:
@@ -921,18 +921,18 @@ packages:
     dependency: transitive
     description:
       name: t_cache
-      sha256: "0cd3a100c62b4ee525e5c9ca572c6cda66a7f408ba437d0b372daca905ad8879"
+      sha256: "1a545daeb1bb31e19ad0f594d997ea3914d413575a190268c5ab790a4646c8db"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.4"
+    version: "0.0.4+1"
   t_helpers:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: "6b6fcac773787b06401f9595c99c0d652383d39ace927ef1b5134ba751813879"
+      sha256: "819af3c51905488a6ea79d82f116bd31ce7031c1f88ba1ad0158397d51e46e32"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.26"
+    version: "0.0.26+1"
   tbloc:
     dependency: "direct main"
     description:
