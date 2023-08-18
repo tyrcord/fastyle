@@ -54,6 +54,7 @@ abstract class HydratedFastCalculatorBloc<
   /// This method should be implemented by the subclass.
   /// It is called when the bloc is initialized and should return
   /// the default calculator document.
+  /// Contains the default values for the calculator state.
   @protected
   Future<D> retrieveDefaultCalculatorDocument();
 
@@ -76,8 +77,9 @@ abstract class HydratedFastCalculatorBloc<
   /// should perform cleanup tasks, such as disconnecting from the
   /// data provider.
   @override
-  @override
+  @mustCallSuper
   void close() {
+    debugLog('closing calculator bloc...', debugLabel: debugLabel);
     super.close();
     dataProvider.disconnect();
   }

@@ -192,16 +192,15 @@ abstract class FastCalculatorBloc<
       );
     } else if (isInitialized) {
       if (eventType == FastCalculatorBlocEventType.patchValue) {
-        yield* handlePatchValueEvent(payload!);
+        yield* handlePatchValueEvent(payload);
       } else if (eventType == FastCalculatorBlocEventType.compute) {
         yield* handleComputeEvent();
       } else if (eventType == FastCalculatorBlocEventType.computed) {
-        yield currentState.copyWith(
-          results: payload!.results,
-          isBusy: false,
-        ) as S;
+        yield* handleComputedEvent(payload);
       } else if (eventType == FastCalculatorBlocEventType.computeFailed) {
-        await handleComputeError(payload!.error);
+        if (payload?.error != null) {
+          await handleComputeError(payload!.error);
+        }
 
         yield currentState.copyWith(
           results: await retrieveDefaultResult(),
@@ -376,14 +375,16 @@ abstract class FastCalculatorBloc<
   /// Yields a stream of state changes.
   @protected
   Stream<S> handlePatchValueEvent(
-    FastCalculatorBlocEventPayload payload,
+    FastCalculatorBlocEventPayload? payload,
   ) async* {
-    final state = await patchCalculatorState(payload.key!, payload.value);
+    if (payload != null && payload.key != null) {
+      final state = await patchCalculatorState(payload.key!, payload.value);
 
-    if (state != null) {
-      await saveCalculatorState();
-      yield state;
-      addDebounceEvent(FastCalculatorBlocEvent.compute<R>() as E);
+      if (state != null) {
+        await saveCalculatorState();
+        yield state;
+        addDebounceEvent(FastCalculatorBlocEvent.compute<R>() as E);
+      }
     }
   }
 
@@ -399,9 +400,26 @@ abstract class FastCalculatorBloc<
   /// Yields a stream of state changes.
   @protected
   Stream<S> handleComputeEvent() async* {
+    final isValid = await isCalculatorStateValid();
+    final isDirty = await isCalculatorStateDirty();
+
+    debugLog(
+      'Calculator state is dirty',
+      value: isDirty,
+      debugLabel: debugLabel,
+    );
+
+    debugLog(
+      'Calculator state is valid',
+      value: isValid,
+      debugLabel: debugLabel,
+    );
+
+    debugLog('Computing results', debugLabel: debugLabel);
+
     yield currentState.copyWith(
-      isValid: await isCalculatorStateValid(),
-      isDirty: await isCalculatorStateDirty(),
+      isValid: isValid,
+      isDirty: isDirty,
       isBusy: true,
     ) as S;
 
@@ -411,9 +429,40 @@ abstract class FastCalculatorBloc<
       if (results != null) {
         addEvent(FastCalculatorBlocEvent.computed<R>(results));
       }
-    } catch (error) {
+    } catch (error, stacktrace) {
+      debugLog(
+        'Failed to compute results',
+        value: error,
+        debugLabel: debugLabel,
+      );
+
+      debugLog(
+        'Stacktrace',
+        value: stacktrace,
+        debugLabel: debugLabel,
+      );
+
       addEvent(FastCalculatorBlocEvent.computeFailed<R>(error));
     }
+  }
+
+  /// Handles the computed event by updating the state with the computed
+  /// results.
+  @protected
+  Stream<S> handleComputedEvent(
+    FastCalculatorBlocEventPayload? payload,
+  ) async* {
+    if (payload != null) {
+      debugLog('Results computed', debugLabel: debugLabel);
+      debugLog('Results', value: payload.results, debugLabel: debugLabel);
+
+      yield currentState.copyWith(
+        results: payload.results,
+        isBusy: false,
+      ) as S;
+    }
+
+    yield currentState.copyWith(isBusy: false) as S;
   }
 
   /// Handles internal errors that occur within the bloc.
