@@ -316,7 +316,7 @@ class FastRewardedAdBloc
   }
 
   @override
-  void handleInternalError(dynamic error) {
+  void handleInternalError(dynamic error, StackTrace stackTrace) {
     debugPrint(error.toString());
   }
 

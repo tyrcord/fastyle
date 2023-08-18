@@ -17,7 +17,7 @@ dependencies:
   easy_localization: ^3.0.2
 
   # T
-  tbloc: ^0.21.2
+  tbloc: ^0.21.3+2
   t_helpers: ^0.0.26+1
 
   # Fastyle

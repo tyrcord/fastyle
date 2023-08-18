@@ -19,7 +19,7 @@ dependencies:
   lingua_core: ^0.0.21
 
   # T
-  tbloc: ^0.21.2
+  tbloc: ^0.21.3+2
 
   # Fastyle
   fastyle_core: ^0.0.12

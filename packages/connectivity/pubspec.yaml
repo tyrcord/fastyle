@@ -21,7 +21,7 @@ dependencies:
 
   # T
   tmodel: ^0.5.4
-  tbloc: ^0.21.2
+  tbloc: ^0.21.3+2
 
 dev_dependencies:
   flutter_test:

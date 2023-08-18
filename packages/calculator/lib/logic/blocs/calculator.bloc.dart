@@ -471,10 +471,16 @@ abstract class FastCalculatorBloc<
   /// Logs the error to the console.
   @override
   @protected
-  void handleInternalError(dynamic error) {
+  void handleInternalError(dynamic error, StackTrace stackTrace) {
     debugLog(
       'Internal Bloc error occured',
       value: error,
+      debugLabel: debugLabel,
+    );
+
+    debugLog(
+      'Stacktrace',
+      value: stackTrace,
       debugLabel: debugLabel,
     );
   }
