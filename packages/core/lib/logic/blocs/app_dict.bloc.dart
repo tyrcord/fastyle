@@ -1,5 +1,4 @@
 // Package imports:
-import 'package:collection/collection.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:tstore/tstore.dart';
 
@@ -29,13 +28,7 @@ class FastAppDictBloc
   @override
   bool canClose() => false;
 
-  T getValue<T>(String name) {
-    final entry = currentState.entries.firstWhereOrNull(
-      (e) => e.name == name,
-    );
-
-    return entry?.value as T;
-  }
+  T getValue<T>(String name) => currentState.getValue<T>(name);
 
   @override
   Stream<FastAppDictBlocState> mapEventToState(
@@ -59,7 +52,13 @@ class FastAppDictBloc
             yield* handleEntriesRetrievedEvent(payload);
           }
         case FastAppDictBlocEventType.deleteEntries:
-          yield* handleDeleteEntriesEvent();
+          yield* handleDeleteEntriesEvent(payload);
+
+        case FastAppDictBlocEventType.patchEnties:
+          if (payload is List<FastDictEntryEntity>) {
+            yield* handlePatchEntriesEvent(payload);
+          }
+
         default:
           break;
       }
@@ -120,9 +119,25 @@ class FastAppDictBloc
     }
   }
 
-  Stream<FastAppDictBlocState> handleDeleteEntriesEvent() async* {
+  Stream<FastAppDictBlocState> handlePatchEntriesEvent(
+    List<FastDictEntryEntity> entries,
+  ) async* {
     if (isInitialized) {
-      await _deleteEntries();
+      _dataProvider.persistEntries(entries);
+
+      addEvent(const FastAppDictBlocEvent.retrieveEntries());
+    }
+  }
+
+  Stream<FastAppDictBlocState> handleDeleteEntriesEvent(
+    List<FastDictEntryEntity>? entries,
+  ) async* {
+    if (isInitialized) {
+      if (entries != null) {
+        _dataProvider.deleteEntries(entries);
+      } else {
+        _dataProvider.deleteAllEntries();
+      }
 
       addEvent(const FastAppDictBlocEvent.retrieveEntries());
     }
@@ -132,9 +147,5 @@ class FastAppDictBloc
     await _dataProvider.connect();
 
     return _dataProvider.listAllEntries();
-  }
-
-  Future<void> _deleteEntries() async {
-    await _dataProvider.deleteAllEntries();
   }
 }

@@ -3,5 +3,6 @@ enum FastAppDictBlocEventType {
   initialized,
   retrieveEntries,
   entriesRetrieved,
+  patchEnties,
   deleteEntries,
 }

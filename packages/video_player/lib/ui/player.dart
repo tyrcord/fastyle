@@ -76,7 +76,7 @@ class _FastVideoPlayerState extends State<FastVideoPlayer> {
   void handleReplayAction() {
     setState(() {
       if (mounted) {
-        debugPrint('Replaying video');
+        debugLog('Replaying video', debugLabel: widget.debugLabel);
         hasPlayed = false;
         _controller.play();
       }

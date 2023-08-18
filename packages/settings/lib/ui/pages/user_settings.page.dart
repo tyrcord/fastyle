@@ -16,6 +16,8 @@ class FastAppSettingsPage extends FastSettingPageLayout {
   /// The descriptor for FastSettings.
   final FastSettingsDescriptor descriptor;
 
+  final List<Widget>? defaultValuesChildren;
+
   const FastAppSettingsPage({
     super.key,
     super.headerDescriptionText,
@@ -24,6 +26,7 @@ class FastAppSettingsPage extends FastSettingPageLayout {
     super.headerIcon,
     super.titleText,
     super.actions,
+    this.defaultValuesChildren,
     FastSettingsDescriptor? descriptor,
   }) : descriptor = descriptor ?? const FastSettingsDescriptor();
 
@@ -43,6 +46,7 @@ class FastAppSettingsPage extends FastSettingPageLayout {
             _getCategoryDescriptor(FastAppSettingsCategories.defaultValues)!,
             context,
           ),
+          ...?defaultValuesChildren,
         ]
       ],
     );

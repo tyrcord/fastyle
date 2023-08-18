@@ -207,6 +207,9 @@ abstract class HydratedFastCalculatorBloc<
         payload != null &&
         payload.key != null) {
       yield* handlePatchValueEvent(payload);
+    } else if (eventType == FastCalculatorBlocEventType.retrieveDefaultValues) {
+      defaultDocument = await retrieveDefaultCalculatorDocument();
+      defaultCalculatorState = await initializeDefaultCalculatorState();
     } else {
       yield* super.mapEventToState(event);
     }

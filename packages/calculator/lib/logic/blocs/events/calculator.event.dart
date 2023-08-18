@@ -141,4 +141,11 @@ class FastCalculatorBlocEvent<R extends FastCalculatorResults>
       payload: FastCalculatorBlocEventPayload<R>(key: key, value: value),
     );
   }
+
+  static FastCalculatorBlocEvent<R>
+      retrieveDefaultValues<R extends FastCalculatorResults>() {
+    return FastCalculatorBlocEvent<R>(
+      type: FastCalculatorBlocEventType.retrieveDefaultValues,
+    );
+  }
 }

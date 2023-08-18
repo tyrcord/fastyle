@@ -16,7 +16,7 @@ class FastDictEntryEntity extends TEntity {
   /// dictionary entry.
   const FastDictEntryEntity({
     required this.name,
-    required this.value,
+    this.value,
   });
 
   /// Creates a [FastDictEntryEntity] instance from a JSON object.

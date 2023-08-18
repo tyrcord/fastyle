@@ -1,5 +1,6 @@
 // Package imports:
 import 'package:tbloc/tbloc.dart';
+import 'package:collection/collection.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -11,6 +12,14 @@ class FastAppDictBlocState extends BlocState {
 
   /// Whether the entries are currently being retrieved.
   final bool isRetrievingEntries;
+
+  T getValue<T>(String name) {
+    final entry = entries.firstWhereOrNull(
+      (e) => e.name == name,
+    );
+
+    return entry?.value as T;
+  }
 
   /// Constructs a [FastAppDictBlocState] instance.
   ///

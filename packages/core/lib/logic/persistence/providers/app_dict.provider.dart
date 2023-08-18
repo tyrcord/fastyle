@@ -38,6 +38,12 @@ class FastAppDictDataProvider extends TDataProvider {
     return store.persistAll(Map.fromEntries(entries));
   }
 
+  Future<void> deleteEntries(List<FastDictEntryEntity> entries) {
+    final names = entries.map((e) => e.name).toList();
+
+    return store.deleteAll(names);
+  }
+
   Future<void> deleteAllEntries() async {
     return store.clear();
   }
