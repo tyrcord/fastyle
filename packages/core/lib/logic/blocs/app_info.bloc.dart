@@ -11,11 +11,18 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppInfoBloc
     extends BidirectionalBloc<FastAppInfoBlocEvent, FastAppInfoBlocState> {
-  static FastAppInfoBloc? _singleton;
+  static bool _hasBeenInstantiated = false;
+  static late FastAppInfoBloc instance;
+
   FastAppInfoDataProvider _dataProvider;
 
   factory FastAppInfoBloc({FastAppInfoBlocState? initialState}) {
-    return (_singleton ??= FastAppInfoBloc._(initialState: initialState));
+    if (!_hasBeenInstantiated) {
+      instance = FastAppInfoBloc._(initialState: initialState);
+      _hasBeenInstantiated = true;
+    }
+
+    return instance;
   }
 
   FastAppInfoBloc._({FastAppInfoBlocState? initialState})

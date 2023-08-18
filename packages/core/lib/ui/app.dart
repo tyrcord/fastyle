@@ -94,6 +94,8 @@ class FastApp extends StatefulWidget {
 
   final bool overrideLoaderJobs;
 
+  final List<FastDictEntryEntity>? defaultAppDictEntries;
+
   FastApp({
     super.key,
     this.delayBeforeShowingLoader = kFastDelayBeforeShowingLoader,
@@ -119,6 +121,7 @@ class FastApp extends StatefulWidget {
     Locale? fallbackLocale,
     bool? useProIcons,
     bool? overrideLoaderJobs,
+    this.defaultAppDictEntries,
   })  : useProIcons = useProIcons ?? false,
         overrideLoaderJobs = overrideLoaderJobs ?? false,
         assetLoader = assetLoader ?? const LinguaLoader(),
@@ -317,7 +320,7 @@ class _FastAppState extends State<FastApp> {
       ),
       FastAppPermissionsJob(),
       FastAppSettingsJob(),
-      FastAppDictJob(),
+      FastAppDictJob(defaultEntries: widget.defaultAppDictEntries),
       FastAppFeaturesJob(),
       FastAppOnboardingJob(),
       ...?widget.loaderJobs,
