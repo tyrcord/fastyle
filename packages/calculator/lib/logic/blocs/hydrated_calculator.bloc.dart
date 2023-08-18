@@ -217,7 +217,7 @@ abstract class HydratedFastCalculatorBloc<
   @override
   @protected
   Stream<S> handlePatchValueEvent(
-    FastCalculatorBlocEventPayload payload,
+    covariant FastCalculatorBlocEventPayload payload,
   ) async* {
     final key = payload.key!;
     final value = payload.value;

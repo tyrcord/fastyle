@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lingua_core/lingua_core.dart';
+import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
 
 // Project imports:
@@ -131,6 +132,9 @@ class FastApp extends StatefulWidget {
 }
 
 class _FastAppState extends State<FastApp> {
+  static const String _defaultRoute = '/';
+  static const String debugLabel = 'FastApp';
+
   late final GlobalKey<NavigatorState> _rootNavigatorKey;
   late final FastThemeBloc _themeBloc;
   late final GoRouter _router;
@@ -243,8 +247,10 @@ class _FastAppState extends State<FastApp> {
     final onboardingState = bloc.currentState;
 
     if (!onboardingState.isCompleted || widget.forceOnboarding) {
+      debugLog('onboarding is not completed', debugLabel: debugLabel);
+
       if (widget.onboardingBuilder != null) {
-        return Builder(builder: widget.onboardingBuilder!);
+        return widget.onboardingBuilder!(context);
       }
     }
 
@@ -259,7 +265,9 @@ class _FastAppState extends State<FastApp> {
     }
 
     if (widget.homeBuilder != null) {
-      return Builder(builder: widget.homeBuilder!);
+      debugLog('onboarding is completed', debugLabel: debugLabel);
+
+      return widget.homeBuilder!(context);
     }
 
     return buildEmptyContainer(context);
@@ -271,7 +279,7 @@ class _FastAppState extends State<FastApp> {
       navigatorKey: _rootNavigatorKey,
       routes: [
         GoRoute(
-          path: '/',
+          path: _defaultRoute,
           builder: (context, state) => buildAppEntry(context),
           routes: widget.routes,
         ),
@@ -290,7 +298,7 @@ class _FastAppState extends State<FastApp> {
 
   /// Handles the app error.
   Widget handleAppError(context, error) {
-    debugPrint('handleAppError: $error');
+    debugLog('error: $error', debugLabel: debugLabel);
 
     return const FastErrorStatusPage();
   }

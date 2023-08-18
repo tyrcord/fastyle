@@ -29,12 +29,12 @@ class FastAppDictBloc
   @override
   bool canClose() => false;
 
-  dynamic getValue(String name) {
+  T getValue<T>(String name) {
     final entry = currentState.entries.firstWhereOrNull(
       (e) => e.name == name,
     );
 
-    return entry?.value;
+    return entry?.value as T;
   }
 
   @override
