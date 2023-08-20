@@ -35,11 +35,12 @@ class FastAlertDialog extends AlertDialog {
     this.children,
     super.actions,
     this.onValid,
-    this.showCancel = true,
-    this.showValid = true,
+    bool? showCancel,
+    bool? showValid,
   })  : assert(messageText == null || children == null),
         assert(messageText != null || children != null),
-        assert(actions == null || cancelText == null);
+        showValid = showValid ?? true,
+        showCancel = showCancel ?? false;
 
   @override
   Widget build(BuildContext context) {
@@ -58,10 +59,16 @@ class FastAlertDialog extends AlertDialog {
 
   List<Widget> _buildDefaultActions(BuildContext context) {
     return [
-      if (onCancel != null && showCancel)
+      if (showCancel)
         FastTextButton(
           text: cancelText ?? CoreLocaleKeys.core_label_cancel.tr(),
-          onTap: onCancel!,
+          onTap: () {
+            if (onCancel != null) {
+              onCancel!();
+            } else {
+              Navigator.pop(context);
+            }
+          },
         ),
       if (showValid)
         FastTextButton(

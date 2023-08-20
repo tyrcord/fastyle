@@ -77,6 +77,8 @@ Future<T?> showAnimatedFastAlertDialog<T extends Object?>({
   String? cancelText,
   String? validText,
   Color? titleColor,
+  bool? showCancel,
+  bool? showValid,
 }) {
   return showGeneralDialog<T>(
     barrierDismissible: barrierDismissible,
@@ -87,6 +89,8 @@ Future<T?> showAnimatedFastAlertDialog<T extends Object?>({
         titleText: titleText,
         cancelText: cancelText,
         validText: validText,
+        showValid: showValid,
+        showCancel: showCancel,
         titleColor: titleColor,
         actions: actions,
         backgroundColor: backgroundColor,
