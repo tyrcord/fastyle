@@ -65,13 +65,13 @@ class FastOnboardingContentLayout extends StatelessWidget {
 
   Widget buildLayout(BuildContext context, FastMediaType mediaType) {
     final isHandset = mediaType < FastMediaType.tablet;
-    final padding = isHandset ? kFastSizedBox48 : kFastSizedBox64;
+    final spacer = isHandset ? kFastSizedBox48 : kFastSizedBox96;
 
     return Column(
       children: [
-        padding,
+        spacer,
         Center(child: buildIcon(context, mediaType)),
-        padding,
+        spacer,
         if (introText != null) buildIntroText(context, mediaType),
         if (descriptionText != null) buildDescriptionText(context, mediaType),
         if (actionText != null || actionBuilder != null)

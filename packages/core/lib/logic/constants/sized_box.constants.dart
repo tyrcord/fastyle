@@ -15,6 +15,10 @@ const kFastSizedBox32 = SizedBox(height: 32.0);
 const kFastSizedBox40 = SizedBox(height: 40.0);
 const kFastSizedBox48 = SizedBox(height: 48.0);
 const kFastSizedBox64 = SizedBox(height: 64.0);
+const kFastSizedBox72 = SizedBox(height: 72.0);
+const kFastSizedBox80 = SizedBox(height: 80.0);
+const kFastSizedBox96 = SizedBox(height: 96.0);
+const kFastSizedBox128 = SizedBox(height: 128.0);
 
 // Horizontal Sized Boxes
 
