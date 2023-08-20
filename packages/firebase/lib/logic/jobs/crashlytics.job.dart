@@ -23,7 +23,7 @@ class FastFirebaseCrashlyticsJob extends FastJob {
   }
 
   const FastFirebaseCrashlyticsJob._({this.shouldEnableInDevMode = false})
-      : super(debugLabel: 'fast_firebase_crashlytics_job');
+      : super(debugLabel: 'FastFirebaseCrashlyticsJob');
 
   @override
   Future<void> initialize(

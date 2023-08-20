@@ -15,7 +15,7 @@ class FastFirebasePerformanceJob extends FastJob {
   }
 
   const FastFirebasePerformanceJob._()
-      : super(debugLabel: 'fast_firebase_performance_job');
+      : super(debugLabel: 'FastFirebasePerformanceJob');
 
   @override
   Future<void> initialize(

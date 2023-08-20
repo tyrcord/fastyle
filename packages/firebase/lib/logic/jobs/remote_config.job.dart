@@ -23,7 +23,7 @@ class FastFirebaseRemoteConfigJob extends FastJob {
   }
 
   const FastFirebaseRemoteConfigJob._({this.defaultConfig})
-      : super(debugLabel: 'fast_firebase_remote_config_job');
+      : super(debugLabel: 'FastFirebaseRemoteConfigJob');
 
   @override
   Future<void> initialize(

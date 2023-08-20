@@ -22,7 +22,7 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     return (_singleton ??= const FastAppSettingsJob._());
   }
 
- const FastAppSettingsJob._() : super(debugLabel: 'fast_app_settings_job');
+  const FastAppSettingsJob._() : super(debugLabel: 'FastAppSettingsJobs');
 
   @override
   Future<void> initialize(

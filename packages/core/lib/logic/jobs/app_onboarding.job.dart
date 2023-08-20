@@ -15,7 +15,7 @@ class FastAppOnboardingJob extends FastJob {
     return (_singleton ??= const FastAppOnboardingJob._());
   }
 
-  const FastAppOnboardingJob._() : super(debugLabel: 'fast_app_onboarding_job');
+  const FastAppOnboardingJob._() : super(debugLabel: 'FastAppOnboardingJob');
 
   @override
   Future<void> initialize(

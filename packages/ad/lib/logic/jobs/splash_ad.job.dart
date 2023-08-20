@@ -17,7 +17,7 @@ class FastSplashAdJob extends FastJob {
     return (_singleton ??= const FastSplashAdJob._());
   }
 
-  const FastSplashAdJob._() : super(debugLabel: 'fast_splash_ad_job');
+  const FastSplashAdJob._() : super(debugLabel: 'FastSplashAdJob');
 
   @override
   Future<void> initialize(

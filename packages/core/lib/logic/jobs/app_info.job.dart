@@ -27,7 +27,7 @@ class FastAppInfoJob extends FastJob {
   const FastAppInfoJob._(
     this.appInfoDocument, {
     this.onDatabaseVersionChanged,
-  }) : super(debugLabel: 'fast_app_info_job');
+  }) : super(debugLabel: 'FastAppInfoJob');
 
   @override
   Future<void> initialize(
