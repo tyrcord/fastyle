@@ -12,9 +12,12 @@ import 'package:fastyle_calculator/fastyle_calculator.dart';
 /// A [FastCalculatorAction] that clears the calculator state.
 class FastCalculatorShareAction<B extends FastCalculatorBloc,
     R extends FastCalculatorResults> extends FastCalculatorAction<B, R> {
+  final bool Function(FastCalculatorBlocState state)? canEnableInteractions;
+
   const FastCalculatorShareAction({
     super.key,
     required super.calculatorBloc,
+    this.canEnableInteractions,
     super.disabledColor,
     super.icon,
   });
@@ -61,6 +64,10 @@ class FastCalculatorShareAction<B extends FastCalculatorBloc,
   /// Whether the action should be enabled or not.
   @override
   bool shouldEnableInteractions(FastCalculatorBlocState state) {
+    if (canEnableInteractions != null) {
+      return canEnableInteractions!(state);
+    }
+
     if (state.isInitialized) {
       return state.isValid && !state.isBusy;
     }

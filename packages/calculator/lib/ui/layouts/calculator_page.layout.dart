@@ -83,11 +83,15 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
   /// A widget that represents the leading widget.
   final Widget? leading;
 
+  final bool Function(FastCalculatorBlocState state)?
+      canEnableShareInteractions;
+
   const FastCalculatorPageLayout({
     super.key,
     required this.calculatorBloc,
     required this.resultsBuilder,
     required this.fieldsBuilder,
+    this.canEnableShareInteractions,
     this.requestFullApp = false,
     this.showRefreshIcon = true,
     this.showClearIcon = true,
@@ -210,6 +214,7 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
     return [
       if (isExportReportPdfEnabled())
         FastCalculatorShareAction<B, R>(
+          canEnableInteractions: canEnableShareInteractions,
           calculatorBloc: calculatorBloc,
           icon: shareIcon,
         ),
