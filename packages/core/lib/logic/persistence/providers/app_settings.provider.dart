@@ -7,9 +7,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 /// A [TDocumentDataProvider] that provides a way to persist and retrieve
 /// [FastAppSettingsDocument] objects.
 class FastAppSettingsDataProvider extends TDocumentDataProvider {
-  FastAppSettingsDataProvider({
-    super.storeName = kFastAppSettingStoreName,
-  });
+  FastAppSettingsDataProvider({super.storeName = kFastAppSettingStoreName});
 
   /// Retrieves the settings document.
   Future<FastAppSettingsDocument> retrieveSettings() async {

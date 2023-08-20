@@ -4,12 +4,10 @@ import 'package:tstore/tstore.dart';
 // Project imports:
 import 'package:fastyle_iap/fastyle_iap.dart';
 
-const _kStoreName = 'inAppPurchases';
-
 class FastInAppPurchaseDataProvider extends TDataProvider {
   FastInAppPurchaseDataProvider({
     String? storeName,
-  }) : super(storeName: storeName ?? _kStoreName);
+  }) : super(storeName: storeName ?? kFastInAppPurchasesStoreName);
 
   Future<List<FastInAppPurchase>> listAllPurchases() async {
     final rawList = await store.list<Map<dynamic, dynamic>>();
