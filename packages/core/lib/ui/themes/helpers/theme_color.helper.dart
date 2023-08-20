@@ -24,7 +24,7 @@ class ThemeColorHelper {
   }
 
   Color getShadowColor(BuildContext context) {
-    final themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    final themeBloc = FastThemeBloc.instance;
 
     return themeBloc.currentState.brightness == Brightness.light
         ? kFastLightShadowColor
@@ -52,7 +52,7 @@ class ThemeColorHelper {
   }
 
   Color getSecondaryBackgroundColor(BuildContext context) {
-    final themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    final themeBloc = FastThemeBloc.instance;
 
     return themeBloc.currentState.brightness == Brightness.light
         ? kFastLightSecondaryBackgroundColor
@@ -60,7 +60,7 @@ class ThemeColorHelper {
   }
 
   Color getTertiaryBackgroundColor(BuildContext context) {
-    final themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    final themeBloc = FastThemeBloc.instance;
 
     return themeBloc.currentState.brightness == Brightness.light
         ? kFastLightTertiaryBackgroundColor
@@ -68,7 +68,7 @@ class ThemeColorHelper {
   }
 
   Color getSurfaceTintColor(BuildContext context) {
-    final themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    final themeBloc = FastThemeBloc.instance;
     final brightness = themeBloc.currentState.brightness;
     final palette = ThemeHelper.getPaletteColors(context);
     final isBrightnessLight = brightness == Brightness.light;
@@ -91,7 +91,7 @@ class ThemeColorHelper {
 
   Color getDisabledColor(BuildContext context) {
     final palette = ThemeHelper.getPaletteColors(context);
-    final themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    final themeBloc = FastThemeBloc.instance;
     final brightness = themeBloc.currentState.brightness;
     final isBrightnessLight = brightness == Brightness.light;
 

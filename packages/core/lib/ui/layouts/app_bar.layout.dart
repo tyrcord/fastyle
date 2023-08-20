@@ -168,7 +168,7 @@ class FastAppBarLayoutState extends State<FastAppBarLayout> {
   }
 
   SystemUiOverlayStyle _getSystemOverlayStyle(BuildContext context) {
-    final themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    final themeBloc = FastThemeBloc.instance;
     final brightness = themeBloc.currentState.brightness;
 
     if (brightness == Brightness.light) {

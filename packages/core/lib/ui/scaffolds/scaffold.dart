@@ -107,7 +107,7 @@ class FastScaffold extends StatelessWidget {
   }
 
   Widget _buildAppBar(BuildContext context) {
-    final themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    final themeBloc = FastThemeBloc.instance;
     final brightness = themeBloc.currentState.brightness;
     final palette = ThemeHelper.getPaletteColors(context);
     final isBrightnessLight = brightness == Brightness.light;

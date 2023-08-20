@@ -60,7 +60,7 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
   /// Builds the overlay container with a header and the main content.
   @override
   Widget build(BuildContext context) {
-    final themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    final themeBloc = FastThemeBloc.instance;
     final brightness = themeBloc.currentState.brightness;
     final overlayStyle = brightness == Brightness.dark
         ? SystemUiOverlayStyle.light

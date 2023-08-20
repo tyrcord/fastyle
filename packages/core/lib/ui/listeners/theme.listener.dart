@@ -39,7 +39,7 @@ class _FastAppSettingsThemeListenerState
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _settingsBloc = BlocProvider.of<FastAppSettingsBloc>(context);
-      _themeBloc = BlocProvider.of<FastThemeBloc>(context);
+      _themeBloc = FastThemeBloc.instance;
 
       // Listen to the onData stream of FastAppSettingsBloc.
       // Skip the initial states until the bloc is initialized.

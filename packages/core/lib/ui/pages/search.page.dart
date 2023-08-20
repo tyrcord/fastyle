@@ -130,7 +130,7 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
 
   @override
   Widget build(BuildContext context) {
-    final themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    final themeBloc = FastThemeBloc.instance;
     final brightness = themeBloc.currentState.brightness;
     final overlayStyle = brightness == Brightness.dark
         ? SystemUiOverlayStyle.light

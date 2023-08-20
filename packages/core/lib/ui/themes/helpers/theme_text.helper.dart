@@ -11,7 +11,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 class ThemeTextHelper {
   Color getLabelColor(BuildContext context) {
-    final themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    final themeBloc = FastThemeBloc.instance;
 
     return themeBloc.currentState.brightness == Brightness.light
         ? kFastLightLabelColor
@@ -19,7 +19,7 @@ class ThemeTextHelper {
   }
 
   Color getSecondaryLabelColor(BuildContext context) {
-    final themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    final themeBloc = FastThemeBloc.instance;
 
     return themeBloc.currentState.brightness == Brightness.light
         ? kFastLightSecondaryLabelColor
@@ -27,7 +27,7 @@ class ThemeTextHelper {
   }
 
   Color getTertiaryLabelColor(BuildContext context) {
-    final themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    final themeBloc = FastThemeBloc.instance;
 
     return themeBloc.currentState.brightness == Brightness.light
         ? kFastLightTertiaryLabelColor

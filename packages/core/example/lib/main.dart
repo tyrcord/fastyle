@@ -149,7 +149,7 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   List<Widget> _buildList(BuildContext context) {
-    final themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    final themeBloc = FastThemeBloc.instance;
     final palette = ThemeHelper.getPaletteColors(context);
 
     return [

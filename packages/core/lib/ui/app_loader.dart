@@ -145,7 +145,7 @@ class FastAppLoaderState extends State<FastAppLoader> {
 
   Widget buildEmptyApp({required Widget child}) {
     return BlocBuilderWidget(
-      bloc: BlocProvider.of<FastThemeBloc>(context),
+      bloc: FastThemeBloc.instance,
       builder: (BuildContext context, state) {
         final appLocale = widget.locale ?? kFastAppSettingsDefaultLocale;
         final useDarkTheme = state.brightness == Brightness.dark;

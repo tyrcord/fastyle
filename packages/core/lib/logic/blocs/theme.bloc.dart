@@ -11,9 +11,20 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 class FastThemeBloc
     extends BidirectionalBloc<FastThemeBlocEvent, FastThemeBlocState> {
-  FastThemeBloc({
-    FastThemeBlocState? initialState,
-  })  : assert((initialState != null && initialState.brightness != null) ||
+  static bool _hasBeenInstantiated = false;
+  static late FastThemeBloc instance;
+
+  factory FastThemeBloc({FastThemeBlocState? initialState}) {
+    if (!_hasBeenInstantiated) {
+      instance = FastThemeBloc._(initialState: initialState);
+      _hasBeenInstantiated = true;
+    }
+
+    return instance;
+  }
+
+  FastThemeBloc._({FastThemeBlocState? initialState})
+      : assert((initialState != null && initialState.brightness != null) ||
             initialState == null),
         super(initialState: initialState ?? FastThemeBlocState()) {
     WidgetsBinding.instance.platformDispatcher.onPlatformBrightnessChanged =

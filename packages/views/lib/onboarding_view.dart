@@ -76,7 +76,7 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
   @override
   Widget build(BuildContext context) {
     final spacing = ThemeHelper.spacing.getVerticalSpacing(context);
-    final themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    final themeBloc = FastThemeBloc.instance;
     final brightness = themeBloc.currentState.brightness;
     final overlayStyle = brightness == Brightness.dark
         ? SystemUiOverlayStyle.light

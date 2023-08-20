@@ -28,7 +28,7 @@ class FastShimmer extends StatelessWidget {
     final grayPalette = ThemeHelper.getPaletteColors(context).gray;
 
     return BlocBuilderWidget(
-      bloc: BlocProvider.of<FastThemeBloc>(context),
+      bloc: FastThemeBloc.instance,
       builder: (BuildContext context, state) {
         final isDark = state.brightness == Brightness.dark;
         var highlightColor0 = highlightColor;

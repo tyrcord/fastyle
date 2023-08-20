@@ -25,7 +25,7 @@ class ThemeHelper {
   static ThemeTextHelper get texts => _textHelper;
 
   static FastPaletteColors getPaletteColors(BuildContext context) {
-    final themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    final themeBloc = FastThemeBloc.instance;
 
     return themeBloc.currentState.brightness == Brightness.light
         ? kLightPaletteColors

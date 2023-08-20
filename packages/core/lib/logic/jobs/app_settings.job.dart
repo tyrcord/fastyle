@@ -116,7 +116,7 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     BuildContext context,
     FastAppSettingsBlocState settingsState,
   ) async {
-    final themeBloc = BlocProvider.of<FastThemeBloc>(context);
+    final themeBloc = FastThemeBloc.instance;
 
     dispatchThemeModeChanged(themeBloc, settingsState.themeMode);
 

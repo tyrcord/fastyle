@@ -19,7 +19,7 @@ class FastExampleBlock extends StatelessWidget {
     final palette = palettes.blueGray;
 
     return BlocBuilderWidget(
-      bloc: BlocProvider.of<FastThemeBloc>(context),
+      bloc: FastThemeBloc.instance,
       builder: (BuildContext context, state) {
         final isDark = state.brightness == Brightness.dark;
         final backgroundColor = isDark ? palette.ultraDark : palette.ultraLight;
