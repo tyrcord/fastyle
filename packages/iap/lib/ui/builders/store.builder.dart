@@ -29,7 +29,7 @@ class FastStorePlanBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilderWidget(
-      bloc: BlocProvider.of<FastStoreBloc>(context),
+      bloc: FastStoreBloc.instance,
       buildWhen: _shouldBuild,
       builder: builder,
     );

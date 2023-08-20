@@ -8,7 +8,6 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_images/fastyle_images.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
-import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
@@ -169,7 +168,7 @@ class FastSettingsThemePage extends FastSettingPageLayout {
   /// Called when the user changes the theme of the application.
   /// The [themeMode] parameter is the new theme of the application.
   void handleThemeSelectionChanged(BuildContext context, ThemeMode themeMode) {
-    final settingsBloc = BlocProvider.of<FastAppSettingsBloc>(context);
+    final settingsBloc = FastAppSettingsBloc.instance;
     final theme = themeMode.name;
 
     settingsBloc.addEvent(FastAppSettingsBlocEvent.themeChanged(theme));

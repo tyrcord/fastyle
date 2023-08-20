@@ -6,7 +6,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
-import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
@@ -37,7 +36,7 @@ class FastSettingsTermsOfServicePage extends StatelessWidget {
   }
 
   Widget buildContent(BuildContext context) {
-    final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
+    final appInfoBloc = FastAppInfoBloc.instance;
     final appInfo = appInfoBloc.currentState;
     final appName = appInfo.appName;
 

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_firebase/fastyle_firebase.dart';
@@ -30,7 +29,7 @@ class FastFirebaseRemoteConfigJob extends FastJob {
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
-    final bloc = BlocProvider.of<FastFirebaseRemoteConfigBloc>(context);
+    final bloc = FastFirebaseRemoteConfigBloc.instance;
     bloc.addEvent(FastFirebaseRemoteConfigBlocEvent.init(
       defaultConfig: defaultConfig,
     ));

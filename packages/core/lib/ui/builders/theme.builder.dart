@@ -27,7 +27,7 @@ class FastAppSettingsThemeBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilderWidget(
       buildWhen: (previous, next) => previous.theme != next.theme,
-      bloc: BlocProvider.of<FastAppSettingsBloc>(context),
+      bloc: FastAppSettingsBloc.instance,
       builder: builder,
     );
   }

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:rxdart/rxdart.dart';
-import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -22,7 +21,7 @@ class FastAppPermissionsJob extends FastJob {
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
-    final bloc = BlocProvider.of<FastAppPermissionsBloc>(context);
+    final bloc = FastAppPermissionsBloc.instance;
     bloc.addEvent(const FastAppPermissionsBlocEvent.init());
 
     final blocState = await RaceStream([

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:go_router/go_router.dart';
-import 'package:tbloc/tbloc.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 // Project imports:
@@ -101,7 +100,7 @@ class FastAppInfoPage<T> extends StatelessWidget {
       );
     }
 
-    final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
+    final appInfoBloc = FastAppInfoBloc.instance;
     final appInfo = appInfoBloc.currentState;
 
     return Column(
@@ -125,7 +124,7 @@ class FastAppInfoPage<T> extends StatelessWidget {
 
       if (value.startsWith('action://')) {
         final action = value.replaceFirst('action://', '');
-        final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
+        final appInfoBloc = FastAppInfoBloc.instance;
         final appInfo = appInfoBloc.currentState;
 
         switch (action) {

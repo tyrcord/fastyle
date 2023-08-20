@@ -7,7 +7,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
-import 'package:tbloc/tbloc.dart';
 
 //TODO: @need-review: code from fastyle_dart
 
@@ -211,7 +210,7 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
   }
 
   Future<void> _done() async {
-    final appInfoBloc = BlocProvider.of<FastAppOnboardingBloc>(context);
+    final appInfoBloc = FastAppOnboardingBloc.instance;
 
     appInfoBloc.addEvent(
       const FastAppOnboardingBlocEvent.initializationCompleted(),

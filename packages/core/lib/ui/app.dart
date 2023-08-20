@@ -246,7 +246,7 @@ class _FastAppState extends State<FastApp> {
 
   /// Builds the home widget.
   Widget buildAppEntry(BuildContext context) {
-    final bloc = BlocProvider.of<FastAppOnboardingBloc>(context);
+    final bloc = FastAppOnboardingBloc.instance;
     final onboardingState = bloc.currentState;
 
     if (!onboardingState.isCompleted || widget.forceOnboarding) {

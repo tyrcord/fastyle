@@ -8,7 +8,6 @@ import 'package:fastyle_forms/fastyle_forms.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
-import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
@@ -164,7 +163,7 @@ class FastAppSettingsPage extends FastSettingPageLayout {
 
   /// Dispatches the given [event] to the [FastAppSettingsBloc].
   void _dispatchEvent(BuildContext context, FastAppSettingsBlocEvent event) {
-    final bloc = BlocProvider.of<FastAppSettingsBloc>(context);
+    final bloc = FastAppSettingsBloc.instance;
 
     bloc.addEvent(event);
   }

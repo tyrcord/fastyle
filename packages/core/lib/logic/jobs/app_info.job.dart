@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:rxdart/rxdart.dart';
-import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -34,7 +33,7 @@ class FastAppInfoJob extends FastJob {
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
-    final bloc = BlocProvider.of<FastAppInfoBloc>(context);
+    final bloc = FastAppInfoBloc.instance;
     bloc.addEvent(FastAppInfoBlocEvent.init(appInfoDocument));
 
     final appInfoState = await RaceStream([

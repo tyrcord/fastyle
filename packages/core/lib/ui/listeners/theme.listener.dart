@@ -4,9 +4,6 @@ import 'dart:async';
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-// Package imports:
-import 'package:tbloc/tbloc.dart';
-
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
@@ -38,7 +35,7 @@ class _FastAppSettingsThemeListenerState
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _settingsBloc = BlocProvider.of<FastAppSettingsBloc>(context);
+      _settingsBloc = FastAppSettingsBloc.instance;
       _themeBloc = FastThemeBloc.instance;
 
       // Listen to the onData stream of FastAppSettingsBloc.

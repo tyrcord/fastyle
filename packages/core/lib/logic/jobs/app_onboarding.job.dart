@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:rxdart/rxdart.dart';
-import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -22,7 +21,7 @@ class FastAppOnboardingJob extends FastJob {
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
-    final bloc = BlocProvider.of<FastAppOnboardingBloc>(context);
+    final bloc = FastAppOnboardingBloc.instance;
     bloc.addEvent(const FastAppOnboardingBlocEvent.init());
 
     final onboardingState = await RaceStream([

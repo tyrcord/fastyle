@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -43,8 +42,8 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
-    final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
-    final settingsBloc = BlocProvider.of<FastAppSettingsBloc>(context);
+    final appInfoBloc = FastAppInfoBloc.instance;
+    final settingsBloc = FastAppSettingsBloc.instance;
     final appInfoState = appInfoBloc.currentState;
     final deviceLanguageCode = appInfoState.deviceLanguageCode;
     final deviceCountryCode = appInfoState.deviceCountryCode;

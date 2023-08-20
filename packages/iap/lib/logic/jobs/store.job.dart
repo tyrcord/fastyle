@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_iap/fastyle_iap.dart';
@@ -23,7 +22,7 @@ class FastIapStoreJob extends FastJob {
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
-    final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
+    final appInfoBloc = FastAppInfoBloc.instance;
     final appInfoState = appInfoBloc.currentState;
 
     if (appInfoState.productIdentifiers == null ||
@@ -31,7 +30,7 @@ class FastIapStoreJob extends FastJob {
       return;
     }
 
-    final storeBloc = BlocProvider.of<FastStoreBloc>(context);
+    final storeBloc = FastStoreBloc.instance;
     final appInfo = appInfoState.toDocument();
     storeBloc.addEvent(
       FastStoreBlocEvent.init(appInfo, errorReporter: errorReporter),

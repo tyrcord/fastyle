@@ -20,7 +20,8 @@ import 'package:fastyle_iap/fastyle_iap.dart';
 /// necessary functionality to handle events and state changes in the store.
 class FastStoreBloc
     extends BidirectionalBloc<FastStoreBlocEvent, FastStoreBlocState> {
-  static FastStoreBloc? _singleton;
+  static bool _hasBeenInstantiated = false;
+  static late FastStoreBloc instance;
 
   late FastInAppPurchaseDataProvider _iapDataProvider;
   late FastInAppPurchaseService _iapService;
@@ -36,10 +37,19 @@ class FastStoreBloc
 
   /// A factory constructor that returns an instance of [FastStoreBloc].
   /// It ensures that only one instance is created.
-  factory FastStoreBloc(
-      {FastStoreBlocState? initialState, String? debugLabel}) {
-    return (_singleton ??=
-        FastStoreBloc._(initialState: initialState, debugLabel: debugLabel));
+  factory FastStoreBloc({
+    FastStoreBlocState? initialState,
+    String? debugLabel,
+  }) {
+    if (!_hasBeenInstantiated) {
+      instance = FastStoreBloc._(
+        initialState: initialState,
+        debugLabel: debugLabel,
+      );
+      _hasBeenInstantiated = true;
+    }
+
+    return instance;
   }
 
   FastStoreBloc._({FastStoreBlocState? initialState, String? debugLabel})

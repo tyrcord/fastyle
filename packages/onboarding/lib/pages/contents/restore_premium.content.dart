@@ -9,7 +9,6 @@ import 'package:fastyle_iap/fastyle_iap.dart';
 import 'package:fastyle_layouts/fastyle_layouts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lingua_onboarding/generated/locale_keys.g.dart';
-import 'package:tbloc/tbloc.dart';
 
 class FastOnboardingRestorePremiumContent extends StatelessWidget {
   /// The controller to use to pause and resume the onboarding.
@@ -60,7 +59,7 @@ class FastOnboardingRestorePremiumContent extends StatelessWidget {
       icon: buildIcon(context),
       children: children,
       actionBuilder: (context) {
-        final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
+        final appInfoBloc = FastAppInfoBloc.instance;
         final appInfo = appInfoBloc.currentState;
 
         assert(appInfo.premiumProductIdentifier != null, '''

@@ -27,7 +27,7 @@ class FastAppSettingsSecondaryCurrencyBuilder extends StatelessWidget {
     return BlocBuilderWidget(
       buildWhen: (previous, next) =>
           previous.secondaryCurrencyCode != next.secondaryCurrencyCode,
-      bloc: BlocProvider.of<FastAppSettingsBloc>(context),
+      bloc: FastAppSettingsBloc.instance,
       builder: builder,
     );
   }

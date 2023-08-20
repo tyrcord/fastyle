@@ -6,14 +6,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:lingua_finance/generated/locale_keys.g.dart';
-import 'package:tbloc/tbloc.dart';
 
 class FastFinanceInvestDisclaimerPage extends StatelessWidget {
   const FastFinanceInvestDisclaimerPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
+    final appInfoBloc = FastAppInfoBloc.instance;
     final appInfo = appInfoBloc.currentState;
 
     return FastSettingsDisclaimerPage(

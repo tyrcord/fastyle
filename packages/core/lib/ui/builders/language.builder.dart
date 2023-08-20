@@ -29,7 +29,7 @@ class FastAppSettingsLanguageBuilder extends StatelessWidget {
       buildWhen: (previous, next) {
         return previous.languageCode != next.languageCode;
       },
-      bloc: BlocProvider.of<FastAppSettingsBloc>(context),
+      bloc: FastAppSettingsBloc.instance,
       builder: builder,
     );
   }

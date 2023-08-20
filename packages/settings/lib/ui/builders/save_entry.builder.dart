@@ -25,7 +25,7 @@ class FastAppSettingsSaveEntryBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilderWidget(
       buildWhen: (previous, next) => previous.saveEntry != next.saveEntry,
-      bloc: BlocProvider.of<FastAppSettingsBloc>(context),
+      bloc: FastAppSettingsBloc.instance,
       builder: builder,
     );
   }

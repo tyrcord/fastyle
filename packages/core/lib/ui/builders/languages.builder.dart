@@ -26,7 +26,7 @@ class FastAppSettingsLanguagesBuilder extends StatelessWidget {
       buildWhen: (previous, next) {
         return previous.supportedLocales != next.supportedLocales;
       },
-      bloc: BlocProvider.of<FastAppInfoBloc>(context),
+      bloc: FastAppInfoBloc.instance,
       builder: builder,
     );
   }

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:tbloc/tbloc.dart';
 
 class FastSettingsSupportLink extends StatelessWidget {
   final String emailText;
@@ -25,7 +24,7 @@ class FastSettingsSupportLink extends StatelessWidget {
   }
 
   void handleAskForSupport(BuildContext context) {
-    final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
+    final appInfoBloc = FastAppInfoBloc.instance;
     final appInfo = appInfoBloc.currentState;
 
     FastMessenger.writeEmail(appInfo.supportEmail!, subject: appInfo.appName);

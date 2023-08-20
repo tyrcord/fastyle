@@ -11,16 +11,21 @@ class FastAppOnboardingBloc extends BidirectionalBloc<
     FastAppOnboardingBlocEvent, FastAppOnboardingBlocState> {
   final FastAppOnboardingDataProvider _dataProvider;
   late FastAppOnboardingDocument _persistedOnboarding;
-  static FastAppOnboardingBloc? _singleton;
+
+  static bool _hasBeenInstantiated = false;
+  static late FastAppOnboardingBloc instance;
 
   FastAppOnboardingBloc._({FastAppOnboardingBlocState? initialState})
       : _dataProvider = FastAppOnboardingDataProvider(),
         super(initialState: initialState ?? FastAppOnboardingBlocState());
 
   factory FastAppOnboardingBloc({FastAppOnboardingBlocState? initialState}) {
-    _singleton ??= FastAppOnboardingBloc._(initialState: initialState);
+    if (!_hasBeenInstantiated) {
+      instance = FastAppOnboardingBloc._(initialState: initialState);
+      _hasBeenInstantiated = true;
+    }
 
-    return _singleton!;
+    return instance;
   }
 
   @override

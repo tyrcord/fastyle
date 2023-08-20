@@ -13,21 +13,23 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppLoaderBloc
     extends BidirectionalBloc<FastAppLoaderBlocEvent, FastAppLoaderBlocState> {
-  static FastAppLoaderBloc? _singleton;
+  static bool _hasBeenInstantiated = false;
+  static late FastAppLoaderBloc instance;
 
-  factory FastAppLoaderBloc({
-    FastAppLoaderBlocState? initialState,
-  }) {
-    if (_singleton == null || (_singleton != null && _singleton!.isClosed)) {
-      _singleton = FastAppLoaderBloc._(initialState);
+  factory FastAppLoaderBloc({FastAppLoaderBlocState? initialState}) {
+    if (!_hasBeenInstantiated) {
+      instance = FastAppLoaderBloc._(initialState);
+      _hasBeenInstantiated = true;
     }
 
-    return _singleton!;
+    return instance;
   }
 
-  FastAppLoaderBloc._(
-    FastAppLoaderBlocState? initialState,
-  ) : super(initialState: initialState ?? FastAppLoaderBlocState());
+  FastAppLoaderBloc._(FastAppLoaderBlocState? initialState)
+      : super(initialState: initialState ?? FastAppLoaderBlocState());
+
+  @override
+  bool canClose() => false;
 
   @override
   Stream<FastAppLoaderBlocState> mapEventToState(

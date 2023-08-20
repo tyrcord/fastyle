@@ -6,7 +6,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:t_helpers/helpers.dart';
-import 'package:tbloc/tbloc.dart';
 
 class FastSettingsLastModified extends StatelessWidget {
   final DateTime lastModifiedAt;
@@ -15,7 +14,7 @@ class FastSettingsLastModified extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appSettingsBloc = BlocProvider.of<FastAppSettingsBloc>(context);
+    final appSettingsBloc = FastAppSettingsBloc.instance;
     final appSettings = appSettingsBloc.currentState;
     final pendingDate = formatDateTime(
       lastModifiedAt,

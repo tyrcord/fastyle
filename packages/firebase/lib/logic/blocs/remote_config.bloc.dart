@@ -9,7 +9,8 @@ import 'package:fastyle_firebase/fastyle_firebase.dart';
 
 class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
     FastFirebaseRemoteConfigBlocEvent, FastFirebaseRemoteConfigBlocState> {
-  static FastFirebaseRemoteConfigBloc? _singleton;
+  static bool _hasBeenInstantiated = false;
+  static late FastFirebaseRemoteConfigBloc instance;
   static String debugLabel = 'FastFirebaseRemoteConfigBloc';
 
   FastFirebaseRemoteConfigBloc._({
@@ -19,9 +20,12 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
   factory FastFirebaseRemoteConfigBloc({
     FastFirebaseRemoteConfigBlocState? initialState,
   }) {
-    _singleton ??= FastFirebaseRemoteConfigBloc._(initialState: initialState);
+    if (!_hasBeenInstantiated) {
+      instance = FastFirebaseRemoteConfigBloc._(initialState: initialState);
+      _hasBeenInstantiated = true;
+    }
 
-    return _singleton!;
+    return instance;
   }
 
   @override
