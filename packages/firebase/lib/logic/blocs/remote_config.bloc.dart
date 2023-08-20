@@ -29,6 +29,9 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
   }
 
   @override
+  bool canClose() => false;
+
+  @override
   Stream<FastFirebaseRemoteConfigBlocState> mapEventToState(
     FastFirebaseRemoteConfigBlocEvent event,
   ) async* {

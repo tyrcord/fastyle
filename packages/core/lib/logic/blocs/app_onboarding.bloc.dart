@@ -29,6 +29,9 @@ class FastAppOnboardingBloc extends BidirectionalBloc<
   }
 
   @override
+  bool canClose() => false;
+
+  @override
   Stream<FastAppOnboardingBlocState> mapEventToState(
       FastAppOnboardingBlocEvent event) async* {
     final payload = event.payload;

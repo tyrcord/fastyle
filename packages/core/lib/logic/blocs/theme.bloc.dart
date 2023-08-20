@@ -23,6 +23,9 @@ class FastThemeBloc
     return instance;
   }
 
+  @override
+  bool canClose() => false;
+
   FastThemeBloc._({FastThemeBlocState? initialState})
       : assert((initialState != null && initialState.brightness != null) ||
             initialState == null),

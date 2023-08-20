@@ -23,6 +23,9 @@ class FastAdInfoBloc
       : super(initialState: initialState ?? FastAdInfoBlocState());
 
   @override
+  bool canClose() => false;
+
+  @override
   Stream<FastAdInfoBlocState> mapEventToState(
     FastAdInfoBlocEvent event,
   ) async* {
