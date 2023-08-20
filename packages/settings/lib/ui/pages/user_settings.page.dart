@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_forms/fastyle_forms.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -18,6 +20,8 @@ class FastAppSettingsPage extends FastSettingPageLayout {
 
   final List<Widget>? defaultValuesChildren;
 
+  final VoidCallback? onResetSettings;
+
   const FastAppSettingsPage({
     super.key,
     super.headerDescriptionText,
@@ -27,6 +31,7 @@ class FastAppSettingsPage extends FastSettingPageLayout {
     super.titleText,
     super.actions,
     this.defaultValuesChildren,
+    this.onResetSettings,
     FastSettingsDescriptor? descriptor,
   }) : descriptor = descriptor ?? const FastSettingsDescriptor();
 
@@ -47,6 +52,8 @@ class FastAppSettingsPage extends FastSettingPageLayout {
             context,
           ),
           ...?defaultValuesChildren,
+          ThemeHelper.spacing.getHorizontalSpacing(context),
+          buildResetSettings(context),
         ]
       ],
     );
@@ -115,6 +122,43 @@ class FastAppSettingsPage extends FastSettingPageLayout {
 
     return const FastPageHeaderRoundedDuotoneIconLayout(
       icon: FaIcon(FontAwesomeIcons.solidUser),
+    );
+  }
+
+  Widget buildResetSettings(BuildContext context) {
+    final blueColor = ThemeHelper.getPaletteColors(context).blue.mid;
+
+    return FastTextButton(
+      text: SettingsLocaleKeys.settings_label_reset_settings.tr(),
+      textColor: blueColor,
+      upperCase: false,
+      onTap: () async {
+        showAnimatedFastAlertDialog(
+          messageText: CoreLocaleKeys.core_question_are_you_sure.tr(),
+          titleText: CoreLocaleKeys.core_label_confirmation.tr(),
+          context: context,
+          showCancel: true,
+          onValid: () async {
+            _dispatchEvent(
+              context,
+              FastAppSettingsBlocEvent.primaryCurrencyCodeChanged(
+                kFastAppSettingsPrimaryCurrencyCode,
+              ),
+            );
+
+            _dispatchEvent(
+              context,
+              FastAppSettingsBlocEvent.saveEntryChanged(
+                kFastAppSettingsSaveEntry,
+              ),
+            );
+
+            onResetSettings?.call();
+
+            Navigator.pop(context);
+          },
+        );
+      },
     );
   }
 
