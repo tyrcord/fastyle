@@ -18,7 +18,7 @@ class AdmobRewardedAdsPage extends StatefulWidget {
 
 class AdmobRewardedAdsPageState extends State<AdmobRewardedAdsPage> {
   final rewardedAdBloc = FastRewardedAdBloc();
-  final adBloc = FastAdInfoBloc();
+  final adBloc = FastAdInfoBloc.instance;
 
   @override
   void dispose() {

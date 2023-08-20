@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:t_helpers/helpers.dart';
-import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
@@ -26,10 +25,9 @@ class FastSplashAdJob extends FastJob {
   }) async {
     if (isWeb) return;
 
-    final adInfoBloc = BlocProvider.of<FastAdInfoBloc>(context);
-    final splashAdBloc = BlocProvider.of<FastSplashAdBloc>(context);
-    final appInfoBloc = BlocProvider.of<FastAppInfoBloc>(context);
-
+    final adInfoBloc = FastAdInfoBloc.instance;
+    final splashAdBloc = FastSplashAdBloc.instance;
+    final appInfoBloc = FastAppInfoBloc.instance;
     final appInfo = appInfoBloc.currentState;
     final adInfo = adInfoBloc.currentState.adInfo;
 

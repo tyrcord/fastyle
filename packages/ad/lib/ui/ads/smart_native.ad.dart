@@ -184,7 +184,7 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
       return widget.adInfo!;
     }
 
-    final adInfoBloc = FastAdInfoBloc();
+    final adInfoBloc = FastAdInfoBloc.instance;
 
     return adInfoBloc.currentState.adInfo;
   }

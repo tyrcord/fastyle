@@ -7,12 +7,16 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastAdInfoBloc
     extends BidirectionalBloc<FastAdInfoBlocEvent, FastAdInfoBlocState> {
-  static FastAdInfoBloc? _singleton;
+  static bool _hasBeenInstantiated = false;
+  static late FastAdInfoBloc instance;
 
   factory FastAdInfoBloc({FastAdInfoBlocState? initialState}) {
-    _singleton ??= FastAdInfoBloc._(initialState: initialState);
+    if (!_hasBeenInstantiated) {
+      instance = FastAdInfoBloc._(initialState: initialState);
+      _hasBeenInstantiated = true;
+    }
 
-    return _singleton!;
+    return instance;
   }
 
   FastAdInfoBloc._({FastAdInfoBlocState? initialState})

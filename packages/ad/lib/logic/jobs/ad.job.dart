@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:t_helpers/helpers.dart';
-import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
@@ -33,7 +32,7 @@ class FastAdInfoJob extends FastJob {
   }) async {
     if (isWeb) return;
 
-    final adInfoBloc = BlocProvider.of<FastAdInfoBloc>(context);
+    final adInfoBloc = FastAdInfoBloc.instance;
     FastAdInfo adInfo = adInfoBloc.currentState.adInfo;
 
     if (delegate != null) {

@@ -8,7 +8,8 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 /// application.
 class FastSplashAdBloc
     extends BidirectionalBloc<FastSplashAdBlocEvent, FastSplashAdBlocState> {
-  static FastSplashAdBloc? _singleton;
+  static bool _hasBeenInstantiated = false;
+  static late FastSplashAdBloc instance;
 
   late FastAdmobSplashAdService _service;
   late int _appLaunchCounter;
@@ -26,7 +27,12 @@ class FastSplashAdBloc
   }
 
   factory FastSplashAdBloc({FastSplashAdBlocState? initialState}) {
-    return (_singleton ??= FastSplashAdBloc._(initialState: initialState));
+    if (!_hasBeenInstantiated) {
+      instance = FastSplashAdBloc._(initialState: initialState);
+      _hasBeenInstantiated = true;
+    }
+
+    return instance;
   }
 
   /// Constructor for initializing the [FastSplashAdBloc].

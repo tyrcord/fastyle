@@ -18,7 +18,8 @@ class FastRewardedAdBloc
     extends BidirectionalBloc<FastRewardedAdBlocEvent, FastRewardedAdBlocState>
     implements AdEventListener {
   static String debugLabel = 'FastRewardedAdBloc';
-  static FastRewardedAdBloc? _singleton;
+  static bool _hasBeenInstantiated = false;
+  static late FastRewardedAdBloc instance;
 
   late final FastAdmobRewardedAdService _admobService;
   late final Duration blockDuration;
@@ -33,7 +34,12 @@ class FastRewardedAdBloc
 
   /// Factory constructor to create an instance of [FastRewardedAdBloc].
   factory FastRewardedAdBloc({FastRewardedAdBlocState? initialState}) {
-    return (_singleton ??= FastRewardedAdBloc._(initialState: initialState));
+    if (!_hasBeenInstantiated) {
+      instance = FastRewardedAdBloc._(initialState: initialState);
+      _hasBeenInstantiated = true;
+    }
+
+    return instance;
   }
 
   FastRewardedAdBloc._({
