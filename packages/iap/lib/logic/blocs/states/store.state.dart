@@ -1,7 +1,9 @@
 // Package imports:
-import 'package:fastyle_iap/fastyle_iap.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_iap/fastyle_iap.dart';
 
 class FastStoreBlocState extends BlocState {
   final List<FastInAppPurchase> purchases;

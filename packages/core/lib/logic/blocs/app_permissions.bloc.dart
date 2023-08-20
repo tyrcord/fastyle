@@ -1,7 +1,7 @@
 // Package imports:
-import 'package:tbloc/tbloc.dart';
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';

@@ -1,8 +1,8 @@
 // Package imports:
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
-import 'package:fastyle_core/fastyle_core.dart';
 
 // Project imports:
 import 'package:fastyle_firebase/fastyle_firebase.dart';

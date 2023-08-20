@@ -1,10 +1,10 @@
 // Package imports:
 import 'package:fastyle_forms/fastyle_forms.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:lingua_settings/generated/locale_keys.g.dart';
 
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
-import 'package:lingua_core/generated/locale_keys.g.dart';
-import 'package:lingua_settings/generated/locale_keys.g.dart';
 
 /// The default fields for the `FastAppSettingsInputsCategoryDescriptor` class.
 const kDefaultFastAppSettingsInputsFields = {

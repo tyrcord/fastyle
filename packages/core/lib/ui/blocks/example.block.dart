@@ -1,9 +1,14 @@
-import 'package:fastyle_core/logic/logic.dart';
-import 'package:fastyle_core/ui/ui.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:easy_localization/easy_localization.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
-import 'package:easy_localization/easy_localization.dart';
+
+// Project imports:
+import 'package:fastyle_core/logic/logic.dart';
+import 'package:fastyle_core/ui/ui.dart';
 
 class FastExampleBlock extends StatelessWidget {
   final String example;

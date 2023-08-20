@@ -1,9 +1,11 @@
 // Package imports:
 import 'package:collection/collection.dart';
-import 'package:fastyle_iap/fastyle_iap.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:lingua_purchases/generated/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
+
+// Project imports:
+import 'package:fastyle_iap/fastyle_iap.dart';
 
 ProductDetails? getProductDetails(
   List<ProductDetails>? products,

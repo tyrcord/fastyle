@@ -1,11 +1,16 @@
-import 'package:fastyle_ad/logic/logic.dart';
-import 'package:fastyle_core/fastyle_core.dart';
+// Flutter imports:
 import 'package:flutter/widgets.dart';
+
+// Package imports:
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:lingua_ad/generated/locale_keys.g.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:easy_localization/easy_localization.dart';
+
+// Project imports:
+import 'package:fastyle_ad/logic/logic.dart';
 
 class FastOperationRewardedDialog extends StatelessWidget {
   /// Callback triggered when the operation status changes.

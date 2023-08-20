@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+
+// Project imports:
 import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 class FastPendingOutlineButton extends FastButton {

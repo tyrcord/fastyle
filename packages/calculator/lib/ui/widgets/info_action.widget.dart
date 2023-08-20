@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tbloc/tbloc.dart';
-import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 // Project imports:
 import 'package:fastyle_calculator/fastyle_calculator.dart';

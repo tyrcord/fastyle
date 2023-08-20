@@ -2,7 +2,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-// Package imports:
+// Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
 class FastRichTextLink extends StatefulWidget {

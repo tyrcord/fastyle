@@ -4,9 +4,9 @@ import 'package:flutter/widgets.dart';
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_buttons/fastyle_buttons.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:lingua_purchases/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
-import 'package:fastyle_core/fastyle_core.dart';
 
 // Project imports:
 import 'package:fastyle_iap/fastyle_iap.dart';

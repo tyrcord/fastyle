@@ -1,15 +1,18 @@
-// Flutter imports:
+// Dart imports:
 import 'dart:async';
 
-import 'package:fastyle_iap/fastyle_iap.dart';
-import 'package:fastyle_onboarding/fastyle_onboarding.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:fastyle_iap/fastyle_iap.dart';
 import 'package:lingua_onboarding/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_onboarding/fastyle_onboarding.dart';
 
 class FastOnboardingPremiumUser extends StatefulWidget {
   /// The controller to use to pause and resume the onboarding.

@@ -1,4 +1,7 @@
+// Package imports:
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+
+// Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
 FastAppPermission getTrackingPermission(TrackingStatus status) {

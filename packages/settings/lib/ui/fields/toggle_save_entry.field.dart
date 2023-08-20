@@ -2,13 +2,13 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_forms/fastyle_forms.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
 
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
-import 'package:lingua_core/generated/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 /// A toggle list item that allows the user to enable or disable auto-saving of
 /// form entries.

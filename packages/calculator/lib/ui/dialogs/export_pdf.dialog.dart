@@ -1,10 +1,13 @@
+// Flutter imports:
+import 'package:flutter/widgets.dart';
+
+// Package imports:
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_ad/fastyle_ad.dart';
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:flutter/widgets.dart';
 import 'package:lingua_ad/generated/locale_keys.g.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_purchases/generated/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 class FastExportPdfRewardedDialog extends StatelessWidget {
   /// Callback triggered when the operation status changes.

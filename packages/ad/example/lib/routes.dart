@@ -1,6 +1,8 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:

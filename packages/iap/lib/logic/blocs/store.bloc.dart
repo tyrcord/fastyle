@@ -1,10 +1,12 @@
 // Dart imports:
 import 'dart:async';
-import 'package:easy_localization/easy_localization.dart';
+
+// Flutter imports:
+import 'package:flutter/foundation.dart';
 
 // Package imports:
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:in_app_purchase_storekit/store_kit_wrappers.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';

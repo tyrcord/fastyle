@@ -1,6 +1,10 @@
-import 'package:fastyle_core/fastyle_core.dart';
+// Flutter imports:
 import 'package:flutter/widgets.dart';
 
+// Package imports:
+import 'package:fastyle_core/fastyle_core.dart';
+
+// Project imports:
 import './operation_rewared.dialog.dart';
 
 export './operation_rewared.dialog.dart';
