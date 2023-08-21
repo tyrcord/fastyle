@@ -108,8 +108,6 @@ class AnimatedNumberWidgetState extends State<FastAnimatedNumberText>
       ))
         ..addListener(() => setState(() => _currentValue = _animation.value));
 
-      print('start animation: ${widget.endValue}');
-
       _controller.forward();
     }
   }
