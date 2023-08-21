@@ -34,6 +34,8 @@ abstract class FastCalculatorBloc<
   /// The function to add debounce events to the calculator bloc.
   late FastCalculatorBlocDebounceEventCallback<E> addDebounceEvent;
 
+  late FastCalculatorBlocDebounceEventCallback<E> addLoadMetadataDebounceEvent;
+
   /// The app settings bloc used by the calculator.
   @protected
   FastAppSettingsBloc appSettingsBloc = FastAppSettingsBloc();
@@ -65,6 +67,8 @@ abstract class FastCalculatorBloc<
       debugPrint('`debouceComputeEvents` is disabled for $runtimeType');
       addDebounceEvent = addEvent;
     }
+
+    addLoadMetadataDebounceEvent = debounceEvent((event) => addEvent(event));
 
     subxList.add(appSettingsBloc.onData.listen(handleSettingsChanges));
   }
@@ -168,7 +172,9 @@ abstract class FastCalculatorBloc<
   void handleSettingsChanges(BlocState state) {
     if (isInitialized) {
       debugLog('Settings changed, reloading metadata', debugLabel: debugLabel);
-      addEvent(FastCalculatorBlocEvent.loadMetadata<R>());
+      addLoadMetadataDebounceEvent(
+        FastCalculatorBlocEvent.loadMetadata<R>() as E,
+      );
     }
   }
 
