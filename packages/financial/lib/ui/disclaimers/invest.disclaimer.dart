@@ -41,6 +41,6 @@ class FastFinanceInvestDisclaimer extends StatelessWidget {
 
     return FinanceLocaleKeys.finance_disclaimer_trading.tr(namedArgs: {
       'company': appInfo.appAuthor,
-    }).tr();
+    });
   }
 }
