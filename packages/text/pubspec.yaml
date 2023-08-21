@@ -1,0 +1,26 @@
+name: fastyle_text
+description: A set of pricing texts for the fastyle library.
+version: 0.0.1
+repository: https://github.com/tyrcord/fastyle/tree/main/packages/text
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Fastyle
+  fastyle_core: ^0.0.12
+
+  # T
+  t_helpers: ^0.0.28
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.2
+  dart_code_metrics: ^5.7.6
+  import_sorter: ^4.6.0
+  dependency_validator: ^3.2.2
