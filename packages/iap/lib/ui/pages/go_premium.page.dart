@@ -20,6 +20,7 @@ class FastIapGoPremiumPage extends StatelessWidget {
   final String? titleText;
   final bool showAppBar;
   final Widget? icon;
+  final String? notesText;
 
   const FastIapGoPremiumPage({
     super.key,
@@ -29,6 +30,7 @@ class FastIapGoPremiumPage extends StatelessWidget {
     this.restorePremiumText,
     this.onRestorePremium,
     this.onBuyPremium,
+    this.notesText,
     this.titleText,
     this.items,
     this.icon,
@@ -36,12 +38,10 @@ class FastIapGoPremiumPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // FIXME: FastSectionPage layout should be a stack, content is
-    // displayed behind the footer.
     return FastSectionPage(
       titleText: _getTitleText(),
       showAppBar: showAppBar,
-      isViewScrollable: false,
+      isViewScrollable: true,
       footerBuilder: buildFooter,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -51,6 +51,11 @@ class FastIapGoPremiumPage extends StatelessWidget {
           buildDescription(context),
           buildFeaturesList(),
           buildBackgroundDecoration(context),
+          FastSecondaryBody(
+            text: notesText ??
+                PurchasesLocaleKeys.purchases_message_one_time_payment.tr(),
+            fontSize: 14,
+          ),
         ],
       ),
     );
