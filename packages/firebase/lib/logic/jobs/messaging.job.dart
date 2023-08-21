@@ -64,6 +64,15 @@ class FastFirebaseMessagingJob extends FastJob {
     if (status == AuthorizationStatus.authorized) {
       return FastAppPermission.granted;
     } else if (status == AuthorizationStatus.denied) {
+      if (isAndroid) {
+        final appInfoBloc = FastAppInfoBloc.instance;
+        final isFirstLaunch = appInfoBloc.currentState.isFirstLaunch;
+
+        if (isFirstLaunch) {
+          return FastAppPermission.unknown;
+        }
+      }
+
       return FastAppPermission.denied;
     }
 
