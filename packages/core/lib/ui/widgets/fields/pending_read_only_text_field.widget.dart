@@ -27,6 +27,7 @@ class FastPendingReadOnlyTextField extends StatelessWidget {
   final String labelText;
   final bool isPending;
   final double? fontSize;
+  final Widget? child;
 
   const FastPendingReadOnlyTextField({
     super.key,
@@ -47,6 +48,7 @@ class FastPendingReadOnlyTextField extends StatelessWidget {
     this.helperText,
     this.valueText,
     this.fontSize,
+    this.child,
   });
 
   @override
@@ -78,12 +80,13 @@ class FastPendingReadOnlyTextField extends StatelessWidget {
         child: Shimmer.fromColors(
           highlightColor: highlightColor ?? baseColor.withOpacity(0.1),
           baseColor: baseColor,
-          child: FastBody(
-            textColor: baseColor,
-            textAlign: textAlign,
-            fontWeight: fontWeight,
-            text: pendingText!,
-          ),
+          child: child ??
+              FastBody(
+                textColor: baseColor,
+                textAlign: textAlign,
+                fontWeight: fontWeight,
+                text: pendingText!,
+              ),
         ),
       );
     }

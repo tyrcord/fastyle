@@ -9,8 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_core: ^0.0.12
-  fastyle_forms: ^0.0.16
+  fastyle_core: ^0.0.13
+  fastyle_forms: ^0.0.17
 
 dev_dependencies:
   flutter_test:

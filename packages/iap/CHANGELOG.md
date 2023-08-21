@@ -1,3 +1,9 @@
+## 0.0.10
+
+ - **PERF**: minor performance improvements.
+ - **FEAT**: review store names.
+ - **FEAT**: update dependencies.
+
 ## 0.0.9
 
  - **FIX**: bunch of fixes.

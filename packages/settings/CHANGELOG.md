@@ -1,3 +1,11 @@
+## 0.0.22
+
+ - **PERF**: minor performance improvements.
+ - **FIX**: add default itemDescriptionBuilder.
+ - **FEAT**: add reset settings buttons.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+
 ## 0.0.21
 
  - **FIX**: minor improvements.

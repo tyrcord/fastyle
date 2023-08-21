@@ -1,3 +1,8 @@
+## 0.0.15
+
+ - **PERF**: minor performance improvements.
+ - **FEAT**: update dependencies.
+
 ## 0.0.14
 
  - **FIX**: minor improvements.

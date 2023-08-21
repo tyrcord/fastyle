@@ -1,3 +1,10 @@
+## 0.0.8
+
+ - **PERF**: minor performance improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add default app dict entries.
+ - **FEAT**: update dependencies.
+
 ## 0.0.7
 
  - **FIX**: regression.

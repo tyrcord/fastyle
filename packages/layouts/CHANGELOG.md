@@ -1,3 +1,7 @@
+## 0.0.7
+
+ - **FEAT**: better spacer for the onboarding pages.
+
 ## 0.0.6
 
  - **FEAT**: update dependencies.

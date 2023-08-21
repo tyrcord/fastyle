@@ -1,3 +1,7 @@
+## 1.14.0
+
+ - **FEAT**: update dependencies.
+
 ## 1.13.0
 
  - **FIX**: minor improvements.

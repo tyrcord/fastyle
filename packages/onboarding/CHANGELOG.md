@@ -1,3 +1,8 @@
+## 0.0.19
+
+ - **PERF**: minor performance improvements.
+ - **FEAT**: update dependencies.
+
 ## 0.0.18
 
  - **FIX**: notifications onboarding.

@@ -1,3 +1,16 @@
+## 0.0.13
+
+ - **PERF**: minor performance improvements.
+ - **PERF**: minor improvements.
+ - **FEAT**: better spacer for the onboarding pages.
+ - **FEAT**: review store names.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add default app dict entries.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+
 ## 0.0.12
 
  - **FIX**: notifications onboarding.

@@ -1,3 +1,12 @@
+## 1.25.0
+
+ - **FIX**: bunch of fixes.
+ - **FEAT**: allow to override share user interactions.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**(pdf): update default margin.
+
 ## 1.24.0
 
  - **FEAT**: PDF support subtitle and authorUrl.

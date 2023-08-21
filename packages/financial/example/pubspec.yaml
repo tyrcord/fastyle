@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_core: ^0.0.12
+  fastyle_core: ^0.0.13
   matex_financial: ^0.0.13+1
 
 dev_dependencies:

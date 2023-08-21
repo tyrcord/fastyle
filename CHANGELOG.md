@@ -3,6 +3,150 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-08-21
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.11`](#fastyle_ad---v0011)
+ - [`fastyle_calculator` - `v1.25.0`](#fastyle_calculator---v1250)
+ - [`fastyle_connectivity` - `v0.0.14`](#fastyle_connectivity---v0014)
+ - [`fastyle_core` - `v0.0.13`](#fastyle_core---v0013)
+ - [`fastyle_digit_calculator` - `v0.0.16`](#fastyle_digit_calculator---v0016)
+ - [`fastyle_financial` - `v0.0.15`](#fastyle_financial---v0015)
+ - [`fastyle_firebase` - `v0.0.8`](#fastyle_firebase---v008)
+ - [`fastyle_forms` - `v0.0.17`](#fastyle_forms---v0017)
+ - [`fastyle_home` - `v0.0.12`](#fastyle_home---v0012)
+ - [`fastyle_iap` - `v0.0.10`](#fastyle_iap---v0010)
+ - [`fastyle_images` - `v0.0.19`](#fastyle_images---v0019)
+ - [`fastyle_layouts` - `v0.0.7`](#fastyle_layouts---v007)
+ - [`fastyle_onboarding` - `v0.0.19`](#fastyle_onboarding---v0019)
+ - [`fastyle_pricing` - `v1.14.0`](#fastyle_pricing---v1140)
+ - [`fastyle_settings` - `v0.0.22`](#fastyle_settings---v0022)
+ - [`fastyle_text` - `v0.0.2`](#fastyle_text---v002)
+ - [`fastyle_video_player` - `v0.0.6`](#fastyle_video_player---v006)
+ - [`fastyle_views` - `v0.0.8`](#fastyle_views---v008)
+ - [`fastyle_buttons` - `v0.0.7+1`](#fastyle_buttons---v0071)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_buttons` - `v0.0.7+1`
+
+---
+
+#### `fastyle_ad` - `v0.0.11`
+
+ - **PERF**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_calculator` - `v1.25.0`
+
+ - **FIX**: bunch of fixes.
+ - **FEAT**: allow to override share user interactions.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**(pdf): update default margin.
+
+#### `fastyle_connectivity` - `v0.0.14`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_core` - `v0.0.13`
+
+ - **PERF**: minor performance improvements.
+ - **PERF**: minor improvements.
+ - **FEAT**: better spacer for the onboarding pages.
+ - **FEAT**: review store names.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add default app dict entries.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_digit_calculator` - `v0.0.16`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_financial` - `v0.0.15`
+
+ - **PERF**: minor performance improvements.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_firebase` - `v0.0.8`
+
+ - **PERF**: minor performance improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add default app dict entries.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_forms` - `v0.0.17`
+
+ - **PERF**: minor improvements.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_home` - `v0.0.12`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_iap` - `v0.0.10`
+
+ - **PERF**: minor performance improvements.
+ - **FEAT**: review store names.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_images` - `v0.0.19`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_layouts` - `v0.0.7`
+
+ - **FEAT**: better spacer for the onboarding pages.
+
+#### `fastyle_onboarding` - `v0.0.19`
+
+ - **PERF**: minor performance improvements.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_pricing` - `v1.14.0`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_settings` - `v0.0.22`
+
+ - **PERF**: minor performance improvements.
+ - **FIX**: add default itemDescriptionBuilder.
+ - **FEAT**: add reset settings buttons.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_text` - `v0.0.2`
+
+ - **FEAT**: add fastyle_text package.
+
+#### `fastyle_video_player` - `v0.0.6`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_views` - `v0.0.8`
+
+ - **PERF**: minor performance improvements.
+ - **PERF**: minor improvements.
+ - **FEAT**: update dependencies.
+
+
 ## 2023-08-17
 
 ### Changes
