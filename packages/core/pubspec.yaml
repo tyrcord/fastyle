@@ -46,6 +46,10 @@ dependencies:
   # Lingua
   lingua_core: ^0.0.21
 
+flutter:
+  assets:
+    - assets/fonts/
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
