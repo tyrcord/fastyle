@@ -7,3 +7,11 @@ String? getPremiumProductId() {
 
   return appInfo.premiumProductIdentifier;
 }
+
+bool isOsVersionAtLeast(double version) {
+  final appInfoBloc = FastAppInfoBloc();
+  final appInfo = appInfoBloc.currentState;
+  final osVersion = double.tryParse(appInfo.osVersion ?? '');
+
+  return osVersion != null && osVersion >= version;
+}

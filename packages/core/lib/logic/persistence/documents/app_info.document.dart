@@ -112,6 +112,8 @@ class FastAppInfoDocument extends TDocument {
   /// The last modified date of the app terms of service.
   final DateTime? appTermsOfServiceLastModified;
 
+  final String? osVersion;
+
   /// Creates an instance of [FastAppInfoDocument].
   const FastAppInfoDocument({
     this.appVersion,
@@ -148,6 +150,7 @@ class FastAppInfoDocument extends TDocument {
     bool? hasDisclaimer,
     String? appAuthor,
     String? appName,
+    this.osVersion = '0',
   })  : appName = appName ?? kFastEmptyString,
         appAuthor = appAuthor ?? kFastAppAuthor,
         askForReviewMinLaunches =
@@ -198,6 +201,7 @@ class FastAppInfoDocument extends TDocument {
       appPrivacyPolicyLastModified: state.appPrivacyPolicyLastModified,
       appTermsOfServiceLastModified: state.appTermsOfServiceLastModified,
       twitterUrl: state.twitterUrl,
+      osVersion: state.osVersion,
     );
   }
 
@@ -307,6 +311,7 @@ class FastAppInfoDocument extends TDocument {
     DateTime? appPrivacyPolicyLastModified,
     DateTime? appTermsOfServiceLastModified,
     String? twitterUrl,
+    String? osVersion,
   }) {
     return FastAppInfoDocument(
       appName: appName ?? this.appName,
@@ -351,6 +356,7 @@ class FastAppInfoDocument extends TDocument {
       appTermsOfServiceLastModified:
           appTermsOfServiceLastModified ?? this.appTermsOfServiceLastModified,
       twitterUrl: twitterUrl ?? this.twitterUrl,
+      osVersion: osVersion ?? this.osVersion,
     );
   }
 
@@ -391,6 +397,7 @@ class FastAppInfoDocument extends TDocument {
       appPrivacyPolicyLastModified: model.appPrivacyPolicyLastModified,
       appTermsOfServiceLastModified: model.appTermsOfServiceLastModified,
       twitterUrl: model.twitterUrl,
+      osVersion: model.osVersion,
     );
   }
 
@@ -473,6 +480,7 @@ class FastAppInfoDocument extends TDocument {
         appDisclaimerLastModified,
         appPrivacyPolicyLastModified,
         appTermsOfServiceLastModified,
+        osVersion,
         twitterUrl,
       ];
 }

@@ -32,6 +32,7 @@ dependencies:
   another_flushbar: ^1.12.30
   shimmer: ^3.0.0
   decimal: ^2.3.3
+  device_info_plus: ^9.0.3
 
   # Fastyle
   fastyle_buttons: ^0.0.7+1

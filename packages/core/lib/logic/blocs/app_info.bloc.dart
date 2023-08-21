@@ -1,16 +1,19 @@
 // Flutter imports:
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:devicelocale/devicelocale.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppInfoBloc
     extends BidirectionalBloc<FastAppInfoBlocEvent, FastAppInfoBlocState> {
+  static const String debugLabel = 'FastAppInfoBloc';
   static bool _hasBeenInstantiated = false;
   static late FastAppInfoBloc instance;
 
@@ -65,7 +68,15 @@ class FastAppInfoBloc
 
       final persistedDocument = await _retrievePersistedAppInfo();
       final packageInfo = await PackageInfo.fromPlatform();
+      final osVersion = await _getOsVersion();
+      final appVersion = packageInfo.version;
+      final appBuildNumber = packageInfo.buildNumber;
       var document = appInfoDocument;
+
+      debugLog('FastAppInfoBloc is initialized', debugLabel: debugLabel);
+      debugLog('OS version', value: osVersion, debugLabel: debugLabel);
+      debugLog('App build', value: appBuildNumber, debugLabel: debugLabel);
+      debugLog('App version', value: appVersion, debugLabel: debugLabel);
 
       document = document.copyWith(
         // Values controlled by the persisted document.
@@ -73,10 +84,11 @@ class FastAppInfoBloc
         appLaunchCounter: persistedDocument.appLaunchCounter,
 
         // Values controlled by the device.
-        appBuildNumber: packageInfo.buildNumber,
         deviceLanguageCode: deviceLanguageCode,
         deviceCountryCode: deviceCountryCode,
-        appVersion: packageInfo.version,
+        appBuildNumber: appBuildNumber,
+        appVersion: appVersion,
+        osVersion: osVersion,
       );
 
       addEvent(FastAppInfoBlocEvent.initialized(document));
@@ -120,5 +132,41 @@ class FastAppInfoBloc
     final localeIdentifiers = await Devicelocale.preferredLanguagesAsLocales;
 
     return localeIdentifiers.first;
+  }
+
+  Future<String> _getOsVersion() async {
+    String osVersion = '0';
+
+    try {
+      if (isAndroid) {
+        final deviceInfo = await DeviceInfoPlugin().androidInfo;
+        osVersion = deviceInfo.version.release;
+      } else if (isIOS) {
+        final deviceInfo = await DeviceInfoPlugin().iosInfo;
+        osVersion = deviceInfo.systemVersion;
+      } else if (isMacOS) {
+        final deviceInfo = await DeviceInfoPlugin().macOsInfo;
+        final major = deviceInfo.majorVersion;
+        final minor = deviceInfo.minorVersion;
+
+        osVersion = '$major.$minor';
+      }
+    } catch (error) {
+      debugLog(
+        'Error while getting the OS version',
+        debugLabel: debugLabel,
+        value: error,
+      );
+    }
+
+    final parts = osVersion.split('.');
+
+    if (parts.length > 1) {
+      osVersion = '${parts[0]}.${parts[1]}';
+    } else {
+      osVersion = parts[0];
+    }
+
+    return osVersion;
   }
 }

@@ -116,6 +116,8 @@ class FastAppInfoBlocState extends BlocState {
   /// The last modified date of the app terms of service.
   final DateTime? appTermsOfServiceLastModified;
 
+  final String? osVersion;
+
   /// Constructs a [FastAppInfoBlocState] with the provided parameters.
   FastAppInfoBlocState({
     super.isInitializing,
@@ -154,6 +156,7 @@ class FastAppInfoBlocState extends BlocState {
     bool? hasDisclaimer,
     String? appAuthor,
     String? appName,
+    this.osVersion = '0',
   })  : appName = appName ?? kFastEmptyString,
         appAuthor = appAuthor ?? kFastAppAuthor,
         deviceLanguageCode =
@@ -206,6 +209,7 @@ class FastAppInfoBlocState extends BlocState {
       appPrivacyPolicyLastModified: document.appPrivacyPolicyLastModified,
       appTermsOfServiceLastModified: document.appTermsOfServiceLastModified,
       twitterUrl: document.twitterUrl,
+      osVersion: document.osVersion,
     );
   }
 
@@ -245,6 +249,7 @@ class FastAppInfoBlocState extends BlocState {
       appPrivacyPolicyLastModified: appPrivacyPolicyLastModified,
       appTermsOfServiceLastModified: appTermsOfServiceLastModified,
       twitterUrl: twitterUrl,
+      osVersion: osVersion,
     );
   }
 
@@ -290,6 +295,7 @@ class FastAppInfoBlocState extends BlocState {
     DateTime? appPrivacyPolicyLastModified,
     DateTime? appTermsOfServiceLastModified,
     String? twitterUrl,
+    String? osVersion,
   }) =>
       FastAppInfoBlocState(
         supportedLocales: supportedLocales ?? this.supportedLocales,
@@ -336,6 +342,7 @@ class FastAppInfoBlocState extends BlocState {
         appTermsOfServiceLastModified:
             appTermsOfServiceLastModified ?? this.appTermsOfServiceLastModified,
         twitterUrl: twitterUrl ?? this.twitterUrl,
+        osVersion: osVersion ?? this.osVersion,
       );
 
   /// Creates a new [FastAppInfoBlocState] instance with the same property
@@ -384,6 +391,7 @@ class FastAppInfoBlocState extends BlocState {
       appPrivacyPolicyLastModified: model.appPrivacyPolicyLastModified,
       appTermsOfServiceLastModified: model.appTermsOfServiceLastModified,
       twitterUrl: model.twitterUrl,
+      osVersion: model.osVersion,
     );
   }
 
@@ -423,5 +431,6 @@ class FastAppInfoBlocState extends BlocState {
         appPrivacyPolicyLastModified,
         appTermsOfServiceLastModified,
         twitterUrl,
+        osVersion,
       ];
 }
