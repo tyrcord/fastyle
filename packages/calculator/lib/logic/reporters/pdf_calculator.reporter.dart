@@ -1,10 +1,7 @@
-// Flutter imports:
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:flutter/services.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:pdf/pdf.dart';
@@ -17,6 +14,10 @@ import 'package:fastyle_calculator/fastyle_calculator.dart';
 
 /// A class that generates a PDF report for a calculator.
 class FastPdfCalculatorReporter {
+  static const String packageFontPath = 'packages/fastyle_core/assets/fonts/';
+  static const String notoSansSCMediumPath =
+      '${packageFontPath}NotoSansSC-Medium.ttf';
+
   /// Generates a PDF report for a calculator.
   ///
   /// The [title] parameter is the title of the report.
@@ -64,8 +65,14 @@ class FastPdfCalculatorReporter {
     dateTitle ??= CoreLocaleKeys.core_label_date.tr();
     disclaimerTitle ??= SettingsLocaleKeys.settings_label_disclaimer.tr();
 
-    final italicStyle = await _getItalicStyle(color: italicTextColor);
-    final style = await _getRegularStyle(color: textColor);
+    final italicStyle = await _getItalicStyle(
+      color: italicTextColor,
+      languageCode: languageCode,
+    );
+    final style = await _getRegularStyle(
+      color: textColor,
+      languageCode: languageCode,
+    );
     final now = await formatDateTime(
       DateTime.now(),
       alwaysUse24HourFormat: alwaysUse24HourFormat,
@@ -370,8 +377,10 @@ class FastPdfCalculatorReporter {
   }
 
   /// Gets the regular text style of the report.
-  Future<pw.TextStyle> _getRegularStyle({Color? color}) async {
-    final font = await PdfGoogleFonts.barlowSemiCondensedMedium();
+  Future<pw.TextStyle> _getRegularStyle({
+    Color? color,
+    String languageCode = 'en',
+  }) async {
     late PdfColor pdfColor;
 
     if (color == null) {
@@ -380,12 +389,18 @@ class FastPdfCalculatorReporter {
       pdfColor = PdfColor.fromInt(color.value);
     }
 
-    return pw.TextStyle(font: font, fontSize: 11, color: pdfColor);
+    return pw.TextStyle(
+      font: await _getMediumFontForLanguage(languageCode),
+      fontSize: 11,
+      color: pdfColor,
+    );
   }
 
   /// Gets the italic text style of the report.
-  Future<pw.TextStyle> _getItalicStyle({Color? color}) async {
-    final font = await PdfGoogleFonts.barlowSemiCondensedMediumItalic();
+  Future<pw.TextStyle> _getItalicStyle({
+    Color? color,
+    String languageCode = 'en',
+  }) async {
     late PdfColor pdfColor;
 
     if (color == null) {
@@ -394,6 +409,38 @@ class FastPdfCalculatorReporter {
       pdfColor = PdfColor.fromInt(color.value);
     }
 
-    return pw.TextStyle(font: font, fontSize: 10, color: pdfColor);
+    return pw.TextStyle(
+      font: await _getMediumItalicFontForLanguage(languageCode),
+      fontSize: 10,
+      color: pdfColor,
+    );
+  }
+
+  Future<pw.Font> _getMediumFontForLanguage(String languageCode) async {
+    if (languageCode == 'ru') {
+      return PdfGoogleFonts.russoOneRegular();
+    } else if (languageCode == 'ja') {
+      return PdfGoogleFonts.shipporiMinchoRegular();
+    } else if (languageCode == 'de') {
+      return PdfGoogleFonts.openSansMedium();
+    } else if (languageCode == 'zh') {
+      return pw.Font.ttf(await rootBundle.load(notoSansSCMediumPath));
+    }
+
+    return PdfGoogleFonts.barlowSemiCondensedMedium();
+  }
+
+  Future<pw.Font> _getMediumItalicFontForLanguage(String languageCode) async {
+    if (languageCode == 'ru') {
+      return PdfGoogleFonts.russoOneRegular();
+    } else if (languageCode == 'ja') {
+      return PdfGoogleFonts.shipporiMinchoRegular();
+    } else if (languageCode == 'de') {
+      return PdfGoogleFonts.openSansMediumItalic();
+    } else if (languageCode == 'zh') {
+      return pw.Font.ttf(await rootBundle.load(notoSansSCMediumPath));
+    }
+
+    return PdfGoogleFonts.barlowSemiCondensedMediumItalic();
   }
 }
