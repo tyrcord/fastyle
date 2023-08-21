@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 class FastAnimatedNumberText extends StatefulWidget {
   final double endValue;
@@ -9,19 +10,21 @@ class FastAnimatedNumberText extends StatefulWidget {
   final TextAlign textAlign;
   final Color? textColor;
   final String? locale;
-  final int? minimumFractionDigits;
-  final int? maximumFractionDigits;
+  final int minimumFractionDigits;
+  final int maximumFractionDigits;
+  final double? fontSize;
 
   const FastAnimatedNumberText({
     super.key,
     required this.endValue,
     this.textAlign = TextAlign.left,
-    this.duration = const Duration(seconds: 1),
+    this.duration = const Duration(milliseconds: 350),
     this.fontWeight,
+    this.fontSize,
     this.textColor,
     this.locale,
-    this.minimumFractionDigits,
-    this.maximumFractionDigits,
+    this.minimumFractionDigits = 0,
+    this.maximumFractionDigits = 0,
   });
 
   @override
@@ -30,23 +33,34 @@ class FastAnimatedNumberText extends StatefulWidget {
 
 class AnimatedNumberWidgetState extends State<FastAnimatedNumberText>
     with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
+  late final AnimationController _controller;
+  final Key _key = UniqueKey();
+
   late Animation<double> _animation;
-  double _endValue = 0;
+  double _currentValue = 0;
+  double _visibleFraction = 0;
 
   @override
   void initState() {
     super.initState();
+
     _controller = AnimationController(
       duration: widget.duration,
       vsync: this,
     );
+  }
 
-    _animation = Tween<double>(begin: 0, end: widget.endValue)
-        .animate(_controller)
-      ..addListener(() => setState(() => _endValue = _animation.value));
+  @override
+  void didUpdateWidget(FastAnimatedNumberText oldWidget) {
+    super.didUpdateWidget(oldWidget);
 
-    _controller.forward();
+    if (oldWidget.endValue != widget.endValue) {
+      setState(() {
+        _currentValue = 0;
+        _controller.reset();
+        _startAnimationIfNeeded();
+      });
+    }
   }
 
   @override
@@ -55,20 +69,48 @@ class AnimatedNumberWidgetState extends State<FastAnimatedNumberText>
     super.dispose();
   }
 
+  void handleVisibilityChanged(VisibilityInfo info) {
+    _visibleFraction = info.visibleFraction;
+    _startAnimationIfNeeded();
+  }
+
   @override
   Widget build(BuildContext context) {
     return RepaintBoundary(
-      child: FastBody(
-        text: formatDecimal(
-          value: _endValue,
-          locale: widget.locale,
-          minimumFractionDigits: widget.minimumFractionDigits,
-          maximumFractionDigits: widget.maximumFractionDigits,
+      child: VisibilityDetector(
+        key: _key,
+        onVisibilityChanged: handleVisibilityChanged,
+        child: FastBody(
+          text: formatDecimal(
+            value: _currentValue,
+            locale: widget.locale,
+            minimumFractionDigits: widget.minimumFractionDigits,
+            maximumFractionDigits: widget.maximumFractionDigits,
+          ),
+          textColor: widget.textColor,
+          textAlign: widget.textAlign,
+          fontWeight: widget.fontWeight,
+          fontSize: widget.fontSize,
         ),
-        textColor: widget.textColor,
-        textAlign: widget.textAlign,
-        fontWeight: widget.fontWeight,
       ),
     );
+  }
+
+  void _startAnimationIfNeeded() {
+    if (_visibleFraction == 1 &&
+        _currentValue == 0 &&
+        !_controller.isAnimating &&
+        !_controller.isCompleted) {
+      _animation = Tween<double>(begin: _currentValue, end: widget.endValue)
+          .animate(CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeOutQuint,
+      ))
+        ..addListener(() => setState(() => _currentValue = _animation.value));
+
+      print('start animation: ${widget.endValue}');
+
+      _controller.forward();
+    }
   }
 }

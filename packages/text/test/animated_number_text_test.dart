@@ -1,8 +1,11 @@
-import 'package:fastyle_text/ui/ui.dart';
+import 'package:fastyle_text/fastyle_text.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 void main() {
+  VisibilityDetectorController.instance.updateInterval = Duration.zero;
+
   testWidgets(
     'FastAnimatedNumberText initializes with a value of 0',
     (WidgetTester tester) async {
