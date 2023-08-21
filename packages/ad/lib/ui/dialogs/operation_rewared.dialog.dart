@@ -11,6 +11,7 @@ import 'package:rxdart/rxdart.dart';
 
 // Project imports:
 import 'package:fastyle_ad/logic/logic.dart';
+import 'package:t_helpers/helpers.dart';
 
 class FastOperationRewardedDialog extends StatelessWidget {
   /// Callback triggered when the operation status changes.
@@ -145,9 +146,21 @@ class FastOperationRewardedDialog extends StatelessWidget {
       }
 
       if (response.error is FastRewardedAdBlocError) {
+        debugLog(
+          'Error while granting rights',
+          debugLabel: 'FastOperationRewardedDialog',
+          value: response.error,
+        );
+
         throw response.error as FastRewardedAdBlocError;
       }
     }
+
+    debugLog(
+      'Error while granting rights',
+      debugLabel: 'FastOperationRewardedDialog',
+      value: response,
+    );
 
     throw FastRewardedAdBlocError.unknown;
   }
