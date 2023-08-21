@@ -9,6 +9,7 @@ import 'package:rxdart/rxdart.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:t_helpers/helpers.dart';
 
 /// A [FastJob] that initializes the [FastAppSettingsBloc].
 /// It is used to load the settings of the application
@@ -73,6 +74,8 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     // that will be used to initialize the language of the application.
 
     if (isFirstLaunch) {
+      debugLog('First launch of the application.', debugLabel: debugLabel);
+
       // If it is the first launch of the application, we use the device locale
       // to initialize the language of the application.
       languageCode = await determineUserLanguageCode(
@@ -85,13 +88,17 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
       languageCode = settingsBloc.currentState.languageCode;
     }
 
+    debugLog('Language code', value: languageCode, debugLabel: debugLabel);
+
     // We update the language code of the application if needed.
     if (languageCode != settingsBloc.currentState.languageCode) {
+      debugLog('Updating language code', debugLabel: debugLabel);
+
       settingsBloc.addEvent(
         FastAppSettingsBlocEvent.languageCodeChanged(languageCode),
       );
 
-      await settingsBloc.onData
+      return settingsBloc.onData
           .where((state) => state.languageCode == languageCode)
           .first;
     }
@@ -105,6 +112,8 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     BuildContext context,
     FastAppSettingsBlocState settingsState,
   ) async {
+    debugLog('Applying settings', debugLabel: debugLabel);
+
     await context.setLocale(settingsState.locale);
 
     return updateThemeMode(context, settingsState);
