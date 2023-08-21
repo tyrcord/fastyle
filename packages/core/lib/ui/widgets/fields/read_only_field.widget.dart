@@ -59,10 +59,8 @@ class FastReadOnlyTextField extends StatelessWidget {
     return Container(
       height: 37.0,
       decoration: showBorder ? ThemeHelper.createBorderSide(context) : null,
-      child: Align(
-        alignment: Alignment.centerLeft,
-        child: child ?? buildText(),
-      ),
+      alignment: Alignment.centerLeft,
+      child: child ?? buildText(),
     );
   }
 
