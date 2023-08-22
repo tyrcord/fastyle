@@ -52,7 +52,12 @@ class FastAppSettingsPage extends FastSettingPageLayout {
           ),
           ...?defaultValuesChildren,
           ThemeHelper.spacing.getHorizontalSpacing(context),
-          buildResetSettings(context),
+          Align(
+            // NOTE: wrapping the button with an Align widget
+            // in order to avoid it to be stretched
+            alignment: Alignment.center,
+            child: buildResetSettings(context),
+          ),
         ]
       ],
     );
