@@ -1,3 +1,9 @@
+## 0.0.12
+
+ - **FEAT**: ad support SVGs.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.11
 
  - **PERF**: minor improvements.

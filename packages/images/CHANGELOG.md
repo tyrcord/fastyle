@@ -1,3 +1,9 @@
+## 0.0.20
+
+ - **FEAT**: ad support SVGs.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.19
 
  - **FEAT**: update dependencies.

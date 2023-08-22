@@ -1,3 +1,11 @@
+## 1.26.0
+
+ - **FIX**: clear the document when the settings save user entry changes.
+ - **FIX**: debounce LoadMetadata event.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: support more language when exporting to PDF.
+
 ## 1.25.0
 
  - **FIX**: bunch of fixes.

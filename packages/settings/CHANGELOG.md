@@ -1,3 +1,9 @@
+## 0.0.23
+
+ - **FIX**: button stretching.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.22
 
  - **PERF**: minor performance improvements.

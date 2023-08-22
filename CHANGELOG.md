@@ -3,6 +3,148 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-08-22
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.12`](#fastyle_ad---v0012)
+ - [`fastyle_buttons` - `v0.0.8`](#fastyle_buttons---v008)
+ - [`fastyle_calculator` - `v1.26.0`](#fastyle_calculator---v1260)
+ - [`fastyle_connectivity` - `v0.0.15`](#fastyle_connectivity---v0015)
+ - [`fastyle_core` - `v0.0.14`](#fastyle_core---v0014)
+ - [`fastyle_digit_calculator` - `v0.0.17`](#fastyle_digit_calculator---v0017)
+ - [`fastyle_financial` - `v0.0.16`](#fastyle_financial---v0016)
+ - [`fastyle_firebase` - `v0.0.9`](#fastyle_firebase---v009)
+ - [`fastyle_forms` - `v0.0.18`](#fastyle_forms---v0018)
+ - [`fastyle_home` - `v0.0.13`](#fastyle_home---v0013)
+ - [`fastyle_iap` - `v0.0.11`](#fastyle_iap---v0011)
+ - [`fastyle_images` - `v0.0.20`](#fastyle_images---v0020)
+ - [`fastyle_onboarding` - `v0.0.20`](#fastyle_onboarding---v0020)
+ - [`fastyle_pricing` - `v1.15.0`](#fastyle_pricing---v1150)
+ - [`fastyle_settings` - `v0.0.23`](#fastyle_settings---v0023)
+ - [`fastyle_text` - `v0.0.3`](#fastyle_text---v003)
+ - [`fastyle_video_player` - `v0.0.7`](#fastyle_video_player---v007)
+ - [`fastyle_views` - `v0.0.9`](#fastyle_views---v009)
+ - [`fastyle_layouts` - `v0.0.7+1`](#fastyle_layouts---v0071)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_layouts` - `v0.0.7+1`
+
+---
+
+#### `fastyle_ad` - `v0.0.12`
+
+ - **FEAT**: ad support SVGs.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_buttons` - `v0.0.8`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_calculator` - `v1.26.0`
+
+ - **FIX**: clear the document when the settings save user entry changes.
+ - **FIX**: debounce LoadMetadata event.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: support more language when exporting to PDF.
+
+#### `fastyle_connectivity` - `v0.0.15`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_core` - `v0.0.14`
+
+ - **FIX**: add missing asset.
+ - **FIX**: use right settings state.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: support more language when exporting to PDF.
+ - **FEAT**: ad os version to the app info.
+ - **FEAT**: allow to override the control within FastReadOnlyTextField.
+
+#### `fastyle_digit_calculator` - `v0.0.17`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_financial` - `v0.0.16`
+
+ - **FIX**: avoid to call tr() twice.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_firebase` - `v0.0.9`
+
+ - **FIX**: workaround for android notification permission.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_forms` - `v0.0.18`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_home` - `v0.0.13`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_iap` - `v0.0.11`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_images` - `v0.0.20`
+
+ - **FEAT**: ad support SVGs.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_onboarding` - `v0.0.20`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_pricing` - `v1.15.0`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_settings` - `v0.0.23`
+
+ - **FIX**: button stretching.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_text` - `v0.0.3`
+
+ - **FEAT**: cleaning.
+ - **FEAT**: animated number will only starts when visible.
+
+#### `fastyle_video_player` - `v0.0.7`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_views` - `v0.0.9`
+
+ - **FEAT**: update dependencies.
+
+
 ## 2023-08-21
 
 ### Changes

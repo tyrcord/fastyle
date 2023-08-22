@@ -1,3 +1,9 @@
+## 0.0.16
+
+ - **FIX**: avoid to call tr() twice.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.15
 
  - **PERF**: minor performance improvements.

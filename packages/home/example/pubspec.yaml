@@ -10,8 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_core: ^0.0.13
-  fastyle_home: ^0.0.12
+  fastyle_core: ^0.0.14
+  fastyle_home: ^0.0.13
   t_helpers: ^0.0.22
 
 dev_dependencies:

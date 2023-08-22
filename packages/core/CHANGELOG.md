@@ -1,3 +1,13 @@
+## 0.0.14
+
+ - **FIX**: add missing asset.
+ - **FIX**: use right settings state.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: support more language when exporting to PDF.
+ - **FEAT**: ad os version to the app info.
+ - **FEAT**: allow to override the control within FastReadOnlyTextField.
+
 ## 0.0.13
 
  - **PERF**: minor performance improvements.

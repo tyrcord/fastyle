@@ -1,3 +1,8 @@
+## 0.0.9
+
+ - **FIX**: workaround for android notification permission.
+ - **FEAT**: update dependencies.
+
 ## 0.0.8
 
  - **PERF**: minor performance improvements.
