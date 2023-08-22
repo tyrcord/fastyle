@@ -13,4 +13,5 @@ enum FastCalculatorBlocEventType {
   loadMetadata,
   patchMetadata,
   retrieveDefaultValues,
+  saveEntryChanged,
 }

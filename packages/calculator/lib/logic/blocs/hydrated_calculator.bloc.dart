@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -167,8 +168,8 @@ abstract class HydratedFastCalculatorBloc<
   ///
   /// This method is called when the calculator state is saved.
   @protected
-  Future<void> persistCalculatorDocument() async {
-    if (await canSaveUserEntry()) {
+  Future<void> persistCalculatorDocument({bool force = false}) async {
+    if (force || await canSaveUserEntry()) {
       debugLog(
         'persisting calculator bloc document',
         value: document.toJson(),
@@ -183,9 +184,24 @@ abstract class HydratedFastCalculatorBloc<
   ///
   /// This method is called when the calculator state is cleared.
   @protected
-  Future<void> clearCalculatorDocument() async {
-    if (await canSaveUserEntry()) {
+  Future<void> clearCalculatorDocument({bool force = false}) async {
+    if (force || await canSaveUserEntry()) {
+      debugLog('clearing calculator bloc document', debugLabel: debugLabel);
+
       return dataProvider.clearCalculatorDocument();
+    }
+  }
+
+  @override
+  @protected
+  void handleSettingsChanges(FastAppSettingsBlocState state) {
+    super.handleSettingsChanges(state);
+
+    if (isInitialized) {
+      debugLog('Settings changed, checking save entry', debugLabel: debugLabel);
+      internalAddDebounceEvent(
+        FastCalculatorBlocEvent.saveEntryChanged<R>() as E,
+      );
     }
   }
 
@@ -210,6 +226,12 @@ abstract class HydratedFastCalculatorBloc<
     } else if (eventType == FastCalculatorBlocEventType.retrieveDefaultValues) {
       defaultDocument = await retrieveDefaultCalculatorDocument();
       defaultCalculatorState = await initializeDefaultCalculatorState();
+    } else if (eventType == FastCalculatorBlocEventType.saveEntryChanged) {
+      if (saveUserEntry) {
+        await persistCalculatorDocument();
+      } else {
+        await clearCalculatorDocument(force: true);
+      }
     } else {
       yield* super.mapEventToState(event);
     }

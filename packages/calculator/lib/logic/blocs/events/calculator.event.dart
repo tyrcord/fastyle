@@ -148,4 +148,11 @@ class FastCalculatorBlocEvent<R extends FastCalculatorResults>
       type: FastCalculatorBlocEventType.retrieveDefaultValues,
     );
   }
+
+  static FastCalculatorBlocEvent<R>
+      saveEntryChanged<R extends FastCalculatorResults>() {
+    return FastCalculatorBlocEvent<R>(
+      type: FastCalculatorBlocEventType.saveEntryChanged,
+    );
+  }
 }
