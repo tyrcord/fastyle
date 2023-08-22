@@ -625,18 +625,18 @@ packages:
     dependency: "direct main"
     description:
       name: lingua_core
-      sha256: "8abbd7d5d74dd0d2531134c27a45fc9e0a65757c65245f71eca25244ea6efba6"
+      sha256: "611722323cef9ac633eb9856aa5a3c401f0e5e7f69d9de7641ec81f71eb038ae"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.21"
+    version: "0.0.22"
   lingua_finance:
     dependency: "direct main"
     description:
       name: lingua_finance
-      sha256: "61ee88dcc5a9d6ce6269f15e438642b28c67f6e3fc655984164f202e2a5ca5dc"
+      sha256: f1c51c95736e133a6c64c489f4e41941c5cf1ed2769f3c15a6aaf6a784e32824
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.13"
+    version: "0.0.14"
   lingua_finance_instrument:
     dependency: "direct main"
     description:

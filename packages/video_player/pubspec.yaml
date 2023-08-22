@@ -20,7 +20,7 @@ dependencies:
   visibility_detector: ^0.3.3
 
   # Lingua
-  lingua_core: ^0.0.21
+  lingua_core: ^0.0.22
 
   # Fastyle
   fastyle_core: ^0.0.13

@@ -301,6 +301,13 @@ packages:
       relative: true
     source: path
     version: "0.0.13"
+  fastyle_images:
+    dependency: "direct overridden"
+    description:
+      path: "../../images"
+      relative: true
+    source: path
+    version: "0.0.19"
   fastyle_video_player:
     dependency: "direct overridden"
     description:
@@ -358,6 +365,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.2.0"
+  flutter_svg:
+    dependency: transitive
+    description:
+      name: flutter_svg
+      sha256: "8c5d68a82add3ca76d792f058b186a0599414f279f00ece4830b9b231b570338"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.7"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -524,10 +539,10 @@ packages:
     dependency: transitive
     description:
       name: lingua_core
-      sha256: "8abbd7d5d74dd0d2531134c27a45fc9e0a65757c65245f71eca25244ea6efba6"
+      sha256: "611722323cef9ac633eb9856aa5a3c401f0e5e7f69d9de7641ec81f71eb038ae"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.21"
+    version: "0.0.22"
   lingua_purchases:
     dependency: transitive
     description:
@@ -1093,6 +1108,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.7"
+  vector_graphics:
+    dependency: transitive
+    description:
+      name: vector_graphics
+      sha256: "670f6e07aca990b4a2bcdc08a784193c4ccdd1932620244c3a86bb72a0eac67f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.7"
+  vector_graphics_codec:
+    dependency: transitive
+    description:
+      name: vector_graphics_codec
+      sha256: "7451721781d967db9933b63f5733b1c4533022c0ba373a01bdd79d1a5457f69f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.7"
+  vector_graphics_compiler:
+    dependency: transitive
+    description:
+      name: vector_graphics_compiler
+      sha256: "80a13c613c8bde758b1464a1755a7b3a8f2b6cec61fbf0f5a53c94c30f03ba2e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.7"
   vector_math:
     dependency: transitive
     description:

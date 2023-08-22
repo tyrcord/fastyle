@@ -30,11 +30,11 @@ dependencies:
   # Lingua
   lingua_settings: ^0.0.10
   lingua_languages: ^0.0.4+1
-  lingua_finance: ^0.0.13
+  lingua_finance: ^0.0.14
   lingua_purchases: ^0.0.13
   lingua_finance_instrument: ^0.0.2
   lingua_share: ^0.0.2+1
-  lingua_core: ^0.0.21
+  lingua_core: ^0.0.22
 
 dev_dependencies:
   flutter_test:

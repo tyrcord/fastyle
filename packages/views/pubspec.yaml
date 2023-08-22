@@ -16,7 +16,7 @@ dependencies:
   go_router: ^10.0.0
 
   # Lingua
-  lingua_core: ^0.0.21
+  lingua_core: ^0.0.22
 
   # T
   tbloc: ^0.21.3+2

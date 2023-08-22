@@ -9,13 +9,15 @@ class FastImageAsset extends StatelessWidget {
   final double? height;
   final double? width;
   final String path;
+  final BoxFit fit;
 
   const FastImageAsset({
     super.key,
     required this.path,
     this.height,
     this.width,
-  });
+    BoxFit? fit,
+  }) : fit = fit ?? BoxFit.contain;
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +38,7 @@ class FastImageAsset extends StatelessWidget {
         path,
         height: height,
         width: width,
+        fit: fit,
       );
     }
 
@@ -45,6 +48,7 @@ class FastImageAsset extends StatelessWidget {
         package: 'fastyle_images',
         height: height,
         width: width,
+        fit: fit,
       );
     }
 
@@ -56,6 +60,7 @@ class FastImageAsset extends StatelessWidget {
         ),
         height: height,
         width: width,
+        fit: fit,
       );
     }
 
@@ -64,6 +69,7 @@ class FastImageAsset extends StatelessWidget {
       package: 'fastyle_images',
       height: height,
       width: width,
+      fit: fit,
     );
   }
 }

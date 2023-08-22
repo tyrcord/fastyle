@@ -19,7 +19,7 @@ dependencies:
 
   # Lingua
   lingua_onboarding: ^0.0.10
-  lingua_core: ^0.0.21
+  lingua_core: ^0.0.22
   lingua_purchases: ^0.0.13
 
   # Fastyle
