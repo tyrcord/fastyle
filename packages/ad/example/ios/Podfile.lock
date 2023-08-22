@@ -1,4 +1,8 @@
 PODS:
+  - app_tracking_transparency (0.0.1):
+    - Flutter
+  - device_info_plus (0.0.1):
+    - Flutter
   - devicelocale (0.0.1):
     - Flutter
   - fastyle_ad (0.0.1):
@@ -77,6 +81,8 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - app_tracking_transparency (from `.symlinks/plugins/app_tracking_transparency/ios`)
+  - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - devicelocale (from `.symlinks/plugins/devicelocale/ios`)
   - fastyle_ad (from `.symlinks/plugins/fastyle_ad/ios`)
   - Flutter (from `Flutter`)
@@ -100,6 +106,10 @@ SPEC REPOS:
     - PromisesObjC
 
 EXTERNAL SOURCES:
+  app_tracking_transparency:
+    :path: ".symlinks/plugins/app_tracking_transparency/ios"
+  device_info_plus:
+    :path: ".symlinks/plugins/device_info_plus/ios"
   devicelocale:
     :path: ".symlinks/plugins/devicelocale/ios"
   fastyle_ad:
@@ -126,6 +136,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/webview_flutter_wkwebview/ios"
 
 SPEC CHECKSUMS:
+  app_tracking_transparency: 5b1745ef9ade815f7455cb6a0848349589afb7c5
+  device_info_plus: 7545d84d8d1b896cb16a4ff98c19f07ec4b298ea
   devicelocale: b22617f40038496deffba44747101255cee005b0
   fastyle_ad: 6f56fad90bfb1fc0783aa047d68eae924ab6427f
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
