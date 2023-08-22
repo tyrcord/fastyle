@@ -20,7 +20,7 @@ dependencies:
   fastyle_core: ^0.0.13
 
   # T
-  tmodel: ^0.5.4
+  tmodel: ^0.5.7
   tbloc: ^0.21.3+2
 
 dev_dependencies:

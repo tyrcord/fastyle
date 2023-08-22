@@ -36,7 +36,7 @@ dependencies:
   # Lingua
   lingua_core: ^0.0.21
   lingua_ad: ^0.0.10
-  lingua_purchases: ^0.0.11
+  lingua_purchases: ^0.0.13
 
 dev_dependencies:
   flutter_test:

@@ -185,6 +185,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.2"
+  device_info_plus:
+    dependency: transitive
+    description:
+      name: device_info_plus
+      sha256: "86add5ef97215562d2e090535b0a16f197902b10c369c558a100e74ea06e8659"
+      url: "https://pub.dev"
+    source: hosted
+    version: "9.0.3"
+  device_info_plus_platform_interface:
+    dependency: transitive
+    description:
+      name: device_info_plus_platform_interface
+      sha256: d3b01d5868b50ae571cd1dc6e502fc94d956b665756180f7b16ead09e836fd64
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.0.0"
   devicelocale:
     dependency: transitive
     description:
@@ -239,28 +255,28 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.7"
+    version: "0.0.7+1"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.12"
+    version: "0.0.13"
   fastyle_iap:
     dependency: "direct overridden"
     description:
       path: "../../iap"
       relative: true
     source: path
-    version: "0.0.9"
+    version: "0.0.10"
   fastyle_pricing:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "1.13.0"
+    version: "1.14.0"
   ffi:
     dependency: transitive
     description:
@@ -493,10 +509,10 @@ packages:
     dependency: transitive
     description:
       name: lingua_purchases
-      sha256: e2576a382dad13bf516cd5f9db881897a9116114e96045e76cf3bb20915e4c94
+      sha256: "704bd1537307a31b611b9eb0db3d1f996529d4e0a1a37b70c1b951c8506e7a23"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.11"
+    version: "0.0.13"
   lints:
     dependency: transitive
     description:
@@ -898,10 +914,10 @@ packages:
     dependency: transitive
     description:
       name: tstore
-      sha256: dd6fbcb8e9d2e6efcce5a2e13adbe41c942cb97802fe4a1d6fffbb1f91dd05fb
+      sha256: "251ab3c873259eb340eedc453a67105e56776284bf79878dbbf1855771506b33"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.13"
+    version: "0.8.14"
   tsub:
     dependency: transitive
     description:
@@ -1030,6 +1046,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.4"
+  win32_registry:
+    dependency: transitive
+    description:
+      name: win32_registry
+      sha256: "1c52f994bdccb77103a6231ad4ea331a244dbcef5d1f37d8462f713143b0bfae"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   xdg_directories:
     dependency: transitive
     description:
