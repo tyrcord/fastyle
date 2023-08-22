@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:fastyle_images/fastyle_images.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
@@ -77,8 +78,8 @@ class FastMediumNativeAdLayout extends StatelessWidget {
   Widget _buildMerchantLogo() {
     return Align(
       alignment: Alignment.bottomRight,
-      child: Image.network(
-        merchantLogoUrl!,
+      child: FastImageAsset(
+        path: merchantLogoUrl!,
         height: kFastIconSizeXxs,
       ),
     );

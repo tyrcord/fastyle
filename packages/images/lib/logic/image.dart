@@ -26,7 +26,9 @@ class FastImageAsset extends StatelessWidget {
     }
 
     if (path.startsWith('http')) {
-      if (path.endsWith('.svg')) {
+      final uri = Uri.tryParse(path);
+
+      if (uri != null && uri.path.endsWith('.svg')) {
         return SvgPicture.network(
           path,
           height: height,
