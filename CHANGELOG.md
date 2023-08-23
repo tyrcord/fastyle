@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-08-23
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_calculator` - `v1.26.1`](#fastyle_calculator---v1261)
+
+---
+
+#### `fastyle_calculator` - `v1.26.1`
+
+ - **FIX**: debounced events.
+
+
 ## 2023-08-22
 
 ### Changes

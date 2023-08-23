@@ -1,3 +1,7 @@
+## 1.26.1
+
+ - **FIX**: debounced events.
+
 ## 1.26.0
 
  - **FIX**: clear the document when the settings save user entry changes.
