@@ -1,3 +1,7 @@
+## 1.27.0
+
+ - **FEAT**: better layout for desktop.
+
 ## 1.26.1
 
  - **FIX**: debounced events.

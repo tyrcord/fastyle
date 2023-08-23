@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_calculator` - `v1.27.0`](#fastyle_calculator---v1270)
+
+---
+
+#### `fastyle_calculator` - `v1.27.0`
+
+ - **FEAT**: better layout for desktop.
+
+
+## 2023-08-23
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_calculator` - `v1.26.1`](#fastyle_calculator---v1261)
 
 ---
