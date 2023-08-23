@@ -35,6 +35,8 @@ abstract class HydratedFastCalculatorBloc<
   @protected
   final FastCalculatorDataProvider<D> dataProvider;
 
+  late FastCalculatorBlocDebounceEventCallback<E> addDebouncedSaveEntryEvent;
+
   /// The [defaultDocument] is used to hydrate the bloc calculator state.
   @protected
   late D defaultDocument;
@@ -48,7 +50,9 @@ abstract class HydratedFastCalculatorBloc<
     required this.dataProvider,
     super.debugLabel,
     super.debouceComputeEvents,
-  });
+  }) {
+    addDebouncedSaveEntryEvent = debounceEvent((event) => addEvent(event));
+  }
 
   /// Retrieves the default calculator document.
   ///
@@ -199,7 +203,7 @@ abstract class HydratedFastCalculatorBloc<
 
     if (isInitialized) {
       debugLog('Settings changed, checking save entry', debugLabel: debugLabel);
-      internalAddDebounceEvent(
+      addDebouncedSaveEntryEvent(
         FastCalculatorBlocEvent.saveEntryChanged<R>() as E,
       );
     }
@@ -263,7 +267,11 @@ abstract class HydratedFastCalculatorBloc<
       await saveCalculatorState();
       yield state;
 
-      addDebounceEvent(FastCalculatorBlocEvent.compute<R>() as E);
+      if (debouceComputeEvents) {
+        addDebouncedComputeEvent(FastCalculatorBlocEvent.compute<R>() as E);
+      } else {
+        addEvent(FastCalculatorBlocEvent.compute<R>() as E);
+      }
     }
   }
 }

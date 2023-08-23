@@ -31,10 +31,8 @@ abstract class FastCalculatorBloc<
   @protected
   late S defaultCalculatorState;
 
-  /// The function to add debounce events to the calculator bloc.
-  late FastCalculatorBlocDebounceEventCallback<E> addDebounceEvent;
-
-  late FastCalculatorBlocDebounceEventCallback<E> internalAddDebounceEvent;
+  late FastCalculatorBlocDebounceEventCallback<E> addDebouncedLoadMetadataEvent;
+  late FastCalculatorBlocDebounceEventCallback<E> addDebouncedComputeEvent;
 
   /// The app settings bloc used by the calculator.
   @protected
@@ -62,13 +60,12 @@ abstract class FastCalculatorBloc<
   }) {
     if (debouceComputeEvents) {
       debugPrint('`debouceComputeEvents` is enabled for $runtimeType');
-      addDebounceEvent = debounceEvent((event) => addEvent(event));
     } else {
       debugPrint('`debouceComputeEvents` is disabled for $runtimeType');
-      addDebounceEvent = addEvent;
     }
 
-    internalAddDebounceEvent = debounceEvent((event) => addEvent(event));
+    addDebouncedComputeEvent = debounceEvent((event) => addEvent(event));
+    addDebouncedLoadMetadataEvent = debounceEvent((event) => addEvent(event));
 
     subxList.add(appSettingsBloc.onData.listen(handleSettingsChanges));
   }
@@ -174,7 +171,7 @@ abstract class FastCalculatorBloc<
   void handleSettingsChanges(FastAppSettingsBlocState state) {
     if (isInitialized) {
       debugLog('Settings changed, reloading metadata', debugLabel: debugLabel);
-      internalAddDebounceEvent(
+      addDebouncedLoadMetadataEvent(
         FastCalculatorBlocEvent.loadMetadata<R>() as E,
       );
     }
@@ -391,7 +388,12 @@ abstract class FastCalculatorBloc<
       if (state != null) {
         await saveCalculatorState();
         yield state;
-        addDebounceEvent(FastCalculatorBlocEvent.compute<R>() as E);
+
+        if (debouceComputeEvents) {
+          addDebouncedComputeEvent(FastCalculatorBlocEvent.compute<R>() as E);
+        } else {
+          addEvent(FastCalculatorBlocEvent.compute<R>() as E);
+        }
       }
     }
   }
