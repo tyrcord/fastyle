@@ -1,3 +1,8 @@
+## 0.0.9+1
+
+ - **FIX**: minor improvements.
+ - **FIX**: app check.
+
 ## 0.0.9
 
  - **FIX**: workaround for android notification permission.

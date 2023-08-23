@@ -15,6 +15,28 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_firebase` - `v0.0.9+1`](#fastyle_firebase---v0091)
+
+---
+
+#### `fastyle_firebase` - `v0.0.9+1`
+
+ - **FIX**: minor improvements.
+ - **FIX**: app check.
+
+
+## 2023-08-23
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_calculator` - `v1.27.0`](#fastyle_calculator---v1270)
 
 ---
