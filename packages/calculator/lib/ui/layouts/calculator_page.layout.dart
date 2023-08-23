@@ -131,7 +131,7 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
             builder: (BuildContext context, state) {
               if (state.isInitialized) {
                 if (mediaType >= FastMediaType.tablet) {
-                  return _buildGridView(context);
+                  return _buildGridView(context, mediaType);
                 }
 
                 return _buildColumnView(context);
@@ -148,7 +148,7 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
 
   /// Builds a two-column grid view for displaying the input fields and
   /// the results in separate columns.
-  Widget _buildGridView(BuildContext context) {
+  Widget _buildGridView(BuildContext context, FastMediaType mediaType) {
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
@@ -165,7 +165,10 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
               ),
             ),
             ThemeHelper.spacing.getHorizontalSpacing(context),
-            Flexible(child: _buildResults(context)),
+            Flexible(
+              flex: mediaType > FastMediaType.tablet ? 2 : 1,
+              child: _buildResults(context),
+            ),
           ],
         ),
       ],
