@@ -44,9 +44,12 @@ class FastFirebaseCrashlyticsJob extends FastJob {
 
     Isolate.current.addErrorListener(RawReceivePort((List<dynamic> pair) async {
       final List<dynamic> errorAndStacktrace = pair;
+
       await crashlytics.recordError(
         errorAndStacktrace.first,
-        errorAndStacktrace.last as StackTrace?,
+        errorAndStacktrace.last is StackTrace?
+            ? errorAndStacktrace.last as StackTrace?
+            : null,
       );
     }).sendPort);
   }

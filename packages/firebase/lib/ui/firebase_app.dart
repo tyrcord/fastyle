@@ -19,8 +19,6 @@ class FastFirebaseApp extends FastApp {
   /// The default remote config values.
   final Map<String, dynamic>? defaultRemoteConfig;
 
-  final List<FastDictEntryEntity>? defaultAppDictEntries;
-
   FastFirebaseApp({
     super.key,
     super.delayBeforeShowingLoader = kFastDelayBeforeShowingLoader,
@@ -29,6 +27,7 @@ class FastFirebaseApp extends FastApp {
     super.routes = kFastDefaultRoutes,
     super.askForReview = true,
     super.onDatabaseVersionChanged,
+    super.defaultAppDictEntries,
     super.onboardingBuilder,
     super.rootNavigatorKey,
     super.errorReporter,
@@ -45,7 +44,6 @@ class FastFirebaseApp extends FastApp {
     super.useProIcons,
     this.defaultRemoteConfig,
     this.firebaseOptions,
-    this.defaultAppDictEntries,
     String? localizationPath,
     Locale? fallbackLocale,
   }) : super(

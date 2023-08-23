@@ -33,10 +33,6 @@ class FastFirebaseMessagingJob extends FastJob {
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      debugLog('Message data: ${message.data}', debugLabel: debugLabel);
-    });
-
     final permission = await _getNotificationStatus();
     debugLog('Notification permission: $permission', debugLabel: debugLabel);
 
@@ -55,6 +51,11 @@ class FastFirebaseMessagingJob extends FastJob {
     if (blocState is! FastAppPermissionsBlocState) {
       throw blocState;
     }
+
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      debugLog('Message received: ${message.data}', debugLabel: debugLabel);
+      // TODO: handle message
+    });
   }
 
   Future<FastAppPermission> _getNotificationStatus() async {
