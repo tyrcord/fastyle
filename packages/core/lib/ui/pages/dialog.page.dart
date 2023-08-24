@@ -23,6 +23,17 @@ class FastDialogPage<T> extends Page<T> {
   /// It uses [RawDialogRoute] to provide a custom transition and look
   /// for the dialog page based on the media type of the device.
   Route<T> createRoute(BuildContext context) {
+    final mediaLayoutBloc = FastMediaLayoutBloc.instance;
+    final currentMediaType = mediaLayoutBloc.currentState.mediaType;
+
+    if (currentMediaType == FastMediaType.handset) {
+      return MaterialPageRoute<T>(
+        builder: (context) => child,
+        fullscreenDialog: true,
+        settings: this,
+      );
+    }
+
     return RawDialogRoute<T>(
       transitionDuration: const Duration(milliseconds: 300),
       transitionBuilder: buildTransition,
