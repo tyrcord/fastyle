@@ -23,6 +23,7 @@ class FastDialog extends AlertDialog {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      clipBehavior: Clip.antiAlias,
       content: SingleChildScrollView(
         child: ListBody(
           children: [
