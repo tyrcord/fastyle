@@ -7,8 +7,6 @@ import 'package:tbloc/tbloc.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-//TODO: @need-review: code from fastyle_dart
-
 typedef FastMediaLayoutWidgetBuilder = Widget Function(
   BuildContext context,
   FastMediaType mediaType,
@@ -21,21 +19,16 @@ class FastMediaLayoutBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = BlocProvider.of<FastMediaLayoutBloc>(context);
-
     return BlocBuilderWidget(
+      bloc: FastMediaLayoutBloc.instance,
       forceBuildWhenInializating: false,
       forceBuildWhenBusy: false,
       buildWhen: buildWhen,
       builder: buildChild,
-      bloc: bloc,
     );
   }
 
-  bool buildWhen(
-    FastMediaLayoutBlocState previous,
-    FastMediaLayoutBlocState next,
-  ) {
+  bool buildWhen(previous, next) {
     return previous.mediaType != next.mediaType;
   }
 
