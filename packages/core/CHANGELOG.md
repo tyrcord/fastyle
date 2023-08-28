@@ -1,3 +1,10 @@
+## 0.0.15
+
+ - **PERF**: improvements.
+ - **FIX**: regression.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastDialogPage.
+
 ## 0.0.14
 
  - **FIX**: add missing asset.

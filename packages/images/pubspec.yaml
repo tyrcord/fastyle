@@ -1,6 +1,6 @@
 name: fastyle_images
 description: Set of images Widgets for the fastyle library.
-version: 0.0.20
+version: 0.0.21
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/images
 
 environment:
@@ -16,7 +16,7 @@ dependencies:
   vector_graphics: ^1.1.7
 
   # Fastyle
-  fastyle_core: ^0.0.14
+  fastyle_core: ^0.0.15
 
 flutter:
   assets:

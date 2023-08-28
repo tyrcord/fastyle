@@ -1,3 +1,7 @@
+## 1.27.1
+
+ - Update a dependency to the latest release.
+
 ## 1.27.0
 
  - **FEAT**: better layout for desktop.

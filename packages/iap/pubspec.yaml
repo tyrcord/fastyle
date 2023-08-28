@@ -1,6 +1,6 @@
 name: fastyle_iap
 description: Set of iap Widgets for the fastyle library.
-version: 0.0.11
+version: 0.0.11+1
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/iap
 
 environment:
@@ -20,8 +20,8 @@ dependencies:
   in_app_purchase: ^3.1.8
 
   # Fastyle
-  fastyle_core: ^0.0.14
-  fastyle_buttons: ^0.0.8
+  fastyle_core: ^0.0.15
+  fastyle_buttons: ^0.0.8+1
 
   # Lingua
   lingua_core: ^0.0.22

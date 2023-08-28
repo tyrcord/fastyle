@@ -1,3 +1,7 @@
+## 0.0.21
+
+ - **FEAT**: update flags.
+
 ## 0.0.20
 
  - **FEAT**: ad support SVGs.
