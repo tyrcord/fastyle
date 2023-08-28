@@ -1,7 +1,4 @@
 library fastyle_charts;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'ui/ui.dart';
+export 'logic/logic.dart';

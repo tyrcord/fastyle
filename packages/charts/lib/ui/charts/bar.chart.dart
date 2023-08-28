@@ -1,8 +1,9 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:fastyle_charts/fastyle_charts.dart';
 
 class BarChart extends StatelessWidget {
-  final List<BarItem> items;
+  final List<FastChartData> data;
   final double separatorWidth;
   final double separatorPadding;
   final Color? seperatorColor;
@@ -15,7 +16,7 @@ class BarChart extends StatelessWidget {
 
   const BarChart({
     super.key,
-    required this.items,
+    required this.data,
     this.separatorWidth = 6.0,
     this.separatorPadding = 8.0,
     this.seperatorColor,
@@ -47,7 +48,7 @@ class BarChart extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: separatorPadding),
       color: chartBackgroundColor,
       child: Column(
-        children: items.map((item) => _buildBar(item)).toList(),
+        children: data.map((item) => _buildBar(item)).toList(),
       ),
     );
   }
@@ -57,12 +58,12 @@ class BarChart extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: separatorPadding),
       color: labelsBackgroundColor,
       child: Column(
-        children: items.map((item) => _buildLabel(item)).toList(),
+        children: data.map((item) => _buildLabel(item)).toList(),
       ),
     );
   }
 
-  Widget _buildLabel(BarItem item) {
+  Widget _buildLabel(FastChartData item) {
     return SizedBox(
       height: barItemHeight,
       child: Center(
@@ -82,7 +83,7 @@ class BarChart extends StatelessWidget {
       child: Align(
         alignment: Alignment.center,
         child: Container(
-          height: (barItemHeight) * items.length + separatorPadding * 2,
+          height: (barItemHeight) * data.length + separatorPadding * 2,
           width: separatorWidth,
           decoration: BoxDecoration(
             color: seperatorColor ?? Colors.grey[300],
@@ -96,7 +97,7 @@ class BarChart extends StatelessWidget {
     );
   }
 
-  Widget _buildBar(BarItem item) {
+  Widget _buildBar(FastChartData item) {
     return Row(
       children: [
         Expanded(
@@ -111,7 +112,7 @@ class BarChart extends StatelessWidget {
     );
   }
 
-  Widget _buildPositiveBar(BarItem item) {
+  Widget _buildPositiveBar(FastChartData item) {
     if (item.value > 0) {
       return Container(
         padding: EdgeInsets.symmetric(vertical: barPadding),
@@ -144,7 +145,7 @@ class BarChart extends StatelessWidget {
     );
   }
 
-  Widget _buildNegativeBar(BarItem item) {
+  Widget _buildNegativeBar(FastChartData item) {
     if (item.value < 0) {
       return Container(
         padding: EdgeInsets.symmetric(vertical: barPadding),
@@ -176,11 +177,4 @@ class BarChart extends StatelessWidget {
       ),
     );
   }
-}
-
-class BarItem {
-  final String label;
-  final double value;
-
-  BarItem({required this.label, required this.value});
 }

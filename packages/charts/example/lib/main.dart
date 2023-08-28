@@ -1,8 +1,9 @@
 // Flutter imports:
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
 
 // Project imports:
-import './bar.chart.dart';
+import 'package:fastyle_charts/fastyle_charts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,31 +36,97 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    final data = <BarItem>[
-      BarItem(label: 'Item 1', value: 80),
-      BarItem(label: 'Item 2', value: -20),
-      BarItem(label: 'Item 3', value: 40),
-      BarItem(label: 'Item 4', value: -60),
+    final data = <FastChartData>[
+      FastChartData(label: 'Item 1', value: 80),
+      FastChartData(label: 'Item 2', value: -20),
+      FastChartData(label: 'Item 3', value: 40),
+      FastChartData(label: 'Item 4', value: -60),
     ];
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('Bar Chart'),
-            const SizedBox(height: 24.0),
-            FractionallySizedBox(
-              widthFactor: 0.35,
-              alignment: FractionalOffset.center,
-              child: BarChart(items: data),
+    return FastApp(
+        lightTheme: FastTheme.light.blue,
+        darkTheme: FastTheme.dark.blue,
+        homeBuilder: (context) {
+          final palettes = ThemeHelper.getPaletteColors(context);
+
+          final pieData = [
+            FastChartData(
+              value: 0.12,
+              color: palettes.blue.lighter,
+              label: 'Blue',
             ),
-          ],
-        ),
-      ),
-    );
+            FastChartData(
+              value: 0.12,
+              color: kFastChartTealColor,
+              label: 'Teal',
+            ),
+            FastChartData(
+              value: 0.15,
+              color: kFastChartMintColor,
+              label: 'Mint',
+            ),
+            FastChartData(
+              value: 0.05,
+              color: kFastChartIndigoColor,
+              label: 'Indigo',
+            ),
+            FastChartData(
+              value: 0.30,
+              color: kFastChartPurpleColor,
+              label: 'Purple',
+            ),
+            FastChartData(
+              value: 0.26,
+              color: kFastChartBlueGrayColor,
+              label: 'Blue Gray',
+            ),
+          ];
+
+          return FastSectionPage(
+            isViewScrollable: true,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                const FastTitle(text: 'Bar Chart'),
+                kFastVerticalSizedBox24,
+                FractionallySizedBox(
+                  widthFactor: 0.35,
+                  alignment: FractionalOffset.center,
+                  child: BarChart(data: data),
+                ),
+                kFastVerticalSizedBox24,
+                const FastTitle(text: 'Pie Chart'),
+                kFastVerticalSizedBox24,
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      width: 200,
+                      height: 200,
+                      child: FastPieChart(animate: true, pieData),
+                    ),
+                    kFastHorizontalSizedBox48,
+                    FastChartLegend(data: pieData),
+                  ],
+                ),
+                kFastVerticalSizedBox24,
+                const FastTitle(text: 'Doughnut Chart'),
+                kFastVerticalSizedBox24,
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      width: 200,
+                      height: 200,
+                      child: FastDoughnutChart(animate: true, pieData),
+                    ),
+                    kFastHorizontalSizedBox48,
+                    FastChartLegend(data: pieData),
+                  ],
+                ),
+              ],
+            ),
+          );
+        });
   }
 }

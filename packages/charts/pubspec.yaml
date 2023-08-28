@@ -4,12 +4,14 @@ version: 0.0.4
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/charts
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.0.0 <4.0.0"
   flutter: ">=3.10.0"
 
 dependencies:
   flutter:
     sdk: flutter
+
+  fastyle_core: ^0.0.15
 
 dev_dependencies:
   flutter_test:
