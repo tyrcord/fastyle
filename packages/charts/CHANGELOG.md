@@ -1,3 +1,10 @@
+## 0.0.5
+
+ - **FEAT**: minor improvements.
+ - **FEAT**: chart improvements.
+ - **FEAT**: add FastChart.
+ - **FEAT**: add Pie and Doughnut charts.
+
 ## 0.0.4
 
  - **FEAT**: minor improvements.

@@ -1,3 +1,7 @@
+## 0.0.16
+
+ - **FEAT**: improvements with fields.
+
 ## 0.0.15
 
  - **PERF**: improvements.

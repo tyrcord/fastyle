@@ -1,6 +1,6 @@
 name: fastyle_charts
 description: Set of chart Widgets for the Fastyle library.
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/charts
 
 environment:
@@ -16,7 +16,7 @@ dependencies:
   decimal: ^2.3.3
 
   # Fastyle
-  fastyle_core: ^0.0.15
+  fastyle_core: ^0.0.16
 
 dev_dependencies:
   flutter_test:
