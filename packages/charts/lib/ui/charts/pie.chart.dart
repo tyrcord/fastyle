@@ -1,53 +1,34 @@
 import 'package:fastyle_charts/fastyle_charts.dart';
 import 'package:flutter/material.dart';
 
-class FastPieChart extends StatefulWidget {
+class FastPieChart extends StatelessWidget {
   final List<FastChartData> data;
   final bool animate;
+  final double width;
+  final double height;
 
-  const FastPieChart(this.data, {super.key, this.animate = false});
-
-  @override
-  FastPieChartState createState() => FastPieChartState();
-}
-
-class FastPieChartState extends State<FastPieChart>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _animation;
-  double _currentAnimationValue = 0.0;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 600),
-      vsync: this,
-    )..forward();
-
-    _animation = CurvedAnimation(parent: _controller, curve: Curves.easeOut);
-    _controller.addListener(() {
-      setState(() {
-        _currentAnimationValue = _animation.value;
-      });
-    });
-  }
+  const FastPieChart({
+    super.key,
+    required this.data,
+    this.animate = false,
+    this.width = 200,
+    this.height = 200,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: FastPieChartPainter(
-        widget.data,
-        widget.animate ? _currentAnimationValue : 1.0,
-      ),
-      child: Container(),
+    return FastChart(
+      height: height,
+      width: width,
+      chartBuilder: (context, animationValue) {
+        return CustomPaint(
+          painter: FastPieChartPainter(
+            data,
+            animate ? animationValue : 1.0,
+          ),
+          child: Container(),
+        );
+      },
     );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 }
