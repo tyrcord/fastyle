@@ -23,10 +23,10 @@ class FastPieChart extends StatelessWidget {
       chartBuilder: (context, animationValue) {
         return CustomPaint(
           painter: FastPieChartPainter(
-            data,
-            animate ? animationValue : 1.0,
+            animationValue: animate ? animationValue : 1.0,
+            data: data,
           ),
-          child: Container(),
+          child: const SizedBox.shrink(),
         );
       },
     );

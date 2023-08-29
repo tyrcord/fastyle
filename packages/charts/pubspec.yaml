@@ -11,6 +11,11 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Public
+  visibility_detector: ^0.3.3
+  decimal: ^2.3.3
+
+  # Fastyle
   fastyle_core: ^0.0.15
 
 dev_dependencies:
