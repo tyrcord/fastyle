@@ -29,6 +29,13 @@ class FastPendingReadOnlyTextField extends StatelessWidget {
   final double? fontSize;
   final Widget? child;
 
+  ///
+  /// Specifies whether the label should have a border.
+  ///
+  /// Defaults to false.
+  ///
+  final bool showLabelBorder;
+
   const FastPendingReadOnlyTextField({
     super.key,
     required this.labelText,
@@ -49,6 +56,7 @@ class FastPendingReadOnlyTextField extends StatelessWidget {
     this.valueText,
     this.fontSize,
     this.child,
+    this.showLabelBorder = false,
   });
 
   @override
@@ -67,6 +75,7 @@ class FastPendingReadOnlyTextField extends StatelessWidget {
       textAlign: textAlign,
       fontSize: fontSize,
       showBorder: showBorder,
+      showLabelBorder: showLabelBorder,
       child: _buildPendingChildIfNeeded(context),
     );
   }

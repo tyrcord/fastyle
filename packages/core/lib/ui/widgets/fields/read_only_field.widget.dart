@@ -23,6 +23,13 @@ class FastReadOnlyTextField extends StatelessWidget {
   final Widget? child;
   final double? fontSize;
 
+  ///
+  /// Specifies whether the label should have a border.
+  ///
+  /// Defaults to false.
+  ///
+  final bool showLabelBorder;
+
   const FastReadOnlyTextField({
     super.key,
     required this.labelText,
@@ -40,6 +47,7 @@ class FastReadOnlyTextField extends StatelessWidget {
     this.valueText,
     this.fontSize,
     this.child,
+    this.showLabelBorder = false,
   });
 
   @override
@@ -52,6 +60,7 @@ class FastReadOnlyTextField extends StatelessWidget {
       control: _buildControl(context),
       showHelperBoundaries: showHelperBoundaries,
       suffixIcon: suffixIcon,
+      showLabelBorder: showLabelBorder,
     );
   }
 

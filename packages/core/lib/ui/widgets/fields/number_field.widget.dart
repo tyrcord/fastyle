@@ -29,6 +29,13 @@ class FastNumberField extends StatefulWidget implements IFastInput {
   final int maxLength;
   final int maxValue;
 
+  ///
+  /// Specifies whether the label should have a border.
+  ///
+  /// Defaults to false.
+  ///
+  final bool showLabelBorder;
+
   @override
   final ValueChanged<String>? onValueChanged;
 
@@ -65,6 +72,7 @@ class FastNumberField extends StatefulWidget implements IFastInput {
     this.helperText,
     this.suffixIcon,
     this.locale,
+    this.showLabelBorder = false,
   }) : valueText = valueText ?? '';
 
   @override
@@ -122,6 +130,7 @@ class FastNumberFieldState extends State<FastNumberField>
       control: _buildControl(context),
       suffixIcon: widget.suffixIcon,
       showHelperBoundaries: widget.showHelperBoundaries,
+      showLabelBorder: widget.showLabelBorder,
     );
   }
 

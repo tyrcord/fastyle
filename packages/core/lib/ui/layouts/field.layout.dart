@@ -56,6 +56,13 @@ class FastFieldLayout extends StatelessWidget {
   ///
   final Widget control;
 
+  ///
+  /// Specifies whether the label should have a border.
+  ///
+  /// Defaults to false.
+  ///
+  final bool showLabelBorder;
+
   const FastFieldLayout({
     super.key,
     required this.control,
@@ -67,6 +74,7 @@ class FastFieldLayout extends StatelessWidget {
     this.helperText,
     this.suffixIcon,
     this.labelText,
+    this.showLabelBorder = false,
   });
 
   @override
@@ -84,7 +92,10 @@ class FastFieldLayout extends StatelessWidget {
               if (suffixIcon != null) _buildSuffixIcon(),
             ],
           ),
-          if (showHelperBoundaries) _buildHelper(context),
+          if (showHelperBoundaries) ...[
+            kFastSizedBox4,
+            _buildHelper(context),
+          ],
         ],
       ),
     );
@@ -111,41 +122,51 @@ class FastFieldLayout extends StatelessWidget {
   }
 
   Widget _buildLabel(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: <Widget>[
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 1.0),
-            child: FastSecondaryBody(
-              text: (capitalizeLabelText
-                      ? toBeginningOfSentenceCase(labelText)
-                      : labelText) ??
-                  kFastEmptyString,
-              textColor: ThemeHelper.texts.getBodyTextStyle(context).color,
+    return Container(
+      decoration:
+          showLabelBorder ? ThemeHelper.createBorderSide(context) : null,
+      padding: showLabelBorder ? const EdgeInsets.only(bottom: 6.0) : null,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 1.0),
+              child: buildLabel(context),
             ),
           ),
-        ),
-        if (captionText != null)
-          FastCaption(text: toBeginningOfSentenceCase(captionText)!),
-      ],
+          if (captionText != null)
+            FastCaption(text: toBeginningOfSentenceCase(captionText)!),
+        ],
+      ),
     );
   }
 
-  Widget _buildHelper(BuildContext context) {
-    final hasHelper = helperText != null;
+  Widget buildLabel(BuildContext context) {
+    final textColor = ThemeHelper.texts.getBodyTextStyle(context).color;
+    String? text = labelText;
 
-    return Opacity(
-      opacity: hasHelper ? 1.0 : 0.0,
-      child: Container(
-        margin: const EdgeInsets.only(top: 4.0),
-        child: FastOverline(
-          textColor: helperTextColor,
-          text: hasHelper
-              ? toBeginningOfSentenceCase(helperText)!
-              : kFastEmptyString,
-        ),
-      ),
-    );
+    if (capitalizeLabelText) {
+      text = toBeginningOfSentenceCase(labelText);
+    }
+
+    text ??= kFastEmptyString;
+
+    if (showLabelBorder) {
+      return FastSubtitle(text: text, textColor: textColor);
+    }
+
+    return FastSecondaryBody(text: text, textColor: textColor);
+  }
+
+  Widget _buildHelper(BuildContext context) {
+    if (helperText != null) {
+      return FastOverline(
+        textColor: helperTextColor,
+        text: toBeginningOfSentenceCase(helperText)!,
+      );
+    }
+
+    return const SizedBox(height: 17.0);
   }
 }

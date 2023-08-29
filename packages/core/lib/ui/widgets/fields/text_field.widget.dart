@@ -31,6 +31,13 @@ class FastTextField extends StatefulWidget implements IFastInput {
   @override
   final bool isEnabled;
 
+  ///
+  /// Specifies whether the label should have a border.
+  ///
+  /// Defaults to false.
+  ///
+  final bool showLabelBorder;
+
   const FastTextField({
     super.key,
     required this.labelText,
@@ -47,6 +54,7 @@ class FastTextField extends StatefulWidget implements IFastInput {
     this.initialValue,
     this.captionText,
     this.helperText,
+    this.showLabelBorder = false,
   });
 
   @override
@@ -70,6 +78,7 @@ class FastTextFieldState extends State<FastTextField>
       captionText: widget.captionText,
       helperText: widget.helperText,
       labelText: widget.labelText,
+      showLabelBorder: widget.showLabelBorder,
     );
   }
 
