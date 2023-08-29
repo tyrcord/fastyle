@@ -279,42 +279,42 @@ packages:
       path: "../../ad"
       relative: true
     source: path
-    version: "0.0.11"
+    version: "0.0.12+1"
   fastyle_buttons:
     dependency: "direct overridden"
     description:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.7+1"
+    version: "0.0.8+1"
   fastyle_calculator:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "1.25.0"
+    version: "1.27.1"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.13"
+    version: "0.0.15"
   fastyle_images:
     dependency: "direct overridden"
     description:
       path: "../../images"
       relative: true
     source: path
-    version: "0.0.19"
+    version: "0.0.21"
   fastyle_video_player:
     dependency: "direct overridden"
     description:
       path: "../../video_player"
       relative: true
     source: path
-    version: "0.0.6"
+    version: "0.0.7+1"
   ffi:
     dependency: transitive
     description:
