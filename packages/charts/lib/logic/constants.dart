@@ -6,6 +6,7 @@ const kFastChartPurpleColor = Color(0xFFDFA5FB);
 const kFastChartMintColor = Color(0xFF80DAD6);
 const kFastChartTealColor = Color(0xFF7AD2EB);
 const kFastChartBlueColor = Color(0xFF80B4E6);
+const kFastChartGrayColor = Color(0xFFB8B8B8);
 
 // TODO:
 const kFastChartGreenColor = Color(0xFF69995D);

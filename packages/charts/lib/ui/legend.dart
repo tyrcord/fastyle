@@ -4,7 +4,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 class FastChartLegend extends StatelessWidget {
   final List<FastChartData> data;
-  final bool isHorizontal; // New parameter to control orientation
+  final bool isHorizontal;
 
   const FastChartLegend({
     super.key,
@@ -16,9 +16,9 @@ class FastChartLegend extends StatelessWidget {
   Widget build(BuildContext context) {
     if (isHorizontal) {
       return Wrap(
-        children: _buildChildren(),
         runSpacing: 16,
         spacing: 16,
+        children: _buildChildren(),
       );
     } else {
       return Column(

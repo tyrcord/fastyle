@@ -100,11 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SizedBox(
-                      width: 200,
-                      height: 200,
-                      child: FastPieChart(animate: true, pieData),
-                    ),
+                    FastPieChart(data: pieData, animate: true),
                     kFastHorizontalSizedBox48,
                     FastChartLegend(data: pieData),
                   ],
@@ -115,11 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SizedBox(
-                      width: 200,
-                      height: 200,
-                      child: FastDoughnutChart(animate: true, pieData),
-                    ),
+                    FastDoughnutChart(data: pieData, animate: true),
                     kFastHorizontalSizedBox48,
                     FastChartLegend(data: pieData),
                   ],
