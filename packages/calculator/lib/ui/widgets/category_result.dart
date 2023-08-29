@@ -23,8 +23,6 @@ class FastCalculatorCategoryResult extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = ThemeHelper.colors;
-
     return Container(
       margin: const EdgeInsets.only(bottom: 8.0, top: 8.0),
       decoration: ThemeHelper.createBorderSide(
