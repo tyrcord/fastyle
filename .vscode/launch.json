@@ -93,6 +93,13 @@
       "program": "packages/pricing/example/lib/main.dart"
     },
     {
+      "name": "Quizz",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/quizz/example/lib/main.dart"
+    },
+    {
       "name": "Iap",
       "request": "launch",
       "type": "dart",
