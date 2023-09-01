@@ -81,12 +81,12 @@ class QuizPageState extends State<QuizPage> {
 
         return Column(
           children: [
-            buildProgress(mediaType),
+            buildProgress(context, mediaType),
             spacer,
             Expanded(
               child: Builder(
                 builder: (context) {
-                  if (mediaType >= FastMediaType.desktop) {
+                  if (mediaType >= FastMediaType.tablet) {
                     return buildLandscapeLayout(context, mediaType);
                   }
 
@@ -101,7 +101,8 @@ class QuizPageState extends State<QuizPage> {
     );
   }
 
-  Widget buildProgress(FastMediaType mediaType) {
+  Widget buildProgress(BuildContext context, FastMediaType mediaType) {
+    final palette = ThemeHelper.getPaletteColors(context).gray;
     double size = 48.0;
 
     if (mediaType >= FastMediaType.desktop) {
@@ -111,6 +112,9 @@ class QuizPageState extends State<QuizPage> {
     }
 
     return FastCircleProgress(
+      strokeWidth: mediaType >= FastMediaType.desktop ? 6.0 : 4.0,
+      progressColor: ThemeHelper.colors.getPrimaryColor(context),
+      backgroundColor: palette.lightest,
       labelText: (currentQuestionIndex + 1).toString(),
       currentProgress: currentProgress,
       height: size,
@@ -134,63 +138,113 @@ class QuizPageState extends State<QuizPage> {
     final question = questions[currentQuestionIndex];
     SizedBox spacer = buildSpacer(mediaType);
 
-    return FractionallySizedBox(
-      widthFactor: mediaType == FastMediaType.tablet ? 0.65 : 1,
-      child: Column(
-        children: [
-          Expanded(child: buildMedia()),
-          spacer,
-          FastTitle(text: question.text, textAlign: TextAlign.center),
-          spacer,
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: buildAnswerOptions(context, mediaType, question.options),
-          ),
-        ],
-      ),
-    );
+    return LayoutBuilder(builder: (context, constraints) {
+      final maxHeight = constraints.maxHeight;
+
+      double heightFactor = 1;
+
+      if (maxHeight > 800) {
+        heightFactor = 0.8;
+      }
+
+      return FractionallySizedBox(
+        heightFactor: heightFactor,
+        child: Column(
+          children: [
+            Expanded(child: buildMedia(context)),
+            spacer,
+            buildQuestion(context, mediaType),
+            spacer,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: buildAnswerOptions(
+                context,
+                mediaType,
+                question.options,
+              ),
+            ),
+          ],
+        ),
+      );
+    });
   }
 
   Widget buildLandscapeLayout(BuildContext context, FastMediaType mediaType) {
     final question = questions[currentQuestionIndex];
-    double fontSize = 24.0;
+
+    return LayoutBuilder(builder: (context, constraints) {
+      final maxHeight = constraints.maxHeight;
+      double heightFactor = 1;
+      double widthFactor = 1;
+
+      if (maxHeight > 800) {
+        heightFactor = 0.5;
+      } else if (maxHeight > 600) {
+        heightFactor = 0.65;
+      } else if (maxHeight > 480) {
+        heightFactor = 0.75;
+      }
+
+      if (mediaType >= FastMediaType.large) {
+        widthFactor = 0.75;
+      } else if (mediaType >= FastMediaType.desktop) {
+        widthFactor = 0.8;
+      }
+
+      return FractionallySizedBox(
+        widthFactor: widthFactor,
+        heightFactor: heightFactor,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(child: buildMedia(context)),
+            kFastHorizontalSizedBox48,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(child: buildQuestion(context, mediaType)),
+                  ...buildAnswerOptions(context, mediaType, question.options),
+                ],
+              ),
+            )
+          ],
+        ),
+      );
+    });
+  }
+
+  Widget buildQuestion(BuildContext context, FastMediaType mediaType) {
+    final question = questions[currentQuestionIndex];
+    double fontSize = kFastFontSize24;
 
     if (mediaType >= FastMediaType.desktop) {
-      fontSize = 40.0;
+      fontSize = kFastFontSize40;
     } else if (mediaType >= FastMediaType.tablet) {
-      fontSize = 36.0;
+      fontSize = kFastFontSize34;
     }
 
-    print('fontSize: $fontSize');
-
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Expanded(child: buildMedia()),
-        kFastHorizontalSizedBox48,
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: FastTitle(
-                  textAlign: TextAlign.center,
-                  text: question.text,
-                  fontSize: fontSize,
-                ),
-              ),
-              ...buildAnswerOptions(context, mediaType, question.options),
-            ],
-          ),
-        )
-      ],
+    return ConstrainedBox(
+      constraints: const BoxConstraints(minHeight: 60),
+      child: Align(
+        alignment: mediaType >= FastMediaType.tablet
+            ? Alignment.topCenter
+            : Alignment.center,
+        child: FastTitle(
+          textAlign: TextAlign.center,
+          text: question.text,
+          fontSize: fontSize,
+        ),
+      ),
     );
   }
 
-  Widget buildMedia() {
+  Widget buildMedia(BuildContext context) {
+    final palette = ThemeHelper.getPaletteColors(context).blueGray;
+
     return ColoredBox(
-      color: Colors.grey[300]!,
+      color: palette.ultraLight,
       child: const Center(
         child: FastSecondaryBody(text: 'Media Illustration'),
       ),
@@ -231,16 +285,16 @@ class QuizPageState extends State<QuizPage> {
   }
 
   Color _determineButtonColor(BuildContext context, int answerIndex) {
+    if (!answered) {
+      return ThemeHelper.colors.getPrimaryColor(context);
+    }
+
     final palettes = ThemeHelper.getPaletteColors(context);
 
-    if (!answered) {
-      return palettes.blue.mid;
-    }
-
     if (currentAnswerIndex == answerIndex) {
-      return isCorrect ? palettes.green.mid : palettes.red.mid;
+      return isCorrect ? palettes.green.dark : palettes.red.dark;
     }
 
-    return palettes.gray.mid;
+    return palettes.gray.light;
   }
 }

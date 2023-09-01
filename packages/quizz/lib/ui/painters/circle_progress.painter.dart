@@ -2,21 +2,29 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class FastCircleProgressPainter extends CustomPainter {
-  double currentProgress;
+  final double currentProgress;
+  final Color progressColor;
+  final Color backgroundColor;
+  final double strokeWidth;
 
-  FastCircleProgressPainter(this.currentProgress);
+  const FastCircleProgressPainter(
+    this.currentProgress, {
+    this.progressColor = Colors.blue,
+    this.backgroundColor = Colors.grey,
+    this.strokeWidth = 10,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
     // This is the circle for background
     Paint outerCircle = Paint()
-      ..strokeWidth = 10
-      ..color = Colors.grey
+      ..strokeWidth = strokeWidth
+      ..color = backgroundColor
       ..style = PaintingStyle.stroke;
 
     Paint completeArc = Paint()
-      ..strokeWidth = 10
-      ..color = Colors.blue
+      ..strokeWidth = strokeWidth
+      ..color = progressColor
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
 

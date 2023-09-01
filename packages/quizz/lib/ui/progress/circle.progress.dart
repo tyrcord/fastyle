@@ -7,14 +7,20 @@ class FastCircleProgress extends StatelessWidget {
   final String? labelText;
   final double width;
   final double height;
+  final Color progressColor;
+  final Color backgroundColor;
+  final double strokeWidth;
 
   const FastCircleProgress({
-    Key? key,
+    super.key,
     required this.currentProgress,
     this.labelText,
     this.width = 64,
     this.height = 64,
-  }) : super(key: key);
+    this.progressColor = Colors.blue,
+    this.backgroundColor = Colors.grey,
+    this.strokeWidth = 10,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +28,12 @@ class FastCircleProgress extends StatelessWidget {
       width: width,
       height: height,
       child: CustomPaint(
-        foregroundPainter: FastCircleProgressPainter(currentProgress),
+        foregroundPainter: FastCircleProgressPainter(
+          currentProgress,
+          progressColor: progressColor,
+          backgroundColor: backgroundColor,
+          strokeWidth: strokeWidth,
+        ),
         child: buildLabel(),
       ),
     );
