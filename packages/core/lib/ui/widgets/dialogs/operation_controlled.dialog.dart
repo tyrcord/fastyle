@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:t_helpers/helpers.dart';
 
 /// Callback for when the operation status changes.
 typedef FastOperationStatusChanged = void Function(FastOperationStatus)?;
@@ -91,7 +92,7 @@ class FastOperationControlledDialog extends StatefulWidget {
     this.onCancel,
     this.onValid,
     double? tabletWidthFactor = 0.6,
-  }): tabletWidthFactor = tabletWidthFactor ?? 0.6;
+  }) : tabletWidthFactor = tabletWidthFactor ?? 0.6;
 
   @override
   FastOperationControlledDialogState createState() =>
@@ -363,6 +364,7 @@ class FastOperationControlledDialogState
             : FastOperationStatus.operationFailed,
       );
     } catch (error) {
+      debugLog('Failed to perform operation', value: error);
       operationSuccess = false;
 
       _updateStatus(
