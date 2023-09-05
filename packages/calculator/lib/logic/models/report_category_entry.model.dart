@@ -7,10 +7,12 @@ import 'package:fastyle_calculator/fastyle_calculator.dart';
 class FastReportCategoryEntry extends TModel {
   final String name;
   final List<FastReportEntry> entries;
+  final FastReportEntry? summary;
 
   const FastReportCategoryEntry({
     required this.name,
     required this.entries,
+    this.summary,
   });
 
   @override
@@ -20,10 +22,12 @@ class FastReportCategoryEntry extends TModel {
   FastReportCategoryEntry copyWith({
     String? name,
     List<FastReportEntry>? entries,
+    FastReportEntry? summary,
   }) {
     return FastReportCategoryEntry(
       name: name ?? this.name,
       entries: entries ?? this.entries,
+      summary: summary ?? this.summary,
     );
   }
 
@@ -32,9 +36,14 @@ class FastReportCategoryEntry extends TModel {
     return copyWith(
       name: model.name,
       entries: model.entries,
+      summary: model.summary,
     );
   }
 
   @override
-  List<Object?> get props => [name, entries];
+  List<Object?> get props => [
+        name,
+        entries,
+        summary,
+      ];
 }
