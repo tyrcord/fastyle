@@ -59,9 +59,9 @@ class FastConnectivityStatusIcon extends StatelessWidget {
             : _getDisconnectedColor(context);
 
     if (icon is Icon) {
-      return Icon(icon.icon, color: color, size: icon.size);
+      return Icon(icon.icon, color: color, size: iconSize);
     } else if (icon is FaIcon) {
-      return FaIcon(icon.icon, color: color, size: icon.size);
+      return FaIcon(icon.icon, color: color, size: iconSize);
     }
 
     return icon;
