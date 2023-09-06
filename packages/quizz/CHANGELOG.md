@@ -1,3 +1,7 @@
+## 0.0.3
+
+ - **FEAT**: update depencies.
+
 ## 0.0.2
 
  - **FEAT**: layout improvements.

@@ -11,9 +11,9 @@ dependencies:
   flutter:
     sdk: flutter
   # internals
-  fastyle_core: ^0.0.17
+  fastyle_core: ^0.0.18
   tbloc: ^0.21.3+3
-  fastyle_ad: ^0.0.12+3
+  fastyle_ad: ^0.0.13
   go_router: ^10.1.2
   font_awesome_flutter: ^10.5.0
   video_player: ^2.7.1

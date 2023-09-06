@@ -1,6 +1,6 @@
 name: fastyle_forms
 description: Set of forms Widgets for the fastyle library.
-version: 0.0.18+3
+version: 0.0.19
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/fastyle_forms
 
 environment:
@@ -15,9 +15,9 @@ dependencies:
   font_awesome_flutter: ^10.5.0
 
   # Fastyle
-  fastyle_core: ^0.0.17
-  fastyle_buttons: ^0.0.8+3
-  fastyle_digit_calculator: ^0.0.17+3
+  fastyle_core: ^0.0.18
+  fastyle_buttons: ^0.0.9
+  fastyle_digit_calculator: ^0.0.18
 
   # T
   tbloc: ^0.21.3+3

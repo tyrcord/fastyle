@@ -1,3 +1,7 @@
+## 1.29.0
+
+ - **FEAT**: update depencies.
+
 ## 1.28.1
 
  - Update a dependency to the latest release.
