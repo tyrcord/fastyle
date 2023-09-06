@@ -132,6 +132,10 @@ class FastApp extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() => _FastAppState();
+
+  static void restart(BuildContext context) {
+    context.findAncestorStateOfType<_FastAppState>()!.restartApp();
+  }
 }
 
 class _FastAppState extends State<FastApp> {
@@ -141,6 +145,7 @@ class _FastAppState extends State<FastApp> {
   late final GlobalKey<NavigatorState> _rootNavigatorKey;
   late final FastThemeBloc _themeBloc;
   late final GoRouter _router;
+  Key _key = UniqueKey();
 
   @override
   void initState() {
@@ -157,39 +162,46 @@ class _FastAppState extends State<FastApp> {
     _themeBloc.close();
   }
 
+  void restartApp() {
+    setState(() => _key = UniqueKey());
+  }
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: hideKeyboard,
-      child: FastMediaLayoutObserver(
-        child: MultiBlocProvider(
-          blocProviders: [
-            BlocProvider(bloc: FastAppInfoBloc()),
-            BlocProvider(bloc: FastAppPermissionsBloc()),
-            BlocProvider(bloc: FastAppSettingsBloc()),
-            BlocProvider(bloc: FastAppDictBloc()),
-            BlocProvider(bloc: FastAppFeaturesBloc()),
-            BlocProvider(bloc: FastAppOnboardingBloc()),
-            BlocProvider(bloc: _themeBloc),
-            ...?widget.blocProviders,
-          ],
-          child: EasyLocalization(
-            supportedLocales: widget.appInfo.supportedLocales,
-            fallbackLocale: widget.fallbackLocale,
-            startLocale: widget.fallbackLocale,
-            assetLoader: widget.assetLoader,
-            path: widget.localizationPath,
-            useOnlyLangCode: true,
-            saveLocale: false,
-            child: FutureBuilder(
-              future: EasyLocalization.ensureInitialized(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.done) {
-                  return buildAppLoader(context);
-                }
+    return KeyedSubtree(
+      key: _key,
+      child: GestureDetector(
+        onTap: hideKeyboard,
+        child: FastMediaLayoutObserver(
+          child: MultiBlocProvider(
+            blocProviders: [
+              BlocProvider(bloc: FastAppInfoBloc()),
+              BlocProvider(bloc: FastAppPermissionsBloc()),
+              BlocProvider(bloc: FastAppSettingsBloc()),
+              BlocProvider(bloc: FastAppDictBloc()),
+              BlocProvider(bloc: FastAppFeaturesBloc()),
+              BlocProvider(bloc: FastAppOnboardingBloc()),
+              BlocProvider(bloc: _themeBloc),
+              ...?widget.blocProviders,
+            ],
+            child: EasyLocalization(
+              supportedLocales: widget.appInfo.supportedLocales,
+              fallbackLocale: widget.fallbackLocale,
+              startLocale: widget.fallbackLocale,
+              assetLoader: widget.assetLoader,
+              path: widget.localizationPath,
+              useOnlyLangCode: true,
+              saveLocale: false,
+              child: FutureBuilder(
+                future: EasyLocalization.ensureInitialized(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    return buildAppLoader(context);
+                  }
 
-                return buildEmptyContainer(context);
-              },
+                  return buildEmptyContainer(context);
+                },
+              ),
             ),
           ),
         ),
@@ -300,10 +312,12 @@ class _FastAppState extends State<FastApp> {
   }
 
   /// Handles the app error.
-  Widget handleAppError(context, error) {
+  Widget handleAppError(BuildContext context, dynamic error) {
     debugLog('error: $error', debugLabel: debugLabel);
 
-    return const FastErrorStatusPage();
+    return FastErrorStatusPage(
+      onRetryTap: () => FastApp.restart(context),
+    );
   }
 
   Iterable<FastJob>? _getLoaderJobs() {
