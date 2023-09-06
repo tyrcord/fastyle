@@ -68,11 +68,8 @@ class FastStatusPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             buildTitle(),
-            Expanded(
-              child: buildContent(),
-            ),
-            buildCancelButton(),
-            buildValidButton(),
+            Expanded(child: buildContent()),
+            buildActions(),
           ],
         ),
       ),
@@ -107,24 +104,46 @@ class FastStatusPage extends StatelessWidget {
     );
   }
 
+  Widget buildActions() {
+    return FastMediaLayoutBuilder(builder: (context, mediaType) {
+      if (mediaType >= FastMediaType.tablet) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (onCancelTap != null) ...[
+              buildCancelButton(),
+              ThemeHelper.spacing.getHorizontalSpacing(context),
+            ],
+            buildValidButton(),
+          ],
+        );
+      }
+
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          buildCancelButton(),
+          buildValidButton(),
+        ],
+      );
+    });
+  }
+
   /// Builds the widget for the icon.
   Widget buildIcon() {
     return FastRoundedDuotoneIcon(
-      icon: icon!,
-      palette: palette,
-      size: kFastImageSizeXxl,
       backgroundColor: backgroundColor,
+      size: kFastImageSizeXxl,
       iconColor: iconColor,
+      palette: palette,
+      icon: icon!,
     );
   }
 
   /// Builds the widget for the cancel button.
   Widget buildCancelButton() {
     if (onCancelTap != null) {
-      return FastOutlineButton(
-        onTap: onCancelTap!,
-        text: cancelButtonText,
-      );
+      return FastOutlineButton(onTap: onCancelTap, text: cancelButtonText);
     }
 
     return const SizedBox.shrink();
@@ -133,10 +152,7 @@ class FastStatusPage extends StatelessWidget {
   /// Builds the widget for the valid button.
   Widget buildValidButton() {
     if (onValidTap != null) {
-      return FastRaisedButton(
-        onTap: onValidTap!,
-        text: validButtonText,
-      );
+      return FastRaisedButton(onTap: onValidTap, text: validButtonText);
     }
 
     return const SizedBox.shrink();
