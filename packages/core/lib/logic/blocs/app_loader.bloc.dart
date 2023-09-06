@@ -47,6 +47,10 @@ class FastAppLoaderBloc
 
       yield currentState.copyWith(isLoading: isInitializing);
 
+      // TODO: check for internet connection here
+      // add a hasInternetConnection property to the event payload
+      // and use it to check for internet connection before running the jobs
+
       if (jobs != null && jobs.isNotEmpty) {
         yield* _runJobs(
           eventPayload.context!,

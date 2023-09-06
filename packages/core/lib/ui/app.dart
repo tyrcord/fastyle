@@ -237,6 +237,10 @@ class _FastAppState extends State<FastApp> {
 
   /// Builds the main app widget.
   Widget buildApp(BuildContext context) {
+    // TODO:
+    // If required by the app, add a listener on the internet connection status
+    // and show a widget that indicates that the app has no internet connection.
+
     return FastAppSettingsThemeBuilder(
       builder: (context, state) {
         final easyLocalization = EasyLocalization.of(context)!;
