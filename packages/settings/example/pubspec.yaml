@@ -12,16 +12,16 @@ dependencies:
     sdk: flutter
 
   # Public
-  fastyle_core: ^0.0.16
+  fastyle_core: ^0.0.17
   go_router: ^10.0.0
   font_awesome_flutter: ^10.5.0
   easy_localization: ^3.0.2
   tbloc: ^0.21.3+2
 
   # Fastyle
-  fastyle_forms: ^0.0.18+2
-  fastyle_settings: ^0.0.23+2
-  fastyle_pricing: ^1.15.2
+  fastyle_forms: ^0.0.18+3
+  fastyle_settings: ^0.0.23+3
+  fastyle_pricing: ^1.15.3
 
   # MateX
   matex_financial: ^0.0.15

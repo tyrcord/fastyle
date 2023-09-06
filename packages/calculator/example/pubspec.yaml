@@ -10,10 +10,10 @@ dependencies:
   flutter:
     sdk: flutter
 
-  fastyle_core: ^0.0.16
+  fastyle_core: ^0.0.17
   tbloc: ^0.21.3+2
   decimal: ^2.3.3
-  fastyle_calculator: ^1.28.0
+  fastyle_calculator: ^1.28.1
 
 dev_dependencies:
   flutter_test:

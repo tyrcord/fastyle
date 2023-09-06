@@ -14,8 +14,8 @@ dependencies:
 
   # Lingua
   lingua_core: ^0.0.22
-  fastyle_core: ^0.0.16
-  fastyle_buttons: ^0.0.8+2
+  fastyle_core: ^0.0.17
+  fastyle_buttons: ^0.0.8+3
 
 dev_dependencies:
   flutter_test:

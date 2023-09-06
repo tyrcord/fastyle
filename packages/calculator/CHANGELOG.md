@@ -1,3 +1,7 @@
+## 1.28.1
+
+ - Update a dependency to the latest release.
+
 ## 1.28.0
 
  - **PERF**: simplify FastCalculatorCategoryResult.

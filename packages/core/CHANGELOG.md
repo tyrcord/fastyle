@@ -1,3 +1,8 @@
+## 0.0.17
+
+ - **FEAT**: add log.
+ - **FEAT**: layout improvements.
+
 ## 0.0.16
 
  - **FEAT**: improvements with fields.
