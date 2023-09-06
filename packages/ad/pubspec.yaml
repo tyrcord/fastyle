@@ -14,12 +14,12 @@ dependencies:
   # Public
   rxdart: ^0.27.7
   collection: ^1.17.1
-  easy_localization: ^3.0.2
+  easy_localization: ^3.0.3
   google_mobile_ads: ^3.0.0
   font_awesome_flutter: ^10.5.0
   visibility_detector: ^0.3.3
   uuid: ^3.0.7
-  http: ^0.13.6
+  http: ^1.1.0
   url_launcher: ^6.1.12
 
   # Fastyle
@@ -28,11 +28,11 @@ dependencies:
   fastyle_images: ^0.0.21+2
 
   # T
-  tbloc: ^0.21.3+2
-  tmodel: ^0.5.7
-  t_helpers: ^0.0.28
-  tstore: ^0.8.14
-  t_cache: ^0.0.5+2
+  tbloc: ^0.21.3+3
+  tmodel: ^0.5.7+1
+  t_helpers: ^0.0.28+1
+  tstore: ^0.8.14+1
+  t_cache: ^0.0.5+3
 
   # Lingua
   lingua_core: ^0.0.22
@@ -42,8 +42,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.2
-  dart_code_metrics: ^5.7.6
+  flutter_lints: ^2.0.3
   import_sorter: ^4.6.0
   dependency_validator: ^3.2.2
 

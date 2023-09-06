@@ -14,8 +14,8 @@ dependencies:
   # Public
   font_awesome_flutter: ^10.5.0
   app_tracking_transparency: ^2.0.4
-  easy_localization: ^3.0.2
-  firebase_messaging: ^14.6.6
+  easy_localization: ^3.0.3
+  firebase_messaging: ^14.6.7
 
   # Lingua
   lingua_onboarding: ^0.0.10
@@ -30,12 +30,11 @@ dependencies:
   fastyle_buttons: ^0.0.8+3
 
   # T
-  tbloc: ^0.21.3+2
+  tbloc: ^0.21.3+3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.2
-  dart_code_metrics: ^5.7.6
+  flutter_lints: ^2.0.3
   import_sorter: ^4.6.0
   dependency_validator: ^3.2.2

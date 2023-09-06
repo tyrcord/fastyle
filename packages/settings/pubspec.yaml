@@ -14,11 +14,11 @@ dependencies:
   # Public
   collection: ^1.17.1
   font_awesome_flutter: ^10.5.0
-  easy_localization: ^3.0.2
+  easy_localization: ^3.0.3
 
   # T
-  tbloc: ^0.21.3+2
-  t_helpers: ^0.0.28
+  tbloc: ^0.21.3+3
+  t_helpers: ^0.0.28+1
 
   # Fastyle
   fastyle_images: ^0.0.21+2
@@ -41,7 +41,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.2
-  dart_code_metrics: ^5.7.6
+  flutter_lints: ^2.0.3
   import_sorter: ^4.6.0
   dependency_validator: ^3.2.2

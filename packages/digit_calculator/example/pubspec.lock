@@ -157,10 +157,10 @@ packages:
     dependency: transitive
     description:
       name: easy_localization
-      sha256: "30ebf25448ffe169e0bd9bc4b5da94faa8398967a2ad2ca09f438be8b6953645"
+      sha256: de63e3b422adfc97f256cbb3f8cf12739b6a4993d390f3cadb3f51837afaefe5
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.2"
+    version: "3.0.3"
   easy_logger:
     dependency: transitive
     description:
@@ -191,21 +191,21 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.8+2"
+    version: "0.0.8+3"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.16"
+    version: "0.0.17"
   fastyle_digit_calculator:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.17+2"
+    version: "0.0.17+3"
   ffi:
     dependency: transitive
     description:
@@ -231,10 +231,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_lints
-      sha256: "2118df84ef0c3ca93f96123a616ae8540879991b8b57af2f81b76a7ada49b2a4"
+      sha256: a25a15ebbdfc33ab1cd26c63a6ee519df92338a9c10f122adda92938253bef04
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.2"
+    version: "2.0.3"
   flutter_localizations:
     dependency: transitive
     description: flutter
@@ -294,10 +294,10 @@ packages:
     dependency: transitive
     description:
       name: go_router
-      sha256: b3cadd2cd59a4103fd5f6bc572ca75111264698784e927aa471921c3477d5475
+      sha256: "5668e6d3dbcb2d0dfa25f7567554b88c57e1e3f3c440b672b24d4a9477017d5b"
       url: "https://pub.dev"
     source: hosted
-    version: "10.0.0"
+    version: "10.1.2"
   google_fonts:
     dependency: transitive
     description:
@@ -731,18 +731,18 @@ packages:
     dependency: "direct main"
     description:
       name: t_helpers
-      sha256: "09b7abff5fbd5ee2eb2eaa35652bce34b83a5087d6da57b5ef9c087f06cfb8c8"
+      sha256: "41f135787c3f000f09827b5ee8e90db318d8f8b8bb589776842bac9a5096c79f"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.28"
+    version: "0.0.28+1"
   tbloc:
     dependency: transitive
     description:
       name: tbloc
-      sha256: "77a8e5bb7d5529920b0ff367b142665aae953d37fece8bf48245daf66eafdd62"
+      sha256: "60755422e94f872ea58d03fcf6b4cd991fd3cc43a7114364dd2b07e6f94c1858"
       url: "https://pub.dev"
     source: hosted
-    version: "0.21.3+2"
+    version: "0.21.3+3"
   term_glyph:
     dependency: transitive
     description:
@@ -771,18 +771,18 @@ packages:
     dependency: transitive
     description:
       name: tmodel
-      sha256: b66144d71e91a961e1f7a0dc667d80a1154ce182aaed6792fa5c7ef908cbdd82
+      sha256: "4724c2dad6c6fc35a3705c21bf7d21710ec5a54b88deac8b71d625e28e1a2509"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.7"
+    version: "0.5.7+1"
   tstore:
     dependency: transitive
     description:
       name: tstore
-      sha256: "251ab3c873259eb340eedc453a67105e56776284bf79878dbbf1855771506b33"
+      sha256: "4feb8479eadf07c31e25b81b009a0f92afce2faedd78b6cb3939f9a47e611eed"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.14"
+    version: "0.8.14+1"
   tsub:
     dependency: transitive
     description:
@@ -811,10 +811,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher
-      sha256: "781bd58a1eb16069412365c98597726cd8810ae27435f04b3b4d3a470bacd61e"
+      sha256: "47e208a6711459d813ba18af120d9663c20bdf6985d6ad39fe165d2538378d27"
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.12"
+    version: "6.1.14"
   url_launcher_android:
     dependency: transitive
     description:

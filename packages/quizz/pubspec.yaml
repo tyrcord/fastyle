@@ -1,18 +1,21 @@
 name: fastyle_quizz
-description: A new Flutter package project.
+description: Set of quizz Widgets for the fastyle library.
 version: 0.0.2
 
 environment:
   sdk: ">=3.1.0 <4.0.0"
-  flutter: ">=1.17.0"
+  flutter: ">=3.10.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
+  # Fastyle
   fastyle_core: ^0.0.17
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.3
+  import_sorter: ^4.6.0
+  dependency_validator: ^3.2.2

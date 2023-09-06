@@ -17,11 +17,11 @@ dependencies:
   app_tracking_transparency: ^2.0.4
   collection: ^1.17.1
   devicelocale: ^0.6.0
-  easy_localization: ^3.0.2
+  easy_localization: ^3.0.3
   rate_my_app: ^2.0.0
-  url_launcher: ^6.1.12
+  url_launcher: ^6.1.14
   font_awesome_flutter: ^10.5.0
-  go_router: ^10.0.0
+  go_router: ^10.1.2
   share_plus: ^7.1.0
   async: ^2.11.0
   google_fonts: ^4.0.4
@@ -38,10 +38,10 @@ dependencies:
   fastyle_buttons: ^0.0.8+3
 
   # T
-  t_helpers: ^0.0.28
-  tmodel: ^0.5.7
-  tbloc: ^0.21.3+2
-  tstore: ^0.8.14
+  t_helpers: ^0.0.28+1
+  tmodel: ^0.5.7+1
+  tbloc: ^0.21.3+3
+  tstore: ^0.8.14+1
 
   # Lingua
   lingua_core: ^0.0.22
@@ -53,7 +53,6 @@ flutter:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  dart_code_metrics: ^5.7.6
   dependency_validator: ^3.2.2
-  flutter_lints: ^2.0.2
+  flutter_lints: ^2.0.3
   import_sorter: ^4.6.0

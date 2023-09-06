@@ -6,4 +6,4 @@ dev_dependencies:
   melos: ^3.1.1
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.2
+  flutter_lints: ^2.0.3

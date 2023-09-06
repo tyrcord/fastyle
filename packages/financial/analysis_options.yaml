@@ -2,8 +2,6 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   language:
     strict-casts: true
-  plugins:
-    - dart_code_metrics
 linter:
   rules:
     - always_declare_return_types
@@ -56,20 +54,3 @@ linter:
     - prefer_final_in_for_each
     - unnecessary_await_in_return
     - cascade_invocations
-dart_code_metrics:
-  anti-patterns:
-    - long-method
-    - long-parameter-list
-  metrics:
-    cyclomatic-complexity: 7
-    lines-of-executable-code: 25
-    number-of-arguments: 4
-    maintainability-index: 50
-    maximum-nesting-level: 5
-  metrics-exclude:
-    - test/**
-    - example/**
-  rules:
-    - newline-before-return
-    - no-boolean-literal-compare
-    - no-empty-block
