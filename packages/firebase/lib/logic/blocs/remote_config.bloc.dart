@@ -65,8 +65,18 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
         fetchTimeout: const Duration(minutes: 1),
       ));
 
-      // TODO: listen on config changes ?
-      final enabled = await remoteConfig.fetchAndActivate();
+      bool enabled = false;
+
+      try {
+        // TODO: listen on config changes ?
+        enabled = await remoteConfig.fetchAndActivate();
+      } catch (error) {
+        debugLog(
+          'An error occured when fetching and activating remote config',
+          value: error,
+          debugLabel: debugLabel,
+        );
+      }
 
       if (enabled) {
         final config = remoteConfig.getAll();
