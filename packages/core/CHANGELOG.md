@@ -1,3 +1,9 @@
+## 0.0.19
+
+ - **FEAT**: add todo comments.
+ - **FEAT**: allow to restart the app.
+ - **FEAT**: make status page responsive.
+
 ## 0.0.18
 
  - **FEAT**: update depencies.

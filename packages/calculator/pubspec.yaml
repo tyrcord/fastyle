@@ -1,6 +1,6 @@
 name: fastyle_calculator
 description: Set of calculator Widgets for the fastyle library.
-version: 1.29.0
+version: 1.29.1
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/calculator
 
 environment:
@@ -18,9 +18,9 @@ dependencies:
   font_awesome_flutter: ^10.5.0
 
   # Fastyle
-  fastyle_ad: ^0.0.13
-  fastyle_core: ^0.0.18
-  fastyle_buttons: ^0.0.9
+  fastyle_ad: ^0.0.13+1
+  fastyle_core: ^0.0.19
+  fastyle_buttons: ^0.0.9+1
 
   # Lingua
   lingua_core: ^0.0.22

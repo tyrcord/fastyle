@@ -25,8 +25,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  fastyle_quizz: ^0.0.3
-  fastyle_core: ^0.0.18
+  fastyle_quizz: ^0.0.3+1
+  fastyle_core: ^0.0.19
 
 dev_dependencies:
   flutter_test:

@@ -1,3 +1,7 @@
+## 0.0.10+1
+
+ - **FIX**(remote config): catch error when no internet connection.
+
 ## 0.0.10
 
  - **FEAT**: update depencies.

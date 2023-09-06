@@ -15,6 +15,80 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_connectivity` - `v0.0.16+1`](#fastyle_connectivity---v00161)
+ - [`fastyle_core` - `v0.0.19`](#fastyle_core---v0019)
+ - [`fastyle_firebase` - `v0.0.10+1`](#fastyle_firebase---v00101)
+ - [`fastyle_settings` - `v0.0.24+1`](#fastyle_settings---v00241)
+ - [`fastyle_home` - `v0.0.14+1`](#fastyle_home---v00141)
+ - [`fastyle_forms` - `v0.0.19+1`](#fastyle_forms---v00191)
+ - [`fastyle_calculator` - `v1.29.1`](#fastyle_calculator---v1291)
+ - [`fastyle_quizz` - `v0.0.3+1`](#fastyle_quizz---v0031)
+ - [`fastyle_financial` - `v0.0.17+1`](#fastyle_financial---v00171)
+ - [`fastyle_images` - `v0.0.22+1`](#fastyle_images---v00221)
+ - [`fastyle_ad` - `v0.0.13+1`](#fastyle_ad---v00131)
+ - [`fastyle_buttons` - `v0.0.9+1`](#fastyle_buttons---v0091)
+ - [`fastyle_video_player` - `v0.0.8+1`](#fastyle_video_player---v0081)
+ - [`fastyle_iap` - `v0.0.12+1`](#fastyle_iap---v00121)
+ - [`fastyle_digit_calculator` - `v0.0.18+1`](#fastyle_digit_calculator---v00181)
+ - [`fastyle_text` - `v0.0.4+1`](#fastyle_text---v0041)
+ - [`fastyle_views` - `v0.0.10+1`](#fastyle_views---v00101)
+ - [`fastyle_pricing` - `v1.16.1`](#fastyle_pricing---v1161)
+ - [`fastyle_layouts` - `v0.0.8+1`](#fastyle_layouts---v0081)
+ - [`fastyle_charts` - `v0.0.6+1`](#fastyle_charts---v0061)
+ - [`fastyle_onboarding` - `v0.0.21+1`](#fastyle_onboarding---v00211)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_settings` - `v0.0.24+1`
+ - `fastyle_home` - `v0.0.14+1`
+ - `fastyle_forms` - `v0.0.19+1`
+ - `fastyle_calculator` - `v1.29.1`
+ - `fastyle_quizz` - `v0.0.3+1`
+ - `fastyle_financial` - `v0.0.17+1`
+ - `fastyle_images` - `v0.0.22+1`
+ - `fastyle_ad` - `v0.0.13+1`
+ - `fastyle_buttons` - `v0.0.9+1`
+ - `fastyle_video_player` - `v0.0.8+1`
+ - `fastyle_iap` - `v0.0.12+1`
+ - `fastyle_digit_calculator` - `v0.0.18+1`
+ - `fastyle_text` - `v0.0.4+1`
+ - `fastyle_views` - `v0.0.10+1`
+ - `fastyle_pricing` - `v1.16.1`
+ - `fastyle_layouts` - `v0.0.8+1`
+ - `fastyle_charts` - `v0.0.6+1`
+ - `fastyle_onboarding` - `v0.0.21+1`
+
+---
+
+#### `fastyle_connectivity` - `v0.0.16+1`
+
+ - **FIX**: icon size.
+
+#### `fastyle_core` - `v0.0.19`
+
+ - **FEAT**: add todo comments.
+ - **FEAT**: allow to restart the app.
+ - **FEAT**: make status page responsive.
+
+#### `fastyle_firebase` - `v0.0.10+1`
+
+ - **FIX**(remote config): catch error when no internet connection.
+
+
+## 2023-09-06
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_ad` - `v0.0.13`](#fastyle_ad---v0013)
  - [`fastyle_buttons` - `v0.0.9`](#fastyle_buttons---v009)
  - [`fastyle_calculator` - `v1.29.0`](#fastyle_calculator---v1290)

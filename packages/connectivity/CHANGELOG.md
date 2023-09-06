@@ -1,3 +1,7 @@
+## 0.0.16+1
+
+ - **FIX**: icon size.
+
 ## 0.0.16
 
  - **FEAT**: update depencies.
