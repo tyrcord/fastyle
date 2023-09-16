@@ -77,7 +77,7 @@ class QuizPageState extends State<QuizPage> {
   Widget buildLayout() {
     return FastMediaLayoutBuilder(
       builder: (context, mediaType) {
-        SizedBox spacer = buildSpacer(mediaType);
+        final SizedBox spacer = buildSpacer(mediaType);
 
         return Column(
           children: [
@@ -136,7 +136,7 @@ class QuizPageState extends State<QuizPage> {
 
   Widget buildPortraitLayout(BuildContext context, FastMediaType mediaType) {
     final question = questions[currentQuestionIndex];
-    SizedBox spacer = buildSpacer(mediaType);
+    final SizedBox spacer = buildSpacer(mediaType);
 
     return LayoutBuilder(builder: (context, constraints) {
       final maxHeight = constraints.maxHeight;

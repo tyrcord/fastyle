@@ -17,23 +17,23 @@ class FastCircleProgressPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     // This is the circle for background
-    Paint outerCircle = Paint()
+    final Paint outerCircle = Paint()
       ..strokeWidth = strokeWidth
       ..color = backgroundColor
       ..style = PaintingStyle.stroke;
 
-    Paint completeArc = Paint()
+    final Paint completeArc = Paint()
       ..strokeWidth = strokeWidth
       ..color = progressColor
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
 
-    Offset center = Offset(size.width / 2, size.height / 2);
-    double radius = size.width / 2;
+    final Offset center = Offset(size.width / 2, size.height / 2);
+    final double radius = size.width / 2;
 
     canvas.drawCircle(center, radius, outerCircle); // Draw the outer circle
 
-    double angle = 2 * pi * (currentProgress / 100);
+    final double angle = 2 * pi * (currentProgress / 100);
 
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: radius),
