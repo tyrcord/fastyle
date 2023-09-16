@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:matex_financial/financial.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,9 +22,7 @@ class _MyAppState extends State<MyApp> {
       homeBuilder: (_) => const Scaffold(
           body: FastSectionPage(
         child: Column(
-          children: [
-            MatexSelectCurrencyField(),
-          ],
+          children: [],
         ),
       )),
     );
