@@ -191,21 +191,21 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.8+3"
+    version: "0.0.9+1"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.17"
+    version: "0.0.19"
   fastyle_digit_calculator:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.17+3"
+    version: "0.0.18+1"
   ffi:
     dependency: transitive
     description:

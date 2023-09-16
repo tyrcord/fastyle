@@ -125,10 +125,10 @@ packages:
     dependency: transitive
     description:
       name: cross_file
-      sha256: "0b0036e8cccbfbe0555fd83c1d31a6f30b77a96b598b35a5d36dd41f718695e9"
+      sha256: fd832b5384d0d6da4f6df60b854d33accaaeb63aa9e10e736a87381f08dee2cb
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.3+4"
+    version: "0.3.3+5"
   crypto:
     dependency: transitive
     description:
@@ -229,97 +229,89 @@ packages:
     dependency: transitive
     description:
       name: fastyle_ad
-      sha256: b0fb420c6177083cc6070484fadb23c36ce67904c162992b60abe0777b794c75
+      sha256: "3b4a870908e45c8ddd6931857a959253811bdb4725b556163db54a7285a8f423"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.11"
+    version: "0.0.13+1"
   fastyle_buttons:
     dependency: "direct overridden"
     description:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.8+3"
+    version: "0.0.9+1"
   fastyle_calculator:
     dependency: transitive
     description:
       name: fastyle_calculator
-      sha256: "15f7f86ca133e2ae9d4824643fac8c65355ac8189f5a0c8e4e02364ce1952500"
+      sha256: a0414c88e5402eb3e528c13be2b5bb6abf3247ecf36f8dc76db42719c8b5843e
       url: "https://pub.dev"
     source: hosted
-    version: "1.25.0"
+    version: "1.29.1"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.17"
+    version: "0.0.19"
   fastyle_digit_calculator:
     dependency: "direct overridden"
     description:
       path: "../../digit_calculator"
       relative: true
     source: path
-    version: "0.0.17+3"
-  fastyle_financial:
-    dependency: transitive
-    description:
-      name: fastyle_financial
-      sha256: "5b0c2d251a5ea672842ecc5fc1d8e3242c586a76fd158f2d2156a5ca37808890"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.15"
+    version: "0.0.18+1"
   fastyle_forms:
     dependency: "direct overridden"
     description:
       path: "../../forms"
       relative: true
     source: path
-    version: "0.0.18+3"
+    version: "0.0.19+1"
   fastyle_iap:
     dependency: "direct overridden"
     description:
       path: "../../iap"
       relative: true
     source: path
-    version: "0.0.11+3"
+    version: "0.0.12+1"
   fastyle_images:
     dependency: "direct overridden"
     description:
       path: "../../images"
       relative: true
     source: path
-    version: "0.0.21+2"
+    version: "0.0.22+1"
   fastyle_layouts:
     dependency: "direct overridden"
     description:
       path: "../../layouts"
       relative: true
     source: path
-    version: "0.0.7+4"
+    version: "0.0.8+1"
   fastyle_onboarding:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.20+3"
+    version: "0.0.21+1"
   fastyle_settings:
     dependency: "direct overridden"
     description:
       path: "../../settings"
       relative: true
     source: path
-    version: "0.0.23+3"
+    version: "0.0.24+1"
   fastyle_video_player:
     dependency: transitive
     description:
       name: fastyle_video_player
-      sha256: ca46299e56a992ed9cbc0ab7a5d5da66822cf6a756f11bfaa1422817e44ac7fa
+      sha256: "67339b7e1dfd50fa0864a3e4b99bfe08a07bb475e022124794109289b8404f92"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.6"
+    version: "0.0.8+1"
   ffi:
     dependency: transitive
     description:
@@ -472,10 +464,10 @@ packages:
     dependency: transitive
     description:
       name: google_fonts
-      sha256: "6b6f10f0ce3c42f6552d1c70d2c28d764cf22bb487f50f66cca31dcd5194f4d6"
+      sha256: "2776c66b3e97c6cdd58d1bd3281548b074b64f1fd5c8f82391f7456e38849567"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.4"
+    version: "4.0.5"
   google_mobile_ads:
     dependency: transitive
     description:
@@ -512,10 +504,10 @@ packages:
     dependency: transitive
     description:
       name: http
-      sha256: "5895291c13fa8a3bd82e76d5627f69e0d85ca6a30dcac95c4ea19a5d555879c2"
+      sha256: "759d1a329847dd0f39226c688d3e06a6b8679668e350e2891a6474f8b4bb8525"
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.6"
+    version: "1.1.0"
   http_parser:
     dependency: transitive
     description:
@@ -640,10 +632,10 @@ packages:
     dependency: transitive
     description:
       name: lingua_finance
-      sha256: f1c51c95736e133a6c64c489f4e41941c5cf1ed2769f3c15a6aaf6a784e32824
+      sha256: "0baf02d741f558eca391c4d8e77f3f9c71f47e3f728bdd2ccf3883f737876166"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.14"
+    version: "0.0.17"
   lingua_finance_instrument:
     dependency: transitive
     description:
@@ -736,10 +728,10 @@ packages:
     dependency: transitive
     description:
       name: matex_core
-      sha256: "9289251f4bf83c4cbdfefb54881a292b201e4d8622286321badd8d70f1ecd756"
+      sha256: c2121523cdf80c97f7cbb41eaece67c0a776ab0f76547af13dfdab1450f1c80b
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.10"
+    version: "0.0.12"
   matex_dart:
     dependency: transitive
     description:
@@ -752,10 +744,10 @@ packages:
     dependency: transitive
     description:
       name: matex_financial
-      sha256: "2259ce97eeb9d4abc7492e557c0c157893787bfeafe6eaddfec492bf48283b0f"
+      sha256: f3ebbef2eee9d63866732ff8d8c09b26cc1bc1eac2e623acbd988f9718229fea
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.15"
+    version: "0.0.17+1"
   meta:
     dependency: transitive
     description:
@@ -1101,10 +1093,10 @@ packages:
     dependency: transitive
     description:
       name: t_cache
-      sha256: "41d57da41407ae45b1093e44f62261f4253002c87320456e05a30d9f174629ea"
+      sha256: "72aadd96c55234975b36972e3b89cc719c90d9d32522e177e9a7126a236d5504"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.5+2"
+    version: "0.0.5+3"
   t_helpers:
     dependency: transitive
     description:
@@ -1418,5 +1410,5 @@ packages:
     source: hosted
     version: "3.1.2"
 sdks:
-  dart: ">=3.1.0-185.0.dev <4.0.0"
-  flutter: ">=3.10.0"
+  dart: ">=3.1.0 <4.0.0"
+  flutter: ">=3.13.0"

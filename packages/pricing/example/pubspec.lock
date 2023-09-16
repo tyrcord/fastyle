@@ -183,28 +183,28 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.8+3"
+    version: "0.0.9+1"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.17"
+    version: "0.0.19"
   fastyle_iap:
     dependency: "direct overridden"
     description:
       path: "../../iap"
       relative: true
     source: path
-    version: "0.0.11+3"
+    version: "0.0.12+1"
   fastyle_pricing:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "1.15.3"
+    version: "1.16.1"
   ffi:
     dependency: transitive
     description:
