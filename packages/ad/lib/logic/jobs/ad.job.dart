@@ -11,7 +11,7 @@ import 'package:t_helpers/helpers.dart';
 import 'package:fastyle_ad/fastyle_ad.dart';
 
 mixin FastAdInformationJobDelegate {
-  FastAdInfo onGetAdInformationModel(BuildContext context);
+  Future<FastAdInfo> onGetAdInformationModel(BuildContext context);
 }
 
 class FastAdInfoJob extends FastJob {
@@ -36,7 +36,7 @@ class FastAdInfoJob extends FastJob {
     FastAdInfo adInfo = adInfoBloc.currentState.adInfo;
 
     if (delegate != null) {
-      adInfo = delegate!.onGetAdInformationModel(context);
+      adInfo = await delegate!.onGetAdInformationModel(context);
     }
 
     if (kDebugMode) {

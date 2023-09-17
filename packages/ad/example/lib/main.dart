@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget with FastAdInformationJobDelegate {
   }
 
   @override
-  FastAdInfo onGetAdInformationModel(BuildContext context) {
+  Future<FastAdInfo> onGetAdInformationModel(BuildContext context) async {
     return const FastAdInfo(
       adServiceUriAuthority: 'services.lumen.tyrcord.com',
     );
