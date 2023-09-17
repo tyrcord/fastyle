@@ -475,10 +475,10 @@ packages:
     dependency: transitive
     description:
       name: lingua_ad
-      sha256: "5fdbcdd344b3a080e288278abce3c9fd1fe8d708eaab8404cd4435a2c9b4621f"
+      sha256: "2a721d18ad5e47354b7a6d9627787617cca3935877f37481426e1909e3471613"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.10"
+    version: "0.0.11"
   lingua_core:
     dependency: transitive
     description:
