@@ -218,12 +218,11 @@ packages:
     source: hosted
     version: "1.3.1"
   fastyle_ad:
-    dependency: transitive
+    dependency: "direct main"
     description:
-      name: fastyle_ad
-      sha256: "3b4a870908e45c8ddd6931857a959253811bdb4725b556163db54a7285a8f423"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../ad"
+      relative: true
+    source: path
     version: "0.0.13+1"
   fastyle_buttons:
     dependency: "direct overridden"
@@ -277,12 +276,11 @@ packages:
     source: hosted
     version: "0.0.24+1"
   fastyle_video_player:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: fastyle_video_player
-      sha256: "67339b7e1dfd50fa0864a3e4b99bfe08a07bb475e022124794109289b8404f92"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../video_player"
+      relative: true
+    source: path
     version: "0.0.8+1"
   ffi:
     dependency: transitive
