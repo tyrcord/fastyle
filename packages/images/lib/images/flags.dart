@@ -23,10 +23,13 @@ class FastImageFlag {
   static const colombia = 'assets/images/flag/colombia.svg.vec';
   static const iraq = 'assets/images/flag/iraq.svg.vec';
   static const argentina = 'assets/images/flag/argentina.svg.vec';
+  static const slovakia = 'assets/images/flag/slovakia.svg.vec';
   static const portugal = 'assets/images/flag/portugal.svg.vec';
   static const southAfrica = 'assets/images/flag/south_africa.svg.vec';
   static const kuwait = 'assets/images/flag/kuwait.svg.vec';
   static const spain = 'assets/images/flag/spain.svg.vec';
+  static const slovenia = 'assets/images/flag/slovenia.svg.vec';
+  static const ireland = 'assets/images/flag/ireland.svg.vec';
   static const australia = 'assets/images/flag/australia.svg.vec';
   static const ukraine = 'assets/images/flag/ukraine.svg.vec';
   static const italy = 'assets/images/flag/italy.svg.vec';
@@ -77,6 +80,7 @@ class FastImageFlag {
   static const singapore = 'assets/images/flag/singapore.svg.vec';
   static const iceland = 'assets/images/flag/iceland.svg.vec';
   static const tunisia = 'assets/images/flag/tunisia.svg.vec';
+  static const latvia = 'assets/images/flag/latvia.svg.vec';
   static const seychelles = 'assets/images/flag/seychelles.svg.vec';
   static const lithuania = 'assets/images/flag/lithuania.svg.vec';
   static const namibia = 'assets/images/flag/namibia.svg.vec';
@@ -106,10 +110,13 @@ const kFastImageFlag = [
   'colombia',
   'iraq',
   'argentina',
+  'slovakia',
   'portugal',
   'southAfrica',
   'kuwait',
   'spain',
+  'slovenia',
+  'ireland',
   'australia',
   'ukraine',
   'italy',
@@ -160,6 +167,7 @@ const kFastImageFlag = [
   'singapore',
   'iceland',
   'tunisia',
+  'latvia',
   'seychelles',
   'lithuania',
   'namibia',
@@ -189,10 +197,13 @@ const kFastImageFlagMap = {
   'colombia': FastImageFlag.colombia,
   'iraq': FastImageFlag.iraq,
   'argentina': FastImageFlag.argentina,
+  'slovakia': FastImageFlag.slovakia,
   'portugal': FastImageFlag.portugal,
   'southAfrica': FastImageFlag.southAfrica,
   'kuwait': FastImageFlag.kuwait,
   'spain': FastImageFlag.spain,
+  'slovenia': FastImageFlag.slovenia,
+  'ireland': FastImageFlag.ireland,
   'australia': FastImageFlag.australia,
   'ukraine': FastImageFlag.ukraine,
   'italy': FastImageFlag.italy,
@@ -243,6 +254,7 @@ const kFastImageFlagMap = {
   'singapore': FastImageFlag.singapore,
   'iceland': FastImageFlag.iceland,
   'tunisia': FastImageFlag.tunisia,
+  'latvia': FastImageFlag.latvia,
   'seychelles': FastImageFlag.seychelles,
   'lithuania': FastImageFlag.lithuania,
   'namibia': FastImageFlag.namibia,
