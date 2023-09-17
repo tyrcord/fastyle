@@ -406,10 +406,10 @@ packages:
     dependency: transitive
     description:
       name: lingua_core
-      sha256: "611722323cef9ac633eb9856aa5a3c401f0e5e7f69d9de7641ec81f71eb038ae"
+      sha256: "1f70a9391f260d465d7f79bc87cd85ccd1323f4fb2e9a55ce75deaaaec9724d1"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.22"
+    version: "0.0.23"
   lints:
     dependency: transitive
     description:
@@ -755,26 +755,26 @@ packages:
     dependency: transitive
     description:
       name: subx
-      sha256: f374ffce31d154c83e35b221718eb3cd3c2b5c646ee29a7a04eccfc0c5a39bc5
+      sha256: "031c7b3658ade79c95aee5e56dbb5b36bf3d7852a97b556be5be4523b9624a8e"
       url: "https://pub.dev"
     source: hosted
-    version: "1.7.0"
+    version: "1.8.0"
   t_helpers:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: "41f135787c3f000f09827b5ee8e90db318d8f8b8bb589776842bac9a5096c79f"
+      sha256: "94cb51579b221b6f4f5b82c75a9ece4190d0b428f28cf3677868dccadef46d04"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.28+1"
+    version: "0.0.29"
   tbloc:
     dependency: transitive
     description:
       name: tbloc
-      sha256: "60755422e94f872ea58d03fcf6b4cd991fd3cc43a7114364dd2b07e6f94c1858"
+      sha256: "6dc76aa8c1bfbbc9f070ecbde2a9a0adddf3047ac7760b8fa8494958ab3e2500"
       url: "https://pub.dev"
     source: hosted
-    version: "0.21.3+3"
+    version: "0.21.4"
   term_glyph:
     dependency: transitive
     description:
@@ -803,26 +803,26 @@ packages:
     dependency: transitive
     description:
       name: tmodel
-      sha256: "4724c2dad6c6fc35a3705c21bf7d21710ec5a54b88deac8b71d625e28e1a2509"
+      sha256: f7b4061bb468fed65288d9cec270b7465911c60d1a5e5ad2387f41a166c2bf43
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.7+1"
+    version: "0.5.8"
   tstore:
     dependency: transitive
     description:
       name: tstore
-      sha256: "4feb8479eadf07c31e25b81b009a0f92afce2faedd78b6cb3939f9a47e611eed"
+      sha256: ec785a3f1498b664bb4ff31395c2864d50c7b10715a1535c2320bdca1e2ecbfc
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.14+1"
+    version: "0.8.15"
   tsub:
     dependency: transitive
     description:
       name: tsub
-      sha256: "6829d2968171914e13a421d2cad1ff5a590aac42bc8669afdc003ad2884f180d"
+      sha256: "0fb51fd7523a9f5f4db9280958a6ea675d632e3fd8cbb136d10c76dd9f3a1ff8"
       url: "https://pub.dev"
     source: hosted
-    version: "1.5.0"
+    version: "1.6.0"
   tuple:
     dependency: transitive
     description:
@@ -968,5 +968,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=3.1.0-185.0.dev <4.0.0"
-  flutter: ">=3.10.0"
+  dart: ">=3.1.0 <4.0.0"
+  flutter: ">=3.13.0"

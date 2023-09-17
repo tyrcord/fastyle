@@ -16,10 +16,10 @@ dependencies:
   go_router: ^10.1.2
 
   # Lingua
-  lingua_core: ^0.0.22
+  lingua_core: ^0.0.23
 
   # T
-  tbloc: ^0.21.3+3
+  tbloc: ^0.21.4
 
   # Fastyle
   fastyle_core: ^0.0.19

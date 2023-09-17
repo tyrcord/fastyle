@@ -14,13 +14,13 @@ dependencies:
   go_router: ^10.1.2
   font_awesome_flutter: ^10.5.0
   easy_localization: ^3.0.3
-  tbloc: ^0.21.3+3
+  tbloc: ^0.21.4
   fastyle_iap: ^0.0.12+1
   fastyle_pricing: ^1.16.1
 
   # Lingua
   lingua_core: ^0.0.17
-  lingua_purchases: ^0.0.13
+  lingua_purchases: ^0.0.14
 
 dev_dependencies:
   flutter_test:

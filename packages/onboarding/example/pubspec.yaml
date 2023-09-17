@@ -18,7 +18,7 @@ dependencies:
   easy_localization: ^3.0.3
 
   # Lingua
-  lingua_core: ^0.0.22
+  lingua_core: ^0.0.23
   lingua_onboarding: ^0.0.10
 
   fastyle_onboarding: ^0.0.21+1
