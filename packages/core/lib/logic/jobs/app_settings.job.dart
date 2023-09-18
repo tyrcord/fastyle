@@ -51,6 +51,7 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     final isFirstLaunch = appInfoBloc.currentState.isFirstLaunch;
     final supportedLocales = appInfoBloc.currentState.supportedLocales;
     late final String languageCode;
+    final String? countryCode;
 
     await notifiyErrorReporterIfNeeded(
       deviceLanguageCode,
@@ -58,10 +59,10 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
       errorReporter: errorReporter,
     );
 
-    // We initialize the settings bloc with the device country code.
-    settingsBloc.addEvent(FastAppSettingsBlocEvent.init(deviceCountryCode));
+    // We initialize the settings bloc.
+    settingsBloc.addEvent(const FastAppSettingsBlocEvent.init());
 
-    final settingsState = await RaceStream([
+    var settingsState = await RaceStream([
       settingsBloc.onError,
       settingsBloc.onData.where((state) => state.isInitialized),
     ]).first;
@@ -82,10 +83,13 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
         deviceLanguageCode,
         supportedLocales,
       );
+
+      countryCode = deviceCountryCode;
     } else {
       // If it is not the first launch of the application, we use the saved
       // language code to initialize the language of the application.
       languageCode = settingsBloc.currentState.languageCode;
+      countryCode = settingsBloc.currentState.countryCode ?? deviceCountryCode;
     }
 
     debugLog('Language code', value: languageCode, debugLabel: debugLabel);
@@ -98,9 +102,26 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
         FastAppSettingsBlocEvent.languageCodeChanged(languageCode),
       );
 
-      return settingsBloc.onData
+      settingsState = await settingsBloc.onData
           .where((state) => state.languageCode == languageCode)
           .first;
+    }
+
+    if (countryCode != null) {
+      debugLog('Country code', value: countryCode, debugLabel: debugLabel);
+
+      // We update the country code of the application if needed.
+      if (countryCode != settingsBloc.currentState.countryCode) {
+        debugLog('Updating country code', debugLabel: debugLabel);
+
+        settingsBloc.addEvent(
+          FastAppSettingsBlocEvent.countryCodeChanged(countryCode),
+        );
+
+        settingsState = await settingsBloc.onData
+            .where((state) => state.countryCode == countryCode)
+            .first;
+      }
     }
 
     return settingsState;
@@ -114,7 +135,7 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
   ) async {
     debugLog('Applying settings', debugLabel: debugLabel);
 
-    await context.setLocale(settingsState.locale);
+    await context.setLocale(settingsState.languageLocale);
 
     return updateThemeMode(context, settingsState);
   }

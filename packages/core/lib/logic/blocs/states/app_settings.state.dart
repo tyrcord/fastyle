@@ -48,14 +48,12 @@ class FastAppSettingsBlocState extends BlocState {
   }
 
   /// The current locale of the application.
-  Locale get locale {
+  Locale get languageLocale {
     if (languageCode.isEmpty) {
       return const Locale(kFastSettingsDefaultLanguageCode);
-    } else if (countryCode == null || countryCode!.isEmpty) {
-      return Locale(languageCode);
     }
 
-    return Locale(languageCode, countryCode);
+    return Locale(languageCode);
   }
 
   /// The current theme mode of the application.

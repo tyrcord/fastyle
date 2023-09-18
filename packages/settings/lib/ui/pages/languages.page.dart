@@ -160,6 +160,6 @@ class FastSettingsLanguagePage extends FastSettingPageLayout {
         .where((state) => state.languageCode == languageCode)
         .first;
 
-    await context.setLocale(settingsBloc.currentState.locale);
+    await context.setLocale(settingsBloc.currentState.languageLocale);
   }
 }

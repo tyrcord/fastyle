@@ -84,9 +84,9 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
         FastAppSettingsBlocEventPayload(
           theme: settings.theme ?? kFastSettingsThemeMap[ThemeMode.system],
           languageCode: payload?.languageCode ?? settings.languageCode,
+          countryCode: payload?.countryCode ?? settings.countryCode,
           secondaryCurrencyCode: settings.secondaryCurrencyCode,
           primaryCurrencyCode: settings.primaryCurrencyCode,
-          countryCode: payload?.countryCode,
           saveEntry: settings.saveEntry,
         ),
       ));
@@ -107,6 +107,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
         saveEntry: payload?.saveEntry ?? kFastAppSettingsSaveEntry,
         secondaryCurrencyCode: payload?.secondaryCurrencyCode,
         primaryCurrencyCode: payload?.primaryCurrencyCode,
+        countryCode: payload?.countryCode,
         languageCode: payload?.languageCode,
         theme: payload?.theme,
         isInitializing: false,
@@ -157,7 +158,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
     FastAppSettingsBlocEventPayload? payload,
   ) async* {
     if (payload?.countryCode != null) {
-      final countryCode = payload?.countryCode;
+      final countryCode = payload!.countryCode;
       await _persistCountryCode(countryCode);
 
       yield currentState.copyWith(
@@ -294,7 +295,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   /// If the country code is the same as the current state,
   /// nothing will be done.
   Future<void> _persistCountryCode(String? countryCode) async {
-    if (countryCode != null && countryCode != currentState.countryCode) {
+    if (countryCode != currentState.countryCode) {
       final newSettings = _persistedSettings.copyWith(countryCode: countryCode);
       await _dataProvider.persistSettings(newSettings);
       await _retrievePersistedSettings();
