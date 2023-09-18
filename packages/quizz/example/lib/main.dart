@@ -1,4 +1,4 @@
-import 'package:example/questions.dart';
+import 'package:fastyle_quizz_example/questions.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_quizz/fastyle_quizz.dart';
 import 'package:flutter/material.dart';
