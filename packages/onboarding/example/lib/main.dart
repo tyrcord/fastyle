@@ -14,19 +14,7 @@ import './routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(
-    EasyLocalization(
-      supportedLocales: const [Locale('en'), Locale('fr')],
-      useOnlyLangCode: true,
-      assetLoader: LinguaLoader(
-        mapLocales: LinguaLoader.mergeMapLocales([
-          OnboardingCodegenLoader.mapLocales,
-        ]),
-      ),
-      path: 'i18n', // fake path, just to make the example work
-      child: const MyApp(),
-    ),
-  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -35,6 +23,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastApp(
+      assetLoader: LinguaLoader(
+        mapLocales: LinguaLoader.mergeMapLocales([
+          OnboardingCodegenLoader.mapLocales,
+        ]),
+      ),
       routes: kAppRoutes,
       homeBuilder: (_) => FastSectionPage(
         titleText: 'Fastyle Onboarding',
