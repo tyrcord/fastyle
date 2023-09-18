@@ -1,6 +1,6 @@
 name: fastyle_settings
 description: Set of settings Widgets for the fastyle library.
-version: 0.0.24+1
+version: 0.0.25
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/settings
 
 environment:
@@ -21,9 +21,9 @@ dependencies:
   t_helpers: ^0.0.29
 
   # Fastyle
-  fastyle_images: ^0.0.22+1
-  fastyle_forms: ^0.0.19+1
-  fastyle_core: ^0.0.19
+  fastyle_images: ^0.0.23
+  fastyle_forms: ^0.0.20
+  fastyle_core: ^0.0.20
 
   # Matex
   matex_financial: ^0.0.17+1

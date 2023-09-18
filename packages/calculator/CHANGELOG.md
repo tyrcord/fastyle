@@ -1,3 +1,9 @@
+## 1.30.0
+
+ - **FIX**: remove fastyle_ad dependency from calculators.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 1.29.1
 
  - Update a dependency to the latest release.

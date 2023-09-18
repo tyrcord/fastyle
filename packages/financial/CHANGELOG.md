@@ -1,3 +1,9 @@
+## 0.0.18
+
+ - **REFACTOR**: select currency fields.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.17+1
 
  - Update a dependency to the latest release.

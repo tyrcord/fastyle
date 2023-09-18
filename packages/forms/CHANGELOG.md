@@ -1,3 +1,10 @@
+## 0.0.20
+
+ - **REFACTOR**: select currency fields.
+ - **FEAT**: add select country field.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.19+1
 
  - Update a dependency to the latest release.

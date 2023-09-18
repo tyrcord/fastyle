@@ -1,3 +1,9 @@
+## 0.0.14
+
+ - **FIX**: remove fastyle_ad dependency from calculators.
+ - **FEAT**: update dependencies.
+ - **FEAT**: make onGetAdInformationModel async.
+
 ## 0.0.13+1
 
  - Update a dependency to the latest release.
