@@ -6,6 +6,8 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_forms/fastyle_forms.dart';
 import 'package:fastyle_ad/fastyle_ad.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:lingua_countries/generated/codegen_loader.g.dart';
+import 'package:lingua_core/lingua_core.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,6 +29,9 @@ class _MyAppState extends State<MyApp> with FastAdInformationJobDelegate {
   @override
   Widget build(BuildContext context) {
     return FastApp(
+      assetLoader: LinguaLoader.withLocales(mapLocales: [
+        CountriesCodegenLoader.mapLocales,
+      ]),
       blocProviders: [
         // FIXME: fastyle_calculator should rely on fastyle_ad
         BlocProvider(bloc: FastAdInfoBloc()),
@@ -61,7 +66,7 @@ class _MyAppState extends State<MyApp> with FastAdInformationJobDelegate {
             amountValue: _amountValue,
             fieldType: _fieldType,
           ),
-          FastSelectCountryField(
+          FastMatexSelectCountryField(
             onSelectionChanged: (item) {
               debugPrint('onSelectionChanged $item');
             },

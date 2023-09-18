@@ -14,6 +14,7 @@ dependencies:
   # Public
   font_awesome_flutter: ^10.5.0
   collection: ^1.17.2
+  easy_localization: ^3.0.3
 
   # Fastyle
   fastyle_images: ^0.0.22+1
@@ -28,7 +29,10 @@ dependencies:
   # MateX
   matex_dart: ^0.11.1
   matex_financial: ^0.0.17+1
-  matex_data: ^0.0.3
+  matex_data: ^0.0.4
+
+  # Lingua
+  lingua_countries: ^0.0.3
 
 dev_dependencies:
   flutter_test:

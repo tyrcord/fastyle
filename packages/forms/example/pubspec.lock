@@ -186,7 +186,7 @@ packages:
     source: hosted
     version: "0.1.4"
   easy_localization:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: easy_localization
       sha256: de63e3b422adfc97f256cbb3f8cf12739b6a4993d390f3cadb3f51837afaefe5
@@ -511,13 +511,21 @@ packages:
     source: hosted
     version: "0.0.3"
   lingua_core:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: lingua_core
       sha256: "1f70a9391f260d465d7f79bc87cd85ccd1323f4fb2e9a55ce75deaaaec9724d1"
       url: "https://pub.dev"
     source: hosted
     version: "0.0.23"
+  lingua_countries:
+    dependency: "direct main"
+    description:
+      name: lingua_countries
+      sha256: "9e2c6819f83a665e913597f0f6a70da4387a44e40d0a6ffe75c1ef699b5b4afc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   lingua_finance:
     dependency: transitive
     description:
@@ -626,10 +634,10 @@ packages:
     dependency: transitive
     description:
       name: matex_data
-      sha256: "7f7d2be2010fd005f299e1c0563d9e616144676c01575e67aca23ea1946e99fc"
+      sha256: "70973e9ea313bfee6e1f334b66ecd6d30a3a7cd0fa4c8181fe8c8a319ce8cf5a"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3"
+    version: "0.0.4"
   matex_financial:
     dependency: transitive
     description:
@@ -1004,7 +1012,7 @@ packages:
     source: hosted
     version: "0.0.29"
   tbloc:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: tbloc
       sha256: "6dc76aa8c1bfbbc9f070ecbde2a9a0adddf3047ac7760b8fa8494958ab3e2500"

@@ -5,24 +5,25 @@ import 'package:flutter/material.dart';
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_images/fastyle_images.dart';
-import 'package:matex_dart/matex_dart.dart';
+import 'package:lingua_countries/countries.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:matex_data/matex_data.dart';
+import 'package:easy_localization/easy_localization.dart';
 
-/// A Flutter widget for displaying a selectable list of currencies.
-class FastSelectCurrencyField extends StatelessWidget {
-  /// A callback function that takes a [MatexInstrumentMetadata] object and
+/// A Flutter widget for displaying a selectable list of countries.
+class FastSelectCountryField extends StatelessWidget {
+  /// A callback function that takes a [MatexCountryMetadata] object and
   /// returns a string description for the item.
-  final String Function(MatexInstrumentMetadata)? itemDescriptionBuilder;
+  final String Function(MatexCountryMetadata)? itemDescriptionBuilder;
 
-  final String Function(MatexInstrumentMetadata)? itemLabelBuilder;
+  final String Function(MatexCountryMetadata)? itemLabelBuilder;
 
   /// A callback function that will be called when the selection changes.
   /// It takes a [FastItem<String>] object representing the selected item.
-  final Function(FastItem<MatexInstrumentMetadata>?)? onSelectionChanged;
+  final Function(FastItem<MatexCountryMetadata>?)? onSelectionChanged;
 
-  /// A list of [MatexInstrumentMetadata] objects representing the financial
-  /// instruments.
-  final List<MatexInstrumentMetadata> currencies;
+  /// A list of [MatexCountryMetadata] objects representing the countries.
+  final List<MatexCountryMetadata> countries;
 
   /// The width of the flag icon displayed in each item.
   final double flagIconWidth;
@@ -49,13 +50,13 @@ class FastSelectCurrencyField extends StatelessWidget {
   final String? placeholderText;
 
   /// A callback function that builds the flag icon for each item.
-  final Widget Function(MatexInstrumentMetadata)? flagIconBuilder;
+  final Widget Function(MatexCountryMetadata)? flagIconBuilder;
 
   /// Specifies whether the selection can be cleared.
   final bool canClearSelection;
 
-  /// Creates a [FastSelectCurrencyField].
-  const FastSelectCurrencyField({
+  /// Creates a [FastSelectCountryField].
+  const FastSelectCountryField({
     super.key,
     this.onSelectionChanged,
     this.itemDescriptionBuilder,
@@ -64,18 +65,18 @@ class FastSelectCurrencyField extends StatelessWidget {
     this.flagIconBuilder,
     this.captionText,
     this.selection,
-    List<MatexInstrumentMetadata>? currencies,
+    List<MatexCountryMetadata>? countries,
     this.searchPlaceholderText,
     String? searchTitleText,
     bool? isEnabled = true,
     double? flagIconWidth,
     String? labelText,
     bool? canClearSelection,
-  })  : searchTitleText = searchTitleText ?? 'Search a Financial Instrument',
-        labelText = labelText ?? 'Financial Instrument',
+  })  : searchTitleText = searchTitleText ?? 'Select a Country',
+        labelText = labelText ?? 'Country',
         canClearSelection = canClearSelection ?? true,
         flagIconWidth = flagIconWidth ?? 40.0,
-        currencies = currencies ?? const [],
+        countries = countries ?? const [],
         isEnabled = isEnabled ?? true;
 
   @override
@@ -83,7 +84,7 @@ class FastSelectCurrencyField extends StatelessWidget {
     final options = _buildSelectOptions();
     final selectedOption = _findSelection(options);
 
-    return FastSelectField<MatexInstrumentMetadata>(
+    return FastSelectField<MatexCountryMetadata>(
       onSelectionChanged: (selection) => onSelectionChanged?.call(selection),
       searchPlaceholderText: searchPlaceholderText,
       canClearSelection: canClearSelection,
@@ -101,60 +102,63 @@ class FastSelectCurrencyField extends StatelessWidget {
     );
   }
 
-  FastItem<MatexInstrumentMetadata>? _findSelection(
-    List<FastItem<MatexInstrumentMetadata>> options,
+  FastItem<MatexCountryMetadata>? _findSelection(
+    List<FastItem<MatexCountryMetadata>> options,
   ) {
     if (selection == null) {
       return null;
     }
 
-    final currency = selection!.toLowerCase();
+    final country = selection!.toLowerCase();
 
-    return options.where((element) {
-      return element.value != null && element.value!.code != null;
-    }).firstWhereOrNull((item) => item.value!.code!.toLowerCase() == currency);
+    return options
+        .where((element) => element.value != null)
+        .firstWhereOrNull((item) => item.value!.id.toLowerCase() == country);
   }
 
-  List<FastItem<MatexInstrumentMetadata>> _buildSelectOptions() {
-    return currencies
-        .where((MatexInstrumentMetadata instrument) => instrument.code != null)
-        .map(_buildItem)
-        .toList();
+  List<FastItem<MatexCountryMetadata>> _buildSelectOptions() {
+    return countries.map(_buildItem).toList();
   }
 
-  FastItem<MatexInstrumentMetadata> _buildItem(
-    MatexInstrumentMetadata instrument,
+  FastItem<MatexCountryMetadata> _buildItem(
+    MatexCountryMetadata country,
   ) {
-    final flagIcon = _buildFlagIcon(instrument);
-    String code = instrument.code!;
-    var description = code;
+    final flagIcon = _buildFlagIcon(country);
+    String? description;
+    late String id;
 
     if (itemLabelBuilder != null) {
-      code = itemLabelBuilder!(instrument);
+      id = itemLabelBuilder!(country);
+    } else {
+      id = _itemLabelBuilder(country);
     }
 
     if (itemDescriptionBuilder != null) {
-      description = itemDescriptionBuilder!(instrument);
+      description = itemDescriptionBuilder!(country);
     }
 
     return FastItem(
       descriptor: FastListItemDescriptor(leading: flagIcon),
       descriptionText: description,
-      value: instrument,
-      labelText: code,
+      value: country,
+      labelText: id,
     );
   }
 
+  String _itemLabelBuilder(MatexCountryMetadata metadata) {
+    return buildLocaleCountryKey(metadata.id).tr();
+  }
+
   Widget? _buildFlagIcon(
-    MatexInstrumentMetadata instrument, {
+    MatexCountryMetadata country, {
     bool hasShadow = true,
   }) {
-    final iconKey = toCamelCase(instrument.icon);
+    final iconKey = toCamelCase(country.id);
     final hasIcon = kFastImageFlagMap.containsKey(iconKey);
     Widget? flagIcon;
 
     if (flagIconBuilder != null) {
-      flagIcon = flagIconBuilder!(instrument);
+      flagIcon = flagIconBuilder!(country);
     } else {
       flagIcon = FastImageAsset(
         path: hasIcon ? kFastImageFlagMap[iconKey]! : kFastEmptyString,

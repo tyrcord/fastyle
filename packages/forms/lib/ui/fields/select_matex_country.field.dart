@@ -1,18 +1,16 @@
 import 'package:fastyle_forms/fastyle_forms.dart';
 import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:matex_financial/financial.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:matex_dart/matex_dart.dart';
+import 'package:matex_data/matex_data.dart';
 
-class FastMatexSelectCurrencyField extends StatefulWidget {
-  /// A callback function that takes a [MatexInstrumentMetadata] object and
+class FastMatexSelectCountryField extends StatefulWidget {
+  /// A callback function that takes a [MatexCountryMetadata] object and
   /// returns a string description for the item.
-  final String Function(MatexInstrumentMetadata)? itemDescriptionBuilder;
+  final String Function(MatexCountryMetadata)? itemDescriptionBuilder;
 
   /// A callback function that will be called when the selection changes.
-  /// It takes a [FastItem<String>] object representing the selected item.
-  final Function(FastItem<MatexInstrumentMetadata>?)? onSelectionChanged;
+  final Function(FastItem<MatexCountryMetadata>?)? onSelectionChanged;
 
   /// The width of the flag icon displayed in each item.
   final double? flagIconWidth;
@@ -39,12 +37,12 @@ class FastMatexSelectCurrencyField extends StatefulWidget {
   final String? placeholderText;
 
   /// A callback function that builds the flag icon for each item.
-  final Widget Function(MatexInstrumentMetadata)? flagIconBuilder;
+  final Widget Function(MatexCountryMetadata)? flagIconBuilder;
 
   /// Specifies whether the selection can be cleared.
   final bool? canClearSelection;
 
-  const FastMatexSelectCurrencyField({
+  const FastMatexSelectCountryField({
     super.key,
     this.onSelectionChanged,
     this.itemDescriptionBuilder,
@@ -61,35 +59,35 @@ class FastMatexSelectCurrencyField extends StatefulWidget {
   });
 
   @override
-  State<FastMatexSelectCurrencyField> createState() =>
-      _FastMatexSelectCurrencyFieldState();
+  State<FastMatexSelectCountryField> createState() =>
+      _FastMatexSelectCountryFieldState();
 }
 
-class _FastMatexSelectCurrencyFieldState
-    extends State<FastMatexSelectCurrencyField> {
-  late MatexCurrencyBloc _currencyBloc;
+class _FastMatexSelectCountryFieldState
+    extends State<FastMatexSelectCountryField> {
+  late MatexCountryBloc _countryBloc;
 
   @override
   void initState() {
     super.initState();
 
-    _currencyBloc = MatexCurrencyBloc();
-    _loadFinancialInstruments();
+    _countryBloc = MatexCountryBloc();
+    _loadCountries();
   }
 
   @override
   Widget build(BuildContext context) {
-    return FastMatexCurrencyBuilder(
-      bloc: _currencyBloc,
-      builder: (context, instrumentBlocState) {
-        return FastSelectCurrencyField(
+    return FastMatexCountryBuilder(
+      bloc: _countryBloc,
+      builder: (context, countryBlocState) {
+        return FastSelectCountryField(
           onSelectionChanged: widget.onSelectionChanged,
           searchTitleText: widget.searchTitleText,
           captionText: widget.captionText,
           labelText: widget.labelText,
           isEnabled: widget.isEnabled,
           itemDescriptionBuilder: widget.itemDescriptionBuilder,
-          currencies: instrumentBlocState.currencies,
+          countries: countryBlocState.countries,
           flagIconBuilder: widget.flagIconBuilder,
           flagIconWidth: widget.flagIconWidth,
           placeholderText: widget.placeholderText,
@@ -101,9 +99,9 @@ class _FastMatexSelectCurrencyFieldState
     );
   }
 
-  void _loadFinancialInstruments() {
+  void _loadCountries() {
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      _currencyBloc.addEvent(const MatexCurrencyBlocEvent.init());
+      _countryBloc.addEvent(const MatexCountryBlocEvent.init());
     });
   }
 }

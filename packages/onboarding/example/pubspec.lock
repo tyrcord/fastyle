@@ -628,6 +628,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.23"
+  lingua_countries:
+    dependency: transitive
+    description:
+      name: lingua_countries
+      sha256: "9e2c6819f83a665e913597f0f6a70da4387a44e40d0a6ffe75c1ef699b5b4afc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   lingua_finance:
     dependency: transitive
     description:
@@ -744,10 +752,10 @@ packages:
     dependency: transitive
     description:
       name: matex_data
-      sha256: "7f7d2be2010fd005f299e1c0563d9e616144676c01575e67aca23ea1946e99fc"
+      sha256: "70973e9ea313bfee6e1f334b66ecd6d30a3a7cd0fa4c8181fe8c8a319ce8cf5a"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3"
+    version: "0.0.4"
   matex_financial:
     dependency: transitive
     description:

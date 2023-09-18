@@ -4,11 +4,11 @@ import 'package:tbloc/tbloc.dart';
 
 class FastMatexCurrencyBuilder extends StatelessWidget {
   final Widget Function(BuildContext, MatexCurrencyBlocState) builder;
-  final MatexCurrencyBloc currencyBloc;
+  final MatexCurrencyBloc bloc;
 
   const FastMatexCurrencyBuilder({
     super.key,
-    required this.currencyBloc,
+    required this.bloc,
     required this.builder,
   });
 
@@ -16,7 +16,7 @@ class FastMatexCurrencyBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilderWidget(
       buildWhen: (previous, next) => previous.currencies != next.currencies,
-      bloc: currencyBloc,
+      bloc: bloc,
       builder: builder,
     );
   }
