@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_layouts/fastyle_layouts.dart';
-import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lingua_onboarding/generated/locale_keys.g.dart';
+import 'package:fastyle_settings/fastyle_settings.dart';
 
-class FastOnboardingUserCurrency extends StatelessWidget {
+class FastOnboardingUserCountry extends StatelessWidget {
   /// The controller to use to pause and resume the onboarding.
   final FastOnboardingViewController? controller;
 
@@ -42,7 +42,7 @@ class FastOnboardingUserCurrency extends StatelessWidget {
   /// The icon to display at the top of the layout.
   final Widget? icon;
 
-  const FastOnboardingUserCurrency({
+  const FastOnboardingUserCountry({
     super.key,
     this.handsetIconSize,
     this.tabletIconSize,
@@ -58,9 +58,9 @@ class FastOnboardingUserCurrency extends StatelessWidget {
     this.icon,
   });
 
-  void handleCurrencyChanged(String code) {
+  void handleCountryChanged(String? code) {
     final bloc = FastAppSettingsBloc.instance;
-    final event = FastAppSettingsBlocEvent.primaryCurrencyCodeChanged(code);
+    final event = FastAppSettingsBlocEvent.countryCodeChanged(code);
 
     bloc.addEvent(event);
   }
@@ -87,8 +87,8 @@ class FastOnboardingUserCurrency extends StatelessWidget {
   }
 
   Widget buildAction(BuildContext context) {
-    return FastAppSettingsPrimaryCurrencyField(
-      onCurrencyChanged: handleCurrencyChanged,
+    return FastAppSettingsUserCountrySelectField(
+      onCountryChanged: handleCountryChanged,
     );
   }
 
@@ -100,25 +100,22 @@ class FastOnboardingUserCurrency extends StatelessWidget {
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return const FaIcon(FastFontAwesomeIcons.lightCoins);
+      return const FaIcon(FastFontAwesomeIcons.earthEurope);
     }
 
-    return const FaIcon(FontAwesomeIcons.coins);
+    return const FaIcon(FontAwesomeIcons.globe);
   }
 
   String _getTitleText() {
-    return titleText ??
-        OnboardingLocaleKeys.onboarding_user_currency_title.tr();
+    return titleText ?? OnboardingLocaleKeys.onboarding_user_country_title.tr();
   }
 
   String _getIntroText() {
-    return introText ??
-        OnboardingLocaleKeys.onboarding_user_currency_intro.tr();
+    return introText ?? OnboardingLocaleKeys.onboarding_user_country_intro.tr();
   }
 
   String _getNotesText() {
-    return notesText ??
-        OnboardingLocaleKeys.onboarding_user_currency_notes.tr();
+    return notesText ?? OnboardingLocaleKeys.onboarding_user_country_notes.tr();
   }
 
   FastPaletteScheme _getPalette(BuildContext context) {

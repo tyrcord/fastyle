@@ -5,3 +5,4 @@ export './user_premium.page.dart';
 export './welcome.page.dart';
 export './welcome_finance_trader.page.dart';
 export './contents/contents.dart';
+export './user_country.page.dart';

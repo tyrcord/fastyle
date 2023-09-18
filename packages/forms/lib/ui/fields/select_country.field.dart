@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_images/fastyle_images.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_countries/countries.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:matex_data/matex_data.dart';
@@ -29,7 +30,7 @@ class FastSelectCountryField extends StatelessWidget {
   final double flagIconWidth;
 
   /// The title text displayed in the search field.
-  final String searchTitleText;
+  final String? searchTitleText;
 
   /// The optional text displayed below the selection.
   final String? captionText;
@@ -38,7 +39,7 @@ class FastSelectCountryField extends StatelessWidget {
   final String? selection;
 
   /// The label text displayed above the selection.
-  final String labelText;
+  final String? labelText;
 
   /// Specifies whether the field is enabled or disabled.
   final bool isEnabled;
@@ -67,14 +68,12 @@ class FastSelectCountryField extends StatelessWidget {
     this.selection,
     List<MatexCountryMetadata>? countries,
     this.searchPlaceholderText,
-    String? searchTitleText,
+    this.searchTitleText,
     bool? isEnabled = true,
     double? flagIconWidth,
-    String? labelText,
+    this.labelText,
     bool? canClearSelection,
-  })  : searchTitleText = searchTitleText ?? 'Select a Country',
-        labelText = labelText ?? 'Country',
-        canClearSelection = canClearSelection ?? true,
+  })  : canClearSelection = canClearSelection ?? true,
         flagIconWidth = flagIconWidth ?? 40.0,
         countries = countries ?? const [],
         isEnabled = isEnabled ?? true;
@@ -86,14 +85,15 @@ class FastSelectCountryField extends StatelessWidget {
 
     return FastSelectField<MatexCountryMetadata>(
       onSelectionChanged: (selection) => onSelectionChanged?.call(selection),
+      labelText: labelText ?? CoreLocaleKeys.core_label_country.tr(),
       searchPlaceholderText: searchPlaceholderText,
       canClearSelection: canClearSelection,
       placeholderText: placeholderText,
-      searchTitleText: searchTitleText,
+      searchTitleText:
+          searchTitleText ?? CoreLocaleKeys.core_select_country.tr(),
       selection: selectedOption,
       captionText: captionText,
       isReadOnly: !isEnabled,
-      labelText: labelText,
       useFuzzySearch: true,
       items: options,
       leading: selectedOption != null
@@ -111,6 +111,13 @@ class FastSelectCountryField extends StatelessWidget {
 
     final country = selection!.toLowerCase();
 
+    if (country.length < 4) {
+      // Search by country code
+      return options.where((element) => element.value != null).firstWhereOrNull(
+          (item) => item.value!.code.toLowerCase() == country);
+    }
+
+    // Search by country id
     return options
         .where((element) => element.value != null)
         .firstWhereOrNull((item) => item.value!.id.toLowerCase() == country);

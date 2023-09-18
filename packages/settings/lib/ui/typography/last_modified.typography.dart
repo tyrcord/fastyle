@@ -15,11 +15,13 @@ class FastSettingsLastModified extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appSettingsBloc = FastAppSettingsBloc.instance;
+    final appInfoBloc = FastAppInfoBloc.instance;
     final appSettings = appSettingsBloc.currentState;
+    final appInfo = appInfoBloc.currentState;
     final pendingDate = formatDateTime(
       lastModifiedAt,
       languageCode: appSettings.languageCode,
-      countryCode: appSettings.countryCode,
+      countryCode: appInfo.deviceCountryCode,
       showTime: false,
     );
 

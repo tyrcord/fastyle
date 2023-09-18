@@ -19,7 +19,8 @@ dependencies:
 
   # Lingua
   lingua_core: ^0.0.24
-  lingua_onboarding: ^0.0.10
+  lingua_onboarding: ^0.0.12
+  lingua_countries: ^0.0.3
 
   # Fastyle
   fastyle_onboarding: ^0.0.22

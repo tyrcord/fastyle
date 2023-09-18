@@ -7,6 +7,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lingua_core/lingua_core.dart';
 import 'package:lingua_onboarding/generated/codegen_loader.g.dart';
+import 'package:lingua_countries/generated/codegen_loader.g.dart';
 import 'package:lingua_onboarding/generated/locale_keys.g.dart';
 
 // Project imports:
@@ -26,12 +27,12 @@ class MyApp extends StatelessWidget {
       assetLoader: LinguaLoader(
         mapLocales: LinguaLoader.mergeMapLocales([
           OnboardingCodegenLoader.mapLocales,
+          CountriesCodegenLoader.mapLocales,
         ]),
       ),
       routes: kAppRoutes,
       homeBuilder: (_) => FastSectionPage(
         titleText: 'Fastyle Onboarding',
-        contentPadding: EdgeInsets.zero,
         showAppBar: false,
         child: Builder(
           builder: (context) {
@@ -54,22 +55,19 @@ class MyApp extends StatelessWidget {
                   value: 'currency',
                 ),
                 FastItem(
+                  labelText:
+                      OnboardingLocaleKeys.onboarding_user_country_title.tr(),
+                  value: 'country',
+                ),
+                FastItem(
                   labelText: OnboardingLocaleKeys
                       .onboarding_restore_premium_title
                       .tr(),
                   value: 'premium',
                 ),
               ],
-              onSelectionChanged: (FastItem<dynamic> value) {
-                if (value.value == 'notifications') {
-                  GoRouter.of(context).go('/notifications');
-                } else if (value.value == 'ads') {
-                  GoRouter.of(context).go('/ads');
-                } else if (value.value == 'currency') {
-                  GoRouter.of(context).go('/currency');
-                } else if (value.value == 'premium') {
-                  GoRouter.of(context).go('/premium');
-                }
+              onSelectionChanged: (FastItem<dynamic> item) {
+                GoRouter.of(context).go('/${item.value}');
               },
             );
           },

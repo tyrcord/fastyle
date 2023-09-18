@@ -45,6 +45,17 @@ final kAppRoutes = [
     ),
   ),
   GoRoute(
+    path: 'country',
+    builder: (context, state) => FastSectionPage(
+      contentPadding: EdgeInsets.zero,
+      child: FastOnboardingUserCountry(
+        onActionTap: () {
+          debugPrint('Select country action tapped');
+        },
+      ),
+    ),
+  ),
+  GoRoute(
     path: 'premium',
     builder: (context, state) => FastSectionPage(
       contentPadding: EdgeInsets.zero,
