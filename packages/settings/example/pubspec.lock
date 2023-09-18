@@ -521,10 +521,10 @@ packages:
     dependency: "direct main"
     description:
       name: lingua_core
-      sha256: "1f70a9391f260d465d7f79bc87cd85ccd1323f4fb2e9a55ce75deaaaec9724d1"
+      sha256: "42f9dfb4a6a92ee3c336bd821b082426b366985f53124a3121631a344c831e78"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.23"
+    version: "0.0.24"
   lingua_countries:
     dependency: transitive
     description:
@@ -649,10 +649,10 @@ packages:
     dependency: transitive
     description:
       name: matex_data
-      sha256: "0ec4175cb80ca1ab197ba76dfe2cacda234d683fca7c7adecfafa7f5de6e809c"
+      sha256: "6ef7a50c911e373c4e579938c070546db91f5dddf49d3bffad7b625ab2234939"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.6"
+    version: "0.0.7"
   matex_financial:
     dependency: "direct main"
     description:

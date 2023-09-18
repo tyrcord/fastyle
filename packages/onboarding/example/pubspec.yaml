@@ -18,10 +18,12 @@ dependencies:
   easy_localization: ^3.0.3
 
   # Lingua
-  lingua_core: ^0.0.23
+  lingua_core: ^0.0.24
   lingua_onboarding: ^0.0.10
 
+  # Fastyle
   fastyle_onboarding: ^0.0.22
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

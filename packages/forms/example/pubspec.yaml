@@ -20,7 +20,7 @@ dependencies:
 
   # Lingua
   lingua_countries: ^0.0.3
-  lingua_core: ^0.0.23
+  lingua_core: ^0.0.24
 
 dev_dependencies:
   flutter_test:

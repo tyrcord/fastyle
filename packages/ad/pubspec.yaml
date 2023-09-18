@@ -35,7 +35,7 @@ dependencies:
   t_cache: ^0.0.5+3
 
   # Lingua
-  lingua_core: ^0.0.23
+  lingua_core: ^0.0.24
   lingua_ad: ^0.0.10
   lingua_purchases: ^0.0.14
 

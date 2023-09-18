@@ -34,7 +34,7 @@ dependencies:
   lingua_purchases: ^0.0.14
   lingua_finance_instrument: ^0.0.3
   lingua_share: ^0.0.2+1
-  lingua_core: ^0.0.23
+  lingua_core: ^0.0.24
 
 dev_dependencies:
   flutter_test:

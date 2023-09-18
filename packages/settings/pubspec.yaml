@@ -28,15 +28,17 @@ dependencies:
   # Matex
   matex_financial: ^0.0.18
   matex_dart: ^0.11.1
+  matex_data: ^0.0.7
 
   # Lingua
-  lingua_core: ^0.0.23
+  lingua_core: ^0.0.24
   lingua_calculator: ^0.0.3
   lingua_languages: ^0.0.5
   lingua_finance: ^0.0.17
   lingua_settings: ^0.0.11
   lingua_help: ^0.0.6
   lingua_finance_instrument: ^0.0.3
+  lingua_countries: ^0.0.3
 
 dev_dependencies:
   flutter_test:

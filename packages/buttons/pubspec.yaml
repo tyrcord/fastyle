@@ -17,7 +17,7 @@ dependencies:
   go_router: ^10.1.2
 
   # Lingua
-  lingua_core: ^0.0.23
+  lingua_core: ^0.0.24
 
   # Fastyle
   fastyle_core: ^0.0.20

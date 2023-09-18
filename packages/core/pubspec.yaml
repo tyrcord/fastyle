@@ -44,7 +44,7 @@ dependencies:
   tstore: ^0.8.15
 
   # Lingua
-  lingua_core: ^0.0.23
+  lingua_core: ^0.0.24
 
 flutter:
   assets:
