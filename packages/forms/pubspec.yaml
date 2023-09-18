@@ -5,7 +5,7 @@ homepage: https://github.com/tyrcord/fastyle/tree/main/packages/fastyle_forms
 
 environment:
   sdk: ">=3.0.5 <4.0.0"
-  flutter: ">=3.10.0"
+  flutter: ">=3.13.0"
 
 dependencies:
   flutter:

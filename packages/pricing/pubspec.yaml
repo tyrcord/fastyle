@@ -4,8 +4,8 @@ version: 1.17.0
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/pricing
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=3.10.0"
+  sdk: ">=3.1.0 <4.0.0"
+  flutter: ">=3.13.0"
 
 dependencies:
   flutter:

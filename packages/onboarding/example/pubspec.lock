@@ -239,7 +239,7 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.9+1"
+    version: "0.0.10"
   fastyle_calculator:
     dependency: transitive
     description:
@@ -254,56 +254,56 @@ packages:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.19"
+    version: "0.0.20"
   fastyle_digit_calculator:
     dependency: "direct overridden"
     description:
       path: "../../digit_calculator"
       relative: true
     source: path
-    version: "0.0.18+1"
+    version: "0.0.19"
   fastyle_forms:
     dependency: "direct overridden"
     description:
       path: "../../forms"
       relative: true
     source: path
-    version: "0.0.19+1"
+    version: "0.0.20"
   fastyle_iap:
     dependency: "direct overridden"
     description:
       path: "../../iap"
       relative: true
     source: path
-    version: "0.0.12+1"
+    version: "0.0.13"
   fastyle_images:
     dependency: "direct overridden"
     description:
       path: "../../images"
       relative: true
     source: path
-    version: "0.0.22+1"
+    version: "0.0.23"
   fastyle_layouts:
     dependency: "direct overridden"
     description:
       path: "../../layouts"
       relative: true
     source: path
-    version: "0.0.8+1"
+    version: "0.0.8+2"
   fastyle_onboarding:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.21+1"
+    version: "0.0.22"
   fastyle_settings:
     dependency: "direct overridden"
     description:
       path: "../../settings"
       relative: true
     source: path
-    version: "0.0.24+1"
+    version: "0.0.25"
   fastyle_video_player:
     dependency: transitive
     description:
@@ -736,10 +736,10 @@ packages:
     dependency: transitive
     description:
       name: matex_core
-      sha256: c2121523cdf80c97f7cbb41eaece67c0a776ab0f76547af13dfdab1450f1c80b
+      sha256: "26cbd690144ae087b0274a418682a27a73226ba512bad9c1a814460df1f0b022"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.12"
+    version: "0.0.12+1"
   matex_dart:
     dependency: transitive
     description:
@@ -752,18 +752,18 @@ packages:
     dependency: transitive
     description:
       name: matex_data
-      sha256: "70973e9ea313bfee6e1f334b66ecd6d30a3a7cd0fa4c8181fe8c8a319ce8cf5a"
+      sha256: b7ce2f099521e85fe6b1cd84b3c2e097cb950f37d6fcfaf3ab4e9ded8578769f
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.4"
+    version: "0.0.5"
   matex_financial:
     dependency: transitive
     description:
       name: matex_financial
-      sha256: f3ebbef2eee9d63866732ff8d8c09b26cc1bc1eac2e623acbd988f9718229fea
+      sha256: "412cffb041f0fbd3ae6ca3cfa2dbd082fce170582f2712b244203855b8eb4d4f"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.17+1"
+    version: "0.0.17+2"
   meta:
     dependency: transitive
     description:

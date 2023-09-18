@@ -5,7 +5,7 @@ repository: https://github.com/tyrcord/fastyle/tree/main/packages/images
 
 environment:
   sdk: ">=3.1.0 <4.0.0"
-  flutter: ">=3.10.0"
+  flutter: ">=3.13.0"
 
 dependencies:
   flutter:

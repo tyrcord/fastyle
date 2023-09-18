@@ -4,8 +4,8 @@ version: 0.0.25
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/settings
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=3.10.0"
+  sdk: ">=3.1.0 <4.0.0"
+  flutter: ">=3.13.0"
 
 dependencies:
   flutter:
@@ -26,7 +26,7 @@ dependencies:
   fastyle_core: ^0.0.20
 
   # Matex
-  matex_financial: ^0.0.17+1
+  matex_financial: ^0.0.17+2
   matex_dart: ^0.11.1
 
   # Lingua
