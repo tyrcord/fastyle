@@ -12,7 +12,6 @@ dependencies:
 
   # Fastyle
   fastyle_core: ^0.0.19
-  fastyle_ad: ^0.0.13+1
   fastyle_forms: ^0.0.19+1
   easy_localization: ^3.0.3
 

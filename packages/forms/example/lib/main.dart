@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_forms/fastyle_forms.dart';
-import 'package:fastyle_ad/fastyle_ad.dart';
-import 'package:tbloc/tbloc.dart';
 import 'package:lingua_countries/generated/codegen_loader.g.dart';
 import 'package:lingua_core/lingua_core.dart';
 
@@ -20,7 +18,7 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> with FastAdInformationJobDelegate {
+class _MyAppState extends State<MyApp>  {
   FastAmountSwitchFieldType _fieldType = FastAmountSwitchFieldType.amount;
   String? _percentValue;
   String? _amountValue;
@@ -32,13 +30,6 @@ class _MyAppState extends State<MyApp> with FastAdInformationJobDelegate {
       assetLoader: LinguaLoader.withLocales(mapLocales: [
         CountriesCodegenLoader.mapLocales,
       ]),
-      blocProviders: [
-        // FIXME: fastyle_calculator should rely on fastyle_ad
-        BlocProvider(bloc: FastAdInfoBloc()),
-      ],
-      loaderJobs: [
-        FastAdInfoJob(delegate: this),
-      ],
       homeBuilder: (_) => FastSectionPage(
         child: Column(children: [
           FastDigitCalculatorField(
@@ -73,13 +64,6 @@ class _MyAppState extends State<MyApp> with FastAdInformationJobDelegate {
           ),
         ]),
       ),
-    );
-  }
-
-  @override
-  Future<FastAdInfo> onGetAdInformationModel(BuildContext context) async {
-    return const FastAdInfo(
-      adServiceUriAuthority: 'services.lumen.tyrcord.com',
     );
   }
 }
