@@ -89,7 +89,7 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
       // If it is not the first launch of the application, we use the saved
       // language code to initialize the language of the application.
       languageCode = settingsBloc.currentState.languageCode;
-      countryCode = settingsBloc.currentState.countryCode ?? deviceCountryCode;
+      countryCode = settingsBloc.currentState.countryCode;
     }
 
     debugLog('Language code', value: languageCode, debugLabel: debugLabel);

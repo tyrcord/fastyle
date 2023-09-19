@@ -107,7 +107,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
         saveEntry: payload?.saveEntry ?? kFastAppSettingsSaveEntry,
         secondaryCurrencyCode: payload?.secondaryCurrencyCode,
         primaryCurrencyCode: payload?.primaryCurrencyCode,
-        countryCode: payload?.countryCode,
+        countryCode: () => payload?.countryCode,
         languageCode: payload?.languageCode,
         theme: payload?.theme,
         isInitializing: false,
@@ -157,14 +157,12 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   Stream<FastAppSettingsBlocState> handleCountryCodeChangedEvent(
     FastAppSettingsBlocEventPayload? payload,
   ) async* {
-    if (payload?.countryCode != null) {
-      final countryCode = payload!.countryCode;
-      await _persistCountryCode(countryCode);
+    final countryCode = payload!.countryCode;
+    await _persistCountryCode(countryCode);
 
-      yield currentState.copyWith(
-        countryCode: _persistedSettings.countryCode,
-      );
-    }
+    yield currentState.copyWith(
+      countryCode: () => _persistedSettings.countryCode,
+    );
   }
 
   /// Handles the `primaryCurrencyCodeChanged` event by persisting the new
@@ -296,7 +294,10 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   /// nothing will be done.
   Future<void> _persistCountryCode(String? countryCode) async {
     if (countryCode != currentState.countryCode) {
-      final newSettings = _persistedSettings.copyWith(countryCode: countryCode);
+      final newSettings = _persistedSettings.copyWith(
+        countryCode: () => countryCode,
+      );
+
       await _dataProvider.persistSettings(newSettings);
       await _retrievePersistedSettings();
     }

@@ -32,6 +32,8 @@ class FastAppSettingsUserCountrySelectField extends StatelessWidget {
   /// The text to display as a placeholder in the selection field.
   final String? placeholderText;
 
+  final bool canClearSelection;
+
   const FastAppSettingsUserCountrySelectField({
     super.key,
     this.onCountryChanged,
@@ -40,6 +42,7 @@ class FastAppSettingsUserCountrySelectField extends StatelessWidget {
     this.placeholderText,
     this.searchTitleText,
     this.labelText,
+    this.canClearSelection = true,
   });
 
   @override
@@ -53,7 +56,7 @@ class FastAppSettingsUserCountrySelectField extends StatelessWidget {
           searchTitleText: _getSearchTitleText(),
           selection: state.countryCode,
           labelText: _getLabelText(),
-          canClearSelection: false,
+          canClearSelection: canClearSelection,
           onSelectionChanged: (FastItem<MatexCountryMetadata>? item) {
             if (item != null &&
                 item.value != null &&
@@ -69,15 +72,17 @@ class FastAppSettingsUserCountrySelectField extends StatelessWidget {
   }
 
   String _getLabelText() {
-    return descriptor?.labelText ??
-        labelText ??
-        CoreLocaleKeys.core_label_country.tr();
+    return (descriptor?.labelText ??
+            labelText ??
+            CoreLocaleKeys.core_label_country)
+        .tr();
   }
 
   String _getSearchTitleText() {
-    return descriptor?.searchTitleText ??
-        searchTitleText ??
-        CoreLocaleKeys.core_select_country.tr();
+    return (descriptor?.searchTitleText ??
+            searchTitleText ??
+            CoreLocaleKeys.core_select_country)
+        .tr();
   }
 
   String? _getSearchPlaceholderText() {

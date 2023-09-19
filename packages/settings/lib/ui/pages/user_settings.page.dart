@@ -102,12 +102,26 @@ class FastAppSettingsPage extends FastSettingPageLayout {
             categoryDescriptor,
             FastAppSettingsFields.primaryCurrency,
           ),
-          onCurrencyChanged: (String currencyCode) {
+          onCurrencyChanged: (String code) {
             _dispatchEvent(
               context,
-              FastAppSettingsBlocEvent.primaryCurrencyCodeChanged(
-                currencyCode,
-              ),
+              FastAppSettingsBlocEvent.primaryCurrencyCodeChanged(code),
+            );
+          },
+        ),
+      if (_canShowField(
+        categoryDescriptor,
+        FastAppSettingsFields.userCountry,
+      ))
+        FastAppSettingsUserCountrySelectField(
+          descriptor: _getFieldDescriptor(
+            categoryDescriptor,
+            FastAppSettingsFields.userCountry,
+          ),
+          onCountryChanged: (String? code) {
+            _dispatchEvent(
+              context,
+              FastAppSettingsBlocEvent.countryCodeChanged(code),
             );
           },
         ),

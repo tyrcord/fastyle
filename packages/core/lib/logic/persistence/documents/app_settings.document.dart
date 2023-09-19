@@ -1,4 +1,5 @@
 // Package imports:
+import 'package:flutter/material.dart';
 import 'package:tstore/tstore.dart';
 
 // Project imports:
@@ -78,7 +79,7 @@ class FastAppSettingsDocument extends TDocument {
   /// retained.
   FastAppSettingsDocument copyWith({
     String? languageCode,
-    String? countryCode,
+    ValueGetter<String?>? countryCode,
     String? theme,
     String? primaryCurrencyCode,
     String? secondaryCurrencyCode,
@@ -86,7 +87,7 @@ class FastAppSettingsDocument extends TDocument {
   }) =>
       FastAppSettingsDocument(
         languageCode: languageCode ?? this.languageCode,
-        countryCode: countryCode ?? this.countryCode,
+        countryCode: countryCode != null ? countryCode() : this.countryCode,
         theme: theme ?? this.theme,
         primaryCurrencyCode: primaryCurrencyCode ?? this.primaryCurrencyCode,
         secondaryCurrencyCode:
@@ -103,7 +104,7 @@ class FastAppSettingsDocument extends TDocument {
   FastAppSettingsDocument merge(covariant FastAppSettingsDocument model) {
     return copyWith(
       languageCode: model.languageCode,
-      countryCode: model.countryCode,
+      countryCode: () => model.countryCode,
       theme: model.theme,
       primaryCurrencyCode: model.primaryCurrencyCode,
       secondaryCurrencyCode: model.secondaryCurrencyCode,
