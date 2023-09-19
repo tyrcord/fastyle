@@ -1,3 +1,10 @@
+## 0.0.23
+
+ - **FIX**: onboarding example.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add user country onboarding page.
+ - **FEAT**: update dependencies.
+
 ## 0.0.22
 
  - **FEAT**: add select country field.

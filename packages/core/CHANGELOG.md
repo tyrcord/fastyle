@@ -1,3 +1,10 @@
+## 0.0.21
+
+ - **REFACTOR**: user country settings.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add user country to the user settings page.
+ - **FEAT**: update dependencies.
+
 ## 0.0.20
 
  - **FEAT**: update dependencies.

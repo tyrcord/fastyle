@@ -1,3 +1,11 @@
+## 0.0.26
+
+ - **REFACTOR**: user country settings.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add user country to the user settings page.
+ - **FEAT**: add user country onboarding page.
+ - **FEAT**: update dependencies.
+
 ## 0.0.25
 
  - **REFACTOR**: select currency fields.

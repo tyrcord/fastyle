@@ -1,3 +1,8 @@
+## 0.0.15
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.14
 
  - **FIX**: remove fastyle_ad dependency from calculators.

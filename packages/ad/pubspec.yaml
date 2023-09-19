@@ -1,6 +1,6 @@
 name: fastyle_ad
 description: Set of ad Widgets for the fastyle library.
-version: 0.0.14
+version: 0.0.15
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/ad
 
 environment:
@@ -23,9 +23,9 @@ dependencies:
   url_launcher: ^6.1.14
 
   # Fastyle
-  fastyle_core: ^0.0.20
-  fastyle_video_player: ^0.0.9
-  fastyle_images: ^0.0.23
+  fastyle_core: ^0.0.21
+  fastyle_video_player: ^0.0.10
+  fastyle_images: ^0.0.24
 
   # T
   tbloc: ^0.21.4
