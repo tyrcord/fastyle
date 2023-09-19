@@ -35,8 +35,10 @@ class FastFirebaseAppCheckJob extends FastJob {
   }) async {
     await FirebaseAppCheck.instance.activate(
       androidProvider: androidProvider ?? AndroidProvider.playIntegrity,
-      webRecaptchaSiteKey: webRecaptchaSiteKey,
       appleProvider: AppleProvider.appAttest,
+      webProvider: webRecaptchaSiteKey is String
+          ? ReCaptchaEnterpriseProvider(webRecaptchaSiteKey!)
+          : null,
     );
   }
 }

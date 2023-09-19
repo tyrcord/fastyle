@@ -13,14 +13,14 @@ dependencies:
 
   # Public
   rxdart: ^0.27.7
-  firebase_core: ^2.15.1
-  firebase_analytics: ^10.4.5
-  firebase_crashlytics: ^3.3.5
-  firebase_remote_config: ^4.2.5
-  firebase_performance: ^0.9.2+5
-  firebase_messaging: ^14.6.7
-  firebase_in_app_messaging: ^0.7.3+5
-  firebase_app_check: ^0.1.5+2
+  firebase_core: ^2.16.0
+  firebase_analytics: ^10.5.0
+  firebase_crashlytics: ^3.3.6
+  firebase_remote_config: ^4.2.6
+  firebase_performance: ^0.9.2+6
+  firebase_messaging: ^14.6.8
+  firebase_in_app_messaging: ^0.7.3+6
+  firebase_app_check: ^0.2.0
 
   # Fastyle
   fastyle_core: ^0.0.20

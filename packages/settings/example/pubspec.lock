@@ -165,10 +165,10 @@ packages:
     dependency: transitive
     description:
       name: devicelocale
-      sha256: "09cc0bce937b34dafcaac0b2a9b350d763dd16770f15e59560b7abaaaad3d65b"
+      sha256: c198785f937840c207bd1765769faf4fda9a611507c0f11041a860a681f3adfa
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.0"
+    version: "0.7.0"
   diacritic:
     dependency: transitive
     description:
@@ -369,18 +369,18 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "5668e6d3dbcb2d0dfa25f7567554b88c57e1e3f3c440b672b24d4a9477017d5b"
+      sha256: e1a30a66d734f9e498b1b6522d6a75ded28242bad2359a9158df38a1c30bcf1f
       url: "https://pub.dev"
     source: hosted
-    version: "10.1.2"
+    version: "10.2.0"
   google_fonts:
     dependency: transitive
     description:
       name: google_fonts
-      sha256: "2776c66b3e97c6cdd58d1bd3281548b074b64f1fd5c8f82391f7456e38849567"
+      sha256: "0833bfcc1c32560ee51d381fcf1d6d6b35921e89afe852c12f83dc8c00b2e6bc"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.5"
+    version: "6.0.0"
   hive:
     dependency: transitive
     description:
@@ -633,10 +633,10 @@ packages:
     dependency: transitive
     description:
       name: matex_core
-      sha256: "6a75448f021734044b214aed05b389fb8260288f736ceaa3cce3c0df57f01da1"
+      sha256: b36777fc991df2fdfcdacbacb3b9f1445aef9c67ff4aa12795211f82c94f4f5b
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.13"
+    version: "0.0.14"
   matex_dart:
     dependency: "direct main"
     description:
@@ -657,10 +657,10 @@ packages:
     dependency: "direct main"
     description:
       name: matex_financial
-      sha256: "9aca983c9519b21ccf1a88c31cd4eba739ff9ede7db8f5388e2ec4327bb7c8c4"
+      sha256: "3d18a2326309bd71e5a08a1d98863aacfa1e0433ac92d481903a669e5ba5e352"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.18"
+    version: "0.0.19"
   meta:
     dependency: transitive
     description:

@@ -26,7 +26,7 @@ dependencies:
   fastyle_core: ^0.0.20
 
   # Matex
-  matex_financial: ^0.0.18
+  matex_financial: ^0.0.19
   matex_dart: ^0.11.1
   matex_data: ^0.0.7
 

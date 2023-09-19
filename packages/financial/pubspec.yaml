@@ -4,7 +4,7 @@ version: 0.0.18
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/fastyle_financial
 
 environment:
-  sdk: ">=3.0.5 <4.0.0"
+  sdk: ">=3.1.0 <4.0.0"
   flutter: ">=3.13.0"
 
 dependencies:

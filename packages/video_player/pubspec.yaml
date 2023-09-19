@@ -15,7 +15,7 @@ dependencies:
   rxdart: ^0.27.7
   collection: ^1.17.2
   easy_localization: ^3.0.3
-  video_player: ^2.7.1
+  video_player: ^2.7.2
   font_awesome_flutter: ^10.5.0
   visibility_detector: ^0.3.3
 

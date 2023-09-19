@@ -15,10 +15,10 @@ dependencies:
   font_awesome_flutter: ^10.5.0
   app_tracking_transparency: ^2.0.4
   easy_localization: ^3.0.3
-  firebase_messaging: ^14.6.7
+  firebase_messaging: ^14.6.8
 
   # Lingua
-  lingua_onboarding: ^0.0.11
+  lingua_onboarding: ^0.0.12
   lingua_core: ^0.0.24
   lingua_purchases: ^0.0.14
 
