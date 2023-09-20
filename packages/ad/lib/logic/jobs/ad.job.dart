@@ -16,12 +16,11 @@ mixin FastAdInformationJobDelegate {
 
 class FastAdInfoJob extends FastJob {
   static FastAdInfoJob? _singleton;
+  final FastAdInformationJobDelegate? delegate;
 
   factory FastAdInfoJob({FastAdInformationJobDelegate? delegate}) {
     return (_singleton ??= FastAdInfoJob._(delegate: delegate));
   }
-
-  final FastAdInformationJobDelegate? delegate;
 
   const FastAdInfoJob._({this.delegate}) : super(debugLabel: 'FastAdInfoJob');
 

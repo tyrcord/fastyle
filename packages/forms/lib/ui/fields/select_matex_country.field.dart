@@ -100,8 +100,10 @@ class _FastMatexSelectCountryFieldState
   }
 
   void _loadCountries() {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      _countryBloc.addEvent(const MatexCountryBlocEvent.init());
-    });
+    if (!_countryBloc.currentState.isInitialized) {
+      SchedulerBinding.instance.addPostFrameCallback((_) {
+        _countryBloc.addEvent(MatexCountryBlocEvent.init());
+      });
+    }
   }
 }

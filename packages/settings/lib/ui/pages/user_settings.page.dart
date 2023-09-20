@@ -34,6 +34,40 @@ class FastAppSettingsPage extends FastSettingPageLayout {
     FastSettingsDescriptor? descriptor,
   }) : descriptor = descriptor ?? const FastSettingsDescriptor();
 
+  bool get canShowSaveUserEntry {
+    final descriptor = _getCategoryDescriptor(FastAppSettingsCategories.inputs);
+
+    if (descriptor != null) {
+      return _canShowField(descriptor, FastAppSettingsFields.saveEntry);
+    }
+
+    return false;
+  }
+
+  bool get canShowPrimaryCurrency {
+    final descriptor = _getCategoryDescriptor(
+      FastAppSettingsCategories.defaultValues,
+    );
+
+    if (descriptor != null) {
+      return _canShowField(descriptor, FastAppSettingsFields.primaryCurrency);
+    }
+
+    return false;
+  }
+
+  bool get canShowUserCountry {
+    final descriptor = _getCategoryDescriptor(
+      FastAppSettingsCategories.defaultValues,
+    );
+
+    if (descriptor != null) {
+      return _canShowField(descriptor, FastAppSettingsFields.userCountry);
+    }
+
+    return false;
+  }
+
   @override
   Widget buildSettingsContent(BuildContext context) {
     return Column(
@@ -70,7 +104,7 @@ class FastAppSettingsPage extends FastSettingPageLayout {
   ) {
     return [
       FastListHeader(categoryText: categoryDescriptor.titleText.tr()),
-      if (_canShowField(categoryDescriptor, FastAppSettingsFields.saveEntry))
+      if (canShowSaveUserEntry)
         FastAppSettingsToggleSaveEntryField(
           descriptor: _getFieldDescriptor(
             categoryDescriptor,
@@ -93,10 +127,7 @@ class FastAppSettingsPage extends FastSettingPageLayout {
   ) {
     return [
       FastListHeader(categoryText: categoryDescriptor.titleText.tr()),
-      if (_canShowField(
-        categoryDescriptor,
-        FastAppSettingsFields.primaryCurrency,
-      ))
+      if (canShowPrimaryCurrency)
         FastAppSettingsPrimaryCurrencyField(
           descriptor: _getFieldDescriptor(
             categoryDescriptor,
@@ -109,10 +140,7 @@ class FastAppSettingsPage extends FastSettingPageLayout {
             );
           },
         ),
-      if (_canShowField(
-        categoryDescriptor,
-        FastAppSettingsFields.userCountry,
-      ))
+      if (canShowUserCountry)
         FastAppSettingsUserCountrySelectField(
           descriptor: _getFieldDescriptor(
             categoryDescriptor,
@@ -157,19 +185,30 @@ class FastAppSettingsPage extends FastSettingPageLayout {
           context: context,
           showCancel: true,
           onValid: () async {
-            _dispatchEvent(
-              context,
-              FastAppSettingsBlocEvent.primaryCurrencyCodeChanged(
-                kFastAppSettingsPrimaryCurrencyCode,
-              ),
-            );
+            if (canShowPrimaryCurrency) {
+              _dispatchEvent(
+                context,
+                FastAppSettingsBlocEvent.primaryCurrencyCodeChanged(
+                  kFastAppSettingsPrimaryCurrencyCode,
+                ),
+              );
+            }
 
-            _dispatchEvent(
-              context,
-              FastAppSettingsBlocEvent.saveEntryChanged(
-                kFastAppSettingsSaveEntry,
-              ),
-            );
+            if (canShowSaveUserEntry) {
+              _dispatchEvent(
+                context,
+                FastAppSettingsBlocEvent.saveEntryChanged(
+                  kFastAppSettingsSaveEntry,
+                ),
+              );
+            }
+
+            if (canShowUserCountry) {
+              _dispatchEvent(
+                context,
+                FastAppSettingsBlocEvent.countryCodeChanged(null),
+              );
+            }
 
             onResetSettings?.call();
 
