@@ -3,6 +3,129 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-09-21
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.16`](#fastyle_ad---v0016)
+ - [`fastyle_buttons` - `v0.0.12`](#fastyle_buttons---v0012)
+ - [`fastyle_calculator` - `v1.32.0`](#fastyle_calculator---v1320)
+ - [`fastyle_charts` - `v0.0.9`](#fastyle_charts---v009)
+ - [`fastyle_connectivity` - `v0.0.19`](#fastyle_connectivity---v0019)
+ - [`fastyle_core` - `v0.0.22`](#fastyle_core---v0022)
+ - [`fastyle_digit_calculator` - `v0.0.21`](#fastyle_digit_calculator---v0021)
+ - [`fastyle_financial` - `v0.0.20`](#fastyle_financial---v0020)
+ - [`fastyle_firebase` - `v0.0.13`](#fastyle_firebase---v0013)
+ - [`fastyle_forms` - `v0.0.22`](#fastyle_forms---v0022)
+ - [`fastyle_home` - `v0.0.17`](#fastyle_home---v0017)
+ - [`fastyle_iap` - `v0.0.15`](#fastyle_iap---v0015)
+ - [`fastyle_images` - `v0.0.25`](#fastyle_images---v0025)
+ - [`fastyle_onboarding` - `v0.0.24`](#fastyle_onboarding---v0024)
+ - [`fastyle_pricing` - `v1.19.0`](#fastyle_pricing---v1190)
+ - [`fastyle_settings` - `v0.0.27`](#fastyle_settings---v0027)
+ - [`fastyle_text` - `v0.0.7`](#fastyle_text---v007)
+ - [`fastyle_video_player` - `v0.0.11`](#fastyle_video_player---v0011)
+ - [`fastyle_views` - `v0.0.13`](#fastyle_views---v0013)
+ - [`fastyle_quizz` - `v0.0.5+1`](#fastyle_quizz---v0051)
+ - [`fastyle_layouts` - `v0.0.9+1`](#fastyle_layouts---v0091)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_quizz` - `v0.0.5+1`
+ - `fastyle_layouts` - `v0.0.9+1`
+
+---
+
+#### `fastyle_ad` - `v0.0.16`
+
+ - **FEAT**: localize packages.
+ - **FEAT**: allow to reset user country.
+
+#### `fastyle_buttons` - `v0.0.12`
+
+ - **FEAT**: localize packages.
+
+#### `fastyle_calculator` - `v1.32.0`
+
+ - **FEAT**: localize packages.
+
+#### `fastyle_charts` - `v0.0.9`
+
+ - **FEAT**: localize packages.
+
+#### `fastyle_connectivity` - `v0.0.19`
+
+ - **FEAT**: localize packages.
+
+#### `fastyle_core` - `v0.0.22`
+
+ - **FEAT**: localize packages.
+
+#### `fastyle_digit_calculator` - `v0.0.21`
+
+ - **FEAT**: localize packages.
+
+#### `fastyle_financial` - `v0.0.20`
+
+ - **FEAT**: localize packages.
+
+#### `fastyle_firebase` - `v0.0.13`
+
+ - **FEAT**: localize packages.
+
+#### `fastyle_forms` - `v0.0.22`
+
+ - **FEAT**: localize packages.
+ - **FEAT**: allow to reset user country.
+
+#### `fastyle_home` - `v0.0.17`
+
+ - **FEAT**: localize packages.
+
+#### `fastyle_iap` - `v0.0.15`
+
+ - **FEAT**: localize packages.
+
+#### `fastyle_images` - `v0.0.25`
+
+ - **FEAT**: localize packages.
+
+#### `fastyle_onboarding` - `v0.0.24`
+
+ - **FEAT**: localize packages.
+
+#### `fastyle_pricing` - `v1.19.0`
+
+ - **FEAT**: localize packages.
+
+#### `fastyle_settings` - `v0.0.27`
+
+ - **FEAT**: localize packages.
+ - **FEAT**: allow to reset user country.
+
+#### `fastyle_text` - `v0.0.7`
+
+ - **FEAT**: localize packages.
+
+#### `fastyle_video_player` - `v0.0.11`
+
+ - **FEAT**: localize packages.
+
+#### `fastyle_views` - `v0.0.13`
+
+ - **FEAT**: localize packages.
+
+
 ## 2023-09-19
 
 ### Changes

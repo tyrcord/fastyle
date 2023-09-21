@@ -1,3 +1,7 @@
+## 0.0.24
+
+ - **FEAT**: localize packages.
+
 ## 0.0.23
 
  - **FIX**: onboarding example.

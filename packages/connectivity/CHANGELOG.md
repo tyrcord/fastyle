@@ -1,3 +1,7 @@
+## 0.0.19
+
+ - **FEAT**: localize packages.
+
 ## 0.0.18
 
  - **FEAT**: update dependencies.

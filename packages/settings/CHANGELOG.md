@@ -1,3 +1,8 @@
+## 0.0.27
+
+ - **FEAT**: localize packages.
+ - **FEAT**: allow to reset user country.
+
 ## 0.0.26
 
  - **REFACTOR**: user country settings.

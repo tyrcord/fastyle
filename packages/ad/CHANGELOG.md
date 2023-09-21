@@ -1,3 +1,8 @@
+## 0.0.16
+
+ - **FEAT**: localize packages.
+ - **FEAT**: allow to reset user country.
+
 ## 0.0.15
 
  - **FEAT**: update dependencies.
