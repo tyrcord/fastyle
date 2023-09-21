@@ -48,6 +48,7 @@ class FastSelectField<T> extends StatefulWidget {
   final Widget? icon;
   final Widget? leading;
   final String? noneText;
+  final String? noneTextGender;
 
   const FastSelectField({
     super.key,
@@ -83,6 +84,7 @@ class FastSelectField<T> extends StatefulWidget {
     this.icon,
     this.leading,
     this.noneText,
+    this.noneTextGender,
   });
 
   @override
@@ -168,7 +170,10 @@ class _FastSelectFieldState<T> extends State<FastSelectField<T>> {
     return FastBody(
       textColor: _getLabelColor(context),
       fontWeight: kFastFontWeightBold,
-      text: widget.noneText ?? CoreLocaleKeys.core_label_none.tr(),
+      text: widget.noneText ??
+          CoreLocaleKeys.core_label_none.tr(
+            gender: widget.noneTextGender == 'male' ? 'male' : 'female',
+          ),
     );
   }
 
