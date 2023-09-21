@@ -21,6 +21,15 @@ class FastAppSettingsPage extends FastSettingPageLayout {
 
   final VoidCallback? onResetSettings;
 
+  /// A callback that is called when the user selects a new country.
+  final void Function(String?)? onCountryChanged;
+
+  /// A callback that is called when the user toggles the auto-save setting.
+  final void Function(bool)? onSaveEntryChanged;
+
+  /// A callback that is called when the user selects a new currency.
+  final void Function(String)? onCurrencyChanged;
+
   const FastAppSettingsPage({
     super.key,
     super.headerDescriptionText,
@@ -31,6 +40,9 @@ class FastAppSettingsPage extends FastSettingPageLayout {
     super.actions,
     this.defaultValuesChildren,
     this.onResetSettings,
+    this.onCountryChanged,
+    this.onSaveEntryChanged,
+    this.onCurrencyChanged,
     FastSettingsDescriptor? descriptor,
   }) : descriptor = descriptor ?? const FastSettingsDescriptor();
 
@@ -112,9 +124,10 @@ class FastAppSettingsPage extends FastSettingPageLayout {
           ),
           onSaveEntryChanged: (bool saveEntry) {
             _dispatchEvent(
-              context,
               FastAppSettingsBlocEvent.saveEntryChanged(saveEntry),
             );
+
+            onSaveEntryChanged?.call(saveEntry);
           },
         ),
     ];
@@ -135,9 +148,10 @@ class FastAppSettingsPage extends FastSettingPageLayout {
           ),
           onCurrencyChanged: (String code) {
             _dispatchEvent(
-              context,
               FastAppSettingsBlocEvent.primaryCurrencyCodeChanged(code),
             );
+
+            onCurrencyChanged?.call(code);
           },
         ),
       if (canShowUserCountry)
@@ -148,9 +162,10 @@ class FastAppSettingsPage extends FastSettingPageLayout {
           ),
           onCountryChanged: (String? code) {
             _dispatchEvent(
-              context,
               FastAppSettingsBlocEvent.countryCodeChanged(code),
             );
+
+            onCountryChanged?.call(code);
           },
         ),
     ];
@@ -187,7 +202,6 @@ class FastAppSettingsPage extends FastSettingPageLayout {
           onValid: () async {
             if (canShowPrimaryCurrency) {
               _dispatchEvent(
-                context,
                 FastAppSettingsBlocEvent.primaryCurrencyCodeChanged(
                   kFastAppSettingsPrimaryCurrencyCode,
                 ),
@@ -196,7 +210,6 @@ class FastAppSettingsPage extends FastSettingPageLayout {
 
             if (canShowSaveUserEntry) {
               _dispatchEvent(
-                context,
                 FastAppSettingsBlocEvent.saveEntryChanged(
                   kFastAppSettingsSaveEntry,
                 ),
@@ -204,10 +217,7 @@ class FastAppSettingsPage extends FastSettingPageLayout {
             }
 
             if (canShowUserCountry) {
-              _dispatchEvent(
-                context,
-                FastAppSettingsBlocEvent.countryCodeChanged(null),
-              );
+              _dispatchEvent(FastAppSettingsBlocEvent.countryCodeChanged(null));
             }
 
             onResetSettings?.call();
@@ -220,7 +230,7 @@ class FastAppSettingsPage extends FastSettingPageLayout {
   }
 
   /// Dispatches the given [event] to the [FastAppSettingsBloc].
-  void _dispatchEvent(BuildContext context, FastAppSettingsBlocEvent event) {
+  void _dispatchEvent(FastAppSettingsBlocEvent event) {
     final bloc = FastAppSettingsBloc.instance;
 
     bloc.addEvent(event);
