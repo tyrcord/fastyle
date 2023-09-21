@@ -1,12 +1,13 @@
 // Flutter imports:
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 //TODO: @need-review: code from fastyle_dart
 
@@ -20,7 +21,7 @@ class FastSelectField<T> extends StatefulWidget {
   final ValueChanged<FastItem<T>?> onSelectionChanged;
   final List<FastCategory>? categories;
   final String? searchPlaceholderText;
-  final String clearSelectionText;
+  final String? clearSelectionText;
   final bool showHelperBoundaries;
   final String? placeholderText;
   final List<FastItem<T>> items;
@@ -29,7 +30,7 @@ class FastSelectField<T> extends StatefulWidget {
   final FastItem<T>? selection;
   final Widget? clearSearchIcon;
   final bool canClearSelection;
-  final String searchTitleText;
+  final String? searchTitleText;
   final bool groupByCategory;
   final bool useFuzzySearch;
   final String? captionText;
@@ -46,6 +47,7 @@ class FastSelectField<T> extends StatefulWidget {
   final FastFastSelectFieldDelegate<FastItem<T>>? delegate;
   final Widget? icon;
   final Widget? leading;
+  final String? noneText;
 
   const FastSelectField({
     super.key,
@@ -53,9 +55,9 @@ class FastSelectField<T> extends StatefulWidget {
     required this.labelText,
     required this.items,
     this.searchPlaceholderText,
-    this.clearSelectionText = kFastClearSelectionText,
+    this.clearSelectionText,
     this.clearSearchIcon,
-    this.searchTitleText = kFastSelectTitleText,
+    this.searchTitleText,
     this.showHelperBoundaries = true,
     this.canClearSelection = true,
     this.intialCategoryIndex = 0,
@@ -80,6 +82,7 @@ class FastSelectField<T> extends StatefulWidget {
     this.delegate,
     this.icon,
     this.leading,
+    this.noneText,
   });
 
   @override
@@ -165,7 +168,7 @@ class _FastSelectFieldState<T> extends State<FastSelectField<T>> {
     return FastBody(
       textColor: _getLabelColor(context),
       fontWeight: kFastFontWeightBold,
-      text: kFastNoneString,
+      text: widget.noneText ?? CoreLocaleKeys.core_label_none.tr(),
     );
   }
 

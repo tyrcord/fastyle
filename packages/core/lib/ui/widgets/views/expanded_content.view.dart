@@ -6,6 +6,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 //TODO: @need-review: code from fastyle_dart
 
@@ -15,7 +17,7 @@ class FastExpansionPanel extends StatefulWidget {
   final GestureTapCallback? onTap;
   final Color? titleTextColor;
   final Widget? headerIcon;
-  final String titleText;
+  final String? titleText;
   final bool isExpanded;
   final bool isEnabled;
 
@@ -23,7 +25,7 @@ class FastExpansionPanel extends StatefulWidget {
     super.key,
     required this.bodyBuilder,
     this.animationDuration = const Duration(milliseconds: 300),
-    this.titleText = kFastPanelText,
+    this.titleText,
     this.isExpanded = false,
     this.isEnabled = true,
     this.titleTextColor,
@@ -117,7 +119,10 @@ class FastExpansionPanelState extends State<FastExpansionPanel>
           Container(
             constraints: const BoxConstraints(minHeight: kFastIconSizeMedium),
             child: Center(
-              child: FastButtonLabel(text: widget.titleText, textColor: color),
+              child: FastButtonLabel(
+                text: widget.titleText ?? CoreLocaleKeys.core_label_panel.tr(),
+                textColor: color,
+              ),
             ),
           ),
           Align(

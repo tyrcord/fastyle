@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:lingua_calculator/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 // Project imports:
 import 'package:fastyle_calculator/fastyle_calculator.dart';
@@ -231,7 +233,8 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
     final primaryColor = ThemeHelper.colors.getPrimaryColor(context);
 
     return FastCard(
-      titleText: fieldsTitleText ?? kFastCalculatorTitle,
+      titleText: fieldsTitleText ??
+          CalculatorLocaleKeys.calculator_label_calculator.tr(),
       titleTextColor: primaryColor,
       headerActions: <Widget>[
         ...?calculatorActions,
@@ -272,7 +275,8 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
     final primaryColor = ThemeHelper.colors.getPrimaryColor(context);
 
     return FastCard(
-      titleText: resultsTitleText ?? kFastCalculatorResultsTitle,
+      titleText: resultsTitleText ??
+          CalculatorLocaleKeys.calculator_title_results.tr(),
       titleTextColor: primaryColor,
       headerActions: <Widget>[
         ...?resultsActions,

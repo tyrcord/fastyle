@@ -9,6 +9,9 @@ import 'package:rate_my_app/rate_my_app.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:lingua_settings/generated/locale_keys.g.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 /// A service class for handling app rating functionality.
 class FastAppRatingService {
@@ -47,8 +50,10 @@ class FastAppRatingService {
     // ignore: use_build_context_synchronously
     return _rateMyApp.showStarRateDialog(
       context,
-      title: titleText ?? 'Do you like this app?',
-      message: messageText ?? 'Please leave a rating!',
+      title: titleText ??
+          SettingsLocaleKeys.settings_question_do_you_like_our_app.tr(),
+      message: messageText ??
+          SettingsLocaleKeys.settings_question_do_you_enjoy_our_app.tr(),
       ignoreNativeDialog: Platform.isAndroid,
       actionsBuilder: (context, stars) {
         return buildRatingDialogActions(context, validText: validText);
@@ -65,7 +70,7 @@ class FastAppRatingService {
   }) {
     return [
       FastTextButton(
-        text: validText ?? 'OK',
+        text: validText ?? CoreLocaleKeys.core_label_ok.tr(),
         onTap: () async {
           await _rateMyApp.callEvent(RateMyAppEventType.rateButtonPressed);
           // ignore: use_build_context_synchronously

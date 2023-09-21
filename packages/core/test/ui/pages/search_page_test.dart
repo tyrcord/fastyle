@@ -130,7 +130,7 @@ void main() {
         final link =
             tester.firstWidget(find.byType(FastTextButton)) as FastTextButton;
         expect(find.byType(FastTextButton), findsOneWidget);
-        expect(link.text, kFastClearSelectionText);
+        expect(link.text, 'Clear selection');
       });
 
       testWidgets('should not be visible whether set to false',

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 /// Callback for when the operation status changes.
 typedef FastOperationStatusChanged = void Function(FastOperationStatus)?;
@@ -231,7 +233,7 @@ class FastOperationControlledDialogState
     return _getWidget(
       context,
       widget.missingRightsBuilder,
-      const FastBody(text: 'Missing rights'),
+      FastBody(text: CoreLocaleKeys.core_label_missing_rights.tr()),
     );
   }
 
@@ -249,7 +251,7 @@ class FastOperationControlledDialogState
     return _getWidget(
       context,
       widget.rightsDeniedBuillder,
-      const FastBody(text: 'Rights denied'),
+      FastBody(text: CoreLocaleKeys.core_label_rights_denied.tr()),
     );
   }
 
@@ -267,7 +269,7 @@ class FastOperationControlledDialogState
     return _getWidget(
       context,
       widget.operationSucceededBuilder,
-      const FastBody(text: 'Operation succeeded'),
+      FastBody(text: CoreLocaleKeys.core_label_operation_succeeded.tr()),
     );
   }
 
@@ -276,7 +278,7 @@ class FastOperationControlledDialogState
     return _getWidget(
       context,
       widget.operationFailedBuilder,
-      const FastBody(text: 'Failed to perform operation'),
+      FastBody(text: CoreLocaleKeys.core_label_operation_failed.tr()),
     );
   }
 
@@ -286,7 +288,7 @@ class FastOperationControlledDialogState
       return widget.errorBuilder!(context, _currentError);
     }
 
-    return const FastBody(text: 'An error occurred');
+    return FastBody(text: CoreLocaleKeys.core_error_error_occurred.tr());
   }
 
   /// Returns the widget built by the given builder or the default widget if

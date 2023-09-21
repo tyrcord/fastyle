@@ -7,6 +7,8 @@ import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 //TODO: @need-review: code from fastyle_dart
 
@@ -19,7 +21,7 @@ class FastSearchPage<T extends FastItem> extends StatefulWidget {
   ///
   /// Text that describes the clear selection action.
   ///
-  final String clearSelectionText;
+  final String? clearSelectionText;
 
   ///
   /// Indicates the initial category selected.
@@ -60,7 +62,7 @@ class FastSearchPage<T extends FastItem> extends StatefulWidget {
   ///
   /// The title of the page.
   ///
-  final String titleText;
+  final String? titleText;
 
   ///
   /// The widget used to close the page.
@@ -100,9 +102,9 @@ class FastSearchPage<T extends FastItem> extends StatefulWidget {
     super.key,
     required this.items,
     this.searchPlaceholderText,
-    this.clearSelectionText = kFastClearSelectionText,
+    this.clearSelectionText,
     this.clearSearchIcon,
-    this.titleText = kFastSelectTitleText,
+    this.titleText,
     this.canClearSelection = true,
     this.groupByCategory = false,
     this.intialCategoryIndex = 0,
@@ -166,7 +168,10 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
                 right: 16.0,
                 bottom: 16.0,
               ),
-              child: FastHeadline(text: widget.titleText),
+              child: FastHeadline(
+                text: widget.titleText ??
+                    CoreLocaleKeys.core_label_select_text.tr(),
+              ),
             ),
             _buildSearchBar(),
           ],
@@ -284,7 +289,8 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
           children: [
             FastTextButton(
               textColor: palette.blue.mid,
-              text: widget.clearSelectionText,
+              text: widget.clearSelectionText ??
+                  CoreLocaleKeys.core_label_clear_selection.tr(),
               onTap: () => _close(context, null),
             )
           ],

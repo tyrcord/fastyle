@@ -80,16 +80,6 @@ const kFastRefreshTimeout = Duration(seconds: 60);
 
 // Strings
 
-const kFastClearSelectionText = 'Clear Selection';
-const kFastSelectTitleText = 'Select';
-const kFastNoItemsString = 'No items';
-const kFastButtonLabel = 'Button';
-const kFastNoneString = 'none';
-const kFastPanelText = 'panel';
-const kFastAllString = 'all';
-const kFastDoneText = 'done';
-const kFastNextText = 'next';
-const kFastSkipText = 'skip';
 const kFastEmptyString = '';
 
 // Sizes

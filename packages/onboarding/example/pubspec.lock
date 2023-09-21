@@ -223,71 +223,71 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.10"
+    version: "0.0.11"
   fastyle_calculator:
     dependency: transitive
     description:
       name: fastyle_calculator
-      sha256: "296b1100b4c4276d3fe3064888241cf1e0fb41cbba567a2025e82062539a6666"
+      sha256: "58029a9beeeb0aed426397bf1beee466f4c359d2cd1ea3428f4cb17a510a326c"
       url: "https://pub.dev"
     source: hosted
-    version: "1.30.0"
+    version: "1.31.0"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.20"
+    version: "0.0.21"
   fastyle_digit_calculator:
     dependency: "direct overridden"
     description:
       path: "../../digit_calculator"
       relative: true
     source: path
-    version: "0.0.19"
+    version: "0.0.20"
   fastyle_forms:
     dependency: "direct overridden"
     description:
       path: "../../forms"
       relative: true
     source: path
-    version: "0.0.20"
+    version: "0.0.21"
   fastyle_iap:
     dependency: "direct overridden"
     description:
       path: "../../iap"
       relative: true
     source: path
-    version: "0.0.13"
+    version: "0.0.14"
   fastyle_images:
     dependency: "direct overridden"
     description:
       path: "../../images"
       relative: true
     source: path
-    version: "0.0.23"
+    version: "0.0.24"
   fastyle_layouts:
     dependency: "direct overridden"
     description:
       path: "../../layouts"
       relative: true
     source: path
-    version: "0.0.8+2"
+    version: "0.0.9"
   fastyle_onboarding:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.22"
+    version: "0.0.23"
   fastyle_settings:
     dependency: "direct overridden"
     description:
       path: "../../settings"
       relative: true
     source: path
-    version: "0.0.25"
+    version: "0.0.26"
   ffi:
     dependency: transitive
     description:
@@ -440,10 +440,10 @@ packages:
     dependency: transitive
     description:
       name: google_fonts
-      sha256: "0833bfcc1c32560ee51d381fcf1d6d6b35921e89afe852c12f83dc8c00b2e6bc"
+      sha256: f0b8d115a13ecf827013ec9fc883390ccc0e87a96ed5347a3114cac177ef18e8
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.0"
+    version: "6.1.0"
   hive:
     dependency: transitive
     description:
@@ -584,10 +584,10 @@ packages:
     dependency: "direct main"
     description:
       name: lingua_core
-      sha256: "42f9dfb4a6a92ee3c336bd821b082426b366985f53124a3121631a344c831e78"
+      sha256: bdd0b82640807b0b6297c16eb7314a603aed1f1732a9c0a0713730d47e61f1fa
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.24"
+    version: "0.0.26"
   lingua_countries:
     dependency: "direct main"
     description:
@@ -608,10 +608,10 @@ packages:
     dependency: transitive
     description:
       name: lingua_finance_instrument
-      sha256: "0386432b0b27f2d01ccb8b06503ac40088e44ef9363153983dbaecaea175a6ac"
+      sha256: "913017017c7353b98d16c01de78aff84fd8029d1e503cb2c48fcd0106c7e3add"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3"
+    version: "0.0.4"
   lingua_finance_stock:
     dependency: transitive
     description:
@@ -636,6 +636,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.5"
+  lingua_number:
+    dependency: transitive
+    description:
+      name: lingua_number
+      sha256: "7c5087c1a96b3f7dc3022cc9224b4a034c8be7b4d3e4baf2072712be6bb2b832"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.7"
   lingua_onboarding:
     dependency: "direct main"
     description:
@@ -712,18 +720,18 @@ packages:
     dependency: transitive
     description:
       name: matex_data
-      sha256: "6ef7a50c911e373c4e579938c070546db91f5dddf49d3bffad7b625ab2234939"
+      sha256: "54ed41c30581873287b61099b58e897b06ec6cda62819f61aee9a203a158f185"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.7"
+    version: "0.0.8"
   matex_financial:
     dependency: transitive
     description:
       name: matex_financial
-      sha256: "3d18a2326309bd71e5a08a1d98863aacfa1e0433ac92d481903a669e5ba5e352"
+      sha256: a78b6a4de7eb757683f97c26faaf3b71add6520b1ee7def7b112ef1708fd680e
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.19"
+    version: "0.0.20"
   meta:
     dependency: transitive
     description:
@@ -1077,10 +1085,10 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: "94cb51579b221b6f4f5b82c75a9ece4190d0b428f28cf3677868dccadef46d04"
+      sha256: "9c023cddadcdb859bd5f8617f032ce8c413b5c1dd23703a85220d11ea8a4540d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.29"
+    version: "0.0.29+1"
   tbloc:
     dependency: transitive
     description:
@@ -1117,18 +1125,18 @@ packages:
     dependency: transitive
     description:
       name: tmodel
-      sha256: f7b4061bb468fed65288d9cec270b7465911c60d1a5e5ad2387f41a166c2bf43
+      sha256: "2f2a13a96832b818237e23f13ededdb0ac04b1ffe106767ca0ea96bd0decb597"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.8"
+    version: "0.5.8+1"
   tstore:
     dependency: transitive
     description:
       name: tstore
-      sha256: ec785a3f1498b664bb4ff31395c2864d50c7b10715a1535c2320bdca1e2ecbfc
+      sha256: f828dbf5359456fe4e8951bd53d0b4f56a54c33d388097dcc75803c693c9fde2
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.15"
+    version: "0.8.15+1"
   tsub:
     dependency: transitive
     description:

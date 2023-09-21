@@ -12,13 +12,13 @@ import 'package:fastyle_connectivity/fastyle_connectivity.dart';
 class FastConnectivityStatusListener extends StatefulWidget {
   final Widget? disconnectedIcon;
   final Color? disconnectedColor;
-  final String disconnectedText;
+  final String? disconnectedText;
   final Duration? checkInterval;
   final Duration? checkTimeout;
   final Widget? connectedIcon;
   final Color? connectedColor;
   final bool showDescription;
-  final String connectedText;
+  final String? connectedText;
   final String? checkAddress;
   final Widget? description;
   final double iconSize;
@@ -26,8 +26,8 @@ class FastConnectivityStatusListener extends StatefulWidget {
 
   const FastConnectivityStatusListener({
     super.key,
-    this.disconnectedText = kFastConnectivityDisconnectedText,
-    this.connectedText = kFastConnectivityConnectedText,
+    this.disconnectedText,
+    this.connectedText,
     this.iconSize = kFastIconSizeXl,
     this.showDescription = false,
     this.disconnectedColor,

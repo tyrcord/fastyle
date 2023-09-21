@@ -6,12 +6,14 @@ import 'package:intl/intl.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 //TODO: @need-review: code from fastyle_dart
 
 const kFastListTileCategoryAll = FastInternalCategory(
-  labelText: kFastAllString,
-  valueText: kFastAllString,
+  labelText: CoreLocaleKeys.core_label_all,
+  valueText: 'all',
   weight: 1000,
 );
 
@@ -157,7 +159,7 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
 
     return Center(
       child: FastSecondaryBody(
-        text: emptyText ?? kFastNoItemsString,
+        text: emptyText ?? CoreLocaleKeys.core_label_no_elements.tr(),
       ),
     );
   }
@@ -239,7 +241,7 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
     final categoriesMap = {
       kFastListTileCategoryAll.valueText: _buildListCategory(
         kFastListTileCategoryAll.copyWith(
-          labelText: allCategoryText ?? kFastListTileCategoryAll.labelText,
+          labelText: allCategoryText ?? kFastListTileCategoryAll.labelText.tr(),
         ),
       ),
     };

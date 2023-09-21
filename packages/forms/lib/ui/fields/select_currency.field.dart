@@ -7,6 +7,9 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_images/fastyle_images.dart';
 import 'package:matex_dart/matex_dart.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:lingua_finance/generated/locale_keys.g.dart';
+import 'package:lingua_finance_instrument/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 /// A Flutter widget for displaying a selectable list of currencies.
 class FastSelectCurrencyField extends StatelessWidget {
@@ -28,7 +31,7 @@ class FastSelectCurrencyField extends StatelessWidget {
   final double flagIconWidth;
 
   /// The title text displayed in the search field.
-  final String searchTitleText;
+  final String? searchTitleText;
 
   /// The optional text displayed below the selection.
   final String? captionText;
@@ -37,7 +40,7 @@ class FastSelectCurrencyField extends StatelessWidget {
   final String? selection;
 
   /// The label text displayed above the selection.
-  final String labelText;
+  final String? labelText;
 
   /// Specifies whether the field is enabled or disabled.
   final bool isEnabled;
@@ -66,14 +69,12 @@ class FastSelectCurrencyField extends StatelessWidget {
     this.selection,
     List<MatexInstrumentMetadata>? currencies,
     this.searchPlaceholderText,
-    String? searchTitleText,
+    this.searchTitleText,
     bool? isEnabled = true,
     double? flagIconWidth,
-    String? labelText,
+    this.labelText,
     bool? canClearSelection,
-  })  : searchTitleText = searchTitleText ?? 'Search a Financial Instrument',
-        labelText = labelText ?? 'Financial Instrument',
-        canClearSelection = canClearSelection ?? true,
+  })  : canClearSelection = canClearSelection ?? true,
         flagIconWidth = flagIconWidth ?? 40.0,
         currencies = currencies ?? const [],
         isEnabled = isEnabled ?? true;
@@ -88,11 +89,13 @@ class FastSelectCurrencyField extends StatelessWidget {
       searchPlaceholderText: searchPlaceholderText,
       canClearSelection: canClearSelection,
       placeholderText: placeholderText,
-      searchTitleText: searchTitleText,
+      searchTitleText: searchTitleText ??
+          FinanceInstrumentLocaleKeys.instrument_message_search_instrument.tr(),
       selection: selectedOption,
       captionText: captionText,
       isReadOnly: !isEnabled,
-      labelText: labelText,
+      labelText: labelText ??
+          FinanceLocaleKeys.finance_label_financial_instrument.tr(),
       useFuzzySearch: true,
       items: options,
       leading: selectedOption != null

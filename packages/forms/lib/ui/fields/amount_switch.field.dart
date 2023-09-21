@@ -6,6 +6,8 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 // Project imports:
 import 'package:fastyle_forms/fastyle_forms.dart';
+import 'package:lingua_number/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 /// A widget that allows the user to switch between an amount field and a
 /// percent field.
@@ -23,10 +25,10 @@ class FastAmountSwitchField extends StatelessWidget {
   final FastAmountSwitchFieldType fieldType;
 
   /// The label text for the amount field.
-  final String amountLabelText;
+  final String? amountLabelText;
 
   /// The label text for the percent field.
-  final String percentLabelText;
+  final String? percentLabelText;
 
   /// The current percent value.
   final String percentValue;
@@ -74,14 +76,12 @@ class FastAmountSwitchField extends StatelessWidget {
     FastAmountSwitchFieldType? fieldType,
     String? percentPlaceholderText,
     String? amountPlaceholderText,
-    String? percentLabelText,
-    String? amountLabelText,
+    this.percentLabelText,
+    this.amountLabelText,
     String? percentValue,
     String? amountValue,
     bool? isEnabled,
-  })  : percentLabelText = percentLabelText ?? 'Percent',
-        amountLabelText = amountLabelText ?? 'Amount',
-        fieldType = fieldType ?? kDefaultFieldType,
+  })  : fieldType = fieldType ?? kDefaultFieldType,
         percentValue = percentValue ?? '',
         amountValue = amountValue ?? '',
         isEnabled = isEnabled ?? true,
@@ -98,7 +98,7 @@ class FastAmountSwitchField extends StatelessWidget {
         suffixIcon: _buildSwitchFieldMenuButton(),
         placeholderText: percentPlaceholderText,
         onValueChanged: onPercentValueChanged,
-        labelText: percentLabelText,
+        labelText: _getPercentLabel(),
         valueText: percentValue,
         isEnabled: isEnabled,
       );
@@ -108,7 +108,7 @@ class FastAmountSwitchField extends StatelessWidget {
         suffixIcon: _buildSwitchFieldMenuButton(),
         placeholderText: amountPlaceholderText,
         onValueChanged: onAmountValueChanged,
-        labelText: amountLabelText,
+        labelText: _getAmountLabel(),
         valueText: amountValue,
         isEnabled: isEnabled,
       );
@@ -122,11 +122,11 @@ class FastAmountSwitchField extends StatelessWidget {
       options: [
         PopupMenuItem(
           value: FastAmountSwitchFieldType.amount,
-          child: FastSecondaryBody(text: amountLabelText),
+          child: FastSecondaryBody(text: _getAmountLabel()),
         ),
         PopupMenuItem(
           value: FastAmountSwitchFieldType.percent,
-          child: FastSecondaryBody(text: percentLabelText),
+          child: FastSecondaryBody(text: _getPercentLabel()),
         ),
       ],
     );
@@ -137,5 +137,13 @@ class FastAmountSwitchField extends StatelessWidget {
     if (option != fieldType) {
       onFieldTypeChanged(option);
     }
+  }
+
+  String _getPercentLabel() {
+    return percentLabelText ?? NumberLocaleKeys.number_label_percentage.tr();
+  }
+
+  String _getAmountLabel() {
+    return amountLabelText ?? NumberLocaleKeys.number_label_amount.tr();
   }
 }

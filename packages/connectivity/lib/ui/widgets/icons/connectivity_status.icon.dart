@@ -4,19 +4,18 @@ import 'package:flutter/widgets.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-// Project imports:
-import 'package:fastyle_connectivity/logic/logic.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
 
 class FastConnectivityStatusIcon extends StatelessWidget {
   final Widget? disconnectedIcon;
   final Color? disconnectedColor;
-  final String disconnectedText;
+  final String? disconnectedText;
   final Widget? connectedIcon;
   final Color? connectedColor;
   final bool showDescription;
-  final String connectedText;
-  final String checkingText;
+  final String? connectedText;
+  final String? checkingText;
   final Widget? description;
   final bool hasConnection;
   final double iconSize;
@@ -24,9 +23,9 @@ class FastConnectivityStatusIcon extends StatelessWidget {
 
   const FastConnectivityStatusIcon({
     super.key,
-    this.disconnectedText = kFastConnectivityDisconnectedText,
-    this.connectedText = kFastConnectivityConnectedText,
-    this.checkingText = kFastConnectivityCheckingText,
+    this.disconnectedText,
+    this.connectedText,
+    this.checkingText,
     this.iconSize = kFastIconSizeXl,
     this.showDescription = false,
     this.hasConnection = false,
@@ -105,13 +104,18 @@ class FastConnectivityStatusIcon extends StatelessWidget {
   }
 
   Widget buildDefaultDescription() {
-    return FastBody(
-      text: isChecking
-          ? checkingText
-          : hasConnection
-              ? connectedText
-              : disconnectedText,
-    );
+    String text;
+
+    if (isChecking) {
+      text =
+          checkingText ?? CoreLocaleKeys.core_message_checking_connection.tr();
+    } else if (hasConnection) {
+      text = connectedText ?? CoreLocaleKeys.core_label_connected.tr();
+    } else {
+      text = disconnectedText ?? CoreLocaleKeys.core_label_disconnected.tr();
+    }
+
+    return FastBody(text: text);
   }
 
   Color _getCheckingColor(BuildContext context) {

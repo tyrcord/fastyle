@@ -15,13 +15,17 @@ dependencies:
   font_awesome_flutter: ^10.5.0
   connectivity_plus: ^4.0.2
   rxdart: ^0.27.7
+  easy_localization: ^3.0.3
 
   # Fastyle
   fastyle_core: ^0.0.21
 
   # T
-  tmodel: ^0.5.8
+  tmodel: ^0.5.8+1
   tbloc: ^0.21.4
+
+  # Lingua
+  lingua_core: ^0.0.26
 
 dev_dependencies:
   flutter_test:

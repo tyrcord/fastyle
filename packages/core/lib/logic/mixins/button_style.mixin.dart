@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 //TODO: @need-review: code from fastyle_dart
 
@@ -32,7 +34,7 @@ mixin FastButtonSyleMixin<T extends FastButton> on State<T> {
     double? fontSize,
   }) {
     return FastButtonLabel(
-      text: widget.text ?? kFastButtonLabel,
+      text: widget.text ?? CoreLocaleKeys.core_label_button.tr(),
       textColor: widget.isEnabled
           ? textColor
           : disabledTextColor ?? textColor.withAlpha(kDisabledAlpha),

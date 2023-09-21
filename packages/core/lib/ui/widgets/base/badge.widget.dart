@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 //TODO: @need-review: code from fastyle_dart
-
-/// The default badge text.
-const _kBadgeText = 'Badge';
 
 /// The default badge padding.
 const _kBadgePadding = EdgeInsets.symmetric(horizontal: 12, vertical: 4);
@@ -32,7 +31,7 @@ class FastBadge extends StatelessWidget {
   const FastBadge({
     super.key,
     this.padding = _kBadgePadding,
-    this.text = _kBadgeText,
+    this.text,
     this.backgroundColor,
     this.borderRadius,
     this.textColor,
@@ -60,7 +59,7 @@ class FastBadge extends StatelessWidget {
   Widget buildText(BuildContext context) {
     return FastOverline(
       textColor: _getTextColor(context),
-      text: text ?? _kBadgeText,
+      text: text ?? CoreLocaleKeys.core_label_badge.tr(),
     );
   }
 
