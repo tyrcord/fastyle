@@ -1,3 +1,3 @@
 library fastyle_animation;
 
-export './painters/painters.dart';
+export 'ui/ui.dart';

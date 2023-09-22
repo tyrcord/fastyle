@@ -1,0 +1,1 @@
+export './tyrcord.logo.dart';
