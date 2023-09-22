@@ -11,8 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.5
-  fastyle_charts: ^0.0.9
-  fastyle_core: ^0.0.22
+  fastyle_charts: ^0.0.10
+  fastyle_core: ^0.0.23
 
 dev_dependencies:
   flutter_test:

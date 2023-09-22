@@ -1,6 +1,6 @@
 name: fastyle_text
 description: A set of pricing texts for the fastyle library.
-version: 0.0.7
+version: 0.0.7+1
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/text
 
 environment:
@@ -15,7 +15,7 @@ dependencies:
   visibility_detector: ^0.3.3
 
   # Fastyle
-  fastyle_core: ^0.0.22
+  fastyle_core: ^0.0.23
 
   # T
   t_helpers: ^0.0.29+1

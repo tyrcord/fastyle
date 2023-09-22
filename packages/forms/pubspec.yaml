@@ -1,6 +1,6 @@
 name: fastyle_forms
 description: Set of forms Widgets for the fastyle library.
-version: 0.0.22
+version: 0.0.23
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/fastyle_forms
 
 environment:
@@ -17,10 +17,10 @@ dependencies:
   easy_localization: ^3.0.3
 
   # Fastyle
-  fastyle_images: ^0.0.25
-  fastyle_core: ^0.0.22
-  fastyle_buttons: ^0.0.12
-  fastyle_digit_calculator: ^0.0.21
+  fastyle_images: ^0.0.26
+  fastyle_core: ^0.0.23
+  fastyle_buttons: ^0.0.12+1
+  fastyle_digit_calculator: ^0.0.22
 
   # T
   tbloc: ^0.21.4

@@ -3,6 +3,113 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-09-22
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_animation` - `v0.0.6`](#fastyle_animation---v006)
+ - [`fastyle_calculator` - `v1.33.0`](#fastyle_calculator---v1330)
+ - [`fastyle_charts` - `v0.0.10`](#fastyle_charts---v0010)
+ - [`fastyle_connectivity` - `v0.0.20`](#fastyle_connectivity---v0020)
+ - [`fastyle_core` - `v0.0.23`](#fastyle_core---v0023)
+ - [`fastyle_digit_calculator` - `v0.0.22`](#fastyle_digit_calculator---v0022)
+ - [`fastyle_forms` - `v0.0.23`](#fastyle_forms---v0023)
+ - [`fastyle_home` - `v0.0.18`](#fastyle_home---v0018)
+ - [`fastyle_images` - `v0.0.26`](#fastyle_images---v0026)
+ - [`fastyle_onboarding` - `v0.0.25`](#fastyle_onboarding---v0025)
+ - [`fastyle_pricing` - `v1.20.0`](#fastyle_pricing---v1200)
+ - [`fastyle_quizz` - `v0.0.6`](#fastyle_quizz---v006)
+ - [`fastyle_settings` - `v0.0.28`](#fastyle_settings---v0028)
+ - [`fastyle_buttons` - `v0.0.12+1`](#fastyle_buttons---v00121)
+ - [`fastyle_ad` - `v0.0.16+1`](#fastyle_ad---v00161)
+ - [`fastyle_financial` - `v0.0.20+1`](#fastyle_financial---v00201)
+ - [`fastyle_video_player` - `v0.0.11+1`](#fastyle_video_player---v00111)
+ - [`fastyle_iap` - `v0.0.15+1`](#fastyle_iap---v00151)
+ - [`fastyle_firebase` - `v0.0.13+1`](#fastyle_firebase---v00131)
+ - [`fastyle_layouts` - `v0.0.9+2`](#fastyle_layouts---v0092)
+ - [`fastyle_text` - `v0.0.7+1`](#fastyle_text---v0071)
+ - [`fastyle_views` - `v0.0.13+1`](#fastyle_views---v00131)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_buttons` - `v0.0.12+1`
+ - `fastyle_ad` - `v0.0.16+1`
+ - `fastyle_financial` - `v0.0.20+1`
+ - `fastyle_video_player` - `v0.0.11+1`
+ - `fastyle_iap` - `v0.0.15+1`
+ - `fastyle_firebase` - `v0.0.13+1`
+ - `fastyle_layouts` - `v0.0.9+2`
+ - `fastyle_text` - `v0.0.7+1`
+ - `fastyle_views` - `v0.0.13+1`
+
+---
+
+#### `fastyle_animation` - `v0.0.6`
+
+ - **REFACTOR**: animation folder structure.
+ - **FEAT**: make reactive FastTyrcordAnimatedLogoState.
+ - **FEAT**: initial commit for tyrcord logo animation.
+
+#### `fastyle_calculator` - `v1.33.0`
+
+ - **FEAT**: initial commit for tyrcord logo animation.
+
+#### `fastyle_charts` - `v0.0.10`
+
+ - **FEAT**: initial commit for tyrcord logo animation.
+
+#### `fastyle_connectivity` - `v0.0.20`
+
+ - **FEAT**: initial commit for tyrcord logo animation.
+
+#### `fastyle_core` - `v0.0.23`
+
+ - **FEAT**: add noneTextGender property to select field.
+
+#### `fastyle_digit_calculator` - `v0.0.22`
+
+ - **FEAT**: initial commit for tyrcord logo animation.
+
+#### `fastyle_forms` - `v0.0.23`
+
+ - **FEAT**: initial commit for tyrcord logo animation.
+
+#### `fastyle_home` - `v0.0.18`
+
+ - **FEAT**: initial commit for tyrcord logo animation.
+
+#### `fastyle_images` - `v0.0.26`
+
+ - **FEAT**: initial commit for tyrcord logo animation.
+
+#### `fastyle_onboarding` - `v0.0.25`
+
+ - **FEAT**: initial commit for tyrcord logo animation.
+
+#### `fastyle_pricing` - `v1.20.0`
+
+ - **FEAT**: initial commit for tyrcord logo animation.
+
+#### `fastyle_quizz` - `v0.0.6`
+
+ - **FEAT**: initial commit for tyrcord logo animation.
+
+#### `fastyle_settings` - `v0.0.28`
+
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: add more callbacks.
+
+
 ## 2023-09-21
 
 ### Changes

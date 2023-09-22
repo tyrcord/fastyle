@@ -12,8 +12,8 @@ dependencies:
     sdk: flutter
 
   # Fastyle
-  fastyle_core: ^0.0.22
-  fastyle_forms: ^0.0.22
+  fastyle_core: ^0.0.23
+  fastyle_forms: ^0.0.23
   easy_localization: ^3.0.3
 
   # T

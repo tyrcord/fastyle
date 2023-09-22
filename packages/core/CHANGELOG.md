@@ -1,3 +1,7 @@
+## 0.0.23
+
+ - **FEAT**: add noneTextGender property to select field.
+
 ## 0.0.22
 
  - **FEAT**: localize packages.

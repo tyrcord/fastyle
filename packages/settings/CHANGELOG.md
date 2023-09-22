@@ -1,3 +1,8 @@
+## 0.0.28
+
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: add more callbacks.
+
 ## 0.0.27
 
  - **FEAT**: localize packages.
