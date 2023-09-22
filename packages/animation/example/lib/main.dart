@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
       color: Colors.white,
       child: const SafeArea(
         child: Center(
-          child: RectAnimationPainter(),
+          child: FastTyrcordAnimatedLogo(),
         ),
       ),
     );

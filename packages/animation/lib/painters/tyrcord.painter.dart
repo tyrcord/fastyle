@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class RectAnimationPainter extends StatefulWidget {
-  const RectAnimationPainter({super.key});
+class FastTyrcordAnimatedLogo extends StatefulWidget {
+  const FastTyrcordAnimatedLogo({super.key});
 
   @override
-  _RectAnimationPainterState createState() => _RectAnimationPainterState();
+  FastTyrcordAnimatedLogoState createState() => FastTyrcordAnimatedLogoState();
 }
 
-class _RectAnimationPainterState extends State<RectAnimationPainter>
+class FastTyrcordAnimatedLogoState extends State<FastTyrcordAnimatedLogo>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
@@ -33,8 +33,8 @@ class _RectAnimationPainterState extends State<RectAnimationPainter>
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: RectPainter(animationController: _controller),
-      size: const Size(512, 512),
+      painter: FastTyrcordLogoPainter(animationController: _controller),
+      size: const Size(64, 64),
     );
   }
 
@@ -45,52 +45,51 @@ class _RectAnimationPainterState extends State<RectAnimationPainter>
   }
 }
 
-class RectPainter extends CustomPainter {
+class FastTyrcordLogoPainter extends CustomPainter {
   final AnimationController animationController;
+  final Color color;
 
-  RectPainter({
+  FastTyrcordLogoPainter({
     required this.animationController,
+    this.color = const Color(0xFF434343),
   }) : super(repaint: animationController);
-
-  static const double RECT_WIDTH = 64.0;
-  static const double RECT_HEIGHT = 64.0;
-  static const Color FILL_COLOR = Color(0xFF434343);
 
   @override
   void paint(Canvas canvas, Size size) {
     final double progress = animationController.value;
 
-    final paint = Paint()..color = FILL_COLOR;
+    final paint = Paint()..color = color;
+
+    final double rectWidth = size.width * 0.125; // 12.5% of canvas width
+    final double rectHeight = size.height * 0.125; // 12.5% of canvas height
 
     // Top-left rectangle
-    final double tlStartX = 92;
+    final double tlStartX = size.width * 0.18; // 18% of canvas width
     final double tlX = tlStartX - tlStartX * progress;
-    final double tlWidth = tlStartX - tlX + RECT_WIDTH;
-    canvas.drawRect(Rect.fromLTWH(tlX, 0, tlWidth, RECT_HEIGHT), paint);
+    final double tlWidth = tlStartX - tlX + rectWidth;
+    canvas.drawRect(Rect.fromLTWH(tlX, 0, tlWidth, rectHeight), paint);
 
     // Top-right rectangle
-    final double trStartX = 180;
-    final double trEndWidth = 332;
-    final double trWidth = progress * (trEndWidth - RECT_WIDTH) + RECT_WIDTH;
-    canvas.drawRect(Rect.fromLTWH(trStartX, 0, trWidth, RECT_HEIGHT), paint);
+    final double trStartX = size.width * 0.35; // 35% of canvas width
+    final double trEndWidth = size.width * 0.65; // 65% of canvas width
+    final double trWidth = progress * (trEndWidth - rectWidth) + rectWidth;
+    canvas.drawRect(Rect.fromLTWH(trStartX, 0, trWidth, rectHeight), paint);
 
     // Bottom-right rectangle
-    final double brStartX = 180;
-    final double brStartY = 448;
-    final double brEndHeight = 448;
-    final double brHeight =
-        progress * (brEndHeight - RECT_HEIGHT) + RECT_HEIGHT;
-    final double brY = brStartY - brHeight + RECT_HEIGHT;
-    canvas.drawRect(Rect.fromLTWH(brStartX, brY, RECT_WIDTH, brHeight), paint);
+    final double brStartX = size.width * 0.35; // 35% of canvas width
+    final double brStartY = size.height * 0.875; // 87.5% of canvas height
+    final double brEndHeight = size.height * 0.875; // 87.5% of canvas height
+    final double brHeight = progress * (brEndHeight - rectHeight) + rectHeight;
+    final double brY = brStartY - brHeight + rectHeight;
+    canvas.drawRect(Rect.fromLTWH(brStartX, brY, rectWidth, brHeight), paint);
 
     // Bottom-left rectangle
-    final double blStartX = 92;
-    final double blStartY = 448;
-    final double blEndHeight = 424;
-    final double blHeight =
-        progress * (blEndHeight - RECT_HEIGHT) + RECT_HEIGHT;
-    final double blY = blStartY - blHeight + RECT_HEIGHT;
-    canvas.drawRect(Rect.fromLTWH(blStartX, blY, RECT_WIDTH, blHeight), paint);
+    final double blStartX = size.width * 0.18; // 18% of canvas width
+    final double blStartY = size.height * 0.875; // 87.5% of canvas height
+    final double blEndHeight = size.height * 0.83; // 83% of canvas height
+    final double blHeight = progress * (blEndHeight - rectHeight) + rectHeight;
+    final double blY = blStartY - blHeight + rectHeight;
+    canvas.drawRect(Rect.fromLTWH(blStartX, blY, rectWidth, blHeight), paint);
   }
 
   @override
