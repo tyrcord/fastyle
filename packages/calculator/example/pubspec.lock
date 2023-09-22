@@ -215,21 +215,21 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.11"
+    version: "0.0.12"
   fastyle_calculator:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "1.31.0"
+    version: "1.32.0"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.21"
+    version: "0.0.22"
   ffi:
     dependency: transitive
     description:

@@ -1,0 +1,26 @@
+name: fastyle_animation_example
+description: A new Flutter project.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.1.2 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Fastyle
+  fastyle_core: ^0.0.22
+  fastyle_animation: ^0.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.3
+
+flutter:
+  uses-material-design: true

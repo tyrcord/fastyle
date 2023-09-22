@@ -9,6 +9,13 @@
       "program": "packages/ad/example/lib/main.dart"
     },
     {
+      "name": "Animations",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "packages/animation/example/lib/main.dart"
+    },
+    {
       "name": "Buttons",
       "request": "launch",
       "type": "dart",
