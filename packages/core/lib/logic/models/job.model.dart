@@ -22,7 +22,7 @@ abstract class FastJob {
   final Duration timeLimit;
 
   const FastJob({
-    this.timeLimit = const Duration(seconds: 15),
+    this.timeLimit = kFastAsyncTimeout,
     this.requestUserInteraction = false,
     this.debugLabel,
   });
