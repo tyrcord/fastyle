@@ -18,6 +18,8 @@ abstract class FastJob {
   final bool requestUserInteraction;
   @protected
   final String? debugLabel;
+
+  /// The time limit for the job to complete.
   @protected
   final Duration timeLimit;
 
