@@ -70,8 +70,8 @@ const kFastDefaultRoutes = <GoRoute>[];
 /// The path to the localization files for Fast App.
 const kFastLocalizationPath = 'i18n/';
 
-/// The duration to delay before showing the loader in Fast App.
-const kFastDelayBeforeShowingLoader = Duration(seconds: 1);
+/// The delay period before presenting the loader in Fast App.
+const kFastDelayBeforeShowingLoader = Duration(seconds: 2);
 
 /// Default duration before refreshing data in Fast App.
 const kFastRefreshTimeout = Duration(seconds: 60);
