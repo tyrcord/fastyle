@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_connectivity/fastyle_connectivity.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 
 void main() {
@@ -35,17 +34,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return const FastSectionPage(
       titleText: 'Fast Connectivity Example',
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            FastConnectivityStatusListener(
-              showDescription: true,
-            ),
-          ],
-        ),
-      ),
-      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
