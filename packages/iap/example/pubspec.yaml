@@ -10,17 +10,23 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_core: ^0.0.23
+
+  # Public
   go_router: ^10.2.0
   font_awesome_flutter: ^10.5.0
   easy_localization: ^3.0.3
-  tbloc: ^0.21.4
+
+  # Fastyle
+  fastyle_core: ^0.0.23
   fastyle_iap: ^0.0.15+1
   fastyle_pricing: ^1.20.0
 
   # Lingua
-  lingua_core: ^0.0.17
+  lingua_core: ^0.0.27
   lingua_purchases: ^0.0.14
+
+  # T
+  tbloc: ^0.21.4
 
 dev_dependencies:
   flutter_test:

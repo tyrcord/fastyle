@@ -33,6 +33,7 @@ dependencies:
   shimmer: ^3.0.0
   decimal: ^2.3.3
   device_info_plus: ^9.0.3
+  connectivity_plus: ^4.0.2
 
   # Fastyle
   fastyle_buttons: ^0.0.12+1

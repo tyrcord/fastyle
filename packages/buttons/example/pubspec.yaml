@@ -13,7 +13,7 @@ dependencies:
   easy_localization: ^3.0.3
 
   # Lingua
-  lingua_core: ^0.0.26
+  lingua_core: ^0.0.27
   fastyle_core: ^0.0.23
   fastyle_buttons: ^0.0.12+1
 
