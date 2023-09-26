@@ -42,6 +42,7 @@ class FastFirebaseApp extends FastApp {
     super.darkTheme,
     super.appInformation,
     super.useProIcons,
+    super.isInternetConnectionRequired,
     this.defaultRemoteConfig,
     this.firebaseOptions,
     String? localizationPath,

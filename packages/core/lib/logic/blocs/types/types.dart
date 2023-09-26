@@ -4,3 +4,4 @@ export 'app_features.type.dart';
 export 'app_dict.type.dart';
 export 'app_onboarding.type.dart';
 export './app_permissions.type.dart';
+export 'connectivity_status.type.dart';

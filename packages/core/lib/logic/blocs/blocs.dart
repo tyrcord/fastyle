@@ -15,3 +15,4 @@ export './media_layout.bloc.dart';
 export './navigation-master-details.bloc.dart';
 export './theme.bloc.dart';
 export './app_permissions.bloc.dart';
+export 'connectivity_status.bloc.dart';

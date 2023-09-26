@@ -96,6 +96,8 @@ class FastApp extends StatefulWidget {
 
   final List<FastDictEntryEntity>? defaultAppDictEntries;
 
+  final bool isInternetConnectionRequired;
+
   FastApp({
     super.key,
     this.delayBeforeShowingLoader = kFastDelayBeforeShowingLoader,
@@ -121,11 +123,13 @@ class FastApp extends StatefulWidget {
     Locale? fallbackLocale,
     bool? useProIcons,
     bool? overrideLoaderJobs,
+    bool? isInternetConnectionRequired,
     this.defaultAppDictEntries,
   })  : useProIcons = useProIcons ?? false,
         overrideLoaderJobs = overrideLoaderJobs ?? false,
         assetLoader = assetLoader ?? const LinguaLoader(),
         localizationPath = localizationPath ?? kFastLocalizationPath,
+        isInternetConnectionRequired = isInternetConnectionRequired ?? true,
         fallbackLocale = fallbackLocale ?? kFastAppSettingsDefaultLocale {
     appInfo = appInformation ?? kFastAppInfo;
   }
@@ -175,6 +179,8 @@ class _FastAppState extends State<FastApp> {
         child: FastMediaLayoutObserver(
           child: MultiBlocProvider(
             blocProviders: [
+              if (widget.isInternetConnectionRequired)
+                BlocProvider(bloc: FastConnectivityStatusBloc()),
               BlocProvider(bloc: FastAppInfoBloc()),
               BlocProvider(bloc: FastAppPermissionsBloc()),
               BlocProvider(bloc: FastAppSettingsBloc()),
@@ -222,14 +228,25 @@ class _FastAppState extends State<FastApp> {
           delayBeforeShowingLoader: widget.delayBeforeShowingLoader,
           supportedLocales: widget.appInfo.supportedLocales,
           localizationsDelegates: easyLocalization.delegates,
+          errorBuilder: widget.errorBuilder ?? handleAppError,
           errorReporter: widget.errorReporter,
           loaderBuilder: widget.loaderBuilder,
           locale: easyLocalization.locale,
           loaderJobs: _getLoaderJobs(),
-          appBuilder: buildApp,
+          appBuilder: (context) {
+            if (widget.isInternetConnectionRequired) {
+              return FastConnectivityStatusBuilder(
+                disconnectedBuilder: (context) => FastConnectivityStatusPage(
+                  onRetryTap: () => FastApp.restart(context),
+                ),
+                connectedBuilder: (context) => buildApp(context),
+              );
+            }
+
+            return buildApp(context);
+          },
           lightTheme: widget.lightTheme,
           darkTheme: widget.darkTheme,
-          errorBuilder: widget.errorBuilder ?? handleAppError,
         ),
       ),
     );
@@ -237,10 +254,6 @@ class _FastAppState extends State<FastApp> {
 
   /// Builds the main app widget.
   Widget buildApp(BuildContext context) {
-    // TODO:
-    // If required by the app, add a listener on the internet connection status
-    // and show a widget that indicates that the app has no internet connection.
-
     return FastAppSettingsThemeBuilder(
       builder: (context, state) {
         final easyLocalization = EasyLocalization.of(context)!;
@@ -319,6 +332,13 @@ class _FastAppState extends State<FastApp> {
   Widget handleAppError(BuildContext context, dynamic error) {
     debugLog('error: $error', debugLabel: debugLabel);
 
+    if (widget.isInternetConnectionRequired &&
+        error is FastConnectivityStatusBlocState) {
+      return FastConnectivityStatusPage(
+        onRetryTap: () => FastApp.restart(context),
+      );
+    }
+
     return FastErrorStatusPage(
       onRetryTap: () => FastApp.restart(context),
     );
@@ -336,6 +356,7 @@ class _FastAppState extends State<FastApp> {
         widget.appInfo,
         onDatabaseVersionChanged: widget.onDatabaseVersionChanged,
       ),
+      if (widget.isInternetConnectionRequired) FastAppConnectivityJob(),
       FastAppPermissionsJob(),
       FastAppSettingsJob(),
       FastAppDictJob(defaultEntries: widget.defaultAppDictEntries),

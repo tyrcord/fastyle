@@ -40,6 +40,10 @@ class FastStatusPage extends StatelessWidget {
   /// The icon to be displayed on the page.
   final Widget? icon;
 
+  final Widget? child;
+
+  final String? subTitleText;
+
   /// Creates a [FastStatusPage].
   ///
   /// The [titleText] parameter is required.
@@ -57,6 +61,8 @@ class FastStatusPage extends StatelessWidget {
     this.iconColor,
     this.backgroundColor,
     this.icon,
+    this.child,
+    this.subTitleText,
   });
 
   @override
@@ -95,10 +101,23 @@ class FastStatusPage extends StatelessWidget {
           buildIcon(),
           kFastSizedBox64,
         ],
+        if (subTitleText != null)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: FastSubhead(
+              textAlign: TextAlign.center,
+              text: subTitleText!,
+            ),
+          ),
         if (descriptionText != null)
           FastBody(
             textAlign: TextAlign.center,
             text: descriptionText!,
+          ),
+        if (child != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 24.0),
+            child: child,
           ),
       ],
     );

@@ -12,6 +12,7 @@ export './edge_insets.constants.dart';
 export './sized_box.constants.dart';
 export './app_info.constants.dart';
 export 'font_awesome.constants.dart';
+export './connectivity_constants.dart';
 
 const kFastSettingThemeModeMap = {
   'system': ThemeMode.system,

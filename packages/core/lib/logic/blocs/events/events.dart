@@ -8,3 +8,4 @@ export './media_layout.event.dart';
 export './navigation-master-details.event.dart';
 export './theme.event.dart';
 export './app_permissions.event.dart';
+export 'connectivity_status.event.dart';
