@@ -22,7 +22,7 @@ dependencies:
   fastyle_pricing: ^1.20.0
 
   # Lingua
-  lingua_core: ^0.0.27
+  lingua_core: ^0.0.28
   lingua_purchases: ^0.0.14
 
   # T
