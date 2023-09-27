@@ -4,8 +4,8 @@ version: 0.0.20
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/connectivity
 
 environment:
-  sdk: ">=3.1.0 <4.0.0"
-  flutter: ">=3.13.0"
+  sdk: ">=3.1.2 <4.0.0"
+  flutter: ">=3.13.5"
 
 dependencies:
   flutter:
@@ -21,8 +21,8 @@ dependencies:
   fastyle_core: ^0.0.23
 
   # T
-  tmodel: ^0.5.8+1
-  tbloc: ^0.21.4
+  tmodel: ^0.5.9
+  tbloc: ^0.21.5
 
   # Lingua
   lingua_core: ^0.0.27

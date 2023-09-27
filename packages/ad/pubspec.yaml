@@ -4,8 +4,8 @@ version: 0.0.16+1
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/ad
 
 environment:
-  sdk: ">=3.1.0 <4.0.0"
-  flutter: ">=3.13.0"
+  sdk: ">=3.1.2 <4.0.0"
+  flutter: ">=3.13.5"
 
 dependencies:
   flutter:
@@ -28,11 +28,11 @@ dependencies:
   fastyle_images: ^0.0.26
 
   # T
-  tbloc: ^0.21.4
-  tmodel: ^0.5.8
-  t_helpers: ^0.0.29+1
-  tstore: ^0.8.15
-  t_cache: ^0.0.6
+  tbloc: ^0.21.5
+  tmodel: ^0.5.9
+  t_helpers: ^0.0.30
+  tstore: ^0.8.16
+  t_cache: ^0.0.7
 
   # Lingua
   lingua_core: ^0.0.27

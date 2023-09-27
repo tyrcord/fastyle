@@ -3,8 +3,8 @@ description: Set of quizz Widgets for the fastyle library.
 version: 0.0.6
 
 environment:
-  sdk: ">=3.1.0 <4.0.0"
-  flutter: ">=3.13.0"
+  sdk: ">=3.1.2 <4.0.0"
+  flutter: ">=3.13.5"
 
 dependencies:
   flutter:

@@ -4,8 +4,8 @@ version: 0.0.15+1
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/iap
 
 environment:
-  sdk: ">=3.1.0 <4.0.0"
-  flutter: ">=3.13.0"
+  sdk: ">=3.1.2 <4.0.0"
+  flutter: ">=3.13.5"
 
 dependencies:
   flutter:
@@ -29,9 +29,9 @@ dependencies:
 
   # T
   tstore: ^0.8.15
-  tbloc: ^0.21.4
+  tbloc: ^0.21.5
   tmodel: ^0.5.8
-  t_helpers: ^0.0.29+1
+  t_helpers: ^0.0.30
 
 dev_dependencies:
   flutter_test:

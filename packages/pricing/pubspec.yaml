@@ -4,8 +4,8 @@ version: 1.20.0
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/pricing
 
 environment:
-  sdk: ">=3.1.0 <4.0.0"
-  flutter: ">=3.13.0"
+  sdk: ">=3.1.2 <4.0.0"
+  flutter: ">=3.13.5"
 
 dependencies:
   flutter:
@@ -23,7 +23,7 @@ dependencies:
   lingua_purchases: ^0.0.14
 
   # T
-  tbloc: ^0.21.4
+  tbloc: ^0.21.5
 
 dev_dependencies:
   flutter_test:

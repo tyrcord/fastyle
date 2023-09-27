@@ -4,8 +4,8 @@ version: 0.0.28
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/settings
 
 environment:
-  sdk: ">=3.1.0 <4.0.0"
-  flutter: ">=3.13.0"
+  sdk: ">=3.1.2 <4.0.0"
+  flutter: ">=3.13.5"
 
 dependencies:
   flutter:
@@ -17,8 +17,8 @@ dependencies:
   easy_localization: ^3.0.3
 
   # T
-  tbloc: ^0.21.4
-  t_helpers: ^0.0.29+1
+  tbloc: ^0.21.5
+  t_helpers: ^0.0.30
 
   # Fastyle
   fastyle_images: ^0.0.26

@@ -4,8 +4,8 @@ version: 0.0.20+1
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/fastyle_financial
 
 environment:
-  sdk: ">=3.1.0 <4.0.0"
-  flutter: ">=3.13.0"
+  sdk: ">=3.1.2 <4.0.0"
+  flutter: ">=3.13.5"
 
 dependencies:
   flutter:
@@ -27,8 +27,8 @@ dependencies:
   matex_dart: ^0.11.1
 
   # T
-  t_helpers: ^0.0.29+1
-  tbloc: ^0.21.4
+  t_helpers: ^0.0.30
+  tbloc: ^0.21.5
 
 dev_dependencies:
   flutter_test:

@@ -318,10 +318,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: e1a30a66d734f9e498b1b6522d6a75ded28242bad2359a9158df38a1c30bcf1f
+      sha256: "4b58412b92bd7d588f904425ef6d41a017da1f097e5e9428d2c27d275777e16e"
       url: "https://pub.dev"
     source: hosted
-    version: "10.2.0"
+    version: "11.1.1"
   google_fonts:
     dependency: transitive
     description:
@@ -779,26 +779,26 @@ packages:
     dependency: transitive
     description:
       name: subx
-      sha256: "031c7b3658ade79c95aee5e56dbb5b36bf3d7852a97b556be5be4523b9624a8e"
+      sha256: "30cc7be703797dcf024a02f112eca3246e263cc53c2054a1939c7c8ef77101de"
       url: "https://pub.dev"
     source: hosted
-    version: "1.8.0"
+    version: "1.9.0"
   t_helpers:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: "9c023cddadcdb859bd5f8617f032ce8c413b5c1dd23703a85220d11ea8a4540d"
+      sha256: d43e0e904198a90ec50e06c3308a1bde2808aa6adc2925cb2a9b672df726f1b2
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.29+1"
+    version: "0.0.30"
   tbloc:
     dependency: transitive
     description:
       name: tbloc
-      sha256: "6dc76aa8c1bfbbc9f070ecbde2a9a0adddf3047ac7760b8fa8494958ab3e2500"
+      sha256: c140dc6fa8093cbebabb45ec65a91ddea9f2c6587765c54e33262d1466462532
       url: "https://pub.dev"
     source: hosted
-    version: "0.21.4"
+    version: "0.21.5"
   term_glyph:
     dependency: transitive
     description:
@@ -827,18 +827,18 @@ packages:
     dependency: transitive
     description:
       name: tmodel
-      sha256: "2f2a13a96832b818237e23f13ededdb0ac04b1ffe106767ca0ea96bd0decb597"
+      sha256: "3aedb657acd02433df29aea0a64eae44886beaa900b6dc5f3aa583c1918eebf0"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.8+1"
+    version: "0.5.9"
   tstore:
     dependency: transitive
     description:
       name: tstore
-      sha256: f828dbf5359456fe4e8951bd53d0b4f56a54c33d388097dcc75803c693c9fde2
+      sha256: "3fc3b792fa2e0da5a2fb809151502b475cb57b4d31d14896e85730baa87bc5c7"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.15+1"
+    version: "0.8.16"
   tsub:
     dependency: transitive
     description:
@@ -1016,5 +1016,5 @@ packages:
     source: hosted
     version: "3.1.2"
 sdks:
-  dart: ">=3.1.0 <4.0.0"
-  flutter: ">=3.13.0"
+  dart: ">=3.1.2 <4.0.0"
+  flutter: ">=3.13.5"
