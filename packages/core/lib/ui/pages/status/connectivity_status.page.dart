@@ -50,44 +50,13 @@ class FastConnectivityStatusPage extends FastStatusPage {
           CoreLocaleKeys.core_message_require_internet_connection.tr(),
       descriptionText: descriptionText ??
           CoreLocaleKeys.core_message_try_steps_back_online.tr(),
-      child: buildInstructions(context),
-    );
-  }
-
-  Widget buildInstructions(BuildContext context) {
-    return IntrinsicWidth(
-      child: Column(
-        children: [
-          _buildInstructionRow(
-            context,
-            instruction:
-                CoreLocaleKeys.core_help_check_your_modem_and_router.tr(),
-          ),
-          kFastVerticalSizedBox12,
-          _buildInstructionRow(
-            context,
-            instruction:
-                CoreLocaleKeys.core_help_reconnect_to_your_wifi_network.tr(),
-          ),
+      child: FastInstructions(
+        instructions: [
+          CoreLocaleKeys.core_help_check_your_modem_and_router.tr(),
+          CoreLocaleKeys.core_help_reconnect_to_your_wifi_network.tr(),
+          CoreLocaleKeys.core_help_issue_persist_contact_support.tr(),
         ],
       ),
-    );
-  }
-
-  Widget _buildInstructionRow(
-    BuildContext context, {
-    required String instruction,
-  }) {
-    return Row(
-      children: [
-        FastRoundedDuotoneIcon(
-          palette: ThemeHelper.getPaletteColors(context).green,
-          icon: const FaIcon(FontAwesomeIcons.check),
-          size: kFastIconSizeXs,
-        ),
-        kFastHorizontalSizedBox6,
-        FastSecondaryBody(text: instruction),
-      ],
     );
   }
 

@@ -26,6 +26,7 @@ class FastErrorStatusPage extends FastStatusPage {
     super.iconColor,
     super.palette,
     super.icon,
+    super.subTitleText,
     VoidCallback? onRetryTap,
     String? retryButtonText,
   }) : super(validButtonText: retryButtonText, onValidTap: onRetryTap);
@@ -34,7 +35,7 @@ class FastErrorStatusPage extends FastStatusPage {
   Widget build(BuildContext context) {
     return FastStatusPage(
       validButtonText: validButtonText ?? CoreLocaleKeys.core_label_retry.tr(),
-      titleText: CoreLocaleKeys.core_label_error.tr(),
+      titleText: titleText ?? CoreLocaleKeys.core_message_whoops.tr(),
       palette: _getPaletteColor(context),
       backgroundColor: backgroundColor,
       contentPadding: contentPadding,
@@ -44,8 +45,18 @@ class FastErrorStatusPage extends FastStatusPage {
       iconColor: iconColor,
       cancelButtonText:
           cancelButtonText ?? CoreLocaleKeys.core_label_cancel.tr(),
+      subTitleText: subTitleText ??
+          CoreLocaleKeys.core_error_error_occurred_exclamation.tr(),
       descriptionText:
-          descriptionText ?? CoreLocaleKeys.core_error_error_occurred.tr(),
+          descriptionText ?? CoreLocaleKeys.core_help_several_reasons.tr(),
+      child: FastInstructions(
+        instructions: [
+          CoreLocaleKeys.core_help_ensure_app_up_to_date.tr(),
+          CoreLocaleKeys.core_help_restart_device_check_connection.tr(),
+          CoreLocaleKeys.core_help_service_not_available_current_location.tr(),
+          CoreLocaleKeys.core_help_issue_persist_contact_support.tr(),
+        ],
+      ),
     );
   }
 
@@ -67,9 +78,9 @@ class FastErrorStatusPage extends FastStatusPage {
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return const FaIcon(FastFontAwesomeIcons.lightCircleExclamation);
+      return const FaIcon(FastFontAwesomeIcons.lightTriangleExclamation);
     }
 
-    return const FaIcon(FontAwesomeIcons.circleExclamation);
+    return const FaIcon(FontAwesomeIcons.triangleExclamation);
   }
 }

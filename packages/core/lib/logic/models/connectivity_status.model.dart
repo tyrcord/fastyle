@@ -4,29 +4,34 @@ import 'package:tmodel/tmodel.dart';
 
 class FastConnectivityStatus extends TModel {
   final ConnectivityResult connectivityResult;
-  final bool hasConnection;
+  final bool isConnected;
+  final bool isServiceAvailable;
 
   const FastConnectivityStatus({
     required this.connectivityResult,
-    required this.hasConnection,
+    required this.isConnected,
+    required this.isServiceAvailable,
   });
 
   @override
   FastConnectivityStatus clone() {
     return FastConnectivityStatus(
       connectivityResult: connectivityResult,
-      hasConnection: hasConnection,
+      isConnected: isConnected,
+      isServiceAvailable: isServiceAvailable,
     );
   }
 
   @override
   FastConnectivityStatus copyWith({
     ConnectivityResult? connectivityResult,
-    bool? hasConnection,
+    bool? isConnected,
+    bool? isServiceAvailable,
   }) {
     return FastConnectivityStatus(
       connectivityResult: connectivityResult ?? this.connectivityResult,
-      hasConnection: hasConnection ?? this.hasConnection,
+      isConnected: isConnected ?? this.isConnected,
+      isServiceAvailable: isServiceAvailable ?? this.isServiceAvailable,
     );
   }
 
@@ -34,10 +39,12 @@ class FastConnectivityStatus extends TModel {
   FastConnectivityStatus merge(covariant FastConnectivityStatus model) {
     return copyWith(
       connectivityResult: model.connectivityResult,
-      hasConnection: model.hasConnection,
+      isConnected: model.isConnected,
+      isServiceAvailable: model.isServiceAvailable,
     );
   }
 
   @override
-  List<Object> get props => [connectivityResult, hasConnection];
+  List<Object> get props =>
+      [connectivityResult, isConnected, isServiceAvailable];
 }

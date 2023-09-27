@@ -24,7 +24,7 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
   FastConnectivityStatusBloc._({FastConnectivityStatusBlocState? initialState})
       : super(
           initialState: initialState ??
-              FastConnectivityStatusBlocState(hasConnection: false),
+              FastConnectivityStatusBlocState(isConnected: false),
         );
 
   @override
@@ -67,13 +67,15 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
       subxList.add(service.onInternetConnectivityChanged.listen((status) {
         if (isInitialized) {
           addEvent(FastConnectivityStatusBlocEvent.connectivityStatusChanged(
-            status.hasConnection,
+            status.isConnected,
+            status.isServiceAvailable,
           ));
         }
       }));
 
       addEvent(FastConnectivityStatusBlocEvent.initialized(
-        await service.checkInternetConnectivity(),
+        await service.checkDeviceConnectivity(),
+        await service.checkServiceConnectivity(),
       ));
     }
   }
@@ -85,7 +87,8 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
       isInitialized = true;
 
       yield currentState.copyWith(
-        hasConnection: payload.hasConnection,
+        isServiceAvailable: payload.isServiceAvailable,
+        isConnected: payload.isConnected,
         isInitializing: isInitializing,
         isInitialized: isInitialized,
       );
@@ -95,6 +98,6 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
   FastConnectivityStatusBlocState _mapConnectivityStatusChangedToState(
     FastConnectivityStatusBlocEventPayload payload,
   ) {
-    return currentState.copyWith(hasConnection: payload.hasConnection);
+    return currentState.copyWith(isConnected: payload.isConnected);
   }
 }

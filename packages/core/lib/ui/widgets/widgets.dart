@@ -10,3 +10,4 @@ export './tabs/tabs.dart';
 export './transitions/transitions.dart';
 export './typography/typography.dart';
 export './views/views.dart';
+export './instructions.widget.dart';

@@ -14,11 +14,13 @@ class FastConnectivityStatusBlocEvent extends BlocEvent<
 
   factory FastConnectivityStatusBlocEvent.connectivityStatusChanged(
     bool hasConnection,
+    bool isServiceAvailable,
   ) {
     return FastConnectivityStatusBlocEvent(
       type: FastConnectivityStatusBlocEventType.connectivityStatusChanged,
       payload: FastConnectivityStatusBlocEventPayload(
-        hasConnection: hasConnection,
+        isServiceAvailable: isServiceAvailable,
+        isConnected: hasConnection,
       ),
     );
   }
@@ -32,20 +34,16 @@ class FastConnectivityStatusBlocEvent extends BlocEvent<
     );
   }
 
-  factory FastConnectivityStatusBlocEvent.initialized(bool hasConnection) {
+  factory FastConnectivityStatusBlocEvent.initialized(
+    bool hasConnection,
+    bool isServiceAvailable,
+  ) {
     return FastConnectivityStatusBlocEvent(
       type: FastConnectivityStatusBlocEventType.initialized,
       payload: FastConnectivityStatusBlocEventPayload(
-        hasConnection: hasConnection,
+        isServiceAvailable: isServiceAvailable,
+        isConnected: hasConnection,
       ),
     );
-  }
-
-  factory FastConnectivityStatusBlocEvent.disconnected() {
-    return FastConnectivityStatusBlocEvent.connectivityStatusChanged(false);
-  }
-
-  factory FastConnectivityStatusBlocEvent.connected() {
-    return FastConnectivityStatusBlocEvent.connectivityStatusChanged(true);
   }
 }

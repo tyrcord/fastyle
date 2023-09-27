@@ -30,8 +30,11 @@ class FastAppConnectivityJob extends FastJob {
       bloc.onData.where((state) => state.isInitialized),
     ]).first;
 
-    if (blocState is! FastConnectivityStatusBlocState ||
-        !blocState.hasConnection) {
+    if (blocState is! FastConnectivityStatusBlocState) {
+      throw blocState;
+    }
+
+    if (!blocState.isConnected || !blocState.isServiceAvailable) {
       throw blocState;
     }
   }

@@ -333,10 +333,19 @@ class _FastAppState extends State<FastApp> {
     debugLog('error: $error', debugLabel: debugLabel);
 
     if (widget.isInternetConnectionRequired &&
-        error is FastConnectivityStatusBlocState) {
-      return FastConnectivityStatusPage(
-        onRetryTap: () => FastApp.restart(context),
-      );
+        error is FastConnectivityStatusBlocState &&
+        error.isInitialized) {
+      final connectivityState = error;
+
+      if (!connectivityState.isConnected) {
+        return FastConnectivityStatusPage(
+          onRetryTap: () => FastApp.restart(context),
+        );
+      } else if (!connectivityState.isServiceAvailable) {
+        return FastServiceStatusPage(
+          onRetryTap: () => FastApp.restart(context),
+        );
+      }
     }
 
     return FastErrorStatusPage(

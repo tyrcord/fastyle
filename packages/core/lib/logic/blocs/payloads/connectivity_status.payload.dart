@@ -5,7 +5,8 @@ class FastConnectivityStatusBlocEventPayload {
   final Duration? checkInterval;
   final Duration? checkTimeout;
   final String? checkAddress;
-  final bool hasConnection;
+  final bool isConnected;
+  final bool isServiceAvailable;
   final int? checkPort;
 
   const FastConnectivityStatusBlocEventPayload({
@@ -13,6 +14,7 @@ class FastConnectivityStatusBlocEventPayload {
     this.checkTimeout = kFastConnectivityCheckTimeout,
     this.checkAddress = kFastConnectivityCheckAddress,
     this.checkPort = kFastConnectivityCheckPort,
-    this.hasConnection = false,
+    this.isConnected = false,
+    this.isServiceAvailable = false,
   });
 }

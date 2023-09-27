@@ -20,7 +20,7 @@ class FastConnectivityStatusBuilder extends StatelessWidget {
     return BlocBuilderWidget(
       bloc: FastConnectivityStatusBloc.instance,
       builder: (context, state) {
-        if (state.hasConnection) {
+        if (state.isConnected) {
           return Builder(builder: connectedBuilder ?? buildEmptyContainer);
         }
 

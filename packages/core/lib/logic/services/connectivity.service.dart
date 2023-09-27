@@ -49,28 +49,30 @@ class FastConnectivityService {
     ]).distinct();
   }
 
-  Future<bool> checkInternetConnectivity() async {
+  Future<bool> checkDeviceConnectivity() async {
     final connectivity = await Connectivity().checkConnectivity();
-    var hasConnection = connectivity != ConnectivityResult.none;
 
-    if (!hasConnection) {
-      return hasConnection;
-    }
+    return connectivity != ConnectivityResult.none;
+  }
 
+  Future<bool> checkServiceConnectivity() async {
     try {
+      print('checkServiceConnectivity: $checkAddress:$checkPort');
+
       final socket = await Socket.connect(
         checkAddress,
         checkPort,
         timeout: checkTimeout,
       );
 
-      socket.destroy();
-      hasConnection = true;
-    } catch (_) {
-      hasConnection = false;
-    }
+      await socket.close();
 
-    return hasConnection;
+      return true;
+    } catch (e) {
+      print('checkServiceConnectivity: $e');
+
+      return false;
+    }
   }
 
   Stream<FastConnectivityStatus>
@@ -80,8 +82,9 @@ class FastConnectivityService {
         .sampleTime(const Duration(milliseconds: 300))
         .asyncMap((event) async {
       return FastConnectivityStatus(
+        isServiceAvailable: await checkServiceConnectivity(),
+        isConnected: await checkDeviceConnectivity(),
         connectivityResult: event,
-        hasConnection: await checkInternetConnectivity(),
       );
     });
   }
@@ -90,7 +93,8 @@ class FastConnectivityService {
     return Stream.periodic(checkInterval).asyncMap((_) async {
       return FastConnectivityStatus(
         connectivityResult: await Connectivity().checkConnectivity(),
-        hasConnection: await checkInternetConnectivity(),
+        isServiceAvailable: await checkServiceConnectivity(),
+        isConnected: await checkDeviceConnectivity(),
       );
     });
   }
