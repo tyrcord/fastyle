@@ -218,8 +218,6 @@ class _FastAppState extends State<FastApp> {
   /// Builds the app loader widget that displays a loading screen while the app
   /// is being initialized.
   Widget buildAppLoader(BuildContext context) {
-    final easyLocalization = EasyLocalization.of(context)!;
-
     return FastIconHelper(
       useProIcons: widget.useProIcons,
       child: FastAppSettingsThemeListener(
@@ -227,17 +225,19 @@ class _FastAppState extends State<FastApp> {
           debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
           delayBeforeShowingLoader: widget.delayBeforeShowingLoader,
           supportedLocales: widget.appInfo.supportedLocales,
-          localizationsDelegates: easyLocalization.delegates,
           errorBuilder: widget.errorBuilder ?? handleAppError,
           errorReporter: widget.errorReporter,
           loaderBuilder: widget.loaderBuilder,
-          locale: easyLocalization.locale,
           loaderJobs: _getLoaderJobs(),
           appBuilder: (context) {
             if (widget.isInternetConnectionRequired) {
               return FastConnectivityStatusBuilder(
-                disconnectedBuilder: (context) => FastConnectivityStatusPage(
-                  onRetryTap: () => FastApp.restart(context),
+                disconnectedBuilder: (context) => FastEmptyApp(
+                  lightTheme: widget.lightTheme,
+                  darkTheme: widget.darkTheme,
+                  child: FastConnectivityStatusPage(
+                    onRetryTap: () => FastApp.restart(context),
+                  ),
                 ),
                 connectedBuilder: (context) => buildApp(context),
               );

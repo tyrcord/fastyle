@@ -16,7 +16,6 @@ import 'package:fastyle_core/fastyle_core.dart';
 abstract class FastJob {
   @protected
   final bool requestUserInteraction;
-  @protected
   final String? debugLabel;
 
   /// The time limit for the job to complete.
@@ -67,7 +66,7 @@ abstract class FastJob {
     operationAsync.catchError((dynamic error, StackTrace? stackTrace) {
       debugPrint('Job failed: $debugLabel');
       blocInitializationOperation.cancel();
-      completer.completeError(_transformError(error, stackTrace));
+      completer.completeError(_transformError(error, stackTrace), stackTrace);
     }).whenComplete(() {
       if (!completer.isCompleted) {
         debugPrint('Job completed: $debugLabel');

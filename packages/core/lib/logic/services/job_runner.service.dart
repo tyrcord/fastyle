@@ -47,9 +47,13 @@ class FastJobRunner {
                   errorReporter: errorReporter,
                 );
 
-                completer.complete(response);
+                if (!completer.isCompleted) {
+                  completer.complete(response);
+                }
               }, (error, stackTrace) {
-                completer.completeError(error, stackTrace);
+                if (!completer.isCompleted) {
+                  completer.completeError(error, stackTrace);
+                }
               });
             });
 

@@ -23,7 +23,6 @@ typedef FastAppLoaderErrorBuilder = Widget Function(
 );
 
 class FastAppLoader extends StatefulWidget {
-  final Iterable<LocalizationsDelegate>? localizationsDelegates;
   final FastAppLoaderErrorBuilder? errorBuilder;
   final FastAppLoaderBuilder? loaderBuilder;
   final IFastErrorReporter? errorReporter;
@@ -34,7 +33,6 @@ class FastAppLoader extends StatefulWidget {
   final WidgetBuilder appBuilder;
   final ThemeData? lightTheme;
   final ThemeData? darkTheme;
-  final Locale? locale;
 
   const FastAppLoader({
     super.key,
@@ -42,14 +40,12 @@ class FastAppLoader extends StatefulWidget {
     this.delayBeforeShowingLoader = const Duration(seconds: 1),
     this.supportedLocales = kFastSupportedLocales,
     this.debugShowCheckedModeBanner = false,
-    this.localizationsDelegates,
     this.loaderBuilder,
     this.errorReporter,
     this.errorBuilder,
     this.loaderJobs,
     this.lightTheme,
     this.darkTheme,
-    this.locale,
   });
 
   @override
@@ -60,14 +56,6 @@ class FastAppLoaderState extends State<FastAppLoader> {
   final _bloc = FastAppLoaderBloc();
   late final Timer _delayTimer;
   bool _canShowLoader = false;
-
-  Iterable<LocalizationsDelegate<dynamic>> get _localizationsDelegates {
-    return <LocalizationsDelegate<dynamic>>[
-      if (widget.localizationsDelegates != null)
-        ...widget.localizationsDelegates!,
-      DefaultWidgetsLocalizations.delegate,
-    ];
-  }
 
   @override
   void initState() {
@@ -147,41 +135,10 @@ class FastAppLoaderState extends State<FastAppLoader> {
   }
 
   Widget buildEmptyApp({required Widget child}) {
-    return BlocBuilderWidget(
-      bloc: FastThemeBloc.instance,
-      builder: (BuildContext context, state) {
-        final appLocale = widget.locale ?? kFastAppSettingsDefaultLocale;
-        final useDarkTheme = state.brightness == Brightness.dark;
-        var theme = widget.lightTheme ?? FastTheme.light.blue;
-
-        if (useDarkTheme && widget.darkTheme != null) {
-          theme = widget.darkTheme ?? FastTheme.dark.blue;
-        }
-
-        return Localizations(
-          delegates: _localizationsDelegates.toList(),
-          locale: appLocale,
-          child: MediaQuery.fromView(
-            view: View.of(context),
-            child: AnimatedTheme(
-              data: theme,
-              child: Builder(
-                builder: (context) {
-                  final colors = ThemeHelper.colors;
-                  final backgroundColor = colors.getPrimaryBackgroundColor(
-                    context,
-                  );
-
-                  return ColoredBox(
-                    color: backgroundColor,
-                    child: FastPageLayout(child: child),
-                  );
-                },
-              ),
-            ),
-          ),
-        );
-      },
+    return FastEmptyApp(
+      lightTheme: widget.lightTheme,
+      darkTheme: widget.darkTheme,
+      child: child,
     );
   }
 }

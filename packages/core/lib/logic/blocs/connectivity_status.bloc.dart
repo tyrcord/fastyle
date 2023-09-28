@@ -1,4 +1,5 @@
 // Package imports:
+import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
 
 // Project imports:
@@ -73,9 +74,21 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
         }
       }));
 
+      bool validator(bool result) => result == true;
+
+      final isDeviceConnected = await retry<bool>(
+        task: service.checkDeviceConnectivity,
+        validate: validator,
+      );
+
+      final isServiceAvailable = await retry<bool>(
+        task: service.checkServiceConnectivity,
+        validate: validator,
+      );
+
       addEvent(FastConnectivityStatusBlocEvent.initialized(
-        await service.checkDeviceConnectivity(),
-        await service.checkServiceConnectivity(),
+        isDeviceConnected,
+        isServiceAvailable,
       ));
     }
   }
@@ -98,6 +111,9 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
   FastConnectivityStatusBlocState _mapConnectivityStatusChangedToState(
     FastConnectivityStatusBlocEventPayload payload,
   ) {
-    return currentState.copyWith(isConnected: payload.isConnected);
+    return currentState.copyWith(
+      isServiceAvailable: payload.isServiceAvailable,
+      isConnected: payload.isConnected,
+    );
   }
 }
