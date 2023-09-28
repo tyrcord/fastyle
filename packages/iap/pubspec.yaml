@@ -31,7 +31,7 @@ dependencies:
   tstore: ^0.8.15
   tbloc: ^0.21.5
   tmodel: ^0.5.8
-  t_helpers: ^0.0.30
+  t_helpers: ^0.0.31
 
 dev_dependencies:
   flutter_test:

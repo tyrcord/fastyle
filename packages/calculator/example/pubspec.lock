@@ -875,10 +875,10 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: d43e0e904198a90ec50e06c3308a1bde2808aa6adc2925cb2a9b672df726f1b2
+      sha256: "187297938f36fda113d029821a2c7ad43b5ccf63c6e4ed9e6346151ca170b3da"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.30"
+    version: "0.0.31"
   tbloc:
     dependency: "direct main"
     description:
@@ -915,10 +915,10 @@ packages:
     dependency: transitive
     description:
       name: tmodel
-      sha256: "3aedb657acd02433df29aea0a64eae44886beaa900b6dc5f3aa583c1918eebf0"
+      sha256: bfcd8f35260b28e55a1eb498360226577e188d59944fa2f29be56b6e4efe7eeb
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.9"
+    version: "0.5.9+1"
   tstore:
     dependency: transitive
     description:
