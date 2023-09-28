@@ -42,6 +42,9 @@ class FastOnboardingUserCountry extends StatelessWidget {
   /// The icon to display at the top of the layout.
   final Widget? icon;
 
+  /// A callback that is called when the user selects a new country.
+  final void Function(String?)? onCountryChanged;
+
   const FastOnboardingUserCountry({
     super.key,
     this.handsetIconSize,
@@ -56,11 +59,13 @@ class FastOnboardingUserCountry extends StatelessWidget {
     this.children,
     this.palette,
     this.icon,
+    this.onCountryChanged,
   });
 
   void handleCountryChanged(String? code) {
     final bloc = FastAppSettingsBloc.instance;
     final event = FastAppSettingsBlocEvent.countryCodeChanged(code);
+    onCountryChanged?.call(code);
 
     bloc.addEvent(event);
   }
