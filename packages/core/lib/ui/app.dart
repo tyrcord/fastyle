@@ -1,4 +1,6 @@
 // Flutter imports:
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -112,6 +114,7 @@ class FastApp extends StatefulWidget {
     this.blocProviders,
     this.loaderBuilder,
     this.errorBuilder,
+    // FIXME: deprecated
     this.initialRoute,
     this.homeBuilder,
     this.loaderJobs,
@@ -143,12 +146,14 @@ class FastApp extends StatefulWidget {
 }
 
 class _FastAppState extends State<FastApp> {
+  static const String _onboardingRoute = '/onboarding';
   static const String _defaultRoute = '/';
   static const String debugLabel = 'FastApp';
 
   late final GlobalKey<NavigatorState> _rootNavigatorKey;
   late final FastThemeBloc _themeBloc;
   late final GoRouter _router;
+  bool hasForcedOnboarding = false;
   Key _key = UniqueKey();
 
   @override
@@ -229,24 +234,9 @@ class _FastAppState extends State<FastApp> {
           errorReporter: widget.errorReporter,
           loaderBuilder: widget.loaderBuilder,
           loaderJobs: _getLoaderJobs(),
-          appBuilder: (context) {
-            if (widget.isInternetConnectionRequired) {
-              return FastConnectivityStatusBuilder(
-                disconnectedBuilder: (context) => FastEmptyApp(
-                  lightTheme: widget.lightTheme,
-                  darkTheme: widget.darkTheme,
-                  child: FastConnectivityStatusPage(
-                    onRetryTap: () => FastApp.restart(context),
-                  ),
-                ),
-                connectedBuilder: (context) => buildApp(context),
-              );
-            }
-
-            return buildApp(context);
-          },
           lightTheme: widget.lightTheme,
           darkTheme: widget.darkTheme,
+          appBuilder: buildApp,
         ),
       ),
     );
@@ -273,31 +263,64 @@ class _FastAppState extends State<FastApp> {
     );
   }
 
-  /// Builds the home widget.
-  Widget buildAppEntry(BuildContext context) {
+  /// Builds the GoRouter instance.
+  GoRouter _buildAppRouter() {
+    return GoRouter(
+      navigatorKey: _rootNavigatorKey,
+      redirect: handleRedirect,
+      routes: [
+        GoRoute(
+          builder: (context, state) => buildHomeContainer(context),
+          routes: widget.routes,
+          path: _defaultRoute,
+        ),
+        GoRoute(
+          path: _onboardingRoute,
+          builder: (context, state) => buildOnboarding(context),
+        ),
+      ],
+    );
+  }
+
+  FutureOr<String?> handleRedirect(BuildContext context, GoRouterState state) {
+    final isOnboarding = state.fullPath == _onboardingRoute;
     final bloc = FastAppOnboardingBloc.instance;
     final onboardingState = bloc.currentState;
 
-    if (!onboardingState.isCompleted || widget.forceOnboarding) {
+    if (isOnboarding) return null;
+
+    final forceOnboarding = widget.forceOnboarding && !hasForcedOnboarding;
+
+    if (!onboardingState.isCompleted || forceOnboarding) {
+      hasForcedOnboarding = true;
       debugLog('onboarding is not completed', debugLabel: debugLabel);
 
-      if (widget.onboardingBuilder != null) {
-        return widget.onboardingBuilder!(context);
-      }
+      return _onboardingRoute;
     }
 
-    _askForAppReviewIfNeeded(context);
+    return null;
+  }
 
-    if (widget.initialRoute != null) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        context.go(widget.initialRoute!);
-      });
-
-      return buildEmptyContainer(context);
+  Widget buildHomeContainer(BuildContext context) {
+    if (widget.isInternetConnectionRequired) {
+      return FastConnectivityStatusBuilder(
+        disconnectedBuilder: (context) => FastEmptyApp(
+          lightTheme: widget.lightTheme,
+          darkTheme: widget.darkTheme,
+          child: FastConnectivityStatusPage(
+            onRetryTap: () => FastApp.restart(context),
+          ),
+        ),
+        connectedBuilder: buildHome,
+      );
     }
 
+    return buildHome(context);
+  }
+
+  Widget buildHome(BuildContext context) {
     if (widget.homeBuilder != null) {
-      debugLog('onboarding is completed', debugLabel: debugLabel);
+      _askForAppReviewIfNeeded(context);
 
       return widget.homeBuilder!(context);
     }
@@ -305,18 +328,12 @@ class _FastAppState extends State<FastApp> {
     return buildEmptyContainer(context);
   }
 
-  /// Builds the GoRouter instance.
-  GoRouter _buildAppRouter() {
-    return GoRouter(
-      navigatorKey: _rootNavigatorKey,
-      routes: [
-        GoRoute(
-          path: _defaultRoute,
-          builder: (context, state) => buildAppEntry(context),
-          routes: widget.routes,
-        ),
-      ],
-    );
+  Widget buildOnboarding(BuildContext context) {
+    if (widget.onboardingBuilder != null) {
+      return widget.onboardingBuilder!(context);
+    }
+
+    return buildEmptyContainer(context);
   }
 
   /// Builds an empty container with the primary background color.
