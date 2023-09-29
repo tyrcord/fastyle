@@ -75,21 +75,27 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
       }));
 
       bool validator(bool result) => result == true;
+      bool isDeviceConnected = false;
+      bool isServiceAvailable = false;
 
-      final isDeviceConnected = await retry<bool>(
-        task: service.checkDeviceConnectivity,
-        validate: validator,
-      );
+      try {
+        isDeviceConnected = await retry<bool>(
+          task: service.checkDeviceConnectivity,
+          validate: validator,
+        );
 
-      final isServiceAvailable = await retry<bool>(
-        task: service.checkServiceConnectivity,
-        validate: validator,
-      );
-
-      addEvent(FastConnectivityStatusBlocEvent.initialized(
-        isDeviceConnected,
-        isServiceAvailable,
-      ));
+        isServiceAvailable = await retry<bool>(
+          task: service.checkServiceConnectivity,
+          validate: validator,
+        );
+      } catch (e) {
+        debugLog('Error while initializing the connectivity status bloc: $e');
+      } finally {
+        addEvent(FastConnectivityStatusBlocEvent.initialized(
+          isDeviceConnected,
+          isServiceAvailable,
+        ));
+      }
     }
   }
 
