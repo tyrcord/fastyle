@@ -2,14 +2,14 @@
 import 'package:tbloc/tbloc.dart';
 
 class FastPlanBlocState extends BlocState {
-  final bool isPlanPurcharsePending;
+  final bool isPlanPurchasePending;
   final bool hasPurchasedPlan;
   final bool isRestoringPlan;
   final String? planId;
 
   FastPlanBlocState({
     super.error,
-    this.isPlanPurcharsePending = false,
+    this.isPlanPurchasePending = false,
     this.hasPurchasedPlan = false,
     this.isRestoringPlan = false,
     this.planId,
@@ -17,7 +17,7 @@ class FastPlanBlocState extends BlocState {
 
   @override
   FastPlanBlocState copyWith({
-    bool? isPlanPurcharsePending,
+    bool? isPlanPurchasePending,
     bool? hasPurchasedPlan,
     bool? isRestoringPlan,
     String? planId,
@@ -28,8 +28,8 @@ class FastPlanBlocState extends BlocState {
       isRestoringPlan: isRestoringPlan ?? this.isRestoringPlan,
       planId: planId ?? this.planId,
       error: error,
-      isPlanPurcharsePending:
-          isPlanPurcharsePending ?? this.isPlanPurcharsePending,
+      isPlanPurchasePending:
+          isPlanPurchasePending ?? this.isPlanPurchasePending,
     );
   }
 
@@ -39,7 +39,7 @@ class FastPlanBlocState extends BlocState {
   @override
   FastPlanBlocState merge(covariant FastPlanBlocState model) {
     return FastPlanBlocState(
-      isPlanPurcharsePending: model.isPlanPurcharsePending,
+      isPlanPurchasePending: model.isPlanPurchasePending,
       hasPurchasedPlan: model.hasPurchasedPlan,
       isRestoringPlan: model.isRestoringPlan,
       planId: model.planId,
@@ -49,7 +49,7 @@ class FastPlanBlocState extends BlocState {
 
   @override
   List<Object?> get props => [
-        isPlanPurcharsePending,
+        isPlanPurchasePending,
         hasPurchasedPlan,
         isRestoringPlan,
         planId,

@@ -80,7 +80,7 @@ class FastPlanBloc
       debugLog('Purchase plan: $productId');
 
       _isPurchasePending = true;
-      yield currentState.copyWith(isPlanPurcharsePending: true);
+      yield currentState.copyWith(isPlanPurchasePending: true);
 
       _fastStoreBloc.addEvent(FastStoreBlocEvent.purchaseProduct(productId));
     }
@@ -95,7 +95,7 @@ class FastPlanBloc
       await _enablePlan(productId);
 
       yield currentState.copyWith(
-        isPlanPurcharsePending: false,
+        isPlanPurchasePending: false,
         hasPurchasedPlan: true,
         planId: productId,
       );
@@ -111,7 +111,7 @@ class FastPlanBloc
 
       _isPurchasePending = false;
 
-      yield currentState.copyWith(isPlanPurcharsePending: false, error: error);
+      yield currentState.copyWith(isPlanPurchasePending: false, error: error);
     }
   }
 
@@ -123,7 +123,7 @@ class FastPlanBloc
 
       _isPurchasePending = false;
 
-      yield currentState.copyWith(isPlanPurcharsePending: false);
+      yield currentState.copyWith(isPlanPurchasePending: false);
     }
   }
 
