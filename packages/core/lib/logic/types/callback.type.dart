@@ -13,3 +13,7 @@ typedef IntCallback<V> = int Function(V value);
 typedef DoubleCallback<V> = double Function(V value);
 
 typedef FutureBoolCallback<V> = Future<bool> Function();
+
+typedef Callback<V> = void Function(V value);
+
+typedef FutureVoidCallback<V> = Future<void> Function(V value);
