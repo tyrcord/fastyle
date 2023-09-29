@@ -67,7 +67,7 @@ class FastOnboardingRestorePremiumContent extends StatelessWidget {
                 Please make sure to set it in your app info.
               ''');
 
-        return FastIapRestorePremiumButtton(
+        return FastIapRestorePremiumButton(
           emphasis: FastButtonEmphasis.high,
           premiumProductId: appInfo.premiumProductIdentifier!,
         );

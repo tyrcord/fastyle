@@ -163,7 +163,7 @@ class FastIapGoPremiumPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        FastIapRestorePremiumButtton(onTap: onRestorePremium),
+        FastIapRestorePremiumButton(onTap: onRestorePremium),
         FastIapPurchasePremiumButtton(onTap: onBuyPremium),
       ],
     );

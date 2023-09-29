@@ -110,7 +110,7 @@ class FastIapThankPremiumPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        FastIapRestorePremiumButtton(
+        FastIapRestorePremiumButton(
           premiumProductId: premiumProductId,
           onTap: onRestorePremium,
         ),
