@@ -57,8 +57,6 @@ class FastConnectivityService {
 
   Future<bool> checkServiceConnectivity() async {
     try {
-      print('checkServiceConnectivity: $checkAddress:$checkPort');
-
       final socket = await Socket.connect(
         checkAddress,
         checkPort,
@@ -69,8 +67,6 @@ class FastConnectivityService {
 
       return true;
     } catch (e) {
-      print('checkServiceConnectivity: $e');
-
       return false;
     }
   }
