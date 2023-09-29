@@ -1,9 +1,9 @@
 // Flutter imports:
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
 
-// Project imports:
+// Package imports:
 import 'package:fastyle_charts/fastyle_charts.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 
 void main() {
   runApp(const MyApp());

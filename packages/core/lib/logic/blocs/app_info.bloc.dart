@@ -1,12 +1,12 @@
 // Flutter imports:
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:devicelocale/devicelocale.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:tbloc/tbloc.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';

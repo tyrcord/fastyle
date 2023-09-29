@@ -1,8 +1,13 @@
-import 'package:fastyle_forms/fastyle_forms.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/scheduler.dart';
+
+// Package imports:
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:matex_data/matex_data.dart';
+
+// Project imports:
+import 'package:fastyle_forms/fastyle_forms.dart';
 
 class FastMatexSelectCountryField extends StatefulWidget {
   /// A callback function that takes a [MatexCountryMetadata] object and

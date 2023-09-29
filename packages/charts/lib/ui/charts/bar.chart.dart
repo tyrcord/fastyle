@@ -1,5 +1,7 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:fastyle_charts/fastyle_charts.dart';
 
 class BarChart extends StatelessWidget {

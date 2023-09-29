@@ -1,7 +1,12 @@
-import 'package:fastyle_text/fastyle_text.dart';
-import 'package:flutter_test/flutter_test.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:flutter_test/flutter_test.dart';
 import 'package:visibility_detector/visibility_detector.dart';
+
+// Project imports:
+import 'package:fastyle_text/fastyle_text.dart';
 
 void main() {
   VisibilityDetectorController.instance.updateInterval = Duration.zero;

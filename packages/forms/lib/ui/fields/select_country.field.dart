@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:collection/collection.dart' show IterableExtension;
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_images/fastyle_images.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_countries/countries.dart';
-import 'package:t_helpers/helpers.dart';
 import 'package:matex_data/matex_data.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:t_helpers/helpers.dart';
 
 /// A Flutter widget for displaying a selectable list of countries.
 class FastSelectCountryField extends StatelessWidget {

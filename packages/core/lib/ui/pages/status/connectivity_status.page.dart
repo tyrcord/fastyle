@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
-import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';

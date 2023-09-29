@@ -6,8 +6,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lingua_core/lingua_core.dart';
-import 'package:lingua_onboarding/generated/codegen_loader.g.dart';
 import 'package:lingua_countries/generated/codegen_loader.g.dart';
+import 'package:lingua_onboarding/generated/codegen_loader.g.dart';
 import 'package:lingua_onboarding/generated/locale_keys.g.dart';
 
 // Project imports:

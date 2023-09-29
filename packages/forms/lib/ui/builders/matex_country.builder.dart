@@ -1,5 +1,8 @@
-import 'package:matex_data/matex_data.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:matex_data/matex_data.dart';
 import 'package:tbloc/tbloc.dart';
 
 class FastMatexCountryBuilder extends StatelessWidget {

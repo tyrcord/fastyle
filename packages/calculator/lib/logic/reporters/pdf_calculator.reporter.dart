@@ -1,7 +1,9 @@
+// Flutter imports:
+import 'package:flutter/services.dart';
+
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:flutter/services.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:pdf/pdf.dart';

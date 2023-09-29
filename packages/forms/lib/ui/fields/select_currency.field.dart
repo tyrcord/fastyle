@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:collection/collection.dart' show IterableExtension;
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_images/fastyle_images.dart';
-import 'package:matex_dart/matex_dart.dart';
-import 'package:t_helpers/helpers.dart';
 import 'package:lingua_finance/generated/locale_keys.g.dart';
 import 'package:lingua_finance_instrument/generated/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:matex_dart/matex_dart.dart';
+import 'package:t_helpers/helpers.dart';
 
 /// A Flutter widget for displaying a selectable list of currencies.
 class FastSelectCurrencyField extends StatelessWidget {

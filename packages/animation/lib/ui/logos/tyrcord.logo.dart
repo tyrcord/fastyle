@@ -1,5 +1,8 @@
-import 'package:fastyle_animation/fastyle_animation.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
+import 'package:fastyle_animation/fastyle_animation.dart';
 
 class FastTyrcordAnimatedLogo extends StatefulWidget {
   const FastTyrcordAnimatedLogo({super.key});

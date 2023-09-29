@@ -1,3 +1,4 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 const kFastChartBlueGrayColor = Color(0xFF80A7B9);

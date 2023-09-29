@@ -8,10 +8,10 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:lingua_ad/generated/locale_keys.g.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_ad/logic/logic.dart';
-import 'package:t_helpers/helpers.dart';
 
 class FastOperationRewardedDialog extends StatelessWidget {
   /// Callback triggered when the operation status changes.

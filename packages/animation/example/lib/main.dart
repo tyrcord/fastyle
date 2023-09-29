@@ -1,5 +1,8 @@
-import 'package:fastyle_animation/fastyle_animation.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_animation/fastyle_animation.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 
 void main() {

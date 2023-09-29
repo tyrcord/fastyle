@@ -2,8 +2,10 @@
 import 'package:flutter/widgets.dart';
 
 // Package imports:
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_core/fastyle_core.dart';
 
 class FastConnectivityStatusBuilder extends StatelessWidget {
   final WidgetBuilder? disconnectedBuilder;

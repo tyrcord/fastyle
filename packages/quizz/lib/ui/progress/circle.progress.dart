@@ -1,5 +1,10 @@
-import 'package:fastyle_core/ui/ui.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_core/ui/ui.dart';
+
+// Project imports:
 import 'package:fastyle_quizz/fastyle_quizz.dart';
 
 class FastCircleProgress extends StatelessWidget {

@@ -1,4 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:visibility_detector/visibility_detector.dart';

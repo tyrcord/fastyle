@@ -5,8 +5,8 @@ import 'package:flutter/widgets.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 
 // Project imports:
-import './operation_rewared.dialog.dart';
 import './export_pdf.dialog.dart';
+import './operation_rewared.dialog.dart';
 
 // Exports:
 export './export_pdf.dialog.dart';

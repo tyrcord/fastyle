@@ -1,5 +1,8 @@
-import 'package:matex_financial/financial.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:matex_financial/financial.dart';
 import 'package:tbloc/tbloc.dart';
 
 class FastMatexCurrencyBuilder extends StatelessWidget {

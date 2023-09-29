@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:t_helpers/helpers.dart';
 
 /// A [FastJob] that initializes the [FastAppSettingsBloc].
 /// It is used to load the settings of the application

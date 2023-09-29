@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:fastyle_images/fastyle_images.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';

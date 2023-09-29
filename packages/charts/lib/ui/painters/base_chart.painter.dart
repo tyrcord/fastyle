@@ -1,5 +1,10 @@
-import 'package:flutter/material.dart';
+// Dart imports:
 import 'dart:math';
+
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:fastyle_charts/fastyle_charts.dart';
 
 abstract class BaseChartPainter extends CustomPainter {

@@ -5,13 +5,13 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:easy_localization/easy_localization.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:rate_my_app/rate_my_app.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:lingua_settings/generated/locale_keys.g.dart';
-import 'package:lingua_core/generated/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 /// A service class for handling app rating functionality.
 class FastAppRatingService {
