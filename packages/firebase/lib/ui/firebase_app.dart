@@ -34,7 +34,6 @@ class FastFirebaseApp extends FastApp {
     super.blocProviders,
     super.loaderBuilder,
     super.errorBuilder,
-    super.initialRoute,
     super.homeBuilder,
     super.assetLoader,
     super.loaderJobs,
@@ -122,7 +121,6 @@ class _FastFirebaseAppState extends State<FastFirebaseApp> {
         delayBeforeShowingLoader: widget.delayBeforeShowingLoader,
         rootNavigatorKey: widget.rootNavigatorKey,
         debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
-        initialRoute: widget.initialRoute,
         askForReview: widget.askForReview,
       ),
     );

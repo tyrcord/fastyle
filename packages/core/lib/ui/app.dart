@@ -78,9 +78,6 @@ class FastApp extends StatefulWidget {
   /// The light theme data for the application.
   final ThemeData? lightTheme;
 
-  /// The initial route to navigate to when the application starts.
-  final String? initialRoute;
-
   /// The dark theme data for the application.
   final ThemeData? darkTheme;
 
@@ -114,8 +111,6 @@ class FastApp extends StatefulWidget {
     this.blocProviders,
     this.loaderBuilder,
     this.errorBuilder,
-    // FIXME: deprecated
-    this.initialRoute,
     this.homeBuilder,
     this.loaderJobs,
     this.lightTheme,
