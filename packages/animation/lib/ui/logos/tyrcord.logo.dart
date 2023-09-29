@@ -21,12 +21,14 @@ class FastTyrcordAnimatedLogoState extends State<FastTyrcordAnimatedLogo>
     )
       ..forward()
       ..addStatusListener((status) async {
-        if (status == AnimationStatus.completed) {
-          await Future.delayed(const Duration(milliseconds: 600));
-          _controller.reverse();
-        } else if (status == AnimationStatus.dismissed) {
-          await Future.delayed(const Duration(milliseconds: 600));
-          _controller.forward();
+        if (mounted) {
+          if (status == AnimationStatus.completed) {
+            await Future.delayed(const Duration(milliseconds: 600));
+            _controller.reverse();
+          } else if (status == AnimationStatus.dismissed) {
+            await Future.delayed(const Duration(milliseconds: 600));
+            _controller.forward();
+          }
         }
       });
   }
