@@ -8,7 +8,7 @@ import 'package:fastyle_iap/fastyle_iap.dart';
 /// Signature for a function that determines whether the widget should rebuild.
 ///
 /// [context] is the current state and [state] is the next state.
-typedef PlanBuilderCondition = bool Function(
+typedef FastPlanBuilderCondition = bool Function(
   FastPlanBlocState context,
   FastPlanBlocState state,
 );
@@ -25,7 +25,7 @@ class FastIapPlanBuilder extends StatelessWidget {
   /// A callback that specifies when to rebuild the widget.
   ///
   /// If not provided, the widget rebuilds for any change in the bloc state.
-  final PlanBuilderCondition? buildWhen;
+  final FastPlanBuilderCondition? buildWhen;
 
   /// If set to true, rebuilds the widget only when the 'isRestoringPlan'
   /// state changes.
@@ -58,9 +58,7 @@ class FastIapPlanBuilder extends StatelessWidget {
   /// Determines whether the widget should rebuild based on the provided
   /// conditions.
   bool _shouldBuild(FastPlanBlocState previous, FastPlanBlocState next) {
-    if (next.hasError) {
-      return true;
-    }
+    if (next.hasError) return true;
 
     if (buildWhen != null) {
       return buildWhen!.call(previous, next);
