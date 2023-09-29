@@ -20,6 +20,7 @@ class FastOnboardingView extends StatefulWidget {
   ///
   final String? doneRoute;
   final VoidCallback? onDone;
+  final Callback<int>? onNext;
   final VoidCallback? onSkip;
   final Color? stepDotColor;
   final List<Widget> slides;
@@ -42,6 +43,7 @@ class FastOnboardingView extends StatefulWidget {
     this.doneRoute,
     this.onDone,
     this.onSkip,
+    this.onNext,
   });
 
   @override
@@ -139,6 +141,8 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
                   if (hasReachEnd) {
                     _done();
                   } else {
+                    widget.onNext?.call(_pageCursor);
+
                     _pageViewController.nextPage(
                       duration: kTabScrollDuration,
                       curve: Curves.ease,
