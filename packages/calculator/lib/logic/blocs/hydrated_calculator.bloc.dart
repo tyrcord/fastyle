@@ -42,7 +42,6 @@ abstract class HydratedFastCalculatorBloc<
   late D defaultDocument;
 
   /// The [document] is used to hydrate the bloc calculator state.
-  @protected
   late D document;
 
   HydratedFastCalculatorBloc({
