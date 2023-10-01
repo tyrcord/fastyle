@@ -23,13 +23,13 @@ dependencies:
   fastyle_digit_calculator: ^0.0.22
 
   # T
-  tbloc: ^0.21.5
+  tbloc: ^0.21.5+1
   t_helpers: ^0.0.31
 
   # MateX
   matex_dart: ^0.11.1
-  matex_financial: ^0.0.20
-  matex_data: ^0.0.8
+  matex_financial: ^0.0.21
+  matex_data: ^0.0.9
 
   # Lingua
   lingua_countries: ^0.0.3
@@ -43,4 +43,4 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.3
   import_sorter: ^4.6.0
-  dependency_validator: ^3.2.2
+  dependency_validator: ^3.2.3

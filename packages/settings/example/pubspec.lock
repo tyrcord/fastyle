@@ -165,10 +165,10 @@ packages:
     dependency: "direct dev"
     description:
       name: dependency_validator
-      sha256: "08349175533ed0bd06eb9b6043cde66c45b2bfc7ebc222a7542cdb1324f1bf03"
+      sha256: f727a5627aa405965fab4aef4f468e50a9b632ba0737fd2f98c932fec6d712b9
       url: "https://pub.dev"
     source: hosted
-    version: "3.2.2"
+    version: "3.2.3"
   device_info_plus:
     dependency: transitive
     description:
@@ -665,10 +665,10 @@ packages:
     dependency: transitive
     description:
       name: matex_core
-      sha256: b36777fc991df2fdfcdacbacb3b9f1445aef9c67ff4aa12795211f82c94f4f5b
+      sha256: "6ea441c97f9289d6e39914ee0dbf30a3e0a9dc3c0d99503beb8d72d854644349"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.14"
+    version: "0.0.15"
   matex_dart:
     dependency: "direct main"
     description:
@@ -681,18 +681,18 @@ packages:
     dependency: transitive
     description:
       name: matex_data
-      sha256: "54ed41c30581873287b61099b58e897b06ec6cda62819f61aee9a203a158f185"
+      sha256: "84e285faaf82a7c48ae685c9a330f86f33c216792e01b10372124f4042bee853"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.8"
+    version: "0.0.9"
   matex_financial:
     dependency: "direct main"
     description:
       name: matex_financial
-      sha256: a78b6a4de7eb757683f97c26faaf3b71add6520b1ee7def7b112ef1708fd680e
+      sha256: "1458d90d22435d7817d595ab282980a7a8b646db5e5ed10de3fcf572a7f47285"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.20"
+    version: "0.0.21"
   meta:
     dependency: transitive
     description:
@@ -1062,10 +1062,10 @@ packages:
     dependency: "direct main"
     description:
       name: tbloc
-      sha256: c140dc6fa8093cbebabb45ec65a91ddea9f2c6587765c54e33262d1466462532
+      sha256: "476402ac9fc1d69a38b73b19fd905368161b09be429f74c5b5a79fab12a7c65b"
       url: "https://pub.dev"
     source: hosted
-    version: "0.21.5"
+    version: "0.21.5+1"
   term_glyph:
     dependency: transitive
     description:
@@ -1102,10 +1102,10 @@ packages:
     dependency: transitive
     description:
       name: tstore
-      sha256: "3fc3b792fa2e0da5a2fb809151502b475cb57b4d31d14896e85730baa87bc5c7"
+      sha256: a76e4162ed80cfb996c54b452768d4947ab8bb922797e24fca697f2d0242c0de
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.16"
+    version: "0.8.16+1"
   tsub:
     dependency: transitive
     description:

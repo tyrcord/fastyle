@@ -23,4 +23,4 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.3
   import_sorter: ^4.6.0
-  dependency_validator: ^3.2.2
+  dependency_validator: ^3.2.3
