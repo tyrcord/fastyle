@@ -1,3 +1,10 @@
+## 0.0.14
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: add onNext callback to FastOnboardingView.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.13+1
 
  - Update a dependency to the latest release.

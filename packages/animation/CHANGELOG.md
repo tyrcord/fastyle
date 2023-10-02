@@ -1,3 +1,9 @@
+## 0.0.7
+
+ - **FIX**: make sure widget is mounted.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.6
 
  - **REFACTOR**: animation folder structure.

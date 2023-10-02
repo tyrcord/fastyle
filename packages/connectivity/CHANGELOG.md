@@ -1,3 +1,11 @@
+## 0.0.21
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: clean up connectivity package.
+
 ## 0.0.20
 
  - **FEAT**: initial commit for tyrcord logo animation.

@@ -3,6 +3,205 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-10-02
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.17`](#fastyle_ad---v0017)
+ - [`fastyle_animation` - `v0.0.7`](#fastyle_animation---v007)
+ - [`fastyle_buttons` - `v0.0.13`](#fastyle_buttons---v0013)
+ - [`fastyle_calculator` - `v1.34.0`](#fastyle_calculator---v1340)
+ - [`fastyle_charts` - `v0.0.11`](#fastyle_charts---v0011)
+ - [`fastyle_connectivity` - `v0.0.21`](#fastyle_connectivity---v0021)
+ - [`fastyle_core` - `v0.0.24`](#fastyle_core---v0024)
+ - [`fastyle_digit_calculator` - `v0.0.23`](#fastyle_digit_calculator---v0023)
+ - [`fastyle_financial` - `v0.0.21`](#fastyle_financial---v0021)
+ - [`fastyle_firebase` - `v0.0.14`](#fastyle_firebase---v0014)
+ - [`fastyle_forms` - `v0.0.24`](#fastyle_forms---v0024)
+ - [`fastyle_home` - `v0.0.19`](#fastyle_home---v0019)
+ - [`fastyle_iap` - `v0.0.16`](#fastyle_iap---v0016)
+ - [`fastyle_images` - `v0.0.27`](#fastyle_images---v0027)
+ - [`fastyle_layouts` - `v0.0.10`](#fastyle_layouts---v0010)
+ - [`fastyle_onboarding` - `v0.0.26`](#fastyle_onboarding---v0026)
+ - [`fastyle_pricing` - `v1.21.0`](#fastyle_pricing---v1210)
+ - [`fastyle_quizz` - `v0.0.7`](#fastyle_quizz---v007)
+ - [`fastyle_settings` - `v0.0.29`](#fastyle_settings---v0029)
+ - [`fastyle_text` - `v0.0.8`](#fastyle_text---v008)
+ - [`fastyle_video_player` - `v0.0.12`](#fastyle_video_player---v0012)
+ - [`fastyle_views` - `v0.0.14`](#fastyle_views---v0014)
+
+---
+
+#### `fastyle_ad` - `v0.0.17`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_animation` - `v0.0.7`
+
+ - **FIX**: make sure widget is mounted.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_buttons` - `v0.0.13`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_calculator` - `v1.34.0`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_charts` - `v0.0.11`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_connectivity` - `v0.0.21`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: clean up connectivity package.
+
+#### `fastyle_core` - `v0.0.24`
+
+ - **FIX**: FastConnectivityStatusBloc initialization process.
+ - **FIX**: better onboarding process.
+ - **FEAT**: minor improvements.
+ - **FEAT**: refactor status pages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: more callback type.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better startup errors.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check for internet connection.
+ - **FEAT**: Change the time limit for a job to complete.
+ - **FEAT**: change the delay period before presenting the loader in Fast App.
+
+#### `fastyle_digit_calculator` - `v0.0.23`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_financial` - `v0.0.21`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_firebase` - `v0.0.14`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check for internet connection.
+
+#### `fastyle_forms` - `v0.0.24`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_home` - `v0.0.19`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_iap` - `v0.0.16`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements with FastIapPlanBuilder.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_images` - `v0.0.27`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_layouts` - `v0.0.10`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_onboarding` - `v0.0.26`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add onCountryChanged.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_pricing` - `v1.21.0`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_quizz` - `v0.0.7`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_settings` - `v0.0.29`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_text` - `v0.0.8`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_video_player` - `v0.0.12`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_views` - `v0.0.14`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: add onNext callback to FastOnboardingView.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+
 ## 2023-09-22
 
 ### Changes

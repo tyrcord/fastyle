@@ -1,3 +1,10 @@
+## 0.0.14
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check for internet connection.
+
 ## 0.0.13+1
 
  - Update a dependency to the latest release.

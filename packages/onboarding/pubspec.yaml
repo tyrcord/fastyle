@@ -1,6 +1,6 @@
 name: fastyle_onboarding
 description: Set of onboarding Widgets for the fastyle library.
-version: 0.0.25
+version: 0.0.26
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/onboarding
 
 environment:
@@ -23,11 +23,11 @@ dependencies:
   lingua_purchases: ^0.0.14
 
   # Fastyle
-  fastyle_core: ^0.0.23
-  fastyle_layouts: ^0.0.9+2
-  fastyle_settings: ^0.0.28
-  fastyle_iap: ^0.0.15+1
-  fastyle_buttons: ^0.0.12+1
+  fastyle_core: ^0.0.24
+  fastyle_layouts: ^0.0.10
+  fastyle_settings: ^0.0.29
+  fastyle_iap: ^0.0.16
+  fastyle_buttons: ^0.0.13
 
   # T
   tbloc: ^0.21.5+1

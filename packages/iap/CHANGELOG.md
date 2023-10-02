@@ -1,3 +1,13 @@
+## 0.0.16
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements with FastIapPlanBuilder.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.15+1
 
  - Update a dependency to the latest release.

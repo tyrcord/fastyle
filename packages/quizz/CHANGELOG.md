@@ -1,3 +1,8 @@
+## 0.0.7
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.6
 
  - **FEAT**: initial commit for tyrcord logo animation.

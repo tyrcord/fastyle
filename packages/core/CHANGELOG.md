@@ -1,3 +1,19 @@
+## 0.0.24
+
+ - **FIX**: FastConnectivityStatusBloc initialization process.
+ - **FIX**: better onboarding process.
+ - **FEAT**: minor improvements.
+ - **FEAT**: refactor status pages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: more callback type.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better startup errors.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check for internet connection.
+ - **FEAT**: Change the time limit for a job to complete.
+ - **FEAT**: change the delay period before presenting the loader in Fast App.
+
 ## 0.0.23
 
  - **FEAT**: add noneTextGender property to select field.
