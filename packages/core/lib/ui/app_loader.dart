@@ -85,11 +85,6 @@ class FastAppLoaderState extends State<FastAppLoader> {
         waitForData: true,
         loadingBuilder: (BuildContext context) => buildPlaceholderApp(context),
         builder: (BuildContext context, FastAppLoaderBlocState state) {
-          // TODO: show an error widget if the app has no connection to
-          // the internet that allow to restart the app (like the error app)
-
-          return buildErrorApp(state.error);
-
           if (state.isLoading &&
               widget.loaderBuilder != null &&
               _canShowLoader) {

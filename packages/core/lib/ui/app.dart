@@ -10,7 +10,6 @@ import 'package:go_router/go_router.dart';
 import 'package:lingua_core/lingua_core.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 
 // Project imports:
@@ -366,8 +365,8 @@ class _FastAppState extends State<FastApp> {
     }
 
     return FastErrorStatusPage(
+      cancelButtonText: CoreLocaleKeys.core_label_contact_support.tr(),
       onRetryTap: () => FastApp.restart(context),
-      cancelButtonText: 'Contact support',
       onCancelTap: () => contactSupport(error),
     );
   }
