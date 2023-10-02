@@ -10,6 +10,8 @@ import 'package:go_router/go_router.dart';
 import 'package:lingua_core/lingua_core.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -353,17 +355,34 @@ class _FastAppState extends State<FastApp> {
       if (!connectivityState.isConnected) {
         return FastConnectivityStatusPage(
           onRetryTap: () => FastApp.restart(context),
+          onCancelTap: () => contactSupport(error),
         );
       } else if (!connectivityState.isServiceAvailable) {
         return FastServiceStatusPage(
           onRetryTap: () => FastApp.restart(context),
+          onCancelTap: () => contactSupport(error),
         );
       }
     }
 
     return FastErrorStatusPage(
       onRetryTap: () => FastApp.restart(context),
+      cancelButtonText: 'Contact support',
+      onCancelTap: () => contactSupport(error),
     );
+  }
+
+  void contactSupport(dynamic error) {
+    final appInfoBloc = FastAppInfoBloc.instance;
+    final appInfo = appInfoBloc.currentState;
+
+    if (appInfo.supportEmail != null) {
+      FastMessenger.writeEmail(
+        appInfo.supportEmail!,
+        subject: appInfo.appName,
+        body: error?.toString(),
+      );
+    }
   }
 
   Iterable<FastJob>? _getLoaderJobs() {

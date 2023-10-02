@@ -88,6 +88,8 @@ class FastAppLoaderState extends State<FastAppLoader> {
           // TODO: show an error widget if the app has no connection to
           // the internet that allow to restart the app (like the error app)
 
+          return buildErrorApp(state.error);
+
           if (state.isLoading &&
               widget.loaderBuilder != null &&
               _canShowLoader) {

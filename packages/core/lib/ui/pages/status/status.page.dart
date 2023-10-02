@@ -25,9 +25,6 @@ class FastStatusPage extends StatelessWidget {
   /// A callback function when the cancel button is tapped.
   final VoidCallback? onCancelTap;
 
-  /// The padding around the content of the page.
-  final EdgeInsets contentPadding;
-
   /// The color scheme to be used for the widgets.
   final FastPaletteScheme? palette;
 
@@ -56,7 +53,6 @@ class FastStatusPage extends StatelessWidget {
     this.cancelButtonText,
     this.onValidTap,
     this.onCancelTap,
-    this.contentPadding = kFastEdgeInsets16,
     this.palette,
     this.iconColor,
     this.backgroundColor,
@@ -67,17 +63,61 @@ class FastStatusPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: FastPadding16(
-        padding: contentPadding,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            buildTitle(),
-            Expanded(child: buildContent()),
-            buildActions(),
-          ],
-        ),
+    return FastMediaLayoutBuilder(
+      builder: (BuildContext context, FastMediaType mediaType) {
+        return SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              buildTitle(),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 0,
+                    bottom: 16,
+                    left: 16,
+                    right: 16,
+                  ),
+                  child: buildLayout(context, mediaType),
+                ),
+              ),
+              buildActions(context, mediaType),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget buildLayout(BuildContext context, FastMediaType mediaType) {
+    final isHandset = mediaType < FastMediaType.tablet;
+    final spacer = isHandset ? kFastSizedBox48 : kFastSizedBox72;
+
+    return FractionallySizedBox(
+      widthFactor: isHandset ? 1 : 0.55,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: constraints.maxHeight,
+              ),
+              child: IntrinsicHeight(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    if (icon != null) ...[
+                      spacer,
+                      buildIcon(),
+                      spacer,
+                    ],
+                    buildContent(),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -97,10 +137,6 @@ class FastStatusPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        if (icon != null) ...[
-          buildIcon(),
-          kFastSizedBox64,
-        ],
         if (subTitleText != null)
           Padding(
             padding: const EdgeInsets.only(bottom: 8.0),
@@ -123,38 +159,35 @@ class FastStatusPage extends StatelessWidget {
     );
   }
 
-  Widget buildActions() {
-    return FastMediaLayoutBuilder(builder: (context, mediaType) {
-      if (mediaType >= FastMediaType.tablet) {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (onCancelTap != null) ...[
-              buildCancelButton(),
-              ThemeHelper.spacing.getHorizontalSpacing(context),
-            ],
-            buildValidButton(),
-          ],
-        );
-      }
-
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+  Widget buildActions(BuildContext context, FastMediaType mediaType) {
+    if (mediaType >= FastMediaType.tablet) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          buildCancelButton(),
+          if (onCancelTap != null) ...[
+            buildCancelButton(),
+            ThemeHelper.spacing.getHorizontalSpacing(context),
+          ],
           buildValidButton(),
         ],
       );
-    });
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        buildCancelButton(),
+        buildValidButton(),
+      ],
+    );
   }
 
   /// Builds the widget for the icon.
   Widget buildIcon() {
-    return FastRoundedDuotoneIcon(
-      backgroundColor: backgroundColor,
-      size: kFastImageSizeXxl,
-      iconColor: iconColor,
+    return FastPageHeaderRoundedDuotoneIconLayout(
       palette: palette,
+      hasShadow: true,
       icon: icon!,
     );
   }

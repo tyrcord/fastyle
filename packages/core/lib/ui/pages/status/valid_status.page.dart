@@ -17,7 +17,6 @@ class FastValidStatusPage extends FastStatusPage {
   const FastValidStatusPage({
     super.key,
     super.titleText,
-    super.contentPadding = kFastEdgeInsets16,
     super.descriptionText,
     super.backgroundColor,
     super.iconColor,
@@ -32,10 +31,9 @@ class FastValidStatusPage extends FastStatusPage {
     return FastStatusPage(
       validButtonText:
           validButtonText ?? CoreLocaleKeys.core_label_confirm.tr(),
-      titleText: CoreLocaleKeys.core_label_success.tr(),
+      titleText: titleText ?? CoreLocaleKeys.core_label_success.tr(),
       palette: _getPaletteColor(context),
       backgroundColor: backgroundColor,
-      contentPadding: contentPadding,
       icon: _getIcon(context),
       onValidTap: onValidTap,
       iconColor: iconColor,

@@ -18,7 +18,6 @@ class FastErrorStatusPage extends FastStatusPage {
   const FastErrorStatusPage({
     super.key,
     super.titleText,
-    super.contentPadding = kFastEdgeInsets16,
     super.cancelButtonText,
     super.descriptionText,
     super.backgroundColor,
@@ -38,7 +37,6 @@ class FastErrorStatusPage extends FastStatusPage {
       titleText: titleText ?? CoreLocaleKeys.core_message_whoops.tr(),
       palette: _getPaletteColor(context),
       backgroundColor: backgroundColor,
-      contentPadding: contentPadding,
       icon: _getIcon(context),
       onCancelTap: onCancelTap,
       onValidTap: onValidTap,

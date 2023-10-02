@@ -18,7 +18,6 @@ class FastServiceStatusPage extends FastStatusPage {
   const FastServiceStatusPage({
     super.key,
     super.titleText,
-    super.contentPadding = kFastEdgeInsets16,
     super.cancelButtonText,
     super.descriptionText,
     super.backgroundColor,
@@ -40,7 +39,6 @@ class FastServiceStatusPage extends FastStatusPage {
           titleText ?? CoreLocaleKeys.core_label_service_unavailable.tr(),
       palette: _getPaletteColor(context),
       backgroundColor: backgroundColor,
-      contentPadding: contentPadding,
       onCancelTap: onCancelTap,
       icon: _getIcon(context),
       onValidTap: onValidTap,

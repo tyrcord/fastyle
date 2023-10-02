@@ -20,7 +20,6 @@ class FastConnectivityStatusPage extends FastStatusPage {
   const FastConnectivityStatusPage({
     super.key,
     super.titleText,
-    super.contentPadding = kFastEdgeInsets16,
     super.cancelButtonText,
     super.descriptionText,
     super.backgroundColor,
@@ -38,10 +37,10 @@ class FastConnectivityStatusPage extends FastStatusPage {
   Widget build(BuildContext context) {
     return FastStatusPage(
       validButtonText: validButtonText ?? CoreLocaleKeys.core_label_retry.tr(),
-      titleText: CoreLocaleKeys.core_label_internet_connection.tr(),
+      titleText:
+          titleText ?? CoreLocaleKeys.core_label_internet_connection.tr(),
       palette: _getPaletteColor(context),
       backgroundColor: backgroundColor,
-      contentPadding: contentPadding,
       onCancelTap: onCancelTap,
       icon: _getIcon(context),
       onValidTap: onValidTap,
