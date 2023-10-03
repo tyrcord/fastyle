@@ -1,6 +1,6 @@
 name: fastyle_ad
 description: Set of ad Widgets for the fastyle library.
-version: 0.0.17
+version: 0.0.18
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/ad
 
 environment:

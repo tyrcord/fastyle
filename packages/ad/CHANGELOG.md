@@ -1,3 +1,8 @@
+## 0.0.18
+
+ - **FEAT**(ad): allow up to 4 lines for medium native ad.
+ - **FEAT**(ad): allow up to 4 lines for medium native ad.
+
 ## 0.0.17
 
  - **FEAT**: update dependencies.

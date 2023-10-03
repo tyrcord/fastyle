@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-10-03
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.18`](#fastyle_ad---v0018)
+
+---
+
+#### `fastyle_ad` - `v0.0.18`
+
+ - **FEAT**(ad): allow up to 4 lines for medium native ad.
+ - **FEAT**(ad): allow up to 4 lines for medium native ad.
+
+
 ## 2023-10-02
 
 ### Changes
