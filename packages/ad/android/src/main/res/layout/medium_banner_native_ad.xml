@@ -26,7 +26,7 @@
 
             <TextView
                 android:id="@+id/tv_medium_banner_native_ad_headline"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:lines="1"
@@ -37,11 +37,11 @@
 
             <TextView
                 android:id="@+id/tv_medium_banner_native_ad_body"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                android:lines="2"
-                android:maxLines="2"
+                android:lines="4"
+                android:maxLines="4"
                 android:textColor="#969696"
                 android:textSize="14sp"
                 tools:text="body" />
