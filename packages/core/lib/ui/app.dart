@@ -207,7 +207,7 @@ class _FastAppState extends State<FastApp> {
                     return buildAppLoader(context);
                   }
 
-                  return buildEmptyContainer(context);
+                  return buildEmptyContainer();
                 },
               ),
             ),
@@ -322,7 +322,7 @@ class _FastAppState extends State<FastApp> {
       return widget.homeBuilder!(context);
     }
 
-    return buildEmptyContainer(context);
+    return buildEmptyContainer();
   }
 
   Widget buildOnboarding(BuildContext context) {
@@ -330,16 +330,12 @@ class _FastAppState extends State<FastApp> {
       return widget.onboardingBuilder!(context);
     }
 
-    return buildEmptyContainer(context);
+    return buildEmptyContainer();
   }
 
   /// Builds an empty container with the primary background color.
-  Widget buildEmptyContainer(BuildContext context) {
-    // TODO: move to fastyle_ui
-    final colors = ThemeHelper.colors;
-    final backgroundColor = colors.getPrimaryBackgroundColor(context);
-
-    return Container(color: backgroundColor);
+  Widget buildEmptyContainer() {
+    return const FastPrimaryBackgroundContainer();
   }
 
   /// Handles the app error.

@@ -12,7 +12,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 /// or the theme.
 class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
     FastAppSettingsBlocState> {
-  static bool _hasBeenInstantiated = false;
+  static bool hasBeenInstantiated = false;
   static late FastAppSettingsBloc instance;
 
   final FastAppSettingsDataProvider _dataProvider;
@@ -23,9 +23,9 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
         super(initialState: initialState ?? FastAppSettingsBlocState());
 
   factory FastAppSettingsBloc({FastAppSettingsBlocState? initialState}) {
-    if (!_hasBeenInstantiated) {
+    if (!hasBeenInstantiated) {
       instance = FastAppSettingsBloc._(initialState: initialState);
-      _hasBeenInstantiated = true;
+      hasBeenInstantiated = true;
     }
 
     return instance;

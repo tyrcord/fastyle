@@ -147,12 +147,16 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
   ) async {
     final themeBloc = FastThemeBloc.instance;
 
-    dispatchThemeModeChanged(themeBloc, settingsState.themeMode);
+    themeBloc.addEvent(FastThemeBlocEvent.init(settingsState.themeMode));
 
     final themeState = await RaceStream([
       themeBloc.onError,
-      themeBloc.onData
-          .where((state) => state.themeMode == settingsState.themeMode),
+      themeBloc.onData.where(
+        (state) {
+          return state.themeMode == settingsState.themeMode &&
+              state.isInitialized;
+        },
+      ),
     ]).first;
 
     if (themeState is! FastThemeBlocState) {

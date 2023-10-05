@@ -83,7 +83,7 @@ class _FastFirebaseAppState extends State<FastFirebaseApp> {
           return buildApp();
         }
 
-        return buildEmptyContainer(context);
+        return const FastPrimaryBackgroundContainer();
       },
     );
   }
@@ -124,14 +124,5 @@ class _FastFirebaseAppState extends State<FastFirebaseApp> {
         askForReview: widget.askForReview,
       ),
     );
-  }
-
-  /// Builds an empty container with the primary background color.
-  Widget buildEmptyContainer(BuildContext context) {
-    // TODO: move to fastyle_ui
-    final colors = ThemeHelper.colors;
-    final backgroundColor = colors.getPrimaryBackgroundColor(context);
-
-    return Container(color: backgroundColor);
   }
 }

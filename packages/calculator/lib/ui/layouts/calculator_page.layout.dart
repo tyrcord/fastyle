@@ -139,7 +139,7 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
                 return _buildColumnView(context);
               }
 
-              return const FastEmptyContainer();
+              return const FastPrimaryBackgroundContainer();
             },
           ),
           footerBuilder: (context) => _buildFooter(mediaType),

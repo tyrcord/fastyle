@@ -44,8 +44,26 @@ class ThemeColorHelper {
     return Theme.of(context).hintColor;
   }
 
-  Color getPrimaryBackgroundColor(BuildContext context) {
-    return Theme.of(context).scaffoldBackgroundColor;
+  Color getPrimaryBackgroundColor() {
+    Brightness? brightness;
+    late bool isDarkMode;
+
+    if (FastAppSettingsBloc.hasBeenInstantiated &&
+        FastThemeBloc.hasBeenInstantiated) {
+      final appSettings = FastAppSettingsBloc.instance.currentState;
+      final themeBlocState = FastThemeBloc.instance.currentState;
+
+      if (appSettings.isInitialized && themeBlocState.isInitialized) {
+        brightness = themeBlocState.brightness;
+      }
+    }
+
+    brightness ??= getPlatformBrightness();
+    isDarkMode = brightness == Brightness.dark;
+
+    return isDarkMode
+        ? kFastDarkPrimaryBackgroundColor
+        : kFastLightPrimaryBackgroundColor;
   }
 
   Color getSecondaryBackgroundColor(BuildContext context) {

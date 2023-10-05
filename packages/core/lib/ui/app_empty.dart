@@ -42,13 +42,7 @@ class FastEmptyApp extends StatelessWidget {
               data: theme,
               child: Builder(
                 builder: (context) {
-                  final colors = ThemeHelper.colors;
-                  final backgroundColor = colors.getPrimaryBackgroundColor(
-                    context,
-                  );
-
-                  return ColoredBox(
-                    color: backgroundColor,
+                  return FastPrimaryBackgroundContainer(
                     child: FastPageLayout(child: child),
                   );
                 },

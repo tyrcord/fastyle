@@ -83,7 +83,7 @@ class FastAppLoaderState extends State<FastAppLoader> {
       child: BlocBuilderWidget(
         bloc: _bloc,
         waitForData: true,
-        loadingBuilder: (BuildContext context) => buildPlaceholderApp(context),
+        loadingBuilder: (_) => buildPlaceholderApp(),
         builder: (BuildContext context, FastAppLoaderBlocState state) {
           if (state.isLoading &&
               widget.loaderBuilder != null &&
@@ -99,7 +99,7 @@ class FastAppLoaderState extends State<FastAppLoader> {
             return buildErrorApp(state.error);
           }
 
-          return buildPlaceholderApp(context);
+          return buildPlaceholderApp();
         },
       ),
     );
@@ -125,10 +125,8 @@ class FastAppLoaderState extends State<FastAppLoader> {
     );
   }
 
-  Widget buildPlaceholderApp(BuildContext context) {
-    return Container(
-      color: ThemeHelper.colors.getPrimaryBackgroundColor(context),
-    );
+  Widget buildPlaceholderApp() {
+    return const FastPrimaryBackgroundContainer();
   }
 
   Widget buildEmptyApp({required Widget child}) {

@@ -101,7 +101,7 @@ class FastSplitLayout extends StatelessWidget {
 
   Color _getMasterBackgroundColor(BuildContext context) {
     final secondaryBackground = _getSecondaryBackgroundColor(context);
-    final background = _getPrimaryBackgroundColor(context);
+    final background = _getPrimaryBackgroundColor();
     final brightness = _getAppBrightness(context);
 
     return brightness == Brightness.dark ? background : secondaryBackground;
@@ -109,14 +109,14 @@ class FastSplitLayout extends StatelessWidget {
 
   Color _getColumnBackgroundColor(BuildContext context) {
     final secondaryBackground = _getSecondaryBackgroundColor(context);
-    final background = _getPrimaryBackgroundColor(context);
+    final background = _getPrimaryBackgroundColor();
     final brightness = _getAppBrightness(context);
 
     return brightness == Brightness.dark ? secondaryBackground : background;
   }
 
-  Color _getPrimaryBackgroundColor(BuildContext context) {
-    return ThemeHelper.colors.getPrimaryBackgroundColor(context);
+  Color _getPrimaryBackgroundColor() {
+    return ThemeHelper.colors.getPrimaryBackgroundColor();
   }
 
   Color _getSecondaryBackgroundColor(BuildContext context) {
