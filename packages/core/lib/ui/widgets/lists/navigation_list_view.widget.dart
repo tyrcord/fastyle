@@ -73,7 +73,7 @@ class FastNavigationListViewState<T extends FastItem>
           ),
         Expanded(
           child: FastListViewLayout<T>(
-            listItemBuilder: _buildListItems,
+            listItemBuilder: _buildListItem,
             items: _suggestions ?? widget.items,
             isViewScrollable: widget.isViewScrollable,
             showItemDivider: widget.showItemDivider,
@@ -87,7 +87,7 @@ class FastNavigationListViewState<T extends FastItem>
     );
   }
 
-  Widget _buildListItems(BuildContext context, T item, int index) {
+  Widget _buildListItem(BuildContext context, T item, int index) {
     if (widget.listItemBuilder != null) {
       return widget.listItemBuilder!(context, item, index);
     }
@@ -97,7 +97,7 @@ class FastNavigationListViewState<T extends FastItem>
 
   Widget _buildNavigationListItem(BuildContext context, T item) {
     return FastNavigationListItem(
-      contentPadding: widget.itemContentPadding,
+      contentPadding: item.descriptor?.padding ?? widget.itemContentPadding,
       showTrailing: widget.showTrailing,
       showLeading: widget.showLeading,
       item: item,
