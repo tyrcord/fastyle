@@ -1,16 +1,8 @@
-// Dart imports:
 import 'dart:async';
 
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:tbloc/tbloc.dart';
-
-// Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
-
-//TODO: @need-review: code from fastyle_dart
 
 typedef FastAppLoaderBuilder = Widget Function(
   BuildContext context,
@@ -53,14 +45,17 @@ class FastAppLoader extends StatefulWidget {
 }
 
 class FastAppLoaderState extends State<FastAppLoader> {
-  final _bloc = FastAppLoaderBloc();
+  final FastAppLoaderBloc _bloc = FastAppLoaderBloc();
   late final Timer _delayTimer;
   bool _canShowLoader = false;
 
   @override
   void initState() {
     super.initState();
+    _initializeAppLoaderBloc();
+  }
 
+  void _initializeAppLoaderBloc() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _bloc.addEvent(FastAppLoaderBlocEvent.init(
         context,
@@ -68,12 +63,14 @@ class FastAppLoaderState extends State<FastAppLoader> {
         jobs: widget.loaderJobs,
       ));
 
-      _delayTimer = Timer(widget.delayBeforeShowingLoader, () {
-        if (_bloc.currentState.isLoading) {
-          setState(() => _canShowLoader = true);
-        }
-      });
+      _delayTimer = Timer(widget.delayBeforeShowingLoader, _checkLoaderStatus);
     });
+  }
+
+  void _checkLoaderStatus() {
+    if (_bloc.currentState.isLoading) {
+      setState(() => _canShowLoader = true);
+    }
   }
 
   @override
@@ -81,32 +78,16 @@ class FastAppLoaderState extends State<FastAppLoader> {
     return BlocProvider(
       bloc: _bloc,
       child: BlocBuilderWidget(
-        bloc: _bloc,
-        waitForData: true,
         loadingBuilder: (_) => buildPlaceholderApp(),
-        builder: (BuildContext context, FastAppLoaderBlocState state) {
-          if (state.isLoading &&
-              widget.loaderBuilder != null &&
-              _canShowLoader) {
-            return buildLoadingApp(progress: state.progress);
-          } else if (state.isLoaded) {
-            _delayTimer.cancel();
-
-            return Builder(builder: widget.appBuilder);
-          } else if (state.hasError && widget.errorBuilder != null) {
-            _delayTimer.cancel();
-
-            return buildErrorApp(state.error);
-          }
-
-          return buildPlaceholderApp();
-        },
+        builder: _decideAppDisplay,
+        waitForData: true,
+        bloc: _bloc,
       ),
     );
   }
 
-  Widget buildErrorApp(dynamic error) {
-    return buildEmptyApp(
+  Widget _buildErrorApp(dynamic error) {
+    return buildAppSkeleton(
       child: Builder(
         builder: (BuildContext context) {
           return widget.errorBuilder!(context, error);
@@ -116,7 +97,7 @@ class FastAppLoaderState extends State<FastAppLoader> {
   }
 
   Widget buildLoadingApp({double progress = 0}) {
-    return buildEmptyApp(
+    return buildAppSkeleton(
       child: Builder(
         builder: (BuildContext context) {
           return widget.loaderBuilder!(context, progress);
@@ -129,11 +110,29 @@ class FastAppLoaderState extends State<FastAppLoader> {
     return const FastPrimaryBackgroundContainer();
   }
 
-  Widget buildEmptyApp({required Widget child}) {
+  Widget buildAppSkeleton({required Widget child}) {
     return FastEmptyApp(
       lightTheme: widget.lightTheme,
       darkTheme: widget.darkTheme,
       child: child,
     );
+  }
+
+  void _cancelDelayTimer() => _delayTimer.cancel();
+
+  Widget _decideAppDisplay(BuildContext context, FastAppLoaderBlocState state) {
+    if (state.isLoading && widget.loaderBuilder != null && _canShowLoader) {
+      return buildLoadingApp(progress: state.progress);
+    } else if (state.isLoaded) {
+      _cancelDelayTimer();
+
+      return Builder(builder: widget.appBuilder);
+    } else if (state.hasError && widget.errorBuilder != null) {
+      _cancelDelayTimer();
+
+      return _buildErrorApp(state.error);
+    }
+
+    return buildPlaceholderApp();
   }
 }
