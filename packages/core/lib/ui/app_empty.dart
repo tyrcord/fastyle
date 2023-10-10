@@ -1,19 +1,19 @@
-// Flutter imports:
+// Flutter imports
 import 'package:flutter/material.dart';
 
-// Package imports:
+// Package imports
 import 'package:easy_localization/easy_localization.dart';
 import 'package:tbloc/tbloc.dart';
 
-// Project imports:
+// Project imports
 import 'package:fastyle_core/fastyle_core.dart';
 
-class FastEmptyApp extends StatelessWidget {
+class FastAppSkeleton extends StatelessWidget {
   final ThemeData? lightTheme;
   final ThemeData? darkTheme;
   final Widget child;
 
-  const FastEmptyApp({
+  const FastAppSkeleton({
     super.key,
     required this.child,
     this.lightTheme,
@@ -25,32 +25,40 @@ class FastEmptyApp extends StatelessWidget {
     return BlocBuilderWidget(
       bloc: FastThemeBloc.instance,
       builder: (BuildContext context, state) {
-        final easyLocalization = EasyLocalization.of(context)!;
-        final useDarkTheme = state.brightness == Brightness.dark;
-        var theme = lightTheme ?? FastTheme.light.blue;
+        final theme = _determineTheme(state);
 
-        if (useDarkTheme && darkTheme != null) {
-          theme = darkTheme ?? FastTheme.dark.blue;
-        }
-
-        return Localizations(
-          delegates: easyLocalization.delegates,
-          locale: easyLocalization.locale,
-          child: MediaQuery.fromView(
-            view: View.of(context),
-            child: AnimatedTheme(
-              data: theme,
-              child: Builder(
-                builder: (context) {
-                  return FastPrimaryBackgroundContainer(
-                    child: FastPageLayout(child: child),
-                  );
-                },
-              ),
-            ),
-          ),
-        );
+        return _buildLocalizations(context, theme);
       },
+    );
+  }
+
+  ThemeData _determineTheme(FastThemeBlocState state) {
+    if (state.brightness == Brightness.dark && darkTheme != null) {
+      return darkTheme ?? FastTheme.dark.blue;
+    }
+
+    return lightTheme ?? FastTheme.light.blue;
+  }
+
+  Widget _buildLocalizations(BuildContext context, ThemeData theme) {
+    final easyLocalization = EasyLocalization.of(context)!;
+
+    return Localizations(
+      delegates: easyLocalization.delegates,
+      locale: easyLocalization.locale,
+      child: _buildThemedContent(context, theme),
+    );
+  }
+
+  Widget _buildThemedContent(BuildContext context, ThemeData theme) {
+    return MediaQuery.fromView(
+      view: View.of(context),
+      child: AnimatedTheme(
+        data: theme,
+        child: FastPrimaryBackgroundContainer(
+          child: FastPageLayout(child: child),
+        ),
+      ),
     );
   }
 }

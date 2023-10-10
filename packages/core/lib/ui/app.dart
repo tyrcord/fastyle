@@ -301,7 +301,7 @@ class _FastAppState extends State<FastApp> {
   Widget buildHomeContainer(BuildContext context) {
     if (widget.isInternetConnectionRequired) {
       return FastConnectivityStatusBuilder(
-        disconnectedBuilder: (context) => FastEmptyApp(
+        disconnectedBuilder: (context) => FastAppSkeleton(
           lightTheme: widget.lightTheme,
           darkTheme: widget.darkTheme,
           child: FastConnectivityStatusPage(
