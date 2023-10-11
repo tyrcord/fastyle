@@ -171,6 +171,7 @@ class _FastAppState extends State<FastApp> {
   bool _hasForcedOnboarding = false;
   final _subxMap = SubxMap();
   Key _key = UniqueKey();
+  List<RouteBase>? _currentRoutes;
   GoRouter? _router;
 
   @override
@@ -328,10 +329,15 @@ class _FastAppState extends State<FastApp> {
     if (_router != null) {
       // FIXME: this is a workaround:
       // https://github.com/flutter/flutter/issues/99100
-      final firstMatch =  _router!.routerDelegate.currentConfiguration;
-      initialLocation = firstMatch.uri.toString();
+      final configuration = _router!.routerDelegate.currentConfiguration;
+
+      if (_currentRoutes == routes) return _router!;
+
+      _router!.dispose();
+      initialLocation = configuration.uri.toString();
     }
 
+    _currentRoutes = routes;
     _router = GoRouter(
       navigatorKey: _rootNavigatorKey,
       initialLocation: initialLocation,
