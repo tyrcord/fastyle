@@ -178,7 +178,7 @@ class FastAppInfoPage<T> extends StatelessWidget {
             break;
         }
       } else {
-        GoRouter.of(context).go(value);
+        GoRouter.of(context).push(value);
       }
     }
   }

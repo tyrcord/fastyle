@@ -21,6 +21,7 @@ class FastFirebaseApp extends FastApp {
 
   FastFirebaseApp({
     super.key,
+    required super.routesForMediaType,
     super.delayBeforeShowingLoader = kFastDelayBeforeShowingLoader,
     super.debugShowCheckedModeBanner = false,
     super.forceOnboarding = false,
@@ -42,6 +43,7 @@ class FastFirebaseApp extends FastApp {
     super.appInformation,
     super.useProIcons,
     super.isInternetConnectionRequired,
+    super.initialLocation,
     this.defaultRemoteConfig,
     this.firebaseOptions,
     String? localizationPath,
@@ -111,6 +113,8 @@ class _FastFirebaseAppState extends State<FastFirebaseApp> {
           ),
           ...?widget.loaderJobs,
         ],
+        routesForMediaType: widget.routesForMediaType,
+        isInternetConnectionRequired: widget.isInternetConnectionRequired,
         appInformation: widget.appInfo,
         onDatabaseVersionChanged: widget.onDatabaseVersionChanged,
         onboardingBuilder: widget.onboardingBuilder,
@@ -122,6 +126,7 @@ class _FastFirebaseAppState extends State<FastFirebaseApp> {
         rootNavigatorKey: widget.rootNavigatorKey,
         debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
         askForReview: widget.askForReview,
+        initialLocation: widget.initialLocation,
       ),
     );
   }

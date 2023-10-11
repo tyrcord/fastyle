@@ -6,14 +6,20 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lingua_core/lingua_core.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:subx/subx.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+
+typedef RoutesForMediaTypeCallback = List<RouteBase> Function(
+  FastMediaType mediaType,
+);
 
 /// The main entry point for a Fastyle Dart application.
 class FastApp extends StatefulWidget {
@@ -80,6 +86,8 @@ class FastApp extends StatefulWidget {
   /// The light theme data for the application.
   final ThemeData? lightTheme;
 
+  final String? initialLocation;
+
   /// The dark theme data for the application.
   final ThemeData? darkTheme;
 
@@ -99,8 +107,11 @@ class FastApp extends StatefulWidget {
 
   final bool isInternetConnectionRequired;
 
+  final RoutesForMediaTypeCallback routesForMediaType;
+
   FastApp({
     super.key,
+    required this.routesForMediaType,
     this.delayBeforeShowingLoader = kFastDelayBeforeShowingLoader,
     this.debugShowCheckedModeBanner = false,
     this.forceOnboarding = false,
@@ -110,6 +121,7 @@ class FastApp extends StatefulWidget {
     this.onboardingBuilder,
     this.rootNavigatorKey,
     this.errorReporter,
+    this.initialLocation,
     this.blocProviders,
     this.loaderBuilder,
     this.errorBuilder,
@@ -143,29 +155,47 @@ class FastApp extends StatefulWidget {
 }
 
 class _FastAppState extends State<FastApp> {
+  static const String _connectivityStatusRoute = '/connection-status';
+  static const String _connectionStatusRouteName = 'connectionStatus';
+  static const String _connectivityStatusKey = 'connectivityStatus';
+  static const String _onboardingRouteName = 'onboarding';
   static const String _onboardingRoute = '/onboarding';
   static const String _defaultRoute = '/';
   static const String debugLabel = 'FastApp';
 
+  late final FastConnectivityStatusBloc _appConnectivityBloc;
   late final GlobalKey<NavigatorState> _rootNavigatorKey;
+  late Stream<List<RouteBase>> _routesStream;
+  late FastMediaLayoutBloc _mediaLayoutBloc;
   late final FastThemeBloc _themeBloc;
-  late final GoRouter _router;
-  bool hasForcedOnboarding = false;
+  bool _hasForcedOnboarding = false;
+  final _subxMap = SubxMap();
   Key _key = UniqueKey();
+  GoRouter? _router;
 
   @override
   void initState() {
     super.initState();
     WidgetsFlutterBinding.ensureInitialized();
+
     _rootNavigatorKey = widget.rootNavigatorKey ?? GlobalKey<NavigatorState>();
+    _appConnectivityBloc = FastConnectivityStatusBloc();
+    _mediaLayoutBloc = FastMediaLayoutBloc();
     _themeBloc = _buildAppThemeBloc();
-    _router = _buildAppRouter();
+
+    _routesStream = _mediaLayoutBloc.onData.distinct((previous, next) {
+      final previousRoutes = widget.routesForMediaType(previous.mediaType);
+      final nextRoutes = widget.routesForMediaType(next.mediaType);
+
+      return previousRoutes == nextRoutes;
+    }).map((state) => widget.routesForMediaType(state.mediaType));
   }
 
   @override
   void dispose() {
-    super.dispose();
     _themeBloc.close();
+    _subxMap.cancelAll();
+    super.dispose();
   }
 
   void restartApp() {
@@ -245,38 +275,87 @@ class _FastAppState extends State<FastApp> {
       builder: (context, state) {
         final easyLocalization = EasyLocalization.of(context)!;
 
-        return MaterialApp.router(
-          debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
-          localizationsDelegates: easyLocalization.delegates,
-          supportedLocales: widget.appInfo.supportedLocales,
-          darkTheme: widget.darkTheme ?? FastTheme.dark.blue,
-          theme: widget.lightTheme ?? FastTheme.light.blue,
-          locale: easyLocalization.locale,
-          title: widget.appInfo.appName,
-          themeMode: state.themeMode,
-          routerConfig: _router,
+        return StreamBuilder(
+          stream: _routesStream,
+          builder: (context, snapshot) {
+            final connectionState = snapshot.connectionState;
+
+            if (connectionState == ConnectionState.active ||
+                connectionState == ConnectionState.done) {
+              _listenOnConnectivityStatusChanges();
+
+              return MaterialApp.router(
+                debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
+                localizationsDelegates: easyLocalization.delegates,
+                supportedLocales: widget.appInfo.supportedLocales,
+                darkTheme: widget.darkTheme ?? FastTheme.dark.blue,
+                theme: widget.lightTheme ?? FastTheme.light.blue,
+                routerConfig: _buildAppRouter(snapshot.data!),
+                locale: easyLocalization.locale,
+                title: widget.appInfo.appName,
+                themeMode: state.themeMode,
+              );
+            }
+
+            return buildEmptyContainer();
+          },
         );
       },
     );
   }
 
+  void _listenOnConnectivityStatusChanges() {
+    _subxMap
+      ..cancelForKey(_connectivityStatusKey)
+      ..add(
+          _connectivityStatusKey,
+          _appConnectivityBloc.onData.distinct((previous, next) {
+            return previous.isConnected == next.isConnected &&
+                previous.isServiceAvailable == next.isServiceAvailable;
+          }).listen((state) {
+            if (!state.isConnected && widget.isInternetConnectionRequired) {
+              SchedulerBinding.instance.addPostFrameCallback((_) {
+                _router?.pushReplacement(_connectivityStatusRoute);
+              });
+            }
+          }));
+  }
+
   /// Builds the GoRouter instance.
-  GoRouter _buildAppRouter() {
-    return GoRouter(
+  GoRouter _buildAppRouter(List<RouteBase> routes) {
+    String initialLocation = widget.initialLocation ?? _defaultRoute;
+
+    if (_router != null) {
+      // FIXME: this is a workaround:
+      // https://github.com/flutter/flutter/issues/99100
+      final firstMatch =  _router!.routerDelegate.currentConfiguration;
+      initialLocation = firstMatch.uri.toString();
+    }
+
+    _router = GoRouter(
       navigatorKey: _rootNavigatorKey,
+      initialLocation: initialLocation,
       redirect: handleRedirect,
       routes: [
+        ...routes,
         GoRoute(
-          builder: (context, state) => buildHomeContainer(context),
-          routes: widget.routes,
-          path: _defaultRoute,
+          builder: (context, state) => buildOnboarding(context),
+          parentNavigatorKey: _rootNavigatorKey,
+          name: _onboardingRouteName,
+          path: _onboardingRoute,
         ),
         GoRoute(
-          path: _onboardingRoute,
-          builder: (context, state) => buildOnboarding(context),
+          pageBuilder: (context, state) => NoTransitionPage(
+            child: buildConnectivityStatusApp(context),
+          ),
+          parentNavigatorKey: _rootNavigatorKey,
+          name: _connectionStatusRouteName,
+          path: _connectivityStatusRoute,
         ),
       ],
     );
+
+    return _router!;
   }
 
   FutureOr<String?> handleRedirect(BuildContext context, GoRouterState state) {
@@ -286,10 +365,10 @@ class _FastAppState extends State<FastApp> {
 
     if (isOnboarding) return null;
 
-    final forceOnboarding = widget.forceOnboarding && !hasForcedOnboarding;
+    final forceOnboarding = widget.forceOnboarding && !_hasForcedOnboarding;
 
     if (!onboardingState.isCompleted || forceOnboarding) {
-      hasForcedOnboarding = true;
+      _hasForcedOnboarding = true;
       debugLog('onboarding is not completed', debugLabel: debugLabel);
 
       return _onboardingRoute;
@@ -298,21 +377,14 @@ class _FastAppState extends State<FastApp> {
     return null;
   }
 
-  Widget buildHomeContainer(BuildContext context) {
-    if (widget.isInternetConnectionRequired) {
-      return FastConnectivityStatusBuilder(
-        disconnectedBuilder: (context) => FastAppSkeleton(
-          lightTheme: widget.lightTheme,
-          darkTheme: widget.darkTheme,
-          child: FastConnectivityStatusPage(
-            onRetryTap: () => FastApp.restart(context),
-          ),
-        ),
-        connectedBuilder: buildHome,
-      );
-    }
-
-    return buildHome(context);
+  Widget buildConnectivityStatusApp(BuildContext context) {
+    return FastAppSkeleton(
+      lightTheme: widget.lightTheme,
+      darkTheme: widget.darkTheme,
+      child: FastConnectivityStatusPage(
+        onRetryTap: () => FastApp.restart(context),
+      ),
+    );
   }
 
   Widget buildHome(BuildContext context) {

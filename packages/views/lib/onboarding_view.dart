@@ -30,6 +30,7 @@ class FastOnboardingView extends StatefulWidget {
   final String? doneText;
   final String? nextText;
   final String? skipText;
+  final String homeLocation;
 
   const FastOnboardingView({
     super.key,
@@ -45,6 +46,7 @@ class FastOnboardingView extends StatefulWidget {
     this.onDone,
     this.onSkip,
     this.onNext,
+    this.homeLocation = '/',
   });
 
   @override
@@ -226,7 +228,7 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
     widget.onDone?.call();
 
     // ignore: use_build_context_synchronously
-    GoRouter.of(context).pushReplacement('/');
+    GoRouter.of(context).pushReplacement(widget.homeLocation);
   }
 
   String _getDoneText() {
