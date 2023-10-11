@@ -3,6 +3,7 @@ import 'dart:math';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:tenhance/tenhance.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';

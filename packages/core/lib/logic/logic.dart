@@ -9,6 +9,5 @@ export './enums/enums.dart';
 export './types/types.dart';
 export './services/services.dart';
 export './helpers/helpers.dart';
-export './extensions/extensions.dart';
 export './interfaces/interfaces.dart';
 export './models/models.dart';

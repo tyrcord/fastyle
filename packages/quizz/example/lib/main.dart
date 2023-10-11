@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_quizz/fastyle_quizz.dart';
+import 'package:tenhance/tenhance.dart';
 
 // Project imports:
 import 'package:fastyle_quizz_example/questions.dart';

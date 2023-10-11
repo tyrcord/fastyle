@@ -6,6 +6,7 @@ import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:tenhance/tenhance.dart';
 
 //TODO: @need-review: code from fastyle_dart
 

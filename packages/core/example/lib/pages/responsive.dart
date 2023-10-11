@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:tenhance/tenhance.dart';
 
 class ResponsivePage extends StatelessWidget {
   const ResponsivePage({super.key});

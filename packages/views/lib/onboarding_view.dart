@@ -1,6 +1,7 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:tenhance/tenhance.dart';
 
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';

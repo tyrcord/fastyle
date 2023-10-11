@@ -43,6 +43,8 @@ dependencies:
   tmodel: ^0.5.9+1
   tbloc: ^0.21.5+1
   tstore: ^0.8.16+1
+  subx: ^1.9.0
+  tenhance: ^0.0.2
 
   # Lingua
   lingua_core: ^0.0.29

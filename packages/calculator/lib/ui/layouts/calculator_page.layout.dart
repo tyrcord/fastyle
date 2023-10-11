@@ -6,6 +6,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:lingua_calculator/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:tenhance/tenhance.dart';
 
 // Project imports:
 import 'package:fastyle_calculator/fastyle_calculator.dart';
