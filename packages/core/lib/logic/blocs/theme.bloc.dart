@@ -49,16 +49,7 @@ class FastThemeBloc
     } else if (type == FastThemeBlocEventType.initialized) {
       yield* handleInitializedEvent();
     } else if (isInitialized) {
-      switch (type) {
-        case FastThemeBlocEventType.light:
-          yield* handleLightEvent();
-        case FastThemeBlocEventType.dark:
-          yield* handleDarkEvent();
-        case FastThemeBlocEventType.system:
-          yield* handleSystemEvent();
-        default:
-          break;
-      }
+      yield* handleThemeChangeEvent(type);
     }
   }
 
@@ -91,9 +82,25 @@ class FastThemeBloc
     }
   }
 
+  /// Handles the theme change events.
+  Stream<FastThemeBlocState> handleThemeChangeEvent(
+    FastThemeBlocEventType? type,
+  ) async* {
+    switch (type) {
+      case FastThemeBlocEventType.light:
+        yield* handleLightEvent();
+      case FastThemeBlocEventType.dark:
+        yield* handleDarkEvent();
+      case FastThemeBlocEventType.system:
+        yield* handleSystemEvent();
+      default:
+        break;
+    }
+  }
+
   /// Handles the event to set the light theme.
   Stream<FastThemeBlocState> handleLightEvent() async* {
-    yield FastThemeBlocState(
+    yield currentState.copyWith(
       brightness: Brightness.light,
       themeMode: ThemeMode.light,
     );
@@ -101,7 +108,7 @@ class FastThemeBloc
 
   /// Handles the event to set the dark theme.
   Stream<FastThemeBlocState> handleDarkEvent() async* {
-    yield FastThemeBlocState(
+    yield currentState.copyWith(
       brightness: Brightness.dark,
       themeMode: ThemeMode.dark,
     );
@@ -109,7 +116,7 @@ class FastThemeBloc
 
   /// Handles the event to set the system theme.
   Stream<FastThemeBlocState> handleSystemEvent() async* {
-    yield FastThemeBlocState(
+    yield currentState.copyWith(
       brightness: getPlatformBrightness(),
       themeMode: ThemeMode.system,
     );
