@@ -16,6 +16,7 @@ import 'package:subx/subx.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:tenhance/tenhance.dart';
 
 typedef RoutesForMediaTypeCallback = List<RouteBase> Function(
   FastMediaType mediaType,
@@ -146,9 +147,10 @@ class FastApp extends StatefulWidget {
 }
 
 class _FastAppState extends State<FastApp> {
-  static const String _connectivityStatusRoute = '/connection-status';
-  static const String _connectionStatusRouteName = 'connectionStatus';
-  static const String _connectivityStatusKey = 'connectivityStatus';
+  static const String _noConnectionAvailableRouteName = 'noConnectionAvailable';
+  static const String _noConnectionAvailableRoute = '/no-connection-available';
+  static const String _noServiceAvailableRouteName = 'noServiceAvailable';
+  static const String _noServiceAvailableRoute = '/no-service-available';
   static const String _onboardingRouteName = 'onboarding';
   static const String _onboardingRoute = '/onboarding';
   static const String _defaultRoute = '/';
@@ -299,29 +301,49 @@ class _FastAppState extends State<FastApp> {
   }
 
   void _listenOnConnectivityStatusChanges() {
-    _subxMap
-      ..cancelForKey(_connectivityStatusKey)
-      ..add(
-          _connectivityStatusKey,
-          _appConnectivityBloc.onData.distinct((previous, next) {
-            return previous.isConnected == next.isConnected &&
-                previous.isServiceAvailable == next.isServiceAvailable;
-          }).listen((state) {
-            if (!state.isConnected && widget.isInternetConnectionRequired) {
-              SchedulerBinding.instance.addPostFrameCallback((_) {
-                _router?.pushReplacement(_connectivityStatusRoute);
-              });
-            }
-          }));
+    _addPostFrameCallback(() {
+      _subxMap
+        ..cancelForKey(_noConnectionAvailableRouteName)
+        ..add(
+            _noConnectionAvailableRouteName,
+            _appConnectivityBloc.onData.distinct((previous, next) {
+              return previous.isConnected == next.isConnected &&
+                  previous.isServiceAvailable == next.isServiceAvailable;
+            }).listen((state) {
+              if (widget.isInternetConnectionRequired && _router != null) {
+                if (!state.isConnected) {
+                  _addPostFrameCallback(() {
+                    _router?.pushReplacement(_noConnectionAvailableRoute);
+                  });
+                } else if (!state.isServiceAvailable) {
+                  _addPostFrameCallback(() {
+                    _router?.pushReplacement(_noServiceAvailableRoute);
+                  });
+                } else {
+                  final routerDelegate = _router!.routerDelegate;
+                  final routerConfig = routerDelegate.currentConfiguration;
+                  final hasMatches = routerConfig.matches.isNotEmpty;
+                  final initialLocation = _getInitialLocation();
+
+                  if (hasMatches && _router!.location() != initialLocation) {
+                    _addPostFrameCallback(() {
+                      _router?.pushReplacement(initialLocation);
+                    });
+                  }
+                }
+              }
+            }));
+    });
   }
 
+  String _getInitialLocation() => widget.initialLocation ?? _defaultRoute;
+
   /// Builds the GoRouter instance.
+  /// FIXME: Workaround: https://github.com/flutter/flutter/issues/99100
   GoRouter _buildAppRouter(List<RouteBase> routes) {
-    String initialLocation = widget.initialLocation ?? _defaultRoute;
+    String initialLocation = _getInitialLocation();
 
     if (_router != null) {
-      // FIXME: this is a workaround:
-      // https://github.com/flutter/flutter/issues/99100
       final configuration = _router!.routerDelegate.currentConfiguration;
 
       if (_currentRoutes == routes) return _router!;
@@ -345,11 +367,19 @@ class _FastAppState extends State<FastApp> {
         ),
         GoRoute(
           pageBuilder: (context, state) => NoTransitionPage(
-            child: buildConnectivityStatusApp(context),
+            child: _buildNoConnectionAvailablePage(context),
           ),
           parentNavigatorKey: _rootNavigatorKey,
-          name: _connectionStatusRouteName,
-          path: _connectivityStatusRoute,
+          name: _noConnectionAvailableRouteName,
+          path: _noConnectionAvailableRoute,
+        ),
+        GoRoute(
+          pageBuilder: (context, state) => NoTransitionPage(
+            child: _buildNoServiceAvailablePage(context),
+          ),
+          parentNavigatorKey: _rootNavigatorKey,
+          name: _noServiceAvailableRouteName,
+          path: _noServiceAvailableRoute,
         ),
       ],
     );
@@ -376,13 +406,19 @@ class _FastAppState extends State<FastApp> {
     return null;
   }
 
-  Widget buildConnectivityStatusApp(BuildContext context) {
+  Widget _buildNoConnectionAvailablePage(BuildContext context) {
     return FastAppSkeleton(
       lightTheme: widget.lightTheme,
       darkTheme: widget.darkTheme,
-      child: FastConnectivityStatusPage(
-        onRetryTap: () => FastApp.restart(context),
-      ),
+      child: const FastConnectivityStatusPage(),
+    );
+  }
+
+  Widget _buildNoServiceAvailablePage(BuildContext context) {
+    return FastAppSkeleton(
+      lightTheme: widget.lightTheme,
+      darkTheme: widget.darkTheme,
+      child: const FastServiceStatusPage(),
     );
   }
 
@@ -395,9 +431,7 @@ class _FastAppState extends State<FastApp> {
   }
 
   /// Builds an empty container with the primary background color.
-  Widget buildEmptyContainer() {
-    return const FastPrimaryBackgroundContainer();
-  }
+  Widget buildEmptyContainer() => const FastPrimaryBackgroundContainer();
 
   /// Handles the app error.
   Widget handleAppError(BuildContext context, dynamic error) {
@@ -475,10 +509,14 @@ class _FastAppState extends State<FastApp> {
 
   /// Asks for app review if needed.
   void _askForAppReviewIfNeeded(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
+    _addPostFrameCallback(() {
       if (widget.askForReview) {
         FastAppRatingService(widget.appInfo).askForAppReviewIfNeeded(context);
       }
     });
+  }
+
+  void _addPostFrameCallback(VoidCallback callback) {
+    SchedulerBinding.instance.addPostFrameCallback((_) => callback());
   }
 }

@@ -195,7 +195,7 @@ class FastStatusPage extends StatelessWidget {
 
   /// Builds the widget for the cancel button.
   Widget buildCancelButton() {
-    if (onCancelTap != null) {
+    if (onCancelTap != null && cancelButtonText != null) {
       return FastOutlineButton(onTap: onCancelTap, text: cancelButtonText);
     }
 
@@ -204,7 +204,7 @@ class FastStatusPage extends StatelessWidget {
 
   /// Builds the widget for the valid button.
   Widget buildValidButton() {
-    if (onValidTap != null) {
+    if (onValidTap != null && validButtonText != null) {
       return FastRaisedButton(onTap: onValidTap, text: validButtonText);
     }
 
