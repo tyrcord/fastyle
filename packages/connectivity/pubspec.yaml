@@ -13,7 +13,7 @@ dependencies:
 
   # Public
   font_awesome_flutter: ^10.5.0
-  connectivity_plus: ^4.0.2
+  connectivity_plus: ^5.0.0
   rxdart: ^0.27.7
   easy_localization: ^3.0.3
 
@@ -21,8 +21,8 @@ dependencies:
   fastyle_core: ^0.0.24
 
   # T
-  tmodel: ^0.5.9+1
-  tbloc: ^0.21.5+1
+  tmodel: ^0.5.9+2
+  tbloc: ^0.21.5+2
 
   # Lingua
   lingua_core: ^0.0.29

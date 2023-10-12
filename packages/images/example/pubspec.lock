@@ -85,10 +85,10 @@ packages:
     dependency: transitive
     description:
       name: connectivity_plus
-      sha256: "77a180d6938f78ca7d2382d2240eb626c0f6a735d0bfdce227d8ffb80f95c48b"
+      sha256: "94d51c6f1299133a2baa4c5c3d2c11ec7d7fb4768dee5c52a56f7d7522fcf70e"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.2"
+    version: "5.0.0"
   connectivity_plus_platform_interface:
     dependency: transitive
     description:
@@ -302,10 +302,10 @@ packages:
     dependency: transitive
     description:
       name: fuzzy
-      sha256: baf5e5b1e651dc2eaab92399050f6ad6ebf7a56042b2bd141e697b0554940fa2
+      sha256: "5f1285591f888569dfbf2c7212a0cb4915b814a0c957044e9e5cb00c8d2f4eb7"
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.0-nullsafety.0"
+    version: "0.5.0"
   glob:
     dependency: transitive
     description:
@@ -402,14 +402,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.8.1"
-  latinize:
-    dependency: transitive
-    description:
-      name: latinize
-      sha256: "559eaa76d4641d977680b64080806174efabddebac365fc26d1c333aabb4070e"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.0-nullsafety.0"
   lingua_core:
     dependency: transitive
     description:
@@ -775,6 +767,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  stringr:
+    dependency: transitive
+    description:
+      name: stringr
+      sha256: "2846b6811c3cbb34c8937a35e623986e3fbf7203b3bb33ffe7f80e496ea3eff2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   subx:
     dependency: transitive
     description:
@@ -787,18 +787,18 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: "187297938f36fda113d029821a2c7ad43b5ccf63c6e4ed9e6346151ca170b3da"
+      sha256: "2ca5eafc23c058030861a459017ed7f1316058060a64de64e780033786fa3bf5"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.31"
+    version: "0.0.32"
   tbloc:
     dependency: transitive
     description:
       name: tbloc
-      sha256: "476402ac9fc1d69a38b73b19fd905368161b09be429f74c5b5a79fab12a7c65b"
+      sha256: "808c3cbc1cbfacb7dfc916095b11ce685545ea7d2c3a56476e55a9f41b21a9f0"
       url: "https://pub.dev"
     source: hosted
-    version: "0.21.5+1"
+    version: "0.21.5+2"
   tenhance:
     dependency: transitive
     description:
@@ -835,18 +835,18 @@ packages:
     dependency: transitive
     description:
       name: tmodel
-      sha256: bfcd8f35260b28e55a1eb498360226577e188d59944fa2f29be56b6e4efe7eeb
+      sha256: b485f61813765fc640dc5a89adca9e6ac748f098b5832a1829c4b62129d34593
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.9+1"
+    version: "0.5.9+2"
   tstore:
     dependency: transitive
     description:
       name: tstore
-      sha256: a76e4162ed80cfb996c54b452768d4947ab8bb922797e24fca697f2d0242c0de
+      sha256: "002832d5ce4ab89b670f299ce5b53d32ffb725021cdd00b216e3394a898353dc"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.16+1"
+    version: "0.8.16+2"
   tsub:
     dependency: transitive
     description:
@@ -947,26 +947,26 @@ packages:
     dependency: transitive
     description:
       name: vector_graphics
-      sha256: "670f6e07aca990b4a2bcdc08a784193c4ccdd1932620244c3a86bb72a0eac67f"
+      sha256: b16dadf7eb610e20da044c141b4a0199a5e8082ca21daba68322756f953ce714
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.7"
+    version: "1.1.9"
   vector_graphics_codec:
     dependency: transitive
     description:
       name: vector_graphics_codec
-      sha256: "7451721781d967db9933b63f5733b1c4533022c0ba373a01bdd79d1a5457f69f"
+      sha256: a4b01403d5c613db115e30e71eca33f7e9e09f2d3c52c3fb84e16333ecddc539
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.7"
+    version: "1.1.9"
   vector_graphics_compiler:
     dependency: transitive
     description:
       name: vector_graphics_compiler
-      sha256: "80a13c613c8bde758b1464a1755a7b3a8f2b6cec61fbf0f5a53c94c30f03ba2e"
+      sha256: d26c0e2f237476426523eb25512e4c09fa27c6d33ed659a0e69d79e20b5dc47f
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.7"
+    version: "1.1.9"
   vector_math:
     dependency: transitive
     description:

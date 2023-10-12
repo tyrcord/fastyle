@@ -27,8 +27,8 @@ dependencies:
   matex_dart: ^0.11.1
 
   # T
-  t_helpers: ^0.0.31
-  tbloc: ^0.21.5+1
+  t_helpers: ^0.0.32
+  tbloc: ^0.21.5+2
 
 dev_dependencies:
   flutter_test:
