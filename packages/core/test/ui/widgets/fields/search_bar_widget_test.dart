@@ -7,15 +7,22 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:go_router/go_router.dart';
 
 const _kFastBackIcon = FaIcon(FontAwesomeIcons.chevronLeft);
 const _kFastDoneIcon = FaIcon(FontAwesomeIcons.check);
 
 FastApp _buildApp(Widget child) {
   return FastApp(
-      homeBuilder: (_) => FastSectionPage(
-            child: child,
-          ));
+    routesForMediaType: (mediaType) => [
+      GoRoute(
+        path: '/',
+        builder: (_, __) => Material(
+          child: child,
+        ),
+      ),
+    ],
+  );
 }
 
 void main() {

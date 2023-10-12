@@ -6,12 +6,22 @@ import 'package:flutter_test/flutter_test.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:go_router/go_router.dart';
 
 const _kFastCancelText = 'cancel';
 const _kFastValidText = 'valid';
 
 FastApp _buildApp(Widget child) {
-  return FastApp(homeBuilder: (_) => FastHomePage(children: [child]));
+  return FastApp(
+    routesForMediaType: (mediaType) => [
+      GoRoute(
+        path: '/',
+        builder: (_, __) => Material(
+          child: child,
+        ),
+      ),
+    ],
+  );
 }
 
 void main() {

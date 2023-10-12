@@ -48,8 +48,10 @@ class MyApp extends StatelessWidget {
     return FastApp(
       lightTheme: FastTheme.light.blue,
       darkTheme: FastTheme.dark.blue,
-      homeBuilder: (_) => const MyHomePage(),
-      routes: kAppRoutes,
+      routesForMediaType: (mediaType) => [
+        ...kAppRoutes,
+        GoRoute(path: '/', builder: (_, __) => const MyHomePage()),
+      ],
       loaderJobs: [
         DummyLoaderJob(),
         DummyLoaderJob(),

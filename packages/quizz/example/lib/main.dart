@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_quizz/fastyle_quizz.dart';
 import 'package:tenhance/tenhance.dart';
+import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:fastyle_quizz_example/questions.dart';
@@ -17,7 +18,12 @@ class QuizApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastApp(
-      homeBuilder: (_) => const QuizPage(),
+      routesForMediaType: (mediaType) => [
+        GoRoute(
+          path: '/',
+          builder: (_, __) => const QuizPage(),
+        ),
+      ],
     );
   }
 }

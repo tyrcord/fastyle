@@ -19,40 +19,42 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastApp(
-      // localizationsDelegates: context.localizationDelegates,
-      // supportedLocales: context.supportedLocales,
-      // locale: context.locale,
-      routes: kAppRoutes,
-      homeBuilder: (_) => FastSectionPage(
-        titleText: 'Fastyle Images',
-        contentPadding: EdgeInsets.zero,
-        showAppBar: false,
-        child: Builder(
-          builder: (context) {
-            return FastNavigationListView(
-              items: const [
-                FastItem(
-                  labelText: 'commodities',
-                  value: '/commodities',
-                ),
-                FastItem(
-                  labelText: 'cryptos',
-                  value: '/cryptos',
-                ),
-                FastItem(
-                  labelText: 'flags',
-                  value: '/flags',
-                ),
-              ],
-              onSelectionChanged: (FastItem<String> item) {
-                if (item.value == null) {
-                  GoRouter.of(context).go(item.value!);
-                }
+      routesForMediaType: (mediaType) => [
+        ...kAppRoutes,
+        GoRoute(
+          path: '/',
+          builder: (_, __) => FastSectionPage(
+            titleText: 'Fastyle Images',
+            contentPadding: EdgeInsets.zero,
+            showAppBar: false,
+            child: Builder(
+              builder: (context) {
+                return FastNavigationListView(
+                  items: const [
+                    FastItem(
+                      labelText: 'commodities',
+                      value: '/commodities',
+                    ),
+                    FastItem(
+                      labelText: 'cryptos',
+                      value: '/cryptos',
+                    ),
+                    FastItem(
+                      labelText: 'flags',
+                      value: '/flags',
+                    ),
+                  ],
+                  onSelectionChanged: (FastItem<String> item) {
+                    if (item.value == null) {
+                      GoRouter.of(context).go(item.value!);
+                    }
+                  },
+                );
               },
-            );
-          },
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 }

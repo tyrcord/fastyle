@@ -6,6 +6,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_pricing/fastyle_pricing.dart';
 import 'package:fastyle_settings/fastyle_settings.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_core/lingua_core.dart';
 import 'package:lingua_finance/generated/codegen_loader.g.dart';
@@ -46,9 +47,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastApp(
-      routes: kAppRoutes,
       appInformation: kAppInfo,
-      homeBuilder: (context) => buildHome(context),
+      routesForMediaType: (mediaType) => [
+        ...kAppRoutes,
+        GoRoute(
+          path: '/',
+          builder: (_, __) => buildHome(context),
+        ),
+      ],
       assetLoader: LinguaLoader(
         mapLocales: LinguaLoader.mergeMapLocales([
           SettingsCodegenLoader.mapLocales,

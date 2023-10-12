@@ -45,7 +45,6 @@ class MyApp extends StatelessWidget with FastAdInformationJobDelegate {
         AdCodegenLoader.mapLocales,
         PurchasesCodegenLoader.mapLocales,
       ]),
-      routes: kAppRoutes,
       blocProviders: [
         BlocProvider(bloc: FastAdInfoBloc()),
         BlocProvider(bloc: FastSplashAdBloc()),
@@ -56,7 +55,10 @@ class MyApp extends StatelessWidget with FastAdInformationJobDelegate {
         FastSplashAdJob(),
         FastRewardedAdJob(),
       ],
-      homeBuilder: (BuildContext context) => const MyHomePage(),
+      routesForMediaType: (mediaType) => [
+        ...kAppRoutes,
+        GoRoute(path: '/', builder: (_, __) => const MyHomePage()),
+      ],
     );
   }
 

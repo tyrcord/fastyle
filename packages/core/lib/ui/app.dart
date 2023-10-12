@@ -70,15 +70,8 @@ class FastApp extends StatefulWidget {
   /// if the application has been launched before.
   final bool forceOnboarding;
 
-  /// A builder function that builds the home widget that is shown to the
-  /// user when the application finishes loading.
-  final WidgetBuilder? homeBuilder;
-
   /// The path to the localization assets directory.
   final String localizationPath;
-
-  /// A list of custom routes for the application.
-  final List<RouteBase> routes;
 
   /// The fallback locale to use if the system locale is not supported.
   final Locale fallbackLocale;
@@ -115,7 +108,6 @@ class FastApp extends StatefulWidget {
     this.delayBeforeShowingLoader = kFastDelayBeforeShowingLoader,
     this.debugShowCheckedModeBanner = false,
     this.forceOnboarding = false,
-    this.routes = kFastDefaultRoutes,
     this.askForReview = true,
     this.onDatabaseVersionChanged,
     this.onboardingBuilder,
@@ -125,7 +117,6 @@ class FastApp extends StatefulWidget {
     this.blocProviders,
     this.loaderBuilder,
     this.errorBuilder,
-    this.homeBuilder,
     this.loaderJobs,
     this.lightTheme,
     this.darkTheme,
@@ -272,6 +263,8 @@ class _FastAppState extends State<FastApp> {
 
   /// Builds the main app widget.
   Widget buildApp(BuildContext context) {
+    _askForAppReviewIfNeeded(context);
+
     return FastAppSettingsThemeBuilder(
       builder: (context, state) {
         final easyLocalization = EasyLocalization.of(context)!;
@@ -391,16 +384,6 @@ class _FastAppState extends State<FastApp> {
         onRetryTap: () => FastApp.restart(context),
       ),
     );
-  }
-
-  Widget buildHome(BuildContext context) {
-    if (widget.homeBuilder != null) {
-      _askForAppReviewIfNeeded(context);
-
-      return widget.homeBuilder!(context);
-    }
-
-    return buildEmptyContainer();
   }
 
   Widget buildOnboarding(BuildContext context) {

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:go_router/go_router.dart';
 
 // Project imports:
 import './pages/plan_summary_cards.page.dart';
@@ -17,7 +18,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastApp(
-      homeBuilder: (context) => const HomePage(),
+      routesForMediaType: (mediaType) => [
+        GoRoute(
+          path: '/',
+          builder: (_, __) => const HomePage(),
+        ),
+      ],
     );
   }
 }

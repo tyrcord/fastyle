@@ -10,10 +10,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  # Public
   easy_localization: ^3.0.3
+  go_router: ^11.1.3
 
   # Lingua
   lingua_core: ^0.0.29
+
+  # Fastyle
   fastyle_core: ^0.0.24
   fastyle_buttons: ^0.0.13
 

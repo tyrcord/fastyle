@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:go_router/go_router.dart';
 
 final kAppInfo = kFastAppInfo.copyWith(
   appName: 'Fastyle Buttons',
@@ -29,7 +30,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return FastApp(
       appInformation: kAppInfo,
-      homeBuilder: (context) => buildHome(context),
+      routesForMediaType: (mediaType) => [
+        GoRoute(path: '/', builder: (context, __) => buildHome(context)),
+      ],
     );
   }
 

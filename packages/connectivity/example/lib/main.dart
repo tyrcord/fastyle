@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:go_router/go_router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,13 +16,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastApp(
-      homeBuilder: (_) => const MyHomePage(title: 'Flutter Demo Home Page'),
+      routesForMediaType: (mediaType) => [
+        GoRoute(path: '/', builder: (_, __) => const MyHomePage()),
+      ],
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key, this.title = 'Flutter Demo Home Page'});
 
   final String title;
 

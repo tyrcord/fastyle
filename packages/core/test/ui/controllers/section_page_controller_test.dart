@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:go_router/go_router.dart';
 
 const _kLoaded = 'LOADED';
 const _kLoading = 'LOADING';
@@ -13,13 +14,18 @@ FastApp _buildApp({
   Duration? loadingTimeout,
 }) {
   return FastApp(
-    homeBuilder: (_) => FastSectionPageController(
-      loadingBuilder: (context) => const FastBody(text: _kLoading),
-      loadedBuilder: (context) => const FastBody(text: _kLoaded),
-      errorBuilder: (context) => const FastBody(text: _kError),
-      loadingTimeout: loadingTimeout,
-      loadingFuture: loadingFuture,
-    ),
+    routesForMediaType: (mediaType) => [
+      GoRoute(
+        path: '/',
+        builder: (_, __) => FastSectionPageController(
+          loadingBuilder: (context) => const FastBody(text: _kLoading),
+          loadedBuilder: (context) => const FastBody(text: _kLoaded),
+          errorBuilder: (context) => const FastBody(text: _kError),
+          loadingTimeout: loadingTimeout,
+          loadingFuture: loadingFuture,
+        ),
+      ),
+    ],
   );
 }
 

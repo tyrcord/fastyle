@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:fastyle_calculator_example/ui/pages/sum_calculator.page.dart';
@@ -16,6 +17,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FastApp(homeBuilder: (_) => const SumCalculatorPage());
+    return FastApp(
+      routesForMediaType: (mediaType) => [
+        GoRoute(path: '/', builder: (_, __) => const SumCalculatorPage()),
+      ],
+    );
   }
 }

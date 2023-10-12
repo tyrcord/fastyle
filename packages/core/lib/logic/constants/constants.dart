@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fuzzy/fuzzy.dart';
-import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -64,9 +63,6 @@ const kFastAppSettingsAskForReviewMinDays = 7;
 
 /// Indicates whether Fast App has a disclaimer.
 const kFastAppSettingsHasDisclaimer = false;
-
-/// The list of default routes for Fast App.
-const kFastDefaultRoutes = <GoRoute>[];
 
 /// The path to the localization files for Fast App.
 const kFastLocalizationPath = 'i18n/';

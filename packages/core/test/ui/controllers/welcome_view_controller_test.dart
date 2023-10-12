@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -15,14 +16,19 @@ FastApp _buildApp(
   ValueListenable<bool> valueListenable,
 ) {
   return FastApp(
-    homeBuilder: (_) => ValueListenableBuilder(
-      valueListenable: valueListenable,
-      builder: (BuildContext context, bool isPending, Widget? child) {
-        final text = isPending ? _kPending : _kResumed;
+    routesForMediaType: (mediaType) => [
+      GoRoute(
+        path: '/',
+        builder: (_, __) => ValueListenableBuilder(
+          valueListenable: valueListenable,
+          builder: (BuildContext context, bool isPending, Widget? child) {
+            final text = isPending ? _kPending : _kResumed;
 
-        return Text(text);
-      },
-    ),
+            return Text(text);
+          },
+        ),
+      ),
+    ],
   );
 }
 

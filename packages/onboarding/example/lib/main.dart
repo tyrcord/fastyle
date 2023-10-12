@@ -30,49 +30,57 @@ class MyApp extends StatelessWidget {
           CountriesCodegenLoader.mapLocales,
         ]),
       ),
-      routes: kAppRoutes,
-      homeBuilder: (_) => FastSectionPage(
-        titleText: 'Fastyle Onboarding',
-        showAppBar: false,
-        child: Builder(
-          builder: (context) {
-            return FastNavigationListView(
-              items: [
-                FastItem(
-                  labelText:
-                      OnboardingLocaleKeys.onboarding_notifications_title.tr(),
-                  value: 'notifications',
-                ),
-                FastItem(
-                  labelText: OnboardingLocaleKeys
-                      .onboarding_personalized_ads_title
-                      .tr(),
-                  value: 'ads',
-                ),
-                FastItem(
-                  labelText:
-                      OnboardingLocaleKeys.onboarding_user_currency_title.tr(),
-                  value: 'currency',
-                ),
-                FastItem(
-                  labelText:
-                      OnboardingLocaleKeys.onboarding_user_country_title.tr(),
-                  value: 'country',
-                ),
-                FastItem(
-                  labelText: OnboardingLocaleKeys
-                      .onboarding_restore_premium_title
-                      .tr(),
-                  value: 'premium',
-                ),
-              ],
-              onSelectionChanged: (FastItem<dynamic> item) {
-                GoRouter.of(context).go('/${item.value}');
+      routesForMediaType: (mediaType) => [
+        GoRoute(
+          path: '/',
+          builder: (_, __) => FastSectionPage(
+            titleText: 'Fastyle Onboarding',
+            showAppBar: false,
+            child: Builder(
+              builder: (context) {
+                return FastNavigationListView(
+                  items: [
+                    FastItem(
+                      labelText: OnboardingLocaleKeys
+                          .onboarding_notifications_title
+                          .tr(),
+                      value: 'notifications',
+                    ),
+                    FastItem(
+                      labelText: OnboardingLocaleKeys
+                          .onboarding_personalized_ads_title
+                          .tr(),
+                      value: 'ads',
+                    ),
+                    FastItem(
+                      labelText: OnboardingLocaleKeys
+                          .onboarding_user_currency_title
+                          .tr(),
+                      value: 'currency',
+                    ),
+                    FastItem(
+                      labelText: OnboardingLocaleKeys
+                          .onboarding_user_country_title
+                          .tr(),
+                      value: 'country',
+                    ),
+                    FastItem(
+                      labelText: OnboardingLocaleKeys
+                          .onboarding_restore_premium_title
+                          .tr(),
+                      value: 'premium',
+                    ),
+                  ],
+                  onSelectionChanged: (FastItem<dynamic> item) {
+                    GoRouter.of(context).go('/${item.value}');
+                  },
+                );
               },
-            );
-          },
+            ),
+          ),
         ),
-      ),
+        ...kAppRoutes,
+      ],
     );
   }
 }

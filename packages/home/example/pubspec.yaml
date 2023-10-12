@@ -10,9 +10,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  # Public
+  go_router: ^11.1.3
+
   fastyle_core: ^0.0.24
   fastyle_home: ^0.0.19
-  t_helpers: ^0.0.22
+  t_helpers: ^0.0.32
 
 dev_dependencies:
   flutter_test:

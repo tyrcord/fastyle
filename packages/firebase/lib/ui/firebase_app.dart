@@ -25,7 +25,6 @@ class FastFirebaseApp extends FastApp {
     super.delayBeforeShowingLoader = kFastDelayBeforeShowingLoader,
     super.debugShowCheckedModeBanner = false,
     super.forceOnboarding = false,
-    super.routes = kFastDefaultRoutes,
     super.askForReview = true,
     super.onDatabaseVersionChanged,
     super.defaultAppDictEntries,
@@ -35,7 +34,6 @@ class FastFirebaseApp extends FastApp {
     super.blocProviders,
     super.loaderBuilder,
     super.errorBuilder,
-    super.homeBuilder,
     super.assetLoader,
     super.loaderJobs,
     super.lightTheme,
@@ -94,11 +92,9 @@ class _FastFirebaseAppState extends State<FastFirebaseApp> {
     return BlocProvider(
       bloc: _remoteConfigBloc,
       child: FastApp(
-        routes: widget.routes,
         defaultAppDictEntries: widget.defaultAppDictEntries,
         useProIcons: widget.useProIcons,
         errorReporter: FastFirebaseAppErrorReporter(),
-        homeBuilder: widget.homeBuilder,
         localizationPath: widget.localizationPath,
         lightTheme: widget.lightTheme,
         darkTheme: widget.darkTheme,

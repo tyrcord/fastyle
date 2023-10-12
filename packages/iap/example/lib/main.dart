@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_iap/fastyle_iap.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lingua_core/lingua_core.dart';
 import 'package:lingua_purchases/generated/codegen_loader.g.dart';
 import 'package:tbloc/tbloc.dart';
@@ -39,9 +40,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastApp(
-      routes: kAppRoutes,
       appInformation: kAppInfo,
-      homeBuilder: (context) => buildHome(context),
+      routesForMediaType: (mediaType) => [
+        ...kAppRoutes,
+        GoRoute(
+          path: '/',
+          builder: (_, __) => buildHome(context),
+        ),
+      ],
       assetLoader: LinguaLoader(
         mapLocales: LinguaLoader.mergeMapLocales([
           PurchasesCodegenLoader.mapLocales,
