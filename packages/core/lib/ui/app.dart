@@ -278,8 +278,6 @@ class _FastAppState extends State<FastApp> {
 
             if (connectionState == ConnectionState.active ||
                 connectionState == ConnectionState.done) {
-              _listenOnConnectivityStatusChanges();
-
               return MaterialApp.router(
                 debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
                 localizationsDelegates: easyLocalization.delegates,
@@ -383,6 +381,8 @@ class _FastAppState extends State<FastApp> {
         ),
       ],
     );
+
+    _listenOnConnectivityStatusChanges();
 
     return _router!;
   }
