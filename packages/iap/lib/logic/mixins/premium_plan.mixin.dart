@@ -10,7 +10,7 @@ import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:fastyle_iap/fastyle_iap.dart';
 
 mixin FastPremiumPlanMixin {
-  List<FastAppFeatures> getFeatureForPlan(String planId) {
+  List<FastAppFeatures> getFeaturesForPlan(String planId) {
     // default ones, should be app specific.
     return [FastAppFeatures.adFree];
   }
