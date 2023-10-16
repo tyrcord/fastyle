@@ -51,10 +51,20 @@ class FastAppInfoPage<T> extends StatelessWidget {
       footer: buildFooter(context),
       child: Column(
         children: [
-          if (header != null) header!,
+          if (header != null) _buildHeader(context),
           Column(children: buildNavigationCategories(context)),
         ],
       ),
+    );
+  }
+
+  Widget _buildHeader(BuildContext context) {
+    final spacing = ThemeHelper.spacing.getSpacing(context);
+
+    return Container(
+      padding: EdgeInsets.only(bottom: spacing),
+      alignment: Alignment.topCenter,
+      child: header!,
     );
   }
 
