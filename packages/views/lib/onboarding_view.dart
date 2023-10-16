@@ -228,7 +228,7 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
     widget.onDone?.call();
 
     // ignore: use_build_context_synchronously
-    GoRouter.of(context).pushReplacement(widget.homeLocation);
+    GoRouter.of(context).replace(widget.homeLocation);
   }
 
   String _getDoneText() {
