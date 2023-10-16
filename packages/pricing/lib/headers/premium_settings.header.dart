@@ -27,9 +27,7 @@ class FastPremiumSettingsHeader extends StatelessWidget {
     return BlocBuilderWidget(
       bloc: _storeBloc,
       builder: (context, state) {
-        final isPremium = state.hasPurchasedProduct(_getPremiumProductId());
-
-        if (isPremium) {
+        if (isUserPremium()) {
           return FastPremiumPlanSummaryCard(
             footer: _buildFooter(
               PurchasesLocaleKeys.purchases_label_restore_purchases.tr(),
@@ -52,14 +50,5 @@ class FastPremiumSettingsHeader extends StatelessWidget {
       onTap: onGoPremium,
       text: linkText,
     );
-  }
-
-  String _getPremiumProductId() {
-    String? id = premiumProductId;
-    id ??= getPremiumProductId();
-
-    assert(id != null, 'The premium product id must not be null');
-
-    return id!;
   }
 }
