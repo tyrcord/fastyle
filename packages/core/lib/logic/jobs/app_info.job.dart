@@ -44,14 +44,5 @@ class FastAppInfoJob extends FastJob {
     if (appInfoState is! FastAppInfoBlocState) {
       throw appInfoState;
     }
-
-    final nextVersion = appInfoDocument.databaseVersion;
-    final previousVersion = appInfoState.previousDatabaseVersion;
-    final hasDatabaseVersionChanged = nextVersion != previousVersion;
-
-    if (hasDatabaseVersionChanged && onDatabaseVersionChanged != null) {
-      // FIXME: should be called at the end of the initialization process
-      return onDatabaseVersionChanged!(previousVersion, nextVersion);
-    }
   }
 }

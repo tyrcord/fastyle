@@ -5,3 +5,4 @@ export './app_dict.job.dart';
 export './app_onboarding.job.dart';
 export './app_permissions.job.dart';
 export './app_connectivity.job.dart';
+export './app_finalize.job.dart';

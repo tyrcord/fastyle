@@ -481,12 +481,7 @@ class _FastAppState extends State<FastApp> {
     }
 
     return [
-      // FIXME: onDatabaseVersionChanged should be called once the app
-      // has been initialized.
-      FastAppInfoJob(
-        widget.appInfo,
-        onDatabaseVersionChanged: widget.onDatabaseVersionChanged,
-      ),
+      FastAppInfoJob(widget.appInfo),
       if (widget.isInternetConnectionRequired) FastAppConnectivityJob(),
       FastAppPermissionsJob(),
       FastAppSettingsJob(),
@@ -494,7 +489,21 @@ class _FastAppState extends State<FastApp> {
       FastAppFeaturesJob(),
       FastAppOnboardingJob(),
       ...?widget.loaderJobs,
+      FastAppFinalizeJob(callbacks: [handleDatabaseVersionChange]),
     ];
+  }
+
+  Future<void> handleDatabaseVersionChange() async {
+    final appInfoBloc = FastAppInfoBloc.instance;
+    final appInfoState = appInfoBloc.currentState;
+    final appInfoDocument = widget.appInfo;
+    final nextVersion = appInfoDocument.databaseVersion;
+    final previousVersion = appInfoState.previousDatabaseVersion;
+    final hasDatabaseVersionChanged = nextVersion != previousVersion;
+
+    if (hasDatabaseVersionChanged && widget.onDatabaseVersionChanged != null) {
+      return widget.onDatabaseVersionChanged!(previousVersion, nextVersion);
+    }
   }
 
   /// Builds the FastThemeBloc instance.
