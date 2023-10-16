@@ -177,6 +177,8 @@ class _FastAppState extends State<FastApp> {
     _mediaLayoutBloc = FastMediaLayoutBloc();
     _themeBloc = _buildAppThemeBloc();
 
+    _listenOnConnectivityStatusChanges();
+
     _routesStream = _mediaLayoutBloc.onData.distinct((previous, next) {
       final previousRoutes = widget.routesForMediaType(previous.mediaType);
       final nextRoutes = widget.routesForMediaType(next.mediaType);
@@ -381,8 +383,6 @@ class _FastAppState extends State<FastApp> {
         ),
       ],
     );
-
-    _listenOnConnectivityStatusChanges();
 
     return _router!;
   }
