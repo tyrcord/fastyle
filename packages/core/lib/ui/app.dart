@@ -313,11 +313,11 @@ class _FastAppState extends State<FastApp> {
               if (widget.isInternetConnectionRequired && _router != null) {
                 if (!state.isConnected) {
                   _addPostFrameCallback(() {
-                    _router?.pushReplacement(_noConnectionAvailableRoute);
+                    _router?.replace(_noConnectionAvailableRoute);
                   });
                 } else if (!state.isServiceAvailable) {
                   _addPostFrameCallback(() {
-                    _router?.pushReplacement(_noServiceAvailableRoute);
+                    _router?.replace(_noServiceAvailableRoute);
                   });
                 } else {
                   final routerDelegate = _router!.routerDelegate;
@@ -327,7 +327,7 @@ class _FastAppState extends State<FastApp> {
 
                   if (hasMatches && _router!.location() != initialLocation) {
                     _addPostFrameCallback(() {
-                      _router?.pushReplacement(initialLocation);
+                      _router?.replace(initialLocation);
                     });
                   }
                 }

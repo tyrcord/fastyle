@@ -13,7 +13,7 @@ dependencies:
 
   # Public
   collection: ^1.17.2
-  font_awesome_flutter: ^10.5.0
+  font_awesome_flutter: ^10.6.0
   easy_localization: ^3.0.3
 
   # T

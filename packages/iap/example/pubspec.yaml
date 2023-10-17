@@ -13,7 +13,7 @@ dependencies:
 
   # Public
   go_router: ^11.1.3
-  font_awesome_flutter: ^10.5.0
+  font_awesome_flutter: ^10.6.0
   easy_localization: ^3.0.3
 
   # Fastyle

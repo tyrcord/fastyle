@@ -14,7 +14,7 @@ dependencies:
   # Public
   rxdart: ^0.27.7
   collection: ^1.17.2
-  font_awesome_flutter: ^10.5.0
+  font_awesome_flutter: ^10.6.0
   easy_localization: ^3.0.3
   in_app_purchase_storekit: ^0.3.6+7
   in_app_purchase: ^3.1.11

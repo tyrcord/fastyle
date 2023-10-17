@@ -15,7 +15,7 @@ dependencies:
   pdf: ^3.10.4
   printing: ^5.11.0
   easy_localization: ^3.0.3
-  font_awesome_flutter: ^10.5.0
+  font_awesome_flutter: ^10.6.0
 
   # Fastyle
   fastyle_core: ^0.0.24
