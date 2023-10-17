@@ -75,7 +75,7 @@ class FastConnectivityService {
       _checkConnectivityStatusOnConnectivityChanged() {
     return Connectivity()
         .onConnectivityChanged
-        .sampleTime(const Duration(milliseconds: 300))
+        .sampleTime(const Duration(milliseconds: 2500))
         .asyncMap((event) async {
       return FastConnectivityStatus(
         isServiceAvailable: await checkServiceConnectivity(),
