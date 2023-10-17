@@ -207,21 +207,21 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.13"
+    version: "0.0.14"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.24"
+    version: "0.0.25"
   fastyle_digit_calculator:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.23"
+    version: "0.0.24"
   ffi:
     dependency: transitive
     description:
