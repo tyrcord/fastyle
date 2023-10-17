@@ -17,11 +17,12 @@ class FastConnectivityService {
   final String checkAddress;
   final int checkPort;
 
-  factory FastConnectivityService(
-      {Duration? checkInterval,
-      Duration? checkTimeout,
-      String? checkAddress,
-      int? checkPort}) {
+  factory FastConnectivityService({
+    Duration? checkInterval,
+    Duration? checkTimeout,
+    String? checkAddress,
+    int? checkPort,
+  }) {
     if (!_hasBeenInstantiated) {
       instance = FastConnectivityService._(
         checkInterval: checkInterval ?? kFastConnectivityCheckInterval,
@@ -71,6 +72,14 @@ class FastConnectivityService {
     }
   }
 
+  Future<FastConnectivityStatus> checkConnectivity() async {
+    return FastConnectivityStatus(
+      connectivityResult: await Connectivity().checkConnectivity(),
+      isServiceAvailable: await checkServiceConnectivity(),
+      isConnected: await checkDeviceConnectivity(),
+    );
+  }
+
   Stream<FastConnectivityStatus>
       _checkConnectivityStatusOnConnectivityChanged() {
     return Connectivity()
@@ -86,12 +95,6 @@ class FastConnectivityService {
   }
 
   Stream<FastConnectivityStatus> _checkConnectivityStatusPericodically() {
-    return Stream.periodic(checkInterval).asyncMap((_) async {
-      return FastConnectivityStatus(
-        connectivityResult: await Connectivity().checkConnectivity(),
-        isServiceAvailable: await checkServiceConnectivity(),
-        isConnected: await checkDeviceConnectivity(),
-      );
-    });
+    return Stream.periodic(checkInterval).asyncMap((_) => checkConnectivity());
   }
 }
