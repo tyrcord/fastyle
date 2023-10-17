@@ -185,7 +185,9 @@ class FastStatusPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         buildCancelButton(),
+        if (onCancelTap != null && cancelButtonText != null) kFastSizedBox8,
         buildValidButton(),
+        if (onValidTap != null && validButtonText != null) kFastSizedBox8,
       ],
     );
   }
