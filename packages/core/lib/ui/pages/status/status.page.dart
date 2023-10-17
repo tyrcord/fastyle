@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:tenhance/tenhance.dart';
 
@@ -42,6 +43,8 @@ class FastStatusPage extends StatelessWidget {
 
   final String? subTitleText;
 
+  final bool isValidButtonPending;
+
   /// Creates a [FastStatusPage].
   ///
   /// The [titleText] parameter is required.
@@ -60,7 +63,8 @@ class FastStatusPage extends StatelessWidget {
     this.icon,
     this.child,
     this.subTitleText,
-  });
+    bool? isValidButtonPending,
+  }) : isValidButtonPending = isValidButtonPending ?? false;
 
   @override
   Widget build(BuildContext context) {
@@ -205,7 +209,11 @@ class FastStatusPage extends StatelessWidget {
   /// Builds the widget for the valid button.
   Widget buildValidButton() {
     if (onValidTap != null && validButtonText != null) {
-      return FastRaisedButton(onTap: onValidTap, text: validButtonText);
+      return FastPendingRaisedButton(
+        isPending: isValidButtonPending,
+        text: validButtonText,
+        onTap: onValidTap,
+      );
     }
 
     return const SizedBox.shrink();
