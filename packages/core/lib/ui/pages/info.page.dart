@@ -10,8 +10,6 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 // Package imports:
 
-const _kFooterMargin = EdgeInsets.only(top: 16.0);
-
 class FastAppInfoPage<T> extends StatelessWidget {
   final List<FastNavigationCategoryDescriptor<T>> categoryDescriptors;
   final void Function(BuildContext context, FastItem<T>)? onNavigationItemTap;
@@ -43,12 +41,12 @@ class FastAppInfoPage<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastSectionPage(
-      titleText: titleText,
-      contentPadding: contentPadding,
+      contentPadding: EdgeInsets.zero,
+      footer: buildFooter(context),
       isViewScrollable: true,
       showAppBar: showAppBar,
+      titleText: titleText,
       actions: actions,
-      footer: buildFooter(context),
       child: Column(
         children: [
           if (header != null) _buildHeader(context),
@@ -59,16 +57,17 @@ class FastAppInfoPage<T> extends StatelessWidget {
   }
 
   Widget _buildHeader(BuildContext context) {
-    final spacing = ThemeHelper.spacing.getSpacing(context);
+    final padding = ThemeHelper.spacing.getPadding(context);
 
     return Container(
-      padding: EdgeInsets.only(bottom: spacing),
       alignment: Alignment.topCenter,
+      padding: padding,
       child: header!,
     );
   }
 
   List<Widget> buildNavigationCategories(BuildContext context) {
+    final spacing = ThemeHelper.spacing.getSpacing(context);
     final List<Widget> categories = [];
 
     for (final navigationCategoryDescriptor in categoryDescriptors) {
@@ -79,10 +78,11 @@ class FastAppInfoPage<T> extends StatelessWidget {
         categoryColor: navigationCategoryDescriptor.titleColor,
         captionText: navigationCategoryDescriptor.captionText,
         captionColor: navigationCategoryDescriptor.captionColor,
+        margin: EdgeInsets.symmetric(vertical: 16.0, horizontal: spacing),
       ));
 
       for (final item in items) {
-        final listItem = buildNavigationListItem(context, item);
+        final listItem = buildNavigationListItem(context, item, spacing);
         categories.add(listItem);
       }
     }
@@ -93,8 +93,10 @@ class FastAppInfoPage<T> extends StatelessWidget {
   FastNavigationListItem buildNavigationListItem(
     BuildContext context,
     FastItem<T> item,
+    double spacing,
   ) {
     return FastNavigationListItem<FastItem<T>>(
+      contentPadding: EdgeInsets.symmetric(horizontal: spacing),
       onTap: () => handleNavigationItemTap(context, item),
       item: item,
     );
@@ -104,7 +106,8 @@ class FastAppInfoPage<T> extends StatelessWidget {
   Widget buildFooter(BuildContext context) {
     if (footerText != null) {
       return Container(
-        padding: footerPadding ?? _kFooterMargin,
+        padding: footerPadding ??
+            EdgeInsets.only(top: ThemeHelper.spacing.getSpacing(context)),
         alignment: Alignment.bottomCenter,
         child: FastSecondaryBody(text: footerText!),
       );
