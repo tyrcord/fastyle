@@ -66,7 +66,7 @@ class FastOnboardingRequestPersonalizedAdsContent extends StatelessWidget {
     FastAppPermissionsBloc.instance.addEvent(event);
 
     onActionTap?.call();
-    WidgetsBinding.instance.addPostFrameCallback((_) => controller?.resume());
+    WidgetsBinding.instance.scheduleFrameCallback((_) => controller?.resume());
   }
 
   @override

@@ -76,7 +76,7 @@ class FastOnboardingRequestNotificationsContent extends StatelessWidget {
 
     onActionTap?.call();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => controller?.resume());
+    WidgetsBinding.instance.scheduleFrameCallback((_) => controller?.resume());
   }
 
   @override

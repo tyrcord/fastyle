@@ -135,7 +135,7 @@ class _FastLinearProgressBarIndicatorState
   Widget buildAnimatedProgressBar(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+        WidgetsBinding.instance.scheduleFrameCallback((timeStamp) {
           handlePostFrame(timeStamp, constraints);
         });
 

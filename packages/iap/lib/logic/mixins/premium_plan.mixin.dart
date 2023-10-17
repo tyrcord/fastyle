@@ -16,7 +16,7 @@ mixin FastPremiumPlanMixin {
   }
 
   void handleError(BuildContext context, FastPlanBloc bloc, dynamic error) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance.scheduleFrameCallback((_) {
       showAnimatedFastAlertDialog(
         titleText: CoreLocaleKeys.core_label_error.tr(),
         validText: CoreLocaleKeys.core_label_ok.tr(),

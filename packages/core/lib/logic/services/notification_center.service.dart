@@ -215,7 +215,7 @@ class FastNotificationCenter {
 
       final notification = _queue.removeFirst();
 
-      WidgetsBinding.instance.addPostFrameCallback((_) {
+      WidgetsBinding.instance.scheduleFrameCallback((_) {
         notification.show(context);
       });
     } else {

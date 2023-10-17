@@ -34,7 +34,7 @@ class _FastAppSettingsThemeListenerState
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance.scheduleFrameCallback((_) {
       _settingsBloc = FastAppSettingsBloc.instance;
       _themeBloc = FastThemeBloc.instance;
 

@@ -106,7 +106,7 @@ class _FastMatexSelectCountryFieldState
 
   void _loadCountries() {
     if (!_countryBloc.currentState.isInitialized) {
-      SchedulerBinding.instance.addPostFrameCallback((_) {
+      SchedulerBinding.instance.scheduleFrameCallback((_) {
         _countryBloc.addEvent(MatexCountryBlocEvent.init());
       });
     }

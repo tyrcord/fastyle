@@ -107,7 +107,7 @@ class _FastMatexSelectCurrencyFieldState
   }
 
   void _loadFinancialInstruments() {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
+    SchedulerBinding.instance.scheduleFrameCallback((_) {
       _currencyBloc.addEvent(const MatexCurrencyBlocEvent.init());
     });
   }
