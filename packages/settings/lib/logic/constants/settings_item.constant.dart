@@ -11,7 +11,7 @@ import 'package:fastyle_settings/fastyle_settings.dart';
 
 const kFastSettingsItemDescriptors = {
   FastSettingsItems.twitter: FastItem(
-    labelText: 'Twitter',
+    labelText: 'X',
     value: 'action://twitter',
   ),
   FastSettingsItems.facebook: FastItem(
@@ -70,8 +70,8 @@ const kFastSettingsItemDescriptors = {
 
 const kFastSettingsItemIcons = {
   FastSettingsItems.twitter: FastSettingsItemIcon(
-    pro: FastFontAwesomeIcons.twitter,
-    free: FontAwesomeIcons.twitter,
+    pro: FastFontAwesomeIcons.xTwitter,
+    free: FontAwesomeIcons.xTwitter,
   ),
   FastSettingsItems.facebook: FastSettingsItemIcon(
     pro: FastFontAwesomeIcons.facebookF,
