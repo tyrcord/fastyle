@@ -1,5 +1,6 @@
 // Flutter imports
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 // Package imports
 import 'package:easy_localization/easy_localization.dart';
@@ -51,12 +52,21 @@ class FastAppSkeleton extends StatelessWidget {
   }
 
   Widget _buildThemedContent(BuildContext context, ThemeData theme) {
-    return MediaQuery.fromView(
-      view: View.of(context),
-      child: AnimatedTheme(
-        data: theme,
-        child: FastPrimaryBackgroundContainer(
-          child: FastPageLayout(child: child),
+    final themeBloc = FastThemeBloc.instance;
+    final brightness = themeBloc.currentState.brightness;
+    final overlayStyle = brightness == Brightness.dark
+        ? SystemUiOverlayStyle.light
+        : SystemUiOverlayStyle.dark;
+
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: overlayStyle,
+      child: MediaQuery.fromView(
+        view: View.of(context),
+        child: AnimatedTheme(
+          data: theme,
+          child: FastPrimaryBackgroundContainer(
+            child: FastPageLayout(child: child),
+          ),
         ),
       ),
     );
