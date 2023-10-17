@@ -15,7 +15,7 @@ dependencies:
   font_awesome_flutter: ^10.6.0
   collection: ^1.17.2
   easy_localization: ^3.0.3
-  go_router: ^11.1.3
+  go_router: ^11.1.4
 
   # Fastyle
   fastyle_images: ^0.0.27
@@ -29,8 +29,8 @@ dependencies:
 
   # MateX
   matex_dart: ^0.11.1
-  matex_financial: ^0.0.22
-  matex_data: ^0.0.10
+  matex_financial: ^0.0.23
+  matex_data: ^0.0.11
 
   # Lingua
   lingua_countries: ^0.0.3

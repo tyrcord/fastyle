@@ -18,7 +18,7 @@ dependencies:
   firebase_messaging: ^14.6.9
 
   # Lingua
-  lingua_onboarding: ^0.0.12
+  lingua_onboarding: ^0.0.13
   lingua_core: ^0.0.30
   lingua_purchases: ^0.0.14
 

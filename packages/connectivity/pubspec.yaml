@@ -13,7 +13,7 @@ dependencies:
 
   # Public
   font_awesome_flutter: ^10.6.0
-  connectivity_plus: ^5.0.0
+  connectivity_plus: ^5.0.1
   rxdart: ^0.27.7
   easy_localization: ^3.0.3
 
