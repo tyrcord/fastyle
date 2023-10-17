@@ -149,9 +149,7 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
   }
 
   Widget buildFallback(BuildContext context) {
-    if (widget.fallbackBuilder != null) {
-      return widget.fallbackBuilder!(context);
-    }
+    if (widget.fallbackBuilder != null) widget.fallbackBuilder!(context);
 
     return buildDefaultNativeAd();
   }
@@ -170,19 +168,20 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
   Future<void> _loadAd(FastNativeAdBlocEventPayload payload) async {
     if (mounted) {
       await _nativeAdBloc.onData.where((state) => state.isInitialized).first;
+
       debugLog(
         'FastNativeAdBloc is loading an ad...',
         debugLabel: widget.debugLabel,
       );
 
-      _nativeAdBloc.addEvent(FastNativeAdBlocEvent.loadAd(payload));
+      if (mounted) {
+        _nativeAdBloc.addEvent(FastNativeAdBlocEvent.loadAd(payload));
+      }
     }
   }
 
   FastAdInfo _getAdInfo() {
-    if (widget.adInfo != null) {
-      return widget.adInfo!;
-    }
+    if (widget.adInfo != null) widget.adInfo!;
 
     final adInfoBloc = FastAdInfoBloc.instance;
 
@@ -190,9 +189,7 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
   }
 
   Duration _getAdRefreshInterval() {
-    if (widget.refreshInterval != null) {
-      return widget.refreshInterval!;
-    }
+    if (widget.refreshInterval != null) widget.refreshInterval!;
 
     final adInfo = _getAdInfo();
     final refreshInterval = adInfo.refreshInterval;
