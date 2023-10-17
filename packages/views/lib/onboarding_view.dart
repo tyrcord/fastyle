@@ -1,13 +1,13 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:tenhance/tenhance.dart';
 
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:tenhance/tenhance.dart';
 
 //TODO: @need-review: code from fastyle_dart
 

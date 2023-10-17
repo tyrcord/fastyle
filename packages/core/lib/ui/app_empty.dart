@@ -1,13 +1,19 @@
 // Flutter imports
+
+// Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-// Package imports
+// Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:tbloc/tbloc.dart';
 
-// Project imports
+// Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+
+// Package imports
+
+// Project imports
 
 class FastAppSkeleton extends StatelessWidget {
   final ThemeData? lightTheme;

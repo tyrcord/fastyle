@@ -1,4 +1,6 @@
 // Flutter imports
+
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 /// An [InheritedWidget] to determine whether to use Pro icons.

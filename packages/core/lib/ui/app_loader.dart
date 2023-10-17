@@ -1,7 +1,13 @@
+// Dart imports:
 import 'dart:async';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
 /// Type definition for a builder that generates a loading widget

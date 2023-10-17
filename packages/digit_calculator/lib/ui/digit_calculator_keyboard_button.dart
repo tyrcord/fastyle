@@ -3,11 +3,11 @@ import 'dart:math';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:tenhance/tenhance.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:tenhance/tenhance.dart';
 
 // A custom Flutter widget for a calculator keyboard button
 class FastDigitCalculatorKeyboardButton<T> extends StatelessWidget {

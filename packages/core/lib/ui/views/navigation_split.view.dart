@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:tbloc/tbloc.dart';
+import 'package:tenhance/tenhance.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:tenhance/tenhance.dart';
 
 //TODO: @need-review: code from fastyle_dart
 

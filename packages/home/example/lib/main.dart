@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_home/fastyle_home.dart';
-import 'package:t_helpers/helpers.dart';
 import 'package:go_router/go_router.dart';
+import 'package:t_helpers/helpers.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,10 +1,12 @@
-// Package imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:go_router/go_router.dart';
 
 FastApp _buildApp(Widget child) {
   return FastApp(

@@ -1,4 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:fastyle_animation/fastyle_animation.dart';
 
 // A widget that displays an animated logo for FastTyrcord.

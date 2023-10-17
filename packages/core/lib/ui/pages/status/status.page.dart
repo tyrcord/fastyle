@@ -1,6 +1,8 @@
 // Flutter imports:
-import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:tenhance/tenhance.dart';
 
 // Project imports:

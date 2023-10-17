@@ -3,16 +3,16 @@ import 'dart:async';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_core/lingua_core.dart';
+import 'package:subx/subx.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
-import 'package:lingua_core/generated/locale_keys.g.dart';
-import 'package:subx/subx.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
