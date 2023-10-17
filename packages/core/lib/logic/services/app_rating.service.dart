@@ -15,14 +15,21 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 /// A service class for handling app rating functionality.
 class FastAppRatingService {
-  static FastAppRatingService? _singleton;
+  /// The singleton instance of [FastAppRatingService].
+  static late FastAppRatingService instance;
+
   late RateMyApp _rateMyApp;
+
+  static bool _hasBeenInitialized = false;
 
   /// Creates a singleton instance of [FastAppRatingService].
   factory FastAppRatingService(FastAppInfoDocument appInfo) {
-    _singleton ??= FastAppRatingService._(appInfo);
+    if (!_hasBeenInitialized) {
+      instance = FastAppRatingService._(appInfo);
+      _hasBeenInitialized = true;
+    }
 
-    return _singleton!;
+    return instance;
   }
 
   /// Private constructor for [FastAppRatingService].
@@ -85,11 +92,16 @@ class FastAppRatingService {
 
   /// Checks if app review is needed and displays the app rating dialog if so.
   Future<void> askForAppReviewIfNeeded(BuildContext context) async {
-    await _rateMyApp.init();
-
-    if (_rateMyApp.shouldOpenDialog) {
+    if (await shouldAskForAppReview()) {
       // ignore: use_build_context_synchronously
       return showAppRatingDialog(context);
     }
+  }
+
+  /// Checks if app review is needed.
+  Future<bool> shouldAskForAppReview() async {
+    await _rateMyApp.init();
+
+    return _rateMyApp.shouldOpenDialog;
   }
 }
