@@ -40,6 +40,7 @@ class FastConnectivityStatusPage extends FastStatusPage {
       titleText:
           titleText ?? CoreLocaleKeys.core_label_internet_connection.tr(),
       palette: _getPaletteColor(context),
+      cancelButtonText: cancelButtonText,
       backgroundColor: backgroundColor,
       onCancelTap: onCancelTap,
       icon: _getIcon(context),
