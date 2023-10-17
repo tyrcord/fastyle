@@ -163,7 +163,7 @@ class _FastAppState extends State<FastApp> {
   bool _hasForcedOnboarding = false;
   List<RouteBase>? _currentRoutes;
   final _subxMap = SubxMap();
-  Key _key = UniqueKey();
+  Key _appkey = UniqueKey();
   GoRouter? _router;
 
   @override
@@ -185,13 +185,19 @@ class _FastAppState extends State<FastApp> {
   }
 
   void restartApp() {
-    setState(() => _key = UniqueKey());
+    setState(() {
+      _hasForcedOnboarding = false;
+      _currentRoutes = null;
+      _router?.dispose();
+      _router = null;
+      _appkey = UniqueKey();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return KeyedSubtree(
-      key: _key,
+      key: _appkey,
       child: GestureDetector(
         onTap: hideKeyboard,
         child: FastMediaLayoutObserver(
@@ -522,13 +528,9 @@ class _FastAppState extends State<FastApp> {
             }
 
             if (!state.isConnected) {
-              _scheduleFrameCallback(() {
-                _router?.replace(_noConnectionAvailableRoute);
-              });
+              _replaceTopLevel(_noConnectionAvailableRoute);
             } else if (!state.isServiceAvailable) {
-              _scheduleFrameCallback(() {
-                _router?.replace(_noServiceAvailableRoute);
-              });
+              _replaceTopLevel(_noServiceAvailableRoute);
             }
           }));
   }
@@ -540,6 +542,10 @@ class _FastAppState extends State<FastApp> {
         FastAppRatingService(widget.appInfo).askForAppReviewIfNeeded(context);
       }
     });
+  }
+
+  void _replaceTopLevel(String route) {
+    _scheduleFrameCallback(() => _router?.replace(route));
   }
 
   void _scheduleFrameCallback(VoidCallback callback) {

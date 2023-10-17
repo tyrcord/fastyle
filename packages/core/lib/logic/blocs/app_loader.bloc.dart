@@ -38,9 +38,9 @@ class FastAppLoaderBloc
     final eventPayload = event.payload;
     final eventType = event.type;
 
-    if (eventType == FastAppLoaderBlocEventType.init &&
-        !isInitialized &&
-        !isInitializing) {
+    // Don't use isInitialized here because we want to be able to reinitialize
+    // the app loader bloc. (When we restart the app for example)
+    if (eventType == FastAppLoaderBlocEventType.init && !isInitializing) {
       final jobs = eventPayload!.jobs;
       final errorReporter = eventPayload.errorReporter;
       isInitializing = true;
@@ -57,22 +57,20 @@ class FastAppLoaderBloc
         addEvent(const FastAppLoaderBlocEvent.initialized());
       }
     } else if (eventType == FastAppLoaderBlocEventType.initialized &&
-        !isInitialized &&
         isInitializing) {
-      isInitialized = true;
+      isInitializing = false;
 
       yield currentState.copyWith(
         isLoading: isInitializing,
-        isLoaded: isInitialized,
+        isLoaded: true,
       );
     } else if (eventType == FastAppLoaderBlocEventType.initFailed) {
       isInitializing = false;
-      isInitialized = false;
 
       yield currentState.copyWith(
         error: eventPayload!.error,
         isLoading: isInitializing,
-        isLoaded: isInitialized,
+        isLoaded: false,
         progress: 0,
       );
     }

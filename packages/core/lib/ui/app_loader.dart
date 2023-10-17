@@ -89,7 +89,7 @@ class FastAppLoaderState extends State<FastAppLoader> {
 
   /// Initializes the bloc and sets up listeners.
   void _initializeAppLoaderBloc() {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.scheduleFrameCallback((timeStamp) {
       _bloc.addEvent(FastAppLoaderBlocEvent.init(
         context,
         errorReporter: widget.errorReporter,
