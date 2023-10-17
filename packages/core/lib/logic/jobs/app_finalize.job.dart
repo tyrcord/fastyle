@@ -4,10 +4,13 @@ import 'package:fastyle_core/fastyle_core.dart';
 class FastAppFinalizeJob extends FastJob {
   static FastAppFinalizeJob? _singleton;
 
-  final List<Future Function()>? callbacks; // List of async callbacks.
+  // List of async callbacks.
+  final List<Future Function(BuildContext context)>? callbacks;
 
   // Factory constructor to maintain a singleton instance.
-  factory FastAppFinalizeJob({List<Future Function()>? callbacks}) {
+  factory FastAppFinalizeJob({
+    List<Future Function(BuildContext context)>? callbacks,
+  }) {
     return (_singleton ??= FastAppFinalizeJob._(callbacks: callbacks));
   }
 
@@ -28,7 +31,7 @@ class FastAppFinalizeJob extends FastJob {
     // Execute all the provided callbacks.
     for (final callback in callbacks!) {
       try {
-        await callback(); // Waiting for the callback to complete.
+        await callback(context); // Waiting for the callback to complete.
       } catch (error, stackTrace) {
         if (errorReporter != null) {
           errorReporter.recordError(error, stackTrace);

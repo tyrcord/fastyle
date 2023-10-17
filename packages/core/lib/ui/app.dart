@@ -267,8 +267,6 @@ class _FastAppState extends State<FastApp> {
 
   /// Builds the main app widget.
   Widget buildApp(BuildContext context) {
-    _askForAppReviewIfNeeded(context);
-
     return FastAppSettingsThemeBuilder(
       builder: (context, state) {
         final easyLocalization = EasyLocalization.of(context)!;
@@ -489,11 +487,16 @@ class _FastAppState extends State<FastApp> {
       FastAppFeaturesJob(),
       FastAppOnboardingJob(),
       ...?widget.loaderJobs,
-      FastAppFinalizeJob(callbacks: [handleDatabaseVersionChange]),
+      FastAppFinalizeJob(
+        callbacks: [
+          _handleDatabaseVersionChange,
+          _askForAppReviewIfNeeded,
+        ],
+      ),
     ];
   }
 
-  Future<void> handleDatabaseVersionChange() async {
+  Future<void> _handleDatabaseVersionChange(BuildContext context) async {
     final appInfoBloc = FastAppInfoBloc.instance;
     final appInfoState = appInfoBloc.currentState;
     final appInfoDocument = widget.appInfo;
@@ -517,7 +520,7 @@ class _FastAppState extends State<FastApp> {
   }
 
   /// Asks for app review if needed.
-  void _askForAppReviewIfNeeded(BuildContext context) {
+  Future<void> _askForAppReviewIfNeeded(BuildContext context) async {
     _addPostFrameCallback(() {
       if (widget.askForReview) {
         FastAppRatingService(widget.appInfo).askForAppReviewIfNeeded(context);
