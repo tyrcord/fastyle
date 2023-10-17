@@ -16,7 +16,6 @@ import 'package:subx/subx.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:tenhance/tenhance.dart';
 
 typedef RoutesForMediaTypeCallback = List<RouteBase> Function(
   FastMediaType mediaType,
@@ -177,8 +176,6 @@ class _FastAppState extends State<FastApp> {
     _mediaLayoutBloc = FastMediaLayoutBloc();
     _themeBloc = _buildAppThemeBloc();
 
-    _listenOnConnectivityStatusChanges();
-
     _routesStream = _mediaLayoutBloc.onData.distinct((previous, next) {
       final previousRoutes = widget.routesForMediaType(previous.mediaType);
       final nextRoutes = widget.routesForMediaType(next.mediaType);
@@ -298,42 +295,6 @@ class _FastAppState extends State<FastApp> {
     );
   }
 
-  void _listenOnConnectivityStatusChanges() {
-    _addPostFrameCallback(() {
-      _subxMap
-        ..cancelForKey(_noConnectionAvailableRouteName)
-        ..add(
-            _noConnectionAvailableRouteName,
-            _appConnectivityBloc.onData.distinct((previous, next) {
-              return previous.isConnected == next.isConnected &&
-                  previous.isServiceAvailable == next.isServiceAvailable;
-            }).listen((state) {
-              if (widget.isInternetConnectionRequired && _router != null) {
-                if (!state.isConnected) {
-                  _addPostFrameCallback(() {
-                    _router?.replace(_noConnectionAvailableRoute);
-                  });
-                } else if (!state.isServiceAvailable) {
-                  _addPostFrameCallback(() {
-                    _router?.replace(_noServiceAvailableRoute);
-                  });
-                } else {
-                  final routerDelegate = _router!.routerDelegate;
-                  final routerConfig = routerDelegate.currentConfiguration;
-                  final hasMatches = routerConfig.matches.isNotEmpty;
-                  final initialLocation = _getInitialLocation();
-
-                  if (hasMatches && _router!.location() != initialLocation) {
-                    _addPostFrameCallback(() {
-                      _router?.replace(initialLocation);
-                    });
-                  }
-                }
-              }
-            }));
-    });
-  }
-
   String _getInitialLocation() => widget.initialLocation ?? _defaultRoute;
 
   /// Builds the GoRouter instance.
@@ -408,7 +369,10 @@ class _FastAppState extends State<FastApp> {
     return FastAppSkeleton(
       lightTheme: widget.lightTheme,
       darkTheme: widget.darkTheme,
-      child: const FastConnectivityStatusPage(),
+      child: FastConnectivityStatusPage(
+        onRetryTap: () => FastApp.restart(context),
+        onCancelTap: () => contactSupport(),
+      ),
     );
   }
 
@@ -416,7 +380,10 @@ class _FastAppState extends State<FastApp> {
     return FastAppSkeleton(
       lightTheme: widget.lightTheme,
       darkTheme: widget.darkTheme,
-      child: const FastServiceStatusPage(),
+      child: FastServiceStatusPage(
+        onRetryTap: () => FastApp.restart(context),
+        onCancelTap: () => contactSupport(),
+      ),
     );
   }
 
@@ -443,12 +410,12 @@ class _FastAppState extends State<FastApp> {
       if (!connectivityState.isConnected) {
         return FastConnectivityStatusPage(
           onRetryTap: () => FastApp.restart(context),
-          onCancelTap: () => contactSupport(error),
+          onCancelTap: () => contactSupport(error: error),
         );
       } else if (!connectivityState.isServiceAvailable) {
         return FastServiceStatusPage(
           onRetryTap: () => FastApp.restart(context),
-          onCancelTap: () => contactSupport(error),
+          onCancelTap: () => contactSupport(error: error),
         );
       }
     }
@@ -456,11 +423,11 @@ class _FastAppState extends State<FastApp> {
     return FastErrorStatusPage(
       cancelButtonText: CoreLocaleKeys.core_label_contact_support.tr(),
       onRetryTap: () => FastApp.restart(context),
-      onCancelTap: () => contactSupport(error),
+      onCancelTap: () => contactSupport(error: error),
     );
   }
 
-  void contactSupport(dynamic error) {
+  void contactSupport({dynamic error}) {
     final appInfoBloc = FastAppInfoBloc.instance;
     final appInfo = appInfoBloc.currentState;
 
@@ -490,10 +457,21 @@ class _FastAppState extends State<FastApp> {
       FastAppFinalizeJob(
         callbacks: [
           _handleDatabaseVersionChange,
+          _listenOnConnectivityStatusChanges,
           _askForAppReviewIfNeeded,
         ],
       ),
     ];
+  }
+
+  /// Builds the FastThemeBloc instance.
+  FastThemeBloc _buildAppThemeBloc() {
+    return FastThemeBloc(
+      initialState: FastThemeBlocState(
+        brightness: getPlatformBrightness(),
+        themeMode: ThemeMode.system,
+      ),
+    );
   }
 
   Future<void> _handleDatabaseVersionChange(BuildContext context) async {
@@ -509,26 +487,41 @@ class _FastAppState extends State<FastApp> {
     }
   }
 
-  /// Builds the FastThemeBloc instance.
-  FastThemeBloc _buildAppThemeBloc() {
-    return FastThemeBloc(
-      initialState: FastThemeBlocState(
-        brightness: getPlatformBrightness(),
-        themeMode: ThemeMode.system,
-      ),
-    );
+  Future<void> _listenOnConnectivityStatusChanges(BuildContext context) async {
+    _subxMap
+      ..cancelForKey(_noConnectionAvailableRouteName)
+      ..add(
+          _noConnectionAvailableRouteName,
+          _appConnectivityBloc.onData.distinct((previous, next) {
+            return previous.isConnected == next.isConnected &&
+                previous.isServiceAvailable == next.isServiceAvailable;
+          }).listen((state) {
+            if (!widget.isInternetConnectionRequired || _router == null) {
+              return;
+            }
+
+            if (!state.isConnected) {
+              _scheduleFrameCallback(() {
+                _router?.replace(_noConnectionAvailableRoute);
+              });
+            } else if (!state.isServiceAvailable) {
+              _scheduleFrameCallback(() {
+                _router?.replace(_noServiceAvailableRoute);
+              });
+            }
+          }));
   }
 
   /// Asks for app review if needed.
   Future<void> _askForAppReviewIfNeeded(BuildContext context) async {
-    _addPostFrameCallback(() {
+    _scheduleFrameCallback(() {
       if (widget.askForReview) {
         FastAppRatingService(widget.appInfo).askForAppReviewIfNeeded(context);
       }
     });
   }
 
-  void _addPostFrameCallback(VoidCallback callback) {
-    SchedulerBinding.instance.addPostFrameCallback((_) => callback());
+  void _scheduleFrameCallback(VoidCallback callback) {
+    SchedulerBinding.instance.scheduleFrameCallback((_) => callback());
   }
 }
