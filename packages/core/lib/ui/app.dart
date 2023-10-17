@@ -454,9 +454,7 @@ class _FastAppState extends State<FastApp> {
   }
 
   Iterable<FastJob>? _getLoaderJobs() {
-    if (widget.overrideLoaderJobs) {
-      return widget.loaderJobs;
-    }
+    if (widget.overrideLoaderJobs) widget.loaderJobs;
 
     return [
       FastAppInfoJob(widget.appInfo),
