@@ -1,3 +1,13 @@
+## 0.0.17
+
+ - **FIX**: typo.
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: add isUserPremium helper.
+ - **FEAT**: update dependencies.
+
 ## 0.0.16
 
  - **FEAT**: update dependencies.

@@ -3,6 +3,250 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-10-17
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.19`](#fastyle_ad---v0019)
+ - [`fastyle_animation` - `v0.0.8`](#fastyle_animation---v008)
+ - [`fastyle_buttons` - `v0.0.14`](#fastyle_buttons---v0014)
+ - [`fastyle_calculator` - `v1.35.0`](#fastyle_calculator---v1350)
+ - [`fastyle_charts` - `v0.0.12`](#fastyle_charts---v0012)
+ - [`fastyle_connectivity` - `v0.0.22`](#fastyle_connectivity---v0022)
+ - [`fastyle_core` - `v0.0.25`](#fastyle_core---v0025)
+ - [`fastyle_digit_calculator` - `v0.0.24`](#fastyle_digit_calculator---v0024)
+ - [`fastyle_financial` - `v0.0.22`](#fastyle_financial---v0022)
+ - [`fastyle_firebase` - `v0.0.15`](#fastyle_firebase---v0015)
+ - [`fastyle_forms` - `v0.0.25`](#fastyle_forms---v0025)
+ - [`fastyle_home` - `v0.0.20`](#fastyle_home---v0020)
+ - [`fastyle_iap` - `v0.0.17`](#fastyle_iap---v0017)
+ - [`fastyle_images` - `v0.0.28`](#fastyle_images---v0028)
+ - [`fastyle_layouts` - `v0.0.11`](#fastyle_layouts---v0011)
+ - [`fastyle_onboarding` - `v0.0.27`](#fastyle_onboarding---v0027)
+ - [`fastyle_pricing` - `v1.22.0`](#fastyle_pricing---v1220)
+ - [`fastyle_quizz` - `v0.0.8`](#fastyle_quizz---v008)
+ - [`fastyle_settings` - `v0.0.30`](#fastyle_settings---v0030)
+ - [`fastyle_text` - `v0.0.9`](#fastyle_text---v009)
+ - [`fastyle_video_player` - `v0.0.13`](#fastyle_video_player---v0013)
+ - [`fastyle_views` - `v0.0.15`](#fastyle_views---v0015)
+
+---
+
+#### `fastyle_ad` - `v0.0.19`
+
+ - **FIX**: ad colors.
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
+#### `fastyle_animation` - `v0.0.8`
+
+ - **FIX**: memory leak.
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_buttons` - `v0.0.14`
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add settings fab.
+
+#### `fastyle_calculator` - `v1.35.0`
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: boot screen match system theme.
+
+#### `fastyle_charts` - `v0.0.12`
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
+#### `fastyle_connectivity` - `v0.0.22`
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
+#### `fastyle_core` - `v0.0.25`
+
+ - **REFACTOR**: ask for app review.
+ - **REFACTOR**: FastAppRatingService instance.
+ - **REFACTOR**: breaking change use routesForMediaType instead of homebuilder.
+ - **REFACTOR**: app loader.
+ - **REFACTOR**: app loader.
+ - **FIX**: restarting the app.
+ - **FIX**: status bar color.
+ - **FIX**: missing property.
+ - **FIX**: regression.
+ - **FIX**: regression.
+ - **FIX**: broken connectivity status routes.
+ - **FIX**: broken apps.
+ - **FIX**: theme bloc.
+ - **FIX**: avoid to rebuild a router for the same routes.
+ - **FIX**: use descriptor padding if available.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add checkConnectivity method.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add contact button when app fails.
+ - **FEAT**: minor improvements.
+ - **FEAT**: don't reload automatically app when no connectivity.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**(FastAppInfoPage): better spacing.
+ - **FEAT**: add FastAppFinalizeJob.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add split view.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: boot screen match system theme.
+
+#### `fastyle_digit_calculator` - `v0.0.24`
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
+#### `fastyle_financial` - `v0.0.22`
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_firebase` - `v0.0.15`
+
+ - **REFACTOR**: breaking change use routesForMediaType instead of homebuilder.
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: boot screen match system theme.
+
+#### `fastyle_forms` - `v0.0.25`
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
+#### `fastyle_home` - `v0.0.20`
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
+#### `fastyle_iap` - `v0.0.17`
+
+ - **FIX**: typo.
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: add isUserPremium helper.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_images` - `v0.0.28`
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
+#### `fastyle_layouts` - `v0.0.11`
+
+ - **FEAT**: use tenhance package.
+
+#### `fastyle_onboarding` - `v0.0.27`
+
+ - **FIX**: typo.
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
+#### `fastyle_pricing` - `v1.22.0`
+
+ - **PERF**: minor improvements.
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
+#### `fastyle_quizz` - `v0.0.8`
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
+#### `fastyle_settings` - `v0.0.30`
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use x logo instead of tweeter.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
+#### `fastyle_text` - `v0.0.9`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_video_player` - `v0.0.13`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_views` - `v0.0.15`
+
+ - **REFACTOR**: breaking change use routesForMediaType instead of homebuilder.
+ - **FIX**: onboarding issue when done.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
+
 ## 2023-10-03
 
 ### Changes

@@ -16,8 +16,8 @@ dependencies:
   go_router: ^11.1.4
 
   # Fastyle
-  fastyle_core: ^0.0.24
-  fastyle_animation: ^0.0.7
+  fastyle_core: ^0.0.25
+  fastyle_animation: ^0.0.8
 
 dev_dependencies:
   flutter_test:

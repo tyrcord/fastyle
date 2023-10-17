@@ -1,3 +1,10 @@
+## 0.0.15
+
+ - **REFACTOR**: breaking change use routesForMediaType instead of homebuilder.
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: boot screen match system theme.
+
 ## 0.0.14
 
  - **FEAT**: update dependencies.

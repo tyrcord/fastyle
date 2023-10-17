@@ -1,3 +1,14 @@
+## 0.0.19
+
+ - **FIX**: ad colors.
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
 ## 0.0.18
 
  - **FEAT**(ad): allow up to 4 lines for medium native ad.

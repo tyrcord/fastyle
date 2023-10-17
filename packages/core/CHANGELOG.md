@@ -1,3 +1,37 @@
+## 0.0.25
+
+ - **REFACTOR**: ask for app review.
+ - **REFACTOR**: FastAppRatingService instance.
+ - **REFACTOR**: breaking change use routesForMediaType instead of homebuilder.
+ - **REFACTOR**: app loader.
+ - **REFACTOR**: app loader.
+ - **FIX**: restarting the app.
+ - **FIX**: status bar color.
+ - **FIX**: missing property.
+ - **FIX**: regression.
+ - **FIX**: regression.
+ - **FIX**: broken connectivity status routes.
+ - **FIX**: broken apps.
+ - **FIX**: theme bloc.
+ - **FIX**: avoid to rebuild a router for the same routes.
+ - **FIX**: use descriptor padding if available.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add checkConnectivity method.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add contact button when app fails.
+ - **FEAT**: minor improvements.
+ - **FEAT**: don't reload automatically app when no connectivity.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**(FastAppInfoPage): better spacing.
+ - **FEAT**: add FastAppFinalizeJob.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add split view.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: boot screen match system theme.
+
 ## 0.0.24
 
  - **FIX**: FastConnectivityStatusBloc initialization process.

@@ -1,3 +1,12 @@
+## 0.0.14
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add settings fab.
+
 ## 0.0.13
 
  - **FEAT**: update dependencies.

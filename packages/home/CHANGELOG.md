@@ -1,3 +1,12 @@
+## 0.0.20
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
 ## 0.0.19
 
  - **FEAT**: update dependencies.

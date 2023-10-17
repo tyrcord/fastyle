@@ -1,3 +1,13 @@
+## 1.35.0
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: boot screen match system theme.
+
 ## 1.34.0
 
  - **FEAT**: update dependencies.

@@ -1,3 +1,13 @@
+## 0.0.30
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use x logo instead of tweeter.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
 ## 0.0.29
 
  - **FEAT**: update dependencies.

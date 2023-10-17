@@ -1,3 +1,13 @@
+## 1.22.0
+
+ - **PERF**: minor improvements.
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
 ## 1.21.0
 
  - **FEAT**: update dependencies.

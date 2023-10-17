@@ -1,3 +1,12 @@
+## 0.0.15
+
+ - **REFACTOR**: breaking change use routesForMediaType instead of homebuilder.
+ - **FIX**: onboarding issue when done.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
 ## 0.0.14
 
  - **FEAT**: update dependencies.

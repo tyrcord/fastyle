@@ -1,3 +1,9 @@
+## 0.0.8
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+
 ## 0.0.7
 
  - **FEAT**: update dependencies.
