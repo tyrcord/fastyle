@@ -398,10 +398,10 @@ packages:
     dependency: transitive
     description:
       name: lingua_core
-      sha256: "5e16584ddb024ea77693bb38791dc689a3359b48fec47383be14ec657aae647e"
+      sha256: "1e7c6a2ee120788eaa18f62072c43016b0d79c948fd709330b8cde38d4e10f7d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.29"
+    version: "0.0.30"
   lingua_settings:
     dependency: transitive
     description:

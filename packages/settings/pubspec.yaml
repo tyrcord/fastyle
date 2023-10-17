@@ -31,7 +31,7 @@ dependencies:
   matex_data: ^0.0.10
 
   # Lingua
-  lingua_core: ^0.0.29
+  lingua_core: ^0.0.30
   lingua_calculator: ^0.0.3
   lingua_languages: ^0.0.5
   lingua_finance: ^0.0.17

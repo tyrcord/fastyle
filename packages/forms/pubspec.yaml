@@ -34,7 +34,7 @@ dependencies:
 
   # Lingua
   lingua_countries: ^0.0.3
-  lingua_core: ^0.0.29
+  lingua_core: ^0.0.30
   lingua_number: ^0.0.7
   lingua_finance: ^0.0.17
   lingua_finance_instrument: ^0.0.4

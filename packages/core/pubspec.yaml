@@ -47,7 +47,7 @@ dependencies:
   tenhance: ^0.0.2
 
   # Lingua
-  lingua_core: ^0.0.29
+  lingua_core: ^0.0.30
   lingua_settings: ^0.0.11
 
 flutter:
