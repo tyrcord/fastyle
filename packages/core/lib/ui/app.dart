@@ -161,27 +161,20 @@ class _FastAppState extends State<FastApp> {
   late FastMediaLayoutBloc _mediaLayoutBloc;
   late final FastThemeBloc _themeBloc;
   bool _hasForcedOnboarding = false;
+  List<RouteBase>? _currentRoutes;
   final _subxMap = SubxMap();
   Key _key = UniqueKey();
-  List<RouteBase>? _currentRoutes;
   GoRouter? _router;
 
   @override
   void initState() {
     super.initState();
-    WidgetsFlutterBinding.ensureInitialized();
 
+    WidgetsFlutterBinding.ensureInitialized();
     _rootNavigatorKey = widget.rootNavigatorKey ?? GlobalKey<NavigatorState>();
     _appConnectivityBloc = FastConnectivityStatusBloc();
     _mediaLayoutBloc = FastMediaLayoutBloc();
     _themeBloc = _buildAppThemeBloc();
-
-    _routesStream = _mediaLayoutBloc.onData.distinct((previous, next) {
-      final previousRoutes = widget.routesForMediaType(previous.mediaType);
-      final nextRoutes = widget.routesForMediaType(next.mediaType);
-
-      return previousRoutes == nextRoutes;
-    }).map((state) => widget.routesForMediaType(state.mediaType));
   }
 
   @override
@@ -458,6 +451,7 @@ class _FastAppState extends State<FastApp> {
         callbacks: [
           _handleDatabaseVersionChange,
           _listenOnConnectivityStatusChanges,
+          _intializeRoutesForMediaType,
           _askForAppReviewIfNeeded,
         ],
       ),
@@ -472,6 +466,15 @@ class _FastAppState extends State<FastApp> {
         themeMode: ThemeMode.system,
       ),
     );
+  }
+
+  Future<void> _intializeRoutesForMediaType(BuildContext context) async {
+    _routesStream = _mediaLayoutBloc.onData.distinct((previous, next) {
+      final previousRoutes = widget.routesForMediaType(previous.mediaType);
+      final nextRoutes = widget.routesForMediaType(next.mediaType);
+
+      return previousRoutes == nextRoutes;
+    }).map((state) => widget.routesForMediaType(state.mediaType));
   }
 
   Future<void> _handleDatabaseVersionChange(BuildContext context) async {
