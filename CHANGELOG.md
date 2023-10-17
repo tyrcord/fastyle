@@ -15,6 +15,113 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_ad` - `v0.0.20`](#fastyle_ad---v0020)
+ - [`fastyle_calculator` - `v1.36.0`](#fastyle_calculator---v1360)
+ - [`fastyle_charts` - `v0.0.13`](#fastyle_charts---v0013)
+ - [`fastyle_connectivity` - `v0.0.23`](#fastyle_connectivity---v0023)
+ - [`fastyle_core` - `v0.0.26`](#fastyle_core---v0026)
+ - [`fastyle_digit_calculator` - `v0.0.25`](#fastyle_digit_calculator---v0025)
+ - [`fastyle_forms` - `v0.0.26`](#fastyle_forms---v0026)
+ - [`fastyle_home` - `v0.0.21`](#fastyle_home---v0021)
+ - [`fastyle_images` - `v0.0.29`](#fastyle_images---v0029)
+ - [`fastyle_layouts` - `v0.0.12`](#fastyle_layouts---v0012)
+ - [`fastyle_onboarding` - `v0.0.28`](#fastyle_onboarding---v0028)
+ - [`fastyle_pricing` - `v1.23.0`](#fastyle_pricing---v1230)
+ - [`fastyle_settings` - `v0.0.31`](#fastyle_settings---v0031)
+ - [`fastyle_views` - `v0.0.16`](#fastyle_views---v0016)
+ - [`fastyle_buttons` - `v0.0.14+1`](#fastyle_buttons---v00141)
+ - [`fastyle_quizz` - `v0.0.8+1`](#fastyle_quizz---v0081)
+ - [`fastyle_financial` - `v0.0.22+1`](#fastyle_financial---v00221)
+ - [`fastyle_video_player` - `v0.0.13+1`](#fastyle_video_player---v00131)
+ - [`fastyle_animation` - `v0.0.8+1`](#fastyle_animation---v0081)
+ - [`fastyle_iap` - `v0.0.17+1`](#fastyle_iap---v00171)
+ - [`fastyle_firebase` - `v0.0.15+1`](#fastyle_firebase---v00151)
+ - [`fastyle_text` - `v0.0.9+1`](#fastyle_text---v0091)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_buttons` - `v0.0.14+1`
+ - `fastyle_quizz` - `v0.0.8+1`
+ - `fastyle_financial` - `v0.0.22+1`
+ - `fastyle_video_player` - `v0.0.13+1`
+ - `fastyle_animation` - `v0.0.8+1`
+ - `fastyle_iap` - `v0.0.17+1`
+ - `fastyle_firebase` - `v0.0.15+1`
+ - `fastyle_text` - `v0.0.9+1`
+
+---
+
+#### `fastyle_ad` - `v0.0.20`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_calculator` - `v1.36.0`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_charts` - `v0.0.13`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_connectivity` - `v0.0.23`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_core` - `v0.0.26`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_digit_calculator` - `v0.0.25`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_forms` - `v0.0.26`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_home` - `v0.0.21`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_images` - `v0.0.29`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_layouts` - `v0.0.12`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_onboarding` - `v0.0.28`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_pricing` - `v1.23.0`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_settings` - `v0.0.31`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_views` - `v0.0.16`
+
+ - **FEAT**: update dependencies.
+
+
+## 2023-10-17
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_ad` - `v0.0.19`](#fastyle_ad---v0019)
  - [`fastyle_animation` - `v0.0.8`](#fastyle_animation---v008)
  - [`fastyle_buttons` - `v0.0.14`](#fastyle_buttons---v0014)

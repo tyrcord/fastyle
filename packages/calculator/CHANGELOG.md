@@ -1,3 +1,7 @@
+## 1.36.0
+
+ - **FEAT**: update dependencies.
+
 ## 1.35.0
 
  - **FIX**: broken apps.

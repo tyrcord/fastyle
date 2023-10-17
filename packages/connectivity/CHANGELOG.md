@@ -1,3 +1,7 @@
+## 0.0.23
+
+ - **FEAT**: update dependencies.
+
 ## 0.0.22
 
  - **FIX**: broken apps.
