@@ -9,8 +9,8 @@ import 'package:lingua_core/generated/locale_keys.g.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-/// A page widget that displays a server unreachability status with an optional title,
-/// description, and buttons.
+/// A page widget that displays a server unreachability status with an optional
+/// title, description, and buttons.
 class FastServiceStatusPage extends FastStatusPage {
   final bool isServiceAvailable;
 
@@ -38,6 +38,7 @@ class FastServiceStatusPage extends FastStatusPage {
       titleText:
           titleText ?? CoreLocaleKeys.core_label_service_unavailable.tr(),
       palette: _getPaletteColor(context),
+      cancelButtonText: cancelButtonText,
       backgroundColor: backgroundColor,
       onCancelTap: onCancelTap,
       icon: _getIcon(context),

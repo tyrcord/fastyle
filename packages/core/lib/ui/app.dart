@@ -363,6 +363,7 @@ class _FastAppState extends State<FastApp> {
       lightTheme: widget.lightTheme,
       darkTheme: widget.darkTheme,
       child: FastConnectivityStatusPage(
+        cancelButtonText: CoreLocaleKeys.core_label_contact_support.tr(),
         onRetryTap: () => FastApp.restart(context),
         onCancelTap: () => contactSupport(),
       ),
@@ -374,6 +375,7 @@ class _FastAppState extends State<FastApp> {
       lightTheme: widget.lightTheme,
       darkTheme: widget.darkTheme,
       child: FastServiceStatusPage(
+        cancelButtonText: CoreLocaleKeys.core_label_contact_support.tr(),
         onRetryTap: () => FastApp.restart(context),
         onCancelTap: () => contactSupport(),
       ),
@@ -395,6 +397,15 @@ class _FastAppState extends State<FastApp> {
   Widget handleAppError(BuildContext context, dynamic error) {
     debugLog('error: $error', debugLabel: debugLabel);
 
+    final canContactSupport = _canContactSupport();
+    VoidCallback? contactCallback;
+    String? contactLabel;
+
+    if (canContactSupport) {
+      contactLabel = CoreLocaleKeys.core_label_contact_support.tr();
+      contactCallback = () => contactSupport(error: error);
+    }
+
     if (widget.isInternetConnectionRequired &&
         error is FastConnectivityStatusBlocState &&
         error.isInitialized) {
@@ -403,28 +414,37 @@ class _FastAppState extends State<FastApp> {
       if (!connectivityState.isConnected) {
         return FastConnectivityStatusPage(
           onRetryTap: () => FastApp.restart(context),
-          onCancelTap: () => contactSupport(error: error),
+          cancelButtonText: contactLabel,
+          onCancelTap: contactCallback,
         );
       } else if (!connectivityState.isServiceAvailable) {
         return FastServiceStatusPage(
           onRetryTap: () => FastApp.restart(context),
-          onCancelTap: () => contactSupport(error: error),
+          cancelButtonText: contactLabel,
+          onCancelTap: contactCallback,
         );
       }
     }
 
     return FastErrorStatusPage(
-      cancelButtonText: CoreLocaleKeys.core_label_contact_support.tr(),
       onRetryTap: () => FastApp.restart(context),
-      onCancelTap: () => contactSupport(error: error),
+      cancelButtonText: contactLabel,
+      onCancelTap: contactCallback,
     );
   }
 
-  void contactSupport({dynamic error}) {
+  bool _canContactSupport() {
     final appInfoBloc = FastAppInfoBloc.instance;
     final appInfo = appInfoBloc.currentState;
 
-    if (appInfo.supportEmail != null) {
+    return appInfo.supportEmail != null;
+  }
+
+  void contactSupport({dynamic error}) {
+    if (_canContactSupport()) {
+      final appInfoBloc = FastAppInfoBloc.instance;
+      final appInfo = appInfoBloc.currentState;
+
       FastMessenger.writeEmail(
         appInfo.supportEmail!,
         subject: appInfo.appName,
