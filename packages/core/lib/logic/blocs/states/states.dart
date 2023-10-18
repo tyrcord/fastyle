@@ -9,3 +9,4 @@ export './navigation-master-details.state.dart';
 export './theme.state.dart';
 export './app_permissions.state.dart';
 export 'connectivity_status.state.dart';
+export './app_lifecycle.state.dart';

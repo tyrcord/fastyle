@@ -10,6 +10,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:visibility_detector/visibility_detector.dart';
+import 'package:subx/subx.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
@@ -60,10 +61,14 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
   final _key = UniqueKey();
   Timer? _refreshTimer;
 
+  @protected
+  final _subxList = SubxList();
+
   @override
   void initState() {
     super.initState();
 
+    _subxList.add(listenToAppLifecycleChanges());
     final payload = _getInitBlocEventPayload();
     _nativeAdBloc.addEvent(FastNativeAdBlocEvent.init(payload));
     _loadAd(payload);
@@ -74,6 +79,7 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
   void dispose() {
     super.dispose();
 
+    _subxList.cancelAll();
     _nativeAdBloc.close();
     _stopRefreshingAd();
   }
@@ -233,5 +239,18 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
   void _stopRefreshingAd() {
     debugLog('stop refreshing ad', debugLabel: widget.debugLabel);
     _refreshTimer?.cancel();
+  }
+
+  @protected
+  StreamSubscription<FastAppLifecycleBlocState> listenToAppLifecycleChanges() {
+    final appLifecycleBloc = FastAppLifecycleBloc.instance;
+
+    return appLifecycleBloc.onData.listen((state) {
+      if (state.appLifeCycleState == AppLifecycleState.paused) {
+        _stopRefreshingAd();
+      } else {
+        _startRefreshingAd();
+      }
+    });
   }
 }

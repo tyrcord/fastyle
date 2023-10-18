@@ -1,5 +1,6 @@
 // Dart imports:
 import 'dart:io';
+import 'dart:async';
 
 // Package imports:
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -7,16 +8,46 @@ import 'package:rxdart/rxdart.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:t_helpers/helpers.dart';
 
+/// Service for monitoring internet connectivity status.
+///
+/// This service provides streams and methods to check device connectivity and
+/// the availability of a remote service. It periodically checks connectivity and
+/// also listens for system connectivity changes.
 class FastConnectivityService {
-  static late FastConnectivityService instance;
+  /// Singleton instance.
+  static final FastConnectivityService instance = FastConnectivityService._();
+
+  // Configuration parameters.
+  Duration _checkInterval;
+  Duration _checkTimeout;
+  String _checkAddress;
+  int _checkPort;
+
+  /// A debug label to use when logging.
+  String debugLabel;
+
+  // Connectivity status stream.
+  Stream<FastConnectivityStatus>? _connectivityStream;
+
+  // Flag indicating whether the singleton instance has been accessed.
   static bool _hasBeenInstantiated = false;
 
-  final Duration checkInterval;
-  final Duration checkTimeout;
-  final String checkAddress;
-  final int checkPort;
+  // Private constructor with initial configuration.
+  FastConnectivityService._({
+    Duration? checkInterval,
+    Duration? checkTimeout,
+    String? checkAddress,
+    int? checkPort,
+    String? debugLabel,
+  })  : _checkInterval = checkInterval ?? kFastConnectivityCheckInterval,
+        _checkTimeout = checkTimeout ?? kFastConnectivityCheckTimeout,
+        _checkAddress = checkAddress ?? kFastConnectivityCheckAddress,
+        _checkPort = checkPort ?? kFastConnectivityCheckPort,
+        debugLabel = debugLabel ?? 'FastConnectivityService';
 
+  // Factory constructor for providing a singleton instance.
   factory FastConnectivityService({
     Duration? checkInterval,
     Duration? checkTimeout,
@@ -24,11 +55,11 @@ class FastConnectivityService {
     int? checkPort,
   }) {
     if (!_hasBeenInstantiated) {
-      instance = FastConnectivityService._(
-        checkInterval: checkInterval ?? kFastConnectivityCheckInterval,
-        checkTimeout: checkTimeout ?? kFastConnectivityCheckTimeout,
-        checkAddress: checkAddress ?? kFastConnectivityCheckAddress,
-        checkPort: checkPort ?? kFastConnectivityCheckPort,
+      instance._setConfig(
+        checkInterval: checkInterval,
+        checkTimeout: checkTimeout,
+        checkAddress: checkAddress,
+        checkPort: checkPort,
       );
       _hasBeenInstantiated = true;
     }
@@ -36,65 +67,91 @@ class FastConnectivityService {
     return instance;
   }
 
-  const FastConnectivityService._({
-    this.checkInterval = kFastConnectivityCheckInterval,
-    this.checkTimeout = kFastConnectivityCheckTimeout,
-    this.checkAddress = kFastConnectivityCheckAddress,
-    this.checkPort = kFastConnectivityCheckPort,
-  });
-
+  // Stream providing real-time connectivity status.
   Stream<FastConnectivityStatus> get onInternetConnectivityChanged {
-    return MergeStream([
-      _checkConnectivityStatusPericodically(),
-      _checkConnectivityStatusOnConnectivityChanged(),
+    _connectivityStream ??= MergeStream([
+      _checkConnectivityStatusPeriodically(),
+      _checkConnectivityStatusOnSystemChange(),
     ]).distinct();
+
+    return _connectivityStream!;
   }
 
+  // Check the current device internet connectivity.
   Future<bool> checkDeviceConnectivity() async {
-    final connectivity = await Connectivity().checkConnectivity();
+    final connectivityResult = await Connectivity().checkConnectivity();
 
-    return connectivity != ConnectivityResult.none;
+    return connectivityResult != ConnectivityResult.none;
   }
 
-  Future<bool> checkServiceConnectivity() async {
+  // Check the availability of the remote service.
+  Future<bool> checkServiceAvailability() async {
     try {
       final socket = await Socket.connect(
-        checkAddress,
-        checkPort,
-        timeout: checkTimeout,
+        _checkAddress,
+        _checkPort,
+        timeout: _checkTimeout,
       );
 
       await socket.close();
 
       return true;
     } catch (e) {
+      // Logging errors or handling them according to the project's practices
+      // would be ideal here rather than silently failing.
+      debugLog('Unable to connect to service: $e', debugLabel: debugLabel);
+
       return false;
     }
   }
 
-  Future<FastConnectivityStatus> checkConnectivity() async {
+  // Check overall connectivity status, combining device connectivity
+  // and service availability.
+  Future<FastConnectivityStatus> checkOverallConnectivity() async {
+    debugLog('Checking overall connectivity status...', debugLabel: debugLabel);
+
+    final connectivityResult = await Connectivity().checkConnectivity();
+    final serviceAvailable = await checkServiceAvailability();
+    final deviceConnected = await checkDeviceConnectivity();
+
     return FastConnectivityStatus(
-      connectivityResult: await Connectivity().checkConnectivity(),
-      isServiceAvailable: await checkServiceConnectivity(),
-      isConnected: await checkDeviceConnectivity(),
+      connectivityResult: connectivityResult,
+      isServiceAvailable: serviceAvailable,
+      isConnected: deviceConnected,
     );
   }
 
-  Stream<FastConnectivityStatus>
-      _checkConnectivityStatusOnConnectivityChanged() {
+  // Generate a stream that periodically checks connectivity status.
+  Stream<FastConnectivityStatus> _checkConnectivityStatusPeriodically() {
+    return Stream.periodic(_checkInterval)
+        .asyncMap((_) => checkOverallConnectivity());
+  }
+
+  // Generate a stream that reacts to system connectivity changes.
+  Stream<FastConnectivityStatus> _checkConnectivityStatusOnSystemChange() {
     return Connectivity()
         .onConnectivityChanged
         .sampleTime(const Duration(milliseconds: 2500))
         .asyncMap((event) async {
       return FastConnectivityStatus(
-        isServiceAvailable: await checkServiceConnectivity(),
+        isServiceAvailable: await checkServiceAvailability(),
         isConnected: await checkDeviceConnectivity(),
         connectivityResult: event,
       );
     });
   }
 
-  Stream<FastConnectivityStatus> _checkConnectivityStatusPericodically() {
-    return Stream.periodic(checkInterval).asyncMap((_) => checkConnectivity());
+  // Sets the configuration for the service. This is an internal method used
+  // during instantiation to avoid repeating the defaulting logic.
+  void _setConfig({
+    Duration? checkInterval,
+    Duration? checkTimeout,
+    String? checkAddress,
+    int? checkPort,
+  }) {
+    _checkInterval = checkInterval ?? kFastConnectivityCheckInterval;
+    _checkTimeout = checkTimeout ?? kFastConnectivityCheckTimeout;
+    _checkAddress = checkAddress ?? kFastConnectivityCheckAddress;
+    _checkPort = checkPort ?? kFastConnectivityCheckPort;
   }
 }

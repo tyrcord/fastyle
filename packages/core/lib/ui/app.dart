@@ -145,7 +145,7 @@ class FastApp extends StatefulWidget {
   }
 }
 
-class _FastAppState extends State<FastApp> {
+class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
   static const String _noConnectionAvailableRouteName = 'noConnectionAvailable';
   static const String _noConnectionAvailableRoute = '/no-connection-available';
   static const String _noServiceAvailableRouteName = 'noServiceAvailable';
@@ -157,6 +157,7 @@ class _FastAppState extends State<FastApp> {
 
   late final FastConnectivityStatusBloc _appConnectivityBloc;
   late final GlobalKey<NavigatorState> _rootNavigatorKey;
+  late FastAppLifecycleBloc _appLifecycleBloc;
   late Stream<List<RouteBase>> _routesStream;
   late FastMediaLayoutBloc _mediaLayoutBloc;
   late final FastThemeBloc _themeBloc;
@@ -170,15 +171,26 @@ class _FastAppState extends State<FastApp> {
   void initState() {
     super.initState();
 
+    WidgetsBinding.instance.addObserver(this);
     WidgetsFlutterBinding.ensureInitialized();
     _rootNavigatorKey = widget.rootNavigatorKey ?? GlobalKey<NavigatorState>();
     _appConnectivityBloc = FastConnectivityStatusBloc();
+    _appLifecycleBloc = FastAppLifecycleBloc();
     _mediaLayoutBloc = FastMediaLayoutBloc();
     _themeBloc = _buildAppThemeBloc();
   }
 
   @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    debugLog('didChangeAppLifecycleState: $state', debugLabel: debugLabel);
+
+    final event = FastAppLifecycleBlocEvent.lifecycleChanged(state);
+    _appLifecycleBloc.addEvent(event);
+  }
+
+  @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _themeBloc.close();
     _subxMap.cancelAll();
     super.dispose();
@@ -204,13 +216,15 @@ class _FastAppState extends State<FastApp> {
           child: MultiBlocProvider(
             blocProviders: [
               if (widget.isInternetConnectionRequired)
-                BlocProvider(bloc: FastConnectivityStatusBloc()),
+                BlocProvider(bloc: _appConnectivityBloc),
               BlocProvider(bloc: FastAppInfoBloc()),
               BlocProvider(bloc: FastAppPermissionsBloc()),
               BlocProvider(bloc: FastAppSettingsBloc()),
               BlocProvider(bloc: FastAppDictBloc()),
               BlocProvider(bloc: FastAppFeaturesBloc()),
               BlocProvider(bloc: FastAppOnboardingBloc()),
+              BlocProvider(bloc: _appLifecycleBloc),
+              BlocProvider(bloc: _mediaLayoutBloc),
               BlocProvider(bloc: _themeBloc),
               ...?widget.blocProviders,
             ],

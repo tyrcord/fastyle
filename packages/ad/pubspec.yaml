@@ -34,6 +34,7 @@ dependencies:
   tstore: ^0.8.17
   t_cache: ^0.0.7+2
   tenhance: ^0.0.2+1
+  subx: ^1.9.0
 
   # Lingua
   lingua_core: ^0.0.30

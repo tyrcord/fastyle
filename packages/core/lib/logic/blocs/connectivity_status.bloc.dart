@@ -1,4 +1,7 @@
 // Package imports:
+import 'dart:async';
+
+import 'package:flutter/material.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
 
@@ -10,6 +13,14 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
   static late FastConnectivityStatusBloc instance;
   static late FastConnectivityService service;
   static bool _hasBeenInstantiated = false;
+
+  /// Subscription to connectivity status updates.
+  @protected
+  StreamSubscription<FastConnectivityStatus>? connectivitySubscription;
+
+  /// State flag indicating whether the connectivity stream is paused.
+  @protected
+  bool isConnectivityStreamPaused = false;
 
   factory FastConnectivityStatusBloc({
     FastConnectivityStatusBlocState? initialState,
@@ -27,6 +38,9 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
           initialState: initialState ??
               FastConnectivityStatusBlocState(isConnected: false),
         );
+
+  @override
+  bool canClose() => false;
 
   @override
   Stream<FastConnectivityStatusBlocState> mapEventToState(
@@ -65,14 +79,12 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
         checkPort: payload?.checkPort ?? kFastConnectivityCheckPort,
       );
 
-      subxList.add(service.onInternetConnectivityChanged.listen((status) {
-        if (isInitialized) {
-          addEvent(FastConnectivityStatusBlocEvent.connectivityStatusChanged(
-            status.isConnected,
-            status.isServiceAvailable,
-          ));
-        }
-      }));
+      connectivitySubscription = listenToConnectivityStatusChanges();
+
+      subxList.addAll([
+        listenToAppLifecycleChanges(),
+        connectivitySubscription!,
+      ]);
 
       bool validator(bool result) => result == true;
       bool isDeviceConnected = false;
@@ -85,7 +97,7 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
         );
 
         isServiceAvailable = await retry<bool>(
-          task: service.checkServiceConnectivity,
+          task: service.checkServiceAvailability,
           validate: validator,
         );
       } catch (e) {
@@ -112,6 +124,60 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
         isInitialized: isInitialized,
       );
     }
+  }
+
+  StreamSubscription<FastConnectivityStatus>
+      listenToConnectivityStatusChanges() {
+    return service.onInternetConnectivityChanged.listen((status) {
+      if (isInitialized) {
+        addEvent(FastConnectivityStatusBlocEvent.connectivityStatusChanged(
+          status.isConnected,
+          status.isServiceAvailable,
+        ));
+      }
+    });
+  }
+
+  /// Pauses the connectivity status stream if it's not already paused.
+  @protected
+  void pauseConnectivityStream() {
+    if (!isConnectivityStreamPaused) {
+      connectivitySubscription?.pause();
+      isConnectivityStreamPaused = true;
+    }
+  }
+
+  /// Resumes the connectivity status stream if it has been paused.
+  @protected
+  void resumeConnectivityStream() {
+    if (isConnectivityStreamPaused) {
+      connectivitySubscription?.resume();
+      isConnectivityStreamPaused = false;
+    }
+  }
+
+  /// Disposes of the connectivity stream subscription when it's no longer
+  /// needed, avoiding potential memory leaks.
+  @protected
+  void disposeConnectivityStream() {
+    connectivitySubscription?.cancel();
+  }
+
+  /// Listens to the app's lifecycle changes, pausing or resuming the
+  /// connectivity stream in response to those changes.
+  ///
+  /// Returns a StreamSubscription to the app's lifecycle state changes.
+  @protected
+  StreamSubscription<FastAppLifecycleBlocState> listenToAppLifecycleChanges() {
+    final appLifecycleBloc = FastAppLifecycleBloc.instance;
+
+    return appLifecycleBloc.onData.listen((state) {
+      if (state.appLifeCycleState == AppLifecycleState.paused) {
+        pauseConnectivityStream();
+      } else {
+        resumeConnectivityStream();
+      }
+    });
   }
 
   FastConnectivityStatusBlocState _mapConnectivityStatusChangedToState(

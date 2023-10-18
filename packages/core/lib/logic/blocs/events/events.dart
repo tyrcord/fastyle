@@ -9,3 +9,4 @@ export './navigation-master-details.event.dart';
 export './theme.event.dart';
 export './app_permissions.event.dart';
 export 'connectivity_status.event.dart';
+export './app_lifecycle.event.dart';
