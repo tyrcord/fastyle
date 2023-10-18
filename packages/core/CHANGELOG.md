@@ -1,3 +1,10 @@
+## 0.0.27
+
+ - **FIX**: avoid to listen periodically to stream when the app is paused.
+ - **FIX**: better padding.
+ - **FEAT**(StatusPage): more spacing between actions.
+ - **FEAT**: use scheduleFrameCallback.
+
 ## 0.0.26
 
  - **FEAT**: update dependencies.

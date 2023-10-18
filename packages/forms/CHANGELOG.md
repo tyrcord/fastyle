@@ -1,3 +1,8 @@
+## 0.0.27
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: use scheduleFrameCallback.
+
 ## 0.0.26
 
  - **FEAT**: update dependencies.

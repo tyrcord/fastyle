@@ -20,8 +20,8 @@ dependencies:
   easy_localization: ^3.0.3
 
   # Fastyle
-  fastyle_ad: ^0.0.20
-  fastyle_core: ^0.0.26
+  fastyle_ad: ^0.0.20+1
+  fastyle_core: ^0.0.27
 
   # T
   tbloc: ^0.21.5+2

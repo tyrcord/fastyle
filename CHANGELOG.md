@@ -3,6 +3,118 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-10-18
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.20+1`](#fastyle_ad---v00201)
+ - [`fastyle_calculator` - `v1.37.0`](#fastyle_calculator---v1370)
+ - [`fastyle_charts` - `v0.0.14`](#fastyle_charts---v0014)
+ - [`fastyle_connectivity` - `v0.0.24`](#fastyle_connectivity---v0024)
+ - [`fastyle_core` - `v0.0.27`](#fastyle_core---v0027)
+ - [`fastyle_digit_calculator` - `v0.0.26`](#fastyle_digit_calculator---v0026)
+ - [`fastyle_firebase` - `v0.0.16`](#fastyle_firebase---v0016)
+ - [`fastyle_forms` - `v0.0.27`](#fastyle_forms---v0027)
+ - [`fastyle_home` - `v0.0.22`](#fastyle_home---v0022)
+ - [`fastyle_iap` - `v0.0.18`](#fastyle_iap---v0018)
+ - [`fastyle_images` - `v0.0.30`](#fastyle_images---v0030)
+ - [`fastyle_onboarding` - `v0.0.29`](#fastyle_onboarding---v0029)
+ - [`fastyle_pricing` - `v1.24.0`](#fastyle_pricing---v1240)
+ - [`fastyle_settings` - `v0.0.32`](#fastyle_settings---v0032)
+ - [`fastyle_quizz` - `v0.0.8+2`](#fastyle_quizz---v0082)
+ - [`fastyle_buttons` - `v0.0.14+2`](#fastyle_buttons---v00142)
+ - [`fastyle_financial` - `v0.0.22+2`](#fastyle_financial---v00222)
+ - [`fastyle_video_player` - `v0.0.13+2`](#fastyle_video_player---v00132)
+ - [`fastyle_animation` - `v0.0.8+2`](#fastyle_animation---v0082)
+ - [`fastyle_layouts` - `v0.0.12+1`](#fastyle_layouts---v00121)
+ - [`fastyle_views` - `v0.0.16+1`](#fastyle_views---v00161)
+ - [`fastyle_text` - `v0.0.9+2`](#fastyle_text---v0092)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_quizz` - `v0.0.8+2`
+ - `fastyle_buttons` - `v0.0.14+2`
+ - `fastyle_financial` - `v0.0.22+2`
+ - `fastyle_video_player` - `v0.0.13+2`
+ - `fastyle_animation` - `v0.0.8+2`
+ - `fastyle_layouts` - `v0.0.12+1`
+ - `fastyle_views` - `v0.0.16+1`
+ - `fastyle_text` - `v0.0.9+2`
+
+---
+
+#### `fastyle_ad` - `v0.0.20+1`
+
+ - **FIX**: avoid to listen periodically to stream when the app is paused.
+
+#### `fastyle_calculator` - `v1.37.0`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_charts` - `v0.0.14`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_connectivity` - `v0.0.24`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_core` - `v0.0.27`
+
+ - **FIX**: avoid to listen periodically to stream when the app is paused.
+ - **FIX**: better padding.
+ - **FEAT**(StatusPage): more spacing between actions.
+ - **FEAT**: use scheduleFrameCallback.
+
+#### `fastyle_digit_calculator` - `v0.0.26`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_firebase` - `v0.0.16`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_forms` - `v0.0.27`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: use scheduleFrameCallback.
+
+#### `fastyle_home` - `v0.0.22`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_iap` - `v0.0.18`
+
+ - **FEAT**: use scheduleFrameCallback.
+
+#### `fastyle_images` - `v0.0.30`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_onboarding` - `v0.0.29`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: use scheduleFrameCallback.
+
+#### `fastyle_pricing` - `v1.24.0`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_settings` - `v0.0.32`
+
+ - **FEAT**: update dependencies.
+
+
 ## 2023-10-17
 
 ### Changes
