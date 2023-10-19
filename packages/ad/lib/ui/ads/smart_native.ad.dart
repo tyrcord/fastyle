@@ -64,6 +64,10 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
   @protected
   final _subxList = SubxList();
 
+  String get debugLabel {
+    return widget.debugLabel ?? 'FastSmartNativeAd';
+  }
+
   @override
   void initState() {
     super.initState();
@@ -175,10 +179,7 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
     if (mounted) {
       await _nativeAdBloc.onData.where((state) => state.isInitialized).first;
 
-      debugLog(
-        'FastNativeAdBloc is loading an ad...',
-        debugLabel: widget.debugLabel,
-      );
+      debugLog('Loading an ad...', debugLabel: debugLabel);
 
       if (mounted) {
         _nativeAdBloc.addEvent(FastNativeAdBlocEvent.loadAd(payload));
@@ -228,7 +229,7 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
   void _startRefreshingAd() {
     _stopRefreshingAd();
 
-    debugLog('start refreshing ad', debugLabel: widget.debugLabel);
+    debugLog('start refreshing ad', debugLabel: debugLabel);
     final refreshInterval = _getAdRefreshInterval();
 
     _refreshTimer = Timer.periodic(refreshInterval, (Timer timer) {
@@ -239,7 +240,7 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
 
   void _stopRefreshingAd() {
     if (_refreshTimer != null) {
-      debugLog('stop refreshing ad', debugLabel: widget.debugLabel);
+      debugLog('stop refreshing ad', debugLabel: debugLabel);
       _refreshTimer!.cancel();
     }
   }
