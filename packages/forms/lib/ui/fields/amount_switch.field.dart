@@ -66,6 +66,10 @@ class FastAmountSwitchField extends StatelessWidget {
   /// The placeholder text for the amount field.
   final String amountPlaceholderText;
 
+  final String? amountMenuText;
+
+  final String? percentMenuText;
+
   const FastAmountSwitchField({
     super.key,
     required this.onAmountValueChanged,
@@ -78,6 +82,8 @@ class FastAmountSwitchField extends StatelessWidget {
     String? amountPlaceholderText,
     this.percentLabelText,
     this.amountLabelText,
+    this.amountMenuText,
+    this.percentMenuText,
     String? percentValue,
     String? amountValue,
     bool? isEnabled,
@@ -122,11 +128,11 @@ class FastAmountSwitchField extends StatelessWidget {
       options: [
         PopupMenuItem(
           value: FastAmountSwitchFieldType.amount,
-          child: FastSecondaryBody(text: _getAmountLabel()),
+          child: FastSecondaryBody(text: _getAmountMenuLabel()),
         ),
         PopupMenuItem(
           value: FastAmountSwitchFieldType.percent,
-          child: FastSecondaryBody(text: _getPercentLabel()),
+          child: FastSecondaryBody(text: _getPercentMenuLabel()),
         ),
       ],
     );
@@ -145,5 +151,13 @@ class FastAmountSwitchField extends StatelessWidget {
 
   String _getAmountLabel() {
     return amountLabelText ?? NumberLocaleKeys.number_label_amount.tr();
+  }
+
+  String _getAmountMenuLabel() {
+    return amountMenuText ?? NumberLocaleKeys.number_label_amount.tr();
+  }
+
+  String _getPercentMenuLabel() {
+    return percentMenuText ?? NumberLocaleKeys.number_label_percentage.tr();
   }
 }
