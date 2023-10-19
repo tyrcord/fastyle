@@ -226,8 +226,9 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
   }
 
   void _startRefreshingAd() {
+    _stopRefreshingAd();
+
     debugLog('start refreshing ad', debugLabel: widget.debugLabel);
-    _refreshTimer?.cancel();
     final refreshInterval = _getAdRefreshInterval();
 
     _refreshTimer = Timer.periodic(refreshInterval, (Timer timer) {
@@ -237,8 +238,10 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
   }
 
   void _stopRefreshingAd() {
-    debugLog('stop refreshing ad', debugLabel: widget.debugLabel);
-    _refreshTimer?.cancel();
+    if (_refreshTimer != null) {
+      debugLog('stop refreshing ad', debugLabel: widget.debugLabel);
+      _refreshTimer!.cancel();
+    }
   }
 
   @protected
