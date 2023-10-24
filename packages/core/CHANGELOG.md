@@ -1,3 +1,7 @@
+## 0.0.28
+
+ - **FEAT**: update dependencies.
+
 ## 0.0.27
 
  - **FIX**: avoid to listen periodically to stream when the app is paused.

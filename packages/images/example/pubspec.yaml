@@ -10,9 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_core: ^0.0.27
+  fastyle_core: ^0.0.28
   go_router: ^12.0.0
-  fastyle_images: ^0.0.30
+  fastyle_images: ^0.0.31
 
 dev_dependencies:
   flutter_test:

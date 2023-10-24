@@ -1,3 +1,7 @@
+## 1.38.0
+
+ - **FEAT**: update dependencies.
+
 ## 1.37.0
 
  - **FEAT**: update dependencies.

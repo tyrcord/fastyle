@@ -1,3 +1,8 @@
+## 0.0.21
+
+ - **FEAT**: update dependencies.
+ - **FEAT**(FastSmartNativeAd): minor improvements.
+
 ## 0.0.20+1
 
  - **FIX**: avoid to listen periodically to stream when the app is paused.
