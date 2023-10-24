@@ -12,16 +12,16 @@ dependencies:
     sdk: flutter
 
   # Public
-  go_router: ^11.1.4
+  go_router: ^12.0.0
 
   fastyle_core: ^0.0.27
   fastyle_home: ^0.0.22
-  t_helpers: ^0.0.32
+  t_helpers: ^0.0.34
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.3
+  flutter_lints: ^3.0.0
   import_sorter: ^4.6.0
   dependency_validator: ^3.2.3
 

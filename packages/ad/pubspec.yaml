@@ -28,13 +28,13 @@ dependencies:
   fastyle_images: ^0.0.30
 
   # T
-  tbloc: ^0.21.5+2
-  tmodel: ^0.5.9+2
-  t_helpers: ^0.0.32
-  tstore: ^0.8.17
+  tbloc: ^0.21.6
+  tmodel: ^0.5.10
+  t_helpers: ^0.0.34
+  tstore: ^0.8.18
   t_cache: ^0.0.7+2
-  tenhance: ^0.0.2+1
-  subx: ^1.9.0
+  tenhance: ^0.0.3
+  subx: ^1.10.0
 
   # Lingua
   lingua_core: ^0.0.30
@@ -44,7 +44,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.3
+  flutter_lints: ^3.0.0
   import_sorter: ^4.6.0
   dependency_validator: ^3.2.3
 

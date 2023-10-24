@@ -15,11 +15,11 @@ dependencies:
   fastyle_core: ^0.0.27
 
   # T
-  tenhance: ^0.0.2+1
+  tenhance: ^0.0.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.3
+  flutter_lints: ^3.0.0
   import_sorter: ^4.6.0
   dependency_validator: ^3.2.3
