@@ -50,7 +50,7 @@ const kFastAppSettingsSupportedLocales = [kFastAppSettingsDefaultLocale];
 const kFastAppSettingsRemindForReviewMinLaunches = 10;
 
 /// The minimum number of app launches before asking the user for a review.
-const kFastAppSettingsAskForReviewMinLaunches = 10;
+const kFastAppSettingsAskForReviewMinLaunches = 7;
 
 /// The minimum number of days before reminding the user for a review.
 const kFastAppSettingsRemindForReviewMinDays = 7;

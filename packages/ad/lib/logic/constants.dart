@@ -6,8 +6,8 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 const kFastAdDefaultTimeout = Duration(seconds: 15);
 
 /// The default refresh interval for ads.
-/// Default is 90 seconds.
-const kFastAdRefreshInterval = 90;
+/// Default is 120 seconds.
+const kFastAdRefreshInterval = 120;
 
 /// The threshold for showing a splash ad.
 /// Default is 10 app launches.
