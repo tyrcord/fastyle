@@ -67,15 +67,17 @@ class FastChartState extends State<FastChart>
 
   @override
   Widget build(BuildContext context) {
-    return VisibilityDetector(
-      key: _key,
-      onVisibilityChanged: handleVisibilityChanged,
-      child: SizedBox(
-        width: widget.width,
-        height: widget.height,
-        child: Builder(builder: (context) {
-          return widget.chartBuilder(context, _currentAnimationValue);
-        }),
+    return RepaintBoundary(
+      child: VisibilityDetector(
+        key: _key,
+        onVisibilityChanged: handleVisibilityChanged,
+        child: SizedBox(
+          width: widget.width,
+          height: widget.height,
+          child: Builder(builder: (context) {
+            return widget.chartBuilder(context, _currentAnimationValue);
+          }),
+        ),
       ),
     );
   }

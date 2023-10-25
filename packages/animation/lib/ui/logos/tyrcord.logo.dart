@@ -35,11 +35,13 @@ class FastTyrcordAnimatedLogoState extends State<FastTyrcordAnimatedLogo>
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: FastTyrcordLogoPainter(
-        animationController: _animationController,
+    return RepaintBoundary(
+      child: CustomPaint(
+        painter: FastTyrcordLogoPainter(
+          animationController: _animationController,
+        ),
+        size: const Size(64, 64),
       ),
-      size: const Size(64, 64),
     );
   }
 
