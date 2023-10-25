@@ -291,7 +291,8 @@ class FastOperationControlledDialogState
       return widget.errorBuilder!(context, _currentError);
     }
 
-    return FastBody(text: CoreLocaleKeys.core_error_error_occurred.tr());
+    return FastBody(
+        text: CoreLocaleKeys.core_error_error_occurred_exclamation.tr());
   }
 
   /// Returns the widget built by the given builder or the default widget if

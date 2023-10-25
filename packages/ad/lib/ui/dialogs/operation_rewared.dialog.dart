@@ -191,7 +191,7 @@ class FastOperationRewardedDialog extends StatelessWidget {
   }
 
   Widget buildError(context, error) {
-    var message = CoreLocaleKeys.core_error_error_occurred.tr();
+    var message = CoreLocaleKeys.core_error_error_occurred_exclamation.tr();
     bool isWarning = false;
 
     if (error is FastRewardedAdBlocError) {
@@ -221,7 +221,7 @@ class FastOperationRewardedDialog extends StatelessWidget {
 
   Widget buildOperationFailed(BuildContext context) {
     return FastErrorStatus(
-      text: CoreLocaleKeys.core_error_error_occurred.tr(),
+      text: CoreLocaleKeys.core_error_error_occurred_exclamation.tr(),
     );
   }
 

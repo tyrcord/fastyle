@@ -16,7 +16,7 @@ class FastIapError {
       case noPurchasesFound:
         return PurchasesLocaleKeys.purchases_error_no_purchases_to_restore.tr();
       default:
-        return CoreLocaleKeys.core_error_error_occurred.tr();
+        return CoreLocaleKeys.core_error_error_occurred_exclamation.tr();
     }
   }
 }

@@ -427,7 +427,7 @@ class FastStoreBloc
       return error.toString();
     }
 
-    return CoreLocaleKeys.core_error_error_occurred.tr();
+    return CoreLocaleKeys.core_error_error_occurred_exclamation.tr();
   }
 
   /// Sets up the subscriptions to listen for error events.
