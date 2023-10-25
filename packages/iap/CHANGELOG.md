@@ -1,3 +1,7 @@
+## 0.0.19+1
+
+ - **FIX**: locale keys.
+
 ## 0.0.19
 
  - **FEAT**: update dependencies.

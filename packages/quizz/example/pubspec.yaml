@@ -18,8 +18,8 @@ dependencies:
   tenhance: ^0.0.2
 
   # Fastyle
-  fastyle_quizz: ^0.0.9
-  fastyle_core: ^0.0.28
+  fastyle_quizz: ^0.0.9+1
+  fastyle_core: ^0.0.29
 
 dev_dependencies:
   flutter_test:

@@ -1,3 +1,9 @@
+## 0.0.29
+
+ - **FIX**: locale keys.
+ - **FEAT**: add getColorBasedOnValue helper.
+ - **FEAT**: harmonize defaults.
+
 ## 0.0.28
 
  - **FEAT**: update dependencies.

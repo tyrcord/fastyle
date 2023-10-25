@@ -1,3 +1,9 @@
+## 0.0.22
+
+ - **FIX**: locale keys.
+ - **FEAT**: minor improvements.
+ - **FEAT**: harmonize defaults.
+
 ## 0.0.21
 
  - **FEAT**: update dependencies.
