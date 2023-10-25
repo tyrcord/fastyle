@@ -93,12 +93,7 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
 
   Future<void> handleVisibilityChanged(VisibilityInfo visibilityInfo) async {
     _visibilityInfo = visibilityInfo;
-
-    if (isVisible) {
-      _startRefreshingAd();
-    } else {
-      _stopRefreshingAd();
-    }
+    isVisible ? _startRefreshingAd() : _stopRefreshingAd();
   }
 
   @override
@@ -126,18 +121,18 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
                 bloc: _nativeAdBloc,
                 builder: (BuildContext context, FastNativeAdBlocState state) {
                   if (state.adView != null) {
-                    debugLog('Admob ad loaded', debugLabel: debugLabel);
+                    debugLog('Show an ad from Admob', debugLabel: debugLabel);
 
                     return buildAdmobNativeAd(
                       state.adView as NativeAd,
                       widget.adSize,
                     );
                   } else if (state.ad != null) {
-                    debugLog('Lumen ad loaded', debugLabel: debugLabel);
+                    debugLog('show an ad from Lumen', debugLabel: debugLabel);
 
                     return FastNativeAd(ad: state.ad!, adSize: widget.adSize);
                   } else if (state.showFallback) {
-                    debugLog('Show fallback ad', debugLabel: debugLabel);
+                    debugLog('Show a fallback ad', debugLabel: debugLabel);
 
                     return buildFallback(context);
                   }
@@ -188,9 +183,9 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
 
   Future<void> _loadAd(FastNativeAdBlocEventPayload payload) async {
     if (mounted) {
-      await _nativeAdBloc.onData.where((state) => state.isInitialized).first;
+      debugLog('Requesting an ad...', debugLabel: debugLabel);
 
-      debugLog('Loading an ad...', debugLabel: debugLabel);
+      await _nativeAdBloc.onData.where((state) => state.isInitialized).first;
 
       if (mounted) {
         _nativeAdBloc.addEvent(FastNativeAdBlocEvent.loadAd(payload));
@@ -238,15 +233,20 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
   }
 
   void _startRefreshingAd() {
+    final appLifecycleBloc = FastAppLifecycleBloc.instance;
+    final appLifecycleState = appLifecycleBloc.currentState.appLifeCycleState;
     _stopRefreshingAd();
 
-    debugLog('start refreshing ad', debugLabel: debugLabel);
-    final refreshInterval = _getAdRefreshInterval();
+    if (appLifecycleState != AppLifecycleState.paused) {
+      debugLog('start refreshing ad', debugLabel: debugLabel);
+      final refreshInterval = _getAdRefreshInterval();
 
-    _refreshTimer = Timer.periodic(refreshInterval, (Timer timer) {
-      final payload = _getInitBlocEventPayload();
-      _loadAd(payload);
-    });
+      _refreshTimer = Timer.periodic(refreshInterval, (Timer timer) {
+        debugLog('Timer is up => load a new ad', debugLabel: debugLabel);
+        final payload = _getInitBlocEventPayload();
+        _loadAd(payload);
+      });
+    }
   }
 
   void _stopRefreshingAd() {
@@ -267,7 +267,7 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
       if (state.appLifeCycleState == AppLifecycleState.paused) {
         debugLog('App paused => stop refreshing ad', debugLabel: debugLabel);
         _stopRefreshingAd();
-      } else {
+      } else if (_refreshTimer == null) {
         debugLog('App resumed => start refreshing ad', debugLabel: debugLabel);
         _startRefreshingAd();
       }
