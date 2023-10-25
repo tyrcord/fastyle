@@ -13,21 +13,21 @@ dependencies:
 
   # Public
   rxdart: ^0.27.7
-  firebase_core: ^2.19.0
-  firebase_analytics: ^10.6.1
-  firebase_crashlytics: ^3.4.1
-  firebase_remote_config: ^4.3.1
-  firebase_performance: ^0.9.3+1
-  firebase_messaging: ^14.7.1
-  firebase_in_app_messaging: ^0.7.4+1
-  firebase_app_check: ^0.2.1+1
+  firebase_core: ^2.20.0
+  firebase_analytics: ^10.6.2
+  firebase_crashlytics: ^3.4.2
+  firebase_remote_config: ^4.3.2
+  firebase_performance: ^0.9.3+2
+  firebase_messaging: ^14.7.2
+  firebase_in_app_messaging: ^0.7.4+2
+  firebase_app_check: ^0.2.1+2
 
   # Fastyle
   fastyle_core: ^0.0.29
 
   # T
-  tbloc: ^0.21.6
-  t_helpers: ^0.0.34
+  tbloc: ^0.21.6+1
+  t_helpers: ^0.0.35
 
 dev_dependencies:
   flutter_test:

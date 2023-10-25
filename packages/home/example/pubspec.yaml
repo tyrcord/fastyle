@@ -16,7 +16,7 @@ dependencies:
 
   fastyle_core: ^0.0.29
   fastyle_home: ^0.0.23+1
-  t_helpers: ^0.0.34
+  t_helpers: ^0.0.35
 
 dev_dependencies:
   flutter_test:

@@ -12,8 +12,8 @@ dependencies:
     sdk: flutter
 
   # Public
-  flutter_svg: ^2.0.7
-  vector_graphics: ^1.1.9
+  flutter_svg: ^2.0.8
+  vector_graphics: ^1.1.9+1
 
   # Fastyle
   fastyle_core: ^0.0.29

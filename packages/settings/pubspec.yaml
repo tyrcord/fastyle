@@ -17,8 +17,8 @@ dependencies:
   easy_localization: ^3.0.3
 
   # T
-  tbloc: ^0.21.6
-  t_helpers: ^0.0.34
+  tbloc: ^0.21.6+1
+  t_helpers: ^0.0.35
 
   # Fastyle
   fastyle_images: ^0.0.31+1
@@ -34,7 +34,7 @@ dependencies:
   lingua_core: ^0.0.30
   lingua_calculator: ^0.0.3
   lingua_languages: ^0.0.5
-  lingua_finance: ^0.0.17
+  lingua_finance: ^0.0.18
   lingua_settings: ^0.0.11
   lingua_help: ^0.0.6
   lingua_finance_instrument: ^0.0.4
