@@ -30,9 +30,6 @@ class FastDigitCalculatorField extends StatefulWidget {
   // Valid icon for the digit calculator overlay.
   final Widget? validIcon;
 
-  // Close icon for the digit calculator overlay.
-  final Widget? closeIcon;
-
   // Label text for the input field.
   final String labelText;
 
@@ -45,13 +42,12 @@ class FastDigitCalculatorField extends StatefulWidget {
   /// Creates a new instance of [FastDigitCalculatorField].
   ///
   /// [labelText] is the label of the input field.
-  /// [closeIcon], [isEnabled], and [valueText] are optional parameters.
+  /// [isEnabled], and [valueText] are optional parameters.
   /// Other optional parameters include [placeholderText], [onValueChanged],
   /// [captionText], [suffixIcon], and [validIcon].
   const FastDigitCalculatorField({
     super.key,
     required this.labelText,
-    this.closeIcon,
     this.validIcon,
     this.isEnabled = true,
     String? valueText,
@@ -101,7 +97,7 @@ class _FastDigitCalculatorFieldState extends State<FastDigitCalculatorField> {
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return const FaIcon(FastFontAwesomeIcons.solidCalculatorSimple);
+      return const FaIcon(FastFontAwesomeIcons.thinCalculatorSimple);
     }
 
     return const FaIcon(FontAwesomeIcons.calculator);
@@ -117,7 +113,6 @@ class _FastDigitCalculatorFieldState extends State<FastDigitCalculatorField> {
           builder: (BuildContext context) {
             return FastFieldOverlayContainer(
               titleText: widget.labelText,
-              closeIcon: widget.closeIcon,
               validIcon: widget.validIcon,
               willValid: _onValid,
               willClose: _onClose,

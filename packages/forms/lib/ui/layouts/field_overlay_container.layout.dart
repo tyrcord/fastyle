@@ -23,9 +23,6 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
   /// The valid icon to display in the header.
   final Widget? validIcon;
 
-  /// The close icon to display in the header.
-  final Widget? closeIcon;
-
   /// The back icon to display in the header.
   final Widget? backIcon;
 
@@ -42,13 +39,12 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
   ///
   /// [titleText] is the title of the header.
   /// [child] is the main content of the overlay container.
-  /// [closeIcon], [backIcon], [validIcon], [willClose], and [willValid] are
+  /// [backIcon], [validIcon], [willClose], and [willValid] are
   /// optional parameters.
   const FastFieldOverlayContainer({
     super.key,
     required this.titleText,
     required this.child,
-    this.closeIcon,
     this.backIcon,
     this.validIcon,
     this.willClose,
@@ -116,9 +112,7 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
   }
 
   Widget _buildTitle(BuildContext context) {
-    return Center(
-      child: FastSubtitle(text: titleText!),
-    );
+    return Center(child: FastSubtitle(text: titleText!));
   }
 
   /// Builds the header actions with leading and valid icons.
@@ -166,7 +160,7 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
     }
 
     // If the route can't be popped, return an empty Container.
-    return Container();
+    return const SizedBox.shrink();
   }
 
   /// Closes the overlay container and pops the current route.
@@ -176,9 +170,7 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
   void _close(BuildContext context) {
     T? value;
 
-    if (willClose != null) {
-      value = willClose!();
-    }
+    if (willClose != null) value = willClose!();
 
     Navigator.pop(context, value);
   }
@@ -190,9 +182,7 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
   void _valid(BuildContext context) {
     T? value;
 
-    if (willValid != null) {
-      value = willValid!();
-    }
+    if (willValid != null) value = willValid!();
 
     Navigator.pop(context, value);
   }

@@ -197,7 +197,7 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
       return Builder(builder: headerBuilder!);
     }
 
-    return Container();
+    return const SizedBox.shrink();
   }
 
   /// Builds the footer widget based on the [footerBuilder] parameter.
@@ -212,7 +212,7 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
       );
     }
 
-    return Container();
+    return const SizedBox.shrink();
   }
 
   /// Builds a list of action widgets based on the [shareIcon] parameter.
