@@ -223,8 +223,9 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   ) async {
     if (primaryCurrencyCode != null &&
         primaryCurrencyCode != currentState.primaryCurrencyCode) {
+      // TODO: check if the currency code is valid and supported.
       final newSettings = _persistedSettings.copyWith(
-        primaryCurrencyCode: primaryCurrencyCode,
+        primaryCurrencyCode: primaryCurrencyCode.toUpperCase(),
       );
 
       await _dataProvider.persistSettings(newSettings);
@@ -243,7 +244,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
     if (secondaryCurrencyCode != null &&
         secondaryCurrencyCode != currentState.secondaryCurrencyCode) {
       final newSettings = _persistedSettings.copyWith(
-        secondaryCurrencyCode: secondaryCurrencyCode,
+        secondaryCurrencyCode: secondaryCurrencyCode.toUpperCase(),
       );
 
       await _dataProvider.persistSettings(newSettings);
