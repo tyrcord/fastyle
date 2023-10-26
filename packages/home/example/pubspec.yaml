@@ -14,8 +14,8 @@ dependencies:
   # Public
   go_router: ^12.0.0
 
-  fastyle_core: ^0.0.29
-  fastyle_home: ^0.0.23+1
+  fastyle_core: ^0.0.30
+  fastyle_home: ^0.0.24
   t_helpers: ^0.0.35
 
 dev_dependencies:

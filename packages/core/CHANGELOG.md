@@ -1,3 +1,9 @@
+## 0.0.30
+
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastRoundingMethod enum.
+ - **FEAT**: update dependencies.
+
 ## 0.0.29
 
  - **FIX**: locale keys.

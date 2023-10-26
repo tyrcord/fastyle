@@ -1,3 +1,9 @@
+## 0.0.29
+
+ - **FIX**(FastDigitCalculatorField): minor improvements.
+ - **FEAT**(FastDigitCalculatorField): add acceptNegative flag.
+ - **FEAT**: update dependencies.
+
 ## 0.0.28+1
 
  - Update a dependency to the latest release.

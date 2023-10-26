@@ -15,8 +15,8 @@ dependencies:
   decimal: ^2.3.3
 
   # Fastyle
-  fastyle_core: ^0.0.29
-  fastyle_calculator: ^1.38.1
+  fastyle_core: ^0.0.30
+  fastyle_calculator: ^1.39.0
 
   # T
   tbloc: ^0.21.6+1

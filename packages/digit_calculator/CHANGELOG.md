@@ -1,3 +1,8 @@
+## 0.0.28
+
+ - **FIX**(FastDigitCalculator): scrolling issue.
+ - **FEAT**: update dependencies.
+
 ## 0.0.27+1
 
  - Update a dependency to the latest release.
