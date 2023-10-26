@@ -39,6 +39,10 @@ class FastDigitCalculatorField extends StatefulWidget {
   // Determines if the input field is enabled.
   final bool isEnabled;
 
+  final bool acceptDecimal;
+
+  final FastRoundingMethod roundingMethod;
+
   /// Creates a new instance of [FastDigitCalculatorField].
   ///
   /// [labelText] is the label of the input field.
@@ -55,7 +59,11 @@ class FastDigitCalculatorField extends StatefulWidget {
     this.onValueChanged,
     this.captionText,
     this.suffixIcon,
-  }) : valueText = valueText ?? '';
+    bool? acceptDecimal = true,
+    FastRoundingMethod? roundingMethod = FastRoundingMethod.round,
+  })  : roundingMethod = roundingMethod ?? FastRoundingMethod.round,
+        valueText = valueText ?? '',
+        acceptDecimal = acceptDecimal ?? true;
 
   @override
   State<FastDigitCalculatorField> createState() =>
@@ -82,6 +90,7 @@ class _FastDigitCalculatorFieldState extends State<FastDigitCalculatorField> {
       ),
       placeholderText: widget.placeholderText,
       onValueChanged: widget.onValueChanged,
+      acceptDecimal: widget.acceptDecimal,
       captionText: widget.captionText,
       isEnabled: widget.isEnabled,
       labelText: widget.labelText,
@@ -112,8 +121,8 @@ class _FastDigitCalculatorFieldState extends State<FastDigitCalculatorField> {
           fullscreenDialog: true,
           builder: (BuildContext context) {
             return FastFieldOverlayContainer(
+              validIcon: _buildValidIcon(context),
               titleText: widget.labelText,
-              validIcon: widget.validIcon,
               willValid: _onValid,
               willClose: _onClose,
               child: FastDigitCalculator(
@@ -127,20 +136,56 @@ class _FastDigitCalculatorFieldState extends State<FastDigitCalculatorField> {
     }
   }
 
+  Widget _buildValidIcon(BuildContext context) {
+    if (widget.validIcon != null) return widget.validIcon!;
+
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+    final palette = ThemeHelper.getPaletteColors(context);
+
+    if (useProIcons) {
+      return FaIcon(FastFontAwesomeIcons.lightCheck, color: palette.green.mid);
+    }
+
+    return FaIcon(FontAwesomeIcons.check, color: palette.green.mid);
+  }
+
   /// Validates the digit calculator overlay and updates the input field value.
   ///
   /// If the [_operation] instance variable is set, it evaluates the result and
   /// calls the [widget.onValueChanged] callback with the calculated result.
   void _onValid() {
     if (_operation != null) {
-      final operation = _operation?.evaluate();
+      final operation = _operation!.evaluate();
 
-      if (operation?.result != null) {
-        widget.onValueChanged?.call(operation?.result);
-      } else if (operation?.lastOperand != null) {
-        widget.onValueChanged?.call(operation?.lastOperand);
-      } else {
-        widget.onValueChanged?.call(widget.valueText);
+      var result = operation.result;
+      result ??= operation.lastOperand;
+
+      if (result.isEmpty &&
+          operation.hasOperator &&
+          operation.operands.isNotEmpty) {
+        result = operation.operands.first;
+      }
+
+      if (isStringNumber(result)) {
+        widget.onValueChanged?.call(result);
+
+        // Check if the result should be an integer and apply the specified
+        // rounding method.
+        if (!widget.acceptDecimal) {
+          final number = double.parse(result);
+          String roundedResult;
+
+          switch (widget.roundingMethod) {
+            case FastRoundingMethod.floor:
+              roundedResult = number.floor().toString();
+            default:
+              roundedResult = number.ceil().toString();
+          }
+
+          widget.onValueChanged?.call(roundedResult);
+        } else {
+          widget.onValueChanged?.call(result);
+        }
       }
     }
 
