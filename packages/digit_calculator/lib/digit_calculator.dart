@@ -215,9 +215,9 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ThemeHelper.colors.getSecondaryBackgroundColor(context),
-      body: Center(
+    return ColoredBox(
+      color: ThemeHelper.colors.getSecondaryBackgroundColor(context),
+      child: Center(
         child: ConstrainedBox(
           constraints: BoxConstraints(maxWidth: widget.maxWidth),
           child: Column(

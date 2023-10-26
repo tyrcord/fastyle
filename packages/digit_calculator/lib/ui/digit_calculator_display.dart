@@ -14,7 +14,7 @@ import 'digit_calculator_history_list.dart';
 /// display widget.
 class FastDigitCalculatorDisplay extends StatelessWidget {
   /// The scroll controller for the [FastDigitCalculatorHistoryList] widget.
-  final ScrollController scrollController;
+  final ScrollController? scrollController;
 
   /// A `ValueNotifier` that holds a `TSimpleOperation` object.
   /// Used to notify listeners whenever the current operation changes.
@@ -49,8 +49,8 @@ class FastDigitCalculatorDisplay extends StatelessWidget {
   const FastDigitCalculatorDisplay({
     super.key,
     required this.operationNotifier,
-    required this.scrollController,
     required this.historyNotifier,
+    this.scrollController,
     this.backgroundColor,
     this.onTap,
   });
@@ -59,38 +59,34 @@ class FastDigitCalculatorDisplay extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       return ColoredBox(
-        color: _getBackgroundColor(context),
-        child: SafeArea(
-          bottom: false,
-          top: false,
-          child: Column(
-            children: [
-              if (constraints.maxHeight >= 128)
-                // CalculatorHistoryList
-                Expanded(
-                  flex: 2,
-                  child: ValueListenableBuilder<List<TSimpleOperation>>(
-                    valueListenable: historyNotifier,
-                    builder: (context, history, child) {
-                      return FastDigitCalculatorHistoryList(
-                        scrollController: scrollController,
-                        history: history,
-                      );
-                    },
-                  ),
-                ),
-              // Current operation display
-              GestureDetector(
-                onTap: onTap,
-                child: ValueListenableBuilder<TSimpleOperation>(
-                  valueListenable: operationNotifier,
-                  builder: (context, operation, child) {
-                    return _buildCurrentOperation(context, operation);
+        color: backgroundColor ?? _getBackgroundColor(context),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            if (constraints.maxHeight >= 128)
+              // CalculatorHistoryList
+              Expanded(
+                child: ValueListenableBuilder<List<TSimpleOperation>>(
+                  valueListenable: historyNotifier,
+                  builder: (context, history, child) {
+                    return FastDigitCalculatorHistoryList(
+                      scrollController: scrollController,
+                      history: history,
+                    );
                   },
                 ),
               ),
-            ],
-          ),
+            // Current operation display
+            GestureDetector(
+              onTap: onTap,
+              child: ValueListenableBuilder<TSimpleOperation>(
+                valueListenable: operationNotifier,
+                builder: (context, operation, child) {
+                  return _buildCurrentOperation(context, operation);
+                },
+              ),
+            ),
+          ],
         ),
       );
     });

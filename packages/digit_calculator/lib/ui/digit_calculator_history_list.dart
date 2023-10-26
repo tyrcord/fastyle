@@ -11,7 +11,7 @@ import 'digit_calculator_history_list_item.dart';
 /// calculator screen.
 class FastDigitCalculatorHistoryList extends StatelessWidget {
   /// The scroll controller for the list.
-  final ScrollController scrollController;
+  final ScrollController? scrollController;
 
   /// The list of history items to display.
   final List<TSimpleOperation> history;
@@ -29,26 +29,30 @@ class FastDigitCalculatorHistoryList extends StatelessWidget {
   /// the default background color of the parent widget is used.
   const FastDigitCalculatorHistoryList({
     super.key,
-    required this.scrollController,
     required this.history,
+    this.scrollController,
     this.backgroundColor,
   });
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      controller: scrollController,
-      reverse: true,
-      itemCount: history.length,
-      itemBuilder: (context, index) {
-        // Get the operation for the current history item
-        final reversedIndex = history.length - index - 1;
-        final operation = history[reversedIndex];
+    return Container(
+      color: backgroundColor,
+      child: ListView.builder(
+        padding: EdgeInsets.zero,
+        controller: scrollController,
+        reverse: true,
+        itemCount: history.length,
+        itemBuilder: (context, index) {
+          // Get the operation for the current history item
+          final reversedIndex = history.length - index - 1;
+          final operation = history[reversedIndex];
 
-        // Build a FastDigitCalculatorHistoryListItem for the current
-        // history item
-        return FastDigitCalculatorHistoryListItem(operation: operation);
-      },
+          // Build a FastDigitCalculatorHistoryListItem for the current
+          // history item
+          return FastDigitCalculatorHistoryListItem(operation: operation);
+        },
+      ),
     );
   }
 }
