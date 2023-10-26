@@ -41,6 +41,8 @@ class FastDigitCalculatorField extends StatefulWidget {
 
   final bool acceptDecimal;
 
+  final bool acceptNegative;
+
   final FastRoundingMethod roundingMethod;
 
   /// Creates a new instance of [FastDigitCalculatorField].
@@ -61,9 +63,11 @@ class FastDigitCalculatorField extends StatefulWidget {
     this.suffixIcon,
     bool? acceptDecimal = true,
     FastRoundingMethod? roundingMethod = FastRoundingMethod.round,
+    bool? acceptNegative = false,
   })  : roundingMethod = roundingMethod ?? FastRoundingMethod.round,
         valueText = valueText ?? '',
-        acceptDecimal = acceptDecimal ?? true;
+        acceptDecimal = acceptDecimal ?? true,
+        acceptNegative = acceptNegative ?? false;
 
   @override
   State<FastDigitCalculatorField> createState() =>
@@ -167,25 +171,23 @@ class _FastDigitCalculatorFieldState extends State<FastDigitCalculatorField> {
       }
 
       if (isStringNumber(result)) {
-        widget.onValueChanged?.call(result);
+        final number = double.parse(result);
 
         // Check if the result should be an integer and apply the specified
         // rounding method.
         if (!widget.acceptDecimal) {
-          final number = double.parse(result);
-          String roundedResult;
-
           switch (widget.roundingMethod) {
             case FastRoundingMethod.floor:
-              roundedResult = number.floor().toString();
+              result = number.floor().toString();
             default:
-              roundedResult = number.ceil().toString();
+              result = number.ceil().toString();
           }
-
-          widget.onValueChanged?.call(roundedResult);
-        } else {
-          widget.onValueChanged?.call(result);
         }
+
+        if (!widget.acceptNegative && number < 0) result = '';
+        if (number == 0) result = '';
+
+        widget.onValueChanged?.call(result);
       }
     }
 
