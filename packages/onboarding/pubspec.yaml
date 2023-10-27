@@ -18,9 +18,9 @@ dependencies:
   firebase_messaging: ^14.7.2
 
   # Lingua
-  lingua_onboarding: ^0.0.13
-  lingua_core: ^0.0.30
-  lingua_purchases: ^0.0.14
+  lingua_onboarding: ^0.0.15
+  lingua_core: ^0.0.31
+  lingua_purchases: ^0.0.15
 
   # Fastyle
   fastyle_core: ^0.0.30
@@ -30,7 +30,7 @@ dependencies:
   fastyle_buttons: ^0.0.15+2
 
   # T
-  tbloc: ^0.21.6+1
+  tbloc: ^0.21.6+2
 
 dev_dependencies:
   flutter_test:

@@ -18,6 +18,9 @@ dependencies:
   # Fastyle
   fastyle_core: ^0.0.30
 
+  # T
+  t_helpers: ^0.0.35+1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

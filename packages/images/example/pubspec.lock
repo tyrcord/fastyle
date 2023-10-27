@@ -207,21 +207,21 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.15+1"
+    version: "0.0.15+2"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.29"
+    version: "0.0.30"
   fastyle_images:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.31+1"
+    version: "0.0.32"
   ffi:
     dependency: transitive
     description:
@@ -406,18 +406,18 @@ packages:
     dependency: transitive
     description:
       name: lingua_core
-      sha256: "1e7c6a2ee120788eaa18f62072c43016b0d79c948fd709330b8cde38d4e10f7d"
+      sha256: dd99233ba71aee241c60a31c09a0fabf410343302f1056f4ca6154912cfe11dd
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.30"
+    version: "0.0.31"
   lingua_settings:
     dependency: transitive
     description:
       name: lingua_settings
-      sha256: "461c70fbfc2cc3d0d96693f93624d4cf50f3ed1464fdc8bad3759510a2af2f21"
+      sha256: f94082efa26d19f42b38b3ef20704a8c3ff7e1d99d30a74bdfa1b8dceda176d5
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.11"
+    version: "0.0.12"
   lints:
     dependency: transitive
     description:
@@ -787,18 +787,18 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: "3efe1f49782ad4c857e58b792a64c77135de65732437486c2a5e725656d78797"
+      sha256: af2c6dd5be4bb28eccb47b3c38e6fc4600777dc2b6228d05dda35275e2fd7beb
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.35"
+    version: "0.0.35+1"
   tbloc:
     dependency: transitive
     description:
       name: tbloc
-      sha256: "79b814fbc27e77e0984092e7c3a9e0522645e97e49fef8f98a4e8115307d1bef"
+      sha256: dcf4ba8891249b0d4723e3d884fe432fea4f1edd98ab7daa574c8190ec3c449d
       url: "https://pub.dev"
     source: hosted
-    version: "0.21.6+1"
+    version: "0.21.6+2"
   tenhance:
     dependency: transitive
     description:
@@ -835,18 +835,18 @@ packages:
     dependency: transitive
     description:
       name: tmodel
-      sha256: "085463bf34c20cd2753b6e3af9380a391e49c0c86432e14a4481cd908be303dc"
+      sha256: "003f35612b60eadd6115bf011c5c2f7f51760213e9f35c7f5579338762924be1"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.10+1"
+    version: "0.5.10+2"
   tstore:
     dependency: transitive
     description:
       name: tstore
-      sha256: ff5fd0095f87ec8846e5070dd21c09e8c0743079fa7a5fd0591f3c96cf59a513
+      sha256: "40a48d469b3fd81fec0d747266111742a188ac956b49358b3a1a0fa0b5d39073"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.19"
+    version: "0.8.19+1"
   tsub:
     dependency: transitive
     description:

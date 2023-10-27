@@ -22,11 +22,11 @@ dependencies:
   fastyle_pricing: ^1.26.0
 
   # Lingua
-  lingua_core: ^0.0.30
-  lingua_purchases: ^0.0.14
+  lingua_core: ^0.0.31
+  lingua_purchases: ^0.0.15
 
   # T
-  tbloc: ^0.21.6+1
+  tbloc: ^0.21.6+2
 
 dev_dependencies:
   flutter_test:

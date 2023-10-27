@@ -17,8 +17,8 @@ dependencies:
   easy_localization: ^3.0.3
 
   # T
-  tbloc: ^0.21.6+1
-  t_helpers: ^0.0.35
+  tbloc: ^0.21.6+2
+  t_helpers: ^0.0.35+1
 
   # Fastyle
   fastyle_images: ^0.0.32
@@ -31,14 +31,14 @@ dependencies:
   matex_data: ^0.0.11
 
   # Lingua
-  lingua_core: ^0.0.30
-  lingua_calculator: ^0.0.3
-  lingua_languages: ^0.0.5
-  lingua_finance: ^0.0.18
-  lingua_settings: ^0.0.11
-  lingua_help: ^0.0.6
-  lingua_finance_instrument: ^0.0.4
-  lingua_countries: ^0.0.3
+  lingua_core: ^0.0.31
+  lingua_calculator: ^0.0.4
+  lingua_languages: ^0.0.6
+  lingua_finance: ^0.0.20
+  lingua_settings: ^0.0.12
+  lingua_help: ^0.0.7
+  lingua_finance_instrument: ^0.0.5
+  lingua_countries: ^0.0.4
 
 dev_dependencies:
   flutter_test:
