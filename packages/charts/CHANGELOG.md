@@ -1,3 +1,8 @@
+## 0.0.17
+
+ - **FIX**(chart): bunch of fixes and minor improvements.
+ - **FEAT**: update dependencies.
+
 ## 0.0.16
 
  - **FEAT**: update dependencies.

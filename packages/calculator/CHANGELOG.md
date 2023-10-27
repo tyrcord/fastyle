@@ -1,3 +1,8 @@
+## 1.40.0
+
+ - **FIX**: minor fixes.
+ - **FEAT**: update dependencies.
+
 ## 1.39.0
 
  - **FEAT**: update dependencies.
