@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_charts` - `v0.0.18`](#fastyle_charts---v0018)
+
+---
+
+#### `fastyle_charts` - `v0.0.18`
+
+ - **FEAT**: add missing chart colors.
+
+
+## 2023-10-27
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_ad` - `v0.0.24`](#fastyle_ad---v0024)
  - [`fastyle_buttons` - `v0.0.16`](#fastyle_buttons---v0016)
  - [`fastyle_calculator` - `v1.40.0`](#fastyle_calculator---v1400)

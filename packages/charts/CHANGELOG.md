@@ -1,3 +1,7 @@
+## 0.0.18
+
+ - **FEAT**: add missing chart colors.
+
 ## 0.0.17
 
  - **FIX**(chart): bunch of fixes and minor improvements.
