@@ -317,6 +317,7 @@ class FastAdInfo extends TDocument {
         'splashAdThreshold': splashAdThreshold,
         'adServiceUriAuthority': adServiceUriAuthority,
         'refreshInterval': refreshInterval,
+        ...super.toJson(),
       };
 
   /// Returns a list of properties used to determine if two [FastAdInfo]
