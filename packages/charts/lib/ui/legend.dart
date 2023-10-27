@@ -6,16 +6,19 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 // Project imports:
 import 'package:fastyle_charts/fastyle_charts.dart';
+import 'package:t_helpers/helpers.dart';
 
 class FastChartLegend extends StatelessWidget {
   final List<FastChartData> data;
   final bool isHorizontal;
+  final bool showPercentage;
 
   const FastChartLegend({
     super.key,
     required this.data,
     this.isHorizontal = false,
-  });
+    bool? showPercentage = false,
+  }) : showPercentage = showPercentage ?? false;
 
   @override
   Widget build(BuildContext context) {
@@ -36,17 +39,28 @@ class FastChartLegend extends StatelessWidget {
 
   List<Widget> _buildChildren() {
     return data.map((datum) {
-      return Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          FastShadowLayout(
-            child: Container(width: 20, height: 20, color: datum.color),
-          ),
-          kFastHorizontalSizedBox16,
-          Text(datum.label),
-        ],
+      return Padding(
+        padding: kFastVerticalEdgeInsets6,
+        child: Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
+          runSpacing: 6,
+          spacing: 12,
+          children: <Widget>[
+            FastShadowLayout(
+              child: Container(width: 16, height: 16, color: datum.color),
+            ),
+            FastBody(
+              text: datum.label,
+              fontSize: kFastFontSize16,
+            ),
+            if (showPercentage) ...[
+              FastSecondaryBody(
+                text: '(${formatPercentage(value: datum.value)})',
+                fontSize: kFastFontSize14,
+              ),
+            ],
+          ],
+        ),
       );
     }).toList();
   }

@@ -14,14 +14,18 @@ class FastChart extends StatefulWidget {
   final bool animate;
   final double width;
   final double height;
+  final double visibleFractionThreshold;
 
   const FastChart({
     super.key,
     required this.chartBuilder,
     this.animate = false,
-    this.width = 200,
-    this.height = 200,
-  });
+    double? width = 200,
+    double? height = 200,
+    double? visibleFractionThreshold = 0.5,
+  })  : visibleFractionThreshold = visibleFractionThreshold ?? 0.5,
+        width = width ?? 200,
+        height = height ?? 200;
 
   @override
   FastChartState createState() => FastChartState();
@@ -59,7 +63,8 @@ class FastChartState extends State<FastChart>
   }
 
   Future<void> handleVisibilityChanged(VisibilityInfo info) async {
-    if (info.visibleFraction >= 0.75 && !_hasBeenVisible) {
+    if (info.visibleFraction >= widget.visibleFractionThreshold &&
+        !_hasBeenVisible) {
       _hasBeenVisible = true;
       _controller.forward();
     }

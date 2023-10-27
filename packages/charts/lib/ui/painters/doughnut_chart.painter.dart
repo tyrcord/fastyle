@@ -10,8 +10,9 @@ class FastDoughnutChartPainter extends BaseChartPainter {
   FastDoughnutChartPainter({
     required super.data,
     required super.animationValue,
-    this.doughnutRatio = 0.5,
-  });
+    super.labelValueThreshold,
+    double? doughnutRatio = 0.5,
+  }) : doughnutRatio = doughnutRatio ?? 0.5;
 
   @override
   void paint(Canvas canvas, Size size) {

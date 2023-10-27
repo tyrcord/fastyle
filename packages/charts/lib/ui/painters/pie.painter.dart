@@ -8,6 +8,7 @@ class FastPieChartPainter extends BaseChartPainter {
   FastPieChartPainter({
     required super.data,
     required super.animationValue,
+    super.labelValueThreshold,
   });
 
   @override
