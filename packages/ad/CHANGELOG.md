@@ -1,3 +1,7 @@
+## 0.0.24+1
+
+ - **FIX**: missing super call.
+
 ## 0.0.24
 
  - **FEAT**: update dependencies.

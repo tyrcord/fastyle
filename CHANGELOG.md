@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_ad` - `v0.0.24+1`](#fastyle_ad---v00241)
+
+---
+
+#### `fastyle_ad` - `v0.0.24+1`
+
+ - **FIX**: missing super call.
+
+
+## 2023-10-27
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_charts` - `v0.0.18`](#fastyle_charts---v0018)
 
 ---
