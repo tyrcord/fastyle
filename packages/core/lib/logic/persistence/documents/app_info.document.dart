@@ -402,45 +402,47 @@ class FastAppInfoDocument extends TDocument {
   }
 
   @override
-  Map<String, dynamic> toJson() => <String, dynamic>{
-        // Ignore supportedLocales
-        'appName': appName,
-        'appVersion': appVersion,
-        'appBuildNumber': appBuildNumber,
-        'appAuthor': appAuthor,
-        'appIdentifier': appIdentifier,
-        'appTermsOfServiceUrl': appTermsOfServiceUrl,
-        'appPrivacyPolicyUrl': appPrivacyPolicyUrl,
-        'appDisclaimerUrl': appDisclaimerUrl,
-        'supportEmail': supportEmail,
-        'bugReportEmail': bugReportEmail,
-        'facebookUrl': facebookUrl,
-        'homepageUrl': homepageUrl,
-        'instagramUrl': instagramUrl,
-        'shareAppUrl': shareAppUrl,
-        'databaseVersion': databaseVersion,
-        'hasDisclaimer': hasDisclaimer,
-        'googlePlayIdentifier': googlePlayIdentifier,
-        'appStoreIdentifier': appStoreIdentifier,
-        'productIdentifiers': productIdentifiers,
-        'premiumProductIdentifier': premiumProductIdentifier,
-        'askForReviewMinLaunches': askForReviewMinLaunches,
-        'askForReviewMinDays': askForReviewMinDays,
-        'remindForReviewMinLaunches': remindForReviewMinLaunches,
-        'remindForReviewMinDays': remindForReviewMinDays,
-        'promoUrl': promoUrl,
-        'appLaunchCounter': appLaunchCounter,
-        'previousDatabaseVersion': previousDatabaseVersion,
-        'deviceLanguageCode': deviceLanguageCode,
-        'deviceCountryCode': deviceCountryCode,
-        'appDisclaimerLastModified':
-            appDisclaimerLastModified?.toIso8601String(),
-        'appPrivacyPolicyLastModified':
-            appPrivacyPolicyLastModified?.toIso8601String(),
-        'appTermsOfServiceLastModified':
-            appTermsOfServiceLastModified?.toIso8601String(),
-        'twitterUrl': twitterUrl,
-      };
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      // Ignore supportedLocales
+      'appName': appName,
+      'appVersion': appVersion,
+      'appBuildNumber': appBuildNumber,
+      'appAuthor': appAuthor,
+      'appIdentifier': appIdentifier,
+      'appTermsOfServiceUrl': appTermsOfServiceUrl,
+      'appPrivacyPolicyUrl': appPrivacyPolicyUrl,
+      'appDisclaimerUrl': appDisclaimerUrl,
+      'supportEmail': supportEmail,
+      'bugReportEmail': bugReportEmail,
+      'facebookUrl': facebookUrl,
+      'homepageUrl': homepageUrl,
+      'instagramUrl': instagramUrl,
+      'shareAppUrl': shareAppUrl,
+      'databaseVersion': databaseVersion,
+      'hasDisclaimer': hasDisclaimer,
+      'googlePlayIdentifier': googlePlayIdentifier,
+      'appStoreIdentifier': appStoreIdentifier,
+      'productIdentifiers': productIdentifiers,
+      'premiumProductIdentifier': premiumProductIdentifier,
+      'askForReviewMinLaunches': askForReviewMinLaunches,
+      'askForReviewMinDays': askForReviewMinDays,
+      'remindForReviewMinLaunches': remindForReviewMinLaunches,
+      'remindForReviewMinDays': remindForReviewMinDays,
+      'promoUrl': promoUrl,
+      'appLaunchCounter': appLaunchCounter,
+      'previousDatabaseVersion': previousDatabaseVersion,
+      'deviceLanguageCode': deviceLanguageCode,
+      'deviceCountryCode': deviceCountryCode,
+      'appDisclaimerLastModified': appDisclaimerLastModified?.toIso8601String(),
+      'appPrivacyPolicyLastModified':
+          appPrivacyPolicyLastModified?.toIso8601String(),
+      'appTermsOfServiceLastModified':
+          appTermsOfServiceLastModified?.toIso8601String(),
+      'twitterUrl': twitterUrl,
+      ...super.toJson(),
+    };
+  }
 
   @override
   FastAppInfoDocument clone() => copyWith();

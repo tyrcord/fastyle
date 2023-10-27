@@ -39,6 +39,7 @@ class SumCalculatorDocument extends FastCalculatorDocument {
     return {
       'numberA': numberA,
       'numberB': numberB,
+      ...super.toJson(),
     };
   }
 

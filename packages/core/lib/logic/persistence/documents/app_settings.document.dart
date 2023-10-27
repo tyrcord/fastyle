@@ -69,6 +69,7 @@ class FastAppSettingsDocument extends TDocument {
         FastAppSettings.primaryCurrencyCode: primaryCurrencyCode,
         FastAppSettings.secondaryCurrencyCode: secondaryCurrencyCode,
         FastAppSettings.saveEntry: saveEntry,
+        ...super.toJson(),
       };
 
   @override

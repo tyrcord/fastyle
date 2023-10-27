@@ -22,6 +22,7 @@ class FastAppOnboardingDocument extends TDocument {
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'isCompleted': isCompleted,
+      ...super.toJson(),
     };
   }
 
