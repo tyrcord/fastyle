@@ -19,9 +19,12 @@ dependencies:
   fastyle_images: ^0.0.33
   fastyle_core: ^0.0.31
   fastyle_settings: ^0.0.35
+  fastyle_forms: ^0.0.30
 
   # Lingua
   lingua_finance: ^0.0.20
+  lingua_finance_forex: ^0.0.4
+  lingua_units: ^0.0.4
 
   # MateX
   matex_dart: ^0.11.1

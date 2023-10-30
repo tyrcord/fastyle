@@ -1,3 +1,4 @@
 library fastyle_financial;
 
-export './ui/ui.dart';
+export 'logic/logic.dart';
+export 'ui/ui.dart';
