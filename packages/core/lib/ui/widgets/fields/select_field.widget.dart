@@ -35,7 +35,7 @@ class FastSelectField<T> extends StatefulWidget {
   final bool useFuzzySearch;
   final String? captionText;
   final String? helperText;
-  final String labelText;
+  final String? labelText;
   final Widget? closeIcon;
   final Widget? backIcon;
   final bool isReadOnly;
@@ -53,8 +53,8 @@ class FastSelectField<T> extends StatefulWidget {
   const FastSelectField({
     super.key,
     required this.onSelectionChanged,
-    required this.labelText,
     required this.items,
+    this.labelText,
     this.searchPlaceholderText,
     this.clearSelectionText,
     this.clearSearchIcon,
