@@ -29,8 +29,8 @@ dependencies:
 
   # MateX
   matex_dart: ^0.11.1
-  matex_financial: ^0.0.23
-  matex_data: ^0.0.11
+  matex_financial: ^0.0.25
+  matex_data: ^0.0.13
 
   # Lingua
   lingua_countries: ^0.0.4
