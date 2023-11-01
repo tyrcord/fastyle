@@ -83,9 +83,11 @@ abstract class HydratedFastCalculatorBloc<
   @override
   @mustCallSuper
   void close() {
-    debugLog('closing calculator bloc...', debugLabel: debugLabel);
-    super.close();
-    dataProvider.disconnect();
+    if (!closed && canClose()) {
+      debugLog('closing calculator bloc...', debugLabel: debugLabel);
+      super.close();
+      dataProvider.disconnect();
+    }
   }
 
   /// Initializes the bloc by connecting to the data provider and
