@@ -49,6 +49,7 @@ class FastSelectField<T> extends StatefulWidget {
   final Widget? leading;
   final String? noneText;
   final String? noneTextGender;
+  final EdgeInsets? listViewContentPadding;
 
   const FastSelectField({
     super.key,
@@ -85,6 +86,7 @@ class FastSelectField<T> extends StatefulWidget {
     this.leading,
     this.noneText,
     this.noneTextGender,
+    this.listViewContentPadding,
   });
 
   @override
@@ -229,6 +231,7 @@ class _FastSelectFieldState<T> extends State<FastSelectField<T>> {
         context,
         CupertinoPageRoute(
           builder: (BuildContext context) => FastSearchPage<FastItem<T>>(
+            listViewContentPadding: widget.listViewContentPadding,
             searchPlaceholderText: widget.searchPlaceholderText,
             listViewEmptyContent: widget.listViewEmptyContent,
             clearSelectionText: widget.clearSelectionText,

@@ -98,6 +98,8 @@ class FastSearchPage<T extends FastItem> extends StatefulWidget {
   final Widget? listViewEmptyContent;
   final String? listViewEmptyText;
 
+  final EdgeInsets? listViewContentPadding;
+
   const FastSearchPage({
     super.key,
     required this.items,
@@ -119,6 +121,7 @@ class FastSearchPage<T extends FastItem> extends StatefulWidget {
     this.listViewEmptyText,
     this.closeIcon,
     this.backIcon,
+    this.listViewContentPadding,
   });
 
   @override
@@ -260,7 +263,8 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
                   delegate: widget.delegate,
                   listViewEmptyContent: widget.listViewEmptyContent,
                   listViewEmptyText: widget.listViewEmptyText,
-                  padding: ThemeHelper.spacing.getHorizontalPadding(context),
+                  padding: widget.listViewContentPadding ??
+                      ThemeHelper.spacing.getHorizontalPadding(context),
                 ),
               ),
             ),
