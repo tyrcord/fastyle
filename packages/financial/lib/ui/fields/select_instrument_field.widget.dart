@@ -16,7 +16,6 @@ import 'package:lingua_finance_instrument/lingua_finance_instrument.dart';
 
 const _kLeadingWidth = 40.0;
 const _kLeadingHeight = 32.0;
-// const _kImageMultiplicator = 0.75;
 const _kFavoritesTabValue = 'favorites';
 
 typedef FastFinancialInstrumentItem = FastItem<MatexFinancialInstrument>;
@@ -69,9 +68,6 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
   @override
   void initState() {
     super.initState();
-
-    // _imageWidth = _kLeadingWidth * _kImageMultiplicator;
-    // _imageHeight = _kLeadingHeight * _kImageMultiplicator;
 
     // FIXME: listen to possible changes
     _items = _buildItems(_currencyPairBloc.currentState.instruments);
@@ -141,7 +137,7 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
             leading: _buildLeadingLayout(
               counterMeta: counterMeta,
               baseMeta: baseMeta,
-              child: _buildFlagIcon(baseMeta)!,
+              child: _buildFlagIcon(baseMeta, width: _kLeadingWidth)!,
             ),
           ),
           labelText: baseMeta.name!.localized,
@@ -211,11 +207,11 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
             children: [
               Align(
                 alignment: Alignment.bottomRight,
-                child: buildFlagIconForCountry(counterMeta.icon!),
+                child: buildFlagIconForCountry(counterMeta.icon!, width: 32),
               ),
               Align(
                 alignment: Alignment.topLeft,
-                child: buildFlagIconForCountry(baseMeta.icon!),
+                child: buildFlagIconForCountry(baseMeta.icon!, width: 32),
               ),
             ],
           ),

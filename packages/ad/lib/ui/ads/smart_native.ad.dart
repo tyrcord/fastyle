@@ -152,8 +152,8 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
   List<Widget>? appendAdLink() {
     if (widget.showRemoveAdLink) {
       return [
-        kFastVerticalSizedBox12,
-        // Use Align in order to avoid stretching the ad link.
+        kFastVerticalSizedBox16,
+        // Using Align in order to avoid stretching the ad link.
         Align(
           alignment: Alignment.bottomLeft,
           child: FastGoodbyeAdLink(onTap: widget.onRemoveAdLinkTap),

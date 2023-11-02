@@ -193,9 +193,7 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
 
   /// Builds the header widget based on the [headerBuilder] parameter.
   Widget _buildHeader() {
-    if (headerBuilder != null) {
-      return Builder(builder: headerBuilder!);
-    }
+    if (headerBuilder != null) Builder(builder: headerBuilder!);
 
     return const SizedBox.shrink();
   }
@@ -258,10 +256,8 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
   /// Builds the divider widget based on the [dividerBuilder] parameter.
   Widget _buildDivider(BuildContext context) {
     if (dividerBuilder != null) {
-      final spacing = ThemeHelper.spacing.getSpacing(context);
-
       return Padding(
-        padding: EdgeInsets.symmetric(vertical: spacing),
+        padding: ThemeHelper.spacing.getVerticalPadding(context),
         child: Builder(builder: dividerBuilder!),
       );
     }
