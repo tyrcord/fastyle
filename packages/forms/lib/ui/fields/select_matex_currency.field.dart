@@ -6,6 +6,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:matex_dart/matex_dart.dart';
 import 'package:matex_financial/financial.dart';
+import 'package:lingua_finance_instrument/lingua_finance_instrument.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 // Project imports:
 import 'package:fastyle_forms/fastyle_forms.dart';
@@ -44,7 +46,7 @@ class FastMatexSelectCurrencyField extends StatefulWidget {
   final String? placeholderText;
 
   /// A callback function that builds the flag icon for each item.
-  final Widget Function(MatexInstrumentMetadata)? flagIconBuilder;
+  final Widget Function(String)? flagIconBuilder;
 
   /// Specifies whether the selection can be cleared.
   final bool? canClearSelection;
@@ -93,7 +95,8 @@ class _FastMatexSelectCurrencyFieldState
           captionText: widget.captionText,
           labelText: widget.labelText,
           isEnabled: widget.isEnabled,
-          itemDescriptionBuilder: widget.itemDescriptionBuilder,
+          itemDescriptionBuilder:
+              widget.itemDescriptionBuilder ?? itemDescriptionBuilder,
           currencies: instrumentBlocState.currencies,
           flagIconBuilder: widget.flagIconBuilder,
           flagIconWidth: widget.flagIconWidth,
@@ -110,5 +113,15 @@ class _FastMatexSelectCurrencyFieldState
     SchedulerBinding.instance.scheduleFrameCallback((_) {
       _currencyBloc.addEvent(const MatexCurrencyBlocEvent.init());
     });
+  }
+
+  String itemDescriptionBuilder(dynamic metadata) {
+    if (metadata is MatexInstrumentMetadata && metadata.name != null) {
+      final key = metadata.name!.key;
+
+      return buildLocaleCurrencyKey(key).tr();
+    }
+
+    return '';
   }
 }

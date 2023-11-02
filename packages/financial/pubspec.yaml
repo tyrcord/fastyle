@@ -14,6 +14,7 @@ dependencies:
   # Public
   easy_localization: ^3.0.3
   collection: ^1.17.2
+  font_awesome_flutter: ^10.6.0
 
   # Fastyle
   fastyle_images: ^0.0.33

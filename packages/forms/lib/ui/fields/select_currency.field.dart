@@ -9,7 +9,6 @@ import 'package:fastyle_images/fastyle_images.dart';
 import 'package:lingua_finance/generated/locale_keys.g.dart';
 import 'package:lingua_finance_instrument/generated/locale_keys.g.dart';
 import 'package:matex_dart/matex_dart.dart';
-import 'package:t_helpers/helpers.dart';
 
 /// A Flutter widget for displaying a selectable list of currencies.
 class FastSelectCurrencyField extends StatelessWidget {
@@ -52,7 +51,7 @@ class FastSelectCurrencyField extends StatelessWidget {
   final String? placeholderText;
 
   /// A callback function that builds the flag icon for each item.
-  final Widget Function(MatexInstrumentMetadata)? flagIconBuilder;
+  final Widget Function(String)? flagIconBuilder;
 
   /// Specifies whether the selection can be cleared.
   final bool canClearSelection;
@@ -152,23 +151,10 @@ class FastSelectCurrencyField extends StatelessWidget {
     MatexInstrumentMetadata instrument, {
     bool hasShadow = true,
   }) {
-    final iconKey = toCamelCase(instrument.icon);
-    final hasIcon = kFastImageFlagMap.containsKey(iconKey);
-    Widget? flagIcon;
-
-    if (flagIconBuilder != null) {
-      flagIcon = flagIconBuilder!(instrument);
-    } else {
-      flagIcon = FastImageAsset(
-        path: hasIcon ? kFastImageFlagMap[iconKey]! : kFastEmptyString,
-        width: flagIconWidth,
-      );
-    }
-
-    if (hasShadow) {
-      return FastShadowLayout(child: flagIcon);
-    }
-
-    return flagIcon;
+    return buildFlagIconForCountry(
+      instrument.icon!,
+      width: flagIconWidth,
+      hasShadow: hasShadow,
+    );
   }
 }

@@ -9,7 +9,6 @@ import 'package:fastyle_images/fastyle_images.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_countries/countries.dart';
 import 'package:matex_data/matex_data.dart';
-import 'package:t_helpers/helpers.dart';
 
 /// A Flutter widget for displaying a selectable list of countries.
 class FastSelectCountryField extends StatelessWidget {
@@ -51,7 +50,7 @@ class FastSelectCountryField extends StatelessWidget {
   final String? placeholderText;
 
   /// A callback function that builds the flag icon for each item.
-  final Widget Function(MatexCountryMetadata)? flagIconBuilder;
+  final Widget Function(String)? flagIconBuilder;
 
   /// Specifies whether the selection can be cleared.
   final bool canClearSelection;
@@ -160,23 +159,10 @@ class FastSelectCountryField extends StatelessWidget {
     MatexCountryMetadata country, {
     bool hasShadow = true,
   }) {
-    final iconKey = toCamelCase(country.id);
-    final hasIcon = kFastImageFlagMap.containsKey(iconKey);
-    Widget? flagIcon;
-
-    if (flagIconBuilder != null) {
-      flagIcon = flagIconBuilder!(country);
-    } else {
-      flagIcon = FastImageAsset(
-        path: hasIcon ? kFastImageFlagMap[iconKey]! : kFastEmptyString,
-        width: flagIconWidth,
-      );
-    }
-
-    if (hasShadow) {
-      return FastShadowLayout(child: flagIcon);
-    }
-
-    return flagIcon;
+    return buildFlagIconForCountry(
+      country.id,
+      width: flagIconWidth,
+      hasShadow: hasShadow,
+    );
   }
 }

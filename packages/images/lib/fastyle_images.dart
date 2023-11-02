@@ -1,7 +1,7 @@
 // Generated, do not edit
 library fastyle_images;
 
-export 'logic/image.dart';
+export 'logic/logic.dart';
 export 'constants.dart';
 export 'images/commodity.dart';
 export 'images/crypto.dart';

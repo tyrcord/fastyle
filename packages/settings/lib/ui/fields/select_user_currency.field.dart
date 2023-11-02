@@ -6,7 +6,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_forms/fastyle_forms.dart';
 import 'package:lingua_finance/generated/locale_keys.g.dart';
-import 'package:lingua_finance_instrument/lingua_finance_instrument.dart';
 import 'package:matex_dart/matex_dart.dart';
 
 // Project imports:
@@ -52,8 +51,7 @@ class FastAppSettingsPrimaryCurrencyField extends StatelessWidget {
               (descriptor?.searchTitleText ?? _getSearchTitleText()).tr(),
           labelText: (descriptor?.labelText ?? _getLabelText()).tr(),
           selection: state.primaryCurrencyCode,
-          itemDescriptionBuilder:
-              descriptor?.itemDescriptionBuilder ?? itemDescriptionBuilder,
+          itemDescriptionBuilder: descriptor?.itemDescriptionBuilder,
           canClearSelection: false,
           onSelectionChanged: (FastItem<MatexInstrumentMetadata>? item) {
             if (item != null &&
@@ -69,16 +67,6 @@ class FastAppSettingsPrimaryCurrencyField extends StatelessWidget {
         );
       },
     );
-  }
-
-  String itemDescriptionBuilder(dynamic metadata) {
-    if (metadata is MatexInstrumentMetadata && metadata.name != null) {
-      final key = metadata.name!.key;
-
-      return buildLocaleCurrencyKey(key).tr();
-    }
-
-    return '';
   }
 
   String _getLabelText() {

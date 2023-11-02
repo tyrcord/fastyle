@@ -12,11 +12,14 @@ dependencies:
     sdk: flutter
 
   # Public
-  flutter_svg: ^2.0.8
+  flutter_svg: ^2.0.9
   vector_graphics: ^1.1.9+1
 
   # Fastyle
   fastyle_core: ^0.0.31
+
+  # T
+  t_helpers: ^0.0.35+1
 
 flutter:
   assets:

@@ -42,7 +42,7 @@ class FastMatexSelectCountryField extends StatefulWidget {
   final String? placeholderText;
 
   /// A callback function that builds the flag icon for each item.
-  final Widget Function(MatexCountryMetadata)? flagIconBuilder;
+  final Widget Function(String)? flagIconBuilder;
 
   /// Specifies whether the selection can be cleared.
   final bool? canClearSelection;

@@ -9,22 +9,21 @@ import 'package:matex_dart/matex_dart.dart'
 import 'package:matex_financial/financial.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:lingua_finance/generated/locale_keys.g.dart';
-import 'package:lingua_finance_forex/generated/locale_keys.g.dart';
 import 'package:lingua_finance_instrument/generated/locale_keys.g.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_core/lingua_core.dart';
-import 'package:t_helpers/helpers.dart';
+import 'package:lingua_finance_instrument/lingua_finance_instrument.dart';
 
 const _kLeadingWidth = 40.0;
 const _kLeadingHeight = 32.0;
-const _kImageMultiplicator = 0.75;
+// const _kImageMultiplicator = 0.75;
 const _kFavoritesTabValue = 'favorites';
 
 typedef FastFinancialInstrumentItem = FastItem<MatexFinancialInstrument>;
 
 class FastSelectInstrumentField extends StatefulWidget {
   /// A callback function that builds the flag icon for each item.
-  final Widget Function(MatexInstrumentMetadata)? flagIconBuilder;
+  final Widget Function(String)? flagIconBuilder;
 
   final ValueChanged<FastItem<MatexFinancialInstrument>?> onSelectionChanged;
   final MatexFinancialInstrument? selection;
@@ -54,8 +53,6 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
 
   late List<FastItem<MatexFinancialInstrument>> _items;
   FastItem<MatexFinancialInstrument>? _selection;
-  double? _imageHeight;
-  double? _imageWidth;
 
   String get searchPlaceholderText {
     const k = FinanceInstrumentLocaleKeys.instrument_message_search_instrument;
@@ -73,8 +70,8 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
   void initState() {
     super.initState();
 
-    _imageWidth = _kLeadingWidth * _kImageMultiplicator;
-    _imageHeight = _kLeadingHeight * _kImageMultiplicator;
+    // _imageWidth = _kLeadingWidth * _kImageMultiplicator;
+    // _imageHeight = _kLeadingHeight * _kImageMultiplicator;
 
     // FIXME: listen to possible changes
     _items = _buildItems(_currencyPairBloc.currentState.instruments);
@@ -142,8 +139,8 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
           descriptor: FastListItemDescriptor(
             padding: const EdgeInsets.only(right: 16),
             leading: _buildLeadingLayout(
-              baseMeta: baseMeta,
               counterMeta: counterMeta,
+              baseMeta: baseMeta,
               child: _buildFlagIcon(baseMeta)!,
             ),
           ),
@@ -173,30 +170,10 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
   }
 
   FastCategory _buildFastCategoryForPair(MatexPairMetadata pair) {
-    final key = pair.type.key;
-    late String labelText;
-
-    switch (key) {
-      case 'indices':
-        labelText = FinanceLocaleKeys.finance_label_indices.tr();
-      case 'commodities':
-        labelText = FinanceForexLocaleKeys.forex_label_commodities.tr();
-      case 'cryptocurrencies':
-        labelText = FinanceForexLocaleKeys.forex_label_cryptos.tr();
-      case 'majors':
-        labelText = CoreLocaleKeys.core_label_majors.tr();
-      case 'minors':
-        labelText = CoreLocaleKeys.core_label_minors.tr();
-      case 'exotics':
-        labelText = CoreLocaleKeys.core_label_exotics.tr();
-      default:
-        labelText = '';
-    }
-
     return FastCategory(
+      labelText: getLabelTextForInstrumentType(pair.type.key),
       valueText: pair.type.main,
       weight: pair.type.weight,
-      labelText: labelText,
     );
   }
 
@@ -225,20 +202,20 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
     return FastListItemDescriptor(
       padding: const EdgeInsets.only(right: 16),
       leading: _buildLeadingLayout(
-        baseMeta: baseMeta,
         counterMeta: counterMeta,
+        baseMeta: baseMeta,
         child: SizedBox(
-          width: _kLeadingWidth,
           height: _kLeadingHeight,
+          width: _kLeadingWidth,
           child: Stack(
             children: [
               Align(
                 alignment: Alignment.bottomRight,
-                child: _buildFlagIcon(counterMeta),
+                child: buildFlagIconForCountry(counterMeta.icon!),
               ),
               Align(
                 alignment: Alignment.topLeft,
-                child: _buildFlagIcon(baseMeta),
+                child: buildFlagIconForCountry(baseMeta.icon!),
               ),
             ],
           ),
@@ -251,8 +228,8 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
     MatexInstrumentMetadata baseMeta,
     MatexInstrumentMetadata counterMeta,
   ) {
-    final baseLabel = tr('instrument.label.${baseMeta.name!.key}');
-    final counterLabel = tr('instrument.label.${counterMeta.name!.key}');
+    final baseLabel = buildLocaleCurrencyKey(baseMeta.name!.key).tr();
+    final counterLabel = buildLocaleCurrencyKey(counterMeta.name!.key).tr();
 
     return '$baseLabel / $counterLabel';
   }
@@ -288,23 +265,14 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
   Widget? _buildFlagIcon(
     MatexInstrumentMetadata instrument, {
     bool hasShadow = true,
+    double width = 20,
+    double? height,
   }) {
-    final iconKey = toCamelCase(instrument.icon);
-    final hasIcon = kFastImageFlagMap.containsKey(iconKey);
-    Widget? flagIcon;
-
-    if (widget.flagIconBuilder != null) {
-      flagIcon = widget.flagIconBuilder!(instrument);
-    } else {
-      flagIcon = FastImageAsset(
-        path: hasIcon ? kFastImageFlagMap[iconKey]! : kFastEmptyString,
-        height: _imageHeight,
-        width: _imageWidth,
-      );
-    }
-
-    if (hasShadow) return FastShadowLayout(child: flagIcon);
-
-    return flagIcon;
+    return buildFlagIconForCountry(
+      instrument.icon!,
+      hasShadow: hasShadow,
+      height: height,
+      width: width,
+    );
   }
 }

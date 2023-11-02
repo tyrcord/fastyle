@@ -118,7 +118,7 @@ void _writeMap(
 void _writeBarrel() {
   final buffer = StringBuffer('// Generated, do not edit\n')
     ..writeln('library fastyle_images;\n')
-    ..writeln('export \'logic/image.dart\';')
+    ..writeln('export \'logic/logic.dart\';')
     ..writeln('export \'constants.dart\';');
 
   for (final asset in _assets) {
