@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fuzzy/fuzzy.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -150,7 +151,7 @@ class FastSearchBarState<T extends FastItem> extends State<FastSearchBar<T>> {
           _searchQuery = null;
           widget.onSuggestions!(null, null);
         } else {
-          _searchQuery = normalizeTextByRemovingDiacritics(queryText);
+          _searchQuery = removeDiacriticsAndLowercase(queryText);
           widget.onSuggestions!(_buildSuggestions(_searchQuery), _searchQuery);
         }
       });
@@ -167,10 +168,10 @@ class FastSearchBarState<T extends FastItem> extends State<FastSearchBar<T>> {
         return widget.onSearchFilter!(option, queryText);
       }
 
-      return normalizeTextByRemovingDiacritics(option.labelText)
+      return removeDiacriticsAndLowercase(option.labelText)
               .contains(queryText!) ||
           (option.descriptionText != null
-              ? normalizeTextByRemovingDiacritics(option.descriptionText!)
+              ? removeDiacriticsAndLowercase(option.descriptionText!)
                   .contains(queryText)
               : false);
     }).toList();

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
-import 'package:intl/intl.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -223,7 +223,7 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
     if (sortItems) {
       items = items.map((T item) {
         return item.copyWith(
-          normalizedLabelText: normalizeTextByRemovingDiacritics(
+          normalizedLabelText: removeDiacriticsAndLowercase(
             item.labelText,
           ),
         ) as T;
