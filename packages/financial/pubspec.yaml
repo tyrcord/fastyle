@@ -25,9 +25,12 @@ dependencies:
   lingua_finance: ^0.0.20
   lingua_finance_forex: ^0.0.4
   lingua_units: ^0.0.4
+  lingua_core: ^0.0.31
+  lingua_finance_instrument: ^0.0.5
 
   # MateX
   matex_dart: ^0.11.1
+  matex_financial: ^0.0.25
 
   # T
   t_helpers: ^0.0.35+1
