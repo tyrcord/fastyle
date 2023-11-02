@@ -111,50 +111,35 @@ final kAppRoutes = [
       GoRoute(
         parentNavigatorKey: _shellNavigatorKey,
         path: 'navigation-bar-view/explore',
-        pageBuilder: (context, state) {
-          return FastFadeTransitionPage(
-            child: const FastSectionPage(
-              titleText: 'Commute',
-              showAppBar: false,
-            ),
-            key: state.pageKey,
-          );
+        builder: (context, state) {
+          return const FastSectionPage(titleText: 'Commute', showAppBar: false);
         },
       ),
       GoRoute(
         parentNavigatorKey: _shellNavigatorKey,
         path: 'navigation-bar-view/commute',
-        pageBuilder: (context, state) {
-          return FastFadeTransitionPage(
-            child: FastSectionPage(
-              titleText: 'Explore',
-              showAppBar: false,
-              isViewScrollable: false,
-              contentPadding: EdgeInsets.zero,
-              child: FastSelectableListView(
-                showItemDivider: true,
-                items: options,
-                sortItems: false,
-                onSelectionChanged: (FastItem option) {
-                  debugPrint('${option.labelText} selected');
-                },
-              ),
+        builder: (context, state) {
+          return FastSectionPage(
+            titleText: 'Explore',
+            showAppBar: false,
+            isViewScrollable: false,
+            contentPadding: EdgeInsets.zero,
+            child: FastSelectableListView(
+              showItemDivider: true,
+              items: options,
+              sortItems: false,
+              onSelectionChanged: (FastItem option) {
+                debugPrint('${option.labelText} selected');
+              },
             ),
-            key: state.pageKey,
           );
         },
       ),
       GoRoute(
         parentNavigatorKey: _shellNavigatorKey,
         path: 'navigation-bar-view/saved',
-        pageBuilder: (context, state) {
-          return FastFadeTransitionPage(
-            child: const FastSectionPage(
-              titleText: 'Saved',
-              showAppBar: false,
-            ),
-            key: state.pageKey,
-          );
+        builder: (context, state) {
+          return const FastSectionPage(titleText: 'Saved', showAppBar: false);
         },
       ),
     ],

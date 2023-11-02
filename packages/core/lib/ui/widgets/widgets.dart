@@ -7,7 +7,6 @@ export './icons/icons.dart';
 export './indicators/indicators.dart';
 export './lists/lists.dart';
 export './tabs/tabs.dart';
-export './transitions/transitions.dart';
 export './typography/typography.dart';
 export './views/views.dart';
 export './instructions.widget.dart';
