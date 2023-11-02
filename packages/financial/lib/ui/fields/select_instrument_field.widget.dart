@@ -12,12 +12,15 @@ import 'package:lingua_finance/generated/locale_keys.g.dart';
 import 'package:lingua_finance_forex/generated/locale_keys.g.dart';
 import 'package:lingua_finance_instrument/generated/locale_keys.g.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:lingua_core/lingua_core.dart';
 import 'package:t_helpers/helpers.dart';
 
 const _kLeadingWidth = 40.0;
 const _kLeadingHeight = 32.0;
 const _kImageMultiplicator = 0.75;
 const _kFavoritesTabValue = 'favorites';
+
+typedef FastFinancialInstrumentItem = FastItem<MatexFinancialInstrument>;
 
 class FastSelectInstrumentField extends StatefulWidget {
   /// A callback function that builds the flag icon for each item.
@@ -54,6 +57,18 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
   double? _imageHeight;
   double? _imageWidth;
 
+  String get searchPlaceholderText {
+    const k = FinanceInstrumentLocaleKeys.instrument_message_search_instrument;
+
+    return k.tr();
+  }
+
+  String get searchTitleText {
+    return FinanceInstrumentLocaleKeys.instrument_select_instrument.tr();
+  }
+
+  String get maleGender => LinguaLocalizationGender.male;
+
   @override
   void initState() {
     super.initState();
@@ -75,21 +90,11 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
     }
   }
 
-  String get searchTitleText {
-    return FinanceInstrumentLocaleKeys.instrument_select_instrument.tr();
-  }
-
-  String get searchPlaceholderText {
-    const k = FinanceInstrumentLocaleKeys.instrument_message_search_instrument;
-
-    return k.tr();
-  }
-
   @override
   Widget build(BuildContext context) {
     return FastSelectField<MatexFinancialInstrument>(
+      allCategoryText: CoreLocaleKeys.core_label_all.tr(gender: maleGender),
       labelText: FinanceLocaleKeys.finance_label_financial_instrument.tr(),
-      allCategoryText: CoreLocaleKeys.core_label_all.tr(gender: 'male'),
       listViewEmptyContent: const Center(child: FastNoFavoriteIcon()),
       extraTabBuilder: () => [_buildFavoritesTab()],
       onSelectionChanged: widget.onSelectionChanged,
@@ -98,9 +103,8 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
       searchTitleText: searchTitleText,
       captionText: widget.captionText,
       isReadOnly: !widget.isEnabled,
+      noneTextGender: maleGender,
       searchPageDelegate: this,
-      // placeholderLocalizationGender: LocalizationGender.male,
-      noneTextGender: 'male',
       selection: _selection,
       groupByCategory: true,
       useFuzzySearch: true,
@@ -109,8 +113,7 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
     );
   }
 
-  FastListItemCategory<FastItem<MatexFinancialInstrument>>
-      _buildFavoritesTab() {
+  FastListItemCategory<FastFinancialInstrumentItem> _buildFavoritesTab() {
     return FastListItemCategory(
       labelText: CoreLocaleKeys.core_label_favorites.tr(),
       items: findFavoriteInstuments(_items),
@@ -119,7 +122,7 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
     );
   }
 
-  List<FastItem<MatexFinancialInstrument>> _buildItems(
+  List<FastFinancialInstrumentItem> _buildItems(
     List<MatexPairMetadata> instrumentsMetadata,
   ) {
     return instrumentsMetadata.where((element) {
