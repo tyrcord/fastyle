@@ -18,7 +18,7 @@ dependencies:
   fastyle_core: ^0.0.31
 
   # T
-  t_helpers: ^0.0.35+1
+  t_helpers: ^0.0.36
   tenhance: ^0.0.3
 
 dev_dependencies:

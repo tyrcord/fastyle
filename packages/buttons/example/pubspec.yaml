@@ -13,7 +13,7 @@ dependencies:
 
   # Public
   easy_localization: ^3.0.3
-  go_router: ^12.0.0
+  go_router: ^12.0.1
 
   # Lingua
   lingua_core: ^0.0.31

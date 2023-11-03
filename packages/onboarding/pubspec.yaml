@@ -15,7 +15,7 @@ dependencies:
   font_awesome_flutter: ^10.6.0
   app_tracking_transparency: ^2.0.4
   easy_localization: ^3.0.3
-  firebase_messaging: ^14.7.2
+  firebase_messaging: ^14.7.3
 
   # Lingua
   lingua_onboarding: ^0.0.15
@@ -30,7 +30,7 @@ dependencies:
   fastyle_buttons: ^0.0.16
 
   # T
-  tbloc: ^0.21.6+2
+  tbloc: ^0.21.6+3
 
 dev_dependencies:
   flutter_test:

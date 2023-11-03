@@ -13,13 +13,13 @@ dependencies:
 
   # Public
   easy_localization: ^3.0.3
-  go_router: ^12.0.0
+  go_router: ^12.0.1
 
   # Lingua
   lingua_core: ^0.0.31
 
   # T
-  tbloc: ^0.21.6+2
+  tbloc: ^0.21.6+3
   tenhance: ^0.0.3
 
   # Fastyle

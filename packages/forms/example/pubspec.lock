@@ -244,10 +244,10 @@ packages:
     dependency: transitive
     description:
       name: fastyle_calculator
-      sha256: "87acef9cc600debf00bd8b541adcf5f367490a1260e8ec2479bc1a0b7c6c341c"
+      sha256: "40f0d915e727809792a18a1d2821f647f91acf6e813db0b511b6254c77b878a5"
       url: "https://pub.dev"
     source: hosted
-    version: "1.34.0"
+    version: "1.40.0"
   fastyle_core:
     dependency: "direct main"
     description:
@@ -280,10 +280,10 @@ packages:
     dependency: transitive
     description:
       name: fastyle_settings
-      sha256: df26d2e2cf331714f9af7a9e8ad2b67b295ce3b79fc96960ded3596492de429d
+      sha256: "40744b4c49908dc4dad43060e67e189b1600b1ef35e477434ba7734a5b38d37e"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.29"
+    version: "0.0.35"
   ffi:
     dependency: transitive
     description:
@@ -338,10 +338,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_svg
-      sha256: bfc7cc3c75fe1282e8ce2e056d8fd1533f1a6848b65c379b4a5e7a9b623d3371
+      sha256: d39e7f95621fc84376bc0f7d504f05c3a41488c562f4a8ad410569127507402c
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.8"
+    version: "2.0.9"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -380,10 +380,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: a206cc4621a644531a2e05e7774616ab4d9d85eab1f3b0e255f3102937fccab1
+      sha256: e156bc1b2088eb5ece9351bccd48c3e1719a4858eacbd44e59162e98a68205d1
       url: "https://pub.dev"
     source: hosted
-    version: "12.0.0"
+    version: "12.0.1"
   google_fonts:
     dependency: transitive
     description:
@@ -476,18 +476,18 @@ packages:
     dependency: transitive
     description:
       name: lingua_ad
-      sha256: "2a721d18ad5e47354b7a6d9627787617cca3935877f37481426e1909e3471613"
+      sha256: "0bfef489284a4ce05fb8b97336c38fe61003b1ce8fd6389bc8e919617a95f215"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.11"
+    version: "0.0.12"
   lingua_calculator:
     dependency: transitive
     description:
       name: lingua_calculator
-      sha256: "130abb55c2f75fcf8b3707ae1a7c6d77348f92c6ae5c118c6d3e29c2bc4ff3a3"
+      sha256: b1f89a894eb620dc96729a86b942978bf536257109c756daa830b887c7280aa1
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3"
+    version: "0.0.4"
   lingua_core:
     dependency: "direct main"
     description:
@@ -508,10 +508,10 @@ packages:
     dependency: transitive
     description:
       name: lingua_finance
-      sha256: aa9b2442c6361386e612105b0f3f5c7617821606903624c6ee31db20614cbcef
+      sha256: "8fedc0d3d4e11cc1b37bb4c18eab072b70884e979a52b4c204ffc8eb04fd1876"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.20"
+    version: "0.0.21"
   lingua_finance_instrument:
     dependency: transitive
     description:
@@ -524,42 +524,42 @@ packages:
     dependency: transitive
     description:
       name: lingua_finance_stock
-      sha256: "64e252194da997480d263aa5162f3656b95c946d9f3d677785de0c6d84d4e9fb"
+      sha256: "8da7e58301ba04aad938ac238f198109cda63f12e36f460eb187cf1ff5926b79"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.6"
+    version: "0.0.7"
   lingua_help:
     dependency: transitive
     description:
       name: lingua_help
-      sha256: "77bd76fc6416770898398a21856eb912fde46efb4401f8c0184d493a00596d90"
+      sha256: a5facc4da8c6a2ad8e84a6c4e916808c06e65ef94a9f0276be4d5da6b9aea3bb
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.6"
+    version: "0.0.7"
   lingua_languages:
     dependency: transitive
     description:
       name: lingua_languages
-      sha256: ceb06dae107f8de1869c2642306959c68d9cb9b5ba7ce36866796e7e76c7a3d8
+      sha256: "8281643779b38b265e7c054e90f445e18b5e304bb2e52ccc5429a57e38499eec"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.5"
+    version: "0.0.6"
   lingua_number:
     dependency: transitive
     description:
       name: lingua_number
-      sha256: e490438b65e4114400784d0e61c94288eea0b4e74b6d0619d520bb170916eaa3
+      sha256: "0f99e4e8227913d2ccbc5d5deeca9520f28717b80e244694263b020073db059a"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.8"
+    version: "0.0.9"
   lingua_purchases:
     dependency: transitive
     description:
       name: lingua_purchases
-      sha256: "223229cd0b423c5377a0bb0973db37bd4d37e526ce65d914a9b10f0a2069a4ad"
+      sha256: "27c7f7dfa1a01cbd190b44b2ecbfcc87bb1351f81c3dd2a49f98e6c03910a3b8"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.14"
+    version: "0.0.15"
   lingua_settings:
     dependency: transitive
     description:
@@ -604,10 +604,10 @@ packages:
     dependency: transitive
     description:
       name: matex_core
-      sha256: "50d320e788d342b2f57bf9e31e5ea759e3eb2741bc4e5fc4983db0c9d5a05cee"
+      sha256: b4d0a9b3a56510ebc7cd8175a94a8a3d3c0cadf28daf547e56d46200fabbea24
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.17"
+    version: "0.0.19"
   matex_dart:
     dependency: transitive
     description:
@@ -620,18 +620,18 @@ packages:
     dependency: transitive
     description:
       name: matex_data
-      sha256: e35f216a7faf8907df5a265696a9750cce5b1bbd5846dbe7c43c2a0cab9437f7
+      sha256: fa13e4335fcbeddb8c565a26ce1677bf0379d3ac2c6c21f3a59fbf71f4c801e4
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.11"
+    version: "0.0.13"
   matex_financial:
     dependency: transitive
     description:
       name: matex_financial
-      sha256: "29605b7a280789e421e68b1fe592d17fef692283d213c9e61368aa18da93facf"
+      sha256: "31348cf9320a88048f96c53f451677455c39f5e54c0637681d409a8d7bfdebd5"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.23"
+    version: "0.0.25"
   meta:
     dependency: transitive
     description:
@@ -1001,26 +1001,26 @@ packages:
     dependency: transitive
     description:
       name: t_cache
-      sha256: "70ce4b346bc62a1261dc0e51b33b4a81eee148f53ad9a7703cafa173734e127a"
+      sha256: ba7b13493da85ade7e5c6dd86be1abfd2fd32374dc2605742c58a8143a7ba183
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.7+2"
+    version: "0.0.8+2"
   t_helpers:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: af2c6dd5be4bb28eccb47b3c38e6fc4600777dc2b6228d05dda35275e2fd7beb
+      sha256: ddd3a8775a007e0a731f0247d4f9d9216814036e8d2edc3004d595b0a30f96e5
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.35+1"
+    version: "0.0.36"
   tbloc:
     dependency: "direct main"
     description:
       name: tbloc
-      sha256: dcf4ba8891249b0d4723e3d884fe432fea4f1edd98ab7daa574c8190ec3c449d
+      sha256: "1b2616feb031dee75982344d6b7c84fc6516913740286c851e3b43f978e3d663"
       url: "https://pub.dev"
     source: hosted
-    version: "0.21.6+2"
+    version: "0.21.6+3"
   tenhance:
     dependency: transitive
     description:
@@ -1057,18 +1057,18 @@ packages:
     dependency: transitive
     description:
       name: tmodel
-      sha256: "003f35612b60eadd6115bf011c5c2f7f51760213e9f35c7f5579338762924be1"
+      sha256: d8f01e9aad8c70305c380e1a702badebac316e9950c0806d8a2e4c67152beae6
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.10+2"
+    version: "0.5.10+3"
   tstore:
     dependency: transitive
     description:
       name: tstore
-      sha256: "40a48d469b3fd81fec0d747266111742a188ac956b49358b3a1a0fa0b5d39073"
+      sha256: "58188afaf99fcd95ebd7373f8e4799adb34f507ba8a4c467fa7e99bf29ffefa1"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.19+1"
+    version: "0.8.19+2"
   tsub:
     dependency: transitive
     description:
@@ -1097,10 +1097,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher
-      sha256: fa6675dc49dea33b0f228bca6f9ad5445c25b51284ca5f88c0d49ab770a0450a
+      sha256: b1c9e98774adf8820c96fbc7ae3601231d324a7d5ebd8babe27b6dfac91357ba
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.0"
+    version: "6.2.1"
   url_launcher_android:
     dependency: transitive
     description:

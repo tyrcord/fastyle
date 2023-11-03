@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
 
   # Public
-  go_router: ^12.0.0
+  go_router: ^12.0.1
 
   # Fastyle
   fastyle_core: ^0.0.31
