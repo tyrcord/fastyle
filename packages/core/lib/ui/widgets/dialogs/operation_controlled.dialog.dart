@@ -382,6 +382,8 @@ class FastOperationControlledDialogState
 
   /// Updates the operation status and optionally notifies listeners.
   void _updateStatus(FastOperationStatus status, [dynamic error]) {
+    if (!mounted) return;
+
     if (widget.onOperationStatusChanged != null) {
       widget.onOperationStatusChanged!(status);
     }

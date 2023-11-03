@@ -196,9 +196,9 @@ class FastAppBarLayoutState extends State<FastAppBarLayout> {
         final multiplier = _sanitizeOpacity(distance / threshold);
 
         if (multiplier != _decorationOpacity) {
-          setState(() {
-            _decorationOpacity = multiplier;
-          });
+          if (!mounted) return;
+
+          setState(() => _decorationOpacity = multiplier);
         }
       }
     }

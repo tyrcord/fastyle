@@ -64,23 +64,19 @@ class _FastVideoPlayerState extends State<FastVideoPlayer> {
 
         await _resetVideoController();
 
-        setState(() {
-          if (mounted) {
-            hasPlayed = true;
-          }
-        });
+        if (mounted) setState(() => hasPlayed = true);
       }
     }
   }
 
   void handleReplayAction() {
-    setState(() {
-      if (mounted) {
+    if (mounted) {
+      setState(() {
         debugLog('Replaying video', debugLabel: widget.debugLabel);
         hasPlayed = false;
         _controller.play();
-      }
-    });
+      });
+    }
   }
 
   Future<void> handleVisibilityChanged(VisibilityInfo info) async {
@@ -183,10 +179,8 @@ class _FastVideoPlayerState extends State<FastVideoPlayer> {
     hasPlayed = false;
     volume = 0;
 
-    if (mounted) {
-      await _controller.setVolume(volume);
+    await _controller.setVolume(volume);
 
-      return _controller.seekTo(Duration.zero);
-    }
+    if (mounted) return _controller.seekTo(Duration.zero);
   }
 }

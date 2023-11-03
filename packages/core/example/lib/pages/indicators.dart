@@ -20,16 +20,12 @@ class _IndicatorsPageState extends State<IndicatorsPage> {
 
     Future.delayed(const Duration(seconds: 1), () {
       if (mounted) {
-        setState(() {
-          _progress = 0.75;
-        });
+        setState(() => _progress = 0.75);
       }
 
       Future.delayed(const Duration(seconds: 1), () {
         if (mounted) {
-          setState(() {
-            _progress = 0.25;
-          });
+          setState(() => _progress = 0.25);
         }
       });
     });

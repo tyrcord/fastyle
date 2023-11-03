@@ -59,6 +59,8 @@ class FastChartState extends State<FastChart>
   }
 
   void handleAnimationChanged() {
+    if (!mounted) return;
+
     setState(() => _currentAnimationValue = _animation.value);
   }
 

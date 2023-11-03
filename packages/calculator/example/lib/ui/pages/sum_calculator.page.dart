@@ -199,7 +199,6 @@ class SumCalculatorPageState extends State<SumCalculatorPage> {
               if (canCopy) {
                 await Clipboard.setData(ClipboardData(text: sum));
 
-                // ignore: use_build_context_synchronously
                 if (!context.mounted) return;
 
                 FastNotificationCenter.info(context, 'Copied to clipboard!');

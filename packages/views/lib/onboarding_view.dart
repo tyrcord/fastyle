@@ -66,6 +66,8 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
     _controller = widget.controller ?? FastOnboardingViewController();
     _slidesLength = widget.slides.length;
     _pageViewController.addListener(() {
+      if (!mounted) return;
+
       setState(() => _pageCursor = _pageViewController.page!.round());
     });
     super.initState();

@@ -108,7 +108,7 @@ class FastAppLoaderState extends State<FastAppLoader> {
 
   /// Checks the loader's status and updates the display state if needed.
   void _checkLoaderStatus() {
-    if (_bloc.currentState.isLoading) {
+    if (_bloc.currentState.isLoading && mounted) {
       setState(() => _canShowLoader = true);
     }
   }

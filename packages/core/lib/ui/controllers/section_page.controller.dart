@@ -118,6 +118,8 @@ class _FastSectionPageControllerState extends State<FastSectionPageController> {
 
   void _listenToLoadEvents() {
     eventController.listen((SectionPageLoadEvent event) {
+      if (!mounted) return;
+
       if (event == SectionPageLoadEvent.error) {
         setState(() {
           isLoading = false;

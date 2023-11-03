@@ -143,6 +143,8 @@ class FastSearchBarState<T extends FastItem> extends State<FastSearchBar<T>> {
   }
 
   void _handleSearchQueryChanges() {
+    if (!mounted) return;
+
     final queryText = _textController.text;
 
     if (queryText != _searchQuery && widget.onSuggestions != null) {

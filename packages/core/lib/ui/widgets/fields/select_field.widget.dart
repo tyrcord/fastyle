@@ -256,10 +256,12 @@ class _FastSelectFieldState<T> extends State<FastSelectField<T>> {
         ),
       ) as FastItem<T>?;
 
-      setState(() {
-        _selection = response;
-        widget.onSelectionChanged(_selection);
-      });
+      if (mounted) {
+        setState(() {
+          _selection = response;
+          widget.onSelectionChanged(_selection);
+        });
+      }
 
       widget.onSearchPageClose?.call();
     }

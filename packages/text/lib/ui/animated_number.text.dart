@@ -109,7 +109,11 @@ class AnimatedNumberWidgetState extends State<FastAnimatedNumberText>
         parent: _controller,
         curve: Curves.easeOutQuint,
       ))
-        ..addListener(() => setState(() => _currentValue = _animation.value));
+        ..addListener(() {
+          if (!mounted) return;
+
+          setState(() => _currentValue = _animation.value);
+        });
 
       _controller.forward();
     }

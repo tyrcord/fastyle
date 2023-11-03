@@ -231,9 +231,7 @@ class _FastPopupMenuButtonState<T> extends State<FastPopupMenuButton<T>> {
         position: position,
         items: items,
       ).then<void>((T? newValue) {
-        if (!mounted) {
-          return null;
-        }
+        if (!mounted) return null;
 
         if (newValue == null) {
           widget.onCanceled?.call();

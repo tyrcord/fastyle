@@ -183,15 +183,11 @@ class _FastLinearProgressBarIndicatorState
 
   /// Handles the post frame callback.
   void handlePostFrame(Duration timeStamp, BoxConstraints constraints) {
-    if (!mounted) {
-      return;
-    }
+    if (!mounted) return;
 
     // If the width value is the same as the max width constraints,
     // we don't need to update the width of the progress bar.
-    if (_progressBarWidth == constraints.maxWidth) {
-      return;
-    }
+    if (_progressBarWidth == constraints.maxWidth) return;
 
     setState(() {
       var value = widget.value;

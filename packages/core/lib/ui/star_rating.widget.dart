@@ -77,7 +77,7 @@ class FastStarRatingState extends State<FastStarRating> {
 
     return GestureDetector(
       onTap: () {
-        if (!widget.disabled && !widget.readOnly) {
+        if (!widget.disabled && !widget.readOnly && mounted) {
           setState(() {
             _currentRating = index + 1;
             widget.onRatingChanged?.call(_currentRating);
