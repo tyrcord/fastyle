@@ -78,6 +78,9 @@ abstract class FastCalculatorBloc<
   @protected
   Future<S?> patchCalculatorState(String key, dynamic value);
 
+  @protected
+  Future<S?> resetCalculatorState(String key) async => currentState;
+
   /// Initializes the calculator state with default values.
   ///
   /// Returns a future of the initialized state.
@@ -198,6 +201,8 @@ abstract class FastCalculatorBloc<
     } else if (isInitialized) {
       if (eventType == FastCalculatorBlocEventType.patchValue) {
         yield* handlePatchValueEvent(payload);
+      } else if (eventType == FastCalculatorBlocEventType.resetValue) {
+        yield* handleResetValueEvent(payload);
       } else if (eventType == FastCalculatorBlocEventType.compute) {
         yield* handleComputeEvent();
       } else if (eventType == FastCalculatorBlocEventType.computed) {
@@ -384,16 +389,29 @@ abstract class FastCalculatorBloc<
   ) async* {
     if (payload != null && payload.key != null) {
       final state = await patchCalculatorState(payload.key!, payload.value);
+      yield* processCalculatorValueChange(state);
+    }
+  }
 
-      if (state != null) {
-        await saveCalculatorState();
-        yield state;
+  Stream<S> handleResetValueEvent(
+    FastCalculatorBlocEventPayload? payload,
+  ) async* {
+    if (payload != null && payload.key != null) {
+      final state = await resetCalculatorState(payload.key!);
+      yield* processCalculatorValueChange(state);
+    }
+  }
 
-        if (debouceComputeEvents) {
-          addDebouncedComputeEvent(FastCalculatorBlocEvent.compute<R>() as E);
-        } else {
-          addEvent(FastCalculatorBlocEvent.compute<R>() as E);
-        }
+  @protected
+  Stream<S> processCalculatorValueChange(S? state) async* {
+    if (state != null) {
+      await saveCalculatorState();
+      yield state;
+
+      if (debouceComputeEvents) {
+        addDebouncedComputeEvent(FastCalculatorBlocEvent.compute<R>() as E);
+      } else {
+        addEvent(FastCalculatorBlocEvent.compute<R>() as E);
       }
     }
   }

@@ -219,19 +219,14 @@ abstract class HydratedFastCalculatorBloc<
   @override
   @protected
   Stream<S> mapEventToState(FastCalculatorBlocEvent event) async* {
-    final payload = event.payload;
     final eventType = event.type;
-    final saveUserEntry = await canSaveUserEntry();
 
-    if (saveUserEntry &&
-        eventType == FastCalculatorBlocEventType.patchValue &&
-        payload != null &&
-        payload.key != null) {
-      yield* handlePatchValueEvent(payload);
-    } else if (eventType == FastCalculatorBlocEventType.retrieveDefaultValues) {
+    if (eventType == FastCalculatorBlocEventType.retrieveDefaultValues) {
       defaultDocument = await retrieveDefaultCalculatorDocument();
       defaultCalculatorState = await initializeDefaultCalculatorState();
     } else if (eventType == FastCalculatorBlocEventType.saveEntryChanged) {
+      final saveUserEntry = await canSaveUserEntry();
+
       if (saveUserEntry) {
         await persistCalculatorDocument();
       } else {
@@ -247,13 +242,42 @@ abstract class HydratedFastCalculatorBloc<
   @override
   @protected
   Stream<S> handlePatchValueEvent(
-    covariant FastCalculatorBlocEventPayload payload,
+    covariant FastCalculatorBlocEventPayload? payload,
   ) async* {
-    final key = payload.key!;
-    final value = payload.value;
-    final state = await patchCalculatorState(key, value);
+    final saveUserEntry = await canSaveUserEntry();
 
-    if (state != null) {
+    if (!saveUserEntry) {
+      yield* super.handlePatchValueEvent(payload);
+    } else if (payload != null && payload.key != null) {
+      final state = await patchCalculatorState(payload.key!, payload.value);
+      yield* processDocumentValueChange(payload, state);
+    }
+  }
+
+  @override
+  @protected
+  Stream<S> handleResetValueEvent(
+    FastCalculatorBlocEventPayload? payload,
+  ) async* {
+    final saveUserEntry = await canSaveUserEntry();
+
+    if (!saveUserEntry) {
+      yield* super.handleResetValueEvent(payload);
+    } else if (payload != null && payload.key != null) {
+      final state = await resetCalculatorState(payload.key!);
+      yield* processDocumentValueChange(payload, state);
+    }
+  }
+
+  @protected
+  Stream<S> processDocumentValueChange(
+    FastCalculatorBlocEventPayload? payload,
+    S? state,
+  ) async* {
+    if (state != null && payload != null && payload.key != null) {
+      final value = payload.value;
+      final key = payload.key!;
+
       debugLog(
         'Patching calculator document with key: $key and value: $value',
         debugLabel: debugLabel,
@@ -261,18 +285,9 @@ abstract class HydratedFastCalculatorBloc<
 
       final newDocument = await patchCalculatorDocument(key, value);
 
-      if (newDocument != null) {
-        document = newDocument;
-      }
+      if (newDocument != null) document = newDocument;
 
-      await saveCalculatorState();
-      yield state;
-
-      if (debouceComputeEvents) {
-        addDebouncedComputeEvent(FastCalculatorBlocEvent.compute<R>() as E);
-      } else {
-        addEvent(FastCalculatorBlocEvent.compute<R>() as E);
-      }
+      yield* processCalculatorValueChange(state);
     }
   }
 }

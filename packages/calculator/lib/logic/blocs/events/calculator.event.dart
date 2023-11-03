@@ -55,6 +55,16 @@ class FastCalculatorBlocEvent<R extends FastCalculatorResults>
     );
   }
 
+  static FastCalculatorBlocEvent<R>
+      resetValue<R extends FastCalculatorResults>({
+    required String key,
+  }) {
+    return FastCalculatorBlocEvent<R>(
+      type: FastCalculatorBlocEventType.resetValue,
+      payload: FastCalculatorBlocEventPayload<R>(key: key),
+    );
+  }
+
   // Returns an event with the type `FastCalculatorBlocEventType.compute`
   // and no payload.
   static FastCalculatorBlocEvent<R> compute<R extends FastCalculatorResults>() {
