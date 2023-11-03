@@ -68,6 +68,10 @@ abstract class HydratedFastCalculatorBloc<
   @protected
   Future<D?> patchCalculatorDocument(String key, dynamic value);
 
+  /// Resets the calculator document with the given [key].
+  @protected
+  Future<D?> resetCalculatorDocument(String key) async => document;
+
   /// Determines if the user entry can be saved.
   ///
   /// Returns a [Future] that resolves to `true` if the user entry can be saved,
@@ -249,8 +253,22 @@ abstract class HydratedFastCalculatorBloc<
     if (!saveUserEntry) {
       yield* super.handlePatchValueEvent(payload);
     } else if (payload != null && payload.key != null) {
-      final state = await patchCalculatorState(payload.key!, payload.value);
-      yield* processDocumentValueChange(payload, state);
+      final value = payload.value;
+      final key = payload.key!;
+      final state = await patchCalculatorState(key, value);
+
+      if (state != null) {
+        final newDocument = await patchCalculatorDocument(key, value);
+
+        debugLog(
+          'Patching calculator document with key: $key and value: $value',
+          debugLabel: debugLabel,
+        );
+
+        if (newDocument != null) document = newDocument;
+
+        yield* processCalculatorValueChange(state);
+      }
     }
   }
 
@@ -264,30 +282,22 @@ abstract class HydratedFastCalculatorBloc<
     if (!saveUserEntry) {
       yield* super.handleResetValueEvent(payload);
     } else if (payload != null && payload.key != null) {
-      final state = await resetCalculatorState(payload.key!);
-      yield* processDocumentValueChange(payload, state);
-    }
-  }
-
-  @protected
-  Stream<S> processDocumentValueChange(
-    FastCalculatorBlocEventPayload? payload,
-    S? state,
-  ) async* {
-    if (state != null && payload != null && payload.key != null) {
-      final value = payload.value;
       final key = payload.key!;
+      final state = await resetCalculatorState(key);
 
-      debugLog(
-        'Patching calculator document with key: $key and value: $value',
-        debugLabel: debugLabel,
-      );
+      if (state != null) {
+        final value = payload.value;
+        final newDocument = await resetCalculatorDocument(key);
 
-      final newDocument = await patchCalculatorDocument(key, value);
+        debugLog(
+          'Resetting calculator document with key: $key and value: $value',
+          debugLabel: debugLabel,
+        );
 
-      if (newDocument != null) document = newDocument;
+        if (newDocument != null) document = newDocument;
 
-      yield* processCalculatorValueChange(state);
+        yield* processCalculatorValueChange(state);
+      }
     }
   }
 }
