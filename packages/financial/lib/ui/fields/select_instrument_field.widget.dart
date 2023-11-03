@@ -71,7 +71,7 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
 
     // FIXME: listen to possible changes
     _items = _buildItems(_currencyPairBloc.currentState.instruments);
-    _findSelection();
+    _selection = _findSelection();
   }
 
   @override
