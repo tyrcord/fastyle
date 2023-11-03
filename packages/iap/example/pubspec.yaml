@@ -26,7 +26,7 @@ dependencies:
   lingua_purchases: ^0.0.15
 
   # T
-  tbloc: ^0.21.6+3
+  tbloc: ^0.21.7
 
 dev_dependencies:
   flutter_test:

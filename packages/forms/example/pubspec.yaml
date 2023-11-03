@@ -20,7 +20,7 @@ dependencies:
   easy_localization: ^3.0.3
 
   # T
-  tbloc: ^0.21.6+3
+  tbloc: ^0.21.7
 
   # Lingua
   lingua_countries: ^0.0.4

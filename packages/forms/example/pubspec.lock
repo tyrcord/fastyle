@@ -1009,18 +1009,18 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: ddd3a8775a007e0a731f0247d4f9d9216814036e8d2edc3004d595b0a30f96e5
+      sha256: "6ae19c1672ba853265c0ae1d50d47f51a9c5a3e8484144816c08d95bac3dbc68"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.36"
+    version: "0.0.36+1"
   tbloc:
     dependency: "direct main"
     description:
       name: tbloc
-      sha256: "1b2616feb031dee75982344d6b7c84fc6516913740286c851e3b43f978e3d663"
+      sha256: d5073b9ed2b46cb48a72bbcc1c9748b466864a4acce3c2b1e596e1db96aa1194
       url: "https://pub.dev"
     source: hosted
-    version: "0.21.6+3"
+    version: "0.21.7"
   tenhance:
     dependency: transitive
     description:
@@ -1057,18 +1057,18 @@ packages:
     dependency: transitive
     description:
       name: tmodel
-      sha256: d8f01e9aad8c70305c380e1a702badebac316e9950c0806d8a2e4c67152beae6
+      sha256: "973de6fd072ad78cd763151539beabfc8c214ef1b8c6c86b18aa516e4f1deb16"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.10+3"
+    version: "0.5.11"
   tstore:
     dependency: transitive
     description:
       name: tstore
-      sha256: "58188afaf99fcd95ebd7373f8e4799adb34f507ba8a4c467fa7e99bf29ffefa1"
+      sha256: c003c11d50cbbe433ccb0f46859df5e2d0959493078f674cb1e74e7890035c2d
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.19+2"
+    version: "0.8.20"
   tsub:
     dependency: transitive
     description:
