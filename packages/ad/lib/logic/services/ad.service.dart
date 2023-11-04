@@ -66,9 +66,7 @@ class FastAdService {
 
     final cachedAd = await _getCachedAd(adId);
 
-    if (cachedAd != null) {
-      return cachedAd;
-    }
+    if (cachedAd != null) return cachedAd;
 
     final path = '$_adsPath$adId';
     final uri = Uri.https(uriAuthority, path);

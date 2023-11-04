@@ -89,8 +89,8 @@ abstract class HydratedFastCalculatorBloc<
   void close() {
     if (!closed && canClose()) {
       debugLog('closing calculator bloc...', debugLabel: debugLabel);
-      super.close();
       dataProvider.disconnect();
+      super.close();
     }
   }
 
