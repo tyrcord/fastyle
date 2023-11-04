@@ -23,11 +23,11 @@ dependencies:
   lingua_purchases: ^0.0.15
 
   # T
-  tbloc: ^0.21.7
+  tbloc: ^0.21.7+2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  flutter_lints: ^3.0.1
   import_sorter: ^4.6.0
   dependency_validator: ^3.2.3
