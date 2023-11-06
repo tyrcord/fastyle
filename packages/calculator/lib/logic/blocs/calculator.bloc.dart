@@ -428,22 +428,9 @@ abstract class FastCalculatorBloc<
   /// Yields a stream of state changes.
   @protected
   Stream<S> handleComputeEvent() async* {
-    final isValid = await isCalculatorStateValid();
-    final isDirty = await isCalculatorStateDirty();
-
-    debugLog(
-      'Calculator state is dirty',
-      value: isDirty,
-      debugLabel: debugLabel,
-    );
-
-    debugLog(
-      'Calculator state is valid',
-      value: isValid,
-      debugLabel: debugLabel,
-    );
-
     debugLog('Computing results', debugLabel: debugLabel);
+
+    final (isValid, isDirty) = await retrieveCalculatorStateStatus();
 
     yield currentState.copyWith(
       isValid: isValid,
@@ -484,8 +471,12 @@ abstract class FastCalculatorBloc<
       debugLog('Results computed', debugLabel: debugLabel);
       debugLog('Results', value: payload.results, debugLabel: debugLabel);
 
+      final (isValid, isDirty) = await retrieveCalculatorStateStatus();
+
       yield currentState.copyWith(
         results: payload.results,
+        isValid: isValid,
+        isDirty: isDirty,
         isBusy: false,
       ) as S;
     }
@@ -511,5 +502,33 @@ abstract class FastCalculatorBloc<
       value: stackTrace,
       debugLabel: debugLabel,
     );
+  }
+
+  /// Retrieves the current status of the calculator state, including
+  /// validity and dirtiness.
+  ///
+  /// It asynchronously checks if the calculator state is valid and dirty,
+  /// then logs and returns the results.
+  ///
+  /// Returns a [Future] that resolves to a tuple with [isValid] indicating
+  /// if the state is valid and [isDirty] indicating if the state has been
+  /// modified.
+  Future<(bool isValid, bool isDirty)> retrieveCalculatorStateStatus() async {
+    final isValid = await isCalculatorStateValid();
+    final isDirty = await isCalculatorStateDirty();
+
+    debugLog(
+      'Calculator state is dirty',
+      value: isDirty,
+      debugLabel: debugLabel,
+    );
+
+    debugLog(
+      'Calculator state is valid',
+      value: isValid,
+      debugLabel: debugLabel,
+    );
+
+    return (isValid, isDirty);
   }
 }
