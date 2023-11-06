@@ -25,9 +25,6 @@ class FastCalculatorRefreshAction<B extends FastCalculatorBloc,
     return BlocBuilderWidget<FastCalculatorBlocState>(
       bloc: calculatorBloc,
       buildWhen: (previous, next) {
-        print('previous.isValid: ${previous.isValid}');
-        print('next.isValid: ${next.isValid}');
-
         return previous.isBusy != next.isBusy ||
             previous.isValid != next.isValid;
       },
