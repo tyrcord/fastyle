@@ -418,8 +418,15 @@ abstract class FastCalculatorBloc<
 
   /// The initializer to yield the current state before computation begins.
   @protected
+  @mustCallSuper
   Stream<S> willCompute() async* {
-    yield currentState;
+    final (isValid, isDirty) = await retrieveCalculatorStateStatus();
+
+    yield currentState.copyWith(
+      isValid: isValid,
+      isDirty: isDirty,
+      isBusy: true,
+    ) as S;
   }
 
   /// Handles the compute event by updating the state flags and performing
