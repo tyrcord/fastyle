@@ -25,7 +25,7 @@ dependencies:
   # Lingua
   lingua_finance: ^0.0.21
   lingua_finance_forex: ^0.0.5
-  lingua_units: ^0.0.4
+  lingua_units: ^0.0.5
   lingua_core: ^0.0.31
   lingua_finance_instrument: ^0.0.5
 
