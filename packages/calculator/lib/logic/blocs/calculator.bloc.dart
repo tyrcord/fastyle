@@ -416,6 +416,12 @@ abstract class FastCalculatorBloc<
     }
   }
 
+  /// The initializer to yield the current state before computation begins.
+  @protected
+  Stream<S> willCompute() async* {
+    yield currentState;
+  }
+
   /// Handles the compute event by updating the state flags and performing
   /// the calculation.
   ///
@@ -428,6 +434,9 @@ abstract class FastCalculatorBloc<
   /// Yields a stream of state changes.
   @protected
   Stream<S> handleComputeEvent() async* {
+    debugLog('Will compute', debugLabel: debugLabel);
+    yield* willCompute();
+
     debugLog('Computing results', debugLabel: debugLabel);
 
     final (isValid, isDirty) = await retrieveCalculatorStateStatus();
