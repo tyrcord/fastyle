@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_animation` - `v0.0.10+1`](#fastyle_animation---v00101)
+
+---
+
+#### `fastyle_animation` - `v0.0.10+1`
+
+ - **FIX**: missing dependency.
+
+
+## 2023-11-08
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_ad` - `v0.0.25`](#fastyle_ad---v0025)
  - [`fastyle_animation` - `v0.0.10`](#fastyle_animation---v0010)
  - [`fastyle_buttons` - `v0.0.17`](#fastyle_buttons---v0017)

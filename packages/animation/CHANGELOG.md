@@ -1,3 +1,7 @@
+## 0.0.10+1
+
+ - **FIX**: missing dependency.
+
 ## 0.0.10
 
  - **FEAT**: update dependencies.

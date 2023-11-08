@@ -17,7 +17,7 @@ dependencies:
 
   # Fastyle
   fastyle_core: ^0.0.32
-  fastyle_animation: ^0.0.10
+  fastyle_animation: ^0.0.10+1
 
 dev_dependencies:
   flutter_test:
