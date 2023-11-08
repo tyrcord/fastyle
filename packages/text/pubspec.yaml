@@ -13,12 +13,16 @@ dependencies:
 
   # Public
   visibility_detector: ^0.4.0+2
+  easy_localization: ^3.0.3
 
   # Fastyle
   fastyle_core: ^0.0.31
 
+  # Lingua
+  lingua_core: ^0.0.31
+
   # T
-  t_helpers: ^0.0.37
+  t_helpers: ^0.0.39
 
 dev_dependencies:
   flutter_test:

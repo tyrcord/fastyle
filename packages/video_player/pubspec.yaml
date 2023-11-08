@@ -15,7 +15,7 @@ dependencies:
   rxdart: ^0.27.7
   collection: ^1.17.2
   easy_localization: ^3.0.3
-  video_player: ^2.7.2
+  video_player: ^2.8.1
   font_awesome_flutter: ^10.6.0
   visibility_detector: ^0.4.0+2
 
@@ -26,8 +26,8 @@ dependencies:
   fastyle_core: ^0.0.31
 
   # T
-  tbloc: ^0.21.7+2
-  t_helpers: ^0.0.37
+  tbloc: ^0.21.7+4
+  t_helpers: ^0.0.39
 
 dev_dependencies:
   flutter_test:

@@ -17,8 +17,8 @@ dependencies:
   easy_localization: ^3.0.3
 
   # T
-  tbloc: ^0.21.7+2
-  t_helpers: ^0.0.37
+  tbloc: ^0.21.7+4
+  t_helpers: ^0.0.39
 
   # Fastyle
   fastyle_images: ^0.0.33
@@ -26,9 +26,9 @@ dependencies:
   fastyle_core: ^0.0.31
 
   # Matex
-  matex_financial: ^0.0.23
+  matex_financial: ^0.0.25
   matex_dart: ^0.11.1
-  matex_data: ^0.0.11
+  matex_data: ^0.0.13
 
   # Lingua
   lingua_core: ^0.0.31

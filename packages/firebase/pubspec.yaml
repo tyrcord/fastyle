@@ -26,8 +26,8 @@ dependencies:
   fastyle_core: ^0.0.31
 
   # T
-  tbloc: ^0.21.7+2
-  t_helpers: ^0.0.37
+  tbloc: ^0.21.7+4
+  t_helpers: ^0.0.39
 
 dev_dependencies:
   flutter_test:

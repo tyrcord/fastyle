@@ -28,10 +28,10 @@ dependencies:
   lingua_purchases: ^0.0.15
 
   # T
-  tstore: ^0.8.20+2
-  tbloc: ^0.21.7+2
-  tmodel: ^0.5.11+2
-  t_helpers: ^0.0.37
+  tstore: ^0.8.20+4
+  tbloc: ^0.21.7+4
+  tmodel: ^0.5.11+4
+  t_helpers: ^0.0.39
 
 dev_dependencies:
   flutter_test:
