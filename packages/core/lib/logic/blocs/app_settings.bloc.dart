@@ -59,6 +59,8 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
           yield* handleSecondaryCurrencyCodeChangedEvent(payload);
         case FastAppSettingsBlocEventType.saveEntryChanged:
           yield* handleSaveEntryChangedEvent(payload);
+        case FastAppSettingsBlocEventType.alwaysUse24HourFormatChanged:
+          yield* handleAlwaysUse24HourFormatChangedEvent(payload);
         default:
           break;
       }
@@ -212,6 +214,39 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
 
       yield currentState.copyWith(saveEntry: _persistedSettings.saveEntry);
     }
+  }
+
+  /// Handles the `alwaysUse24HourFormatChanged` event by persisting the new
+  /// always use 24 hour format value and updating the state.
+  Stream<FastAppSettingsBlocState> handleAlwaysUse24HourFormatChangedEvent(
+    FastAppSettingsBlocEventPayload? payload,
+  ) async* {
+    if (payload?.alwaysUse24HourFormat != null) {
+      final alwaysUse24HourFormat = payload?.alwaysUse24HourFormat;
+      await _persistAlwaysUse24HourFormat(alwaysUse24HourFormat);
+
+      yield currentState.copyWith(
+        alwaysUse24HourFormat: _persistedSettings.alwaysUse24HourFormat,
+      );
+    }
+  }
+
+  /// Persists the new always use 24 hour format value.
+  /// The [alwaysUse24HourFormat] parameter represents the new always use 24
+  /// hour format value to be persisted.
+  Future<FastAppSettingsDocument> _persistAlwaysUse24HourFormat(
+    bool? alwaysUse24HourFormat,
+  ) async {
+    if (alwaysUse24HourFormat != null &&
+        alwaysUse24HourFormat != currentState.alwaysUse24HourFormat) {
+      final newSettings = _persistedSettings.copyWith(
+        alwaysUse24HourFormat: alwaysUse24HourFormat,
+      );
+
+      await _dataProvider.persistSettings(newSettings);
+    }
+
+    return _retrievePersistedSettings();
   }
 
   /// Persists the new primary currency code.

@@ -124,6 +124,24 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
       }
     }
 
+    final alwaysUse24HourFormat = MediaQuery.alwaysUse24HourFormatOf(context);
+
+    debugLog(
+      'Always use 24 hour format',
+      value: alwaysUse24HourFormat,
+      debugLabel: debugLabel,
+    );
+
+    settingsBloc.addEvent(
+      FastAppSettingsBlocEvent.alwaysUse24HourFormatChanged(
+        alwaysUse24HourFormat,
+      ),
+    );
+
+    settingsState = await settingsBloc.onData
+        .where((state) => state.alwaysUse24HourFormat == alwaysUse24HourFormat)
+        .first;
+
     return settingsState;
   }
 

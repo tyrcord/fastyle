@@ -10,18 +10,21 @@ import 'package:fastyle_core/fastyle_core.dart';
 /// or the theme.
 class FastAppSettingsBlocEvent extends BlocEvent<FastAppSettingsBlocEventType,
     FastAppSettingsBlocEventPayload> {
+  /// Constructor for the [languageCodeChanged] event.
   FastAppSettingsBlocEvent.languageCodeChanged(String languageCode)
       : super(
           type: FastAppSettingsBlocEventType.languageCodeChanged,
           payload: FastAppSettingsBlocEventPayload(languageCode: languageCode),
         );
 
+  /// Constructor for the [themeChanged] event.
   FastAppSettingsBlocEvent.themeChanged(String theme)
       : super(
           type: FastAppSettingsBlocEventType.themeChanged,
           payload: FastAppSettingsBlocEventPayload(theme: theme),
         );
 
+  /// Constructor for the [countryCodeChanged] event.
   FastAppSettingsBlocEvent.countryCodeChanged(String? countryCode)
       : super(
           type: FastAppSettingsBlocEventType.countryCodeChanged,
@@ -55,10 +58,22 @@ class FastAppSettingsBlocEvent extends BlocEvent<FastAppSettingsBlocEventType,
           payload: FastAppSettingsBlocEventPayload(saveEntry: saveEntry),
         );
 
+  /// Constructor for the [init] event.
   const FastAppSettingsBlocEvent.init()
       : super(type: FastAppSettingsBlocEventType.init);
 
+  /// Constructor for the [initialized] event.
   const FastAppSettingsBlocEvent.initialized(
     FastAppSettingsBlocEventPayload payload,
   ) : super(type: FastAppSettingsBlocEventType.initialized, payload: payload);
+
+  /// Constructor for the [alwaysUse24HourFormatChanged] event.
+  FastAppSettingsBlocEvent.alwaysUse24HourFormatChanged(
+    bool alwaysUse24HourFormat,
+  ) : super(
+          type: FastAppSettingsBlocEventType.alwaysUse24HourFormatChanged,
+          payload: FastAppSettingsBlocEventPayload(
+            alwaysUse24HourFormat: alwaysUse24HourFormat,
+          ),
+        );
 }

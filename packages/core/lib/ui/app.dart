@@ -256,20 +256,23 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
   /// Builds the app loader widget that displays a loading screen while the app
   /// is being initialized.
   Widget buildAppLoader(BuildContext context) {
-    return FastIconHelper(
-      useProIcons: widget.useProIcons,
-      child: FastAppSettingsThemeListener(
-        child: FastAppLoader(
-          debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
-          delayBeforeShowingLoader: widget.delayBeforeShowingLoader,
-          supportedLocales: widget.appInfo.supportedLocales,
-          errorBuilder: widget.errorBuilder ?? handleAppError,
-          errorReporter: widget.errorReporter,
-          loaderBuilder: widget.loaderBuilder,
-          loaderJobs: _getLoaderJobs(),
-          lightTheme: widget.lightTheme,
-          darkTheme: widget.darkTheme,
-          appBuilder: buildApp,
+    return MediaQuery.fromView(
+      view: View.of(context),
+      child: FastIconHelper(
+        useProIcons: widget.useProIcons,
+        child: FastAppSettingsThemeListener(
+          child: FastAppLoader(
+            debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
+            delayBeforeShowingLoader: widget.delayBeforeShowingLoader,
+            supportedLocales: widget.appInfo.supportedLocales,
+            errorBuilder: widget.errorBuilder ?? handleAppError,
+            errorReporter: widget.errorReporter,
+            loaderBuilder: widget.loaderBuilder,
+            loaderJobs: _getLoaderJobs(),
+            lightTheme: widget.lightTheme,
+            darkTheme: widget.darkTheme,
+            appBuilder: buildApp,
+          ),
         ),
       ),
     );
