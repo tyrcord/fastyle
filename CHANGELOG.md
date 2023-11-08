@@ -3,6 +3,208 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-11-08
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.25`](#fastyle_ad---v0025)
+ - [`fastyle_animation` - `v0.0.10`](#fastyle_animation---v0010)
+ - [`fastyle_buttons` - `v0.0.17`](#fastyle_buttons---v0017)
+ - [`fastyle_calculator` - `v1.41.0`](#fastyle_calculator---v1410)
+ - [`fastyle_charts` - `v0.0.19`](#fastyle_charts---v0019)
+ - [`fastyle_connectivity` - `v0.0.28`](#fastyle_connectivity---v0028)
+ - [`fastyle_core` - `v0.0.32`](#fastyle_core---v0032)
+ - [`fastyle_digit_calculator` - `v0.0.30`](#fastyle_digit_calculator---v0030)
+ - [`fastyle_financial` - `v0.0.26`](#fastyle_financial---v0026)
+ - [`fastyle_firebase` - `v0.0.20`](#fastyle_firebase---v0020)
+ - [`fastyle_forms` - `v0.0.31`](#fastyle_forms---v0031)
+ - [`fastyle_home` - `v0.0.26`](#fastyle_home---v0026)
+ - [`fastyle_iap` - `v0.0.22`](#fastyle_iap---v0022)
+ - [`fastyle_images` - `v0.0.34`](#fastyle_images---v0034)
+ - [`fastyle_layouts` - `v0.0.14`](#fastyle_layouts---v0014)
+ - [`fastyle_onboarding` - `v0.0.33`](#fastyle_onboarding---v0033)
+ - [`fastyle_pricing` - `v1.28.0`](#fastyle_pricing---v1280)
+ - [`fastyle_quizz` - `v0.0.10`](#fastyle_quizz---v0010)
+ - [`fastyle_settings` - `v0.0.36`](#fastyle_settings---v0036)
+ - [`fastyle_text` - `v0.0.13`](#fastyle_text---v0013)
+ - [`fastyle_video_player` - `v0.0.17`](#fastyle_video_player---v0017)
+ - [`fastyle_views` - `v0.0.20`](#fastyle_views---v0020)
+
+---
+
+#### `fastyle_ad` - `v0.0.25`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_animation` - `v0.0.10`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: move transitions to animations package.
+
+#### `fastyle_buttons` - `v0.0.17`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_calculator` - `v1.41.0`
+
+ - **FIX**: willCompute.
+ - **FIX**: FastCalculatorRefreshAction rebuild when isBusy changes.
+ - **FIX**: check bloc validity after computed event.
+ - **FIX**: regression.
+ - **FIX**: make sure we can close a HydratedFastCalculatorBloc before trying to close it.
+ - **FEAT**: update dependencies.
+ - **FEAT**: added FastLastUpdatedText.
+ - **FEAT**: add willCompute life cycle method.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: add resetValue FastCalculatorBlocEvent.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_charts` - `v0.0.19`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: update localization.
+
+#### `fastyle_connectivity` - `v0.0.28`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_core` - `v0.0.32`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: add alwaysUse24HourFormat to settings.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: update localization.
+ - **FEAT**: use removeDiacriticsAndLowercase from t_helpers.
+ - **FEAT**: move transitions to animations package.
+ - **FEAT**: add FastSelectInstrumentField.
+ - **FEAT**(FastSelectField): make labelText optional.
+
+#### `fastyle_digit_calculator` - `v0.0.30`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_financial` - `v0.0.26`
+
+ - **FIX**: selection FastSelectInstrumentField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update lingua_units dependency.
+ - **FEAT**: add localizeUnitSize helper.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastSelectInstrumentField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastPositionSizeSwitchField.
+
+#### `fastyle_firebase` - `v0.0.20`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_forms` - `v0.0.31`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastSelectDecimalPlacesField.
+
+#### `fastyle_home` - `v0.0.26`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_iap` - `v0.0.22`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_images` - `v0.0.34`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_layouts` - `v0.0.14`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_onboarding` - `v0.0.33`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_pricing` - `v1.28.0`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_quizz` - `v0.0.10`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_settings` - `v0.0.36`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_text` - `v0.0.13`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: added FastLastUpdatedText.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: update localization.
+
+#### `fastyle_video_player` - `v0.0.17`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: update localization.
+
+#### `fastyle_views` - `v0.0.20`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: update localization.
+
+
 ## 2023-10-27
 
 ### Changes

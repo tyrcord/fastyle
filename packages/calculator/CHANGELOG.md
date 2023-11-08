@@ -1,3 +1,19 @@
+## 1.41.0
+
+ - **FIX**: willCompute.
+ - **FIX**: FastCalculatorRefreshAction rebuild when isBusy changes.
+ - **FIX**: check bloc validity after computed event.
+ - **FIX**: regression.
+ - **FIX**: make sure we can close a HydratedFastCalculatorBloc before trying to close it.
+ - **FEAT**: update dependencies.
+ - **FEAT**: added FastLastUpdatedText.
+ - **FEAT**: add willCompute life cycle method.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: add resetValue FastCalculatorBlocEvent.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+
 ## 1.40.0
 
  - **FIX**: minor fixes.

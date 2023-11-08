@@ -1,3 +1,11 @@
+## 0.0.13
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: added FastLastUpdatedText.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: update localization.
+
 ## 0.0.12
 
  - **FEAT**: update dependencies.

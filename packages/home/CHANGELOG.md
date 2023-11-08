@@ -1,3 +1,9 @@
+## 0.0.26
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
 ## 0.0.25
 
  - **FEAT**: update dependencies.

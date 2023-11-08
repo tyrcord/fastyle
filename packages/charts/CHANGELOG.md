@@ -1,3 +1,10 @@
+## 0.0.19
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: update localization.
+
 ## 0.0.18
 
  - **FEAT**: add missing chart colors.

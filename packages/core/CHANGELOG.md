@@ -1,3 +1,15 @@
+## 0.0.32
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: add alwaysUse24HourFormat to settings.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: update localization.
+ - **FEAT**: use removeDiacriticsAndLowercase from t_helpers.
+ - **FEAT**: move transitions to animations package.
+ - **FEAT**: add FastSelectInstrumentField.
+ - **FEAT**(FastSelectField): make labelText optional.
+
 ## 0.0.31
 
  - **FIX**: minor fixes.

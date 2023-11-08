@@ -1,3 +1,18 @@
+## 0.0.26
+
+ - **FIX**: selection FastSelectInstrumentField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update lingua_units dependency.
+ - **FEAT**: add localizeUnitSize helper.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastSelectInstrumentField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastPositionSizeSwitchField.
+
 ## 0.0.25
 
  - **FEAT**: update dependencies.

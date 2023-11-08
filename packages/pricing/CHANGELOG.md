@@ -1,3 +1,9 @@
+## 1.28.0
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
 ## 1.27.0
 
  - **FEAT**: update dependencies.

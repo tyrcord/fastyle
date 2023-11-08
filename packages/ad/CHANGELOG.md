@@ -1,3 +1,10 @@
+## 0.0.25
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+
 ## 0.0.24+1
 
  - **FIX**: missing super call.

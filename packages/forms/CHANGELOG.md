@@ -1,3 +1,12 @@
+## 0.0.31
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastSelectDecimalPlacesField.
+
 ## 0.0.30
 
  - **FEAT**: update dependencies.
