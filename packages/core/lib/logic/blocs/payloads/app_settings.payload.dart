@@ -21,12 +21,12 @@ class FastAppSettingsBlocEventPayload {
   final bool? saveEntry;
 
   /// Whether to always use 24 hour format.
-  final bool? alwaysUse24HourFormat;
+  final bool? use24HourFormat;
 
   const FastAppSettingsBlocEventPayload({
     this.primaryCurrencyCode,
     this.secondaryCurrencyCode,
-    this.alwaysUse24HourFormat,
+    this.use24HourFormat,
     this.languageCode,
     this.countryCode,
     this.saveEntry,

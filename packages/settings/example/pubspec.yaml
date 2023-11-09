@@ -36,7 +36,7 @@ dependencies:
   lingua_core: ^0.0.31
 
   # T
-  tbloc: ^0.21.7+4
+  tbloc: ^0.21.7+5
 
 dev_dependencies:
   flutter_test:

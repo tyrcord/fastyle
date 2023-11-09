@@ -17,5 +17,5 @@ enum FastAppSettingsBlocEventType {
   saveEntryChanged,
 
   /// Event indicating a change in the always use 24 hour format option.
-  alwaysUse24HourFormatChanged,
+  use24HourFormatChanged,
 }

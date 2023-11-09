@@ -59,8 +59,8 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
           yield* handleSecondaryCurrencyCodeChangedEvent(payload);
         case FastAppSettingsBlocEventType.saveEntryChanged:
           yield* handleSaveEntryChangedEvent(payload);
-        case FastAppSettingsBlocEventType.alwaysUse24HourFormatChanged:
-          yield* handleAlwaysUse24HourFormatChangedEvent(payload);
+        case FastAppSettingsBlocEventType.use24HourFormatChanged:
+          yield* handleuse24HourFormatChangedEvent(payload);
         default:
           break;
       }
@@ -216,31 +216,31 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
     }
   }
 
-  /// Handles the `alwaysUse24HourFormatChanged` event by persisting the new
+  /// Handles the `use24HourFormatChanged` event by persisting the new
   /// always use 24 hour format value and updating the state.
-  Stream<FastAppSettingsBlocState> handleAlwaysUse24HourFormatChangedEvent(
+  Stream<FastAppSettingsBlocState> handleuse24HourFormatChangedEvent(
     FastAppSettingsBlocEventPayload? payload,
   ) async* {
-    if (payload?.alwaysUse24HourFormat != null) {
-      final alwaysUse24HourFormat = payload?.alwaysUse24HourFormat;
-      await _persistAlwaysUse24HourFormat(alwaysUse24HourFormat);
+    if (payload?.use24HourFormat != null) {
+      final use24HourFormat = payload?.use24HourFormat;
+      await _persistuse24HourFormat(use24HourFormat);
 
       yield currentState.copyWith(
-        alwaysUse24HourFormat: _persistedSettings.alwaysUse24HourFormat,
+        use24HourFormat: _persistedSettings.use24HourFormat,
       );
     }
   }
 
   /// Persists the new always use 24 hour format value.
-  /// The [alwaysUse24HourFormat] parameter represents the new always use 24
+  /// The [use24HourFormat] parameter represents the new always use 24
   /// hour format value to be persisted.
-  Future<FastAppSettingsDocument> _persistAlwaysUse24HourFormat(
-    bool? alwaysUse24HourFormat,
+  Future<FastAppSettingsDocument> _persistuse24HourFormat(
+    bool? use24HourFormat,
   ) async {
-    if (alwaysUse24HourFormat != null &&
-        alwaysUse24HourFormat != currentState.alwaysUse24HourFormat) {
+    if (use24HourFormat != null &&
+        use24HourFormat != currentState.use24HourFormat) {
       final newSettings = _persistedSettings.copyWith(
-        alwaysUse24HourFormat: alwaysUse24HourFormat,
+        use24HourFormat: use24HourFormat,
       );
 
       await _dataProvider.persistSettings(newSettings);

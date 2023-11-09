@@ -73,7 +73,7 @@ const kFastDelayBeforeShowingLoader = Duration(seconds: 2);
 /// Default duration before refreshing data in Fast App.
 const kFastRefreshTimeout = Duration(seconds: 60);
 
-const kFastAppSettingsAlwaysUse24HourFormat = true;
+const kFastAppSettingsuse24HourFormat = true;
 
 //TODO: @need-review: code from fastyle_dart
 

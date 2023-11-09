@@ -22,7 +22,7 @@ dependencies:
   lingua_core: ^0.0.31
 
   # T
-  t_helpers: ^0.0.39
+  t_helpers: ^0.0.39+1
 
 dev_dependencies:
   flutter_test:

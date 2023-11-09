@@ -36,7 +36,7 @@ class FastAppSettingsBlocState extends BlocState {
   final bool saveEntry;
 
   /// Whether the application should always use the 24-hour format.
-  final bool alwaysUse24HourFormat;
+  final bool use24HourFormat;
 
   /// The current locale code of the application.
   /// Format: languageCode_countryCode
@@ -69,7 +69,7 @@ class FastAppSettingsBlocState extends BlocState {
     this.secondaryCurrencyCode,
     this.countryCode,
     this.theme,
-    bool? alwaysUse24HourFormat,
+    bool? use24HourFormat,
     String? primaryCurrencyCode,
     String? languageCode,
     bool? saveEntry,
@@ -77,7 +77,7 @@ class FastAppSettingsBlocState extends BlocState {
             primaryCurrencyCode ?? kFastAppSettingsPrimaryCurrencyCode,
         saveEntry = saveEntry ?? kFastAppSettingsSaveEntry,
         languageCode = languageCode ?? kFastSettingsDefaultLanguageCode,
-        alwaysUse24HourFormat = alwaysUse24HourFormat ?? false;
+        use24HourFormat = use24HourFormat ?? false;
 
   /// Creates a new [FastAppSettingsBlocState] instance with updated properties.
   ///
@@ -85,7 +85,7 @@ class FastAppSettingsBlocState extends BlocState {
   /// instance is used instead.
   @override
   FastAppSettingsBlocState copyWith({
-    bool? alwaysUse24HourFormat,
+    bool? use24HourFormat,
     bool? isInitializing,
     String? languageCode,
     ValueGetter<String?>? countryCode,
@@ -101,8 +101,7 @@ class FastAppSettingsBlocState extends BlocState {
         languageCode: languageCode ?? this.languageCode,
         countryCode: countryCode != null ? countryCode() : this.countryCode,
         theme: theme ?? this.theme,
-        alwaysUse24HourFormat:
-            alwaysUse24HourFormat ?? this.alwaysUse24HourFormat,
+        use24HourFormat: use24HourFormat ?? this.use24HourFormat,
         primaryCurrencyCode: primaryCurrencyCode ?? this.primaryCurrencyCode,
         secondaryCurrencyCode:
             secondaryCurrencyCode ?? this.secondaryCurrencyCode,
@@ -119,7 +118,7 @@ class FastAppSettingsBlocState extends BlocState {
   @override
   FastAppSettingsBlocState merge(covariant FastAppSettingsBlocState model) {
     return copyWith(
-      alwaysUse24HourFormat: model.alwaysUse24HourFormat,
+      use24HourFormat: model.use24HourFormat,
       isInitializing: model.isInitializing,
       isInitialized: model.isInitialized,
       languageCode: model.languageCode,
@@ -134,7 +133,7 @@ class FastAppSettingsBlocState extends BlocState {
   /// Returns a list of properties used to determine equality between instances.
   @override
   List<Object?> get props => [
-        alwaysUse24HourFormat,
+        use24HourFormat,
         isInitializing,
         isInitialized,
         languageCode,

@@ -69,7 +69,7 @@ class FastPdfCalculatorReporter {
     List<FastReportCategoryEntry>? categories,
     String languageCode = 'en',
     String? countryCode,
-    bool alwaysUse24HourFormat = false,
+    bool use24HourFormat = false,
     int categoryColumns = 2,
   }) async {
     inputTitle ??= CoreLocaleKeys.core_label_inputs.tr();
@@ -87,7 +87,7 @@ class FastPdfCalculatorReporter {
     );
     final now = await formatDateTime(
       DateTime.now(),
-      alwaysUse24HourFormat: alwaysUse24HourFormat,
+      use24HourFormat: use24HourFormat,
       languageCode: languageCode,
       countryCode: countryCode,
     );

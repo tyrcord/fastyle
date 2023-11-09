@@ -32,7 +32,7 @@ class FastAppSettingsDocument extends TDocument {
   final bool saveEntry;
 
   /// Whether to always use 24 hour format.
-  final bool alwaysUse24HourFormat;
+  final bool use24HourFormat;
 
   /// Creates an instance of [FastAppSettingsDocument].
   const FastAppSettingsDocument({
@@ -40,14 +40,13 @@ class FastAppSettingsDocument extends TDocument {
     this.countryCode,
     this.theme,
     this.secondaryCurrencyCode,
-    bool? alwaysUse24HourFormat = kFastAppSettingsAlwaysUse24HourFormat,
+    bool? use24HourFormat = kFastAppSettingsuse24HourFormat,
     String? primaryCurrencyCode,
     bool? saveEntry,
   })  : primaryCurrencyCode =
             primaryCurrencyCode ?? kFastAppSettingsPrimaryCurrencyCode,
         saveEntry = saveEntry ?? kFastAppSettingsSaveEntry,
-        alwaysUse24HourFormat =
-            alwaysUse24HourFormat ?? kFastAppSettingsAlwaysUse24HourFormat;
+        use24HourFormat = use24HourFormat ?? kFastAppSettingsuse24HourFormat;
 
   /// Creates an instance of [FastAppSettingsDocument] from a JSON map.
   factory FastAppSettingsDocument.fromJson(Map<String, dynamic> json) {
@@ -62,9 +61,8 @@ class FastAppSettingsDocument extends TDocument {
           json[FastAppSettings.secondaryCurrencyCode] as String?,
       saveEntry:
           json[FastAppSettings.saveEntry] as bool? ?? kFastAppSettingsSaveEntry,
-      alwaysUse24HourFormat:
-          json[FastAppSettings.alwaysUse24HourFormat] as bool? ??
-              kFastAppSettingsAlwaysUse24HourFormat,
+      use24HourFormat: json[FastAppSettings.use24HourFormat] as bool? ??
+          kFastAppSettingsuse24HourFormat,
     );
   }
 
@@ -72,7 +70,7 @@ class FastAppSettingsDocument extends TDocument {
 
   /// Converts the [FastAppSettingsDocument] object to a JSON map.
   Map<String, dynamic> toJson() => <String, dynamic>{
-        FastAppSettings.alwaysUse24HourFormat: alwaysUse24HourFormat,
+        FastAppSettings.use24HourFormat: use24HourFormat,
         FastAppSettings.secondaryCurrencyCode: secondaryCurrencyCode,
         FastAppSettings.primaryCurrencyCode: primaryCurrencyCode,
         FastAppSettings.languageCode: languageCode,
@@ -97,7 +95,7 @@ class FastAppSettingsDocument extends TDocument {
     String? primaryCurrencyCode,
     String? secondaryCurrencyCode,
     bool? saveEntry,
-    bool? alwaysUse24HourFormat,
+    bool? use24HourFormat,
   }) =>
       FastAppSettingsDocument(
         languageCode: languageCode ?? this.languageCode,
@@ -107,8 +105,7 @@ class FastAppSettingsDocument extends TDocument {
         secondaryCurrencyCode:
             secondaryCurrencyCode ?? this.secondaryCurrencyCode,
         saveEntry: saveEntry ?? this.saveEntry,
-        alwaysUse24HourFormat:
-            alwaysUse24HourFormat ?? this.alwaysUse24HourFormat,
+        use24HourFormat: use24HourFormat ?? this.use24HourFormat,
       );
 
   @override
@@ -121,7 +118,7 @@ class FastAppSettingsDocument extends TDocument {
     return copyWith(
       primaryCurrencyCode: model.primaryCurrencyCode,
       secondaryCurrencyCode: model.secondaryCurrencyCode,
-      alwaysUse24HourFormat: model.alwaysUse24HourFormat,
+      use24HourFormat: model.use24HourFormat,
       countryCode: () => model.countryCode,
       languageCode: model.languageCode,
       saveEntry: model.saveEntry,
@@ -142,7 +139,7 @@ class FastAppSettingsDocument extends TDocument {
   /// Returns a list of the object's properties for comparison.
   List<Object?> get props => [
         secondaryCurrencyCode,
-        alwaysUse24HourFormat,
+        use24HourFormat,
         primaryCurrencyCode,
         languageCode,
         countryCode,

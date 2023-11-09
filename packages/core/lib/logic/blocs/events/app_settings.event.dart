@@ -67,13 +67,13 @@ class FastAppSettingsBlocEvent extends BlocEvent<FastAppSettingsBlocEventType,
     FastAppSettingsBlocEventPayload payload,
   ) : super(type: FastAppSettingsBlocEventType.initialized, payload: payload);
 
-  /// Constructor for the [alwaysUse24HourFormatChanged] event.
-  FastAppSettingsBlocEvent.alwaysUse24HourFormatChanged(
-    bool alwaysUse24HourFormat,
+  /// Constructor for the [use24HourFormatChanged] event.
+  FastAppSettingsBlocEvent.use24HourFormatChanged(
+    bool use24HourFormat,
   ) : super(
-          type: FastAppSettingsBlocEventType.alwaysUse24HourFormatChanged,
+          type: FastAppSettingsBlocEventType.use24HourFormatChanged,
           payload: FastAppSettingsBlocEventPayload(
-            alwaysUse24HourFormat: alwaysUse24HourFormat,
+            use24HourFormat: use24HourFormat,
           ),
         );
 }

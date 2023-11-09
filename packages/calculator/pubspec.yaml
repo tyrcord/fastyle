@@ -30,10 +30,10 @@ dependencies:
   lingua_calculator: ^0.0.4
 
   # T
-  tbloc: ^0.21.7+4
-  tmodel: ^0.5.11+4
-  tstore: ^0.8.20+4
-  t_helpers: ^0.0.39
+  tbloc: ^0.21.7+5
+  tmodel: ^0.5.11+5
+  tstore: ^0.8.20+5
+  t_helpers: ^0.0.39+1
   tenhance: ^0.0.3
 
 dev_dependencies:
