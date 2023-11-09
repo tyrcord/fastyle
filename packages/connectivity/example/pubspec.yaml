@@ -10,11 +10,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_core: ^0.0.32
+  fastyle_core: ^0.0.33
   go_router: ^12.1.0
   font_awesome_flutter: ^10.6.0
   easy_localization: ^3.0.3
-  fastyle_connectivity: ^0.0.28
+  fastyle_connectivity: ^0.0.29
 
 dev_dependencies:
   flutter_test:

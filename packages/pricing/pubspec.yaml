@@ -1,6 +1,6 @@
 name: fastyle_pricing
 description: A set of pricing widgets for the fastyle library.
-version: 1.28.0
+version: 1.29.0
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/pricing
 
 environment:
@@ -16,8 +16,8 @@ dependencies:
   easy_localization: ^3.0.3
 
   # Fastyle
-  fastyle_core: ^0.0.32
-  fastyle_iap: ^0.0.22
+  fastyle_core: ^0.0.33
+  fastyle_iap: ^0.0.23
 
   # Lingua
   lingua_purchases: ^0.0.15

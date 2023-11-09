@@ -1,6 +1,6 @@
 name: fastyle_animation
 description: Set of animation Widgets for the fastyle library.
-version: 0.0.10+1
+version: 0.0.10+2
 
 environment:
   sdk: ">=3.1.2 <4.0.0"
@@ -14,7 +14,7 @@ dependencies:
   go_router: ^12.1.0
 
   # Fastyle
-  fastyle_core: ^0.0.32
+  fastyle_core: ^0.0.33
 
 dev_dependencies:
   flutter_test:
