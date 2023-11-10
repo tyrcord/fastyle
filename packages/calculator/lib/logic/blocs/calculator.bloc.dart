@@ -220,7 +220,7 @@ abstract class FastCalculatorBloc<
         final nextState = await clearCalculatorState();
         await saveCalculatorState();
         yield nextState.copyWith(isInitialized: true) as S;
-        addEvent(FastCalculatorBlocEvent.compute<R>());
+        addComputeEvent();
       } else if (eventType == FastCalculatorBlocEventType.custom) {
         if (payload!.key == 'share' && payload.value is BuildContext) {
           await shareCalculatorState(payload.value as BuildContext);
@@ -298,7 +298,7 @@ abstract class FastCalculatorBloc<
         isInitialized: isInitialized,
       ) as S;
 
-      addEvent(FastCalculatorBlocEvent.compute<R>());
+      addComputeEvent();
     }
   }
 
@@ -370,7 +370,7 @@ abstract class FastCalculatorBloc<
   Stream<S> handleLoadMetadataEvent() async* {
     yield currentState.copyWith(metadata: await loadMetadata()) as S;
 
-    addEvent(FastCalculatorBlocEvent.compute<R>());
+    addComputeEvent();
   }
 
   /// Handles the patch value event by updating a single field in the
@@ -408,11 +408,16 @@ abstract class FastCalculatorBloc<
       await saveCalculatorState();
       yield state;
 
-      if (debouceComputeEvents) {
-        addDebouncedComputeEvent(FastCalculatorBlocEvent.compute<R>() as E);
-      } else {
-        addEvent(FastCalculatorBlocEvent.compute<R>() as E);
-      }
+      addComputeEvent();
+    }
+  }
+
+  @protected
+  void addComputeEvent() {
+    if (debouceComputeEvents) {
+      addDebouncedComputeEvent(FastCalculatorBlocEvent.compute<R>() as E);
+    } else {
+      addEvent(FastCalculatorBlocEvent.compute<R>() as E);
     }
   }
 
