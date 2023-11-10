@@ -1,4 +1,6 @@
 // Flutter imports:
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -36,15 +38,25 @@ abstract class FastCalculatorBloc<
 
   /// The app settings bloc used by the calculator.
   @protected
-  FastAppSettingsBloc appSettingsBloc = FastAppSettingsBloc();
-
-  /// The debug label used to identify the bloc in the logs.
-  @protected
-  String? debugLabel;
+  final appSettingsBloc = FastAppSettingsBloc();
 
   /// Determines if compute events should be debounced or not.
   @protected
-  bool debouceComputeEvents;
+  late final bool debouceComputeEvents;
+
+  @protected
+  late final bool isAutoRefreshEnabled;
+
+  /// The auto-refresh period.
+  @protected
+  late final Duration autoRefreshPeriod;
+
+  @protected
+  late final FastCalculatorBlocDelegate? delegate;
+
+  /// The debug label used to identify the bloc in the logs.
+  @protected
+  late final String? debugLabel;
 
   /// Constructs a new [FastCalculatorBloc] instance.
   ///
@@ -54,9 +66,12 @@ abstract class FastCalculatorBloc<
   /// and defaults to `false`.
   FastCalculatorBloc({
     required super.initialState,
+    this.autoRefreshPeriod = const Duration(minutes: 1),
     super.enableForceBuildEvents = true,
-    this.debugLabel,
+    this.isAutoRefreshEnabled = false,
     this.debouceComputeEvents = false,
+    this.debugLabel,
+    this.delegate,
   }) {
     if (debouceComputeEvents) {
       debugPrint('`debouceComputeEvents` is enabled for $runtimeType');
@@ -64,10 +79,39 @@ abstract class FastCalculatorBloc<
       debugPrint('`debouceComputeEvents` is disabled for $runtimeType');
     }
 
-    addDebouncedComputeEvent = debounceEvent((event) => addEvent(event));
-    addDebouncedLoadMetadataEvent = debounceEvent((event) => addEvent(event));
+    addDebouncedComputeEvent = debounceEvent((event) {
+      if (!closed) addEvent(event);
+    });
+
+    addDebouncedLoadMetadataEvent = debounceEvent((event) {
+      if (!closed) addEvent(event);
+    });
 
     subxList.add(appSettingsBloc.onData.listen(handleSettingsChanges));
+
+    if (isAutoRefreshEnabled) {
+      final refreshComputationsStream = Stream.periodic(autoRefreshPeriod);
+
+      subxList.add(
+        refreshComputationsStream.listen(handleAutoRefreshComputations),
+      );
+    }
+  }
+
+  void handleAutoRefreshComputations(dynamic event) async {
+    final appLifecycleBloc = FastAppLifecycleBloc.instance;
+    final appLifecycleState = appLifecycleBloc.currentState.appLifeCycleState;
+
+    if (appLifecycleState == AppLifecycleState.paused) return;
+
+    if (await isCalculatorStateValid()) {
+      final canRefresh = await delegate?.canAutoRefreshComputations() ?? true;
+
+      if (canRefresh) {
+        debugLog('Auto-refreshing computations', debugLabel: debugLabel);
+        addComputeEvent();
+      }
+    }
   }
 
   /// Updates a single field in the calculator state.

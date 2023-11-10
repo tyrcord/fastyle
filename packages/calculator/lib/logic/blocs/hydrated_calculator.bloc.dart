@@ -47,8 +47,11 @@ abstract class HydratedFastCalculatorBloc<
   HydratedFastCalculatorBloc({
     required super.initialState,
     required this.dataProvider,
+    super.autoRefreshPeriod = const Duration(minutes: 1),
+    super.isAutoRefreshEnabled = false,
+    super.debouceComputeEvents = false,
     super.debugLabel,
-    super.debouceComputeEvents,
+    super.delegate,
   }) {
     addDebouncedSaveEntryEvent = debounceEvent((event) => addEvent(event));
   }
