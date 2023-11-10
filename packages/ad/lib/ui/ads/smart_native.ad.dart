@@ -237,16 +237,16 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
     final appLifecycleState = appLifecycleBloc.currentState.appLifeCycleState;
     _stopRefreshingAd();
 
-    if (appLifecycleState != AppLifecycleState.paused) {
-      debugLog('start refreshing ad', debugLabel: debugLabel);
-      final refreshInterval = _getAdRefreshInterval();
+    if (appLifecycleState == AppLifecycleState.paused) return;
 
-      _refreshTimer = Timer.periodic(refreshInterval, (Timer timer) {
-        debugLog('Timer is up => load a new ad', debugLabel: debugLabel);
-        final payload = _getInitBlocEventPayload();
-        _loadAd(payload);
-      });
-    }
+    debugLog('start refreshing ad', debugLabel: debugLabel);
+    final refreshInterval = _getAdRefreshInterval();
+
+    _refreshTimer = Timer.periodic(refreshInterval, (Timer timer) {
+      debugLog('Timer is up => load a new ad', debugLabel: debugLabel);
+      final payload = _getInitBlocEventPayload();
+      _loadAd(payload);
+    });
   }
 
   void _stopRefreshingAd() {
