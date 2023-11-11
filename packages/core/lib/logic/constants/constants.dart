@@ -34,7 +34,7 @@ const kFastAppOnboardingStoreName = 'fastAppOnboarding';
 
 // Default App setting values.
 final kFastSettingsDefaultTheme = kFastSettingsThemeMap[ThemeMode.system]!;
-const kFastAppSettingsPrimaryCurrencyCode = 'usd';
+const kFastAppSettingsPrimaryCurrencyCode = 'USD';
 const kFastSettingsDefaultLanguageCode = 'en';
 const kFastAppSettingsSaveEntry = true;
 
