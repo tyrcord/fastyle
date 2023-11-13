@@ -8,30 +8,46 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 
 class FastNoFavoriteIcon extends StatelessWidget {
+  final FastPaletteScheme? palette;
   final Color? backgroundColor;
   final FastBoxShape? shape;
-  final Color? iconColor;
-  final double? iconSize;
-  final double size;
   final Color? shadowColor;
   final double blurRadius;
+  final Color? iconColor;
+  final double? iconSize;
   final bool hasShadow;
+  final double size;
 
   const FastNoFavoriteIcon({
     super.key,
-    this.size = kFastIconSizeMedium,
     this.backgroundColor,
+    this.shadowColor,
     this.iconColor,
     this.iconSize,
     this.shape,
-    this.shadowColor,
+    this.palette,
     this.blurRadius = kFastBlurRadius,
+    this.size = kFastIconSizeMedium,
     this.hasShadow = false,
   }) : assert(size >= 0);
 
   @override
   Widget build(BuildContext context) {
-    final palettes = ThemeHelper.getPaletteColors(context);
+    return FastRoundedDuotoneIcon(
+      backgroundColor: backgroundColor,
+      palette: _getPalette(context),
+      shadowColor: shadowColor,
+      icon: _getIcon(context),
+      blurRadius: blurRadius,
+      hasShadow: hasShadow,
+      iconColor: iconColor,
+      iconSize: iconSize,
+      shape: shape,
+      size: size,
+    );
+  }
+
+  Widget _getIcon(BuildContext context) {
     final useProIcons = FastIconHelper.of(context).useProIcons;
     late IconData iconData;
 
@@ -41,17 +57,10 @@ class FastNoFavoriteIcon extends StatelessWidget {
       iconData = FontAwesomeIcons.heartCrack;
     }
 
-    return FastRoundedDuotoneIcon(
-      icon: FaIcon(iconData),
-      palette: palettes.gray,
-      size: size,
-      backgroundColor: backgroundColor,
-      iconColor: iconColor,
-      iconSize: iconSize,
-      shape: shape,
-      shadowColor: shadowColor,
-      blurRadius: blurRadius,
-      hasShadow: hasShadow,
-    );
+    return FaIcon(iconData);
+  }
+
+  FastPaletteScheme _getPalette(BuildContext context) {
+    return palette ?? ThemeHelper.getPaletteColors(context).red;
   }
 }

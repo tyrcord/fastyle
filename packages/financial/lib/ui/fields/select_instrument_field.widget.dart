@@ -88,10 +88,10 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
     return FastSelectField<MatexFinancialInstrument>(
       allCategoryText: CoreLocaleKeys.core_label_all.tr(gender: maleGender),
       labelText: FinanceLocaleKeys.finance_label_financial_instrument.tr(),
-      listViewEmptyContent: const Center(child: FastNoFavoriteIcon()),
       extraTabBuilder: () => [_buildFavoritesTab()],
       onSelectionChanged: widget.onSelectionChanged,
       searchPlaceholderText: searchPlaceholderText,
+      listViewEmptyContent: _buildEmptyContent(),
       listViewContentPadding: EdgeInsets.zero,
       searchTitleText: searchTitleText,
       captionText: widget.captionText,
@@ -103,6 +103,19 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
       useFuzzySearch: true,
       delegate: this,
       items: _items,
+    );
+  }
+
+  Widget _buildEmptyContent() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const FastNoFavoriteIcon(size: kFastImageSizeXl),
+          kFastVerticalSizedBox12,
+          FastBody(text: CoreLocaleKeys.core_message_no_favorites.tr()),
+        ],
+      ),
     );
   }
 
