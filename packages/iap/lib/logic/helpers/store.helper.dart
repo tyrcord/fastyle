@@ -91,12 +91,14 @@ String sKErrorToReadableMessage(int errorCode) {
   }
 }
 
-bool isUserPremium() {
+bool isUserPremium({FastStoreBlocState? state}) {
   final storeBloc = FastStoreBloc();
   final premiumProductId = getPremiumProductId();
 
   if (premiumProductId != null) {
-    return storeBloc.currentState.hasPurchasedProduct(premiumProductId);
+    state ??= storeBloc.currentState;
+
+    return state.hasPurchasedProduct(premiumProductId);
   }
 
   return false;
