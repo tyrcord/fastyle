@@ -3,6 +3,89 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-11-13
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_calculator` - `v1.43.0`](#fastyle_calculator---v1430)
+ - [`fastyle_core` - `v0.0.34`](#fastyle_core---v0034)
+ - [`fastyle_financial` - `v0.0.28`](#fastyle_financial---v0028)
+ - [`fastyle_text` - `v0.0.15`](#fastyle_text---v0015)
+ - [`fastyle_settings` - `v0.0.37+1`](#fastyle_settings---v00371)
+ - [`fastyle_buttons` - `v0.0.17+2`](#fastyle_buttons---v00172)
+ - [`fastyle_home` - `v0.0.27+1`](#fastyle_home---v00271)
+ - [`fastyle_forms` - `v0.0.32+1`](#fastyle_forms---v00321)
+ - [`fastyle_video_player` - `v0.0.18+1`](#fastyle_video_player---v00181)
+ - [`fastyle_ad` - `v0.0.26+1`](#fastyle_ad---v00261)
+ - [`fastyle_connectivity` - `v0.0.29+1`](#fastyle_connectivity---v00291)
+ - [`fastyle_pricing` - `v1.29.1`](#fastyle_pricing---v1291)
+ - [`fastyle_views` - `v0.0.21+1`](#fastyle_views---v00211)
+ - [`fastyle_charts` - `v0.0.20+1`](#fastyle_charts---v00201)
+ - [`fastyle_iap` - `v0.0.23+1`](#fastyle_iap---v00231)
+ - [`fastyle_firebase` - `v0.0.21+1`](#fastyle_firebase---v00211)
+ - [`fastyle_onboarding` - `v0.0.34+1`](#fastyle_onboarding---v00341)
+ - [`fastyle_animation` - `v0.0.10+3`](#fastyle_animation---v00103)
+ - [`fastyle_digit_calculator` - `v0.0.31+1`](#fastyle_digit_calculator---v00311)
+ - [`fastyle_quizz` - `v0.0.10+2`](#fastyle_quizz---v00102)
+ - [`fastyle_images` - `v0.0.35+1`](#fastyle_images---v00351)
+ - [`fastyle_layouts` - `v0.0.14+2`](#fastyle_layouts---v00142)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_settings` - `v0.0.37+1`
+ - `fastyle_buttons` - `v0.0.17+2`
+ - `fastyle_home` - `v0.0.27+1`
+ - `fastyle_forms` - `v0.0.32+1`
+ - `fastyle_video_player` - `v0.0.18+1`
+ - `fastyle_ad` - `v0.0.26+1`
+ - `fastyle_connectivity` - `v0.0.29+1`
+ - `fastyle_pricing` - `v1.29.1`
+ - `fastyle_views` - `v0.0.21+1`
+ - `fastyle_charts` - `v0.0.20+1`
+ - `fastyle_iap` - `v0.0.23+1`
+ - `fastyle_firebase` - `v0.0.21+1`
+ - `fastyle_onboarding` - `v0.0.34+1`
+ - `fastyle_animation` - `v0.0.10+3`
+ - `fastyle_digit_calculator` - `v0.0.31+1`
+ - `fastyle_quizz` - `v0.0.10+2`
+ - `fastyle_images` - `v0.0.35+1`
+ - `fastyle_layouts` - `v0.0.14+2`
+
+---
+
+#### `fastyle_calculator` - `v1.43.0`
+
+ - **FIX**: isAutoRefreshEnabled feature.
+ - **FIX**: make sure we debounced compute if needed.
+ - **FEAT**: make FastCalculatorLastUpdatedText more flexible.
+ - **FEAT**: allow to auto refresh results.
+
+#### `fastyle_core` - `v0.0.34`
+
+ - **FIX**: uppercase default primary currency code.
+ - **FEAT**: add device code as fallback when getting localeCode.
+ - **FEAT**: better style for FastNoFavoriteIcon.
+ - **FEAT**: add autoRefreshCalculatorResults feature.
+
+#### `fastyle_financial` - `v0.0.28`
+
+ - **FEAT**: better style for FastNoFavoriteIcon.
+
+#### `fastyle_text` - `v0.0.15`
+
+ - **FEAT**: make FastCalculatorLastUpdatedText more flexible.
+
+
 ## 2023-11-09
 
 ### Changes

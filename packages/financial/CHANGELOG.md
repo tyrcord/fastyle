@@ -1,3 +1,7 @@
+## 0.0.28
+
+ - **FEAT**: better style for FastNoFavoriteIcon.
+
 ## 0.0.27
 
  - **FEAT**: update dependencies.

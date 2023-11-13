@@ -1,3 +1,10 @@
+## 0.0.34
+
+ - **FIX**: uppercase default primary currency code.
+ - **FEAT**: add device code as fallback when getting localeCode.
+ - **FEAT**: better style for FastNoFavoriteIcon.
+ - **FEAT**: add autoRefreshCalculatorResults feature.
+
 ## 0.0.33
 
  - **FEAT**: update dependencies.

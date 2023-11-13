@@ -17,9 +17,9 @@ dependencies:
   easy_localization: ^3.0.3
 
   # Fastyle
-  fastyle_core: ^0.0.33
-  fastyle_iap: ^0.0.23
-  fastyle_pricing: ^1.29.0
+  fastyle_core: ^0.0.34
+  fastyle_iap: ^0.0.23+1
+  fastyle_pricing: ^1.29.1
 
   # Lingua
   lingua_core: ^0.0.31

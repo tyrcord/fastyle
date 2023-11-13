@@ -1,3 +1,10 @@
+## 1.43.0
+
+ - **FIX**: isAutoRefreshEnabled feature.
+ - **FIX**: make sure we debounced compute if needed.
+ - **FEAT**: make FastCalculatorLastUpdatedText more flexible.
+ - **FEAT**: allow to auto refresh results.
+
 ## 1.42.0
 
  - **FEAT**: update dependencies.
