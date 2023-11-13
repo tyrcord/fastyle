@@ -5,4 +5,7 @@ enum FastAppFeatures {
 
   /// Represents the export report feature.
   exportReportPdf,
+
+  /// Represents the automatic refreshing of results.
+  autoRefreshCalculatorResults,
 }
