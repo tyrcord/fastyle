@@ -45,7 +45,24 @@ abstract class FastCalculatorBloc<
   late final bool debouceComputeEvents;
 
   @protected
-  late final bool isAutoRefreshEnabled;
+  late bool _isAutoRefreshEnabled;
+
+  set isAutoRefreshEnabled(bool enabled) {
+    _isAutoRefreshEnabled = enabled;
+
+    if (enabled) {
+      final refreshComputationsStream = Stream.periodic(autoRefreshPeriod);
+
+      subxMap.add(
+        'autoRefreshComputations',
+        refreshComputationsStream.listen(handleAutoRefreshComputations),
+      );
+    } else {
+      subxMap.cancelForKey('autoRefreshComputations');
+    }
+  }
+
+  bool get isAutoRefreshEnabled => _isAutoRefreshEnabled;
 
   /// The auto-refresh period.
   @protected
@@ -68,10 +85,10 @@ abstract class FastCalculatorBloc<
     required super.initialState,
     this.autoRefreshPeriod = const Duration(minutes: 1),
     super.enableForceBuildEvents = true,
-    this.isAutoRefreshEnabled = false,
     this.debouceComputeEvents = false,
     this.debugLabel,
     this.delegate,
+    bool? isAutoRefreshEnabled = false,
   }) {
     if (debouceComputeEvents) {
       debugPrint('`debouceComputeEvents` is enabled for $runtimeType');
@@ -88,14 +105,7 @@ abstract class FastCalculatorBloc<
     });
 
     subxList.add(appSettingsBloc.onData.listen(handleSettingsChanges));
-
-    if (isAutoRefreshEnabled) {
-      final refreshComputationsStream = Stream.periodic(autoRefreshPeriod);
-
-      subxList.add(
-        refreshComputationsStream.listen(handleAutoRefreshComputations),
-      );
-    }
+    isAutoRefreshEnabled = isAutoRefreshEnabled ?? false;
   }
 
   void handleAutoRefreshComputations(dynamic event) async {
