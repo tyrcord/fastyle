@@ -38,15 +38,6 @@ class FastAppSettingsBlocState extends BlocState {
   /// Whether the application should always use the 24-hour format.
   final bool use24HourFormat;
 
-  /// The current locale code of the application.
-  /// Format: languageCode_countryCode
-  /// For example: en_US, fr_FR, de_DE, ...
-  String get localeCode {
-    final localeCode = toIos3166Code(languageCode, countryCode: countryCode);
-
-    return localeCode ?? kFastSettingsDefaultLanguageCode;
-  }
-
   /// The current locale of the application.
   Locale get languageLocale {
     if (languageCode.isEmpty) {
@@ -54,6 +45,20 @@ class FastAppSettingsBlocState extends BlocState {
     }
 
     return Locale(languageCode);
+  }
+
+  /// The current locale code of the application.
+  /// Format: languageCode_countryCode
+  /// For example: en_US, fr_FR, de_DE, ...
+  String get localeCode {
+    final appInfo = FastAppInfoBloc.instance.currentState;
+
+    final localeCode = toIos3166Code(
+      languageCode,
+      countryCode: countryCode ?? appInfo.deviceCountryCode,
+    );
+
+    return localeCode ?? kFastSettingsDefaultLanguageCode;
   }
 
   /// The current theme mode of the application.
