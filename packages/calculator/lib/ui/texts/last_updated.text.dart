@@ -8,11 +8,16 @@ import 'package:tbloc/tbloc.dart';
 import 'package:fastyle_text/fastyle_text.dart';
 
 class FastCalculatorLastUpdatedText extends StatelessWidget {
-  final FastCalculatorBloc bloc;
-
   static const String metatataKey = 'updatedOn';
 
-  const FastCalculatorLastUpdatedText({super.key, required this.bloc});
+  final FastCalculatorBloc bloc;
+  final String? labelText;
+
+  const FastCalculatorLastUpdatedText({
+    super.key,
+    required this.bloc,
+    this.labelText,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +51,6 @@ class FastCalculatorLastUpdatedText extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    return FastLastUpdatedText(date: date);
+    return FastLastUpdatedText(date: date, labelText: labelText);
   }
 }
