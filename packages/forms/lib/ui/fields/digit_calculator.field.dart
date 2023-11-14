@@ -184,11 +184,13 @@ class _FastDigitCalculatorFieldState extends State<FastDigitCalculatorField> {
           }
         }
 
-        if (!widget.acceptNegative && number < 0) result = '';
-        if (number == 0) result = '';
-
-        widget.onValueChanged?.call(result);
+        if (!widget.acceptNegative && number < 0) result = null;
+        if (number == 0) result = null;
       }
+
+      if (result is String && result.isEmpty) result = null;
+
+      widget.onValueChanged?.call(result);
     }
 
     _onClose();
