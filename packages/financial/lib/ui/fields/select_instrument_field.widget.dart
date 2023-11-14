@@ -139,8 +139,8 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
       final baseMeta = pair.baseInstrumentMetadata;
       final hasExtraMeta = baseMeta != null && counterMeta != null;
       final value = MatexFinancialInstrument(
-        baseCode: pair.baseCode,
-        counterCode: pair.counterCode,
+        base: pair.baseCode,
+        counter: pair.counterCode,
       );
 
       if (hasExtraMeta && baseMeta.type.main == 'index') {
