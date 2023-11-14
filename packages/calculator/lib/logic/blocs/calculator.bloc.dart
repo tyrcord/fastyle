@@ -114,7 +114,8 @@ abstract class FastCalculatorBloc<
 
     if (appLifecycleState == AppLifecycleState.paused) return;
 
-    if (await isCalculatorStateValid()) {
+    if (await isCalculatorStateValid() &&
+        isAutoRefreshCalculatorResultsEnabled()) {
       final canRefresh = await delegate?.canAutoRefreshComputations() ?? true;
 
       if (canRefresh) {

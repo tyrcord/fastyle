@@ -9,6 +9,10 @@ bool isExportReportPdfEnabled() {
   return isFeatureEnabled(FastAppFeatures.exportReportPdf);
 }
 
+bool isAutoRefreshCalculatorResultsEnabled() {
+  return isFeatureEnabled(FastAppFeatures.autoRefreshCalculatorResults);
+}
+
 bool isFeatureEnabled(FastAppFeatures feature) {
   final featureBloc = FastAppFeaturesBloc();
 
