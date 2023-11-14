@@ -1,3 +1,8 @@
+## 0.0.35
+
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: add isAutoRefreshCalculatorResultsEnabled helper.
+
 ## 0.0.34
 
  - **FIX**: uppercase default primary currency code.

@@ -1,3 +1,8 @@
+## 1.44.0
+
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: add isAutoRefreshCalculatorResultsEnabled helper.
+
 ## 1.43.0
 
  - **FIX**: isAutoRefreshEnabled feature.

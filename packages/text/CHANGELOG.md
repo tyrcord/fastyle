@@ -1,3 +1,7 @@
+## 0.0.16
+
+ - **FEAT**: move away from matex_dart.
+
 ## 0.0.15
 
  - **FEAT**: make FastCalculatorLastUpdatedText more flexible.

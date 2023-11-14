@@ -1,3 +1,7 @@
+## 0.0.29
+
+ - **FEAT**: move away from matex_dart.
+
 ## 0.0.28
 
  - **FEAT**: better style for FastNoFavoriteIcon.

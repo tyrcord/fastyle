@@ -1,3 +1,7 @@
+## 0.0.11
+
+ - **FEAT**: move away from matex_dart.
+
 ## 0.0.10+3
 
  - Update a dependency to the latest release.

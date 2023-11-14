@@ -3,6 +3,136 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-11-14
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.27`](#fastyle_ad---v0027)
+ - [`fastyle_animation` - `v0.0.11`](#fastyle_animation---v0011)
+ - [`fastyle_buttons` - `v0.0.18`](#fastyle_buttons---v0018)
+ - [`fastyle_calculator` - `v1.44.0`](#fastyle_calculator---v1440)
+ - [`fastyle_charts` - `v0.0.21`](#fastyle_charts---v0021)
+ - [`fastyle_connectivity` - `v0.0.30`](#fastyle_connectivity---v0030)
+ - [`fastyle_core` - `v0.0.35`](#fastyle_core---v0035)
+ - [`fastyle_digit_calculator` - `v0.0.32`](#fastyle_digit_calculator---v0032)
+ - [`fastyle_financial` - `v0.0.29`](#fastyle_financial---v0029)
+ - [`fastyle_firebase` - `v0.0.22`](#fastyle_firebase---v0022)
+ - [`fastyle_forms` - `v0.0.33`](#fastyle_forms---v0033)
+ - [`fastyle_home` - `v0.0.28`](#fastyle_home---v0028)
+ - [`fastyle_iap` - `v0.0.24`](#fastyle_iap---v0024)
+ - [`fastyle_images` - `v0.0.36`](#fastyle_images---v0036)
+ - [`fastyle_onboarding` - `v0.0.35`](#fastyle_onboarding---v0035)
+ - [`fastyle_pricing` - `v1.30.0`](#fastyle_pricing---v1300)
+ - [`fastyle_quizz` - `v0.0.11`](#fastyle_quizz---v0011)
+ - [`fastyle_settings` - `v0.0.38`](#fastyle_settings---v0038)
+ - [`fastyle_text` - `v0.0.16`](#fastyle_text---v0016)
+ - [`fastyle_video_player` - `v0.0.19`](#fastyle_video_player---v0019)
+ - [`fastyle_views` - `v0.0.22`](#fastyle_views---v0022)
+ - [`fastyle_layouts` - `v0.0.14+3`](#fastyle_layouts---v00143)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_layouts` - `v0.0.14+3`
+
+---
+
+#### `fastyle_ad` - `v0.0.27`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_animation` - `v0.0.11`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_buttons` - `v0.0.18`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_calculator` - `v1.44.0`
+
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: add isAutoRefreshCalculatorResultsEnabled helper.
+
+#### `fastyle_charts` - `v0.0.21`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_connectivity` - `v0.0.30`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_core` - `v0.0.35`
+
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: add isAutoRefreshCalculatorResultsEnabled helper.
+
+#### `fastyle_digit_calculator` - `v0.0.32`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_financial` - `v0.0.29`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_firebase` - `v0.0.22`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_forms` - `v0.0.33`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_home` - `v0.0.28`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_iap` - `v0.0.24`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_images` - `v0.0.36`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_onboarding` - `v0.0.35`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_pricing` - `v1.30.0`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_quizz` - `v0.0.11`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_settings` - `v0.0.38`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_text` - `v0.0.16`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_video_player` - `v0.0.19`
+
+ - **FEAT**: move away from matex_dart.
+
+#### `fastyle_views` - `v0.0.22`
+
+ - **FEAT**: move away from matex_dart.
+
+
 ## 2023-11-13
 
 ### Changes
