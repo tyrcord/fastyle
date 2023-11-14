@@ -4,7 +4,6 @@ import 'package:flutter/scheduler.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:matex_dart/matex_dart.dart';
 import 'package:matex_financial/financial.dart';
 import 'package:lingua_finance_instrument/lingua_finance_instrument.dart';
 import 'package:easy_localization/easy_localization.dart';

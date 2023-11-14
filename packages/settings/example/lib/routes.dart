@@ -9,7 +9,7 @@ import 'package:fastyle_settings/fastyle_settings.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lingua_finance_instrument/lingua_finance_instrument.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
-import 'package:matex_dart/matex_dart.dart';
+import 'package:matex_financial/financial.dart';
 
 final kAppRoutes = [
   GoRoute(

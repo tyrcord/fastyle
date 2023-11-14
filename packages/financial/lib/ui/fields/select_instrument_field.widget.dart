@@ -4,8 +4,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_financial/fastyle_financial.dart';
 import 'package:fastyle_images/fastyle_images.dart';
 import 'package:flutter/material.dart';
-import 'package:matex_dart/matex_dart.dart'
-    show MatexPairMetadata, MatexInstrumentMetadata;
 import 'package:matex_financial/financial.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:lingua_finance/generated/locale_keys.g.dart';

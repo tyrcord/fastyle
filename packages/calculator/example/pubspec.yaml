@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
 
   # Public
-  go_router: ^12.1.0
+  go_router: ^12.1.1
   decimal: ^2.3.3
 
   # Fastyle
@@ -19,7 +19,7 @@ dependencies:
   fastyle_calculator: ^1.43.0
 
   # T
-  tbloc: ^0.21.7+5
+  tbloc: ^0.21.7+7
 
 dev_dependencies:
   flutter_test:

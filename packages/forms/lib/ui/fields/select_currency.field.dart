@@ -8,7 +8,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_images/fastyle_images.dart';
 import 'package:lingua_finance/generated/locale_keys.g.dart';
 import 'package:lingua_finance_instrument/generated/locale_keys.g.dart';
-import 'package:matex_dart/matex_dart.dart';
+import 'package:matex_financial/financial.dart';
 
 /// A Flutter widget for displaying a selectable list of currencies.
 class FastSelectCurrencyField extends StatelessWidget {
