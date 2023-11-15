@@ -9,6 +9,7 @@ String getLabelTextForInstrumentType(String type) {
       return FinanceLocaleKeys.finance_label_indices.tr();
     case 'commodities':
       return FinanceForexLocaleKeys.forex_label_commodities.tr();
+    case 'cryptos':
     case 'cryptocurrencies':
       return FinanceForexLocaleKeys.forex_label_cryptos.tr();
     case 'majors':
