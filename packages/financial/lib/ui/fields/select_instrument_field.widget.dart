@@ -5,6 +5,7 @@ import 'package:fastyle_financial/fastyle_financial.dart';
 import 'package:fastyle_images/fastyle_images.dart';
 import 'package:flutter/material.dart';
 import 'package:matex_financial/financial.dart';
+import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:lingua_finance/generated/locale_keys.g.dart';
 import 'package:lingua_finance_instrument/generated/locale_keys.g.dart';
@@ -45,7 +46,7 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
     implements
         FastFastSelectFieldDelegate<FastItem<MatexFinancialInstrument>>,
         FastListViewLayoutDelegate<FastItem<MatexFinancialInstrument>> {
-  final _currencyPairBloc = MatexFinancialInstrumentsBloc();
+  final _instrumentsBloc = MatexFinancialInstrumentsBloc();
   final _favoriteBloc = MatexInstrumentFavoriteBloc();
 
   late List<FastItem<MatexFinancialInstrument>> _items;
@@ -64,12 +65,29 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
   String get maleGender => LinguaLocalizationGender.male;
 
   @override
+  // FIXME: listen to possible changes in the instruments bloc.
   void initState() {
     super.initState();
 
-    // FIXME: listen to possible changes
-    _items = _buildItems(_currencyPairBloc.currentState.instruments);
+    final instruments = _instrumentsBloc.currentState.instruments;
+
+    debugLog(
+      'initState: ${instruments.length} finanial instruments',
+      debugLabel: 'FastSelectInstrumentField',
+    );
+
+    _items = _buildItems(instruments);
     _selection = _findSelection();
+
+    debugLog(
+      'initState: ${_items.length} finanial instrument items',
+      debugLabel: 'FastSelectInstrumentField',
+    );
+
+    debugLog(
+      'initState: ${_favoriteBloc.favorites.length} favorites',
+      debugLabel: 'FastSelectInstrumentField',
+    );
   }
 
   @override
@@ -218,11 +236,17 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
             children: [
               Align(
                 alignment: Alignment.bottomRight,
-                child: buildFlagIconForCountry(counterMeta.icon!, width: 32),
+                child: buildFlagIconForFinancialInstrument(
+                  counterMeta.icon!,
+                  width: 32,
+                ),
               ),
               Align(
                 alignment: Alignment.topLeft,
-                child: buildFlagIconForCountry(baseMeta.icon!, width: 32),
+                child: buildFlagIconForFinancialInstrument(
+                  baseMeta.icon!,
+                  width: 32,
+                ),
               ),
             ],
           ),
@@ -275,7 +299,7 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
     double width = 20,
     double? height,
   }) {
-    return buildFlagIconForCountry(
+    return buildFlagIconForFinancialInstrument(
       instrument.icon!,
       hasShadow: hasShadow,
       height: height,
