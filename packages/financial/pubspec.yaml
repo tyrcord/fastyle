@@ -13,7 +13,7 @@ dependencies:
 
   # Public
   easy_localization: ^3.0.3
-  collection: ^1.17.2
+  collection: ^1.18.0
   font_awesome_flutter: ^10.6.0
 
   # Fastyle
@@ -33,8 +33,8 @@ dependencies:
   matex_financial: ^0.0.27
 
   # T
-  t_helpers: ^0.0.41+1
-  tbloc: ^0.21.7+9
+  t_helpers: ^0.0.42
+  tbloc: ^0.21.8
 
 dev_dependencies:
   flutter_test:

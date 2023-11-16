@@ -836,10 +836,10 @@ packages:
     dependency: transitive
     description:
       name: provider
-      sha256: cdbe7530b12ecd9eb455bdaa2fcb8d4dad22e80b8afb4798b41479d5ce26847f
+      sha256: "9a96a0a19b594dbc5bf0f1f27d2bc67d5f95957359b461cd9feb44ed6ae75096"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.5"
+    version: "6.1.1"
   pub_semver:
     dependency: transitive
     description:
@@ -981,6 +981,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.10.0"
+  sprintf:
+    dependency: transitive
+    description:
+      name: sprintf
+      sha256: "1fc9ffe69d4df602376b52949af107d8f5703b77cda567c4d7d86a0693120f23"
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.0.0"
   stack_trace:
     dependency: transitive
     description:
@@ -1017,10 +1025,10 @@ packages:
     dependency: transitive
     description:
       name: subx
-      sha256: f57ae33fe2457891f2822c09ecd99e59a0dfafd830361f9f6f2f7b16c1936697
+      sha256: "484afbdd249026a5ca1a286f9a6797603b5833b2f76ab8b56422789c089176f3"
       url: "https://pub.dev"
     source: hosted
-    version: "1.10.0"
+    version: "1.11.0"
   t_cache:
     dependency: transitive
     description:
@@ -1033,26 +1041,26 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: "7073845de0bbace3263acbc7bec0bed145ed22877946a50de1843ac40b8dd967"
+      sha256: e1e6f2aae53e6e03f00da23a558fa06cc2fa9a182f446acbd6509dffee91c8a2
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.41+1"
+    version: "0.0.42"
   tbloc:
     dependency: "direct main"
     description:
       name: tbloc
-      sha256: "50a67a912342e0ea0deda4385ff186d8fe03dcfadf2ec7ad30f6bb4d7f375521"
+      sha256: "8106032b3d55eceda053ea6536c3780e90de4fffc629a4f8fe09651b45cd7bbe"
       url: "https://pub.dev"
     source: hosted
-    version: "0.21.7+9"
+    version: "0.21.8"
   tenhance:
     dependency: transitive
     description:
       name: tenhance
-      sha256: b94ae9d7444358c78886ca7d4073acc5bbaf3d5d4ff49f171f4df1fae0d7a2a4
+      sha256: ec12fd77935ee3d94c7dc939908fb3f25eca8514ed4dede6a02edf61716bbcdf
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3"
+    version: "0.0.4"
   term_glyph:
     dependency: transitive
     description:
@@ -1081,26 +1089,26 @@ packages:
     dependency: transitive
     description:
       name: tmodel
-      sha256: "7414961f4dee1b833d1911330d264ef459394ab0a3ef54c29adf0e6bc3d65d98"
+      sha256: "0945945eddcd4e0064b9aa11a052151202d01a236c163e08093057f841dfd570"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.11+9"
+    version: "0.5.12"
   tstore:
     dependency: transitive
     description:
       name: tstore
-      sha256: "85de52b45e23d50dbf0e14201c99b6d384d68a7544732f9082d5610f950d2b09"
+      sha256: "68c4f36ad339bdd4469f20ea0ceb366b7f1cd92306d992e8317856a796e0e307"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.20+9"
+    version: "0.8.21"
   tsub:
     dependency: transitive
     description:
       name: tsub
-      sha256: "86c966664ae00b25e800f132e2d3a60b3fde5b532b89c639472bfc95ab46d45e"
+      sha256: "85867e8ccd0f81d077ad4a915eacdf49c0619844b96bfb05f7df214c61dee4a8"
       url: "https://pub.dev"
     source: hosted
-    version: "1.7.0"
+    version: "1.8.0"
   tuple:
     dependency: transitive
     description:
@@ -1185,10 +1193,10 @@ packages:
     dependency: transitive
     description:
       name: uuid
-      sha256: "648e103079f7c64a36dc7d39369cabb358d377078a051d6ae2ad3aa539519313"
+      sha256: df5a4d8f22ee4ccd77f8839ac7cb274ebc11ef9adcce8b92be14b797fe889921
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.7"
+    version: "4.2.1"
   vector_graphics:
     dependency: transitive
     description:

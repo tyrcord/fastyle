@@ -13,7 +13,7 @@ dependencies:
 
   # Public
   rxdart: ^0.27.7
-  collection: ^1.17.2
+  collection: ^1.18.0
   font_awesome_flutter: ^10.6.0
   easy_localization: ^3.0.3
   in_app_purchase_storekit: ^0.3.6+7
@@ -28,10 +28,10 @@ dependencies:
   lingua_purchases: ^0.0.17
 
   # T
-  tstore: ^0.8.20+9
-  tbloc: ^0.21.7+9
-  tmodel: ^0.5.11+9
-  t_helpers: ^0.0.41+1
+  tstore: ^0.8.21
+  tbloc: ^0.21.8
+  tmodel: ^0.5.12
+  t_helpers: ^0.0.42
 
 dev_dependencies:
   flutter_test:

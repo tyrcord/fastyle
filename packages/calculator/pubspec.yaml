@@ -30,11 +30,11 @@ dependencies:
   lingua_calculator: ^0.0.4
 
   # T
-  tbloc: ^0.21.7+9
-  tmodel: ^0.5.11+9
-  tstore: ^0.8.20+9
-  t_helpers: ^0.0.41+1
-  tenhance: ^0.0.3
+  tbloc: ^0.21.8
+  tmodel: ^0.5.12
+  tstore: ^0.8.21
+  t_helpers: ^0.0.42
+  tenhance: ^0.0.4
 
 dev_dependencies:
   flutter_test:

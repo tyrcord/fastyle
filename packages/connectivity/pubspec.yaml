@@ -21,8 +21,8 @@ dependencies:
   fastyle_core: ^0.0.35
 
   # T
-  tmodel: ^0.5.11+9
-  tbloc: ^0.21.7+9
+  tmodel: ^0.5.12
+  tbloc: ^0.21.8
 
   # Lingua
   lingua_core: ^0.0.31

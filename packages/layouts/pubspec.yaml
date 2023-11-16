@@ -15,7 +15,7 @@ dependencies:
   fastyle_core: ^0.0.35
 
   # T
-  tenhance: ^0.0.3
+  tenhance: ^0.0.4
 
 dev_dependencies:
   flutter_test:
