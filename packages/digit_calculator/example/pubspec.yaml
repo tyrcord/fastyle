@@ -4,8 +4,8 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.1.2 <4.0.0"
-  flutter: ">=3.13.5"
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=3.16.0"
 
 dependencies:
   flutter:
@@ -22,7 +22,7 @@ dependencies:
   fastyle_digit_calculator: ^0.0.32
 
   # T
-  t_helpers: ^0.0.40+1
+  t_helpers: ^0.0.41+1
 
 dev_dependencies:
   flutter_test:

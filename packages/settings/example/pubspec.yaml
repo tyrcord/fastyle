@@ -4,8 +4,8 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.1.2 <4.0.0"
-  flutter: ">=3.13.5"
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=3.16.0"
 
 dependencies:
   flutter:
@@ -23,19 +23,19 @@ dependencies:
   fastyle_pricing: ^1.30.0
 
   # MateX
-  matex_financial: ^0.0.24
+  matex_financial: ^0.0.27
 
   # Lingua
   lingua_settings: ^0.0.12
   lingua_languages: ^0.0.6
   lingua_finance: ^0.0.22
-  lingua_purchases: ^0.0.15
+  lingua_purchases: ^0.0.17
   lingua_finance_instrument: ^0.0.5
   lingua_share: ^0.0.2+1
   lingua_core: ^0.0.31
 
   # T
-  tbloc: ^0.21.7+7
+  tbloc: ^0.21.7+9
 
 dev_dependencies:
   flutter_test:

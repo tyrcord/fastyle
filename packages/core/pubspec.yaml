@@ -4,8 +4,8 @@ version: 0.0.35
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/core
 
 environment:
-  sdk: ">=3.1.2 <4.0.0"
-  flutter: ">=3.13.5"
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=3.16.0"
 
 dependencies:
   flutter:
@@ -39,10 +39,10 @@ dependencies:
   fastyle_buttons: ^0.0.18
 
   # T
-  t_helpers: ^0.0.40+1
-  tmodel: ^0.5.11+7
-  tbloc: ^0.21.7+7
-  tstore: ^0.8.20+7
+  t_helpers: ^0.0.41+1
+  tmodel: ^0.5.11+9
+  tbloc: ^0.21.7+9
+  tstore: ^0.8.20+9
   subx: ^1.10.0
   tenhance: ^0.0.3
 

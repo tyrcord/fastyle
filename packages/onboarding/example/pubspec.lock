@@ -5,10 +5,10 @@ packages:
     dependency: transitive
     description:
       name: _flutterfire_internals
-      sha256: "5dadadeecceac19d6a63c9d2e037bb8df58ddd4aedb94e8a056af2f39ee50f9d"
+      sha256: "8942974ee5dc932427704ede5e0db8b5f2b8f22172964544b56e6bd37f6c3634"
       url: "https://pub.dev"
     source: hosted
-    version: "1.3.11"
+    version: "1.3.12"
   another_flushbar:
     dependency: transitive
     description:
@@ -109,10 +109,10 @@ packages:
     dependency: transitive
     description:
       name: collection
-      sha256: f092b211a4319e98e5ff58223576de6c2803db36221657b46c82574721240687
+      sha256: ee67cb0715911d28db6bf4af1026078bd6f0128b07a5f66fb2ed94ec6783c09a
       url: "https://pub.dev"
     source: hosted
-    version: "1.17.2"
+    version: "1.18.0"
   connectivity_plus:
     dependency: transitive
     description:
@@ -247,7 +247,7 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.17+2"
+    version: "0.0.18"
   fastyle_calculator:
     dependency: transitive
     description:
@@ -262,56 +262,56 @@ packages:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.34"
+    version: "0.0.35"
   fastyle_digit_calculator:
     dependency: "direct overridden"
     description:
       path: "../../digit_calculator"
       relative: true
     source: path
-    version: "0.0.31+1"
+    version: "0.0.32"
   fastyle_forms:
     dependency: "direct overridden"
     description:
       path: "../../forms"
       relative: true
     source: path
-    version: "0.0.32+1"
+    version: "0.0.33"
   fastyle_iap:
     dependency: "direct overridden"
     description:
       path: "../../iap"
       relative: true
     source: path
-    version: "0.0.23+1"
+    version: "0.0.24"
   fastyle_images:
     dependency: "direct overridden"
     description:
       path: "../../images"
       relative: true
     source: path
-    version: "0.0.35+1"
+    version: "0.0.36"
   fastyle_layouts:
     dependency: "direct overridden"
     description:
       path: "../../layouts"
       relative: true
     source: path
-    version: "0.0.14+2"
+    version: "0.0.14+3"
   fastyle_onboarding:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.34+1"
+    version: "0.0.35"
   fastyle_settings:
     dependency: "direct overridden"
     description:
       path: "../../settings"
       relative: true
     source: path
-    version: "0.0.37+1"
+    version: "0.0.38"
   fastyle_text:
     dependency: transitive
     description:
@@ -340,10 +340,10 @@ packages:
     dependency: transitive
     description:
       name: firebase_core
-      sha256: "7706f4ade6cc2698c70074083bc262586a185047f6bfdd53938dcc35d35cbb9e"
+      sha256: "45f3f9babfc6f56fb94c3cd11584cf3c9672868228373b699b94427010e01dc3"
       url: "https://pub.dev"
     source: hosted
-    version: "2.21.0"
+    version: "2.22.0"
   firebase_core_platform_interface:
     dependency: transitive
     description:
@@ -364,26 +364,26 @@ packages:
     dependency: transitive
     description:
       name: firebase_messaging
-      sha256: "53952a6f7860c44429bec80719c411e0ff77ce6cf31fade1515c7bdd87abe4a1"
+      sha256: "9922476db960b4044a6e65152f2695d9d6eaa6658db9aa9915c47bf38b572359"
       url: "https://pub.dev"
     source: hosted
-    version: "14.7.3"
+    version: "14.7.4"
   firebase_messaging_platform_interface:
     dependency: transitive
     description:
       name: firebase_messaging_platform_interface
-      sha256: "543390d1c76aaf3fa563de223d1732a5def5a5efe31428e43a44e9a47efc5ed3"
+      sha256: "4d18606a988337911c2572afe1b946b5c7ad5a3444864b4468ed686ca9f5cd5a"
       url: "https://pub.dev"
     source: hosted
-    version: "4.5.12"
+    version: "4.5.13"
   firebase_messaging_web:
     dependency: transitive
     description:
       name: firebase_messaging_web
-      sha256: ecfe4e851652dc5f40f1e42efcac0c2bc6bf5ef08faca936c94e1472c247d222
+      sha256: "22a16175e204439156ba5f6396cd9ca4b74799744d7dbc8faa1d27efbaec7f1c"
       url: "https://pub.dev"
     source: hosted
-    version: "3.5.12"
+    version: "3.5.13"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -688,10 +688,10 @@ packages:
     dependency: transitive
     description:
       name: lingua_purchases
-      sha256: "27c7f7dfa1a01cbd190b44b2ecbfcc87bb1351f81c3dd2a49f98e6c03910a3b8"
+      sha256: bd5cbb88a6a4e63cf4bde4efb8577a5cec62fa4f1b698165a40fb53686bffb13
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.15"
+    version: "0.0.17"
   lingua_settings:
     dependency: transitive
     description:
@@ -768,10 +768,10 @@ packages:
     dependency: transitive
     description:
       name: meta
-      sha256: "3c74dbf8763d36539f114c799d8a2d87343b5067e9d796ca22b5eb8437090ee3"
+      sha256: a6e590c838b18133bb482a2745ad77c5bb7715fb0451209e1a7567d416678b8e
       url: "https://pub.dev"
     source: hosted
-    version: "1.9.1"
+    version: "1.10.0"
   mime:
     dependency: transitive
     description:
@@ -1085,18 +1085,18 @@ packages:
     dependency: transitive
     description:
       name: stack_trace
-      sha256: c3c7d8edb15bee7f0f74debd4b9c5f3c2ea86766fe4178eb2a18eb30a0bdaed5
+      sha256: "73713990125a6d93122541237550ee3352a2d84baad52d375a4cad2eb9b7ce0b"
       url: "https://pub.dev"
     source: hosted
-    version: "1.11.0"
+    version: "1.11.1"
   stream_channel:
     dependency: transitive
     description:
       name: stream_channel
-      sha256: "83615bee9045c1d322bbbd1ba209b7a749c2cbcdcb3fdd1df8eb488b3279c1c8"
+      sha256: ba2aa5d8cc609d96bbb2899c28934f9e1af5cddbd60a827822ea467161eb54e7
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.1"
+    version: "2.1.2"
   string_scanner:
     dependency: transitive
     description:
@@ -1133,18 +1133,18 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: f1a93e73c0111aace01556c0691fb4ad7b8555cf34a573e670b2f44fb9baab2c
+      sha256: "7073845de0bbace3263acbc7bec0bed145ed22877946a50de1843ac40b8dd967"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.40+1"
+    version: "0.0.41+1"
   tbloc:
     dependency: transitive
     description:
       name: tbloc
-      sha256: ea3112497e5ad7340f341b5882b8bff080b4ad098beda46e1ecc8d2032b466ff
+      sha256: "50a67a912342e0ea0deda4385ff186d8fe03dcfadf2ec7ad30f6bb4d7f375521"
       url: "https://pub.dev"
     source: hosted
-    version: "0.21.7+7"
+    version: "0.21.7+9"
   tenhance:
     dependency: transitive
     description:
@@ -1165,10 +1165,10 @@ packages:
     dependency: transitive
     description:
       name: test_api
-      sha256: "75760ffd7786fffdfb9597c35c5b27eaeec82be8edfb6d71d32651128ed7aab8"
+      sha256: "5c2f730018264d276c20e4f1503fd1308dfbbae39ec8ee63c5236311ac06954b"
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.0"
+    version: "0.6.1"
   tint:
     dependency: transitive
     description:
@@ -1181,18 +1181,18 @@ packages:
     dependency: transitive
     description:
       name: tmodel
-      sha256: a4769694f5daf29e87e6579c7a3b1aa2727799a82e6070fd465e3fb7c160f188
+      sha256: "7414961f4dee1b833d1911330d264ef459394ab0a3ef54c29adf0e6bc3d65d98"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.11+7"
+    version: "0.5.11+9"
   tstore:
     dependency: transitive
     description:
       name: tstore
-      sha256: "5ffa15773efa348a1f855da9d0cbe531742a574f2397e91ae70db8f12aa353db"
+      sha256: "85de52b45e23d50dbf0e14201c99b6d384d68a7544732f9082d5610f950d2b09"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.20+7"
+    version: "0.8.20+9"
   tsub:
     dependency: transitive
     description:
@@ -1333,10 +1333,10 @@ packages:
     dependency: transitive
     description:
       name: web
-      sha256: dc8ccd225a2005c1be616fe02951e2e342092edf968cf0844220383757ef8f10
+      sha256: afe077240a270dcfd2aafe77602b4113645af95d0ad31128cc02bce5ac5d5152
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.4-beta"
+    version: "0.3.0"
   win32:
     dependency: transitive
     description:
@@ -1378,5 +1378,5 @@ packages:
     source: hosted
     version: "3.1.2"
 sdks:
-  dart: ">=3.1.2 <4.0.0"
-  flutter: ">=3.13.5"
+  dart: ">=3.2.0 <4.0.0"
+  flutter: ">=3.16.0"

@@ -4,17 +4,21 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.1.2 <4.0.0"
-  flutter: ">=3.13.5"
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=3.16.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  fastyle_core: ^0.0.35
+
+  # Public
   go_router: ^12.1.1
   font_awesome_flutter: ^10.6.0
   easy_localization: ^3.0.3
+
+  # Fastyle
   fastyle_connectivity: ^0.0.30
+  fastyle_core: ^0.0.35
 
 dev_dependencies:
   flutter_test:

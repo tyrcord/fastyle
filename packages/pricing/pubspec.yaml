@@ -4,8 +4,8 @@ version: 1.30.0
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/pricing
 
 environment:
-  sdk: ">=3.1.2 <4.0.0"
-  flutter: ">=3.13.5"
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=3.16.0"
 
 dependencies:
   flutter:
@@ -20,10 +20,10 @@ dependencies:
   fastyle_iap: ^0.0.24
 
   # Lingua
-  lingua_purchases: ^0.0.15
+  lingua_purchases: ^0.0.17
 
   # T
-  tbloc: ^0.21.7+7
+  tbloc: ^0.21.7+9
 
 dev_dependencies:
   flutter_test:

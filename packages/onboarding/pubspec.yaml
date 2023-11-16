@@ -4,8 +4,8 @@ version: 0.0.35
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/onboarding
 
 environment:
-  sdk: ">=3.1.2 <4.0.0"
-  flutter: ">=3.13.5"
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=3.16.0"
 
 dependencies:
   flutter:
@@ -15,12 +15,12 @@ dependencies:
   font_awesome_flutter: ^10.6.0
   app_tracking_transparency: ^2.0.4
   easy_localization: ^3.0.3
-  firebase_messaging: ^14.7.3
+  firebase_messaging: ^14.7.4
 
   # Lingua
   lingua_onboarding: ^0.0.15
   lingua_core: ^0.0.31
-  lingua_purchases: ^0.0.15
+  lingua_purchases: ^0.0.17
 
   # Fastyle
   fastyle_core: ^0.0.35
@@ -30,7 +30,7 @@ dependencies:
   fastyle_buttons: ^0.0.18
 
   # T
-  tbloc: ^0.21.7+7
+  tbloc: ^0.21.7+9
 
 dev_dependencies:
   flutter_test:
