@@ -15,8 +15,8 @@ dependencies:
   go_router: ^12.1.1
 
   # Fastyle
-  fastyle_charts: ^0.0.21
-  fastyle_core: ^0.0.35
+  fastyle_charts: ^0.0.22
+  fastyle_core: ^0.0.36
 
 dev_dependencies:
   flutter_test:

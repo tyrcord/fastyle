@@ -1,3 +1,9 @@
+## 0.0.37
+
+ - **FIX**: show all financial instrument items.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.36
 
  - **FEAT**: move away from matex_dart.

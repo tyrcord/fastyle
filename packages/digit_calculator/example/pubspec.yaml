@@ -17,9 +17,9 @@ dependencies:
   intl: ^0.18.1
 
   # Fastyle
-  fastyle_core: ^0.0.35
+  fastyle_core: ^0.0.36
   font_awesome_flutter: ^10.6.0
-  fastyle_digit_calculator: ^0.0.32
+  fastyle_digit_calculator: ^0.0.33
 
   # T
   t_helpers: ^0.0.42

@@ -1,3 +1,10 @@
+## 0.0.30
+
+ - **FIX**: show all financial instrument items.
+ - **FIX**: missing crytpos.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.29
 
  - **FEAT**: move away from matex_dart.

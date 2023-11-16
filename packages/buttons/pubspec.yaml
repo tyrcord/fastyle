@@ -1,6 +1,6 @@
 name: fastyle_buttons
 description: Set of buttons Widgets for the fastyle library.
-version: 0.0.18
+version: 0.0.19
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/buttons
 
 environment:
@@ -20,7 +20,7 @@ dependencies:
   lingua_core: ^0.0.31
 
   # Fastyle
-  fastyle_core: ^0.0.35
+  fastyle_core: ^0.0.36
 
 dev_dependencies:
   flutter_test:

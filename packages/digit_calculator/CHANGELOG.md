@@ -1,3 +1,8 @@
+## 0.0.33
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.32
 
  - **FEAT**: move away from matex_dart.
