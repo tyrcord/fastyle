@@ -363,13 +363,15 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
   }
 
   FutureOr<String?> handleRedirect(BuildContext context, GoRouterState state) {
-    final isOnboarding = state.fullPath == _onboardingRoute;
-    final bloc = FastAppOnboardingBloc.instance;
-    final onboardingState = bloc.currentState;
+    if (widget.onboardingBuilder == null) return null;
 
-    if (isOnboarding) return null;
+    final isOnboardingRoute = state.fullPath == _onboardingRoute;
+
+    if (isOnboardingRoute) return null;
 
     final forceOnboarding = widget.forceOnboarding && !_hasForcedOnboarding;
+    final bloc = FastAppOnboardingBloc.instance;
+    final onboardingState = bloc.currentState;
 
     if (!onboardingState.isCompleted || forceOnboarding) {
       _hasForcedOnboarding = true;
