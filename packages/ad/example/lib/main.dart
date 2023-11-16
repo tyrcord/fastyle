@@ -79,7 +79,7 @@ class MyHomePage extends StatelessWidget {
       titleText: 'Fastyle Ads Demo',
       child: FastNavigationListView(
         onSelectionChanged: (FastItem<String> item) {
-          GoRouter.of(context).go('/${item.value}');
+          GoRouter.of(context).push('/${item.value}');
         },
         items: const [
           FastItem(labelText: 'Smart Native Ads', value: 'smart-native'),

@@ -13,15 +13,15 @@ import 'package:fastyle_ad_example/pages/smart_native_ads.page.dart';
 
 final kAppRoutes = [
   GoRoute(
-    path: 'custom',
+    path: '/custom',
     builder: (context, state) => const CustomAdsPage(),
   ),
   GoRoute(
-    path: 'loading',
+    path: '/loading',
     builder: (context, state) => const LoadingAdsPage(),
   ),
   GoRoute(
-    path: 'smart-native',
+    path: '/smart-native',
     builder: (context, state) => const SmartNativeAdsPage(),
     routes: [
       GoRoute(
@@ -34,7 +34,7 @@ final kAppRoutes = [
     ],
   ),
   GoRoute(
-    path: 'rewarded',
+    path: '/rewarded',
     builder: (context, state) => const AdmobRewardedAdsPage(),
   ),
 ];
