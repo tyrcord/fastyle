@@ -1,32 +1,55 @@
+import AVFoundation
 import google_mobile_ads
 
-class MediumBannerNativeAdFactory : FLTNativeAdFactory {
+class MediumBannerNativeAdFactory: FLTNativeAdFactory {
 
-    let nibName:String = "MediumBannerNativeAdView"
-    let bundleName:String = "FastAdFramework.bundle"
+  let nibName: String = "MediumBannerNativeAdView"
+  let bundleName: String = "FastAdFramework.bundle"
+  var iconViewReference: UIImageView?
 
-    func createNativeAd(_ nativeAd: GADNativeAd,
-                        customOptions: [AnyHashable : Any]? = nil) -> GADNativeAdView? {
-        
-        let frameworkBundle = Bundle(for: MediumBannerNativeAdFactory.self)
-        let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent(self.bundleName)
-        let bundle = Bundle(url: bundleURL!)
-        let nibView = bundle!.loadNibNamed(self.nibName, owner: nil, options: nil)!.first
+  func createNativeAd(
+    _ nativeAd: GADNativeAd,
+    customOptions: [AnyHashable: Any]? = nil
+  ) -> GADNativeAdView? {
 
-        let nativeAdView = nibView as! GADNativeAdView
+    let frameworkBundle = Bundle(for: MediumBannerNativeAdFactory.self)
+    let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent(self.bundleName)
+    let bundle = Bundle(url: bundleURL!)
+    let nibView = bundle!.loadNibNamed(self.nibName, owner: nil, options: nil)!.first
 
-        (nativeAdView.headlineView as! UILabel).text = nativeAd.headline
+    let nativeAdView = nibView as! GADNativeAdView
 
-        (nativeAdView.bodyView as! UILabel).text = nativeAd.body
-        nativeAdView.bodyView!.isHidden = nativeAd.body == nil
+    (nativeAdView.headlineView as! UILabel).text = nativeAd.headline
 
-        (nativeAdView.iconView as! UIImageView).image = nativeAd.icon?.image
-        nativeAdView.iconView!.isHidden = nativeAd.icon == nil
+    (nativeAdView.bodyView as! UILabel).text = nativeAd.body
+    nativeAdView.bodyView!.isHidden = nativeAd.body == nil
 
-        nativeAdView.callToActionView?.isUserInteractionEnabled = false
+    let mediaContent = nativeAd.mediaContent
 
-        nativeAdView.nativeAd = nativeAd
+    // if mediaContent.hasVideoContent {
+    //   nativeAdView.iconView?.removeFromSuperview()
+    //   nativeAdView.headlineView?.removeFromSuperview()
+    //   nativeAdView.bodyView?.removeFromSuperview()
 
-        return nativeAdView
-    }
+    //   iconViewReference = nativeAdView.iconView as? UIImageView
+    //   (nativeAdView.mediaView as! GADMediaView).mediaContent = mediaContent
+    // } else {
+    //   if let iconImage = nativeAd.icon?.image {
+    //     if iconViewReference?.superview == nil {
+    //       nativeAdView.addSubview(iconViewReference!)
+    //     }
+
+    //     iconViewReference?.image = iconImage
+    //   } else {
+    //     nativeAdView.iconView?.removeFromSuperview()
+    //     iconViewReference = nativeAdView.iconView as? UIImageView
+    //   }
+    // }
+
+    nativeAdView.callToActionView?.isUserInteractionEnabled = false
+
+    nativeAdView.nativeAd = nativeAd
+
+    return nativeAdView
+  }
 }

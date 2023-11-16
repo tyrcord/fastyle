@@ -20,6 +20,9 @@
                         <constraint firstAttribute="height" constant="120" id="bLX-V9-GK7"/>
                     </constraints>
                 </imageView>
+                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNp-yu-K4i" customClass="GADMediaView">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FVf-yB-1vd" userLabel="attribution">
                     <rect key="frame" x="0.0" y="0.0" width="20" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -44,6 +47,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="fNp-yu-K4i" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="161-ic-Lb6"/>
+                <constraint firstItem="fNp-yu-K4i" firstAttribute="top" secondItem="FVf-yB-1vd" secondAttribute="top" id="BIf-69-gAY"/>
+                <constraint firstItem="fNp-yu-K4i" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ExR-Oq-P57"/>
+                <constraint firstItem="fNp-yu-K4i" firstAttribute="leading" secondItem="FVf-yB-1vd" secondAttribute="leading" id="W5E-zu-tH6"/>
                 <constraint firstAttribute="trailingMargin" secondItem="SqM-pP-iR7" secondAttribute="trailing" id="WZu-qp-hh3"/>
                 <constraint firstItem="SqM-pP-iR7" firstAttribute="bottom" secondItem="aDH-L2-ViC" secondAttribute="bottom" constant="-32" id="Yeo-Tn-OgQ"/>
                 <constraint firstItem="aDH-L2-ViC" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="aY2-Z1-3G7"/>
@@ -57,13 +64,14 @@
                 <outlet property="bodyView" destination="SqM-pP-iR7" id="X3G-1T-dMs"/>
                 <outlet property="headlineView" destination="AF1-3a-kBu" id="FCc-oH-TDT"/>
                 <outlet property="iconView" destination="aDH-L2-ViC" id="VUa-bH-mKt"/>
+                <outlet property="mediaView" destination="fNp-yu-K4i" id="VUa-bH-zKt"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="152.44565217391306"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemGrayColor">
-            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
