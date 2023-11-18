@@ -1,0 +1,4 @@
+enum FastAmountSwitchMenuOption {
+  amount,
+  percent,
+}

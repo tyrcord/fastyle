@@ -12,14 +12,30 @@ import 'package:fastyle_forms/fastyle_forms.dart';
 /// A widget that allows the user to switch between an amount field and a
 /// percent field.
 class FastAmountSwitchField extends StatelessWidget {
+  /// The default field type.
+  static const kDefaultFieldType = FastAmountSwitchFieldType.amount;
+
+  /// The default caption text for the percent field.
+  static const kDefaultPercentCaptionText = '%';
+
+  /// The default caption text for the amount field.
+  static const kDefaultAmountCaptionText = '\$';
+
+  static const kDefaultPlaceholderText = '0';
+
+  static const kDefaultMenuOptions = [
+    FastAmountSwitchMenuOption.amount,
+    FastAmountSwitchMenuOption.percent,
+  ];
+
   /// A callback that is called when the user changes the field type.
   final Function(FastAmountSwitchFieldType) onFieldTypeChanged;
 
   /// A callback that is called when the user changes the percent value.
-  final Function(String) onPercentValueChanged;
+  final Function(String)? onPercentValueChanged;
 
   /// A callback that is called when the user changes the amount value.
-  final Function(String) onAmountValueChanged;
+  final Function(String)? onAmountValueChanged;
 
   /// The current field type.
   final FastAmountSwitchFieldType fieldType;
@@ -45,21 +61,6 @@ class FastAmountSwitchField extends StatelessWidget {
   /// The caption text for the amount field.
   final String? amountCaptionText;
 
-  /// The default field type.
-  static const kDefaultFieldType = FastAmountSwitchFieldType.amount;
-
-  /// The default caption text for the percent field.
-  static const kDefaultPercentCaptionText = '%';
-
-  /// The default caption text for the amount field.
-  static const kDefaultAmountCaptionText = '\$';
-
-  /// The default placeholder text for the percent field.
-  static const kDefaultPercentPlaceholderText = '0';
-
-  /// The default placeholder text for the amount field.
-  static const kDefaultAmountPlaceholderText = '0';
-
   /// The placeholder text for the percent field.
   final String percentPlaceholderText;
 
@@ -70,79 +71,113 @@ class FastAmountSwitchField extends StatelessWidget {
 
   final String? percentMenuText;
 
+  final List<FastAmountSwitchMenuOption> availableMenuOptions;
+
   const FastAmountSwitchField({
     super.key,
-    required this.onAmountValueChanged,
-    required this.onPercentValueChanged,
     required this.onFieldTypeChanged,
+    // Value callbacks
+    this.onAmountValueChanged,
+    this.onPercentValueChanged,
+    // Caption texts
     this.percentCaptionText,
     this.amountCaptionText,
-    FastAmountSwitchFieldType? fieldType,
-    String? percentPlaceholderText,
-    String? amountPlaceholderText,
+    // Label texts
     this.percentLabelText,
     this.amountLabelText,
+    // Menu texts
     this.amountMenuText,
     this.percentMenuText,
+    // Placeholder texts
+    String? percentPlaceholderText,
+    String? amountPlaceholderText,
+    // Values
     String? percentValue,
     String? amountValue,
+    // Field type and menu options
+    FastAmountSwitchFieldType? fieldType,
+    List<FastAmountSwitchMenuOption>? availableMenuOptions =
+        kDefaultMenuOptions,
     bool? isEnabled,
-  })  : fieldType = fieldType ?? kDefaultFieldType,
+  })  : availableMenuOptions = availableMenuOptions ?? kDefaultMenuOptions,
+        fieldType = fieldType ?? kDefaultFieldType,
         percentValue = percentValue ?? '',
         amountValue = amountValue ?? '',
         isEnabled = isEnabled ?? true,
         percentPlaceholderText =
-            percentPlaceholderText ?? kDefaultPercentPlaceholderText,
+            percentPlaceholderText ?? kDefaultPlaceholderText,
         amountPlaceholderText =
-            amountPlaceholderText ?? kDefaultAmountPlaceholderText;
+            amountPlaceholderText ?? kDefaultPlaceholderText;
 
   @override
   Widget build(BuildContext context) {
-    if (fieldType == FastAmountSwitchFieldType.percent) {
-      return FastNumberField(
-        captionText: percentCaptionText ?? kDefaultPercentCaptionText,
-        suffixIcon: _buildSwitchFieldMenuButton(),
-        placeholderText: percentPlaceholderText,
-        onValueChanged: onPercentValueChanged,
-        labelText: _getPercentLabel(),
-        valueText: percentValue,
-        isEnabled: isEnabled,
-      );
-    } else {
-      return FastNumberField(
-        captionText: amountCaptionText ?? kDefaultAmountCaptionText,
-        suffixIcon: _buildSwitchFieldMenuButton(),
-        placeholderText: amountPlaceholderText,
-        onValueChanged: onAmountValueChanged,
-        labelText: _getAmountLabel(),
-        valueText: amountValue,
-        isEnabled: isEnabled,
-      );
+    switch (fieldType) {
+      case FastAmountSwitchFieldType.percent:
+        return buildPercentField();
+      default:
+        return buildAmountField();
     }
   }
 
-  /// Builds the switch field menu button.
-  Widget _buildSwitchFieldMenuButton() {
-    return FastSwitchFieldMenuButton(
-      onOptionChanged: _onInputTypeOptionChanged,
-      options: [
-        PopupMenuItem(
-          value: FastAmountSwitchFieldType.amount,
-          child: FastSecondaryBody(text: _getAmountMenuLabel()),
-        ),
-        PopupMenuItem(
-          value: FastAmountSwitchFieldType.percent,
-          child: FastSecondaryBody(text: _getPercentMenuLabel()),
-        ),
-      ],
+  @protected
+  Widget buildPercentField() {
+    return FastNumberField(
+      captionText: percentCaptionText ?? kDefaultPercentCaptionText,
+      suffixIcon: buildSwitchFieldMenuButton(),
+      placeholderText: percentPlaceholderText,
+      onValueChanged: onPercentValueChanged,
+      labelText: _getPercentLabel(),
+      valueText: percentValue,
+      isEnabled: isEnabled,
     );
   }
 
-  /// Called when the user changes the field type.
-  void _onInputTypeOptionChanged(FastAmountSwitchFieldType option) {
-    if (option != fieldType) {
-      onFieldTypeChanged(option);
+  @protected
+  Widget buildAmountField() {
+    return FastNumberField(
+      captionText: amountCaptionText ?? kDefaultAmountCaptionText,
+      suffixIcon: buildSwitchFieldMenuButton(),
+      placeholderText: amountPlaceholderText,
+      onValueChanged: onAmountValueChanged,
+      labelText: _getAmountLabel(),
+      valueText: amountValue,
+      isEnabled: isEnabled,
+    );
+  }
+
+  @protected
+  Widget buildSwitchFieldMenuButton() {
+    return FastSwitchFieldMenuButton(
+      onOptionChanged: onInputTypeOptionChanged,
+      options: buildSwitchFieldMenuOptions(),
+    );
+  }
+
+  @protected
+  List<PopupMenuItem<FastAmountSwitchFieldType>> buildSwitchFieldMenuOptions() {
+    final options = <PopupMenuItem<FastAmountSwitchFieldType>>[];
+
+    if (availableMenuOptions.contains(FastAmountSwitchMenuOption.amount)) {
+      options.add(PopupMenuItem(
+        value: FastAmountSwitchFieldType.amount,
+        child: FastSecondaryBody(text: _getAmountMenuLabel()),
+      ));
     }
+
+    if (availableMenuOptions.contains(FastAmountSwitchMenuOption.percent)) {
+      options.add(PopupMenuItem(
+        value: FastAmountSwitchFieldType.percent,
+        child: FastSecondaryBody(text: _getPercentMenuLabel()),
+      ));
+    }
+
+    return options;
+  }
+
+  /// Called when the user changes the field type.
+  @protected
+  void onInputTypeOptionChanged(FastAmountSwitchFieldType option) {
+    if (option != fieldType) onFieldTypeChanged(option);
   }
 
   String _getPercentLabel() {
