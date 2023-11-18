@@ -157,6 +157,7 @@ class FastAmountSwitchField extends StatelessWidget {
   List<PopupMenuItem<FastAmountSwitchFieldType>> buildSwitchFieldMenuOptions() {
     final options = <PopupMenuItem<FastAmountSwitchFieldType>>[];
 
+    // Dynamically add menu items based on available options
     if (availableMenuOptions.contains(FastAmountSwitchMenuOption.amount)) {
       options.add(PopupMenuItem(
         value: FastAmountSwitchFieldType.amount,
@@ -188,11 +189,7 @@ class FastAmountSwitchField extends StatelessWidget {
     return amountLabelText ?? NumberLocaleKeys.number_label_amount.tr();
   }
 
-  String _getAmountMenuLabel() {
-    return amountMenuText ?? NumberLocaleKeys.number_label_amount.tr();
-  }
+  String _getPercentMenuLabel() => percentMenuText ?? _getPercentLabel();
 
-  String _getPercentMenuLabel() {
-    return percentMenuText ?? NumberLocaleKeys.number_label_percentage.tr();
-  }
+  String _getAmountMenuLabel() => amountMenuText ?? _getAmountLabel();
 }
