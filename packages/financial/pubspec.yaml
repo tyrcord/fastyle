@@ -23,14 +23,15 @@ dependencies:
   fastyle_forms: ^0.0.34
 
   # Lingua
-  lingua_finance: ^0.0.22
-  lingua_finance_forex: ^0.0.5
-  lingua_units: ^0.0.6
-  lingua_core: ^0.0.31
-  lingua_finance_instrument: ^0.0.5
+  lingua_finance: ^0.0.23
+  lingua_finance_forex: ^0.0.6
+  lingua_units: ^0.0.7
+  lingua_core: ^0.0.32
+  lingua_finance_instrument: ^0.0.6
+  lingua_number: ^0.0.10
 
   # MateX
-  matex_financial: ^0.0.27
+  matex_financial: ^0.0.28
 
   # T
   t_helpers: ^0.0.42
