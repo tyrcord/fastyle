@@ -15,8 +15,8 @@ dependencies:
   go_router: ^12.1.1
 
   # Fastyle
-  fastyle_core: ^0.0.36
-  fastyle_forms: ^0.0.34
+  fastyle_core: ^0.0.36+1
+  fastyle_forms: ^0.0.35
   easy_localization: ^3.0.3
 
   # T

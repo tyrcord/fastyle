@@ -1,3 +1,7 @@
+## 0.0.38
+
+ - **FEAT**: update dependencies.
+
 ## 0.0.37
 
  - **FIX**: show all financial instrument items.

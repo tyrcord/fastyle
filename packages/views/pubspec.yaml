@@ -1,6 +1,6 @@
 name: fastyle_views
 description: Set of views Widgets for the fastyle library.
-version: 0.0.23
+version: 0.0.23+1
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/views
 
 environment:
@@ -23,8 +23,8 @@ dependencies:
   tenhance: ^0.0.4
 
   # Fastyle
-  fastyle_core: ^0.0.36
-  fastyle_images: ^0.0.37
+  fastyle_core: ^0.0.36+1
+  fastyle_images: ^0.0.38
 
 dev_dependencies:
   flutter_test:

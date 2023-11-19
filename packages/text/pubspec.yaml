@@ -1,6 +1,6 @@
 name: fastyle_text
 description: A set of pricing texts for the fastyle library.
-version: 0.0.17
+version: 0.0.17+1
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/text
 
 environment:
@@ -16,7 +16,7 @@ dependencies:
   easy_localization: ^3.0.3
 
   # Fastyle
-  fastyle_core: ^0.0.36
+  fastyle_core: ^0.0.36+1
 
   # Lingua
   lingua_core: ^0.0.31

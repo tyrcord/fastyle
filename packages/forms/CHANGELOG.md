@@ -1,3 +1,8 @@
+## 0.0.35
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: FastAmountSwitchField menu options are filterable.
+
 ## 0.0.34
 
  - **FIX**: zero values.

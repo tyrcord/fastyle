@@ -1,3 +1,7 @@
+## 0.0.36+1
+
+ - **FIX**: make sure onboarding exist before trying to redirect to it.
+
 ## 0.0.36
 
  - **FEAT**: update dependencies.

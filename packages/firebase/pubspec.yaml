@@ -1,6 +1,6 @@
 name: fastyle_firebase
 description: Set of firebase Widgets for the fastyle library.
-version: 0.0.23
+version: 0.0.23+1
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/firebase
 
 environment:
@@ -23,7 +23,7 @@ dependencies:
   firebase_app_check: ^0.2.1+4
 
   # Fastyle
-  fastyle_core: ^0.0.36
+  fastyle_core: ^0.0.36+1
 
   # T
   tbloc: ^0.21.8

@@ -17,8 +17,8 @@ dependencies:
   easy_localization: ^3.0.3
 
   # Fastyle
-  fastyle_connectivity: ^0.0.31
-  fastyle_core: ^0.0.36
+  fastyle_connectivity: ^0.0.32
+  fastyle_core: ^0.0.36+1
 
 dev_dependencies:
   flutter_test:

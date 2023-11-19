@@ -1,3 +1,8 @@
+## 0.0.31
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: added FastFiancialAmountSwitchField.
+
 ## 0.0.30
 
  - **FIX**: show all financial instrument items.
