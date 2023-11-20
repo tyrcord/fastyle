@@ -95,7 +95,7 @@ class FastSearchPage<T extends FastItem> extends StatefulWidget {
   /// The delegate object that can modify the behavior of the widget.
   final FastListViewLayoutDelegate<T>? delegate;
 
-  final Widget? listViewEmptyContent;
+  final FastEmptyListBuilder<T>? listViewEmptyContentBuilder;
   final String? listViewEmptyText;
 
   final EdgeInsets? listViewContentPadding;
@@ -117,7 +117,7 @@ class FastSearchPage<T extends FastItem> extends StatefulWidget {
     this.delegate,
     this.categories,
     this.selection,
-    this.listViewEmptyContent,
+    this.listViewEmptyContentBuilder,
     this.listViewEmptyText,
     this.closeIcon,
     this.backIcon,
@@ -261,7 +261,8 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
                   intialCategoryIndex: widget.intialCategoryIndex,
                   allCategoryText: widget.allCategoryText,
                   delegate: widget.delegate,
-                  listViewEmptyContent: widget.listViewEmptyContent,
+                  listViewEmptyContentBuilder:
+                      widget.listViewEmptyContentBuilder,
                   listViewEmptyText: widget.listViewEmptyText,
                   padding: widget.listViewContentPadding ??
                       ThemeHelper.spacing.getHorizontalPadding(context),

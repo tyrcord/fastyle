@@ -24,7 +24,7 @@ class FastListView<T extends FastItem> extends StatelessWidget {
   final bool sortItems;
   final List<T> items;
   final EdgeInsets padding;
-  final Widget? emptyContent;
+  final FastEmptyListBuilder<T>? emptyContentBuilder;
   final String? emptyText;
 
   const FastListView({
@@ -42,7 +42,7 @@ class FastListView<T extends FastItem> extends StatelessWidget {
     this.delegate,
     this.listItemBuilder,
     this.categories,
-    this.emptyContent,
+    this.emptyContentBuilder,
     this.emptyText,
   });
 
@@ -58,7 +58,7 @@ class FastListView<T extends FastItem> extends StatelessWidget {
       extraTabBuilder: extraTabBuilder,
       delegate: delegate,
       padding: padding,
-      emptyContent: emptyContent,
+      emptyContentBuilder: emptyContentBuilder,
       emptyText: emptyText,
     );
   }

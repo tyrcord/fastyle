@@ -35,7 +35,8 @@ class FastSelectableListView<T extends FastItem> extends StatefulWidget {
   /// The delegate object that can modify the behavior of the widget.
   final FastListViewLayoutDelegate<T>? delegate;
 
-  final Widget? listViewEmptyContent;
+  final FastEmptyListBuilder<T>? listViewEmptyContentBuilder;
+
   final String? listViewEmptyText;
 
   const FastSelectableListView({
@@ -63,7 +64,7 @@ class FastSelectableListView<T extends FastItem> extends StatefulWidget {
     this.categories,
     this.selection,
     this.delegate,
-    this.listViewEmptyContent,
+    this.listViewEmptyContentBuilder,
     this.listViewEmptyText,
   });
 
@@ -108,7 +109,7 @@ class _FastSelectableListViewState<T extends FastItem>
       isViewScrollable: widget.isViewScrollable,
       extraTabBuilder: widget.extraTabBuilder,
       delegate: widget.delegate,
-      emptyContent: widget.listViewEmptyContent,
+      emptyContentBuilder: widget.listViewEmptyContentBuilder,
       emptyText: widget.listViewEmptyText,
     );
   }

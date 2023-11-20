@@ -41,7 +41,7 @@ class FastSelectField<T> extends StatefulWidget {
   final bool isReadOnly;
   final bool isEnabled;
   final bool sortItems;
-  final Widget? listViewEmptyContent;
+  final FastEmptyListBuilder<FastItem<T>>? listViewEmptyContentBuilder;
   final String? listViewEmptyText;
   final VoidCallback? onSearchPageClose;
   final FastFastSelectFieldDelegate<FastItem<T>>? delegate;
@@ -78,7 +78,7 @@ class FastSelectField<T> extends StatefulWidget {
     this.backIcon,
     this.searchPageDelegate,
     this.selection,
-    this.listViewEmptyContent,
+    this.listViewEmptyContentBuilder,
     this.listViewEmptyText,
     this.onSearchPageClose,
     this.delegate,
@@ -231,9 +231,9 @@ class _FastSelectFieldState<T> extends State<FastSelectField<T>> {
         context,
         CupertinoPageRoute(
           builder: (BuildContext context) => FastSearchPage<FastItem<T>>(
+            listViewEmptyContentBuilder: widget.listViewEmptyContentBuilder,
             listViewContentPadding: widget.listViewContentPadding,
             searchPlaceholderText: widget.searchPlaceholderText,
-            listViewEmptyContent: widget.listViewEmptyContent,
             clearSelectionText: widget.clearSelectionText,
             canClearSelection: widget.canClearSelection,
             listViewEmptyText: widget.listViewEmptyText,

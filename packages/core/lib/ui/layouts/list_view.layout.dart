@@ -17,6 +17,11 @@ const kFastListTileCategoryAll = FastInternalCategory(
   weight: 1000,
 );
 
+typedef FastEmptyListBuilder<T extends FastItem> = Widget? Function(
+  BuildContext context,
+  FastListItemCategory<T>,
+);
+
 /// A widget that creates a list view with customizable features.
 class FastListViewLayout<T extends FastItem> extends StatelessWidget {
   /// The function that creates a list item for a given index and item.
@@ -55,7 +60,7 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
   /// The scroll controller used to control the list view's scrolling behavior.
   final scrollController = ScrollController();
 
-  final Widget? emptyContent;
+  final FastEmptyListBuilder<T>? emptyContentBuilder;
 
   final String? emptyText;
 
@@ -74,7 +79,7 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
     this.sortItems = true,
     this.extraTabBuilder,
     this.allCategoryText,
-    this.emptyContent,
+    this.emptyContentBuilder,
     this.emptyText,
     this.delegate,
   });
@@ -84,12 +89,17 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
     final elements = [...items];
 
     // If groupByCategory is true, display a tab view with categories
-    if (groupByCategory) {
-      return _buildTabViews(context, elements);
-    }
+    if (groupByCategory) return _buildTabViews(context, elements);
 
     // Otherwise, display a standard list view
-    return buildListView(context, elements);
+    return buildListView(
+      context,
+      FastListItemCategory(
+        labelText: CoreLocaleKeys.core_label_all,
+        valueText: 'all',
+        items: elements,
+      ),
+    );
   }
 
   /// Builds a tab view widget with categories.
@@ -123,7 +133,7 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
 
       // If a view was not provided by the delegate, create a standard list view
       //for the category
-      view ??= buildListView(context, listCategory.items);
+      view ??= buildListView(context, listCategory);
 
       tabs.add(tab);
       views.add(view);
@@ -137,10 +147,10 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
   }
 
   /// Builds a list view with the specified items.
-  Widget buildListView(BuildContext context, List<T> items) {
-    if (items.isEmpty) {
-      return _buildEmptyContent(context);
-    }
+  Widget buildListView(BuildContext context, FastListItemCategory<T> category) {
+    final List<T> items = category.items;
+
+    if (items.isEmpty) return _buildEmptyContent(context, category);
 
     // If the view is scrollable or the items are grouped by category,
     // create a scrollable list view
@@ -152,10 +162,13 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
     return _buildFixedContent(context, items);
   }
 
-  Widget _buildEmptyContent(BuildContext context) {
-    if (emptyContent != null) {
-      return emptyContent!;
-    }
+  Widget _buildEmptyContent(
+    BuildContext context,
+    FastListItemCategory<T> category,
+  ) {
+    final emptyContent = emptyContentBuilder?.call(context, category);
+
+    if (emptyContent != null) return emptyContent;
 
     return Center(
       child: FastSecondaryBody(

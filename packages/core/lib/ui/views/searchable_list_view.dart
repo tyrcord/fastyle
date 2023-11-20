@@ -45,7 +45,7 @@ class FastSearchableListView<T extends FastItem> extends StatefulWidget {
   /// The delegate object that can modify the behavior of the widget.
   final FastListViewLayoutDelegate<T>? delegate;
 
-  final Widget? emptyContent;
+  final FastEmptyListBuilder<T>? emptyContentBuilder;
   final String? emptyText;
 
   const FastSearchableListView({
@@ -70,7 +70,7 @@ class FastSearchableListView<T extends FastItem> extends StatefulWidget {
     this.listItemBuilder,
     this.allCategoryText,
     this.delegate,
-    this.emptyContent,
+    this.emptyContentBuilder,
     this.emptyText,
   });
 
@@ -94,7 +94,7 @@ class _FastSearchableListViewState<T extends FastItem>
       allCategoryText: widget.allCategoryText,
       groupByCategory: widget.groupByCategory,
       extraTabBuilder: widget.extraTabBuilder,
-      emptyContent: widget.emptyContent,
+      emptyContentBuilder: widget.emptyContentBuilder,
       delegate: widget.delegate,
       emptyText: widget.emptyText,
       padding: widget.padding,
