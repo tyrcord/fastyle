@@ -1,3 +1,8 @@
+## 0.0.31+1
+
+ - **FIX**: localization issue with  FastSelectInstrumentFieldState.
+ - **FIX**: FastSelectInstrumentField wrong empty content.
+
 ## 0.0.31
 
  - **FEAT**: update dependencies.

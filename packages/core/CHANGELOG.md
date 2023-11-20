@@ -1,3 +1,7 @@
+## 0.0.36+2
+
+ - **FIX**: migration to flutter 3.16.
+
 ## 0.0.36+1
 
  - **FIX**: make sure onboarding exist before trying to redirect to it.

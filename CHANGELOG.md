@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-11-20
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_core` - `v0.0.36+2`](#fastyle_core---v00362)
+ - [`fastyle_financial` - `v0.0.31+1`](#fastyle_financial---v00311)
+ - [`fastyle_home` - `v0.0.30+1`](#fastyle_home---v00301)
+ - [`fastyle_settings` - `v0.0.40+1`](#fastyle_settings---v00401)
+ - [`fastyle_forms` - `v0.0.35+1`](#fastyle_forms---v00351)
+ - [`fastyle_quizz` - `v0.0.12+2`](#fastyle_quizz---v00122)
+ - [`fastyle_ad` - `v0.0.28+2`](#fastyle_ad---v00282)
+ - [`fastyle_calculator` - `v1.46.1`](#fastyle_calculator---v1461)
+ - [`fastyle_video_player` - `v0.0.20+2`](#fastyle_video_player---v00202)
+ - [`fastyle_buttons` - `v0.0.19+2`](#fastyle_buttons---v00192)
+ - [`fastyle_connectivity` - `v0.0.32+1`](#fastyle_connectivity---v00321)
+ - [`fastyle_animation` - `v0.0.12+2`](#fastyle_animation---v00122)
+ - [`fastyle_layouts` - `v0.0.15+2`](#fastyle_layouts---v00152)
+ - [`fastyle_views` - `v0.0.23+2`](#fastyle_views---v00232)
+ - [`fastyle_charts` - `v0.0.23+1`](#fastyle_charts---v00231)
+ - [`fastyle_pricing` - `v1.32.1`](#fastyle_pricing---v1321)
+ - [`fastyle_text` - `v0.0.17+2`](#fastyle_text---v00172)
+ - [`fastyle_iap` - `v0.0.25+2`](#fastyle_iap---v00252)
+ - [`fastyle_digit_calculator` - `v0.0.34+1`](#fastyle_digit_calculator---v00341)
+ - [`fastyle_images` - `v0.0.38+1`](#fastyle_images---v00381)
+ - [`fastyle_firebase` - `v0.0.23+2`](#fastyle_firebase---v00232)
+ - [`fastyle_onboarding` - `v0.0.37+1`](#fastyle_onboarding---v00371)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_home` - `v0.0.30+1`
+ - `fastyle_settings` - `v0.0.40+1`
+ - `fastyle_forms` - `v0.0.35+1`
+ - `fastyle_quizz` - `v0.0.12+2`
+ - `fastyle_ad` - `v0.0.28+2`
+ - `fastyle_calculator` - `v1.46.1`
+ - `fastyle_video_player` - `v0.0.20+2`
+ - `fastyle_buttons` - `v0.0.19+2`
+ - `fastyle_connectivity` - `v0.0.32+1`
+ - `fastyle_animation` - `v0.0.12+2`
+ - `fastyle_layouts` - `v0.0.15+2`
+ - `fastyle_views` - `v0.0.23+2`
+ - `fastyle_charts` - `v0.0.23+1`
+ - `fastyle_pricing` - `v1.32.1`
+ - `fastyle_text` - `v0.0.17+2`
+ - `fastyle_iap` - `v0.0.25+2`
+ - `fastyle_digit_calculator` - `v0.0.34+1`
+ - `fastyle_images` - `v0.0.38+1`
+ - `fastyle_firebase` - `v0.0.23+2`
+ - `fastyle_onboarding` - `v0.0.37+1`
+
+---
+
+#### `fastyle_core` - `v0.0.36+2`
+
+ - **FIX**: migration to flutter 3.16.
+
+#### `fastyle_financial` - `v0.0.31+1`
+
+ - **FIX**: localization issue with  FastSelectInstrumentFieldState.
+ - **FIX**: FastSelectInstrumentField wrong empty content.
+
+
 ## 2023-11-19
 
 ### Changes
