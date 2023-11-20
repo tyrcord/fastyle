@@ -5,7 +5,6 @@ import 'package:fastyle_financial/fastyle_financial.dart';
 import 'package:fastyle_images/fastyle_images.dart';
 import 'package:flutter/material.dart';
 import 'package:matex_financial/financial.dart';
-import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:lingua_finance/generated/locale_keys.g.dart';
 import 'package:lingua_finance_instrument/generated/locale_keys.g.dart';
@@ -65,32 +64,6 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
   String get maleGender => LinguaLocalizationGender.male;
 
   @override
-  // FIXME: listen to possible changes in the instruments bloc.
-  void initState() {
-    super.initState();
-
-    final instruments = _instrumentsBloc.currentState.instruments;
-
-    debugLog(
-      'initState: ${instruments.length} finanial instruments',
-      debugLabel: 'FastSelectInstrumentField',
-    );
-
-    _items = _buildItems(instruments);
-    _selection = _findSelection();
-
-    debugLog(
-      'initState: ${_items.length} finanial instrument items',
-      debugLabel: 'FastSelectInstrumentField',
-    );
-
-    debugLog(
-      'initState: ${_favoriteBloc.favorites.length} favorites',
-      debugLabel: 'FastSelectInstrumentField',
-    );
-  }
-
-  @override
   void didUpdateWidget(FastSelectInstrumentField oldWidget) {
     super.didUpdateWidget(oldWidget);
 
@@ -101,24 +74,36 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
 
   @override
   Widget build(BuildContext context) {
-    return FastSelectField<MatexFinancialInstrument>(
-      allCategoryText: CoreLocaleKeys.core_label_all.tr(gender: maleGender),
-      labelText: FinanceLocaleKeys.finance_label_financial_instrument.tr(),
-      extraTabBuilder: () => [_buildFavoritesTab()],
-      onSelectionChanged: widget.onSelectionChanged,
-      searchPlaceholderText: searchPlaceholderText,
-      listViewEmptyContentBuilder: _buildEmptyContent,
-      listViewContentPadding: EdgeInsets.zero,
-      searchTitleText: searchTitleText,
-      captionText: widget.captionText,
-      isReadOnly: !widget.isEnabled,
-      noneTextGender: maleGender,
-      searchPageDelegate: this,
-      selection: _selection,
-      groupByCategory: true,
-      useFuzzySearch: true,
-      delegate: this,
-      items: _items,
+    return BlocBuilderWidget(
+      bloc: FastAppSettingsBloc.instance,
+      buildWhen: (previous, current) {
+        return previous.languageCode != current.languageCode;
+      },
+      builder: (context, state) {
+        final instruments = _instrumentsBloc.currentState.instruments;
+        _items = _buildItems(instruments);
+        _selection = _findSelection();
+
+        return FastSelectField<MatexFinancialInstrument>(
+          allCategoryText: CoreLocaleKeys.core_label_all.tr(gender: maleGender),
+          labelText: FinanceLocaleKeys.finance_label_financial_instrument.tr(),
+          extraTabBuilder: () => [_buildFavoritesTab()],
+          onSelectionChanged: widget.onSelectionChanged,
+          searchPlaceholderText: searchPlaceholderText,
+          listViewEmptyContentBuilder: _buildEmptyContent,
+          listViewContentPadding: EdgeInsets.zero,
+          searchTitleText: searchTitleText,
+          captionText: widget.captionText,
+          isReadOnly: !widget.isEnabled,
+          noneTextGender: maleGender,
+          searchPageDelegate: this,
+          selection: _selection,
+          groupByCategory: true,
+          useFuzzySearch: true,
+          delegate: this,
+          items: _items,
+        );
+      },
     );
   }
 
