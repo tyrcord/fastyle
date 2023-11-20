@@ -107,7 +107,7 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
       extraTabBuilder: () => [_buildFavoritesTab()],
       onSelectionChanged: widget.onSelectionChanged,
       searchPlaceholderText: searchPlaceholderText,
-      listViewEmptyContent: _buildEmptyContent(),
+      listViewEmptyContentBuilder: _buildEmptyContent,
       listViewContentPadding: EdgeInsets.zero,
       searchTitleText: searchTitleText,
       captionText: widget.captionText,
@@ -122,17 +122,24 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
     );
   }
 
-  Widget _buildEmptyContent() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const FastNoFavoriteIcon(size: kFastImageSizeXl),
-          kFastVerticalSizedBox12,
-          FastBody(text: CoreLocaleKeys.core_message_no_favorites.tr()),
-        ],
-      ),
-    );
+  Widget? _buildEmptyContent(
+    BuildContext context,
+    FastListItemCategory<FastItem<MatexFinancialInstrument>> category,
+  ) {
+    if (category.valueText == _kFavoritesTabValue) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const FastNoFavoriteIcon(size: kFastImageSizeXl),
+            kFastVerticalSizedBox12,
+            FastBody(text: CoreLocaleKeys.core_message_no_favorites.tr()),
+          ],
+        ),
+      );
+    }
+
+    return null;
   }
 
   FastListItemCategory<FastFinancialInstrumentItem> _buildFavoritesTab() {
@@ -276,7 +283,7 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
         builder: (context, state) {
           return listViewLayout.buildListView(
             context,
-            findFavoriteInstuments(_items),
+            category.copyWith(items: findFavoriteInstuments(_items)),
           );
         },
       );
