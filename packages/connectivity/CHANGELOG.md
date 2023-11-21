@@ -1,3 +1,7 @@
+## 0.0.33
+
+ - **FEAT**: update dependencies.
+
 ## 0.0.32+1
 
  - Update a dependency to the latest release.

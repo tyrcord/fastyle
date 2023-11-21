@@ -1,3 +1,8 @@
+## 0.0.29
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better operation succeeded pdf export.
+
 ## 0.0.28+3
 
  - **FIX**: don't filter rewarded ads.

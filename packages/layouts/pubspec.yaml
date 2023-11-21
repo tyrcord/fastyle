@@ -1,6 +1,6 @@
 name: fastyle_layouts
 description: Set of layouts Widgets for the fastyle library.
-version: 0.0.15+2
+version: 0.0.15+3
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/layouts
 
 environment:
@@ -12,7 +12,7 @@ dependencies:
     sdk: flutter
 
   # Fastyle
-  fastyle_core: ^0.0.36+2
+  fastyle_core: ^0.0.37
 
   # T
   tenhance: ^0.0.4

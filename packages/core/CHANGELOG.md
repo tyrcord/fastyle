@@ -1,3 +1,7 @@
+## 0.0.37
+
+ - **FEAT**: update dependencies.
+
 ## 0.0.36+2
 
  - **FIX**: migration to flutter 3.16.
