@@ -23,19 +23,19 @@ dependencies:
   fastyle_forms: ^0.0.35+1
 
   # Lingua
-  lingua_finance: ^0.0.23
-  lingua_finance_forex: ^0.0.6
+  lingua_finance: ^0.0.24
+  lingua_finance_forex: ^0.0.8
   lingua_units: ^0.0.7
   lingua_core: ^0.0.32
-  lingua_finance_instrument: ^0.0.6
+  lingua_finance_instrument: ^0.0.7
   lingua_number: ^0.0.10
 
   # MateX
-  matex_financial: ^0.0.28
+  matex_financial: ^0.0.29
 
   # T
-  t_helpers: ^0.0.42
-  tbloc: ^0.21.8
+  t_helpers: ^0.0.44
+  tbloc: ^0.21.8+2
 
 dev_dependencies:
   flutter_test:

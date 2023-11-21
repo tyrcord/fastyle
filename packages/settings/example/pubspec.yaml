@@ -23,19 +23,19 @@ dependencies:
   fastyle_pricing: ^1.32.1
 
   # MateX
-  matex_financial: ^0.0.28
+  matex_financial: ^0.0.29
 
   # Lingua
-  lingua_settings: ^0.0.12
-  lingua_languages: ^0.0.6
-  lingua_finance: ^0.0.22
-  lingua_purchases: ^0.0.17
-  lingua_finance_instrument: ^0.0.5
+  lingua_settings: ^0.0.13
+  lingua_languages: ^0.0.7
+  lingua_finance: ^0.0.24
+  lingua_purchases: ^0.0.18
+  lingua_finance_instrument: ^0.0.7
   lingua_share: ^0.0.2+1
-  lingua_core: ^0.0.31
+  lingua_core: ^0.0.32
 
   # T
-  tbloc: ^0.21.8
+  tbloc: ^0.21.8+2
 
 dev_dependencies:
   flutter_test:

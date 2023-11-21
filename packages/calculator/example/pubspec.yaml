@@ -19,7 +19,7 @@ dependencies:
   fastyle_calculator: ^1.46.1
 
   # T
-  tbloc: ^0.21.8
+  tbloc: ^0.21.8+2
 
 dev_dependencies:
   flutter_test:

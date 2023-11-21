@@ -20,11 +20,11 @@ dependencies:
   easy_localization: ^3.0.3
 
   # T
-  tbloc: ^0.21.8
+  tbloc: ^0.21.8+2
 
   # Lingua
-  lingua_countries: ^0.0.4
-  lingua_core: ^0.0.31
+  lingua_countries: ^0.0.5
+  lingua_core: ^0.0.32
 
 dev_dependencies:
   flutter_test:

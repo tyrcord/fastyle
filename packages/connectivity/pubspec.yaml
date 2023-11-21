@@ -21,11 +21,11 @@ dependencies:
   fastyle_core: ^0.0.36+2
 
   # T
-  tmodel: ^0.5.12
-  tbloc: ^0.21.8
+  tmodel: ^0.5.12+2
+  tbloc: ^0.21.8+2
 
   # Lingua
-  lingua_core: ^0.0.31
+  lingua_core: ^0.0.32
 
 dev_dependencies:
   flutter_test:

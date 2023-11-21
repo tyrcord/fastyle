@@ -16,10 +16,10 @@ dependencies:
   go_router: ^12.1.1
 
   # Lingua
-  lingua_core: ^0.0.31
+  lingua_core: ^0.0.32
 
   # T
-  tbloc: ^0.21.8
+  tbloc: ^0.21.8+2
   tenhance: ^0.0.4
 
   # Fastyle

@@ -12,7 +12,7 @@ dependencies:
     sdk: flutter
 
   # Public
-  package_info_plus: ^4.2.0
+  package_info_plus: ^5.0.1
   rxdart: ^0.27.7
   app_tracking_transparency: ^2.0.4
   collection: ^1.18.0
@@ -32,23 +32,23 @@ dependencies:
   another_flushbar: ^1.12.30
   shimmer: ^3.0.0
   decimal: ^2.3.3
-  device_info_plus: ^9.1.0
+  device_info_plus: ^9.1.1
   connectivity_plus: ^5.0.1
 
   # Fastyle
   fastyle_buttons: ^0.0.19+2
 
   # T
-  t_helpers: ^0.0.42
-  tmodel: ^0.5.12
-  tbloc: ^0.21.8
-  tstore: ^0.8.21
+  t_helpers: ^0.0.44
+  tmodel: ^0.5.12+2
+  tbloc: ^0.21.8+2
+  tstore: ^0.8.21+2
   subx: ^1.11.0
   tenhance: ^0.0.4
 
   # Lingua
-  lingua_core: ^0.0.31
-  lingua_settings: ^0.0.12
+  lingua_core: ^0.0.32
+  lingua_settings: ^0.0.13
 
 flutter:
   assets:

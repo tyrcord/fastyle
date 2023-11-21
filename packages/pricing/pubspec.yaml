@@ -20,10 +20,10 @@ dependencies:
   fastyle_iap: ^0.0.25+2
 
   # Lingua
-  lingua_purchases: ^0.0.17
+  lingua_purchases: ^0.0.18
 
   # T
-  tbloc: ^0.21.8
+  tbloc: ^0.21.8+2
 
 dev_dependencies:
   flutter_test:

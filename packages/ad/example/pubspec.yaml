@@ -24,12 +24,12 @@ dependencies:
   fastyle_core: ^0.0.36+2
 
   # T
-  tbloc: ^0.21.8
+  tbloc: ^0.21.8+2
 
   # Lingua
-  lingua_core: ^0.0.31
-  lingua_ad: ^0.0.12
-  lingua_purchases: ^0.0.17
+  lingua_core: ^0.0.32
+  lingua_ad: ^0.0.14
+  lingua_purchases: ^0.0.18
 
 dev_dependencies:
   flutter_test:

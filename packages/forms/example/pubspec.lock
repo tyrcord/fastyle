@@ -29,10 +29,10 @@ packages:
     dependency: transitive
     description:
       name: args
-      sha256: "4cab82a83ffef80b262ddedf47a0a8e56ee6fbf7fe21e6e768b02792034dd440"
+      sha256: eef6c46b622e0494a36c5a12d10d77fb4e855501a91c1b9ef9339326e58f0596
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.0"
+    version: "2.4.2"
   async:
     dependency: transitive
     description:
@@ -173,10 +173,10 @@ packages:
     dependency: transitive
     description:
       name: device_info_plus
-      sha256: "7035152271ff67b072a211152846e9f1259cf1be41e34cd3e0b5463d2d6b8419"
+      sha256: "0042cb3b2a76413ea5f8a2b40cec2a33e01d0c937e91f0f7c211fde4f7739ba6"
       url: "https://pub.dev"
     source: hosted
-    version: "9.1.0"
+    version: "9.1.1"
   device_info_plus_platform_interface:
     dependency: transitive
     description:
@@ -239,59 +239,67 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.19"
+    version: "0.0.19+2"
   fastyle_calculator:
     dependency: transitive
     description:
       name: fastyle_calculator
-      sha256: e3211ad89d30a87eaf902d1c5b3189063a2f532b1a70c7392c076c08725ed691
+      sha256: "5281b8dc346214bb63bec248dffd8e652cd48713b4a16818590940b1d95182a3"
       url: "https://pub.dev"
     source: hosted
-    version: "1.45.0"
+    version: "1.46.1"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.36"
+    version: "0.0.36+2"
   fastyle_digit_calculator:
     dependency: "direct overridden"
     description:
       path: "../../digit_calculator"
       relative: true
     source: path
-    version: "0.0.33"
+    version: "0.0.34+1"
+  fastyle_financial:
+    dependency: transitive
+    description:
+      name: fastyle_financial
+      sha256: dd25aed1adf8899d78fabba368f31360e391bcab93c618f677cd65da1b22956d
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.31+1"
   fastyle_forms:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.34"
+    version: "0.0.35+1"
   fastyle_images:
     dependency: "direct overridden"
     description:
       path: "../../images"
       relative: true
     source: path
-    version: "0.0.37"
+    version: "0.0.38+1"
   fastyle_settings:
     dependency: transitive
     description:
       name: fastyle_settings
-      sha256: "82aa73402b1efae5716c2b29d178e5ca7e774ec2f340e2706312eee6c2b52c99"
+      sha256: b30bd935ebd8c3a12d962618068b103e8f7f69ab457f37b2b05c100ce1bcd275
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.39"
+    version: "0.0.40+1"
   fastyle_text:
     dependency: transitive
     description:
       name: fastyle_text
-      sha256: "03c88548c15af5e52c39d4e7e8d058bd5f8c070e6efc45a4750417b5c34d3cd7"
+      sha256: "482d080165eebe95a930444c10a5a25a3539a5c3d253c6457b26337d9f5f570d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.17"
+    version: "0.0.17+2"
   ffi:
     dependency: transitive
     description:
@@ -492,58 +500,58 @@ packages:
     dependency: transitive
     description:
       name: lingua_calculator
-      sha256: b1f89a894eb620dc96729a86b942978bf536257109c756daa830b887c7280aa1
+      sha256: ed8ac6c9b706d9ef61d4e6372d449d7f513d8412e7ca9524a7c4602056a024bf
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.4"
+    version: "0.0.5"
   lingua_core:
     dependency: "direct main"
     description:
       name: lingua_core
-      sha256: dd99233ba71aee241c60a31c09a0fabf410343302f1056f4ca6154912cfe11dd
+      sha256: "58c7c545820eab1ddd43adbaeb86c34b9f5cf1ae1dad13ac944b3ebd4e7f1726"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.31"
+    version: "0.0.32"
   lingua_countries:
     dependency: "direct main"
     description:
       name: lingua_countries
-      sha256: cdd1c9f8d48c8211df384ad477ad5b0a2663a773d42f9648dd07738cbdbcdcf7
+      sha256: c096732bab2db23d1ca5c04a966db34e7888a6cfd66cd6225b8f4b11d4a38bca
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.4"
+    version: "0.0.5"
   lingua_finance:
     dependency: transitive
     description:
       name: lingua_finance
-      sha256: "95d8695679c871303eac1322f3fc713b95603e85d0454e514c57515ed3002ebc"
+      sha256: "62655dc9f477bd9727eee6a55699b0328a17ef43da6b32028985fb2f85d81476"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.22"
+    version: "0.0.24"
   lingua_finance_forex:
     dependency: transitive
     description:
       name: lingua_finance_forex
-      sha256: "16f026131b71811d5920fb143b8b2c93c9198ede5876544a6c9773b920dae5c9"
+      sha256: "1a9cbc3a04d9f4300b0b2ff201550af3e0490b59f87faa02a7ffc90a4930ee43"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.5"
+    version: "0.0.8"
   lingua_finance_instrument:
     dependency: transitive
     description:
       name: lingua_finance_instrument
-      sha256: "9b4e6526d2e39408eecbd2bfa54ce83029a53456a440901066e950e105fd72f4"
+      sha256: "795ba7edddd6a0e2611c5376cd7c911d05ff7ecddb435e3e55e27da615714bf5"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.5"
+    version: "0.0.7"
   lingua_finance_stock:
     dependency: transitive
     description:
       name: lingua_finance_stock
-      sha256: "8da7e58301ba04aad938ac238f198109cda63f12e36f460eb187cf1ff5926b79"
+      sha256: b641ac9335269881f02a3fb23c2e37ccec3d4587c3b918dff9de5cd9821c1e95
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.7"
+    version: "0.0.8"
   lingua_help:
     dependency: transitive
     description:
@@ -564,10 +572,10 @@ packages:
     dependency: transitive
     description:
       name: lingua_number
-      sha256: "0f99e4e8227913d2ccbc5d5deeca9520f28717b80e244694263b020073db059a"
+      sha256: "47b3eb7ce7441bb747cbf833db051a08eaee275d3d0da78c9c372b939c3a3827"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.9"
+    version: "0.0.10"
   lingua_purchases:
     dependency: transitive
     description:
@@ -580,18 +588,18 @@ packages:
     dependency: transitive
     description:
       name: lingua_settings
-      sha256: f94082efa26d19f42b38b3ef20704a8c3ff7e1d99d30a74bdfa1b8dceda176d5
+      sha256: "2c0bc401f3f82a99c54b305c239c64c4c846a55d17d1cddefad4a509fef8a6c4"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.12"
+    version: "0.0.13"
   lingua_units:
     dependency: transitive
     description:
       name: lingua_units
-      sha256: c259c1d66453af1b57ebb50148556b53b0eaa21c35cafee104bd51c9dd797af0
+      sha256: c653eafdef7c027c573c602cd2f274abec628b04ff8815a964a22b6375df66fd
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.6"
+    version: "0.0.7"
   lints:
     dependency: transitive
     description:
@@ -628,26 +636,26 @@ packages:
     dependency: transitive
     description:
       name: matex_core
-      sha256: a54e8d9912dc0bef97f269eb64c510bfeba72071ca32ff8749883c82be178c71
+      sha256: a64b10e79855399c9f44e1c0d79144352e763fc316460e7e98680be8663c9f22
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.22"
+    version: "0.0.23"
   matex_data:
     dependency: transitive
     description:
       name: matex_data
-      sha256: "838f103f454c8a8ec57cc176059d2df0958ae63cf7375e46b673acbe7d500cc6"
+      sha256: "6333bac6d51018b49ed94cd49ae89157a7c6ae129c186c094b1300a1af7f96b6"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.16"
+    version: "0.0.17"
   matex_financial:
     dependency: transitive
     description:
       name: matex_financial
-      sha256: fe8d5bc582256015659f8a10d0caeb93704a069669603928537ef23fd152561e
+      sha256: bf9326201f7a39c568efb88c8986eea847356a2cfadda3b092873de034431d92
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.28"
+    version: "0.0.29"
   meta:
     dependency: transitive
     description:
@@ -692,10 +700,10 @@ packages:
     dependency: transitive
     description:
       name: package_info_plus
-      sha256: "7e76fad405b3e4016cd39d08f455a4eb5199723cf594cd1b8916d47140d93017"
+      sha256: "88bc797f44a94814f2213db1c9bd5badebafdfb8290ca9f78d4b9ee2a3db4d79"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.0"
+    version: "5.0.1"
   package_info_plus_platform_interface:
     dependency: transitive
     description:
@@ -1033,18 +1041,18 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: e1e6f2aae53e6e03f00da23a558fa06cc2fa9a182f446acbd6509dffee91c8a2
+      sha256: "3681e7cac1392f1f30e9c94bf079055e3d6620f5c8146a29573f456fe618647d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.42"
+    version: "0.0.44"
   tbloc:
     dependency: "direct main"
     description:
       name: tbloc
-      sha256: "8106032b3d55eceda053ea6536c3780e90de4fffc629a4f8fe09651b45cd7bbe"
+      sha256: "533a8c8286dd58d76f30724cc9ec390df514297b45ef0c4a0ebfa79139371bd8"
       url: "https://pub.dev"
     source: hosted
-    version: "0.21.8"
+    version: "0.21.8+2"
   tenhance:
     dependency: transitive
     description:
@@ -1081,18 +1089,18 @@ packages:
     dependency: transitive
     description:
       name: tmodel
-      sha256: "0945945eddcd4e0064b9aa11a052151202d01a236c163e08093057f841dfd570"
+      sha256: "9cb6e0c10fd9f4b597dd419933632a08c45ffa3d56007c9db770968058658dfe"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.12"
+    version: "0.5.12+2"
   tstore:
     dependency: transitive
     description:
       name: tstore
-      sha256: "68c4f36ad339bdd4469f20ea0ceb366b7f1cd92306d992e8317856a796e0e307"
+      sha256: "39bcbd3f4230e5b3c89f07300a0a16a40bffffce46435ab07c240b1231ed1880"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.21"
+    version: "0.8.21+2"
   tsub:
     dependency: transitive
     description:
