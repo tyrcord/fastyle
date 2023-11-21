@@ -99,7 +99,8 @@ class FastExportPdfRewardedDialog extends StatelessWidget {
       missingRightsBuilder: missingRightsBuilder ?? buildMissingRights,
       onGetValidText: onGetValidText ?? handleValidTextChange,
       operationInProgressBuilder: operationInProgressBuilder,
-      operationSucceededBuilder: operationSucceededBuilder,
+      operationSucceededBuilder:
+          operationSucceededBuilder ?? handleOperationSucceeded,
       onVerifyRights: onVerifyRights ?? handleVerifyRights,
       onGetTitleText: onGetTitleText ?? handleTitleChange,
       onOperationStatusChanged: onOperationStatusChanged,
@@ -117,13 +118,19 @@ class FastExportPdfRewardedDialog extends StatelessWidget {
     );
   }
 
+  Widget handleOperationSucceeded(BuildContext context) {
+    return FastSuccessStatus(
+      text: AdLocaleKeys.ad_message_enjoy_your_pdf_report_reward.tr(),
+    );
+  }
+
   Widget buildInitial(BuildContext context) {
     return FastBody(
       text: CoreLocaleKeys.core_question_export_data_pdf.tr(),
     );
   }
 
-  Widget buildMissingRights(context) {
+  Widget buildMissingRights(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
