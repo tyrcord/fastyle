@@ -79,7 +79,8 @@ class FastAdmobRewardedAdService {
     final requestId = uuid.v4();
 
     final canRequestAd = isAdRequestAllowedForCountry(
-      whiteList: adInfo?.countries,
+      // FIXME: define white list for rewarded ads
+      // whiteList: adInfo?.countries,
       country: country,
     );
 
