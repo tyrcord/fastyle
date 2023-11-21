@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-11-21
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.28+3`](#fastyle_ad---v00283)
+
+---
+
+#### `fastyle_ad` - `v0.0.28+3`
+
+ - **FIX**: don't filter rewarded ads.
+
+
 ## 2023-11-20
 
 ### Changes

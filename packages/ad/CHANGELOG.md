@@ -1,3 +1,7 @@
+## 0.0.28+3
+
+ - **FIX**: don't filter rewarded ads.
+
 ## 0.0.28+2
 
  - Update a dependency to the latest release.
