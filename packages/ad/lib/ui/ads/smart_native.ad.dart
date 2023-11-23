@@ -28,9 +28,9 @@ class FastSmartNativeAd extends StatefulWidget {
   final FastAdSlotDelegate? delegate;
   final Widget? placeholder;
   final String? adId;
-  final bool showRemoveAdLink;
   final VoidCallback? onRemoveAdLinkTap;
-  final bool autoRefresh;
+  final bool? showRemoveAdLink;
+  final bool? autoRefresh;
 
   const FastSmartNativeAd({
     super.key,
@@ -44,10 +44,10 @@ class FastSmartNativeAd extends StatefulWidget {
     this.placeholder,
     this.delegate,
     this.adId,
-    this.refreshInterval,
     this.onRemoveAdLinkTap,
-    this.showRemoveAdLink = false,
-    this.autoRefresh = false,
+    this.refreshInterval,
+    this.showRemoveAdLink,
+    this.autoRefresh,
   }) : assert(
           adSize == FastAdSize.medium,
           'Only support native ad with a height of 120px',
@@ -73,6 +73,18 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
 
   String get debugLabel {
     return widget.debugLabel ?? 'FastSmartNativeAd';
+  }
+
+  bool get isAutoRefreshEnabled {
+    final adInfo = _getAdInfo();
+
+    return widget.autoRefresh ?? adInfo.autoRefresh;
+  }
+
+  bool get canShowRemoveAdLink {
+    final adInfo = _getAdInfo();
+
+    return widget.showRemoveAdLink ?? adInfo.showRemoveAdLink;
   }
 
   @override
@@ -152,7 +164,7 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
   }
 
   List<Widget>? appendAdLink() {
-    if (widget.showRemoveAdLink) {
+    if (canShowRemoveAdLink) {
       return [
         kFastVerticalSizedBox16,
         // Using Align in order to avoid stretching the ad link.
@@ -235,8 +247,7 @@ class FastSmartNativeAdState extends State<FastSmartNativeAd> {
   }
 
   void _startRefreshingAd() {
-    // Skip if auto-refresh is disabled
-    if (!widget.autoRefresh) return _stopRefreshingAd();
+    if (!isAutoRefreshEnabled) return _stopRefreshingAd();
 
     final appLifecycleBloc = FastAppLifecycleBloc.instance;
     final appLifecycleState = appLifecycleBloc.currentState.appLifeCycleState;

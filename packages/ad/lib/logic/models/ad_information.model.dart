@@ -65,6 +65,12 @@ class FastAdInfo extends TDocument {
   /// The refresh interval for ads. The default value is 90 seconds.
   final int refreshInterval;
 
+  /// Whether the ads should be refreshed automatically.
+  final bool autoRefresh;
+
+  /// Whether the ads should show a link to remove ads.
+  final bool showRemoveAdLink;
+
   /// Get the Ad Unit ID for native ads.
   String? get nativeAdUnitId {
     if (Platform.isIOS || Platform.isAndroid) {
@@ -183,9 +189,11 @@ class FastAdInfo extends TDocument {
     this.iosRewardedInterstitialAdUnitId,
     this.keywords,
     this.countries,
-    this.splashAdThreshold = kFastSplashAdThreshold,
     this.adServiceUriAuthority,
+    this.splashAdThreshold = kFastSplashAdThreshold,
     this.refreshInterval = kFastAdRefreshInterval,
+    this.autoRefresh = kFastAdAutoRefresh,
+    this.showRemoveAdLink = kFastAdShowRemoveAdLink,
   });
 
   /// Create a new [FastAdInfo] instance from a JSON map.
@@ -213,6 +221,9 @@ class FastAdInfo extends TDocument {
       adServiceUriAuthority: json['adServiceUriAuthority'] as String?,
       refreshInterval:
           json['refreshInterval'] as int? ?? kFastAdRefreshInterval,
+      showRemoveAdLink:
+          json['showRemoveAdLink'] as bool? ?? kFastAdShowRemoveAdLink,
+      autoRefresh: json['autoRefresh'] as bool? ?? kFastAdAutoRefresh,
     );
   }
 
@@ -240,6 +251,8 @@ class FastAdInfo extends TDocument {
     int? splashAdThreshold,
     String? adServiceUriAuthority,
     int? refreshInterval,
+    bool? autoRefresh,
+    bool? showRemoveAdLink,
   }) =>
       FastAdInfo(
         iosNativeAdUnitId: iosNativeAdUnitId ?? this.iosNativeAdUnitId,
@@ -269,6 +282,8 @@ class FastAdInfo extends TDocument {
         adServiceUriAuthority:
             adServiceUriAuthority ?? this.adServiceUriAuthority,
         refreshInterval: refreshInterval ?? this.refreshInterval,
+        autoRefresh: autoRefresh ?? this.autoRefresh,
+        showRemoveAdLink: showRemoveAdLink ?? this.showRemoveAdLink,
       );
 
   /// Merges the properties of another [FastAdInfo] instance into this one.
@@ -293,6 +308,8 @@ class FastAdInfo extends TDocument {
       splashAdThreshold: model.splashAdThreshold,
       adServiceUriAuthority: model.adServiceUriAuthority,
       refreshInterval: model.refreshInterval,
+      autoRefresh: model.autoRefresh,
+      showRemoveAdLink: model.showRemoveAdLink,
     );
   }
 
@@ -317,6 +334,8 @@ class FastAdInfo extends TDocument {
         'splashAdThreshold': splashAdThreshold,
         'adServiceUriAuthority': adServiceUriAuthority,
         'refreshInterval': refreshInterval,
+        'autoRefresh': autoRefresh,
+        'showRemoveAdLink': showRemoveAdLink,
         ...super.toJson(),
       };
 
@@ -341,6 +360,8 @@ class FastAdInfo extends TDocument {
         splashAdThreshold,
         adServiceUriAuthority,
         refreshInterval,
+        autoRefresh,
+        showRemoveAdLink,
       ];
 
   /// Print the values of properties in debug mode.

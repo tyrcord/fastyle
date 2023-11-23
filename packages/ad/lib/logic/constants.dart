@@ -19,6 +19,10 @@ const kFastAdServiceCacheTTL = Duration(minutes: 60);
 /// The default time to keep in cache the ad service response in debug mode.
 const kFastAdServiceCacheTTLDebug = Duration(minutes: 5);
 
+const kFastAdAutoRefresh = false;
+
+const kFastAdShowRemoveAdLink = false;
+
 const kFastNativeAdAssetSizes = {
   FastAdSize.small: 60.0,
   FastAdSize.medium: 120.0,
