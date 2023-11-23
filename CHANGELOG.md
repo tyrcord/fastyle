@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-11-23
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.30`](#fastyle_ad---v0030)
+
+---
+
+#### `fastyle_ad` - `v0.0.30`
+
+ - **FIX**: minor improvements.
+ - **FEAT**: add this.autoRefresh property to native ad.
+ - **FEAT**: set default refresh interval for ads to 300 ms.
+
+
 ## 2023-11-21
 
 ### Changes

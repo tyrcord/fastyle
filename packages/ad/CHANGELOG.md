@@ -1,3 +1,9 @@
+## 0.0.30
+
+ - **FIX**: minor improvements.
+ - **FEAT**: add this.autoRefresh property to native ad.
+ - **FEAT**: set default refresh interval for ads to 300 ms.
+
 ## 0.0.29
 
  - **FEAT**: update dependencies.

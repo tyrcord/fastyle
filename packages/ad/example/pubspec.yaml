@@ -20,7 +20,7 @@ dependencies:
   easy_localization: ^3.0.3
 
   # Fastyle
-  fastyle_ad: ^0.0.29
+  fastyle_ad: ^0.0.30
   fastyle_core: ^0.0.37
 
   # T
