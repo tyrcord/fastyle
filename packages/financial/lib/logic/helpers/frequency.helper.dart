@@ -10,8 +10,12 @@ String getLocaleKeyForFinancialFrequency(FastFinancialFrequency frequency) {
       return CoreLocaleKeys.core_label_semi_annually;
     case FastFinancialFrequency.quarterly:
       return CoreLocaleKeys.core_label_quarterly;
-    default:
+    case FastFinancialFrequency.monthly:
       return CoreLocaleKeys.core_label_monthly;
+    case FastFinancialFrequency.weekly:
+      return CoreLocaleKeys.core_label_weekly;
+    default:
+      return CoreLocaleKeys.core_label_daily;
   }
 }
 
