@@ -66,6 +66,10 @@ const kFastSettingsItemDescriptors = {
     labelText: HelpLocaleKeys.help_label_manual,
     value: '/settings/manual',
   ),
+  FastSettingsItems.manuals: FastItem(
+    labelText: HelpLocaleKeys.help_label_manuals,
+    value: '/settings/manuals',
+  ),
 };
 
 const kFastSettingsItemIcons = {
@@ -123,6 +127,10 @@ const kFastSettingsItemIcons = {
   ),
   FastSettingsItems.manual: FastSettingsItemIcon(
     pro: FastFontAwesomeIcons.lightBook,
+    free: FontAwesomeIcons.book,
+  ),
+  FastSettingsItems.manuals: FastSettingsItemIcon(
+    pro: FastFontAwesomeIcons.lightBooks,
     free: FontAwesomeIcons.book,
   ),
 };
