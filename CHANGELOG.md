@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-11-24
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.31`](#fastyle_ad---v0031)
+
+---
+
+#### `fastyle_ad` - `v0.0.31`
+
+ - **FEAT**: add nativeAdmobEnabled property.
+
+
 ## 2023-11-23
 
 ### Changes

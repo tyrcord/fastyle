@@ -1,3 +1,7 @@
+## 0.0.31
+
+ - **FEAT**: add nativeAdmobEnabled property.
+
 ## 0.0.30
 
  - **FIX**: minor improvements.
