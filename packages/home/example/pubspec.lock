@@ -207,21 +207,21 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.19+2"
+    version: "0.0.20"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.36+2"
+    version: "0.0.37"
   fastyle_home:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.30+1"
+    version: "0.0.31"
   ffi:
     dependency: transitive
     description:
@@ -779,18 +779,18 @@ packages:
     dependency: "direct main"
     description:
       name: t_helpers
-      sha256: "3681e7cac1392f1f30e9c94bf079055e3d6620f5c8146a29573f456fe618647d"
+      sha256: "4f371c79b34304e099ad5a6a1b878f9b82e0434c79557cd321d3ee47aae4a36e"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.44"
+    version: "0.0.45"
   tbloc:
     dependency: transitive
     description:
       name: tbloc
-      sha256: "533a8c8286dd58d76f30724cc9ec390df514297b45ef0c4a0ebfa79139371bd8"
+      sha256: ae445edde0ae4a3156a9c2a35a335ab398072f1fc9c6f2e0518330d253a6f7f4
       url: "https://pub.dev"
     source: hosted
-    version: "0.21.8+2"
+    version: "0.21.8+3"
   tenhance:
     dependency: transitive
     description:
@@ -827,10 +827,10 @@ packages:
     dependency: transitive
     description:
       name: tmodel
-      sha256: "9cb6e0c10fd9f4b597dd419933632a08c45ffa3d56007c9db770968058658dfe"
+      sha256: "9e9aebaac60825406fcd03f4d27c3822dff3da52d4d73e4dc609be725773f01d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.12+2"
+    version: "0.5.12+3"
   tstore:
     dependency: transitive
     description:

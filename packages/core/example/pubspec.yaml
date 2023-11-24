@@ -16,8 +16,8 @@ dependencies:
   go_router: ^12.1.1
 
   # T
-  t_helpers: ^0.0.44
-  tbloc: ^0.21.8+2
+  t_helpers: ^0.0.45
+  tbloc: ^0.21.8+3
   tmodel: ^0.5.12+2
   tenhance: ^0.0.4
 

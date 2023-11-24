@@ -22,7 +22,7 @@ dependencies:
 
   # T
   tmodel: ^0.5.12+2
-  tbloc: ^0.21.8+2
+  tbloc: ^0.21.8+3
 
   # Lingua
   lingua_core: ^0.0.32

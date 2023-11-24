@@ -29,9 +29,9 @@ dependencies:
 
   # T
   tstore: ^0.8.21+2
-  tbloc: ^0.21.8+2
+  tbloc: ^0.21.8+3
   tmodel: ^0.5.12+2
-  t_helpers: ^0.0.44
+  t_helpers: ^0.0.45
 
 dev_dependencies:
   flutter_test:
