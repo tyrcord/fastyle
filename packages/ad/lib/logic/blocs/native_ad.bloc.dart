@@ -97,7 +97,9 @@ class FastNativeAdBloc
       ad = await _adService!.getAdById(adId);
     }
 
-    if (ad == null && adInfo.nativeAdUnitId != null) {
+    if (adInfo.nativeAdmobEnabled &&
+        adInfo.nativeAdUnitId != null &&
+        ad == null) {
       adView = await _admobService.requestAd(
         adInfo.nativeAdUnitId!,
         countryWhiteList: adInfo.countries,

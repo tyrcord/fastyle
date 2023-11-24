@@ -23,6 +23,8 @@ const kFastAdAutoRefresh = false;
 
 const kFastAdShowRemoveAdLink = false;
 
+const kFastNativeAdmobEnabled = true;
+
 const kFastNativeAdAssetSizes = {
   FastAdSize.small: 60.0,
   FastAdSize.medium: 120.0,

@@ -71,6 +71,10 @@ class FastAdInfo extends TDocument {
   /// Whether the ads should show a link to remove ads.
   final bool showRemoveAdLink;
 
+  final bool androidNativeAdmobEnabled;
+
+  final bool iosNativeAdmobEnabled;
+
   /// Get the Ad Unit ID for native ads.
   String? get nativeAdUnitId {
     if (Platform.isIOS || Platform.isAndroid) {
@@ -173,6 +177,13 @@ class FastAdInfo extends TDocument {
     return null;
   }
 
+  bool get nativeAdmobEnabled {
+    if (Platform.isAndroid) return androidNativeAdmobEnabled;
+    if (Platform.isIOS) return iosNativeAdmobEnabled;
+
+    return false;
+  }
+
   /// Create a new [FastAdInfo] instance.
   const FastAdInfo({
     this.androidNativeAdUnitId,
@@ -194,6 +205,8 @@ class FastAdInfo extends TDocument {
     this.refreshInterval = kFastAdRefreshInterval,
     this.autoRefresh = kFastAdAutoRefresh,
     this.showRemoveAdLink = kFastAdShowRemoveAdLink,
+    this.androidNativeAdmobEnabled = kFastNativeAdmobEnabled,
+    this.iosNativeAdmobEnabled = kFastNativeAdmobEnabled,
   });
 
   /// Create a new [FastAdInfo] instance from a JSON map.
@@ -224,6 +237,10 @@ class FastAdInfo extends TDocument {
       showRemoveAdLink:
           json['showRemoveAdLink'] as bool? ?? kFastAdShowRemoveAdLink,
       autoRefresh: json['autoRefresh'] as bool? ?? kFastAdAutoRefresh,
+      androidNativeAdmobEnabled:
+          json['nativeAdmobEnabled'] as bool? ?? kFastNativeAdmobEnabled,
+      iosNativeAdmobEnabled:
+          json['nativeAdmobEnabled'] as bool? ?? kFastNativeAdmobEnabled,
     );
   }
 
@@ -253,6 +270,8 @@ class FastAdInfo extends TDocument {
     int? refreshInterval,
     bool? autoRefresh,
     bool? showRemoveAdLink,
+    bool? androidNativeAdmobEnabled,
+    bool? iosNativeAdmobEnabled,
   }) =>
       FastAdInfo(
         iosNativeAdUnitId: iosNativeAdUnitId ?? this.iosNativeAdUnitId,
@@ -284,6 +303,10 @@ class FastAdInfo extends TDocument {
         refreshInterval: refreshInterval ?? this.refreshInterval,
         autoRefresh: autoRefresh ?? this.autoRefresh,
         showRemoveAdLink: showRemoveAdLink ?? this.showRemoveAdLink,
+        androidNativeAdmobEnabled:
+            androidNativeAdmobEnabled ?? this.androidNativeAdmobEnabled,
+        iosNativeAdmobEnabled:
+            iosNativeAdmobEnabled ?? this.iosNativeAdmobEnabled,
       );
 
   /// Merges the properties of another [FastAdInfo] instance into this one.
@@ -310,6 +333,8 @@ class FastAdInfo extends TDocument {
       refreshInterval: model.refreshInterval,
       autoRefresh: model.autoRefresh,
       showRemoveAdLink: model.showRemoveAdLink,
+      androidNativeAdmobEnabled: model.androidNativeAdmobEnabled,
+      iosNativeAdmobEnabled: model.iosNativeAdmobEnabled,
     );
   }
 
@@ -336,6 +361,8 @@ class FastAdInfo extends TDocument {
         'refreshInterval': refreshInterval,
         'autoRefresh': autoRefresh,
         'showRemoveAdLink': showRemoveAdLink,
+        'androidNativeAdmobEnabled': androidNativeAdmobEnabled,
+        'iosNativeAdmobEnabled': iosNativeAdmobEnabled,
         ...super.toJson(),
       };
 
@@ -362,6 +389,8 @@ class FastAdInfo extends TDocument {
         refreshInterval,
         autoRefresh,
         showRemoveAdLink,
+        androidNativeAdmobEnabled,
+        iosNativeAdmobEnabled,
       ];
 
   /// Print the values of properties in debug mode.
