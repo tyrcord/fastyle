@@ -2,12 +2,14 @@
 import 'dart:math';
 
 // Flutter imports:
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:fastyle_core/fastyle_core.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_charts/fastyle_charts.dart';
-import 'package:t_helpers/helpers.dart';
 
 abstract class BaseChartPainter extends CustomPainter {
   final List<FastChartData> data;

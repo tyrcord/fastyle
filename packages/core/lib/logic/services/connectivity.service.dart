@@ -1,14 +1,14 @@
 // Dart imports:
-import 'dart:io';
 import 'dart:async';
+import 'dart:io';
 
 // Package imports:
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:t_helpers/helpers.dart';
 
 /// Service for monitoring internet connectivity status.
 ///

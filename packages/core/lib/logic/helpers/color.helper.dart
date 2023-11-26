@@ -1,5 +1,8 @@
-import 'package:fastyle_core/fastyle_core.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
+import 'package:fastyle_core/fastyle_core.dart';
 
 Color? getColorBasedOnValue(BuildContext context, double? value) {
   final palette = ThemeHelper.getPaletteColors(context);

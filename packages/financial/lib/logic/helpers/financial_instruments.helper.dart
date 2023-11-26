@@ -1,7 +1,8 @@
+// Package imports:
+import 'package:easy_localization/easy_localization.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_finance/generated/locale_keys.g.dart';
 import 'package:lingua_finance_forex/generated/locale_keys.g.dart';
-import 'package:lingua_core/generated/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 String getLabelTextForInstrumentType(String type) {
   switch (type) {

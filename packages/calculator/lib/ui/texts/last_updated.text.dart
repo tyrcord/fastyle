@@ -1,11 +1,15 @@
 // Flutter imports:
-import 'package:fastyle_calculator/fastyle_calculator.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
-
-import 'package:tbloc/tbloc.dart';
 import 'package:fastyle_text/fastyle_text.dart';
+import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_calculator/fastyle_calculator.dart';
+
+// Package imports:
+
 
 class FastCalculatorLastUpdatedText extends StatelessWidget {
   static const String metatataKey = 'updatedOn';

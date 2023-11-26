@@ -1,16 +1,21 @@
-import 'package:collection/collection.dart' show IterableExtension;
-import 'package:fastyle_core/fastyle_core.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:fastyle_financial/fastyle_financial.dart';
-import 'package:fastyle_images/fastyle_images.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:matex_financial/financial.dart';
-import 'package:tbloc/tbloc.dart';
-import 'package:lingua_finance/generated/locale_keys.g.dart';
-import 'package:lingua_finance_instrument/generated/locale_keys.g.dart';
+
+// Package imports:
+import 'package:collection/collection.dart' show IterableExtension;
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fastyle_core/fastyle_core.dart';
+import 'package:fastyle_images/fastyle_images.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_core/lingua_core.dart';
+import 'package:lingua_finance/generated/locale_keys.g.dart';
+import 'package:lingua_finance_instrument/generated/locale_keys.g.dart';
 import 'package:lingua_finance_instrument/lingua_finance_instrument.dart';
+import 'package:matex_financial/financial.dart';
+import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_financial/fastyle_financial.dart';
 
 const _kLeadingWidth = 40.0;
 const _kLeadingHeight = 32.0;

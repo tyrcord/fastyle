@@ -1,7 +1,10 @@
-// Package imports:
+// Dart imports:
 import 'dart:async';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
 

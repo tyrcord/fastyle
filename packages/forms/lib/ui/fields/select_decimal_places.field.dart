@@ -1,6 +1,8 @@
-import 'package:collection/collection.dart' show IterableExtension;
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:lingua_number/number.dart';
 

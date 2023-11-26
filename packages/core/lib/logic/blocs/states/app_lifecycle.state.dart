@@ -1,5 +1,7 @@
-// Package imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:tbloc/tbloc.dart';
 
 /// Represents the state of the application's lifecycle.

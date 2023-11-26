@@ -1,5 +1,7 @@
-// Package imports:
+// Dart imports:
 import 'dart:ui';
+
+// Package imports:
 import 'package:tbloc/tbloc.dart';
 
 /// Enum indicating the types of events that can be handled

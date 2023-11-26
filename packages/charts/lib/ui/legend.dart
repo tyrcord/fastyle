@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_charts/fastyle_charts.dart';
-import 'package:t_helpers/helpers.dart';
 
 class FastChartLegend extends StatelessWidget {
   final List<FastChartData> data;

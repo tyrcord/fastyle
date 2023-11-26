@@ -1,6 +1,10 @@
+// Dart imports:
 import 'dart:ui';
 
+// Package imports:
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
 /// Singleton class to manage the app's life cycle state.

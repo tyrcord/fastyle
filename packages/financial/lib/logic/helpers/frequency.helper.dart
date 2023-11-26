@@ -1,5 +1,8 @@
-import 'package:fastyle_financial/fastyle_financial.dart';
+// Package imports:
 import 'package:lingua_core/generated/locale_keys.g.dart';
+
+// Project imports:
+import 'package:fastyle_financial/fastyle_financial.dart';
 
 /// Gets the locale key for a given financial frequency.
 String getLocaleKeyForFinancialFrequency(FastFinancialFrequency frequency) {
