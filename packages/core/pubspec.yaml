@@ -1,62 +1,50 @@
-name: fastyle_core
-description: The core package for the fastyle libraries.
-version: 0.0.37
-repository: https://github.com/tyrcord/fastyle/tree/main/packages/core
-
-environment:
-  sdk: ">=3.2.0 <4.0.0"
-  flutter: ">=3.16.0"
-
 dependencies:
-  flutter:
-    sdk: flutter
-
-  # Public
-  package_info_plus: ^5.0.1
-  rxdart: ^0.27.7
-  app_tracking_transparency: ^2.0.4
-  collection: ^1.18.0
-  devicelocale: ^0.7.0
-  easy_localization: ^3.0.3
-  rate_my_app: ^2.0.0
-  url_launcher: ^6.2.1
-  font_awesome_flutter: ^10.6.0
-  go_router: ^12.1.1
-  share_plus: ^7.2.1
-  async: ^2.11.0
-  google_fonts: ^6.1.0
-  intl: ^0.18.1
-  diacritic: ^0.1.4
-  flutter_spinkit: ^5.2.0
-  fuzzy: ^0.5.1
   another_flushbar: ^1.12.30
-  shimmer: ^3.0.0
+  app_tracking_transparency: ^2.0.4
+  async: ^2.11.0
+  collection: ^1.18.0
+  connectivity_plus: ^5.0.2
   decimal: ^2.3.3
   device_info_plus: ^9.1.1
-  connectivity_plus: ^5.0.1
-
-  # Fastyle
+  devicelocale: ^0.7.0
+  diacritic: ^0.1.4
+  easy_localization: ^3.0.3
   fastyle_buttons: ^0.0.20
-
-  # T
-  t_helpers: ^0.0.45
-  tmodel: ^0.5.12+2
-  tbloc: ^0.21.8+3
-  tstore: ^0.8.21+2
-  subx: ^1.11.0
-  tenhance: ^0.0.4
-
-  # Lingua
+  flutter:
+    sdk: flutter
+  flutter_spinkit: ^5.2.0
+  font_awesome_flutter: ^10.6.0
+  fuzzy: ^0.5.1
+  go_router: ^12.1.1
+  google_fonts: ^6.1.0
+  intl: ^0.18.1
   lingua_core: ^0.0.32
   lingua_settings: ^0.0.13
-
-flutter:
-  assets:
-    - assets/fonts/
-
+  package_info_plus: ^5.0.1
+  rate_my_app: ^2.0.0
+  rxdart: ^0.27.7
+  share_plus: ^7.2.1
+  shimmer: ^3.0.0
+  subx: ^1.11.0
+  t_helpers: ^0.0.45
+  tbloc: ^0.21.8+3
+  tenhance: ^0.0.4
+  tmodel: ^0.5.12+3
+  tstore: ^0.8.21+3
+  url_launcher: ^6.2.1
+description: The core package for the fastyle libraries.
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
   dependency_validator: ^3.2.3
   flutter_lints: ^3.0.1
+  flutter_test:
+    sdk: flutter
   import_sorter: ^4.6.0
+environment:
+  flutter: '>=3.16.0'
+  sdk: '>=3.2.0 <4.0.0'
+flutter:
+  assets:
+  - assets/fonts/
+name: fastyle_core
+repository: https://github.com/tyrcord/fastyle/tree/main/packages/core
+version: 0.0.37

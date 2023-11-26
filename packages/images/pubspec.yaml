@@ -1,37 +1,27 @@
-name: fastyle_images
-description: Set of images Widgets for the fastyle library.
-version: 0.0.39
-repository: https://github.com/tyrcord/fastyle/tree/main/packages/images
-
-environment:
-  sdk: ">=3.2.0 <4.0.0"
-  flutter: ">=3.16.0"
-
 dependencies:
+  fastyle_core: ^0.0.37
   flutter:
     sdk: flutter
-
-  # Public
   flutter_svg: ^2.0.9
-  vector_graphics: ^1.1.9+1
-
-  # Fastyle
-  fastyle_core: ^0.0.37
-
-  # T
   t_helpers: ^0.0.45
-
-flutter:
-  assets:
-    - assets/images/commodity/
-    - assets/images/crypto/
-    - assets/images/flag/
-    - assets/images/mobile/
-    - assets/images/localizations/
-
+  vector_graphics: ^1.1.9+1
+description: Set of images Widgets for the fastyle library.
 dev_dependencies:
+  dependency_validator: ^3.2.3
+  flutter_lints: ^3.0.1
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.1
   import_sorter: ^4.6.0
-  dependency_validator: ^3.2.3
+environment:
+  flutter: '>=3.16.0'
+  sdk: '>=3.2.0 <4.0.0'
+flutter:
+  assets:
+  - assets/images/commodity/
+  - assets/images/crypto/
+  - assets/images/flag/
+  - assets/images/mobile/
+  - assets/images/localizations/
+name: fastyle_images
+repository: https://github.com/tyrcord/fastyle/tree/main/packages/images
+version: 0.0.39

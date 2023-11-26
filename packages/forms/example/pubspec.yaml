@@ -1,37 +1,25 @@
-name: fastyle_forms_example
-description: A new Flutter project.
-publish_to: "none"
-version: 1.0.0+1
-
-environment:
-  sdk: ">=3.2.0 <4.0.0"
-  flutter: ">=3.16.0"
-
 dependencies:
-  flutter:
-    sdk: flutter
-
-  # Public
-  go_router: ^12.1.1
-
-  # Fastyle
+  easy_localization: ^3.0.3
   fastyle_core: ^0.0.37
   fastyle_forms: ^0.0.36
-  easy_localization: ^3.0.3
-
-  # T
-  tbloc: ^0.21.8+3
-
-  # Lingua
-  lingua_countries: ^0.0.5
+  flutter:
+    sdk: flutter
+  go_router: ^12.1.1
   lingua_core: ^0.0.32
-
+  lingua_countries: ^0.0.5
+  tbloc: ^0.21.8+3
+description: A new Flutter project.
 dev_dependencies:
+  dependency_validator: ^3.2.3
+  flutter_lints: ^3.0.1
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.1
   import_sorter: ^4.6.0
-  dependency_validator: ^3.2.3
-
+environment:
+  flutter: '>=3.16.0'
+  sdk: '>=3.2.0 <4.0.0'
 flutter:
   uses-material-design: true
+name: fastyle_forms_example
+publish_to: none
+version: 1.0.0+1

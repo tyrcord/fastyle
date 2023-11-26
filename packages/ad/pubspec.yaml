@@ -1,53 +1,38 @@
-name: fastyle_ad
-description: Set of ad Widgets for the fastyle library.
-version: 0.0.31
-repository: https://github.com/tyrcord/fastyle/tree/main/packages/ad
-
-environment:
-  sdk: ">=3.2.0 <4.0.0"
-  flutter: ">=3.16.0"
-
 dependencies:
-  flutter:
-    sdk: flutter
-
-  # Public
-  rxdart: ^0.27.7
   collection: ^1.18.0
   easy_localization: ^3.0.3
-  google_mobile_ads: ^3.1.0
-  font_awesome_flutter: ^10.6.0
-  visibility_detector: ^0.4.0+2
-  uuid: ^4.2.1
-  http: ^1.1.0
-  url_launcher: ^6.2.1
-
-  # Fastyle
   fastyle_core: ^0.0.37
-  fastyle_video_player: ^0.0.21
   fastyle_images: ^0.0.39
-
-  # T
-  tbloc: ^0.21.8+3
-  tmodel: ^0.5.12+2
-  t_helpers: ^0.0.45
-  tstore: ^0.8.21+2
-  t_cache: ^0.0.11+2
-  tenhance: ^0.0.4
-  subx: ^1.11.0
-
-  # Lingua
+  fastyle_video_player: ^0.0.21
+  flutter:
+    sdk: flutter
+  font_awesome_flutter: ^10.6.0
+  google_mobile_ads: ^3.1.0
+  http: ^1.1.0
+  lingua_ad: ^0.0.15
   lingua_core: ^0.0.32
-  lingua_ad: ^0.0.14
   lingua_purchases: ^0.0.18
-
+  rxdart: ^0.27.7
+  subx: ^1.11.0
+  t_cache: ^0.0.11+3
+  t_helpers: ^0.0.45
+  tbloc: ^0.21.8+3
+  tenhance: ^0.0.4
+  tmodel: ^0.5.12+3
+  tstore: ^0.8.21+3
+  url_launcher: ^6.2.1
+  uuid: ^4.2.1
+  visibility_detector: ^0.4.0+2
+description: Set of ad Widgets for the fastyle library.
 dev_dependencies:
+  dependency_validator: ^3.2.3
+  flutter_lints: ^3.0.1
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.1
   import_sorter: ^4.6.0
-  dependency_validator: ^3.2.3
-
+environment:
+  flutter: '>=3.16.0'
+  sdk: '>=3.2.0 <4.0.0'
 flutter:
   plugin:
     platforms:
@@ -56,3 +41,6 @@ flutter:
         pluginClass: FastAdPlugin
       ios:
         pluginClass: FastAdPlugin
+name: fastyle_ad
+repository: https://github.com/tyrcord/fastyle/tree/main/packages/ad
+version: 0.0.31

@@ -1,43 +1,33 @@
-name: fastyle_core_example
-version: 1.0.0+1
-publish_to: none
-
-environment:
-  sdk: ">=3.2.0 <4.0.0"
-  flutter: ">=3.16.0"
-
 dependencies:
-  flutter:
-    sdk: flutter
-
-  # Public
-  google_fonts: ^6.1.0
-  font_awesome_flutter: ^10.6.0
-  go_router: ^12.1.1
-
-  # T
-  t_helpers: ^0.0.45
-  tbloc: ^0.21.8+3
-  tmodel: ^0.5.12+2
-  tenhance: ^0.0.4
-
-  # Fastyle
+  fastyle_buttons: ^0.0.20
   fastyle_core: ^0.0.37
   fastyle_views: ^0.0.24
-  fastyle_buttons: ^0.0.20
-
+  flutter:
+    sdk: flutter
+  font_awesome_flutter: ^10.6.0
+  go_router: ^12.1.1
+  google_fonts: ^6.1.0
+  t_helpers: ^0.0.45
+  tbloc: ^0.21.8+3
+  tenhance: ^0.0.4
+  tmodel: ^0.5.12+3
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  integration_test:
-    sdk: flutter
+  dependency_validator: ^3.2.3
   flutter_driver:
     sdk: flutter
-  dependency_validator: ^3.2.3
   flutter_lints: ^3.0.1
+  flutter_test:
+    sdk: flutter
   import_sorter: ^4.6.0
-
+  integration_test:
+    sdk: flutter
+environment:
+  flutter: '>=3.16.0'
+  sdk: '>=3.2.0 <4.0.0'
 flutter:
-  uses-material-design: true
   assets:
-    - google_fonts/
+  - google_fonts/
+  uses-material-design: true
+name: fastyle_core_example
+publish_to: none
+version: 1.0.0+1

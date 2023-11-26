@@ -1,32 +1,21 @@
-name: fastyle_text
-description: A set of pricing texts for the fastyle library.
-version: 0.0.18
-repository: https://github.com/tyrcord/fastyle/tree/main/packages/text
-
-environment:
-  sdk: ">=3.2.0 <4.0.0"
-  flutter: ">=3.16.0"
-
 dependencies:
+  easy_localization: ^3.0.3
+  fastyle_core: ^0.0.37
   flutter:
     sdk: flutter
-
-  # Public
-  visibility_detector: ^0.4.0+2
-  easy_localization: ^3.0.3
-
-  # Fastyle
-  fastyle_core: ^0.0.37
-
-  # Lingua
   lingua_core: ^0.0.32
-
-  # T
   t_helpers: ^0.0.45
-
+  visibility_detector: ^0.4.0+2
+description: A set of pricing texts for the fastyle library.
 dev_dependencies:
+  dependency_validator: ^3.2.3
+  flutter_lints: ^3.0.1
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.1
   import_sorter: ^4.6.0
-  dependency_validator: ^3.2.3
+environment:
+  flutter: '>=3.16.0'
+  sdk: '>=3.2.0 <4.0.0'
+name: fastyle_text
+repository: https://github.com/tyrcord/fastyle/tree/main/packages/text
+version: 0.0.18
