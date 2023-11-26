@@ -14,6 +14,8 @@ scripts:
     exec: dart run dependency_validator
   update:analysis_options:
     exec: $PWD/scripts/update_analysis_options.sh
+  update:dependencies:
+    exec: python3 $PWD/scripts/update_dependencies.py
 
 ide:
   intellij:
