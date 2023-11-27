@@ -5,22 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
-
-// Project imports:
-import 'package:fastyle_financial/fastyle_financial.dart';
+import 'package:matex_financial/financial.dart';
 
 /// Represents a widget for selecting financial frequencies.
-class FastFinancialFrequencySelectField extends StatelessWidget {
-  final ValueChanged<FastItem<FastFinancialFrequency>> onSelectionChanged;
-  final FastFinancialFrequency initialSelection;
+class MatexFinancialFrequencySelectField extends StatelessWidget {
+  final ValueChanged<FastItem<MatexFinancialFrequency>> onSelectionChanged;
+  final MatexFinancialFrequency initialSelection;
   final String? searchTitleText;
   final String? labelText;
   final bool isEnabled;
-  final List<FastFinancialFrequency>? allowedFrequencies;
+  final List<MatexFinancialFrequency>? allowedFrequencies;
 
-  const FastFinancialFrequencySelectField({
+  const MatexFinancialFrequencySelectField({
     super.key,
-    this.initialSelection = FastFinancialFrequency.annually,
+    this.initialSelection = MatexFinancialFrequency.annually,
     required this.onSelectionChanged,
     this.isEnabled = true,
     this.searchTitleText,
@@ -30,7 +28,7 @@ class FastFinancialFrequencySelectField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FastSelectField<FastFinancialFrequency>(
+    return FastSelectField<MatexFinancialFrequency>(
       selection: _createSelectedItem(initialSelection),
       onSelectionChanged: _handleSelectionChange,
       searchTitleText: _getSearchTitleText(),
@@ -52,15 +50,15 @@ class FastFinancialFrequencySelectField extends StatelessWidget {
   }
 
   /// Handles the selection change of frequency.
-  void _handleSelectionChange(FastItem<FastFinancialFrequency>? item) {
+  void _handleSelectionChange(FastItem<MatexFinancialFrequency>? item) {
     if (item != null) {
       onSelectionChanged(item);
     }
   }
 
   /// Creates a list of selectable financial frequency items.
-  List<FastItem<FastFinancialFrequency>> _getFrequencyItems() {
-    final frequencies = allowedFrequencies ?? FastFinancialFrequency.values;
+  List<FastItem<MatexFinancialFrequency>> _getFrequencyItems() {
+    final frequencies = allowedFrequencies ?? MatexFinancialFrequency.values;
 
     return frequencies.map((frequency) {
       return FastItem(
@@ -71,8 +69,8 @@ class FastFinancialFrequencySelectField extends StatelessWidget {
   }
 
   /// Creates a selected item based on the given frequency.
-  FastItem<FastFinancialFrequency>? _createSelectedItem(
-    FastFinancialFrequency frequency,
+  FastItem<MatexFinancialFrequency>? _createSelectedItem(
+    MatexFinancialFrequency frequency,
   ) {
     return FastItem(
       labelText: getLocaleKeyForFinancialFrequency(frequency).tr(),

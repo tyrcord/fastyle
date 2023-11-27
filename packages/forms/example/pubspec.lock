@@ -652,10 +652,10 @@ packages:
     dependency: transitive
     description:
       name: matex_financial
-      sha256: "5f888ee0f90027600c91140e901ef78f134e3987505edbe0128717f46abaf054"
+      sha256: "27899737e5679c5f18bb7eb33e3783aa012e2832dad1b6c1f31c2f1a5d6a109b"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.31"
+    version: "0.0.32"
   meta:
     dependency: transitive
     description:
