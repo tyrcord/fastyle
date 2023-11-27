@@ -16,7 +16,7 @@ dependencies:
   lingua_languages: ^0.0.7
   lingua_settings: ^0.0.13
   matex_data: ^0.0.18
-  matex_financial: ^0.0.31
+  matex_financial: ^0.0.32
   t_helpers: ^0.0.45
   tbloc: ^0.21.8+3
 description: Set of settings Widgets for the fastyle library.
