@@ -9,7 +9,7 @@ dependencies:
   go_router: ^12.1.1
   lingua_core: ^0.0.32
   lingua_purchases: ^0.0.18
-  tbloc: ^0.21.8+3
+  tbloc: ^0.21.8+4
 description: A new Flutter project.
 dev_dependencies:
   dependency_validator: ^3.2.3
