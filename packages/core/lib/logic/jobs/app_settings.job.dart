@@ -1,10 +1,13 @@
 // ignore_for_file: use_build_context_synchronously
 
 // Flutter imports:
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:t_helpers/helpers.dart';
 
@@ -124,18 +127,10 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
       }
     }
 
-    final use24HourFormat = MediaQuery.alwaysUse24HourFormatOf(context);
-
-    debugLog(
-      'Always use 24 hour format',
-      value: use24HourFormat,
-      debugLabel: debugLabel,
-    );
+    final use24HourFormat = await shouldUse24HourFormat(context);
 
     settingsBloc.addEvent(
-      FastAppSettingsBlocEvent.use24HourFormatChanged(
-        use24HourFormat,
-      ),
+      FastAppSettingsBlocEvent.use24HourFormatChanged(use24HourFormat),
     );
 
     settingsState = await settingsBloc.onData
@@ -143,6 +138,28 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
         .first;
 
     return settingsState;
+  }
+
+  Future<bool> shouldUse24HourFormat(BuildContext context) async {
+    final completer = Completer<bool>();
+
+    try {
+      SchedulerBinding.instance.scheduleFrameCallback((_) {
+        final use24HourFormat = MediaQuery.alwaysUse24HourFormatOf(context);
+
+        debugLog(
+          'Always use 24 hour format',
+          value: use24HourFormat,
+          debugLabel: debugLabel,
+        );
+
+        completer.complete(use24HourFormat);
+      });
+    } catch (e) {
+      completer.complete(true);
+    }
+
+    return completer.future;
   }
 
   /// Applies the settings to the application.
