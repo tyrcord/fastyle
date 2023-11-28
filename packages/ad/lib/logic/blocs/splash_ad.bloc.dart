@@ -20,8 +20,6 @@ class FastSplashAdBloc
       final adInfo = currentState.adInfo;
       final threshold = adInfo.splashAdThreshold;
 
-      print(threshold);
-
       return _appLaunchCounter > threshold;
     }
 
