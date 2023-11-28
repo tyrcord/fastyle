@@ -23,10 +23,14 @@ class FastSplashAdJob extends FastJob {
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
+    if (isAdFreeEnabled()) return;
     if (isWeb) return;
 
-    final adInfoBloc = FastAdInfoBloc.instance;
     final splashAdBloc = FastSplashAdBloc.instance;
+
+    if (!splashAdBloc.canShowAd) return;
+
+    final adInfoBloc = FastAdInfoBloc.instance;
     final appInfoBloc = FastAppInfoBloc.instance;
     final appInfo = appInfoBloc.currentState;
     final adInfo = adInfoBloc.currentState.adInfo;
@@ -39,19 +43,26 @@ class FastSplashAdJob extends FastJob {
       ),
     ));
 
-    await splashAdBloc.onData.firstWhere((state) => state.isInitialized);
-
-    final response = await RaceStream([
+    var response = await RaceStream([
       splashAdBloc.onError,
-      splashAdBloc.onData.where((FastSplashAdBlocState state) {
-        return state.isInitialized;
-      }),
+      splashAdBloc.onData.where((state) => state.isInitialized),
     ]).first;
 
     if (response is! FastSplashAdBlocState) {
+      // FIXME: should not be a blocker
       throw response;
     }
 
     splashAdBloc.addEvent(const FastSplashAdBlocEvent.loadAd());
+
+    response = await RaceStream([
+      splashAdBloc.onError,
+      splashAdBloc.onData.where((state) => state.isAdLoaded),
+    ]).first;
+
+    if (response is! FastSplashAdBlocState) {
+      // should not be a blocker
+      throw response;
+    }
   }
 }

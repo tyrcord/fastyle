@@ -2,18 +2,25 @@
 import 'dart:async';
 
 // Flutter imports:
-import 'package:flutter/foundation.dart';
+import 'package:fastyle_core/fastyle_core.dart';
+import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 
 /// Controller for a App Open ad.
 class FastAdmobSplashAdService {
+  static const _debugLabel = 'FastAdmobSplashAdService';
+  static final _manager = TLoggerManager();
+
   /// Information about the ad.
   final FastAdInfo? adInfo;
+
+  late final TLogger _logger;
 
   /// The loaded splash ad.
   AppOpenAd? _splashAd;
@@ -22,7 +29,14 @@ class FastAdmobSplashAdService {
   bool _isShowingAd = false;
 
   /// Creates a new [FastAdmobSplashAdService] with the given [adInfo].
-  FastAdmobSplashAdService({this.adInfo});
+  FastAdmobSplashAdService({this.adInfo}) {
+    _logger = _manager.getLogger(_debugLabel);
+  }
+
+  void dispose() {
+    _manager.removeLogger(_debugLabel);
+    _splashAd?.dispose();
+  }
 
   /// The ad unit ID for the splash ad.
   String? get _adUnitId => adInfo?.splashAdUnitId;
@@ -35,33 +49,49 @@ class FastAdmobSplashAdService {
   /// Loads an AppOpenAd.
   ///
   /// Returns `true` if the ad was loaded successfully, `false` otherwise.
-  Future<bool> loadAd({String? country}) async {
+  Future<bool> loadAd({String? country, List<String>? whiteList}) async {
     final canRequestAd = isAdRequestAllowedForCountry(
       country: country,
-      whiteList: adInfo?.countries,
+      whiteList: whiteList,
     );
 
     if (canRequestAd && _adUnitId != null) {
       final completer = Completer<bool>();
+      final bloc = FastDeviceOrientationBloc();
+      final deviceOrientation = bloc.currentState.orientation;
+      final adOrientation = deviceOrientation == Orientation.portrait
+          ? AppOpenAd.orientationPortrait
+          : AppOpenAd.orientationLandscapeRight;
+      final stopwatch = Stopwatch()..start();
+
+      _logger.debug(
+        'Loading Splash Ad for orientation: ${deviceOrientation.name}',
+      );
 
       AppOpenAd.load(
         adUnitId: _adUnitId!,
-        orientation: AppOpenAd.orientationPortrait,
+        orientation: adOrientation,
         request: const AdRequest(),
         adLoadCallback: AppOpenAdLoadCallback(
           onAdLoaded: (ad) {
-            _splashAd = ad;
-            completer.complete(true);
-            _loadAdFuture = null;
-          },
-          onAdFailedToLoad: (error) {
-            //TODO: Handle the error.
-            debugPrint(
-              '[FastAdmobSplashAdService] failed to load ad: $error',
+            stopwatch.stop();
+            _logger.debug(
+              'Splash Ad loaded in ${stopwatch.elapsedMilliseconds}ms',
             );
 
-            completer.complete(false);
+            _splashAd = ad;
             _loadAdFuture = null;
+            completer.complete(true);
+          },
+          onAdFailedToLoad: (error) {
+            stopwatch.stop();
+            _logger
+              ..debug(
+                'Splash Ad failed to load in ${stopwatch.elapsedMilliseconds}ms',
+              )
+              ..error('failed to load ad: $error');
+            _loadAdFuture = null;
+            completer.complete(false);
           },
         ),
       );

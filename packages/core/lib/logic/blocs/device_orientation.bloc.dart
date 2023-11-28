@@ -40,7 +40,7 @@ class FastDeviceOrientationBloc extends BidirectionalBloc<
       final orientation = event.payload as Orientation;
 
       if (orientation != currentState.orientation) {
-        _logger.info('Device orientation changed to ${orientation.name}');
+        _logger.debug('Device orientation changed to ${orientation.name}');
 
         yield currentState.copyWith(orientation: orientation);
       }

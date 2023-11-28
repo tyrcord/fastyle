@@ -484,6 +484,7 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
     if (widget.overrideLoaderJobs) widget.loaderJobs;
 
     return [
+      // note: keep those jobs in this order
       FastAppInfoJob(widget.appInfo),
       if (widget.isInternetConnectionRequired) FastAppConnectivityJob(),
       FastAppPermissionsJob(),

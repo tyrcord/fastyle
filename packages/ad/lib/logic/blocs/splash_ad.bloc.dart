@@ -102,11 +102,23 @@ class FastSplashAdBloc
 
   /// Loads the splash ad.
   Stream<FastSplashAdBlocState> handleLoadSplashAdEvent() async* {
-    if (canShowAd) _service.loadAd(country: currentState.countryCode);
+    if (canShowAd) {
+      yield currentState.copyWith(isAdLoaded: false);
+
+      final adLoaded = await _service.loadAd();
+
+      if (adLoaded) {
+        yield currentState.copyWith(isAdLoaded: true);
+      }
+    }
   }
 
   /// Shows the splash ad.
   Stream<FastSplashAdBlocState> handleShowSplashAdEvent() async* {
-    if (canShowAd) _service.showAdIfAvailable();
+    if (canShowAd) {
+      yield currentState.copyWith(isAdLoaded: false);
+
+      _service.showAdIfAvailable();
+    }
   }
 }
