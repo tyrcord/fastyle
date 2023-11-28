@@ -27,9 +27,6 @@ class FastSplashAdJob extends FastJob {
     if (isWeb) return;
 
     final splashAdBloc = FastSplashAdBloc.instance;
-
-    if (!splashAdBloc.canShowAd) return;
-
     final adInfoBloc = FastAdInfoBloc.instance;
     final appInfoBloc = FastAppInfoBloc.instance;
     final appInfo = appInfoBloc.currentState;
@@ -52,6 +49,10 @@ class FastSplashAdJob extends FastJob {
       // FIXME: should not be a blocker
       throw response;
     }
+
+    // note: we need to initialize the bloc before verifying
+    // if we can show the ad
+    if (!splashAdBloc.canShowAd) return;
 
     splashAdBloc.addEvent(const FastSplashAdBlocEvent.loadAd());
 

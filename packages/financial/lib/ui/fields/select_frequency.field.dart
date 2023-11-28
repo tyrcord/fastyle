@@ -8,7 +8,7 @@ import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:matex_financial/financial.dart';
 
 /// Represents a widget for selecting financial frequencies.
-class MatexFinancialFrequencySelectField extends StatelessWidget {
+class FastMatexFinancialFrequencySelectField extends StatelessWidget {
   final ValueChanged<FastItem<MatexFinancialFrequency>> onSelectionChanged;
   final MatexFinancialFrequency initialSelection;
   final String? searchTitleText;
@@ -16,7 +16,7 @@ class MatexFinancialFrequencySelectField extends StatelessWidget {
   final bool isEnabled;
   final List<MatexFinancialFrequency>? allowedFrequencies;
 
-  const MatexFinancialFrequencySelectField({
+  const FastMatexFinancialFrequencySelectField({
     super.key,
     this.initialSelection = MatexFinancialFrequency.annually,
     required this.onSelectionChanged,

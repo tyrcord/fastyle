@@ -20,6 +20,8 @@ class FastSplashAdBloc
       final adInfo = currentState.adInfo;
       final threshold = adInfo.splashAdThreshold;
 
+      print(threshold);
+
       return _appLaunchCounter > threshold;
     }
 
@@ -62,8 +64,6 @@ class FastSplashAdBloc
       } else if (type == FastSplashAdBlocEventType.showAd) {
         yield* handleShowSplashAdEvent();
       }
-    } else {
-      assert(false, 'FastSplashAdBloc is not initialized yet.');
     }
   }
 
