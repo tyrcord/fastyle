@@ -88,6 +88,7 @@ packages_latest = [
     'tbloc',
     't_cache',
     'tenhance',
+    'tlogger',
     't_helpers',
     'tenhtloggerance',
     'tmodel',
