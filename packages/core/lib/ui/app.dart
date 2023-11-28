@@ -212,39 +212,41 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
       key: _appkey,
       child: GestureDetector(
         onTap: hideKeyboard,
-        child: FastMediaLayoutObserver(
-          child: MultiBlocProvider(
-            blocProviders: [
-              if (widget.isInternetConnectionRequired)
-                BlocProvider(bloc: _appConnectivityBloc),
-              BlocProvider(bloc: FastAppInfoBloc()),
-              BlocProvider(bloc: FastAppPermissionsBloc()),
-              BlocProvider(bloc: FastAppSettingsBloc()),
-              BlocProvider(bloc: FastAppDictBloc()),
-              BlocProvider(bloc: FastAppFeaturesBloc()),
-              BlocProvider(bloc: FastAppOnboardingBloc()),
-              BlocProvider(bloc: _appLifecycleBloc),
-              BlocProvider(bloc: _mediaLayoutBloc),
-              BlocProvider(bloc: _themeBloc),
-              ...?widget.blocProviders,
-            ],
-            child: EasyLocalization(
-              supportedLocales: widget.appInfo.supportedLocales,
-              fallbackLocale: widget.fallbackLocale,
-              startLocale: widget.fallbackLocale,
-              assetLoader: widget.assetLoader,
-              path: widget.localizationPath,
-              useOnlyLangCode: true,
-              saveLocale: false,
-              child: FutureBuilder(
-                future: EasyLocalization.ensureInitialized(),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done) {
-                    return buildAppLoader(context);
-                  }
+        child: FastDeviceOrientationListener(
+          child: FastMediaLayoutObserver(
+            child: MultiBlocProvider(
+              blocProviders: [
+                if (widget.isInternetConnectionRequired)
+                  BlocProvider(bloc: _appConnectivityBloc),
+                BlocProvider(bloc: FastAppInfoBloc()),
+                BlocProvider(bloc: FastAppPermissionsBloc()),
+                BlocProvider(bloc: FastAppSettingsBloc()),
+                BlocProvider(bloc: FastAppDictBloc()),
+                BlocProvider(bloc: FastAppFeaturesBloc()),
+                BlocProvider(bloc: FastAppOnboardingBloc()),
+                BlocProvider(bloc: _appLifecycleBloc),
+                BlocProvider(bloc: _mediaLayoutBloc),
+                BlocProvider(bloc: _themeBloc),
+                ...?widget.blocProviders,
+              ],
+              child: EasyLocalization(
+                supportedLocales: widget.appInfo.supportedLocales,
+                fallbackLocale: widget.fallbackLocale,
+                startLocale: widget.fallbackLocale,
+                assetLoader: widget.assetLoader,
+                path: widget.localizationPath,
+                useOnlyLangCode: true,
+                saveLocale: false,
+                child: FutureBuilder(
+                  future: EasyLocalization.ensureInitialized(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done) {
+                      return buildAppLoader(context);
+                    }
 
-                  return buildEmptyContainer();
-                },
+                    return buildEmptyContainer();
+                  },
+                ),
               ),
             ),
           ),
@@ -489,6 +491,7 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
       FastAppDictJob(defaultEntries: widget.defaultAppDictEntries),
       FastAppFeaturesJob(),
       FastAppOnboardingJob(),
+      FastDeviceOrientationJob(),
       ...?widget.loaderJobs,
       FastAppFinalizeJob(
         callbacks: [

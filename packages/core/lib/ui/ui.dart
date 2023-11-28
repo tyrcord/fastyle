@@ -20,3 +20,4 @@ export './statuses/statuses.dart';
 export './links/links.dart';
 export './blocks/blocks.dart';
 export './shells/shells.dart';
+export './observers/observers.dart';

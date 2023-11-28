@@ -6,3 +6,4 @@ export './app_onboarding.job.dart';
 export './app_permissions.job.dart';
 export './app_connectivity.job.dart';
 export './app_finalize.job.dart';
+export 'device_orientation.job.dart';
