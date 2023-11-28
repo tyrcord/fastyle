@@ -58,6 +58,9 @@ const kFastAppSettingsRemindForReviewMinDays = 7;
 /// The timeout duration for asynchronous operations in Fast App.
 const kFastAsyncTimeout = Duration(seconds: 30);
 
+/// The timeout duration for jobs in Fast App.
+const kFastJobTimeout = Duration(seconds: 60);
+
 /// The minimum number of days before asking the user for a review.
 const kFastAppSettingsAskForReviewMinDays = 7;
 
