@@ -839,6 +839,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
+  tlogger:
+    dependency: transitive
+    description:
+      name: tlogger
+      sha256: f7b187e047a3e5e51cd70e9681842ed002f9c2e6db133552c8ff442abaabb380
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.5+1"
   tmodel:
     dependency: transitive
     description:
