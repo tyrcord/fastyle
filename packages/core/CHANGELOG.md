@@ -1,3 +1,14 @@
+## 0.0.38
+
+ - **FEAT**: preload slash ad before.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add Device Orientation Bloc.
+ - **FEAT**: increase default timeout when loading a job.
+ - **FEAT**: make stronger FastAppSettingsJob.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.37
 
  - **FEAT**: update dependencies.

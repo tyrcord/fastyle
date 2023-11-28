@@ -1,10 +1,10 @@
 dependencies:
   collection: ^1.18.0
   easy_localization: ^3.0.3
-  fastyle_core: ^0.0.37
-  fastyle_forms: ^0.0.36
-  fastyle_images: ^0.0.39
-  fastyle_settings: ^0.0.41
+  fastyle_core: ^0.0.38
+  fastyle_forms: ^0.0.37
+  fastyle_images: ^0.0.40
+  fastyle_settings: ^0.0.42
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
@@ -29,4 +29,4 @@ environment:
   sdk: '>=3.2.0 <4.0.0'
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/fastyle_financial
 name: fastyle_financial
-version: 0.0.32
+version: 0.0.33

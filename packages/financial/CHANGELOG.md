@@ -1,3 +1,12 @@
+## 0.0.33
+
+ - **FIX**: use MatexFinancialFrequency instead.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: added FastFinancialFrequencySelectField.
+
 ## 0.0.32
 
  - **FEAT**: update dependencies.

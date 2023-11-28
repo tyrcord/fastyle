@@ -3,6 +3,194 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-11-28
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.32`](#fastyle_ad---v0032)
+ - [`fastyle_animation` - `v0.0.13`](#fastyle_animation---v0013)
+ - [`fastyle_buttons` - `v0.0.21`](#fastyle_buttons---v0021)
+ - [`fastyle_calculator` - `v1.48.0`](#fastyle_calculator---v1480)
+ - [`fastyle_charts` - `v0.0.25`](#fastyle_charts---v0025)
+ - [`fastyle_connectivity` - `v0.0.34`](#fastyle_connectivity---v0034)
+ - [`fastyle_core` - `v0.0.38`](#fastyle_core---v0038)
+ - [`fastyle_digit_calculator` - `v0.0.36`](#fastyle_digit_calculator---v0036)
+ - [`fastyle_financial` - `v0.0.33`](#fastyle_financial---v0033)
+ - [`fastyle_firebase` - `v0.0.25`](#fastyle_firebase---v0025)
+ - [`fastyle_forms` - `v0.0.37`](#fastyle_forms---v0037)
+ - [`fastyle_home` - `v0.0.32`](#fastyle_home---v0032)
+ - [`fastyle_iap` - `v0.0.27`](#fastyle_iap---v0027)
+ - [`fastyle_images` - `v0.0.40`](#fastyle_images---v0040)
+ - [`fastyle_layouts` - `v0.0.16`](#fastyle_layouts---v0016)
+ - [`fastyle_onboarding` - `v0.0.39`](#fastyle_onboarding---v0039)
+ - [`fastyle_pricing` - `v1.34.0`](#fastyle_pricing---v1340)
+ - [`fastyle_quizz` - `v0.0.13`](#fastyle_quizz---v0013)
+ - [`fastyle_settings` - `v0.0.42`](#fastyle_settings---v0042)
+ - [`fastyle_text` - `v0.0.19`](#fastyle_text---v0019)
+ - [`fastyle_video_player` - `v0.0.22`](#fastyle_video_player---v0022)
+ - [`fastyle_views` - `v0.0.25`](#fastyle_views---v0025)
+
+---
+
+#### `fastyle_ad` - `v0.0.32`
+
+ - **FEAT**: preload slash ad before.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_animation` - `v0.0.13`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_buttons` - `v0.0.21`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_calculator` - `v1.48.0`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_charts` - `v0.0.25`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_connectivity` - `v0.0.34`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_core` - `v0.0.38`
+
+ - **FEAT**: preload slash ad before.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add Device Orientation Bloc.
+ - **FEAT**: increase default timeout when loading a job.
+ - **FEAT**: make stronger FastAppSettingsJob.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_digit_calculator` - `v0.0.36`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_financial` - `v0.0.33`
+
+ - **FIX**: use MatexFinancialFrequency instead.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: added FastFinancialFrequencySelectField.
+
+#### `fastyle_firebase` - `v0.0.25`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_forms` - `v0.0.37`
+
+ - **FIX**: use MatexFinancialFrequency instead.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_home` - `v0.0.32`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_iap` - `v0.0.27`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_images` - `v0.0.40`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_layouts` - `v0.0.16`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_onboarding` - `v0.0.39`
+
+ - **FIX**: use MatexFinancialFrequency instead.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_pricing` - `v1.34.0`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_quizz` - `v0.0.13`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_settings` - `v0.0.42`
+
+ - **FIX**: use MatexFinancialFrequency instead.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add manuals settings.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_text` - `v0.0.19`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_video_player` - `v0.0.22`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_views` - `v0.0.25`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+
 ## 2023-11-24
 
 ### Changes

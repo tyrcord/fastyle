@@ -1,3 +1,11 @@
+## 0.0.32
+
+ - **FEAT**: preload slash ad before.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.31
 
  - **FEAT**: add nativeAdmobEnabled property.

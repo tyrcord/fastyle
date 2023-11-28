@@ -1,3 +1,13 @@
+## 0.0.42
+
+ - **FIX**: use MatexFinancialFrequency instead.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add manuals settings.
+ - **FEAT**: update dependencies.
+
 ## 0.0.41
 
  - **FEAT**: update dependencies.
