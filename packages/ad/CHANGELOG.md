@@ -1,3 +1,7 @@
+## 0.0.32+1
+
+ - **FIX**: remove print.
+
 ## 0.0.32
 
  - **FEAT**: preload slash ad before.
