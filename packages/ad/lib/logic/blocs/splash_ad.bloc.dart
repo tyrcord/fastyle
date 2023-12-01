@@ -100,15 +100,12 @@ class FastSplashAdBloc
 
   /// Loads the splash ad.
   Stream<FastSplashAdBlocState> handleLoadSplashAdEvent() async* {
-    if (canShowAd) {
-      yield currentState.copyWith(isAdLoaded: false);
+    // FIXME: workaround the loading state should be handled in another way
+    yield currentState.copyWith(isAdLoaded: false);
 
-      final adLoaded = await _service.loadAd();
+    if (canShowAd) await _service.loadAd();
 
-      if (adLoaded) {
-        yield currentState.copyWith(isAdLoaded: true);
-      }
-    }
+    yield currentState.copyWith(isAdLoaded: true);
   }
 
   /// Shows the splash ad.

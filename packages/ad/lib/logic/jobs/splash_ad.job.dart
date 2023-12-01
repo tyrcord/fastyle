@@ -62,8 +62,8 @@ class FastSplashAdJob extends FastJob {
     ]).first;
 
     if (response is! FastSplashAdBlocState) {
-      // should not be a blocker
-      throw response;
+      // FIXME: should not be a blocker
+      // throw response;
     }
   }
 }
