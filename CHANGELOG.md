@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_ad` - `v0.0.33+1`](#fastyle_ad---v00331)
+
+---
+
+#### `fastyle_ad` - `v0.0.33+1`
+
+ - **FIX**: blocking job.
+
+
+## 2023-12-01
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_ad` - `v0.0.33`](#fastyle_ad---v0033)
 
 ---

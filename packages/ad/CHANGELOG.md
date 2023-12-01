@@ -1,3 +1,7 @@
+## 0.0.33+1
+
+ - **FIX**: blocking job.
+
 ## 0.0.33
 
  - **FEAT**: update default ad reward block duration.
