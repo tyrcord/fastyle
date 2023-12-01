@@ -65,10 +65,6 @@ class FastCalculatorClearAction<B extends FastCalculatorBloc,
   /// Whether the action should be enabled or not.
   @override
   bool shouldEnableInteractions(FastCalculatorBlocState state) {
-    if (state.isInitialized) {
-      return state.isDirty;
-    }
-
-    return false;
+    return state.isInitialized ? state.isValid : false;
   }
 }
