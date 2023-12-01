@@ -60,7 +60,10 @@ class BarChart extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: separatorPadding),
       color: labelsBackgroundColor,
       child: Column(
-        children: data.map((item) => _buildLabel(item)).toList(),
+        children: data
+            .where((datum) => datum.label != null && datum.label!.isNotEmpty)
+            .map((item) => _buildLabel(item))
+            .toList(),
       ),
     );
   }
@@ -70,7 +73,7 @@ class BarChart extends StatelessWidget {
       height: barItemHeight,
       child: Center(
         child: Text(
-          item.label,
+          item.label!,
           style: const TextStyle(
             color: Colors.grey,
             fontSize: 12.0,

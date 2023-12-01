@@ -38,7 +38,9 @@ class FastChartLegend extends StatelessWidget {
   }
 
   List<Widget> _buildChildren() {
-    return data.map((datum) {
+    return data
+        .where((datum) => datum.label != null && datum.label!.isNotEmpty)
+        .map((datum) {
       return Padding(
         padding: kFastVerticalEdgeInsets6,
         child: Wrap(
@@ -50,7 +52,7 @@ class FastChartLegend extends StatelessWidget {
               child: Container(width: 16, height: 16, color: datum.color),
             ),
             FastBody(
-              text: datum.label,
+              text: datum.label!,
               fontSize: kFastFontSize16,
             ),
             if (showPercentage) ...[
