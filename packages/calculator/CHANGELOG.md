@@ -1,3 +1,8 @@
+## 1.50.0
+
+ - **FEAT**: add FastCalculatorChartToggle.
+ - **FEAT**: default overlays.
+
 ## 1.49.0
 
  - **FEAT**: update dependencies.
