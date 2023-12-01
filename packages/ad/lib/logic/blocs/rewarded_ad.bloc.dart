@@ -99,11 +99,7 @@ class FastRewardedAdBloc
       isInitializing = true;
       yield currentState.copyWith(isInitializing: true);
 
-      if (kDebugMode) {
-        blockDuration = const Duration(minutes: 1);
-      } else {
-        blockDuration = payload.blockDuration ?? const Duration(minutes: 15);
-      }
+      blockDuration = payload.blockDuration ?? kFastAdRewardedBlockDuration;
 
       _admobService = FastAdmobRewardedAdService(payload.adInfo);
       _admobService.addListener(this);
