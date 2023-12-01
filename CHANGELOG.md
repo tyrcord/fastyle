@@ -3,6 +3,116 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-12-01
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.32+2`](#fastyle_ad---v00322)
+ - [`fastyle_calculator` - `v1.49.0`](#fastyle_calculator---v1490)
+ - [`fastyle_charts` - `v0.0.26`](#fastyle_charts---v0026)
+ - [`fastyle_connectivity` - `v0.0.35`](#fastyle_connectivity---v0035)
+ - [`fastyle_core` - `v0.0.39`](#fastyle_core---v0039)
+ - [`fastyle_digit_calculator` - `v0.0.37`](#fastyle_digit_calculator---v0037)
+ - [`fastyle_financial` - `v0.0.34`](#fastyle_financial---v0034)
+ - [`fastyle_firebase` - `v0.0.26`](#fastyle_firebase---v0026)
+ - [`fastyle_forms` - `v0.0.38`](#fastyle_forms---v0038)
+ - [`fastyle_home` - `v0.0.33`](#fastyle_home---v0033)
+ - [`fastyle_images` - `v0.0.41`](#fastyle_images---v0041)
+ - [`fastyle_onboarding` - `v0.0.40`](#fastyle_onboarding---v0040)
+ - [`fastyle_pricing` - `v1.35.0`](#fastyle_pricing---v1350)
+ - [`fastyle_settings` - `v0.0.43`](#fastyle_settings---v0043)
+ - [`fastyle_buttons` - `v0.0.21+1`](#fastyle_buttons---v00211)
+ - [`fastyle_quizz` - `v0.0.13+1`](#fastyle_quizz---v00131)
+ - [`fastyle_iap` - `v0.0.27+1`](#fastyle_iap---v00271)
+ - [`fastyle_animation` - `v0.0.13+1`](#fastyle_animation---v00131)
+ - [`fastyle_layouts` - `v0.0.16+1`](#fastyle_layouts---v00161)
+ - [`fastyle_video_player` - `v0.0.22+1`](#fastyle_video_player---v00221)
+ - [`fastyle_text` - `v0.0.19+1`](#fastyle_text---v00191)
+ - [`fastyle_views` - `v0.0.25+1`](#fastyle_views---v00251)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_buttons` - `v0.0.21+1`
+ - `fastyle_quizz` - `v0.0.13+1`
+ - `fastyle_iap` - `v0.0.27+1`
+ - `fastyle_animation` - `v0.0.13+1`
+ - `fastyle_layouts` - `v0.0.16+1`
+ - `fastyle_video_player` - `v0.0.22+1`
+ - `fastyle_text` - `v0.0.19+1`
+ - `fastyle_views` - `v0.0.25+1`
+
+---
+
+#### `fastyle_ad` - `v0.0.32+2`
+
+ - **FIX**: better support for mac os.
+
+#### `fastyle_calculator` - `v1.49.0`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_charts` - `v0.0.26`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: label is not mandatory for FastChartData.
+
+#### `fastyle_connectivity` - `v0.0.35`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_core` - `v0.0.39`
+
+ - **FIX**: better support for mac os.
+ - **FEAT**: support bottomSheet.
+
+#### `fastyle_digit_calculator` - `v0.0.37`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_financial` - `v0.0.34`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_firebase` - `v0.0.26`
+
+ - **FIX**: better support for mac os.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_forms` - `v0.0.38`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_home` - `v0.0.33`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_images` - `v0.0.41`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_onboarding` - `v0.0.40`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_pricing` - `v1.35.0`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_settings` - `v0.0.43`
+
+ - **FEAT**: update dependencies.
+
+
 ## 2023-11-29
 
 ### Changes

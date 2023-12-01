@@ -1,3 +1,8 @@
+## 0.0.26
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: label is not mandatory for FastChartData.
+
 ## 0.0.25
 
  - **FEAT**: update dependencies.

@@ -1,3 +1,7 @@
+## 0.0.32+2
+
+ - **FIX**: better support for mac os.
+
 ## 0.0.32+1
 
  - **FIX**: remove print.

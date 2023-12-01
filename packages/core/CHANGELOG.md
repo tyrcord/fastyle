@@ -1,3 +1,8 @@
+## 0.0.39
+
+ - **FIX**: better support for mac os.
+ - **FEAT**: support bottomSheet.
+
 ## 0.0.38
 
  - **FEAT**: preload slash ad before.

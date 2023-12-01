@@ -1,3 +1,8 @@
+## 0.0.26
+
+ - **FIX**: better support for mac os.
+ - **FEAT**: update dependencies.
+
 ## 0.0.25
 
  - **FEAT**: update dependencies.

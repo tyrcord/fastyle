@@ -1,5 +1,5 @@
 dependencies:
-  fastyle_core: ^0.0.38
+  fastyle_core: ^0.0.39
   firebase_analytics: ^10.7.2
   firebase_app_check: ^0.2.1+6
   firebase_core: ^2.24.0
@@ -25,4 +25,4 @@ environment:
   sdk: '>=3.2.0 <4.0.0'
 name: fastyle_firebase
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/firebase
-version: 0.0.25
+version: 0.0.26
