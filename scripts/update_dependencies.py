@@ -26,6 +26,14 @@ def update_dependencies(pubspec_path, packages_latest, specified_versions):
         if 'dependencies' in pubspec and package in pubspec['dependencies']:
             pubspec['dependencies'][package] = version
 
+   # Update private packages
+    for package, details in private_packages.items():
+        if 'dependencies' in pubspec and package in pubspec['dependencies']:
+            latest_version = fetch_latest_version(
+                package, is_private=True, private_url=details['url'])
+            pubspec['dependencies'][package] = {
+                'hosted': details['url'], 'version': details['version']}
+
     with open(pubspec_path, 'w') as file:
         yaml.dump(pubspec, file, indent=2)
 
@@ -132,8 +140,16 @@ specified_versions = {
     'flutter_native_splash': '^2.3.6',
 }
 
+# Private packages
+private_packages = {
+    'font_awesome_flutter': {'url': 'https://onepub.dev/api/xhvpsdavuh', 'version': '^10.6.1'},
+    'fusex_helpers': {'url': 'https://onepub.dev/api/xhvpsdavuh', 'version': '^3.27.0'},
+}
+
+
 # This is the path to the pubspec.yaml file
 pubspec_path = './pubspec.yaml'
 
 # Call the function to update the dependencies
-update_dependencies(pubspec_path, packages_latest, specified_versions)
+update_dependencies(pubspec_path, packages_latest,
+                    specified_versions, private_packages)
