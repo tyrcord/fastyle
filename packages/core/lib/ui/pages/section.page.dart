@@ -112,6 +112,8 @@ class FastSectionPage extends StatelessWidget {
 
   final bool showAppBar;
 
+  final Widget? bottomSheet;
+
   const FastSectionPage({
     super.key,
     this.appBarHeightSize = _kAppBarHeightSize,
@@ -134,6 +136,7 @@ class FastSectionPage extends StatelessWidget {
     this.actions,
     this.leading,
     this.footer,
+    this.bottomSheet,
     this.child,
   })  : assert(
           contentBuilder == null || child == null,
@@ -149,6 +152,7 @@ class FastSectionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FastScaffold(
+      bottomSheet: bottomSheet,
       isTitlePositionBelowAppBar: isTitlePositionBelowAppBar,
       appBarBackgroundColor: appBarBackgroundColor,
       floatingActionButton: floatingActionButton,

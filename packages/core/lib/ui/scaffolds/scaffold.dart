@@ -73,6 +73,8 @@ class FastScaffold extends StatelessWidget {
 
   final NavigationBar? bottomNavigationBar;
 
+  final Widget? bottomSheet;
+
   const FastScaffold({
     super.key,
     this.appBarHeightSize = _kAppBarHeightSize,
@@ -88,6 +90,7 @@ class FastScaffold extends StatelessWidget {
     this.actions,
     this.leading,
     this.child,
+    this.bottomSheet,
   });
 
   @override
@@ -102,6 +105,7 @@ class FastScaffold extends StatelessWidget {
       body: child,
       floatingActionButton: floatingActionButton,
       bottomNavigationBar: bottomNavigationBar,
+      bottomSheet: bottomSheet,
     );
   }
 
