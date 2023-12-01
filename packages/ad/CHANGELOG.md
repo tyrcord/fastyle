@@ -1,3 +1,7 @@
+## 0.0.33
+
+ - **FEAT**: update default ad reward block duration.
+
 ## 0.0.32+2
 
  - **FIX**: better support for mac os.
