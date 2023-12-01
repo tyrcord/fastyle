@@ -29,7 +29,7 @@ class FastAdInfoJob extends FastJob {
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
-    if (isWeb) return;
+    if (isWeb || isMacOS) return;
 
     final adInfoBloc = FastAdInfoBloc.instance;
     FastAdInfo adInfo = adInfoBloc.currentState.adInfo;

@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:t_helpers/helpers.dart';
 
 void hideKeyboard() {
-  if (isWeb) return;
+  if (isWeb || isMacOS) return;
 
   if (isIOS || isAndroid) {
     FocusManager.instance.primaryFocus?.unfocus();

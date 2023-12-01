@@ -23,7 +23,7 @@ class FastRewardedAdJob extends FastJob {
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
-    if (isWeb) return;
+    if (isWeb || isMacOS) return;
 
     final adInfoBloc = FastAdInfoBloc.instance;
     final rewardedAdBloc = FastRewardedAdBloc.instance;

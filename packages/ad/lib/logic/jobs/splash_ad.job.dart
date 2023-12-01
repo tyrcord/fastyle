@@ -24,7 +24,7 @@ class FastSplashAdJob extends FastJob {
     IFastErrorReporter? errorReporter,
   }) async {
     if (isAdFreeEnabled()) return;
-    if (isWeb) return;
+    if (isWeb || isMacOS) return;
 
     final splashAdBloc = FastSplashAdBloc.instance;
     final adInfoBloc = FastAdInfoBloc.instance;
