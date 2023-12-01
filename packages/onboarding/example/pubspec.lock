@@ -247,7 +247,7 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.20"
+    version: "0.0.21"
   fastyle_calculator:
     dependency: transitive
     description:
@@ -262,14 +262,14 @@ packages:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.37"
+    version: "0.0.38"
   fastyle_digit_calculator:
     dependency: "direct overridden"
     description:
       path: "../../digit_calculator"
       relative: true
     source: path
-    version: "0.0.35"
+    version: "0.0.36"
   fastyle_financial:
     dependency: transitive
     description:
@@ -284,42 +284,42 @@ packages:
       path: "../../forms"
       relative: true
     source: path
-    version: "0.0.36"
+    version: "0.0.37"
   fastyle_iap:
     dependency: "direct overridden"
     description:
       path: "../../iap"
       relative: true
     source: path
-    version: "0.0.26"
+    version: "0.0.27"
   fastyle_images:
     dependency: "direct overridden"
     description:
       path: "../../images"
       relative: true
     source: path
-    version: "0.0.39"
+    version: "0.0.40"
   fastyle_layouts:
     dependency: "direct overridden"
     description:
       path: "../../layouts"
       relative: true
     source: path
-    version: "0.0.15+3"
+    version: "0.0.16"
   fastyle_onboarding:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.38"
+    version: "0.0.39"
   fastyle_settings:
     dependency: "direct overridden"
     description:
       path: "../../settings"
       relative: true
     source: path
-    version: "0.0.41"
+    version: "0.0.42"
   fastyle_text:
     dependency: transitive
     description:
@@ -1197,10 +1197,10 @@ packages:
     dependency: transitive
     description:
       name: tlogger
-      sha256: f7b187e047a3e5e51cd70e9681842ed002f9c2e6db133552c8ff442abaabb380
+      sha256: e5e1849f6beecfe09ff60d91c94a509868b2c2e6dbb52f3a051fbf697f62f4f8
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.5+1"
+    version: "0.0.6"
   tmodel:
     dependency: transitive
     description:
