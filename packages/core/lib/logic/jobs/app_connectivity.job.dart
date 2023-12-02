@@ -6,6 +6,7 @@ import 'package:rxdart/rxdart.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:t_helpers/helpers.dart';
 
 class FastAppConnectivityJob extends FastJob {
   static FastAppConnectivityJob? _singleton;
@@ -22,6 +23,8 @@ class FastAppConnectivityJob extends FastJob {
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
+    if (isWeb) return;
+
     final bloc = FastConnectivityStatusBloc.instance;
     bloc.addEvent(FastConnectivityStatusBlocEvent.init());
 
