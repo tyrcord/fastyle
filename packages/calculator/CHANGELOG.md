@@ -1,3 +1,7 @@
+## 1.50.1
+
+ - Update a dependency to the latest release.
+
 ## 1.50.0
 
  - **FEAT**: add FastCalculatorChartToggle.

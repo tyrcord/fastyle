@@ -1,3 +1,7 @@
+## 0.0.33+2
+
+ - Update a dependency to the latest release.
+
 ## 0.0.33+1
 
  - **FIX**: blocking job.

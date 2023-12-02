@@ -1,10 +1,10 @@
 dependencies:
   collection: ^1.18.0
   easy_localization: ^3.0.3
-  fastyle_buttons: ^0.0.21+1
-  fastyle_core: ^0.0.39
-  fastyle_digit_calculator: ^0.0.37
-  fastyle_images: ^0.0.41
+  fastyle_buttons: ^0.0.21+2
+  fastyle_core: ^0.0.40
+  fastyle_digit_calculator: ^0.0.37+1
+  fastyle_images: ^0.0.41+1
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
@@ -30,4 +30,4 @@ environment:
   sdk: '>=3.2.0 <4.0.0'
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/fastyle_forms
 name: fastyle_forms
-version: 0.0.38
+version: 0.0.38+1

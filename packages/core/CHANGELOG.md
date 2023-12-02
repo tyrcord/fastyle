@@ -1,3 +1,7 @@
+## 0.0.40
+
+ - **FEAT**: better support for web.
+
 ## 0.0.39
 
  - **FIX**: better support for mac os.
