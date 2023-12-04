@@ -150,6 +150,7 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
   static const String _noConnectionAvailableRoute = '/no-connection-available';
   static const String _noServiceAvailableRouteName = 'noServiceAvailable';
   static const String _noServiceAvailableRoute = '/no-service-available';
+  static const String _mediaLayoutListenerKey = 'MediaLayoutListener';
   static const String _onboardingRouteName = 'onboarding';
   static const String _onboardingRoute = '/onboarding';
   static const String _defaultRoute = '/';
@@ -158,14 +159,42 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
   late final FastConnectivityStatusBloc _appConnectivityBloc;
   late final GlobalKey<NavigatorState> _rootNavigatorKey;
   late FastAppLifecycleBloc _appLifecycleBloc;
-  late Stream<List<RouteBase>> _routesStream;
   late FastMediaLayoutBloc _mediaLayoutBloc;
   late final FastThemeBloc _themeBloc;
   bool _hasForcedOnboarding = false;
-  List<RouteBase>? _currentRoutes;
   final _subxMap = SubxMap();
   Key _appkey = UniqueKey();
-  GoRouter? _router;
+  late final GoRouter _router;
+
+  late final ValueNotifier<RoutingConfig> _routingConfigNotifier;
+  bool _hasRouterBeenInitialized = false;
+
+  List<GoRoute> get defaultRoutes {
+    return [
+      GoRoute(
+        builder: (context, state) => buildOnboarding(context),
+        parentNavigatorKey: _rootNavigatorKey,
+        name: _onboardingRouteName,
+        path: _onboardingRoute,
+      ),
+      GoRoute(
+        pageBuilder: (context, state) => NoTransitionPage(
+          child: _buildNoConnectionAvailablePage(context),
+        ),
+        parentNavigatorKey: _rootNavigatorKey,
+        name: _noConnectionAvailableRouteName,
+        path: _noConnectionAvailableRoute,
+      ),
+      GoRoute(
+        pageBuilder: (context, state) => NoTransitionPage(
+          child: _buildNoServiceAvailablePage(context),
+        ),
+        parentNavigatorKey: _rootNavigatorKey,
+        name: _noServiceAvailableRouteName,
+        path: _noServiceAvailableRoute,
+      ),
+    ];
+  }
 
   @override
   void initState() {
@@ -199,9 +228,6 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
   void restartApp() {
     setState(() {
       _hasForcedOnboarding = false;
-      _currentRoutes = null;
-      _router?.dispose();
-      _router = null;
       _appkey = UniqueKey();
     });
   }
@@ -286,83 +312,22 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
       builder: (context, state) {
         final easyLocalization = EasyLocalization.of(context)!;
 
-        return StreamBuilder(
-          stream: _routesStream,
-          builder: (context, snapshot) {
-            final connectionState = snapshot.connectionState;
-
-            if (connectionState == ConnectionState.active ||
-                connectionState == ConnectionState.done) {
-              return MaterialApp.router(
-                debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
-                localizationsDelegates: easyLocalization.delegates,
-                supportedLocales: widget.appInfo.supportedLocales,
-                darkTheme: widget.darkTheme ?? FastTheme.dark.blue,
-                theme: widget.lightTheme ?? FastTheme.light.blue,
-                routerConfig: _buildAppRouter(snapshot.data!),
-                locale: easyLocalization.locale,
-                title: widget.appInfo.appName,
-                themeMode: state.themeMode,
-              );
-            }
-
-            return buildEmptyContainer();
-          },
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
+          localizationsDelegates: easyLocalization.delegates,
+          supportedLocales: widget.appInfo.supportedLocales,
+          darkTheme: widget.darkTheme ?? FastTheme.dark.blue,
+          theme: widget.lightTheme ?? FastTheme.light.blue,
+          locale: easyLocalization.locale,
+          title: widget.appInfo.appName,
+          themeMode: state.themeMode,
+          routerConfig: _router,
         );
       },
     );
   }
 
   String _getInitialLocation() => widget.initialLocation ?? _defaultRoute;
-
-  /// Builds the GoRouter instance.
-  /// FIXME: Workaround: https://github.com/flutter/flutter/issues/99100
-  GoRouter _buildAppRouter(List<RouteBase> routes) {
-    String initialLocation = _getInitialLocation();
-
-    if (_router != null) {
-      final configuration = _router!.routerDelegate.currentConfiguration;
-
-      if (_currentRoutes == routes) return _router!;
-
-      _router!.dispose();
-      initialLocation = configuration.uri.toString();
-    }
-
-    _currentRoutes = routes;
-    _router = GoRouter(
-      navigatorKey: _rootNavigatorKey,
-      initialLocation: initialLocation,
-      redirect: handleRedirect,
-      routes: [
-        ...routes,
-        GoRoute(
-          builder: (context, state) => buildOnboarding(context),
-          parentNavigatorKey: _rootNavigatorKey,
-          name: _onboardingRouteName,
-          path: _onboardingRoute,
-        ),
-        GoRoute(
-          pageBuilder: (context, state) => NoTransitionPage(
-            child: _buildNoConnectionAvailablePage(context),
-          ),
-          parentNavigatorKey: _rootNavigatorKey,
-          name: _noConnectionAvailableRouteName,
-          path: _noConnectionAvailableRoute,
-        ),
-        GoRoute(
-          pageBuilder: (context, state) => NoTransitionPage(
-            child: _buildNoServiceAvailablePage(context),
-          ),
-          parentNavigatorKey: _rootNavigatorKey,
-          name: _noServiceAvailableRouteName,
-          path: _noServiceAvailableRoute,
-        ),
-      ],
-    );
-
-    return _router!;
-  }
 
   FutureOr<String?> handleRedirect(BuildContext context, GoRouterState state) {
     if (widget.onboardingBuilder == null) return null;
@@ -516,12 +481,43 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
   }
 
   Future<void> _intializeRoutesForMediaType(BuildContext context) async {
-    _routesStream = _mediaLayoutBloc.onData.distinct((previous, next) {
-      final previousRoutes = widget.routesForMediaType(previous.mediaType);
-      final nextRoutes = widget.routesForMediaType(next.mediaType);
+    _subxMap
+      ..cancelForKey(_mediaLayoutListenerKey)
+      ..add(
+          _mediaLayoutListenerKey,
+          _mediaLayoutBloc.onData
+              .distinct((previous, next) {
+                final previousRoutes =
+                    widget.routesForMediaType(previous.mediaType);
+                final nextRoutes = widget.routesForMediaType(next.mediaType);
 
-      return previousRoutes == nextRoutes;
-    }).map((state) => widget.routesForMediaType(state.mediaType));
+                return previousRoutes == nextRoutes;
+              })
+              .map((state) => widget.routesForMediaType(state.mediaType))
+              .listen(handleRoutesForMediaTypeChange));
+  }
+
+  GoRouter _buildAppRouter() {
+    return GoRouter.routingConfig(
+      initialLocation: _getInitialLocation(),
+      routingConfig: _routingConfigNotifier,
+      navigatorKey: _rootNavigatorKey,
+    );
+  }
+
+  void handleRoutesForMediaTypeChange(List<RouteBase> routes) {
+    final routingConfig = RoutingConfig(
+      routes: [...routes, ...defaultRoutes],
+      redirect: handleRedirect,
+    );
+
+    if (!_hasRouterBeenInitialized) {
+      _hasRouterBeenInitialized = true;
+      _routingConfigNotifier = ValueNotifier<RoutingConfig>(routingConfig);
+      _router = _buildAppRouter();
+    } else {
+      _routingConfigNotifier.value = routingConfig;
+    }
   }
 
   Future<void> _handleDatabaseVersionChange(BuildContext context) async {
@@ -546,9 +542,7 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
             return previous.isConnected == next.isConnected &&
                 previous.isServiceAvailable == next.isServiceAvailable;
           }).listen((state) {
-            if (!widget.isInternetConnectionRequired || _router == null) {
-              return;
-            }
+            if (!widget.isInternetConnectionRequired) return;
 
             if (!state.isConnected) {
               _replaceTopLevel(_noConnectionAvailableRoute);
@@ -568,7 +562,7 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
   }
 
   void _replaceTopLevel(String route) {
-    _scheduleFrameCallback(() => _router?.replace(route));
+    _scheduleFrameCallback(() => _router.replace(route));
   }
 
   void _scheduleFrameCallback(VoidCallback callback) {
