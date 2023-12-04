@@ -10,8 +10,8 @@ const kFastAdDefaultTimeout = Duration(seconds: 15);
 const kFastAdRefreshInterval = 300;
 
 /// The threshold for showing a splash ad.
-/// Default is 5 app launches.
-const kFastSplashAdThreshold = 5;
+/// Default is 3 app launches.
+const kFastSplashAdThreshold = 3;
 
 /// The default time to keep in cache the ad service response.
 const kFastAdServiceCacheTTL = Duration(minutes: 60);
