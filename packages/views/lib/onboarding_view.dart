@@ -144,7 +144,7 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
               FastTextButton(
                 onTap: () {
                   if (hasReachEnd) {
-                    _done();
+                    _done(context);
                   } else {
                     widget.onNext?.call(_pageCursor);
 
@@ -162,7 +162,10 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
           if (canShowSkipButton)
             _buildButtonLayout(
               context,
-              FastTextButton(onTap: _onSkip, text: _getSkipText()),
+              FastTextButton(
+                onTap: () => _onSkip(context),
+                text: _getSkipText(),
+              ),
             ),
         ],
       ),
@@ -210,15 +213,15 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
     return Padding(padding: padding, child: child);
   }
 
-  void _onSkip() {
+  void _onSkip(BuildContext context) {
     if (widget.onSkip != null) {
       widget.onSkip!();
     } else {
-      _done();
+      _done(context);
     }
   }
 
-  Future<void> _done() async {
+  Future<void> _done(BuildContext context) async {
     final appInfoBloc = FastAppOnboardingBloc.instance;
 
     appInfoBloc.addEvent(
@@ -229,8 +232,7 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
 
     widget.onDone?.call();
 
-    // ignore: use_build_context_synchronously
-    GoRouter.of(context).replace(widget.homeLocation);
+    if (mounted) GoRouter.of(context).pushReplacement(widget.homeLocation);
   }
 
   String _getDoneText() {
