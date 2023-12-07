@@ -1,6 +1,6 @@
 dependencies:
   decimal: ^2.3.3
-  fastyle_core: ^0.0.40
+  fastyle_core: ^0.0.41
   flutter:
     sdk: flutter
   t_helpers: ^0.0.46
@@ -17,4 +17,4 @@ environment:
   sdk: '>=3.2.0 <4.0.0'
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/charts
 name: fastyle_charts
-version: 0.0.26+1
+version: 0.0.27

@@ -1,3 +1,82 @@
+## 0.0.38
+
+ - **FIX**: minor fix.
+ - **FIX**: lint.
+ - **FIX**(FastDigitCalculator): scrolling issue.
+ - **FIX**: broken apps.
+ - **FIX**: minor improvements.
+ - **FIX**: keyboard button font size.
+ - **FIX**: minor fixes.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: minor improvements.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for fastyle_digit_calculator.
+ - **FEAT**: add better debug log.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: refactor settings and core packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: esthetic changes.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add percent keyboard button.
+ - **FEAT**: update dependencies.
+ - **FEAT**: esthetic changes.
+ - **FEAT**: update dependencies.
+ - **FEAT**: make it more responsive.
+ - **FEAT**: add digit calculator field.
+ - **FEAT**: performance improvements.
+ - **FEAT**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: bunch of improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: refactor history list.
+ - **FEAT**: allow to limit the operation length.
+ - **FEAT**: support more operators.
+ - **FEAT**: limit to one operator by operation.
+ - **FEAT**: bloc unnecessary equal action.
+ - **FEAT**: update dependencies.
+
 ## 0.0.37+1
 
  - Update a dependency to the latest release.

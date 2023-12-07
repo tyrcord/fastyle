@@ -1,3 +1,117 @@
+## 0.0.34
+
+ - **REFACTOR**: ad service.
+ - **PERF**: minor improvements.
+ - **PERF**: minor improvements.
+ - **PERF**: minor improvements.
+ - **PERF**: minor improvements.
+ - **FIX**: better support for mac os.
+ - **FIX**: remove print.
+ - **FIX**: minor improvements.
+ - **FIX**: don't filter rewarded ads.
+ - **FIX**: missing super call.
+ - **FIX**: locale keys.
+ - **FIX**: avoid to listen periodically to stream when the app is paused.
+ - **FIX**: blocking job.
+ - **FIX**: ad colors.
+ - **FIX**: broken apps.
+ - **FIX**: remove fastyle_ad dependency from calculators.
+ - **FIX**: minor improvements.
+ - **FIX**: smart ad visibility.
+ - **FIX**: minor improvements.
+ - **FIX**: lint.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: harmonize defaults.
+ - **FEAT**: update dependencies.
+ - **FEAT**(FastSmartNativeAd): minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add nativeAdmobEnabled property.
+ - **FEAT**: update default ad reward block duration.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**(ad): allow up to 4 lines for medium native ad.
+ - **FEAT**(ad): allow up to 4 lines for medium native ad.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: localize packages.
+ - **FEAT**: allow to reset user country.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add this.autoRefresh property to native ad.
+ - **FEAT**: update dependencies.
+ - **FEAT**: make onGetAdInformationModel async.
+ - **FEAT**: update depencies.
+ - **FEAT**: ad support SVGs.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: set default refresh interval for ads to 300 ms.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better operation succeeded pdf export.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: allow to set the refresh Interval from the adInfo.
+ - **FEAT**: ad refreshInterval to adInfo.
+ - **FEAT**: avoid to refresh ad when not visible.
+ - **FEAT**: minor improvements.
+ - **FEAT**: preload slash ad before.
+ - **FEAT**: minor improvements.
+ - **FEAT**: FastOperationRewardedDialog.
+ - **FEAT**: initial commit for fastyle_ad.
+ - **FEAT**: make stronger the FastRewardedAdBloc.
+ - **FEAT**: FastOperationControlledDialog.
+ - **FEAT**: update dependencies.
+ - **FEAT**: rename to getNativeAdLoadingWidget.
+ - **FEAT**: debug ad info.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: change default max line for ad description.
+ - **FEAT**: ad FastAdRaisedButton.
+ - **FEAT**: better ads with merchant.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: improvement with smart native ad.
+ - **FEAT**: smart native ad.
+ - **FEAT**: add a default ad service.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add smart native ad.
+ - **FEAT**: make stronger RewardedAd logic.
+ - **FEAT**: FastRewardedAd.
+ - **FEAT**: add splash ad test.
+ - **FEAT**: add auto reload to native ad.
+ - **FEAT**: add better debug log.
+ - **FEAT**: ad an error placeholder when a video fails to load.
+ - **FEAT**: ad video badge.
+ - **FEAT**: ad default ad when native ad failed.
+ - **FEAT**: better ad for android.
+ - **FEAT**: add native ad.
+ - **FEAT**: better native ad for ios.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add VideoNativeAd.
+ - **FEAT**: add loading ads.
+ - **FEAT**: clean up.
+ - **FEAT**: initial commit for ads.
+ - **FEAT**: preparatory works for rewarded ads.
+
 ## 0.0.33+2
 
  - Update a dependency to the latest release.

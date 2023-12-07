@@ -1,3 +1,24 @@
+## 0.0.14
+
+ - **REFACTOR**: animation folder structure.
+ - **PERF**: improvements.
+ - **FIX**: missing dependency.
+ - **FIX**: memory leak.
+ - **FIX**: broken apps.
+ - **FIX**: make sure widget is mounted.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: move transitions to animations package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: make reactive FastTyrcordAnimatedLogoState.
+ - **FEAT**: initial commit for tyrcord logo animation.
+
 ## 0.0.13+2
 
  - Update a dependency to the latest release.

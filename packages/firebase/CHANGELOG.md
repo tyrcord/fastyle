@@ -1,3 +1,62 @@
+## 0.0.27
+
+ - **REFACTOR**: breaking change use routesForMediaType instead of homebuilder.
+ - **PERF**: minor performance improvements.
+ - **PERF**: minor improvements.
+ - **FIX**: firebase app.
+ - **FIX**: better support for mac os.
+ - **FIX**: broken apps.
+ - **FIX**(remote config): catch error when no internet connection.
+ - **FIX**: minor improvements.
+ - **FIX**: app check.
+ - **FIX**: workaround for android notification permission.
+ - **FIX**: regression.
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: boot screen match system theme.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check for internet connection.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: minor improvements.
+ - **FEAT**: initial commit for fastyle_firebase.
+ - **FEAT**: add default app dict entries.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastAppPermissionsBloc.
+ - **FEAT**: update dependencies.
+ - **FEAT**: enable firebase config to disable/enable features.
+ - **FEAT**: better notifications onboading.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: clean up.
+ - **FEAT**: update localization.
+ - **FEAT**: clean up.
+ - **FEAT**: implement the fast_firebase package.
+ - **FEAT**: update dependencies.
+
 ## 0.0.26+1
 
  - Update a dependency to the latest release.

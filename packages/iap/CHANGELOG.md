@@ -1,3 +1,72 @@
+## 0.0.29
+
+ - **PERF**: minor improvements.
+ - **PERF**: minor performance improvements.
+ - **FIX**: bunch of fixes.
+ - **FIX**: lint.
+ - **FIX**: enable plan after restoring it.
+ - **FIX**: minor improvements.
+ - **FIX**: broken apps.
+ - **FIX**: locale keys.
+ - **FIX**: typo.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use scheduleFrameCallback.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: add isUserPremium helper.
+ - **FEAT**: better support for web.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements with FastIapPlanBuilder.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: localize packages.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: review store names.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: enable firebase config to disable/enable features.
+ - **FEAT**: initial commit for fastyle_iap.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: better premium page.
+ - **FEAT**: improvements with the premium page.
+ - **FEAT**: better premium page.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add premium page.
+ - **FEAT**: minor improvements.
+ - **FEAT**: initial commit for PlanBloc logic.
+ - **FEAT**: minor improvements with the store logic.
+ - **FEAT**: add missing store logic.
+ - **FEAT**: initial logic for fastyle_iap.
+ - **FEAT**: update dependencies.
+
 ## 0.0.28
 
  - **FEAT**: better support for web.

@@ -1,3 +1,123 @@
+## 0.0.44
+
+ - **REFACTOR**: user country settings.
+ - **REFACTOR**: select currency fields.
+ - **PERF**: minor performance improvements.
+ - **PERF**: minor improvements.
+ - **FIX**: broken settings package.
+ - **FIX**: use MatexFinancialFrequency instead.
+ - **FIX**: broken apps.
+ - **FIX**: button stretching.
+ - **FIX**: add default itemDescriptionBuilder.
+ - **FIX**: minor improvements.
+ - **FIX**: bunch of fixes.
+ - **FIX**: remove dead code.
+ - **FIX**: default routes.
+ - **FIX**: lint.
+ - **FIX**: rename itemLabelBuilder to itemDescriptionBuilder.
+ - **FIX**: minor fixes.
+ - **FEAT**: add user country to the user settings page.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use x logo instead of tweeter.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: add more callbacks.
+ - **FEAT**: localize packages.
+ - **FEAT**: allow to reset user country.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add user country onboarding page.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add select country field.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add manuals settings.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add reset settings buttons.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastSettingsItems.manual.
+ - **FEAT**: add icon to the theme page.
+ - **FEAT**: update dependencies.
+ - **FEAT**: migrate pngs to svgs.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: more localization.
+ - **FEAT**: add leading icon to FastSelectCurrencyField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add app name to FastSettingsSupportLink.
+ - **FEAT**: minor improvements.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastPageHeaderRoundedDuotoneIconLayout.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: improvements.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: add default setting items.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: initial commit for settings.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: clean up.
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: add default settings headers.
+ - **FEAT**: clean up.
+ - **FEAT**: add FastAppInfoPage.
+ - **FEAT**: improvements.
+ - **FEAT**: add privacy policy page.
+ - **FEAT**: add tos page.
+ - **FEAT**: add FastSettingsDisclaimerPage.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add app settings languages page.
+ - **FEAT**: finish app settings logic.
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: add AppInfo logic.
+ - **FEAT**: refactor settings and core packages.
+ - **FEAT**: support fastyle_core.
+ - **FEAT**: minor improvements.
+ - **FEAT**: refactor settings.
+ - **FEAT**: rename  to MatexSelectCurrencyField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: refactor settings package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: performance improvements.
+ - **FEAT**: lint.
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: allow to localize settings pages.
+ - **FEAT**: add theme settings.
+ - **FEAT**: clean up.
+
 ## 0.0.43+1
 
  - Update a dependency to the latest release.

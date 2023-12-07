@@ -1,3 +1,93 @@
+## 0.0.41
+
+ - **PERF**: minor performance improvements.
+ - **FIX**: minor fixes.
+ - **FIX**: use MatexFinancialFrequency instead.
+ - **FIX**: bunch of fixes.
+ - **FIX**: typo.
+ - **FIX**: broken apps.
+ - **FIX**: onboarding example.
+ - **FIX**: notifications onboarding.
+ - **FIX**: minor improvements.
+ - **FIX**: minor improvements.
+ - **FIX**: missing dependency.
+ - **FIX**: lint.
+ - **FIX**: onboarding example.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use scheduleFrameCallback.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add onCountryChanged.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add user country onboarding page.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add select country field.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better onboarding pages.
+ - **FEAT**: FastOnboardingPersonalizedAds has different states.
+ - **FEAT**: update dependencies.
+ - **FEAT**: FastOnboardingNotifications has different states.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: more localization.
+ - **FEAT**: add onboarding content layout.
+ - **FEAT**: minor improvements.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: better onboarding pages.
+ - **FEAT**: better notifications onboading.
+ - **FEAT**: better FastOnboardingPersonalizedAds.
+ - **FEAT**: add a default ad service.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: clean up.
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update example dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add new onboarding pages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add Personalized Ads onboarding page.
+ - **FEAT**: add notifications onboarding page.
+ - **FEAT**: update localization.
+
 ## 0.0.40+1
 
  - Update a dependency to the latest release.

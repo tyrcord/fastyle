@@ -1,3 +1,42 @@
+## 0.0.22
+
+ - **FIX**: lint.
+ - **FIX**: broken apps.
+ - **FIX**: back and close default buttons.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add settings fab.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for fastyle_buttons.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: add default assetLoader to FastApp.
+ - **FEAT**: add some pending buttons.
+ - **FEAT**: add copy button.
+ - **FEAT**: update dependencies.
+
 ## 0.0.21+2
 
  - Update a dependency to the latest release.

@@ -3,6 +3,1615 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-12-07
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.34`](#fastyle_ad---v0034)
+ - [`fastyle_animation` - `v0.0.14`](#fastyle_animation---v0014)
+ - [`fastyle_buttons` - `v0.0.22`](#fastyle_buttons---v0022)
+ - [`fastyle_calculator` - `v1.51.0`](#fastyle_calculator---v1510)
+ - [`fastyle_charts` - `v0.0.27`](#fastyle_charts---v0027)
+ - [`fastyle_connectivity` - `v0.0.36`](#fastyle_connectivity---v0036)
+ - [`fastyle_core` - `v0.0.41`](#fastyle_core---v0041)
+ - [`fastyle_digit_calculator` - `v0.0.38`](#fastyle_digit_calculator---v0038)
+ - [`fastyle_financial` - `v0.0.35`](#fastyle_financial---v0035)
+ - [`fastyle_firebase` - `v0.0.27`](#fastyle_firebase---v0027)
+ - [`fastyle_forms` - `v0.0.39`](#fastyle_forms---v0039)
+ - [`fastyle_home` - `v0.0.34`](#fastyle_home---v0034)
+ - [`fastyle_iap` - `v0.0.29`](#fastyle_iap---v0029)
+ - [`fastyle_images` - `v0.0.42`](#fastyle_images---v0042)
+ - [`fastyle_layouts` - `v0.0.17`](#fastyle_layouts---v0017)
+ - [`fastyle_onboarding` - `v0.0.41`](#fastyle_onboarding---v0041)
+ - [`fastyle_pricing` - `v1.36.0`](#fastyle_pricing---v1360)
+ - [`fastyle_quizz` - `v0.0.14`](#fastyle_quizz---v0014)
+ - [`fastyle_settings` - `v0.0.44`](#fastyle_settings---v0044)
+ - [`fastyle_text` - `v0.0.20`](#fastyle_text---v0020)
+ - [`fastyle_video_player` - `v0.0.23`](#fastyle_video_player---v0023)
+ - [`fastyle_views` - `v0.0.26`](#fastyle_views---v0026)
+
+---
+
+#### `fastyle_ad` - `v0.0.34`
+
+ - **REFACTOR**: ad service.
+ - **PERF**: minor improvements.
+ - **PERF**: minor improvements.
+ - **PERF**: minor improvements.
+ - **PERF**: minor improvements.
+ - **FIX**: better support for mac os.
+ - **FIX**: remove print.
+ - **FIX**: minor improvements.
+ - **FIX**: don't filter rewarded ads.
+ - **FIX**: missing super call.
+ - **FIX**: locale keys.
+ - **FIX**: avoid to listen periodically to stream when the app is paused.
+ - **FIX**: blocking job.
+ - **FIX**: ad colors.
+ - **FIX**: broken apps.
+ - **FIX**: remove fastyle_ad dependency from calculators.
+ - **FIX**: minor improvements.
+ - **FIX**: smart ad visibility.
+ - **FIX**: minor improvements.
+ - **FIX**: lint.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: harmonize defaults.
+ - **FEAT**: update dependencies.
+ - **FEAT**(FastSmartNativeAd): minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add nativeAdmobEnabled property.
+ - **FEAT**: update default ad reward block duration.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**(ad): allow up to 4 lines for medium native ad.
+ - **FEAT**(ad): allow up to 4 lines for medium native ad.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: localize packages.
+ - **FEAT**: allow to reset user country.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add this.autoRefresh property to native ad.
+ - **FEAT**: update dependencies.
+ - **FEAT**: make onGetAdInformationModel async.
+ - **FEAT**: update depencies.
+ - **FEAT**: ad support SVGs.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: set default refresh interval for ads to 300 ms.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better operation succeeded pdf export.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: allow to set the refresh Interval from the adInfo.
+ - **FEAT**: ad refreshInterval to adInfo.
+ - **FEAT**: avoid to refresh ad when not visible.
+ - **FEAT**: minor improvements.
+ - **FEAT**: preload slash ad before.
+ - **FEAT**: minor improvements.
+ - **FEAT**: FastOperationRewardedDialog.
+ - **FEAT**: initial commit for fastyle_ad.
+ - **FEAT**: make stronger the FastRewardedAdBloc.
+ - **FEAT**: FastOperationControlledDialog.
+ - **FEAT**: update dependencies.
+ - **FEAT**: rename to getNativeAdLoadingWidget.
+ - **FEAT**: debug ad info.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: change default max line for ad description.
+ - **FEAT**: ad FastAdRaisedButton.
+ - **FEAT**: better ads with merchant.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: improvement with smart native ad.
+ - **FEAT**: smart native ad.
+ - **FEAT**: add a default ad service.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add smart native ad.
+ - **FEAT**: make stronger RewardedAd logic.
+ - **FEAT**: FastRewardedAd.
+ - **FEAT**: add splash ad test.
+ - **FEAT**: add auto reload to native ad.
+ - **FEAT**: add better debug log.
+ - **FEAT**: ad an error placeholder when a video fails to load.
+ - **FEAT**: ad video badge.
+ - **FEAT**: ad default ad when native ad failed.
+ - **FEAT**: better ad for android.
+ - **FEAT**: add native ad.
+ - **FEAT**: better native ad for ios.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add VideoNativeAd.
+ - **FEAT**: add loading ads.
+ - **FEAT**: clean up.
+ - **FEAT**: initial commit for ads.
+ - **FEAT**: preparatory works for rewarded ads.
+
+#### `fastyle_animation` - `v0.0.14`
+
+ - **REFACTOR**: animation folder structure.
+ - **PERF**: improvements.
+ - **FIX**: missing dependency.
+ - **FIX**: memory leak.
+ - **FIX**: broken apps.
+ - **FIX**: make sure widget is mounted.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: move transitions to animations package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: make reactive FastTyrcordAnimatedLogoState.
+ - **FEAT**: initial commit for tyrcord logo animation.
+
+#### `fastyle_buttons` - `v0.0.22`
+
+ - **FIX**: lint.
+ - **FIX**: broken apps.
+ - **FIX**: back and close default buttons.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add settings fab.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for fastyle_buttons.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: add default assetLoader to FastApp.
+ - **FEAT**: add some pending buttons.
+ - **FEAT**: add copy button.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_calculator` - `v1.51.0`
+
+ - **PERF**: simplify FastCalculatorCategoryResult.
+ - **FIX**: debounced events.
+ - **FIX**: isAutoRefreshEnabled feature.
+ - **FIX**: make sure we debounced compute if needed.
+ - **FIX**: broken apps.
+ - **FIX**: showExportPdfDialog.
+ - **FIX**: bunch of fixes.
+ - **FIX**: bunch of fixes.
+ - **FIX**: debounce LoadMetadata event.
+ - **FIX**: clear the document when the settings save user entry changes.
+ - **FIX**: remove fastyle_ad dependency from calculators.
+ - **FIX**: minor fixes.
+ - **FIX**: make sure we can close a HydratedFastCalculatorBloc before trying to close it.
+ - **FIX**: regression.
+ - **FIX**: avoid to build the calculator before its bloc is ready.
+ - **FIX**: check bloc validity after computed event.
+ - **FIX**: minor fixes.
+ - **FIX**: FastCalculatorRefreshAction rebuild when isBusy changes.
+ - **FIX**: willCompute.
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add willCompute life cycle method.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to auto refresh results.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: make FastCalculatorLastUpdatedText more flexible.
+ - **FEAT**: add resetValue FastCalculatorBlocEvent.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add isAutoRefreshCalculatorResultsEnabled helper.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: add FastCalculatorChartToggle.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: boot screen match system theme.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: clean up.
+ - **FEAT**: default overlays.
+ - **FEAT**: better layout for desktop.
+ - **FEAT**: added FastLastUpdatedText.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: support more language when exporting to PDF.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to override share user interactions.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**(pdf): update default margin.
+ - **FEAT**: PDF support subtitle and authorUrl.
+ - **FEAT**: update dependencies.
+ - **FEAT**: enable firebase config to disable/enable features.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: more localization.
+ - **FEAT**: more option to FastPdfCalculatorReporter.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add calculator package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastExportPdfRewardedDialog.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: minor improvement.
+ - **FEAT**: better default icons.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: clean up.
+ - **FEAT**: add status pages.
+ - **FEAT**: add default assetLoader to FastApp.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add AppInfo logic.
+ - **FEAT**: refactor settings and core packages.
+ - **FEAT**: support fastyle_core.
+ - **FEAT**: add metadata and allow to force rendering.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastCalculatorCategoryResult.
+ - **FEAT**: add a default info button.
+ - **FEAT**: better default pdf calculator reporter.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add default pdf_calculator reporter.
+ - **FEAT**: add build context to shareCalculatorState.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: better logs when a bloc calculator fails to init.
+ - **FEAT**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add disabled colors to action button.
+ - **FEAT**: add debouceComputeEvents for calculator blocs.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_charts` - `v0.0.27`
+
+ - **PERF**: improvements.
+ - **FIX**: lint.
+ - **FIX**(chart): bunch of fixes and minor improvements.
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: update localization.
+ - **FEAT**: add missing chart colors.
+ - **FEAT**: update dependencies.
+ - **FEAT**: label is not mandatory for FastChartData.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for fastyle_charts.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: chart improvements.
+ - **FEAT**: add FastChart.
+ - **FEAT**: add Pie and Doughnut charts.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_connectivity` - `v0.0.36`
+
+ - **FIX**: minor fixes.
+ - **FIX**: broken apps.
+ - **FIX**: icon size.
+ - **FIX**: check internet connectivity status.
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: clean up connectivity package.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: add connectivity package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: minor improvements.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: update dependencies.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastConnectivityStatus widgets.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_core` - `v0.0.41`
+
+ - **REFACTOR**: ask for app review.
+ - **REFACTOR**: FastAppRatingService instance.
+ - **REFACTOR**: breaking change use routesForMediaType instead of homebuilder.
+ - **REFACTOR**: app loader.
+ - **REFACTOR**: app loader.
+ - **REFACTOR**: user country settings.
+ - **PERF**: minor improvements.
+ - **PERF**: improvements.
+ - **PERF**: minor performance improvements.
+ - **PERF**: minor improvements.
+ - **FIX**: bunch of fixes.
+ - **FIX**: migration to flutter 3.16.
+ - **FIX**: make sure onboarding exist before trying to redirect to it.
+ - **FIX**: uppercase default primary currency code.
+ - **FIX**: minor fixes.
+ - **FIX**: theme bloc.
+ - **FIX**: locale keys.
+ - **FIX**: avoid to listen periodically to stream when the app is paused.
+ - **FIX**: better padding.
+ - **FIX**: minor improvements.
+ - **FIX**: remove default spacing for FastSelectableListView.
+ - **FIX**: language settings.
+ - **FIX**: minor improvements.
+ - **FIX**: padding issue.
+ - **FIX**: notifications onboarding.
+ - **FIX**: use right settings state.
+ - **FIX**: add missing asset.
+ - **FIX**: regression.
+ - **FIX**: better onboarding process.
+ - **FIX**: FastConnectivityStatusBloc initialization process.
+ - **FIX**: use descriptor padding if available.
+ - **FIX**: avoid to rebuild a router for the same routes.
+ - **FIX**: lint.
+ - **FIX**: back and close default buttons.
+ - **FIX**: broken apps.
+ - **FIX**: broken connectivity status routes.
+ - **FIX**: regression.
+ - **FIX**: regression.
+ - **FIX**: AnimatedFastOverlay uses SafeArea.
+ - **FIX**: better support for mac os.
+ - **FIX**: missing property.
+ - **FIX**: FastOperationControlledDialog.
+ - **FIX**: bunch of fixes.
+ - **FIX**: status bar color.
+ - **FIX**: restarting the app.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: use scheduleFrameCallback.
+ - **FEAT**: minor improvements.
+ - **FEAT**(StatusPage): more spacing between actions.
+ - **FEAT**: add checkConnectivity method.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add contact button when app fails.
+ - **FEAT**: minor improvements.
+ - **FEAT**: don't reload automatically app when no connectivity.
+ - **FEAT**: minor improvements.
+ - **FEAT**: support bottomSheet.
+ - **FEAT**: harmonize defaults.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**(FastAppInfoPage): better spacing.
+ - **FEAT**: add getColorBasedOnValue helper.
+ - **FEAT**: add FastAppFinalizeJob.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastRoundingMethod enum.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better support for web.
+ - **FEAT**: add split view.
+ - **FEAT**(FastSelectField): make labelText optional.
+ - **FEAT**: preload slash ad before.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add Device Orientation Bloc.
+ - **FEAT**: add FastSelectInstrumentField.
+ - **FEAT**: boot screen match system theme.
+ - **FEAT**: minor improvements.
+ - **FEAT**: refactor status pages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move transitions to animations package.
+ - **FEAT**: use removeDiacriticsAndLowercase from t_helpers.
+ - **FEAT**: more callback type.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better startup errors.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check for internet connection.
+ - **FEAT**: Change the time limit for a job to complete.
+ - **FEAT**: change the delay period before presenting the loader in Fast App.
+ - **FEAT**: add noneTextGender property to select field.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add user country to the user settings page.
+ - **FEAT**: increase default timeout when loading a job.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add todo comments.
+ - **FEAT**: allow to restart the app.
+ - **FEAT**: make status page responsive.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: layout improvements.
+ - **FEAT**: improvements with fields.
+ - **FEAT**: update localization.
+ - **FEAT**: make stronger FastAppSettingsJob.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastDialogPage.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: support more language when exporting to PDF.
+ - **FEAT**: update dependencies.
+ - **FEAT**: ad os version to the app info.
+ - **FEAT**: allow to override the control within FastReadOnlyTextField.
+ - **FEAT**: better spacer for the onboarding pages.
+ - **FEAT**: review store names.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add default app dict entries.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better onboarding pages.
+ - **FEAT**: FastOnboardingPersonalizedAds has different states.
+ - **FEAT**: add alwaysUse24HourFormat to settings.
+ - **FEAT**: FastOnboardingNotifications has different states.
+ - **FEAT**: add FastAppPermissionsBloc.
+ - **FEAT**: add FastExampleBlock.
+ - **FEAT**: enable firebase config to disable/enable features.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for core.
+ - **FEAT**: minor improvement.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: more localization.
+ - **FEAT**: add leading icon to FastSelectCurrencyField.
+ - **FEAT**: add autoRefreshCalculatorResults feature.
+ - **FEAT**: minor improvements.
+ - **FEAT**: better style for FastNoFavoriteIcon.
+ - **FEAT**: add device code as fallback when getting localeCode.
+ - **FEAT**: minor improvements.
+ - **FEAT**: FastOperationRewardedDialog.
+ - **FEAT**: add status icons/messages.
+ - **FEAT**: preparatory works for rewarded ads.
+ - **FEAT**: add isAutoRefreshCalculatorResultsEnabled helper.
+ - **FEAT**: FastOperationControlledDialog.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: change clear icon.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: add showAnimatedFastAlertDialog.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastPageHeaderRoundedDuotoneIconLayout.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: cleaning.
+ - **FEAT**: add default navigation handler.
+ - **FEAT**: add twitterUrl.
+ - **FEAT**: smart native ad.
+ - **FEAT**: better default icons.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: add showAnimatedFastOverlay.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: move away from fastyle_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add smart native ad.
+ - **FEAT**: add premium page.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add missing store logic.
+ - **FEAT**: add enable feature event.
+ - **FEAT**: initial logic for fastyle_iap.
+ - **FEAT**: ad an error placeholder when a video fails to load.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastStarRating.
+ - **FEAT**: add default placeholders.
+ - **FEAT**: add FastCover.
+ - **FEAT**: add missing contants.
+ - **FEAT**: clean up.
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: add status pages.
+ - **FEAT**: add no favorite icon.
+ - **FEAT**: add default assetLoader to FastApp.
+ - **FEAT**: clean up.
+ - **FEAT**: add FastAppInfoPage.
+ - **FEAT**: add privacy policy page.
+ - **FEAT**: add FastSettingsDisclaimerPage.
+ - **FEAT**: add FastAppOnboardingBloc logic.
+ - **FEAT**: add FastDictBloc logic.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastApp.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add AppFeaturesBloc logic.
+ - **FEAT**: finish app settings logic.
+ - **FEAT**: add AppInfo logic.
+ - **FEAT**: refactor settings and core packages.
+ - **FEAT**: add log.
+
+#### `fastyle_digit_calculator` - `v0.0.38`
+
+ - **FIX**: minor fix.
+ - **FIX**: lint.
+ - **FIX**(FastDigitCalculator): scrolling issue.
+ - **FIX**: broken apps.
+ - **FIX**: minor improvements.
+ - **FIX**: keyboard button font size.
+ - **FIX**: minor fixes.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: minor improvements.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for fastyle_digit_calculator.
+ - **FEAT**: add better debug log.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: refactor settings and core packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: esthetic changes.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add percent keyboard button.
+ - **FEAT**: update dependencies.
+ - **FEAT**: esthetic changes.
+ - **FEAT**: update dependencies.
+ - **FEAT**: make it more responsive.
+ - **FEAT**: add digit calculator field.
+ - **FEAT**: performance improvements.
+ - **FEAT**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: bunch of improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: refactor history list.
+ - **FEAT**: allow to limit the operation length.
+ - **FEAT**: support more operators.
+ - **FEAT**: limit to one operator by operation.
+ - **FEAT**: bloc unnecessary equal action.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_financial` - `v0.0.35`
+
+ - **REFACTOR**: select currency fields.
+ - **PERF**: minor performance improvements.
+ - **FIX**: stronger selection property.
+ - **FIX**: use MatexFinancialFrequency instead.
+ - **FIX**: localization issue with  FastSelectInstrumentFieldState.
+ - **FIX**: FastSelectInstrumentField wrong empty content.
+ - **FIX**: show all financial instrument items.
+ - **FIX**: missing crytpos.
+ - **FIX**: selection FastSelectInstrumentField.
+ - **FIX**: broken apps.
+ - **FIX**: avoid to call tr() twice.
+ - **FIX**: minor improvements.
+ - **FIX**: minor improvements.
+ - **FIX**: bunch of fixes.
+ - **FIX**: rebuild FastFinanceInvestDisclaimer when language changes.
+ - **FIX**: lint.
+ - **FIX**: rename itemLabelBuilder to itemDescriptionBuilder.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update lingua_units dependency.
+ - **FEAT**: add localizeUnitSize helper.
+ - **FEAT**: update dependencies.
+ - **FEAT**: added FastFinancialFrequencySelectField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastSelectInstrumentField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastPositionSizeSwitchField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for fastyle_financial.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: added FastFiancialAmountSwitchField.
+ - **FEAT**: more localization.
+ - **FEAT**: add leading icon to FastSelectCurrencyField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: add FastFinanceInvestDisclaimerPage.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: refactor settings and core packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better style for FastNoFavoriteIcon.
+ - **FEAT**: rename FastSelectInstrumentField to FastSelectCurrencyField.
+ - **FEAT**: add fastyle_financial_example.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_firebase` - `v0.0.27`
+
+ - **REFACTOR**: breaking change use routesForMediaType instead of homebuilder.
+ - **PERF**: minor performance improvements.
+ - **PERF**: minor improvements.
+ - **FIX**: firebase app.
+ - **FIX**: better support for mac os.
+ - **FIX**: broken apps.
+ - **FIX**(remote config): catch error when no internet connection.
+ - **FIX**: minor improvements.
+ - **FIX**: app check.
+ - **FIX**: workaround for android notification permission.
+ - **FIX**: regression.
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: boot screen match system theme.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check for internet connection.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: minor improvements.
+ - **FEAT**: initial commit for fastyle_firebase.
+ - **FEAT**: add default app dict entries.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastAppPermissionsBloc.
+ - **FEAT**: update dependencies.
+ - **FEAT**: enable firebase config to disable/enable features.
+ - **FEAT**: better notifications onboading.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: clean up.
+ - **FEAT**: update localization.
+ - **FEAT**: clean up.
+ - **FEAT**: implement the fast_firebase package.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_forms` - `v0.0.39`
+
+ - **REFACTOR**: select currency fields.
+ - **PERF**: minor improvements.
+ - **FIX**: minor fixes.
+ - **FIX**: use MatexFinancialFrequency instead.
+ - **FIX**: zero values.
+ - **FIX**(FastDigitCalculatorField): minor improvements.
+ - **FIX**: broken apps.
+ - **FIX**: back and close default buttons.
+ - **FIX**: lint.
+ - **FEAT**: use scheduleFrameCallback.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastSelectDecimalPlacesField.
+ - **FEAT**: update dependencies.
+ - **FEAT**(FastDigitCalculatorField): add acceptNegative flag.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**(FastAmountSwitchField): allow to change the menu labels.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: localize packages.
+ - **FEAT**: allow to reset user country.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add user country onboarding page.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add select country field.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add digit calculator field.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: clean up.
+ - **FEAT**: add FastAppInfoPage.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add more options to the form field descriptor.
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: refactor settings and core packages.
+ - **FEAT**: support fastyle_core.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastFormFieldDescriptor.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add amountSwitchFieldTypeFromString helper.
+ - **FEAT**: add placeholder properties.
+ - **FEAT**: FastAmountSwitchField.
+ - **FEAT**: esthetic changes.
+ - **FEAT**: FastAmountSwitchField menu options are filterable.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: stronger feature mechanism.
+
+#### `fastyle_home` - `v0.0.34`
+
+ - **FIX**: android app.
+ - **FIX**: broken apps.
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add home package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: minor improvements.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+
+#### `fastyle_iap` - `v0.0.29`
+
+ - **PERF**: minor improvements.
+ - **PERF**: minor performance improvements.
+ - **FIX**: bunch of fixes.
+ - **FIX**: lint.
+ - **FIX**: enable plan after restoring it.
+ - **FIX**: minor improvements.
+ - **FIX**: broken apps.
+ - **FIX**: locale keys.
+ - **FIX**: typo.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use scheduleFrameCallback.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: add isUserPremium helper.
+ - **FEAT**: better support for web.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements with FastIapPlanBuilder.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: localize packages.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: review store names.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: enable firebase config to disable/enable features.
+ - **FEAT**: initial commit for fastyle_iap.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: better premium page.
+ - **FEAT**: improvements with the premium page.
+ - **FEAT**: better premium page.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add premium page.
+ - **FEAT**: minor improvements.
+ - **FEAT**: initial commit for PlanBloc logic.
+ - **FEAT**: minor improvements with the store logic.
+ - **FEAT**: add missing store logic.
+ - **FEAT**: initial logic for fastyle_iap.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_images` - `v0.0.42`
+
+ - **PERF**: precompiled svgs.
+ - **PERF**: smaller svgs.
+ - **PERF**: smaller svgs.
+ - **FIX**: minor fixes.
+ - **FIX**: show all financial instrument items.
+ - **FIX**: images.
+ - **FIX**: broken apps.
+ - **FIX**: minor improvements.
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add more flags.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update flags.
+ - **FEAT**: ad support SVGs.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: support network images.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: migrate pngs to svgs.
+ - **FEAT**: add images package.
+ - **FEAT**: minor improvements.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update example dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: refactor settings and core packages.
+ - **FEAT**: support fastyle_core.
+ - **FEAT**: generate missing languages.
+ - **FEAT**: add languages images.
+ - **FEAT**: update dependencies.
+ - **FEAT**: handle empty path.
+ - **FEAT**: update dependencies.
+ - **FEAT**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add mobile images.
+ - **FEAT**: add crypto and commodity images.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_layouts` - `v0.0.17`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: better spacer for the onboarding pages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better onboarding pages.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: better onboarding pages.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: initial commit for fastyle_layouts.
+
+#### `fastyle_onboarding` - `v0.0.41`
+
+ - **PERF**: minor performance improvements.
+ - **FIX**: minor fixes.
+ - **FIX**: use MatexFinancialFrequency instead.
+ - **FIX**: bunch of fixes.
+ - **FIX**: typo.
+ - **FIX**: broken apps.
+ - **FIX**: onboarding example.
+ - **FIX**: notifications onboarding.
+ - **FIX**: minor improvements.
+ - **FIX**: minor improvements.
+ - **FIX**: missing dependency.
+ - **FIX**: lint.
+ - **FIX**: onboarding example.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use scheduleFrameCallback.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add onCountryChanged.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add user country onboarding page.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add select country field.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better onboarding pages.
+ - **FEAT**: FastOnboardingPersonalizedAds has different states.
+ - **FEAT**: update dependencies.
+ - **FEAT**: FastOnboardingNotifications has different states.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: more localization.
+ - **FEAT**: add onboarding content layout.
+ - **FEAT**: minor improvements.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: better onboarding pages.
+ - **FEAT**: better notifications onboading.
+ - **FEAT**: better FastOnboardingPersonalizedAds.
+ - **FEAT**: add a default ad service.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: clean up.
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update example dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add new onboarding pages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add Personalized Ads onboarding page.
+ - **FEAT**: add notifications onboarding page.
+ - **FEAT**: update localization.
+
+#### `fastyle_pricing` - `v1.36.0`
+
+ - **PERF**: minor improvements.
+ - **FIX**: lint.
+ - **FIX**: broken apps.
+ - **FIX**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for fastyle_pricing.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: minor improvements.
+ - **FEAT**: better premium page.
+ - **FEAT**: improvements with the premium page.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: clean up.
+ - **FEAT**: add default settings headers.
+ - **FEAT**: update example dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: refactor settings and core packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_quizz` - `v0.0.14`
+
+ - **FIX**: broken apps.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update depencies.
+ - **FEAT**: layout improvements.
+ - **FEAT**: initial commit for fastyle_quizz.
+
+#### `fastyle_settings` - `v0.0.44`
+
+ - **REFACTOR**: user country settings.
+ - **REFACTOR**: select currency fields.
+ - **PERF**: minor performance improvements.
+ - **PERF**: minor improvements.
+ - **FIX**: broken settings package.
+ - **FIX**: use MatexFinancialFrequency instead.
+ - **FIX**: broken apps.
+ - **FIX**: button stretching.
+ - **FIX**: add default itemDescriptionBuilder.
+ - **FIX**: minor improvements.
+ - **FIX**: bunch of fixes.
+ - **FIX**: remove dead code.
+ - **FIX**: default routes.
+ - **FIX**: lint.
+ - **FIX**: rename itemLabelBuilder to itemDescriptionBuilder.
+ - **FIX**: minor fixes.
+ - **FEAT**: add user country to the user settings page.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use x logo instead of tweeter.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: add more callbacks.
+ - **FEAT**: localize packages.
+ - **FEAT**: allow to reset user country.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add user country onboarding page.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add select country field.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add manuals settings.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add reset settings buttons.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastSettingsItems.manual.
+ - **FEAT**: add icon to the theme page.
+ - **FEAT**: update dependencies.
+ - **FEAT**: migrate pngs to svgs.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: more localization.
+ - **FEAT**: add leading icon to FastSelectCurrencyField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add app name to FastSettingsSupportLink.
+ - **FEAT**: minor improvements.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastPageHeaderRoundedDuotoneIconLayout.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: improvements.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: add default setting items.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: initial commit for settings.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: clean up.
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: add default settings headers.
+ - **FEAT**: clean up.
+ - **FEAT**: add FastAppInfoPage.
+ - **FEAT**: improvements.
+ - **FEAT**: add privacy policy page.
+ - **FEAT**: add tos page.
+ - **FEAT**: add FastSettingsDisclaimerPage.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add app settings languages page.
+ - **FEAT**: finish app settings logic.
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: add AppInfo logic.
+ - **FEAT**: refactor settings and core packages.
+ - **FEAT**: support fastyle_core.
+ - **FEAT**: minor improvements.
+ - **FEAT**: refactor settings.
+ - **FEAT**: rename  to MatexSelectCurrencyField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: refactor settings package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: performance improvements.
+ - **FEAT**: lint.
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: allow to localize settings pages.
+ - **FEAT**: add theme settings.
+ - **FEAT**: clean up.
+
+#### `fastyle_text` - `v0.0.20`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: make FastCalculatorLastUpdatedText more flexible.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: added FastLastUpdatedText.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: cleaning.
+ - **FEAT**: animated number will only starts when visible.
+ - **FEAT**: add fastyle_text package.
+
+#### `fastyle_video_player` - `v0.0.23`
+
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for video_player.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: ad an error placeholder when a video fails to load.
+ - **FEAT**: ad video badge.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_views` - `v0.0.26`
+
+ - **REFACTOR**: breaking change use routesForMediaType instead of homebuilder.
+ - **PERF**: minor performance improvements.
+ - **PERF**: minor improvements.
+ - **FIX**: lint.
+ - **FIX**: localization.
+ - **FIX**: onboarding issue when done.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add onNext callback to FastOnboardingView.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for fastyle_views.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: update dependencies.
+
+
 ## 2023-12-02
 
 ### Changes

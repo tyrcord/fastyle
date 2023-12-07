@@ -1,3 +1,91 @@
+## 0.0.39
+
+ - **REFACTOR**: select currency fields.
+ - **PERF**: minor improvements.
+ - **FIX**: minor fixes.
+ - **FIX**: use MatexFinancialFrequency instead.
+ - **FIX**: zero values.
+ - **FIX**(FastDigitCalculatorField): minor improvements.
+ - **FIX**: broken apps.
+ - **FIX**: back and close default buttons.
+ - **FIX**: lint.
+ - **FEAT**: use scheduleFrameCallback.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastSelectDecimalPlacesField.
+ - **FEAT**: update dependencies.
+ - **FEAT**(FastDigitCalculatorField): add acceptNegative flag.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**(FastAmountSwitchField): allow to change the menu labels.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: localize packages.
+ - **FEAT**: allow to reset user country.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add user country onboarding page.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add select country field.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add digit calculator field.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: clean up.
+ - **FEAT**: add FastAppInfoPage.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add more options to the form field descriptor.
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: refactor settings and core packages.
+ - **FEAT**: support fastyle_core.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastFormFieldDescriptor.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add amountSwitchFieldTypeFromString helper.
+ - **FEAT**: add placeholder properties.
+ - **FEAT**: FastAmountSwitchField.
+ - **FEAT**: esthetic changes.
+ - **FEAT**: FastAmountSwitchField menu options are filterable.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: stronger feature mechanism.
+
 ## 0.0.38+1
 
  - Update a dependency to the latest release.
