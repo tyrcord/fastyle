@@ -1,4 +1,4 @@
-name: Publish New Version
+name: Create new versions
 
 on:
   workflow_dispatch:
@@ -21,8 +21,6 @@ jobs:
       - name: Install and set Melos version
         uses: bluefireteam/melos-action@v3
 
-      - run: melos --version
-
       - name: Install dependencies
         run: flutter pub get
 
@@ -33,9 +31,6 @@ jobs:
 
       - name: Update versions
         run: melos version --yes
-
-      - name: Publish New Version
-        run: melos publish -y --no-dry-run
 
       - name: Push changes
         uses: ad-m/github-push-action@master
