@@ -8,7 +8,7 @@ scripts:
     exec: dart analyze .
   fix:
     exec: dart fix --apply
-  import_sort:
+  sort_imports:
     exec: dart pub run import_sorter:main
   dependency_validator:
     exec: dart run dependency_validator
