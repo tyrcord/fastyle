@@ -1,6 +1,8 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
 // Package imports:
 import 'package:tbloc/tbloc.dart';
-import 'package:flutter/material.dart';
 
 enum FastDeviceOrientationBlocEventType {
   changed,
