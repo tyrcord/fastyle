@@ -5,10 +5,10 @@ packages:
     dependency: transitive
     description:
       name: _flutterfire_internals
-      sha256: dd68ecea9f1e3556d385521bd21c7bafd6311a8c1e11abe2595ca27974f468ee
+      sha256: eb0ac20f704799b986049fbb3c1c16421eca319a1b872378d669513e12452ba5
       url: "https://pub.dev"
     source: hosted
-    version: "1.3.13"
+    version: "1.3.14"
   another_flushbar:
     dependency: transitive
     description:
@@ -247,87 +247,87 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.21"
+    version: "0.0.21+2"
   fastyle_calculator:
     dependency: transitive
     description:
       name: fastyle_calculator
-      sha256: cd67ebe5c050d43f5e07a9949b8abd05e48207da4e1596323a3d995f59e48d0e
+      sha256: d44b025b18925385e20ced449651ede2deaf0db794904d1aad43c74b068dbf24
       url: "https://pub.dev"
     source: hosted
-    version: "1.47.0"
+    version: "1.50.1"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.38"
+    version: "0.0.40"
   fastyle_digit_calculator:
     dependency: "direct overridden"
     description:
       path: "../../digit_calculator"
       relative: true
     source: path
-    version: "0.0.36"
+    version: "0.0.37+1"
   fastyle_financial:
     dependency: transitive
     description:
       name: fastyle_financial
-      sha256: "4b6ec8885c013961d50c8bc59eb140279985429ff5048cb6c3f0052d02d3f1f2"
+      sha256: "26190c779a6cba04bc8352d031f81a1d53b14c5add0b148978692a9cdd36ce8d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.32"
+    version: "0.0.34+1"
   fastyle_forms:
     dependency: "direct overridden"
     description:
       path: "../../forms"
       relative: true
     source: path
-    version: "0.0.37"
+    version: "0.0.38+1"
   fastyle_iap:
     dependency: "direct overridden"
     description:
       path: "../../iap"
       relative: true
     source: path
-    version: "0.0.27"
+    version: "0.0.28"
   fastyle_images:
     dependency: "direct overridden"
     description:
       path: "../../images"
       relative: true
     source: path
-    version: "0.0.40"
+    version: "0.0.41+1"
   fastyle_layouts:
     dependency: "direct overridden"
     description:
       path: "../../layouts"
       relative: true
     source: path
-    version: "0.0.16"
+    version: "0.0.16+2"
   fastyle_onboarding:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.39"
+    version: "0.0.40+1"
   fastyle_settings:
     dependency: "direct overridden"
     description:
       path: "../../settings"
       relative: true
     source: path
-    version: "0.0.42"
+    version: "0.0.43+1"
   fastyle_text:
     dependency: transitive
     description:
       name: fastyle_text
-      sha256: "56e390b3917dcaf9bcd55db1fb5a0aa5b7e5260f5309960d910fb516d01ba9f9"
+      sha256: "62065d3d1ea49092259fb44ac43464619d4e700a23bcb05421904620729d1e1d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.18"
+    version: "0.0.19+2"
   ffi:
     dependency: transitive
     description:
@@ -348,10 +348,10 @@ packages:
     dependency: transitive
     description:
       name: firebase_core
-      sha256: "471b46ea6a9af503184d4de691566887daedd312aec5baac5baa42d819f56446"
+      sha256: d301561d614487688d797717bef013a264c517d1d09e4c5c1325c3a64c835efb
       url: "https://pub.dev"
     source: hosted
-    version: "2.23.0"
+    version: "2.24.0"
   firebase_core_platform_interface:
     dependency: transitive
     description:
@@ -364,34 +364,34 @@ packages:
     dependency: transitive
     description:
       name: firebase_core_web
-      sha256: "0631a2ec971dbc540275e2fa00c3a8a2676f0a7adbc3c197d6fba569db689d97"
+      sha256: "10159d9ee42c79f4548971d92f3f0fcd5791f6738cda3583a4e3b2c8b244c018"
       url: "https://pub.dev"
     source: hosted
-    version: "2.8.1"
+    version: "2.9.0"
   firebase_messaging:
     dependency: transitive
     description:
       name: firebase_messaging
-      sha256: f4576000e749c906d44649feadb2449ada39eab9777650319bdd6fa69a3044f5
+      sha256: "260064e1b512a9e1970b5964d645eba888208ca3de42459c38e484c8ecdc37a9"
       url: "https://pub.dev"
     source: hosted
-    version: "14.7.5"
+    version: "14.7.6"
   firebase_messaging_platform_interface:
     dependency: transitive
     description:
       name: firebase_messaging_platform_interface
-      sha256: dcf065ecb9518ddc671477f9b8592274df7ccf74c6aaa15f02fc92b1f2b9c8a8
+      sha256: "81fb8c983356dd75ee660f276c918380325df7a1ab1e981ede911809e9ddff30"
       url: "https://pub.dev"
     source: hosted
-    version: "4.5.14"
+    version: "4.5.15"
   firebase_messaging_web:
     dependency: transitive
     description:
       name: firebase_messaging_web
-      sha256: "11b7920273367ce2cb272d29153bb7aaae93577eba1eba423c7af61d7f2a3eb2"
+      sha256: "1c5d9b6cf929ab471300143059d1641a26b73c9c24adb5266e241aea23c090aa"
       url: "https://pub.dev"
     source: hosted
-    version: "3.5.14"
+    version: "3.5.15"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -632,10 +632,18 @@ packages:
     dependency: transitive
     description:
       name: lingua_finance
-      sha256: a150919a215f8a0b4fd0c5bac04695d34b1c153fca6e32c25f396fc9ca8b8520
+      sha256: "8f5f1d10f0602c7ec48c91f8aa4ca7f4025315eed98753061a23d5fce294072e"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.26"
+    version: "0.0.27"
+  lingua_finance_dividend:
+    dependency: transitive
+    description:
+      name: lingua_finance_dividend
+      sha256: "4b9b372e86e31f720b3d845462a1bdebf173cf7ca78dddd9d425f40d2f331563"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.7"
   lingua_finance_forex:
     dependency: transitive
     description:
@@ -656,10 +664,10 @@ packages:
     dependency: transitive
     description:
       name: lingua_finance_stock
-      sha256: b641ac9335269881f02a3fb23c2e37ccec3d4587c3b918dff9de5cd9821c1e95
+      sha256: aa4f9e227a25980f2d51123df94a224ec0ad9d45fdde092ca40ac329bf1dbb71
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.8"
+    version: "0.0.10"
   lingua_help:
     dependency: transitive
     description:
@@ -752,26 +760,26 @@ packages:
     dependency: transitive
     description:
       name: matex_core
-      sha256: caf364d5a3da818b6e7f6dec7ff0a9610a654c9a6cf2938f40bcc311148215a0
+      sha256: aa71a9ffbd9785744ec3003bea17f84b0a1419895097f3f4af00505e5403b661
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.24"
+    version: "0.0.25"
   matex_data:
     dependency: transitive
     description:
       name: matex_data
-      sha256: "402be85489057e3a179e946b5d7a6658e7a5b25078e97e5cb4d33c07980cedfd"
+      sha256: f0435ce6b61c725097d3309e8d02cb0c560ca36a1af7ae4fc6fdec5c9b0a917f
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.18"
+    version: "0.0.19"
   matex_financial:
     dependency: transitive
     description:
       name: matex_financial
-      sha256: "27899737e5679c5f18bb7eb33e3783aa012e2832dad1b6c1f31c2f1a5d6a109b"
+      sha256: b6d53b47ee4e400ed01a64d144f53f2af4e38cd4956ac5072c1969f128b15b9d
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.32"
+    version: "0.0.35"
   meta:
     dependency: transitive
     description:
@@ -848,10 +856,10 @@ packages:
     dependency: transitive
     description:
       name: path_provider
-      sha256: "909b84830485dbcd0308edf6f7368bc8fd76afa26a270420f34cabea2a6467a0"
+      sha256: a1aa8aaa2542a6bc57e381f132af822420216c80d4781f7aa085ca3229208aaa
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   path_provider_android:
     dependency: transitive
     description:
@@ -1141,10 +1149,10 @@ packages:
     dependency: transitive
     description:
       name: t_cache
-      sha256: bb16220b8f85beb05d0dd314fb9753f3d4a4281c164b4f25d28fc82ab2dde1dd
+      sha256: d961a4b38791b9be47c60013fa472261718e88ecc3806543d3d325dce3303cf2
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.11+3"
+    version: "0.0.11+4"
   t_helpers:
     dependency: transitive
     description:
