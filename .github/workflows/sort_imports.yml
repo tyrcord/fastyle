@@ -34,13 +34,13 @@ jobs:
 
       # Sort imports
       - name: Sort imports
-        run: dart pub run import_sorter:main
+        run: melos run --no-select sort_imports
 
-      # Check for any changes
-      - name: Check for changes
+      # Check for any changes in Dart files
+      - name: Check for Dart file changes
         id: git-check
         run: |
-          git diff --exit-code || echo "changes=1" >> $GITHUB_ENV
+          git diff --exit-code -- '*.dart' || echo "changes=1" >> $GITHUB_ENV
 
       # Configure Git
       - name: Configure Git
@@ -50,9 +50,9 @@ jobs:
           git config user.email "actions@github.com"
 
       # Commit and push changes
-      - name: Commit and push
+      - name: Commit and push Dart files
         if: env.changes == '1'
         run: |
-          git add -A
+          git add *.dart
           git commit -m "chore: sorted imports"
           git push
