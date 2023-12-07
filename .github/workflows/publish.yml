@@ -1,0 +1,33 @@
+name: Publish New Version
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+
+      - name: Install and set Flutter version
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+
+      - run: flutter --version
+
+      - name: Install and set Melos version
+        uses: bluefireteam/melos-action@v3
+
+      - run: melos --version
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Update versions
+        run: melos version --yes
+
+      - name: Publish New Version
+        run: melos publish -y --no-dry-run
