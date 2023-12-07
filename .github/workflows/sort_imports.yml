@@ -3,8 +3,12 @@ name: Sort Imports
 on:
   push:
     branches: ["main"]
+    paths:
+      - "**.dart"
   pull_request:
     branches: ["main"]
+    paths:
+      - "**.dart"
 
 env:
   changes: 0
@@ -46,7 +50,7 @@ jobs:
       - name: Configure Git
         if: env.changes == '1'
         run: |
-          git config user.name "GitHub Actions"
+          git config user.name "GitHub Action"
           git config user.email "actions@github.com"
 
       # Commit and push changes

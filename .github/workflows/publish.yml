@@ -31,3 +31,13 @@ jobs:
 
       - name: Publish New Version
         run: melos publish -y --no-dry-run
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "actions@github.com"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
