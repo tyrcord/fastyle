@@ -1,14 +1,9 @@
 name: Sort Imports
 
 on:
-  push:
-    branches: ["main"]
-    paths:
-      - "**.dart"
-  pull_request:
-    branches: ["main"]
-    paths:
-      - "**.dart"
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
 
 env:
   changes: 0
