@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:rxdart/rxdart.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:tlogger/logger.dart';
 
 class FastAppConnectivityJob extends FastJob {
   static const _debugLabel = 'FastAppConnectivityJob';
