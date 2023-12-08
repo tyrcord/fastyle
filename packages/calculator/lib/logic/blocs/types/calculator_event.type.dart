@@ -15,4 +15,6 @@ enum FastCalculatorBlocEventType {
   patchMetadata,
   retrieveDefaultValues,
   saveEntryChanged,
+  share,
+  exportToPdf,
 }

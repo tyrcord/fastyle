@@ -218,6 +218,14 @@ abstract class FastCalculatorBloc<
     throw '`shareCalculatorState` function is not implemented';
   }
 
+  /// Exports the calculator state to PDF.
+  ///
+  /// Throws an exception if the `exportToPdf` function is not implemented.
+  @protected
+  Future<void> exportToPdf(BuildContext context) async {
+    throw '`exportToPdf` function is not implemented';
+  }
+
   /// Determines if events should be processed in order.
   ///
   /// Returns `false` by default, meaning events can be processed out of order.
@@ -277,9 +285,13 @@ abstract class FastCalculatorBloc<
         await saveCalculatorState();
         yield nextState.copyWith(isInitialized: true) as S;
         addComputeEvent();
-      } else if (eventType == FastCalculatorBlocEventType.custom) {
-        if (payload!.key == 'share' && payload.value is BuildContext) {
-          await shareCalculatorState(payload.value as BuildContext);
+      } else if (eventType == FastCalculatorBlocEventType.share) {
+        if (payload?.value is BuildContext) {
+          await shareCalculatorState(payload!.value as BuildContext);
+        }
+      } else if (eventType == FastCalculatorBlocEventType.exportToPdf) {
+        if (payload?.value is BuildContext) {
+          await exportToPdf(payload!.value as BuildContext);
         }
       } else if (eventType == FastCalculatorBlocEventType.reset) {
         yield* handleResetEvent();

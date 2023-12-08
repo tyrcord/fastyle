@@ -1,4 +1,5 @@
 // Package imports:
+import 'package:flutter/material.dart';
 import 'package:tbloc/tbloc.dart';
 
 // Project imports:
@@ -147,8 +148,25 @@ class FastCalculatorBlocEvent<R extends FastCalculatorResults>
     dynamic value,
   }) {
     return FastCalculatorBlocEvent<R>(
-      type: FastCalculatorBlocEventType.patchMetadata,
       payload: FastCalculatorBlocEventPayload<R>(key: key, value: value),
+      type: FastCalculatorBlocEventType.patchMetadata,
+    );
+  }
+
+  static FastCalculatorBlocEvent<R> share<R extends FastCalculatorResults>(
+    BuildContext context,
+  ) {
+    return FastCalculatorBlocEvent<R>(
+      payload: FastCalculatorBlocEventPayload<R>(value: context),
+      type: FastCalculatorBlocEventType.share,
+    );
+  }
+
+  static FastCalculatorBlocEvent<R>
+      exportToPdf<R extends FastCalculatorResults>(BuildContext context) {
+    return FastCalculatorBlocEvent<R>(
+      payload: FastCalculatorBlocEventPayload<R>(value: context),
+      type: FastCalculatorBlocEventType.exportToPdf,
     );
   }
 

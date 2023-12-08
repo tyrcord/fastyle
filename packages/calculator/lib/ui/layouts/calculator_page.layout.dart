@@ -64,8 +64,8 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
   /// A widget that represents the back button.
   final Widget? backButton;
 
-  /// A widget that represents the share icon.
-  final Widget? shareIcon;
+  /// A widget that represents the exportToPdf icon.
+  final Widget? exportToPdfIcon;
 
   /// A widget that represents the clear icon.
   final Widget? clearIcon;
@@ -87,14 +87,14 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
   final Widget? leading;
 
   final bool Function(FastCalculatorBlocState state)?
-      canEnableShareInteractions;
+      canEnableExportToPdfInteractions;
 
   const FastCalculatorPageLayout({
     super.key,
     required this.calculatorBloc,
     required this.resultsBuilder,
     required this.fieldsBuilder,
-    this.canEnableShareInteractions,
+    this.canEnableExportToPdfInteractions,
     this.requestFullApp = false,
     this.showRefreshIcon = true,
     this.showClearIcon = true,
@@ -109,7 +109,7 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
     this.pageTitleText,
     this.refreshIcon,
     this.backButton,
-    this.shareIcon,
+    this.exportToPdfIcon,
     this.clearIcon,
     this.infoIcon,
     this.leading,
@@ -213,14 +213,14 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
     return const SizedBox.shrink();
   }
 
-  /// Builds a list of action widgets based on the [shareIcon] parameter.
+  /// Builds a list of action widgets based on the [exportToPdfIcon] parameter.
   List<Widget> _buildPageActions() {
     return [
       if (isExportReportPdfEnabled())
-        FastCalculatorShareAction<B, R>(
-          canEnableInteractions: canEnableShareInteractions,
+        FastCalculatorExportToPdfAction<B, R>(
+          canEnableInteractions: canEnableExportToPdfInteractions,
           calculatorBloc: calculatorBloc,
-          icon: shareIcon,
+          icon: exportToPdfIcon,
         ),
     ];
   }
