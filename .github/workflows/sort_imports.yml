@@ -48,6 +48,13 @@ jobs:
           git config user.name "GitHub Action"
           git config user.email "actions@github.com"
 
+      # Commit changes
+      - name: Commit Dart files
+        if: env.changes == '1'
+        run: |
+          git add *.dart
+          git commit -m "chore: sorted imports"
+
       # Rebase before pushing
       - name: Rebase branch
         if: env.changes == '1'
@@ -55,10 +62,7 @@ jobs:
           git fetch origin
           git rebase origin/main
 
-      # Commit and push changes
-      - name: Commit and push Dart files
+      # Push changes
+      - name: push Dart files
         if: env.changes == '1'
-        run: |
-          git add *.dart
-          git commit -m "chore: sorted imports"
-          git push
+        run: git push
