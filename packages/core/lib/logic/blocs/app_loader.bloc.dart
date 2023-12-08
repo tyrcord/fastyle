@@ -45,7 +45,11 @@ class FastAppLoaderBloc
       final errorReporter = eventPayload.errorReporter;
       isInitializing = true;
 
-      yield currentState.copyWith(isLoading: isInitializing);
+      yield currentState.copyWith(
+        isLoading: isInitializing,
+        isLoaded: false,
+        progress: 0,
+      );
 
       if (jobs != null && jobs.isNotEmpty) {
         yield* _runJobs(

@@ -164,12 +164,14 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
   bool _hasForcedOnboarding = false;
   final _subxMap = SubxMap();
   Key _appkey = UniqueKey();
-  late final GoRouter _router;
 
-  late final ValueNotifier<RoutingConfig> _routingConfigNotifier;
+  // Routing
+  ValueNotifier<RoutingConfig>? _routingConfigNotifier;
   bool _hasRouterBeenInitialized = false;
+  List<RouteBase>? _currentRoutes;
+  GoRouter? _router;
 
-  List<GoRoute> get defaultRoutes {
+  List<RouteBase> get defaultRoutes {
     return [
       GoRoute(
         builder: (context, state) => buildOnboarding(context),
@@ -227,7 +229,16 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
 
   void restartApp() {
     setState(() {
+      // Reset routing
+      _routingConfigNotifier?.dispose();
+      _router?.dispose();
+      _currentRoutes = null;
+      _router = null;
+      _routingConfigNotifier = null;
+      _hasRouterBeenInitialized = false;
       _hasForcedOnboarding = false;
+
+      // Reset App
       _appkey = UniqueKey();
     });
   }
@@ -497,26 +508,30 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
               .listen(handleRoutesForMediaTypeChange));
   }
 
-  GoRouter _buildAppRouter() {
+  GoRouter _buildAppRouter(RoutingConfig routingConfig) {
+    _routingConfigNotifier = ValueNotifier<RoutingConfig>(routingConfig);
+
     return GoRouter.routingConfig(
       initialLocation: _getInitialLocation(),
-      routingConfig: _routingConfigNotifier,
+      routingConfig: _routingConfigNotifier!,
       navigatorKey: _rootNavigatorKey,
     );
   }
 
   void handleRoutesForMediaTypeChange(List<RouteBase> routes) {
+    final newRoutes = [...routes, ...defaultRoutes];
     final routingConfig = RoutingConfig(
-      routes: [...routes, ...defaultRoutes],
+      routes: newRoutes,
       redirect: handleRedirect,
     );
 
     if (!_hasRouterBeenInitialized) {
+      _router = _buildAppRouter(routingConfig);
+      _currentRoutes = newRoutes;
       _hasRouterBeenInitialized = true;
-      _routingConfigNotifier = ValueNotifier<RoutingConfig>(routingConfig);
-      _router = _buildAppRouter();
-    } else {
-      _routingConfigNotifier.value = routingConfig;
+    } else if (areRouteBasesDifferent(_currentRoutes!, newRoutes)) {
+      _currentRoutes = newRoutes;
+      _routingConfigNotifier!.value = routingConfig;
     }
   }
 
@@ -562,7 +577,7 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
   }
 
   void _replaceTopLevel(String route) {
-    _scheduleFrameCallback(() => _router.replace(route));
+    _scheduleFrameCallback(() => _router?.replace(route));
   }
 
   void _scheduleFrameCallback(VoidCallback callback) {

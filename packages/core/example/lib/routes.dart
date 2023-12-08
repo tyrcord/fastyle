@@ -27,7 +27,7 @@ final options = List<FastItem>.generate(50, (int index) {
 final GlobalKey<NavigatorState> _shellNavigatorKey =
     GlobalKey<NavigatorState>();
 
-final kAppRoutes = [
+final List<RouteBase> kAppRoutes = [
   GoRoute(
     path: 'onboarding',
     pageBuilder: (context, state) {

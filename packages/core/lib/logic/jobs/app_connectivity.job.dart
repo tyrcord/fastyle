@@ -7,16 +7,25 @@ import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:tlogger/logger.dart';
 
 class FastAppConnectivityJob extends FastJob {
+  static const _debugLabel = 'FastAppConnectivityJob';
   static FastAppConnectivityJob? _singleton;
+  static final _manager = TLoggerManager();
+
+  late final TLogger _logger;
 
   factory FastAppConnectivityJob() {
-    return (_singleton ??= const FastAppConnectivityJob._());
+    if (_singleton == null) {
+      _singleton = FastAppConnectivityJob._();
+      _singleton!._logger = _manager.getLogger(_debugLabel);
+    }
+
+    return _singleton!;
   }
 
-  const FastAppConnectivityJob._()
-      : super(debugLabel: 'FastAppConnectivityJob');
+  FastAppConnectivityJob._() : super(debugLabel: _debugLabel);
 
   @override
   Future<void> initialize(
@@ -26,19 +35,30 @@ class FastAppConnectivityJob extends FastJob {
     if (isWeb) return;
 
     final bloc = FastConnectivityStatusBloc.instance;
-    bloc.addEvent(FastConnectivityStatusBlocEvent.init());
+    late Object result;
 
-    final blocState = await RaceStream([
-      bloc.onError,
-      bloc.onData.where((state) => state.isInitialized),
-    ]).first;
+    if (bloc.currentState.isInitialized) {
+      _logger.debug('Checking connectivity status...');
+      bloc.addEvent(FastConnectivityStatusBlocEvent.checkConnectivity());
 
-    if (blocState is! FastConnectivityStatusBlocState) {
-      throw blocState;
+      result = await RaceStream([
+        bloc.onError,
+        bloc.onEvent.where((event) {
+          return event.type ==
+              FastConnectivityStatusBlocEventType.connectivityStatusChanged;
+        }).mapTo(bloc.currentState),
+      ]).first;
+    } else {
+      _logger.debug('Initializing connectivity status bloc...');
+      bloc.addEvent(FastConnectivityStatusBlocEvent.init());
+
+      result = await RaceStream([
+        bloc.onError,
+        bloc.onData.where((state) => state.isInitialized),
+      ]).first;
     }
 
-    if (!blocState.isConnected || !blocState.isServiceAvailable) {
-      throw blocState;
-    }
+    if (result is! FastConnectivityStatusBlocState) throw result;
+    if (!result.isConnected || !result.isServiceAvailable) throw result;
   }
 }

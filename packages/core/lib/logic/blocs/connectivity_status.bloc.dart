@@ -10,12 +10,17 @@ import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:tlogger/logger.dart';
 
 class FastConnectivityStatusBloc extends BidirectionalBloc<
     FastConnectivityStatusBlocEvent, FastConnectivityStatusBlocState> {
   static late FastConnectivityStatusBloc instance;
   static late FastConnectivityService service;
   static bool _hasBeenInstantiated = false;
+  static const _debugLabel = 'FastConnectivityStatusBloc';
+  static final _manager = TLoggerManager();
+
+  late final TLogger _logger;
 
   /// Subscription to connectivity status updates.
   @protected
@@ -25,11 +30,14 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
   @protected
   bool isConnectivityStreamPaused = false;
 
+  bool _isCheckingConnectivity = false;
+
   factory FastConnectivityStatusBloc({
     FastConnectivityStatusBlocState? initialState,
   }) {
     if (!_hasBeenInstantiated) {
       instance = FastConnectivityStatusBloc._(initialState: initialState);
+      instance._logger = _manager.getLogger(_debugLabel);
       _hasBeenInstantiated = true;
     }
 
@@ -53,15 +61,20 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
     final payload = event.payload;
     final isPayloadDefined = payload is FastConnectivityStatusBlocEventPayload;
 
+    _logger.debug('Event type: $eventType received.');
+
     if (eventType == FastConnectivityStatusBlocEventType.init) {
       yield* handleInitEvent(payload);
+    } else if (eventType ==
+        FastConnectivityStatusBlocEventType.checkConnectivity) {
+      yield* handleCheckConnectivityEvent();
     } else if (isPayloadDefined) {
       if (eventType == FastConnectivityStatusBlocEventType.initialized) {
         yield* handleInitializedEvent(payload);
       } else if (isInitialized) {
         if (eventType ==
             FastConnectivityStatusBlocEventType.connectivityStatusChanged) {
-          yield _mapConnectivityStatusChangedToState(payload);
+          yield handleConnectivityStatusChanged(payload);
         }
       }
     }
@@ -73,7 +86,10 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
     if (canInitialize) {
       isInitializing = true;
 
-      yield currentState.copyWith(isInitializing: isInitializing);
+      yield currentState.copyWith(
+        isInitializing: isInitializing,
+        isCheckingConnectivity: true,
+      );
 
       service = FastConnectivityService(
         checkInterval: payload?.checkInterval ?? kFastConnectivityCheckInterval,
@@ -89,28 +105,12 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
         connectivitySubscription!,
       ]);
 
-      bool validator(bool result) => result == true;
-      bool isDeviceConnected = false;
-      bool isServiceAvailable = false;
+      final (deviceConnected, serviceAvailable) = await _checkConnectivity();
 
-      try {
-        isDeviceConnected = await retry<bool>(
-          task: service.checkDeviceConnectivity,
-          validate: validator,
-        );
-
-        isServiceAvailable = await retry<bool>(
-          task: service.checkServiceAvailability,
-          validate: validator,
-        );
-      } catch (e) {
-        debugLog('Error while initializing the connectivity status bloc: $e');
-      } finally {
-        addEvent(FastConnectivityStatusBlocEvent.initialized(
-          isDeviceConnected,
-          isServiceAvailable,
-        ));
-      }
+      addEvent(FastConnectivityStatusBlocEvent.initialized(
+        deviceConnected,
+        serviceAvailable,
+      ));
     }
   }
 
@@ -125,8 +125,33 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
         isConnected: payload.isConnected,
         isInitializing: isInitializing,
         isInitialized: isInitialized,
+        isCheckingConnectivity: false,
       );
     }
+  }
+
+  Stream<FastConnectivityStatusBlocState>
+      handleCheckConnectivityEvent() async* {
+    if (isInitialized && !_isCheckingConnectivity) {
+      yield currentState.copyWith(isCheckingConnectivity: true);
+
+      final (deviceConnected, serviceAvailable) = await _checkConnectivity();
+
+      addEvent(FastConnectivityStatusBlocEvent.connectivityStatusChanged(
+        deviceConnected,
+        serviceAvailable,
+      ));
+    }
+  }
+
+  FastConnectivityStatusBlocState handleConnectivityStatusChanged(
+    FastConnectivityStatusBlocEventPayload payload,
+  ) {
+    return currentState.copyWith(
+      isServiceAvailable: payload.isServiceAvailable,
+      isConnected: payload.isConnected,
+      isCheckingConnectivity: false,
+    );
   }
 
   StreamSubscription<FastConnectivityStatus>
@@ -139,6 +164,39 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
         ));
       }
     });
+  }
+
+  Future<(bool, bool)> _checkConnectivity() async {
+    _isCheckingConnectivity = true;
+
+    bool validator(bool result) => result == true;
+    bool isDeviceConnected = false;
+    bool isServiceAvailable = false;
+
+    _logger.debug('Checking the connectivity status...');
+
+    try {
+      isDeviceConnected = await retry<bool>(
+        task: service.checkDeviceConnectivity,
+        validate: validator,
+      );
+
+      isServiceAvailable = await retry<bool>(
+        task: service.checkServiceAvailability,
+        validate: validator,
+      );
+    } catch (e) {
+      _logger.error('Error while checking the connectivity status: $e');
+    } finally {
+      _logger.debug(
+        'Device is connected: $isDeviceConnected, '
+        'service is available: $isServiceAvailable',
+      );
+    }
+
+    _isCheckingConnectivity = false;
+
+    return (isDeviceConnected, isServiceAvailable);
   }
 
   /// Pauses the connectivity status stream if it's not already paused.
@@ -181,14 +239,5 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
         resumeConnectivityStream();
       }
     });
-  }
-
-  FastConnectivityStatusBlocState _mapConnectivityStatusChangedToState(
-    FastConnectivityStatusBlocEventPayload payload,
-  ) {
-    return currentState.copyWith(
-      isServiceAvailable: payload.isServiceAvailable,
-      isConnected: payload.isConnected,
-    );
   }
 }

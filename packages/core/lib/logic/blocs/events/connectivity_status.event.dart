@@ -46,4 +46,10 @@ class FastConnectivityStatusBlocEvent extends BlocEvent<
       ),
     );
   }
+
+  factory FastConnectivityStatusBlocEvent.checkConnectivity() {
+    return const FastConnectivityStatusBlocEvent(
+      type: FastConnectivityStatusBlocEventType.checkConnectivity,
+    );
+  }
 }

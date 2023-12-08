@@ -174,7 +174,6 @@ class FastAppLoaderState extends State<FastAppLoader> {
       return buildLoadingApp(progress: state.progress);
     } else if (state.isLoaded) {
       _logger.debug('Building the main app...');
-
       _cancelDelayTimer();
 
       return Builder(builder: widget.appBuilder);
