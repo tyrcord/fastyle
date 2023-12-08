@@ -207,21 +207,21 @@ packages:
       path: "../../buttons"
       relative: true
     source: path
-    version: "0.0.21+2"
+    version: "0.0.22"
   fastyle_connectivity:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.35+1"
+    version: "0.0.36"
   fastyle_core:
     dependency: "direct main"
     description:
       path: "../../core"
       relative: true
     source: path
-    version: "0.0.40"
+    version: "0.0.41"
   ffi:
     dependency: transitive
     description:
@@ -310,10 +310,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: c247a4f76071c3b97bb5ae8912968870d5565644801c5e09f3bc961b4d874895
+      sha256: c5fa45fa502ee880839e3b2152d987c44abae26d064a2376d4aad434cf0f7b15
       url: "https://pub.dev"
     source: hosted
-    version: "12.1.1"
+    version: "12.1.3"
   google_fonts:
     dependency: transitive
     description:
@@ -779,18 +779,18 @@ packages:
     dependency: transitive
     description:
       name: t_helpers
-      sha256: "8e3f742f3328d710648058791b6887655ebb10462fea018a8eeb9d17a48eacd1"
+      sha256: "1aa481a9cec73c77065e9a8d6e990112f71f1c597eaaf3f5ee12a61cd54f08e5"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.46"
+    version: "0.0.48"
   tbloc:
     dependency: transitive
     description:
       name: tbloc
-      sha256: bbb2188f834e0551311953a43066540cea1f1acd66c32c54ee50a3cc1dd0af84
+      sha256: c69557deecf20caa62580f044fcb0bcff127ea22b9ac667a675e6a9d81a62b41
       url: "https://pub.dev"
     source: hosted
-    version: "0.21.8+4"
+    version: "0.21.8+7"
   tenhance:
     dependency: transitive
     description:
@@ -827,34 +827,34 @@ packages:
     dependency: transitive
     description:
       name: tlogger
-      sha256: e5e1849f6beecfe09ff60d91c94a509868b2c2e6dbb52f3a051fbf697f62f4f8
+      sha256: e3cfbf28eea53577dcd6338d4cd1917becf6237e41e755caaaebade4590bc929
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.6"
+    version: "0.0.6+3"
   tmodel:
     dependency: transitive
     description:
       name: tmodel
-      sha256: c3003cae0684ee0fe7aa184448af1d2207bc959d55fbbf424e20b179a890e1fe
+      sha256: "4567f1070f87496ee81228bcd51165df2b04da1d6377d08b4adc5c6fc7bddfeb"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.12+4"
+    version: "0.5.12+7"
   tstore:
     dependency: transitive
     description:
       name: tstore
-      sha256: "3dbe11bf7ee9c4d0a964ad95a1d1197d9c7d1b927daa8be25b0ccdfa51948024"
+      sha256: "6f006df81c7bc77949fcfcbf60cb2ec4ec7503bd6b4fcb9f55b0588069c312ea"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.21+4"
+    version: "0.8.22+2"
   tsub:
     dependency: transitive
     description:
       name: tsub
-      sha256: "85867e8ccd0f81d077ad4a915eacdf49c0619844b96bfb05f7df214c61dee4a8"
+      sha256: "5cbe95b0b95a5fbf5ec24371bf1473804ce65d8f949a2a730355f84410a3248c"
       url: "https://pub.dev"
     source: hosted
-    version: "1.8.0"
+    version: "1.9.0"
   tuple:
     dependency: transitive
     description:
