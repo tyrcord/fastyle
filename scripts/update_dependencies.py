@@ -11,7 +11,7 @@ def fetch_latest_version(package_name):
     return latest_version
 
 
-def update_dependencies(pubspec_path, packages_latest, specified_versions):
+def update_dependencies(pubspec_path, packages_latest, specified_versions, private_packages):
     with open(pubspec_path, 'r') as file:
         pubspec = yaml.safe_load(file)
 
@@ -29,8 +29,6 @@ def update_dependencies(pubspec_path, packages_latest, specified_versions):
    # Update private packages
     for package, details in private_packages.items():
         if 'dependencies' in pubspec and package in pubspec['dependencies']:
-            latest_version = fetch_latest_version(
-                package, is_private=True, private_url=details['url'])
             pubspec['dependencies'][package] = {
                 'hosted': details['url'], 'version': details['version']}
 
@@ -142,8 +140,7 @@ specified_versions = {
 
 # Private packages
 private_packages = {
-    'font_awesome_flutter': {'url': 'https://onepub.dev/api/xhvpsdavuh', 'version': '^10.6.1'},
-    'fusex_helpers': {'url': 'https://onepub.dev/api/xhvpsdavuh', 'version': '^3.27.0'},
+
 }
 
 
