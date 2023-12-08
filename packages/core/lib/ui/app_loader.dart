@@ -9,6 +9,7 @@ import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:tlogger/logger.dart';
 
 /// Type definition for a builder that generates a loading widget
 /// given a [BuildContext] and a progress value.
@@ -78,6 +79,11 @@ class FastAppLoader extends StatefulWidget {
 
 /// Represents the state of the [FastAppLoader] widget.
 class FastAppLoaderState extends State<FastAppLoader> {
+  static const _debugLabel = 'FastAppLoader';
+  static final _manager = TLoggerManager();
+
+  late final TLogger _logger;
+
   /// Bloc responsible for controlling the app loading logic.
   final FastAppLoaderBloc _bloc = FastAppLoaderBloc();
 
@@ -90,27 +96,8 @@ class FastAppLoaderState extends State<FastAppLoader> {
   @override
   void initState() {
     super.initState();
+    _logger = _manager.getLogger(_debugLabel);
     _initializeAppLoaderBloc();
-  }
-
-  /// Initializes the bloc and sets up listeners.
-  void _initializeAppLoaderBloc() {
-    WidgetsBinding.instance.scheduleFrameCallback((timeStamp) {
-      _bloc.addEvent(FastAppLoaderBlocEvent.init(
-        context,
-        errorReporter: widget.errorReporter,
-        jobs: widget.loaderJobs,
-      ));
-
-      _delayTimer = Timer(widget.delayBeforeShowingLoader, _checkLoaderStatus);
-    });
-  }
-
-  /// Checks the loader's status and updates the display state if needed.
-  void _checkLoaderStatus() {
-    if (_bloc.currentState.isLoading && mounted) {
-      setState(() => _canShowLoader = true);
-    }
   }
 
   @override
@@ -118,12 +105,26 @@ class FastAppLoaderState extends State<FastAppLoader> {
     return BlocProvider(
       bloc: _bloc,
       child: BlocBuilderWidget(
-        loadingBuilder: (_) => buildPlaceholderApp(),
+        loadingBuilder: buildPlaceholderApp,
         builder: _decideAppDisplay,
+        buildWhen: buildWhen,
         waitForData: true,
         bloc: _bloc,
       ),
     );
+  }
+
+  bool buildWhen(FastAppLoaderBlocState previous, FastAppLoaderBlocState next) {
+    bool hasProgressChanged = false;
+
+    if (_canShowLoader) {
+      hasProgressChanged = previous.progress != next.progress;
+    }
+
+    return hasProgressChanged ||
+        previous.isLoading != next.isLoading ||
+        previous.isLoaded != next.isLoaded ||
+        previous.hasError != next.hasError;
   }
 
   /// Builds the app with an error state.
@@ -149,7 +150,7 @@ class FastAppLoaderState extends State<FastAppLoader> {
   }
 
   /// Builds a placeholder app.
-  Widget buildPlaceholderApp() {
+  Widget buildPlaceholderApp(BuildContext context) {
     return const FastPrimaryBackgroundContainer();
   }
 
@@ -168,17 +169,46 @@ class FastAppLoaderState extends State<FastAppLoader> {
   /// Decides which app to display based on the [FastAppLoaderBlocState].
   Widget _decideAppDisplay(BuildContext context, FastAppLoaderBlocState state) {
     if (state.isLoading && widget.loaderBuilder != null && _canShowLoader) {
+      _logger.debug('Building the loading app with progress ${state.progress}');
+
       return buildLoadingApp(progress: state.progress);
     } else if (state.isLoaded) {
+      _logger.debug('Building the main app...');
+
       _cancelDelayTimer();
 
       return Builder(builder: widget.appBuilder);
     } else if (state.hasError && widget.errorBuilder != null) {
+      _logger.debug('Building the error app...');
       _cancelDelayTimer();
 
       return _buildErrorApp(state.error);
     }
 
-    return buildPlaceholderApp();
+    _logger.debug('Building the placeholder app...');
+
+    return buildPlaceholderApp(context);
+  }
+
+  /// Initializes the bloc and sets up listeners.
+  void _initializeAppLoaderBloc() {
+    WidgetsBinding.instance.scheduleFrameCallback((timeStamp) {
+      _logger.debug('Initializing the app loader bloc...');
+
+      _bloc.addEvent(FastAppLoaderBlocEvent.init(
+        context,
+        errorReporter: widget.errorReporter,
+        jobs: widget.loaderJobs,
+      ));
+
+      _delayTimer = Timer(widget.delayBeforeShowingLoader, _showLoaderIfNeeded);
+    });
+  }
+
+  void _showLoaderIfNeeded() {
+    if (_bloc.currentState.isLoading && mounted) {
+      _logger.debug('Showing the loader...');
+      setState(() => _canShowLoader = true);
+    }
   }
 }
