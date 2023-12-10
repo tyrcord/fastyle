@@ -232,7 +232,13 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
 
     widget.onDone?.call();
 
-    if (mounted) GoRouter.of(context).pushReplacement(widget.homeLocation);
+    // FIXME: use go instead of pushReplacement as a workaround to allow
+    // go router to works with top level routes and shell routes.
+    // users will be able to go back to the onboarding screen if they
+    // press the back button on the device.
+    // ISSUE: https://github.com/flutter/flutter/issues/137545
+
+    if (mounted) GoRouter.of(context).go(widget.homeLocation);
   }
 
   String _getDoneText() {
