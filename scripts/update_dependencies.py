@@ -129,19 +129,17 @@ specified_versions = {
     'font_awesome_flutter': '^10.6.0',
     'google_fonts': '^6.1.0',
     'fuzzy': '^0.5.1',
-    'google_mobile_ads': '^3.1.0',
-    'url_launcher': '^6.2.1',
+    'google_mobile_ads': '^4.0.0',
+    'url_launcher': '^6.2.2',
     'uuid': '^4.2.1',
     'visibility_detector': '^0.4.0+2',
-    'go_router': '^12.1.1',
+    'go_router': '^12.1.3',
     'video_player': '^2.8.1',
     'flutter_native_splash': '^2.3.6',
 }
 
 # Private packages
-private_packages = {
-
-}
+private_packages = {}
 
 
 # This is the path to the pubspec.yaml file

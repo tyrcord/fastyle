@@ -7,7 +7,7 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
-  google_mobile_ads: ^3.1.0
+  google_mobile_ads: ^4.0.0
   http: ^1.1.0
   lingua_ad: ^0.0.15
   lingua_core: ^0.0.32
@@ -21,7 +21,7 @@ dependencies:
   tlogger: ^0.0.6+4
   tmodel: ^0.5.12+8
   tstore: ^0.8.22+3
-  url_launcher: ^6.2.1
+  url_launcher: ^6.2.2
   uuid: ^4.2.1
   visibility_detector: ^0.4.0+2
 description: Set of ad Widgets for the fastyle library.
