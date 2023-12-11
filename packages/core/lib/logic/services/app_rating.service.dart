@@ -12,6 +12,7 @@ import 'package:rate_my_app/rate_my_app.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:t_helpers/helpers.dart';
 
 /// A service class for handling app rating functionality.
 class FastAppRatingService {
@@ -100,8 +101,12 @@ class FastAppRatingService {
 
   /// Checks if app review is needed.
   Future<bool> shouldAskForAppReview() async {
-    await _rateMyApp.init();
+    if (isIOS || isAndroid) {
+      await _rateMyApp.init();
 
-    return _rateMyApp.shouldOpenDialog;
+      return _rateMyApp.shouldOpenDialog;
+    }
+
+    return false;
   }
 }
