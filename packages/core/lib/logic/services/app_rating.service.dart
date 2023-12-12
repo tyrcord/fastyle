@@ -9,10 +9,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
 import 'package:rate_my_app/rate_my_app.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:t_helpers/helpers.dart';
 
 /// A service class for handling app rating functionality.
 class FastAppRatingService {
