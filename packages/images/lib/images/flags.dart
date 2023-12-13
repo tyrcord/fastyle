@@ -39,6 +39,7 @@ class FastImageFlag {
   static const caymanIslands = 'assets/images/flag/cayman_islands.svg.vec';
   static const peru = 'assets/images/flag/peru.svg.vec';
   static const taiwan = 'assets/images/flag/taiwan.svg.vec';
+  static const bangladesh = 'assets/images/flag/bangladesh.svg.vec';
   static const qatar = 'assets/images/flag/qatar.svg.vec';
   static const newZealand = 'assets/images/flag/new_zealand.svg.vec';
   static const bulgaria = 'assets/images/flag/bulgaria.svg.vec';
@@ -53,21 +54,27 @@ class FastImageFlag {
   static const philippines = 'assets/images/flag/philippines.svg.vec';
   static const morocco = 'assets/images/flag/morocco.svg.vec';
   static const hongKong = 'assets/images/flag/hong_kong.svg.vec';
+  static const tanzania = 'assets/images/flag/tanzania.svg.vec';
   static const belgium = 'assets/images/flag/belgium.svg.vec';
   static const cambodia = 'assets/images/flag/cambodia.svg.vec';
   static const russia = 'assets/images/flag/russia.svg.vec';
   static const malta = 'assets/images/flag/malta.svg.vec';
+  static const sriLanka = 'assets/images/flag/sri_lanka.svg.vec';
   static const germany = 'assets/images/flag/germany.svg.vec';
   static const zimbabwe = 'assets/images/flag/zimbabwe.svg.vec';
+  static const ghana = 'assets/images/flag/ghana.svg.vec';
   static const chile = 'assets/images/flag/chile.svg.vec';
+  static const jordan = 'assets/images/flag/jordan.svg.vec';
   static const austria = 'assets/images/flag/austria.svg.vec';
   static const netherlands = 'assets/images/flag/netherlands.svg.vec';
   static const france = 'assets/images/flag/france.svg.vec';
+  static const kenya = 'assets/images/flag/kenya.svg.vec';
   static const turkey = 'assets/images/flag/turkey.svg.vec';
   static const cyprus = 'assets/images/flag/cyprus.svg.vec';
   static const monaco = 'assets/images/flag/monaco.svg.vec';
   static const southKorea = 'assets/images/flag/south_korea.svg.vec';
   static const usa = 'assets/images/flag/usa.svg.vec';
+  static const yemen = 'assets/images/flag/yemen.svg.vec';
   static const denmark = 'assets/images/flag/denmark.svg.vec';
   static const ethiopia = 'assets/images/flag/ethiopia.svg.vec';
   static const euro = 'assets/images/flag/euro.svg.vec';
@@ -84,6 +91,7 @@ class FastImageFlag {
   static const seychelles = 'assets/images/flag/seychelles.svg.vec';
   static const lithuania = 'assets/images/flag/lithuania.svg.vec';
   static const namibia = 'assets/images/flag/namibia.svg.vec';
+  static const belarus = 'assets/images/flag/belarus.svg.vec';
   static const jamaica = 'assets/images/flag/jamaica.svg.vec';
   static const luxembourg = 'assets/images/flag/luxembourg.svg.vec';
 }
@@ -127,6 +135,7 @@ const kFastImageFlag = [
   'caymanIslands',
   'peru',
   'taiwan',
+  'bangladesh',
   'qatar',
   'newZealand',
   'bulgaria',
@@ -141,21 +150,27 @@ const kFastImageFlag = [
   'philippines',
   'morocco',
   'hongKong',
+  'tanzania',
   'belgium',
   'cambodia',
   'russia',
   'malta',
+  'sriLanka',
   'germany',
   'zimbabwe',
+  'ghana',
   'chile',
+  'jordan',
   'austria',
   'netherlands',
   'france',
+  'kenya',
   'turkey',
   'cyprus',
   'monaco',
   'southKorea',
   'usa',
+  'yemen',
   'denmark',
   'ethiopia',
   'euro',
@@ -172,6 +187,7 @@ const kFastImageFlag = [
   'seychelles',
   'lithuania',
   'namibia',
+  'belarus',
   'jamaica',
   'luxembourg',
 ];
@@ -215,6 +231,7 @@ const kFastImageFlagMap = {
   'caymanIslands': FastImageFlag.caymanIslands,
   'peru': FastImageFlag.peru,
   'taiwan': FastImageFlag.taiwan,
+  'bangladesh': FastImageFlag.bangladesh,
   'qatar': FastImageFlag.qatar,
   'newZealand': FastImageFlag.newZealand,
   'bulgaria': FastImageFlag.bulgaria,
@@ -229,21 +246,27 @@ const kFastImageFlagMap = {
   'philippines': FastImageFlag.philippines,
   'morocco': FastImageFlag.morocco,
   'hongKong': FastImageFlag.hongKong,
+  'tanzania': FastImageFlag.tanzania,
   'belgium': FastImageFlag.belgium,
   'cambodia': FastImageFlag.cambodia,
   'russia': FastImageFlag.russia,
   'malta': FastImageFlag.malta,
+  'sriLanka': FastImageFlag.sriLanka,
   'germany': FastImageFlag.germany,
   'zimbabwe': FastImageFlag.zimbabwe,
+  'ghana': FastImageFlag.ghana,
   'chile': FastImageFlag.chile,
+  'jordan': FastImageFlag.jordan,
   'austria': FastImageFlag.austria,
   'netherlands': FastImageFlag.netherlands,
   'france': FastImageFlag.france,
+  'kenya': FastImageFlag.kenya,
   'turkey': FastImageFlag.turkey,
   'cyprus': FastImageFlag.cyprus,
   'monaco': FastImageFlag.monaco,
   'southKorea': FastImageFlag.southKorea,
   'usa': FastImageFlag.usa,
+  'yemen': FastImageFlag.yemen,
   'denmark': FastImageFlag.denmark,
   'ethiopia': FastImageFlag.ethiopia,
   'euro': FastImageFlag.euro,
@@ -260,6 +283,7 @@ const kFastImageFlagMap = {
   'seychelles': FastImageFlag.seychelles,
   'lithuania': FastImageFlag.lithuania,
   'namibia': FastImageFlag.namibia,
+  'belarus': FastImageFlag.belarus,
   'jamaica': FastImageFlag.jamaica,
   'luxembourg': FastImageFlag.luxembourg,
 };
