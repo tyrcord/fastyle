@@ -17,6 +17,17 @@ scripts:
   update:dependencies:
     exec: python3 $PWD/scripts/update_dependencies.py
 
+  compile:svg:
+    exec: python3 $PWD/scripts/compile_svg.py
+    packageFilters:
+      scope:
+        - fastyle_images
+
+  generate:images:
+    exec: dart run fastyle_images:generate
+    packageFilters:
+      scope:
+        - fastyle_images
 ide:
   intellij:
     enabled: false

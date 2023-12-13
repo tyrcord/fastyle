@@ -84,6 +84,7 @@ class FastImageFlag {
   static const seychelles = 'assets/images/flag/seychelles.svg.vec';
   static const lithuania = 'assets/images/flag/lithuania.svg.vec';
   static const namibia = 'assets/images/flag/namibia.svg.vec';
+  static const jamaica = 'assets/images/flag/jamaica.svg.vec';
   static const luxembourg = 'assets/images/flag/luxembourg.svg.vec';
 }
 
@@ -171,6 +172,7 @@ const kFastImageFlag = [
   'seychelles',
   'lithuania',
   'namibia',
+  'jamaica',
   'luxembourg',
 ];
 
@@ -258,5 +260,6 @@ const kFastImageFlagMap = {
   'seychelles': FastImageFlag.seychelles,
   'lithuania': FastImageFlag.lithuania,
   'namibia': FastImageFlag.namibia,
+  'jamaica': FastImageFlag.jamaica,
   'luxembourg': FastImageFlag.luxembourg,
 };
