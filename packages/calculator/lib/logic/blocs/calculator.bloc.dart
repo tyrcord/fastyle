@@ -48,6 +48,8 @@ abstract class FastCalculatorBloc<
   @protected
   late bool _isAutoRefreshEnabled;
 
+  Map<String, dynamic> get currentMetadata => currentState.metadata;
+
   set isAutoRefreshEnabled(bool enabled) {
     _isAutoRefreshEnabled = enabled;
 
@@ -265,8 +267,6 @@ abstract class FastCalculatorBloc<
     } else if (isInitialized) {
       if (eventType == FastCalculatorBlocEventType.patchValue) {
         yield* handlePatchValueEvent(payload);
-      } else if (eventType == FastCalculatorBlocEventType.resetValue) {
-        yield* handleResetValueEvent(payload);
       } else if (eventType == FastCalculatorBlocEventType.compute) {
         yield* handleComputeEvent();
       } else if (eventType == FastCalculatorBlocEventType.computed) {
@@ -297,6 +297,8 @@ abstract class FastCalculatorBloc<
         yield* handleResetEvent();
       } else if (eventType == FastCalculatorBlocEventType.loadMetadata) {
         yield* handleLoadMetadataEvent();
+      } else if (eventType == FastCalculatorBlocEventType.patchMetadata) {
+        yield* handlePatchMetadataEvent(payload);
       }
     } else {
       assert(false, 'FastCalculatorBloc is not initialized yet.');
@@ -436,7 +438,10 @@ abstract class FastCalculatorBloc<
   /// Emits the new state.
   @protected
   Stream<S> handleLoadMetadataEvent() async* {
-    yield currentState.copyWith(metadata: await loadMetadata()) as S;
+    final metadata = await loadMetadata();
+    final newMetadata = mergeMetadata(metadata);
+
+    yield currentState.copyWith(metadata: newMetadata) as S;
 
     addComputeEvent();
   }
@@ -461,13 +466,18 @@ abstract class FastCalculatorBloc<
     }
   }
 
-  Stream<S> handleResetValueEvent(
+  Stream<S> handlePatchMetadataEvent(
     FastCalculatorBlocEventPayload? payload,
   ) async* {
-    if (payload != null && payload.key != null) {
-      final state = await resetCalculatorState(payload.key!);
-      yield* processCalculatorValueChange(state);
+    if (payload != null && payload.value is Map<String, dynamic>) {
+      final newMetadata = mergeMetadata(payload.value as Map<String, dynamic>);
+
+      yield currentState.copyWith(metadata: newMetadata) as S;
     }
+  }
+
+  Map<String, dynamic> mergeMetadata(Map<String, dynamic> partialMetadata) {
+    return {...currentMetadata, ...partialMetadata};
   }
 
   @protected

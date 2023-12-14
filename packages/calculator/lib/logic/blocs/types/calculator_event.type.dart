@@ -9,8 +9,6 @@ enum FastCalculatorBlocEventType {
   initFailed,
   reset,
   patchValue,
-  resetValue,
-  save,
   loadMetadata,
   patchMetadata,
   retrieveDefaultValues,

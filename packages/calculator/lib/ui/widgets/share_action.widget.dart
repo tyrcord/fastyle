@@ -64,14 +64,8 @@ class FastCalculatorShareAction<B extends FastCalculatorBloc,
   /// Whether the action should be enabled or not.
   @override
   bool shouldEnableInteractions(FastCalculatorBlocState state) {
-    if (canEnableInteractions != null) {
-      return canEnableInteractions!(state);
-    }
+    if (canEnableInteractions != null) return canEnableInteractions!(state);
 
-    if (state.isInitialized) {
-      return state.isValid && !state.isBusy;
-    }
-
-    return false;
+    return state.isInitialized && state.isValid && !state.isBusy;
   }
 }

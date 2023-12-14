@@ -70,8 +70,7 @@ class FastCalculatorExportToPdfAction<B extends FastCalculatorBloc,
   @override
   bool shouldEnableInteractions(FastCalculatorBlocState state) {
     if (canEnableInteractions != null) return canEnableInteractions!(state);
-    if (state.isInitialized) return state.isValid && !state.isBusy;
 
-    return false;
+    return state.isInitialized && state.isValid && !state.isBusy;
   }
 }

@@ -31,14 +31,16 @@ class FastSelectInstrumentField extends StatefulWidget {
   final MatexFinancialInstrument? selection;
   final String? captionText;
   final bool isEnabled;
+  final bool showHelperBoundaries;
 
   const FastSelectInstrumentField({
     super.key,
     required this.onSelectionChanged,
-    this.selection,
-    this.captionText,
+    this.showHelperBoundaries = true,
     this.isEnabled = true,
     this.flagIconBuilder,
+    this.captionText,
+    this.selection,
   });
 
   @override
@@ -92,6 +94,7 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
         return FastSelectField<MatexFinancialInstrument>(
           allCategoryText: CoreLocaleKeys.core_label_all.tr(gender: maleGender),
           labelText: FinanceLocaleKeys.finance_label_financial_instrument.tr(),
+          showHelperBoundaries: widget.showHelperBoundaries,
           extraTabBuilder: () => [_buildFavoritesTab()],
           onSelectionChanged: widget.onSelectionChanged,
           searchPlaceholderText: searchPlaceholderText,

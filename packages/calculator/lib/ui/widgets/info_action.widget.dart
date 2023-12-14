@@ -43,16 +43,8 @@ class FastCalculatorInfoAction<B extends FastCalculatorBloc,
     );
   }
 
-  /// Whether the action should be enabled or not.
-  @override
-  bool shouldEnableInteractions(FastCalculatorBlocState state) {
-    return state.isInitialized;
-  }
-
   Widget buildIcon(BuildContext context) {
-    if (icon != null) {
-      return icon!;
-    }
+    if (icon != null) return icon!;
 
     final useProIcons = FastIconHelper.of(context).useProIcons;
 

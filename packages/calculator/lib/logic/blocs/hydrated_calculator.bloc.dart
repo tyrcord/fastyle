@@ -274,33 +274,4 @@ abstract class HydratedFastCalculatorBloc<
       }
     }
   }
-
-  @override
-  @protected
-  Stream<S> handleResetValueEvent(
-    FastCalculatorBlocEventPayload? payload,
-  ) async* {
-    final saveUserEntry = await canSaveUserEntry();
-
-    if (!saveUserEntry) {
-      yield* super.handleResetValueEvent(payload);
-    } else if (payload != null && payload.key != null) {
-      final key = payload.key!;
-      final state = await resetCalculatorState(key);
-
-      if (state != null) {
-        final value = payload.value;
-        final newDocument = await resetCalculatorDocument(key);
-
-        debugLog(
-          'Resetting calculator document with key: $key and value: $value',
-          debugLabel: debugLabel,
-        );
-
-        if (newDocument != null) document = newDocument;
-
-        yield* processCalculatorValueChange(state);
-      }
-    }
-  }
 }

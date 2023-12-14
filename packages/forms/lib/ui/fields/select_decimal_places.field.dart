@@ -14,6 +14,7 @@ class FastSelectDecimalPlacesField extends StatelessWidget {
   final String? labelText;
   final String? titleText;
   final List<int> decimales;
+  final bool showHelperBoundaries;
 
   const FastSelectDecimalPlacesField({
     super.key,
@@ -23,6 +24,7 @@ class FastSelectDecimalPlacesField extends StatelessWidget {
     this.selection,
     bool? isEnabled = true,
     List<int>? decimales = defaultDecimales,
+    this.showHelperBoundaries = true,
   })  : isEnabled = isEnabled ?? true,
         decimales = decimales ?? defaultDecimales;
 
@@ -32,6 +34,7 @@ class FastSelectDecimalPlacesField extends StatelessWidget {
 
     return FastSelectField<int>(
       selection: _findSelection(items, selection),
+      showHelperBoundaries: showHelperBoundaries,
       onSelectionChanged: onSelectionChanged,
       searchTitleText: titleText,
       canClearSelection: false,
