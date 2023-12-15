@@ -10,18 +10,18 @@ import 'package:lingua_finance_forex/generated/locale_keys.g.dart';
 import 'package:lingua_units/generated/locale_keys.g.dart';
 
 // Project imports:
-import 'package:fastyle_financial/fastyle_financial.dart';
+import 'package:matex_financial/financial.dart';
 
 class FastPositionSizeSwitchField extends StatelessWidget {
   /// A callback that is called when the user changes the field type.
-  final Function(FastPositionSizeSwitchFieldType)? onFieldTypeChanged;
+  final Function(MatexPositionSizeType)? onFieldTypeChanged;
 
   final Function(String)? onValueChanged;
 
   final String value;
 
   /// The current field type.
-  final FastPositionSizeSwitchFieldType fieldType;
+  final MatexPositionSizeType fieldType;
 
   final String? unitLabelText;
 
@@ -43,7 +43,7 @@ class FastPositionSizeSwitchField extends StatelessWidget {
   final String? microCaptionText;
 
   /// The default field type.
-  static const kDefaultFieldType = FastPositionSizeSwitchFieldType.unit;
+  static const kDefaultFieldType = MatexPositionSizeType.unit;
 
   final String? unitPlaceholderText;
 
@@ -81,7 +81,7 @@ class FastPositionSizeSwitchField extends StatelessWidget {
     this.standardMenuText,
     this.miniMenuText,
     this.microMenuText,
-    FastPositionSizeSwitchFieldType? fieldType,
+    MatexPositionSizeType? fieldType,
     String? value,
     bool? isEnabled,
   })  : fieldType = fieldType ?? kDefaultFieldType,
@@ -102,7 +102,7 @@ class FastPositionSizeSwitchField extends StatelessWidget {
   }
 
   /// Called when the user changes the field type.
-  void _onInputTypeOptionChanged(FastPositionSizeSwitchFieldType option) {
+  void _onInputTypeOptionChanged(MatexPositionSizeType option) {
     if (option != fieldType) {
       onFieldTypeChanged?.call(option);
     }
@@ -110,15 +110,15 @@ class FastPositionSizeSwitchField extends StatelessWidget {
 
   String _getCaptionText() {
     switch (fieldType) {
-      case FastPositionSizeSwitchFieldType.unit:
+      case MatexPositionSizeType.unit:
         return unitCaptionText ?? UnitsLocaleKeys.units_label_unit.tr();
-      case FastPositionSizeSwitchFieldType.standard:
+      case MatexPositionSizeType.standard:
         return standardCaptionText ??
             FinanceForexLocaleKeys.forex_label_lot_standard.tr();
-      case FastPositionSizeSwitchFieldType.mini:
+      case MatexPositionSizeType.mini:
         return miniCaptionText ??
             FinanceForexLocaleKeys.forex_label_lot_mini.tr();
-      case FastPositionSizeSwitchFieldType.micro:
+      case MatexPositionSizeType.micro:
         return microCaptionText ??
             FinanceForexLocaleKeys.forex_label_lot_micro.tr();
       default:
@@ -130,13 +130,13 @@ class FastPositionSizeSwitchField extends StatelessWidget {
     const defaultPlaceholderText = '0';
 
     switch (fieldType) {
-      case FastPositionSizeSwitchFieldType.unit:
+      case MatexPositionSizeType.unit:
         return unitPlaceholderText ?? defaultPlaceholderText;
-      case FastPositionSizeSwitchFieldType.standard:
+      case MatexPositionSizeType.standard:
         return standardPlaceholderText ?? defaultPlaceholderText;
-      case FastPositionSizeSwitchFieldType.mini:
+      case MatexPositionSizeType.mini:
         return miniPlaceholderText ?? defaultPlaceholderText;
-      case FastPositionSizeSwitchFieldType.micro:
+      case MatexPositionSizeType.micro:
         return microPlaceholderText ?? defaultPlaceholderText;
       default:
         return defaultPlaceholderText;
@@ -149,19 +149,19 @@ class FastPositionSizeSwitchField extends StatelessWidget {
       onOptionChanged: _onInputTypeOptionChanged,
       options: [
         PopupMenuItem(
-          value: FastPositionSizeSwitchFieldType.unit,
+          value: MatexPositionSizeType.unit,
           child: FastSecondaryBody(text: _getUnitMenuLabelText()),
         ),
         PopupMenuItem(
-          value: FastPositionSizeSwitchFieldType.standard,
+          value: MatexPositionSizeType.standard,
           child: FastSecondaryBody(text: _getStandardMenuLabelText()),
         ),
         PopupMenuItem(
-          value: FastPositionSizeSwitchFieldType.mini,
+          value: MatexPositionSizeType.mini,
           child: FastSecondaryBody(text: _getMiniMenuLabelText()),
         ),
         PopupMenuItem(
-          value: FastPositionSizeSwitchFieldType.micro,
+          value: MatexPositionSizeType.micro,
           child: FastSecondaryBody(text: _getMicroMenuLabelText()),
         ),
       ],
@@ -170,16 +170,16 @@ class FastPositionSizeSwitchField extends StatelessWidget {
 
   String _getLabelText() {
     switch (fieldType) {
-      case FastPositionSizeSwitchFieldType.unit:
+      case MatexPositionSizeType.unit:
         return unitLabelText ??
             FinanceLocaleKeys.finance_label_position_size.tr();
-      case FastPositionSizeSwitchFieldType.standard:
+      case MatexPositionSizeType.standard:
         return standardLabelText ??
             FinanceLocaleKeys.finance_label_position_size.tr();
-      case FastPositionSizeSwitchFieldType.mini:
+      case MatexPositionSizeType.mini:
         return miniLabelText ??
             FinanceLocaleKeys.finance_label_position_size.tr();
-      case FastPositionSizeSwitchFieldType.micro:
+      case MatexPositionSizeType.micro:
         return microLabelText ??
             FinanceLocaleKeys.finance_label_position_size.tr();
       default:
