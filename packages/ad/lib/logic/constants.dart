@@ -25,7 +25,7 @@ const kFastAdShowRemoveAdLink = false;
 
 const kFastNativeAdmobEnabled = true;
 
-const kFastAdRewardedBlockDuration = Duration(seconds: 30);
+const kFastAdRewardedBlockDuration = Duration(seconds: 5);
 
 const kFastNativeAdAssetSizes = {
   FastAdSize.small: 60.0,

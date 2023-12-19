@@ -36,9 +36,7 @@ class FastAppDictJob extends FastJob {
       throw blocState;
     }
 
-    if (FastAppInfoBloc.instance.currentState.isFirstLaunch) {
-      await _addDefaultEntries();
-    }
+    await _addDefaultEntries();
   }
 
   Future<void> _addDefaultEntries() async {
@@ -46,15 +44,23 @@ class FastAppDictJob extends FastJob {
     final entries = defaultEntries ?? [];
 
     if (entries.isNotEmpty) {
-      bloc.addEvent(FastAppDictBlocEvent.patchEntries(entries));
+      final oldEntries = bloc.currentState.entries;
+      final oldEntriesIds = oldEntries.map((e) => e.name).toList();
+
+      // Filter out entries that already exist in previousEntries
+      final newEntries = entries.where((entry) {
+        return !oldEntriesIds.contains(entry.name);
+      }).toList();
+
+      if (newEntries.isEmpty) return;
+
+      bloc.addEvent(FastAppDictBlocEvent.patchEntries(newEntries));
 
       final blocState = await RaceStream([
         bloc.onError,
         bloc.onData.where((FastAppDictBlocState state) {
-          for (final entry in entries) {
-            if (!state.entries.contains(entry)) {
-              return false;
-            }
+          for (final entry in newEntries) {
+            if (!state.entries.contains(entry)) return false;
           }
 
           return true;

@@ -10,9 +10,8 @@ import 'package:fastyle_calculator/fastyle_calculator.dart';
 
 // Package imports:
 
-
 class FastCalculatorLastUpdatedText extends StatelessWidget {
-  static const String metatataKey = 'updatedOn';
+  static const String metatataKey = 'rateUpdatedOn';
 
   final FastCalculatorBloc bloc;
   final String? labelText;
