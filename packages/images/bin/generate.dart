@@ -1,5 +1,6 @@
 // Dart imports:
 import 'dart:io';
+import 'package:t_helpers/string.helper.dart';
 
 const _assets = [
   {
@@ -51,15 +52,18 @@ Map<String, String> _listFiles(String path) {
   final dir = Directory(path);
   final List<FileSystemEntity> entities = dir.listSync();
   final elements = <String, String>{};
+  final List<String> extensions = ['.png', '.webp', '.svg.vec'];
 
   for (final entity in entities) {
     final stat = entity.statSync();
     final path = entity.path;
 
-    if (stat.type == FileSystemEntityType.file && path.endsWith('.svg.vec')) {
+    // Check if the file has one of the specified extensions
+    if (stat.type == FileSystemEntityType.file &&
+        extensions.any((ext) => path.endsWith(ext))) {
       final name = path.split('/').last.split('.').first;
 
-      elements.putIfAbsent(snakeCaseToCamelCase(name), () => path);
+      elements.putIfAbsent(toCamelCase(name), () => path);
     }
   }
 
@@ -128,15 +132,4 @@ void _writeBarrel() {
   }
 
   File('lib/fastyle_images.dart').writeAsString(buffer.toString());
-}
-
-String snakeCaseToCamelCase(String snakeCase) {
-  final List<String> parts = snakeCase.split('_');
-  var result = parts[0];
-
-  for (int i = 1; i < parts.length; i++) {
-    result += parts[i][0].toUpperCase() + parts[i].substring(1);
-  }
-
-  return result;
 }

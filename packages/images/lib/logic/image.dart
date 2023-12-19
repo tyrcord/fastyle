@@ -21,9 +21,7 @@ class FastImageAsset extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (path.isEmpty) {
-      return const SizedBox.shrink();
-    }
+    if (path.isEmpty) const SizedBox.shrink();
 
     if (path.startsWith('http')) {
       final uri = Uri.tryParse(path);
