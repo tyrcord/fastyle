@@ -1,3 +1,11 @@
+## 0.0.42
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.41
 
  - **PERF**: minor performance improvements.

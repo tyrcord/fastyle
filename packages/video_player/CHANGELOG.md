@@ -1,3 +1,9 @@
+## 0.0.24
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.23
 
  - **FIX**: lint.

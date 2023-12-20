@@ -1,3 +1,11 @@
+## 0.0.27
+
+ - **FIX**: borken routing (workaround).
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.26
 
  - **REFACTOR**: breaking change use routesForMediaType instead of homebuilder.

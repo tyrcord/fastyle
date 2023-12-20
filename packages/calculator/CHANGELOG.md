@@ -1,3 +1,14 @@
+## 1.52.0
+
+ - **FIX**: bunch of fixes.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: bunch of improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add exportToPdf action.
+ - **FEAT**: update dependencies.
+
 ## 1.51.0
 
  - **PERF**: simplify FastCalculatorCategoryResult.

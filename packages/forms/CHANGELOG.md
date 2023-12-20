@@ -1,3 +1,11 @@
+## 0.0.40
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: bunch of improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.39
 
  - **REFACTOR**: select currency fields.

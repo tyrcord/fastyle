@@ -1,3 +1,10 @@
+## 0.0.35
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.34
 
  - **FIX**: android app.

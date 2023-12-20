@@ -1,3 +1,10 @@
+## 1.37.0
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 1.36.0
 
  - **PERF**: minor improvements.

@@ -1,3 +1,14 @@
+## 0.0.42
+
+ - **PERF**: optimize app loading.
+ - **FIX**: bunch of fixes.
+ - **FIX**: only show rate my app popup on ios ans android.
+ - **FIX**: restart app when no connectivity.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.41
 
  - **REFACTOR**: ask for app review.

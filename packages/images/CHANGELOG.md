@@ -1,3 +1,13 @@
+## 0.0.43
+
+ - **FIX**: bunch of improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add more flags.
+ - **FEAT**: add jamaica flag.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.42
 
  - **PERF**: precompiled svgs.

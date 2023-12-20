@@ -3,6 +3,208 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-12-20
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.35`](#fastyle_ad---v0035)
+ - [`fastyle_animation` - `v0.0.15`](#fastyle_animation---v0015)
+ - [`fastyle_buttons` - `v0.0.23`](#fastyle_buttons---v0023)
+ - [`fastyle_calculator` - `v1.52.0`](#fastyle_calculator---v1520)
+ - [`fastyle_charts` - `v0.0.28`](#fastyle_charts---v0028)
+ - [`fastyle_connectivity` - `v0.0.37`](#fastyle_connectivity---v0037)
+ - [`fastyle_core` - `v0.0.42`](#fastyle_core---v0042)
+ - [`fastyle_digit_calculator` - `v0.0.39`](#fastyle_digit_calculator---v0039)
+ - [`fastyle_financial` - `v0.0.36`](#fastyle_financial---v0036)
+ - [`fastyle_firebase` - `v0.0.28`](#fastyle_firebase---v0028)
+ - [`fastyle_forms` - `v0.0.40`](#fastyle_forms---v0040)
+ - [`fastyle_home` - `v0.0.35`](#fastyle_home---v0035)
+ - [`fastyle_iap` - `v0.0.30`](#fastyle_iap---v0030)
+ - [`fastyle_images` - `v0.0.43`](#fastyle_images---v0043)
+ - [`fastyle_onboarding` - `v0.0.42`](#fastyle_onboarding---v0042)
+ - [`fastyle_pricing` - `v1.37.0`](#fastyle_pricing---v1370)
+ - [`fastyle_quizz` - `v0.0.15`](#fastyle_quizz---v0015)
+ - [`fastyle_settings` - `v0.0.45`](#fastyle_settings---v0045)
+ - [`fastyle_text` - `v0.0.21`](#fastyle_text---v0021)
+ - [`fastyle_video_player` - `v0.0.24`](#fastyle_video_player---v0024)
+ - [`fastyle_views` - `v0.0.27`](#fastyle_views---v0027)
+ - [`fastyle_layouts` - `v0.0.17+1`](#fastyle_layouts---v00171)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_layouts` - `v0.0.17+1`
+
+---
+
+#### `fastyle_ad` - `v0.0.35`
+
+ - **FIX**: bunch of fixes.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_animation` - `v0.0.15`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_buttons` - `v0.0.23`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_calculator` - `v1.52.0`
+
+ - **FIX**: bunch of fixes.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: bunch of improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add exportToPdf action.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_charts` - `v0.0.28`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_connectivity` - `v0.0.37`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_core` - `v0.0.42`
+
+ - **PERF**: optimize app loading.
+ - **FIX**: bunch of fixes.
+ - **FIX**: only show rate my app popup on ios ans android.
+ - **FIX**: restart app when no connectivity.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_digit_calculator` - `v0.0.39`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_financial` - `v0.0.36`
+
+ - **FIX**: bunch of fixes.
+ - **FIX**: use MatexPositionSizeType.
+ - **FEAT**: update dependencies.
+ - **FEAT**: bunch of improvements.
+ - **FEAT**: added FastFinancialSelectLeverageField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_firebase` - `v0.0.28`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_forms` - `v0.0.40`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: bunch of improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_home` - `v0.0.35`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_iap` - `v0.0.30`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_images` - `v0.0.43`
+
+ - **FIX**: bunch of improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add more flags.
+ - **FEAT**: add jamaica flag.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_onboarding` - `v0.0.42`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_pricing` - `v1.37.0`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_quizz` - `v0.0.15`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_settings` - `v0.0.45`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_text` - `v0.0.21`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_video_player` - `v0.0.24`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_views` - `v0.0.27`
+
+ - **FIX**: borken routing (workaround).
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+
 ## 2023-12-07
 
 ### Changes

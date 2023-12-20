@@ -1,3 +1,10 @@
+## 0.0.37
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.36
 
  - **FIX**: minor fixes.

@@ -1,3 +1,14 @@
+## 0.0.36
+
+ - **FIX**: bunch of fixes.
+ - **FIX**: use MatexPositionSizeType.
+ - **FEAT**: update dependencies.
+ - **FEAT**: bunch of improvements.
+ - **FEAT**: added FastFinancialSelectLeverageField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.35
 
  - **REFACTOR**: select currency fields.
