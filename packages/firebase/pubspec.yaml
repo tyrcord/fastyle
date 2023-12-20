@@ -11,8 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   rxdart: ^0.27.7
-  t_helpers: ^0.0.48+1
-  tbloc: ^0.21.8+8
+  t_helpers: ^0.0.48+2
+  tbloc: ^0.21.8+9
 description: Set of firebase Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^3.2.3

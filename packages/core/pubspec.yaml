@@ -15,7 +15,7 @@ dependencies:
   flutter_spinkit: ^5.2.0
   font_awesome_flutter: ^10.6.0
   fuzzy: ^0.5.1
-  go_router: ^12.1.3
+  go_router: ^12.1.1
   google_fonts: ^6.1.0
   intl: ^0.18.1
   lingua_core: ^0.0.32
@@ -26,13 +26,13 @@ dependencies:
   share_plus: ^7.2.1
   shimmer: ^3.0.0
   subx: ^1.11.0
-  t_helpers: ^0.0.48+1
-  tbloc: ^0.21.8+8
+  t_helpers: ^0.0.48+2
+  tbloc: ^0.21.8+9
   tenhance: ^0.0.4
-  tlogger: ^0.0.6+4
-  tmodel: ^0.5.12+8
-  tstore: ^0.8.22+3
-  url_launcher: ^6.2.2
+  tlogger: ^0.0.6+5
+  tmodel: ^0.5.12+9
+  tstore: ^0.8.22+4
+  url_launcher: ^6.2.1
 description: The core package for the fastyle libraries.
 dev_dependencies:
   dependency_validator: ^3.2.3

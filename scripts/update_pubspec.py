@@ -11,7 +11,7 @@ def fetch_latest_version(package_name):
     return latest_version
 
 
-def update_dependencies(pubspec_path, packages_latest, specified_versions, private_packages):
+def update_dependencies(pubspec_path, packages_latest, specified_versions):
     with open(pubspec_path, 'r') as file:
         pubspec = yaml.safe_load(file)
 
@@ -26,41 +26,11 @@ def update_dependencies(pubspec_path, packages_latest, specified_versions, priva
         if 'dependencies' in pubspec and package in pubspec['dependencies']:
             pubspec['dependencies'][package] = version
 
-   # Update private packages
-    for package, details in private_packages.items():
-        if 'dependencies' in pubspec and package in pubspec['dependencies']:
-            pubspec['dependencies'][package] = {
-                'hosted': details['url'], 'version': details['version']}
-
     with open(pubspec_path, 'w') as file:
         yaml.dump(pubspec, file, indent=2)
 
 
 packages_latest = [
-    # Fastyle
-    'fastyle_core',
-    'fastyle_images',
-    'fastyle_video_player',
-    'fastyle_buttons',
-    'fastyle_settings',
-    'fastyle_pricing',
-    'fastyle_home',
-    'fastyle_iap',
-    'fastyle_ad',
-    'fastyle_firebase',
-    'fastyle_onboarding',
-    'fastyle_digital_calculator',
-    'fastyle_financial',
-    'fastyle_connectivity',
-    'fastyle_views',
-    'fastyle_text',
-    'fastyle_animation',
-    'fastyle_calculator',
-    'fastyle_forms',
-    'fastyle_charts',
-    'fastyle_quizz',
-    'fastyle_video_player',
-
     # Firebase
     'firebase_analytics',
     'firebase_app_check',
@@ -129,22 +99,17 @@ specified_versions = {
     'font_awesome_flutter': '^10.6.0',
     'google_fonts': '^6.1.0',
     'fuzzy': '^0.5.1',
-    'google_mobile_ads': '^4.0.0',
-    'url_launcher': '^6.2.2',
+    'google_mobile_ads': '^3.1.0',
+    'url_launcher': '^6.2.1',
     'uuid': '^4.2.1',
     'visibility_detector': '^0.4.0+2',
-    'go_router': '^12.1.3',
+    'go_router': '^12.1.1',
     'video_player': '^2.8.1',
     'flutter_native_splash': '^2.3.6',
 }
-
-# Private packages
-private_packages = {}
-
 
 # This is the path to the pubspec.yaml file
 pubspec_path = './pubspec.yaml'
 
 # Call the function to update the dependencies
-update_dependencies(pubspec_path, packages_latest,
-                    specified_versions, private_packages)
+update_dependencies(pubspec_path, packages_latest, specified_versions)

@@ -11,10 +11,10 @@ dependencies:
   lingua_core: ^0.0.32
   lingua_purchases: ^0.0.18
   rxdart: ^0.27.7
-  t_helpers: ^0.0.48+1
-  tbloc: ^0.21.8+8
-  tmodel: ^0.5.12+8
-  tstore: ^0.8.22+3
+  t_helpers: ^0.0.48+2
+  tbloc: ^0.21.8+9
+  tmodel: ^0.5.12+9
+  tstore: ^0.8.22+4
 description: Set of iap Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^3.2.3

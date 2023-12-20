@@ -15,7 +15,7 @@ scripts:
   update:analysis_options:
     exec: $PWD/scripts/update_analysis_options.sh
   update:dependencies:
-    exec: python3 $PWD/scripts/update_dependencies.py
+    exec: python3 $PWD/scripts/update_pubspec.py
 
   compile:svg:
     exec: python3 $PWD/scripts/compile_svg.py
