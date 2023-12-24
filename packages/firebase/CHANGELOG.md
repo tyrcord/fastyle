@@ -1,3 +1,8 @@
+## 0.0.29
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: add logs.
+
 ## 0.0.28
 
  - **FEAT**: update dependencies.

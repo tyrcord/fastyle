@@ -1,3 +1,9 @@
+## 0.0.43
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to send the log journal when contacting support.
+ - **FEAT**: add logs.
+
 ## 0.0.42
 
  - **PERF**: optimize app loading.
