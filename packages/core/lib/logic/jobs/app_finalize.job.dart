@@ -1,10 +1,14 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppFinalizeJob extends FastJob {
+  static final TLogger _logger = _manager.getLogger(_debugLabel);
+  static const _debugLabel = 'FastAppFinalizeJob';
+  static final _manager = TLoggerManager();
   static FastAppFinalizeJob? _singleton;
 
   // List of async callbacks.
@@ -18,8 +22,7 @@ class FastAppFinalizeJob extends FastJob {
   }
 
   // Named private constructor.
-  const FastAppFinalizeJob._({this.callbacks})
-      : super(debugLabel: 'FastAppFinalizeJob');
+  const FastAppFinalizeJob._({this.callbacks}) : super(debugLabel: _debugLabel);
 
   // The initialize method to be called to start the job.
   @override
@@ -31,11 +34,16 @@ class FastAppFinalizeJob extends FastJob {
     // to proceed.
     if (callbacks == null || callbacks!.isEmpty) return;
 
+    _logger.debug('Initializing...');
+
     // Execute all the provided callbacks.
     for (final callback in callbacks!) {
       try {
+        _logger.debug('Executing callback: $callback');
         await callback(context); // Waiting for the callback to complete.
       } catch (error, stackTrace) {
+        _logger.error('Failed to execute callback: $error');
+
         if (errorReporter != null) {
           errorReporter.recordError(error, stackTrace);
         }
@@ -43,5 +51,7 @@ class FastAppFinalizeJob extends FastJob {
         rethrow;
       }
     }
+
+    _logger.debug('Initialized');
   }
 }

@@ -10,22 +10,17 @@ import 'package:tlogger/logger.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppConnectivityJob extends FastJob {
+  static final TLogger _logger = _manager.getLogger(_debugLabel);
   static const _debugLabel = 'FastAppConnectivityJob';
   static FastAppConnectivityJob? _singleton;
   static final _manager = TLoggerManager();
 
-  late final TLogger _logger;
 
   factory FastAppConnectivityJob() {
-    if (_singleton == null) {
-      _singleton = FastAppConnectivityJob._();
-      _singleton!._logger = _manager.getLogger(_debugLabel);
-    }
-
-    return _singleton!;
+    return (_singleton ??= const FastAppConnectivityJob._());
   }
 
-  FastAppConnectivityJob._() : super(debugLabel: _debugLabel);
+  const FastAppConnectivityJob._() : super(debugLabel: _debugLabel);
 
   @override
   Future<void> initialize(
@@ -38,7 +33,10 @@ class FastAppConnectivityJob extends FastJob {
     late Object result;
 
     if (bloc.currentState.isInitialized) {
-      _logger.debug('Checking connectivity status...');
+      _logger
+        ..debug('Already initialized')
+        ..debug('Checking connectivity status...');
+
       bloc.addEvent(FastConnectivityStatusBlocEvent.checkConnectivity());
 
       result = await RaceStream([
@@ -49,7 +47,7 @@ class FastAppConnectivityJob extends FastJob {
         }).mapTo(bloc.currentState),
       ]).first;
     } else {
-      _logger.debug('Initializing connectivity status bloc...');
+      _logger.debug('Initializing...');
       bloc.addEvent(FastConnectivityStatusBlocEvent.init());
 
       result = await RaceStream([
@@ -58,7 +56,16 @@ class FastAppConnectivityJob extends FastJob {
       ]).first;
     }
 
-    if (result is! FastConnectivityStatusBlocState) throw result;
-    if (!result.isConnected || !result.isServiceAvailable) throw result;
+    if (result is! FastConnectivityStatusBlocState) {
+      _logger.error('Failed to initialize: $result');
+      throw result;
+    }
+
+    if (!result.isConnected || !result.isServiceAvailable) {
+      _logger.error('No internet connection or service unavailable');
+      throw result;
+    }
+
+    _logger.debug('Initialized');
   }
 }

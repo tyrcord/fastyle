@@ -5,8 +5,8 @@ import 'dart:io';
 import 'package:flutter/foundation.dart' show kDebugMode;
 
 // Package imports:
-import 'package:t_helpers/helpers.dart';
 import 'package:tstore/tstore.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
@@ -14,6 +14,10 @@ import 'package:fastyle_ad/test_units.dart';
 
 /// A class representing information about FastAd.
 class FastAdInfo extends TDocument {
+  static final TLogger _logger = _manager.getLogger(_debugLabel);
+  static const _debugLabel = 'FastAdInfo';
+  static final _manager = TLoggerManager();
+
   /// The Ad Unit ID for native ads on Android.
   final String? androidNativeAdUnitId;
 
@@ -396,75 +400,30 @@ class FastAdInfo extends TDocument {
   /// Print the values of properties in debug mode.
   void debug({String? debugLabel}) {
     if (kDebugMode) {
-      debugLog(
-        'androidNativeAdUnitId: $androidNativeAdUnitId',
-        debugLabel: debugLabel,
-      );
-      debugLog(
-        'iosNativeAdUnitId: $iosNativeAdUnitId',
-        debugLabel: debugLabel,
-      );
-      debugLog(
-        'androidBannerAdUnitId: $androidBannerAdUnitId',
-        debugLabel: debugLabel,
-      );
-      debugLog(
-        'iosBannerAdUnitId: $iosBannerAdUnitId',
-        debugLabel: debugLabel,
-      );
-      debugLog(
-        'androidInterstitialAdUnitId: $androidInterstitialAdUnitId',
-        debugLabel: debugLabel,
-      );
-      debugLog(
-        'iosInterstitialAdUnitId: $iosInterstitialAdUnitId',
-        debugLabel: debugLabel,
-      );
-      debugLog(
-        'androidRewardedAdUnitId: $androidRewardedAdUnitId',
-        debugLabel: debugLabel,
-      );
-      debugLog(
-        'iosRewardedAdUnitId: $iosRewardedAdUnitId',
-        debugLabel: debugLabel,
-      );
-      debugLog(
-        'androidSplashAdUnitId: $androidSplashAdUnitId',
-        debugLabel: debugLabel,
-      );
-      debugLog(
-        'iosSplashAdUnitId: $iosSplashAdUnitId',
-        debugLabel: debugLabel,
-      );
-      debugLog(
-        'androidRewardedInterstitialAdUnitId: '
-        '$androidRewardedInterstitialAdUnitId',
-        debugLabel: debugLabel,
-      );
-      debugLog(
-        'iosRewardedInterstitialAdUnitId: $iosRewardedInterstitialAdUnitId',
-        debugLabel: debugLabel,
-      );
-      debugLog(
-        'keywords: $keywords',
-        debugLabel: debugLabel,
-      );
-      debugLog(
-        'countries: $countries',
-        debugLabel: debugLabel,
-      );
-      debugLog(
-        'splashAdThreshold: $splashAdThreshold',
-        debugLabel: debugLabel,
-      );
-      debugLog(
-        'adServiceUriAuthority: $adServiceUriAuthority',
-        debugLabel: debugLabel,
-      );
-      debugLog(
-        'refreshInterval: $refreshInterval',
-        debugLabel: debugLabel,
-      );
+      _logger
+        ..info('androidNativeAdUnitId', androidNativeAdUnitId)
+        ..info('iosNativeAdUnitId', iosNativeAdUnitId)
+        ..info('androidBannerAdUnitId', androidBannerAdUnitId)
+        ..info('iosBannerAdUnitId', iosBannerAdUnitId)
+        ..info('androidInterstitialAdUnitId', androidInterstitialAdUnitId)
+        ..info('iosInterstitialAdUnitId', iosInterstitialAdUnitId)
+        ..info('androidRewardedAdUnitId', androidRewardedAdUnitId)
+        ..info('iosRewardedAdUnitId', iosRewardedAdUnitId)
+        ..info('androidSplashAdUnitId', androidSplashAdUnitId)
+        ..info('iosSplashAdUnitId', iosSplashAdUnitId)
+        ..info(
+          'androidRewardedInterstitialAdUnitId',
+          androidRewardedInterstitialAdUnitId,
+        )
+        ..info(
+          'iosRewardedInterstitialAdUnitId',
+          iosRewardedInterstitialAdUnitId,
+        )
+        ..info('keywords', keywords)
+        ..info('countries', countries)
+        ..info('splashAdThreshold', splashAdThreshold)
+        ..info('adServiceUriAuthority', adServiceUriAuthority)
+        ..info('refreshInterval: $refreshInterval');
     }
   }
 }

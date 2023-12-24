@@ -5,18 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastSplashAdJob extends FastJob {
+  static final TLogger _logger = _manager.getLogger(_debugLabel);
+  static const _debugLabel = 'FastSplashAdJob';
+  static final _manager = TLoggerManager();
   static FastSplashAdJob? _singleton;
 
   factory FastSplashAdJob() {
     return (_singleton ??= const FastSplashAdJob._());
   }
 
-  const FastSplashAdJob._() : super(debugLabel: 'FastSplashAdJob');
+  const FastSplashAdJob._() : super(debugLabel: _debugLabel);
 
   @override
   Future<void> initialize(
@@ -25,6 +29,8 @@ class FastSplashAdJob extends FastJob {
   }) async {
     if (isAdFreeEnabled()) return;
     if (isWeb || isMacOS) return;
+
+    _logger.debug('Initializing...');
 
     final splashAdBloc = FastSplashAdBloc.instance;
     final adInfoBloc = FastAdInfoBloc.instance;
@@ -46,14 +52,20 @@ class FastSplashAdJob extends FastJob {
     ]).first;
 
     if (response is! FastSplashAdBlocState) {
+      _logger.error('Failed to initialize: $response');
       // FIXME: should not be a blocker
-      throw response;
+      // throw response;
+      return;
     }
 
     // note: we need to initialize the bloc before verifying
     // if we can show the ad
-    if (!splashAdBloc.canShowAd) return;
+    if (!splashAdBloc.canShowAd) {
+      _logger.debug('No need to show a splash ad');
+      return;
+    }
 
+    _logger.debug('Loading ad...');
     splashAdBloc.addEvent(const FastSplashAdBlocEvent.loadAd());
 
     response = await RaceStream([
@@ -62,8 +74,13 @@ class FastSplashAdJob extends FastJob {
     ]).first;
 
     if (response is! FastSplashAdBlocState) {
+      _logger.error('Failed to load ad: $response');
       // FIXME: should not be a blocker
       // throw response;
     }
+
+    _logger
+      ..debug('Ad loaded')
+      ..debug('Initialized');
   }
 }

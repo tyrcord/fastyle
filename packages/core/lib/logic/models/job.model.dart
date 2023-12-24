@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:async/async.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -14,6 +15,10 @@ import 'package:fastyle_core/fastyle_core.dart';
 //TODO: @need-review: code from fastyle_dart
 
 abstract class FastJob {
+  static final TLogger _logger = _manager.getLogger(_debugLabel);
+  static final _manager = TLoggerManager();
+  static const _debugLabel = 'FastJob';
+
   @protected
   final bool requestUserInteraction;
   final String? debugLabel;
@@ -38,7 +43,7 @@ abstract class FastJob {
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) {
-    debugPrint('Job started: $debugLabel');
+    _logger.debug('Job started: $debugLabel');
 
     final completer = Completer<bool>();
     var operationAsync = initialize(context, errorReporter: errorReporter);
@@ -64,12 +69,12 @@ abstract class FastJob {
     );
 
     operationAsync.catchError((dynamic error, StackTrace? stackTrace) {
-      debugPrint('Job failed: $debugLabel');
+      _logger.error('Job failed: $debugLabel => $error', stackTrace);
       blocInitializationOperation.cancel();
       completer.completeError(_transformError(error, stackTrace), stackTrace);
     }).whenComplete(() {
       if (!completer.isCompleted) {
-        debugPrint('Job completed: $debugLabel');
+        _logger.debug('Job completed: $debugLabel');
         completer.complete(true);
       }
     });

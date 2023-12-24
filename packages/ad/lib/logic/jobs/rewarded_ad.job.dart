@@ -5,18 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastRewardedAdJob extends FastJob {
+  static final TLogger _logger = _manager.getLogger(_debugLabel);
+  static const _debugLabel = 'FastRewardedAdJob';
+  static final _manager = TLoggerManager();
   static FastRewardedAdJob? _singleton;
 
   factory FastRewardedAdJob() {
     return (_singleton ??= const FastRewardedAdJob._());
   }
 
-  const FastRewardedAdJob._() : super(debugLabel: 'FastRewardedAdJob');
+  const FastRewardedAdJob._() : super(debugLabel: _debugLabel);
 
   @override
   Future<void> initialize(
@@ -24,6 +28,8 @@ class FastRewardedAdJob extends FastJob {
     IFastErrorReporter? errorReporter,
   }) async {
     if (isWeb || isMacOS) return;
+
+    _logger.debug('Initializing...');
 
     final adInfoBloc = FastAdInfoBloc.instance;
     final rewardedAdBloc = FastRewardedAdBloc.instance;
@@ -48,7 +54,10 @@ class FastRewardedAdJob extends FastJob {
     ]).first;
 
     if (response is! FastRewardedAdBlocState) {
+      _logger.error('Failed to initialize: $response');
       throw response;
     }
+
+    _logger.debug('Initialized');
   }
 }

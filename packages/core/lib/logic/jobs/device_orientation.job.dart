@@ -7,25 +7,30 @@ import 'package:flutter/scheduler.dart';
 
 // Package imports:
 import 'package:rxdart/rxdart.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
 class FastDeviceOrientationJob extends FastJob {
+  static final TLogger _logger = _manager.getLogger(_debugLabel);
+  static const _debugLabel = 'FastDeviceOrientationJob';
   static FastDeviceOrientationJob? _singleton;
+  static final _manager = TLoggerManager();
 
   factory FastDeviceOrientationJob() {
     return (_singleton ??= const FastDeviceOrientationJob._());
   }
 
-  const FastDeviceOrientationJob._()
-      : super(debugLabel: 'FastDeviceOrientationJob');
+  const FastDeviceOrientationJob._() : super(debugLabel: _debugLabel);
 
   @override
   Future<void> initialize(
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
+    _logger.debug('Initializing...');
+
     final bloc = FastDeviceOrientationBloc();
     final orientation = await findCurrentOrientation(context);
 
@@ -37,8 +42,11 @@ class FastDeviceOrientationJob extends FastJob {
     ]).first;
 
     if (blocState is! FastDeviceOrientationBlocState) {
+      _logger.error('Failed to initialize: $blocState');
       throw blocState;
     }
+
+    _logger.debug('Initialized');
   }
 
   Future<Orientation> findCurrentOrientation(BuildContext context) async {
@@ -47,6 +55,7 @@ class FastDeviceOrientationJob extends FastJob {
     try {
       SchedulerBinding.instance.scheduleFrameCallback((_) {
         final orientation = MediaQuery.orientationOf(context);
+        _logger.info('current orientation', orientation);
 
         completer.complete(orientation);
       });

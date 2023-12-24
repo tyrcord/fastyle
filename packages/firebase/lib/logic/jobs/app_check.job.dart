@@ -1,12 +1,16 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:tlogger/logger.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 
 class FastFirebaseAppCheckJob extends FastJob {
+  static final TLogger _logger = _manager.getLogger(_debugLabel);
+  static const _debugLabel = 'FastFirebaseAppCheckJob';
   static FastFirebaseAppCheckJob? _singleton;
+  static final _manager = TLoggerManager();
 
   final AndroidProvider? androidProvider;
   final String? webRecaptchaSiteKey;
@@ -26,13 +30,15 @@ class FastFirebaseAppCheckJob extends FastJob {
   const FastFirebaseAppCheckJob._({
     this.webRecaptchaSiteKey,
     this.androidProvider,
-  }) : super(debugLabel: 'FastFirebaseAppCheckJob');
+  }) : super(debugLabel: _debugLabel);
 
   @override
   Future<void> initialize(
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
+    _logger.debug('Initializing...');
+
     await FirebaseAppCheck.instance.activate(
       androidProvider: androidProvider ?? AndroidProvider.playIntegrity,
       appleProvider: AppleProvider.appAttest,
@@ -40,5 +46,7 @@ class FastFirebaseAppCheckJob extends FastJob {
           ? ReCaptchaEnterpriseProvider(webRecaptchaSiteKey!)
           : null,
     );
+
+    _logger.debug('Initialized');
   }
 }

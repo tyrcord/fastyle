@@ -10,7 +10,7 @@ import 'package:flutter/scheduler.dart';
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:t_helpers/helpers.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -20,25 +20,34 @@ import 'package:fastyle_core/fastyle_core.dart';
 /// and initialize the [FastAppSettingsBloc] before the [FastAppSettingsBloc]
 /// is used.
 class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
+  static final TLogger _logger = _manager.getLogger(_debugLabel);
+  static const _debugLabel = 'FastAppSettingsJobs';
+  static final _manager = TLoggerManager();
   static FastAppSettingsJob? _singleton;
 
   factory FastAppSettingsJob() {
     return (_singleton ??= const FastAppSettingsJob._());
   }
 
-  const FastAppSettingsJob._() : super(debugLabel: 'FastAppSettingsJobs');
+  const FastAppSettingsJob._() : super(debugLabel: _debugLabel);
 
   @override
   Future<void> initialize(
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
+    _logger.debug('Initializing...');
     final settingsState = await initializeSettingsBloc(
       context,
       errorReporter: errorReporter,
     );
+    _logger
+      ..debug('Initialized')
 
-    return applySettings(context, settingsState);
+      // We apply the settings to the application.
+      ..debug('Applying settings...');
+    await applySettings(context, settingsState);
+    _logger.debug('Settings applied');
   }
 
   /// Initializes the [FastAppSettingsBloc] by retrieving the settings
@@ -63,6 +72,11 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
       errorReporter: errorReporter,
     );
 
+    _logger
+      ..info('Device language code', deviceLanguageCode)
+      ..info('Device country code', deviceCountryCode)
+      ..info('Is first launch', isFirstLaunch);
+
     // We initialize the settings bloc.
     settingsBloc.addEvent(const FastAppSettingsBlocEvent.init());
 
@@ -72,6 +86,7 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     ]).first;
 
     if (settingsState is! FastAppSettingsBlocState) {
+      _logger.error('Failed to initialize: $settingsState');
       throw settingsState;
     }
 
@@ -79,8 +94,6 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     // that will be used to initialize the language of the application.
 
     if (isFirstLaunch) {
-      debugLog('First launch of the application.', debugLabel: debugLabel);
-
       // If it is the first launch of the application, we use the device locale
       // to initialize the language of the application.
       languageCode = await determineUserLanguageCode(
@@ -96,12 +109,11 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
       countryCode = settingsBloc.currentState.countryCode;
     }
 
-    debugLog('Language code', value: languageCode, debugLabel: debugLabel);
+    _logger.info('User language code', languageCode);
 
     // We update the language code of the application if needed.
     if (languageCode != settingsBloc.currentState.languageCode) {
-      debugLog('Updating language code', debugLabel: debugLabel);
-
+      _logger.debug('Updating User language code setting...');
       settingsBloc.addEvent(
         FastAppSettingsBlocEvent.languageCodeChanged(languageCode),
       );
@@ -109,14 +121,16 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
       settingsState = await settingsBloc.onData
           .where((state) => state.languageCode == languageCode)
           .first;
+
+      _logger.debug('User language code setting updated');
     }
 
     if (countryCode != null) {
-      debugLog('Country code', value: countryCode, debugLabel: debugLabel);
+      _logger.info('User country code', countryCode);
 
       // We update the country code of the application if needed.
       if (countryCode != settingsBloc.currentState.countryCode) {
-        debugLog('Updating country code', debugLabel: debugLabel);
+        _logger.debug('Updating User country code setting...');
 
         settingsBloc.addEvent(
           FastAppSettingsBlocEvent.countryCodeChanged(countryCode),
@@ -125,11 +139,18 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
         settingsState = await settingsBloc.onData
             .where((state) => state.countryCode == countryCode)
             .first;
+
+        _logger.debug('User country code setting updated');
       }
     }
 
     final use24HourFormat = await shouldUse24HourFormat(context);
 
+    _logger
+      ..info('Use 24 hour format', use24HourFormat)
+      ..debug('Updating use 24 hour format setting...');
+
+    // We update the use 24 hour format of the application if needed.
     settingsBloc.addEvent(
       FastAppSettingsBlocEvent.use24HourFormatChanged(use24HourFormat),
     );
@@ -137,6 +158,8 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     settingsState = await settingsBloc.onData
         .where((state) => state.use24HourFormat == use24HourFormat)
         .first;
+
+    _logger.debug('Use 24 hour format setting updated');
 
     return settingsState;
   }
@@ -147,12 +170,6 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     try {
       SchedulerBinding.instance.scheduleFrameCallback((_) {
         final use24HourFormat = MediaQuery.alwaysUse24HourFormatOf(context);
-
-        debugLog(
-          'Always use 24 hour format',
-          value: use24HourFormat,
-          debugLabel: debugLabel,
-        );
 
         completer.complete(use24HourFormat);
       });
@@ -169,11 +186,16 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     BuildContext context,
     FastAppSettingsBlocState settingsState,
   ) async {
-    debugLog('Applying settings', debugLabel: debugLabel);
-
+    // We update the locale of the application.
+    _logger.debug('Setting Locale...');
     await context.setLocale(settingsState.languageLocale);
+    _logger
+      ..debug('Locale set')
 
-    return updateThemeMode(context, settingsState);
+      // We update the theme mode of the application.
+      ..debug('Updating theme mode...');
+    await updateThemeMode(context, settingsState);
+    _logger.debug('Theme mode updated');
   }
 
   /// Updates the theme mode of the application.
@@ -196,6 +218,7 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     ]).first;
 
     if (themeState is! FastThemeBlocState) {
+      _logger.error('Failed to update theme mode: $themeState');
       throw themeState;
     }
   }
@@ -223,8 +246,13 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
     final isSupported = isLanguageCodeSupported(languageCode, supportedLocales);
 
     if (isSupported) {
+      _logger.debug('User language code is supported');
       return languageCode;
     }
+
+    _logger
+      ..debug('User language code is not supported')
+      ..debug('Using default language code');
 
     return kFastSettingsDefaultLanguageCode;
   }

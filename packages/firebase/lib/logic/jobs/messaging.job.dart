@@ -3,6 +3,7 @@ import 'dart:async';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:tlogger/logger.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -13,19 +14,19 @@ import 'package:t_helpers/helpers.dart';
 
 /// A job that initializes the Firebase Messaging service.
 class FastFirebaseMessagingJob extends FastJob {
+  static final TLogger _logger = _manager.getLogger(_debugLabel);
+  static const _debugLabel = 'FastFirebaseMessagingJob';
+  static final _manager = TLoggerManager();
   static FirebaseMessaging messagingService = FirebaseMessaging.instance;
   static FastFirebaseMessagingJob? _singleton;
   static FirebaseInAppMessaging inAppMessagingService =
       FirebaseInAppMessaging.instance;
 
   factory FastFirebaseMessagingJob() {
-    _singleton ??= const FastFirebaseMessagingJob._();
-
-    return _singleton!;
+    return (_singleton ??= const FastFirebaseMessagingJob._());
   }
 
-  const FastFirebaseMessagingJob._()
-      : super(debugLabel: 'FastFirebaseMessagingJob');
+  const FastFirebaseMessagingJob._() : super(debugLabel: _debugLabel);
 
   /// Initializes the Firebase Messaging service.
   @override
@@ -33,8 +34,10 @@ class FastFirebaseMessagingJob extends FastJob {
     BuildContext context, {
     IFastErrorReporter? errorReporter,
   }) async {
+    _logger.debug('Initializing...');
+
     final permission = await _getNotificationStatus();
-    debugLog('Notification permission: $permission', debugLabel: debugLabel);
+    _logger.info('Message notification permission', permission);
 
     final bloc = FastAppPermissionsBloc.instance;
     final event = FastAppPermissionsBlocEvent.updateNotificationPermission(
@@ -49,6 +52,7 @@ class FastFirebaseMessagingJob extends FastJob {
     ]).first;
 
     if (blocState is! FastAppPermissionsBlocState) {
+      _logger.error('Failed to initialize: $blocState');
       throw blocState;
     }
 
@@ -56,6 +60,8 @@ class FastFirebaseMessagingJob extends FastJob {
       debugLog('Message received: ${message.data}', debugLabel: debugLabel);
       // TODO: handle message
     });
+
+    _logger.debug('Initialized');
   }
 
   Future<FastAppPermission> _getNotificationStatus() async {

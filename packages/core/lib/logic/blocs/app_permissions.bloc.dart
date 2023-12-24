@@ -1,7 +1,7 @@
 // Package imports:
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
-import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -10,9 +10,11 @@ import 'package:fastyle_core/fastyle_core.dart';
 /// It can be used to request permissions, check permission status, etc.
 class FastAppPermissionsBloc extends BidirectionalBloc<
     FastAppPermissionsBlocEvent, FastAppPermissionsBlocState> {
-  static bool _hasBeenInstantiated = false;
+  static final TLogger _logger = _manager.getLogger(_debugLabel);
+  static const String _debugLabel = 'FastAppPermissionsBloc';
   static late FastAppPermissionsBloc instance;
-  static const String debugLabel = 'FastAppPermissionsBloc';
+  static bool _hasBeenInstantiated = false;
+  static final _manager = TLoggerManager();
 
   FastAppPermissionsBloc._({FastAppPermissionsBlocState? initialState})
       : super(initialState: initialState ?? FastAppPermissionsBlocState());
@@ -67,7 +69,7 @@ class FastAppPermissionsBloc extends BidirectionalBloc<
 
       final permission = await _getTrackingPermission();
 
-      debugLog('Tracking permission: $permission', debugLabel: debugLabel);
+      _logger.info('Tracking permission', permission);
 
       addEvent(FastAppPermissionsBlocEvent.initialized(permission));
     }

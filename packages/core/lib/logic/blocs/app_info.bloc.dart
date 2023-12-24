@@ -7,13 +7,16 @@ import 'package:devicelocale/devicelocale.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppInfoBloc
     extends BidirectionalBloc<FastAppInfoBlocEvent, FastAppInfoBlocState> {
+  static final TLogger _logger = _manager.getLogger(debugLabel);
   static const String debugLabel = 'FastAppInfoBloc';
+  static final _manager = TLoggerManager();
   static bool _hasBeenInstantiated = false;
   static late FastAppInfoBloc instance;
 
@@ -73,10 +76,11 @@ class FastAppInfoBloc
       final appBuildNumber = packageInfo.buildNumber;
       var document = appInfoDocument;
 
-      debugLog('FastAppInfoBloc is initialized', debugLabel: debugLabel);
-      debugLog('OS version', value: osVersion, debugLabel: debugLabel);
-      debugLog('App build', value: appBuildNumber, debugLabel: debugLabel);
-      debugLog('App version', value: appVersion, debugLabel: debugLabel);
+      _logger
+        ..debug('FastAppInfoBloc is initialized')
+        ..info('OS version', osVersion)
+        ..info('App build', appBuildNumber)
+        ..info('App version', appVersion);
 
       document = document.copyWith(
         // Values controlled by the persisted document.

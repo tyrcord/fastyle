@@ -1,11 +1,11 @@
 // Flutter imports:
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
@@ -15,6 +15,9 @@ mixin FastAdInformationJobDelegate {
 }
 
 class FastAdInfoJob extends FastJob {
+  static final TLogger _logger = _manager.getLogger(_debugLabel);
+  static const _debugLabel = 'FastAdInfoJob';
+  static final _manager = TLoggerManager();
   static FastAdInfoJob? _singleton;
   final FastAdInformationJobDelegate? delegate;
 
@@ -22,7 +25,7 @@ class FastAdInfoJob extends FastJob {
     return (_singleton ??= FastAdInfoJob._(delegate: delegate));
   }
 
-  const FastAdInfoJob._({this.delegate}) : super(debugLabel: 'FastAdInfoJob');
+  const FastAdInfoJob._({this.delegate}) : super(debugLabel: _debugLabel);
 
   @override
   Future<void> initialize(
@@ -31,6 +34,8 @@ class FastAdInfoJob extends FastJob {
   }) async {
     if (isWeb || isMacOS) return;
 
+    _logger.debug('Initializing...');
+
     final adInfoBloc = FastAdInfoBloc.instance;
     FastAdInfo adInfo = adInfoBloc.currentState.adInfo;
 
@@ -38,10 +43,7 @@ class FastAdInfoJob extends FastJob {
       adInfo = await delegate!.onGetAdInformationModel(context);
     }
 
-    if (kDebugMode) {
-      debugLog('will use Ad Info:', debugLabel: debugLabel);
-      adInfo.debug(debugLabel: 'AdInfo');
-    }
+    adInfo.debug(debugLabel: 'AdInfo');
 
     adInfoBloc.addEvent(FastAdInfoBlocEvent.init(adInfo: adInfo));
 
@@ -55,7 +57,10 @@ class FastAdInfoJob extends FastJob {
     ]).first;
 
     if (response is! FastAdInfoBlocState) {
+      _logger.error('Failed to initialize: $response');
       throw response;
     }
+
+    _logger.debug('Initialized');
   }
 }

@@ -5,18 +5,19 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:firebase_performance/firebase_performance.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:tlogger/logger.dart';
 
 class FastFirebasePerformanceJob extends FastJob {
+  static final TLogger _logger = _manager.getLogger(_debugLabel);
+  static const _debugLabel = 'FastFirebasePerformanceJob';
   static FastFirebasePerformanceJob? _singleton;
+  static final _manager = TLoggerManager();
 
   factory FastFirebasePerformanceJob() {
-    _singleton ??= const FastFirebasePerformanceJob._();
-
-    return _singleton!;
+    return (_singleton ??= const FastFirebasePerformanceJob._());
   }
 
-  const FastFirebasePerformanceJob._()
-      : super(debugLabel: 'FastFirebasePerformanceJob');
+  const FastFirebasePerformanceJob._() : super(debugLabel: _debugLabel);
 
   @override
   Future<void> initialize(
@@ -25,8 +26,12 @@ class FastFirebasePerformanceJob extends FastJob {
   }) async {
     if (isMacOS) return;
 
+    _logger.debug('Initializing...');
+
     final performance = FirebasePerformance.instance;
 
-    return performance.setPerformanceCollectionEnabled(true);
+    await performance.setPerformanceCollectionEnabled(true);
+
+    _logger.debug('Initialized');
   }
 }

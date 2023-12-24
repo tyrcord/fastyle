@@ -3,15 +3,18 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_firebase/fastyle_firebase.dart';
 
 class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
     FastFirebaseRemoteConfigBlocEvent, FastFirebaseRemoteConfigBlocState> {
-  static bool _hasBeenInstantiated = false;
+  static const String _debugLabel = 'FastFirebaseRemoteConfigBloc';
+  static final TLogger _logger = _manager.getLogger(_debugLabel);
   static late FastFirebaseRemoteConfigBloc instance;
-  static String debugLabel = 'FastFirebaseRemoteConfigBloc';
+  static final _manager = TLoggerManager();
+  static bool _hasBeenInstantiated = false;
 
   FastFirebaseRemoteConfigBloc._({
     FastFirebaseRemoteConfigBlocState? initialState,
@@ -70,11 +73,10 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
       try {
         // TODO: listen on config changes ?
         enabled = await remoteConfig.fetchAndActivate();
-      } catch (error) {
-        debugLog(
-          'An error occured when fetching and activating remote config',
-          value: error,
-          debugLabel: debugLabel,
+      } catch (error, stackTrace) {
+        _logger.error(
+          'An error occured when fetching and activating remote config: $error',
+          stackTrace,
         );
       }
 
@@ -117,14 +119,14 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
           final isFeatureEnabled = value.asBool();
 
           if (isFeatureEnabled) {
-            debugLog('enabling feature: $featureKey', debugLabel: debugLabel);
+            _logger.info('enabling feature', featureKey);
             featureToEnable.add(feature);
           } else {
-            debugLog('disabling feature: $featureKey', debugLabel: debugLabel);
+            _logger.info('disabling feature', featureKey);
             featureToDisable.add(feature);
           }
         } catch (e) {
-          debugLog('unknown feature: $featureKey', debugLabel: debugLabel);
+          _logger.warning('unknown feature: $featureKey');
         }
       }
     });

@@ -188,10 +188,9 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
     } catch (e) {
       _logger.error('Error while checking the connectivity status: $e');
     } finally {
-      _logger.debug(
-        'Device is connected: $isDeviceConnected, '
-        'service is available: $isServiceAvailable',
-      );
+      _logger
+        ..info('Device is connected', isDeviceConnected)
+        ..info('Service is available', isServiceAvailable);
     }
 
     _isCheckingConnectivity = false;

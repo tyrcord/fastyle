@@ -15,6 +15,7 @@ dependencies:
   tbloc: ^0.21.8+9
   tmodel: ^0.5.12+9
   tstore: ^0.8.22+4
+  tlogger: ^0.0.5
 description: Set of iap Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^3.2.3
@@ -23,8 +24,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: '>=3.16.0'
-  sdk: '>=3.2.0 <4.0.0'
+  flutter: ">=3.16.0"
+  sdk: ">=3.2.0 <4.0.0"
 name: fastyle_iap
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/iap
 version: 0.0.30

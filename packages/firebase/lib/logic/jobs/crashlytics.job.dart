@@ -4,6 +4,7 @@ import 'dart:isolate';
 // Flutter imports:
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
+import 'package:tlogger/logger.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -11,6 +12,9 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:t_helpers/helpers.dart';
 
 class FastFirebaseCrashlyticsJob extends FastJob {
+  static final TLogger _logger = _manager.getLogger(_debugLabel);
+  static const _debugLabel = 'FastFirebaseCrashlyticsJob';
+  static final _manager = TLoggerManager();
   static FastFirebaseCrashlyticsJob? _singleton;
   final bool shouldEnableInDevMode;
 
@@ -23,7 +27,7 @@ class FastFirebaseCrashlyticsJob extends FastJob {
   }
 
   const FastFirebaseCrashlyticsJob._({this.shouldEnableInDevMode = false})
-      : super(debugLabel: 'FastFirebaseCrashlyticsJob');
+      : super(debugLabel: _debugLabel);
 
   @override
   Future<void> initialize(
@@ -31,6 +35,8 @@ class FastFirebaseCrashlyticsJob extends FastJob {
     IFastErrorReporter? errorReporter,
   }) async {
     if (isWeb) return;
+
+    _logger.debug('Initializing...');
 
     final crashlytics = FirebaseCrashlytics.instance;
 
@@ -52,5 +58,7 @@ class FastFirebaseCrashlyticsJob extends FastJob {
             : null,
       );
     }).sendPort);
+
+    _logger.debug('Initialized');
   }
 }
