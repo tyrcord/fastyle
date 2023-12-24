@@ -60,7 +60,8 @@ class FastJobRunner {
             }
           }, (error, stackTrace) {
             if (!completer.isCompleted) {
-              completer.completeError(error, stackTrace);
+              final message = 'Job failed: ${job.debugLabel} - $error';
+              completer.completeError(message, stackTrace);
             }
           });
         });

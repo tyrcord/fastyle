@@ -13,6 +13,7 @@ import 'package:lingua_core/lingua_core.dart';
 import 'package:subx/subx.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -151,10 +152,12 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
   static const String _noServiceAvailableRouteName = 'noServiceAvailable';
   static const String _noServiceAvailableRoute = '/no-service-available';
   static const String _mediaLayoutListenerKey = 'MediaLayoutListener';
+  static final _logger = _loggerManager.getLogger(_debugLabel);
   static const String _onboardingRouteName = 'onboarding';
   static const String _onboardingRoute = '/onboarding';
+  static final _loggerManager = TLoggerManager();
   static const String _defaultRoute = '/';
-  static const String debugLabel = 'FastApp';
+  static const _debugLabel = 'FastApp';
 
   late final FastConnectivityStatusBloc _appConnectivityBloc;
   late final GlobalKey<NavigatorState> _rootNavigatorKey;
@@ -213,7 +216,7 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    debugLog('didChangeAppLifecycleState: $state', debugLabel: debugLabel);
+    _logger.debug('didChangeAppLifecycleState: $state');
 
     final event = FastAppLifecycleBlocEvent.lifecycleChanged(state);
     _appLifecycleBloc.addEvent(event);
@@ -353,7 +356,7 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
 
     if (!onboardingState.isCompleted || forceOnboarding) {
       _hasForcedOnboarding = true;
-      debugLog('onboarding is not completed', debugLabel: debugLabel);
+      _logger.debug('onboarding is not completed');
 
       return _onboardingRoute;
     }
@@ -398,7 +401,7 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
 
   /// Handles the app error.
   Widget handleAppError(BuildContext context, dynamic error) {
-    debugLog('error: $error', debugLabel: debugLabel);
+    _logger.error('App error: $error');
 
     final canContactSupport = _canContactSupport();
     VoidCallback? contactCallback;
@@ -406,7 +409,7 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
 
     if (canContactSupport) {
       contactLabel = CoreLocaleKeys.core_label_contact_support.tr();
-      contactCallback = () => contactSupport(error: error);
+      contactCallback = () => contactSupport();
     }
 
     if (widget.isInternetConnectionRequired &&
@@ -443,15 +446,15 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
     return appInfo.supportEmail != null;
   }
 
-  void contactSupport({dynamic error}) {
+  void contactSupport() {
     if (_canContactSupport()) {
       final appInfoBloc = FastAppInfoBloc.instance;
       final appInfo = appInfoBloc.currentState;
 
       FastMessenger.writeEmail(
-        appInfo.supportEmail!,
+        body: TLoggerJournal().logs.join('\n'),
         subject: appInfo.appName,
-        body: error?.toString(),
+        appInfo.supportEmail!,
       );
     }
   }
