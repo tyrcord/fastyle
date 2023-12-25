@@ -3,7 +3,6 @@ import 'dart:async';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:tlogger/logger.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -11,6 +10,7 @@ import 'package:firebase_in_app_messaging/firebase_in_app_messaging.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:tlogger/logger.dart';
 
 /// A job that initializes the Firebase Messaging service.
 class FastFirebaseMessagingJob extends FastJob {
