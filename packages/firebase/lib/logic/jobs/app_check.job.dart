@@ -47,10 +47,18 @@ class FastFirebaseAppCheckJob extends FastJob {
       _logger.debug('Activating Firebase App Check for ${app.name}...');
       final appCheck = FirebaseAppCheck.instanceFor(app: app);
 
+      var appleProviderAppCheck = AppleProvider.appAttest;
+      var androidProviderAppCheck =
+          androidProvider ?? AndroidProvider.playIntegrity;
+
+      if (kDebugMode) {
+        androidProviderAppCheck = AndroidProvider.debug;
+        appleProviderAppCheck = AppleProvider.debug;
+      }
+
       await appCheck.activate(
-        androidProvider: androidProvider ?? AndroidProvider.playIntegrity,
-        appleProvider:
-            kDebugMode ? AppleProvider.debug : AppleProvider.appAttest,
+        androidProvider: androidProviderAppCheck,
+        appleProvider: appleProviderAppCheck,
         webProvider: webRecaptchaSiteKey is String
             ? ReCaptchaEnterpriseProvider(webRecaptchaSiteKey!)
             : null,
