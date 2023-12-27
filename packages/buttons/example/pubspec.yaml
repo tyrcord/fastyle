@@ -1,7 +1,7 @@
 dependencies:
   easy_localization: ^3.0.3
-  fastyle_buttons: ^0.0.23+1
-  fastyle_core: ^0.0.43
+  fastyle_buttons: ^0.0.24
+  fastyle_core: ^0.0.44
   flutter:
     sdk: flutter
   go_router: ^12.1.1

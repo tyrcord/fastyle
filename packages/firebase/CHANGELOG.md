@@ -1,3 +1,8 @@
+## 0.0.30
+
+ - **FEAT**: minor improvements.
+ - **FEAT**: enable app check on all created instance.
+
 ## 0.0.29
 
  - **FEAT**: update dependencies.

@@ -1,6 +1,6 @@
 dependencies:
-  fastyle_core: ^0.0.43
-  fastyle_quizz: ^0.0.15+1
+  fastyle_core: ^0.0.44
+  fastyle_quizz: ^0.0.15+2
   flutter:
     sdk: flutter
   go_router: ^12.1.1
