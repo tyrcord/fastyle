@@ -99,7 +99,7 @@ specified_versions = {
     'font_awesome_flutter': '^10.6.0',
     'google_fonts': '^6.1.0',
     'fuzzy': '^0.5.1',
-    'google_mobile_ads': '^3.1.0',
+    'google_mobile_ads': '^4.0.0',
     'url_launcher': '^6.2.1',
     'uuid': '^4.2.1',
     'visibility_detector': '^0.4.0+2',
