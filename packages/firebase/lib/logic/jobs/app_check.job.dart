@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
-import 'package:tlogger/logger.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:tlogger/logger.dart';
 
 class FastFirebaseAppCheckJob extends FastJob {
   static final TLogger _logger = _manager.getLogger(_debugLabel);
