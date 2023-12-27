@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_ad` - `v0.0.37+1`](#fastyle_ad---v00371)
+
+---
+
+#### `fastyle_ad` - `v0.0.37+1`
+
+ - **FIX**: update google_mobile_ads dependencies.
+
+
+## 2023-12-27
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_ad` - `v0.0.37`](#fastyle_ad---v0037)
  - [`fastyle_buttons` - `v0.0.24`](#fastyle_buttons---v0024)
  - [`fastyle_calculator` - `v1.53.0`](#fastyle_calculator---v1530)

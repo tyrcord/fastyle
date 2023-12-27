@@ -1,3 +1,7 @@
+## 0.0.37+1
+
+ - **FIX**: update google_mobile_ads dependencies.
+
 ## 0.0.37
 
  - **FEAT**: update dependencies.
