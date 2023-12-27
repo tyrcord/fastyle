@@ -9,13 +9,13 @@ dependencies:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
   go_router: ^12.1.1
-  lingua_core: ^0.0.32
+  lingua_core: ^0.0.33
   lingua_countries: ^0.0.5
-  lingua_finance: ^0.0.28
+  lingua_finance: ^0.0.29
   lingua_finance_instrument: ^0.0.8
-  lingua_number: ^0.0.10
+  lingua_number: ^0.0.10+1
   matex_data: ^0.0.21
-  matex_financial: ^0.0.37
+  matex_financial: ^0.0.37+1
   t_helpers: ^0.0.48+2
   tbloc: ^0.21.8+9
 description: Set of forms Widgets for the fastyle library.

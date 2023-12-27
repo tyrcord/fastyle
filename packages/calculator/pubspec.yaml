@@ -6,11 +6,11 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
-  lingua_ad: ^0.0.15
+  lingua_ad: ^0.0.16
   lingua_calculator: ^0.0.5
-  lingua_core: ^0.0.32
-  lingua_purchases: ^0.0.18
-  lingua_settings: ^0.0.13
+  lingua_core: ^0.0.33
+  lingua_purchases: ^0.0.19
+  lingua_settings: ^0.0.14
   pdf: ^3.10.6
   printing: ^5.11.1
   t_helpers: ^0.0.48+2

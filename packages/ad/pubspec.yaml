@@ -9,9 +9,9 @@ dependencies:
   font_awesome_flutter: ^10.6.0
   google_mobile_ads: ^3.1.0
   http: ^1.1.0
-  lingua_ad: ^0.0.15
-  lingua_core: ^0.0.32
-  lingua_purchases: ^0.0.18
+  lingua_ad: ^0.0.16
+  lingua_core: ^0.0.33
+  lingua_purchases: ^0.0.19
   rxdart: ^0.27.7
   subx: ^1.11.0
   t_cache: ^0.0.11+9
