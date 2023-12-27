@@ -409,7 +409,7 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
 
     if (canContactSupport) {
       contactLabel = CoreLocaleKeys.core_label_contact_support.tr();
-      contactCallback = () => contactSupport();
+      contactCallback = () => contactSupport(error: error);
     }
 
     if (widget.isInternetConnectionRequired &&
@@ -446,13 +446,13 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
     return appInfo.supportEmail != null;
   }
 
-  void contactSupport() {
+  void contactSupport({dynamic error}) {
     if (_canContactSupport()) {
       final appInfoBloc = FastAppInfoBloc.instance;
       final appInfo = appInfoBloc.currentState;
 
       FastMessenger.writeEmail(
-        body: TLoggerJournal().logs.join('\n'),
+        body: error != null ? TLoggerJournal().logs.join('\n') : null,
         subject: appInfo.appName,
         appInfo.supportEmail!,
       );
