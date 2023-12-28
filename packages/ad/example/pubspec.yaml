@@ -1,6 +1,6 @@
 dependencies:
   easy_localization: ^3.0.3
-  fastyle_ad: ^0.0.37+1
+  fastyle_ad: ^0.0.38
   fastyle_core: ^0.0.44
   flutter:
     sdk: flutter

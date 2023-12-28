@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-12-28
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.38`](#fastyle_ad---v0038)
+ - [`fastyle_financial` - `v0.0.38`](#fastyle_financial---v0038)
+ - [`fastyle_forms` - `v0.0.42`](#fastyle_forms---v0042)
+ - [`fastyle_settings` - `v0.0.47`](#fastyle_settings---v0047)
+ - [`fastyle_views` - `v0.0.29`](#fastyle_views---v0029)
+ - [`fastyle_onboarding` - `v0.0.43+1`](#fastyle_onboarding---v00431)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_onboarding` - `v0.0.43+1`
+
+---
+
+#### `fastyle_ad` - `v0.0.38`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_financial` - `v0.0.38`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_forms` - `v0.0.42`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_settings` - `v0.0.47`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_views` - `v0.0.29`
+
+ - **FEAT**(FastOnboardingView): onNext become a future.
+ - **FEAT**(FastOnboardingView): allow to disable user scrolling.
+
+
 ## 2023-12-27
 
 ### Changes

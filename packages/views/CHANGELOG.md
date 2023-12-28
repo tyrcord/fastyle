@@ -1,3 +1,8 @@
+## 0.0.29
+
+ - **FEAT**(FastOnboardingView): onNext become a future.
+ - **FEAT**(FastOnboardingView): allow to disable user scrolling.
+
 ## 0.0.28
 
  - **FEAT**: update dependencies.

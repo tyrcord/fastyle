@@ -20,4 +20,4 @@ environment:
   sdk: '>=3.2.0 <4.0.0'
 name: fastyle_views
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/views
-version: 0.0.28
+version: 0.0.29
