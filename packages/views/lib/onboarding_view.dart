@@ -21,7 +21,7 @@ class FastOnboardingView extends StatefulWidget {
   ///
   final String? doneRoute;
   final VoidCallback? onDone;
-  final Callback<int>? onNext;
+  final Future<void> Function(int index, Widget? child)? onNext;
   final VoidCallback? onSkip;
   final Color? stepDotColor;
   final List<Widget> slides;
@@ -147,11 +147,14 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
             child: _buildButtonLayout(
               context,
               FastTextButton(
-                onTap: () {
+                onTap: () async {
                   if (hasReachEnd) {
                     _done(context);
                   } else {
-                    widget.onNext?.call(_pageCursor);
+                    await widget.onNext?.call(
+                      _pageCursor,
+                      widget.slides[_pageCursor],
+                    );
 
                     _pageViewController.nextPage(
                       duration: kTabScrollDuration,
