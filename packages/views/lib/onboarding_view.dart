@@ -31,6 +31,7 @@ class FastOnboardingView extends StatefulWidget {
   final String? nextText;
   final String? skipText;
   final String homeLocation;
+  final bool enableUserScrolling;
 
   const FastOnboardingView({
     super.key,
@@ -47,6 +48,7 @@ class FastOnboardingView extends StatefulWidget {
     this.onSkip,
     this.onNext,
     this.homeLocation = '/',
+    this.enableUserScrolling = true,
   });
 
   @override
@@ -104,6 +106,9 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
                       Expanded(
                         child: PageView.builder(
                           padEnds: false,
+                          physics: !widget.enableUserScrolling
+                              ? const NeverScrollableScrollPhysics()
+                              : null,
                           controller: _pageViewController,
                           itemCount: _slidesLength,
                           itemBuilder: (BuildContext context, int index) {
