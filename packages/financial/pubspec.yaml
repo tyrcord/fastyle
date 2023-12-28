@@ -14,7 +14,7 @@ dependencies:
   lingua_finance_instrument: ^0.0.8
   lingua_number: ^0.0.10+1
   lingua_units: ^0.0.7
-  matex_financial: ^0.0.37+1
+  matex_financial: ^0.0.37+2
   t_helpers: ^0.0.48+2
   tbloc: ^0.21.8+9
 description: Set of Financial Widgets for the fastyle library.
