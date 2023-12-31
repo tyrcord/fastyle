@@ -9,6 +9,7 @@ import 'package:decimal/decimal.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:tlogger/logger.dart';
+import 'package:tenhance/tenhance.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
