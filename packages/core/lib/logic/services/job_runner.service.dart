@@ -70,7 +70,7 @@ class FastJobRunner {
       }).map((_) {
         progress += dProgresStep;
 
-        return progress.toDouble();
+        return progress.toSafeDouble();
       }).handleError((error) {
         hasError = true;
 

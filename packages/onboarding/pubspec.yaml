@@ -13,7 +13,7 @@ dependencies:
   lingua_core: ^0.0.33
   lingua_onboarding: ^0.0.16
   lingua_purchases: ^0.0.19
-  tbloc: ^0.21.8+9
+  tbloc: ^0.21.8+12
 description: Set of onboarding Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^3.2.3

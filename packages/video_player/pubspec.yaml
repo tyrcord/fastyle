@@ -7,8 +7,8 @@ dependencies:
   font_awesome_flutter: ^10.6.0
   lingua_core: ^0.0.33
   rxdart: ^0.27.7
-  t_helpers: ^0.0.48+2
-  tbloc: ^0.21.8+9
+  t_helpers: ^0.0.49+2
+  tbloc: ^0.21.8+12
   video_player: ^2.8.1
   visibility_detector: ^0.4.0+2
 description: Set of Video Player Widgets for the fastyle library.
