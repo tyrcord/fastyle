@@ -1,3 +1,7 @@
+## 0.0.30
+
+ - **FEAT**: update dependencies.
+
 ## 0.0.29
 
  - **FEAT**(FastOnboardingView): onNext become a future.

@@ -1,3 +1,7 @@
+## 0.0.45
+
+ - **FEAT**: update dependencies.
+
 ## 0.0.44
 
  - **FIX**: don't send error report if there is no error.
