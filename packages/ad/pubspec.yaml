@@ -21,7 +21,7 @@ dependencies:
   tlogger: ^0.0.7+3
   tmodel: ^0.5.12+12
   tstore: ^0.8.22+7
-  url_launcher: ^6.2.1
+  url_launcher: ^6.2.2
   uuid: ^4.2.1
   visibility_detector: ^0.4.0+2
 description: Set of ad Widgets for the fastyle library.
