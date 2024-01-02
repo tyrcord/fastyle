@@ -60,9 +60,11 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
       final remoteConfig = FirebaseRemoteConfig.instance;
 
       if (defaultConfig != null) {
+        _logger.debug('setting default config: $defaultConfig');
         await remoteConfig.setDefaults(defaultConfig);
       }
 
+      _logger.debug('setting config settings');
       await remoteConfig.setConfigSettings(RemoteConfigSettings(
         minimumFetchInterval: const Duration(hours: 1),
         fetchTimeout: const Duration(minutes: 1),
@@ -72,6 +74,7 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
 
       try {
         // TODO: listen on config changes ?
+        _logger.debug('fetching and activating remote config');
         enabled = await remoteConfig.fetchAndActivate();
       } catch (error, stackTrace) {
         _logger.error(
@@ -80,9 +83,13 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
         );
       }
 
+      _logger.info('remote config is enabled', enabled);
+
       if (enabled) {
         final config = remoteConfig.getAll();
         await _updateAppFeatures(config);
+      } else {
+        _logger.warning('remote config is not enabled');
       }
 
       addEvent(FastFirebaseRemoteConfigBlocEvent.initialized(enabled: enabled));
