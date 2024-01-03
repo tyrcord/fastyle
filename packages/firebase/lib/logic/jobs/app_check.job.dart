@@ -47,7 +47,8 @@ class FastFirebaseAppCheckJob extends FastJob {
       _logger.debug('Activating Firebase App Check for ${app.name}...');
       final appCheck = FirebaseAppCheck.instanceFor(app: app);
 
-      var appleProviderAppCheck = AppleProvider.appAttest;
+      var appleProviderAppCheck =
+          AppleProvider.appAttestWithDeviceCheckFallback;
       var androidProviderAppCheck =
           androidProvider ?? AndroidProvider.playIntegrity;
 
