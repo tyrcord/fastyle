@@ -102,7 +102,7 @@ class FastTableView<T> extends StatelessWidget {
     return TableCell(
       child: Padding(
         padding: padding,
-        child: FastBody(
+        child: FastSecondaryBody(
           textAlign: column.textAlign,
           text: cellTextContentBuilder(column, row) ?? '',
         ),
