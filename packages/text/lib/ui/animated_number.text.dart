@@ -16,6 +16,7 @@ class FastAnimatedNumberText extends StatefulWidget {
   final int minimumFractionDigits;
   final int maximumFractionDigits;
   final double? fontSize;
+  final String? currencyCode;
 
   const FastAnimatedNumberText({
     super.key,
@@ -28,6 +29,7 @@ class FastAnimatedNumberText extends StatefulWidget {
     this.locale,
     this.minimumFractionDigits = 0,
     this.maximumFractionDigits = 0,
+    this.currencyCode,
   });
 
   @override
@@ -84,18 +86,32 @@ class AnimatedNumberWidgetState extends State<FastAnimatedNumberText>
         key: _key,
         onVisibilityChanged: handleVisibilityChanged,
         child: FastBody(
-          text: formatDecimal(
-            value: _currentValue,
-            locale: widget.locale,
-            minimumFractionDigits: widget.minimumFractionDigits,
-            maximumFractionDigits: widget.maximumFractionDigits,
-          ),
+          text: _formatNumber(),
           textColor: widget.textColor,
           textAlign: widget.textAlign,
           fontWeight: widget.fontWeight,
           fontSize: widget.fontSize,
         ),
       ),
+    );
+  }
+
+  String _formatNumber() {
+    if (widget.currencyCode != null) {
+      return formatCurrency(
+        value: _currentValue,
+        locale: widget.locale,
+        symbol: widget.currencyCode!,
+        minimumFractionDigits: widget.minimumFractionDigits,
+        maximumFractionDigits: widget.maximumFractionDigits,
+      );
+    }
+
+    return formatDecimal(
+      value: _currentValue,
+      locale: widget.locale,
+      minimumFractionDigits: widget.minimumFractionDigits,
+      maximumFractionDigits: widget.maximumFractionDigits,
     );
   }
 
