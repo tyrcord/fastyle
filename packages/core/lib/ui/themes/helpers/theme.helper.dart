@@ -13,7 +13,7 @@ class ThemeHelper {
   static final _textHelper = ThemeTextHelper();
 
   static double dividerIndent = kFastDividerIndent;
-  static double dividerSize = kFastDividerSize;
+  static double dividerSize = kFastBorderSize;
   static double borderSize = kFastBorderSize;
 
   static FastThemeSpacingHelper get spacing => _spacingHelper;
@@ -52,13 +52,17 @@ class ThemeHelper {
     );
   }
 
-  static BoxDecoration createBorderSide(BuildContext context, {Color? color}) {
+  static BoxDecoration createBorderSide(
+    BuildContext context, {
+    Color? color,
+    double? borderWidth,
+  }) {
     return BoxDecoration(
       border: Border(
         bottom: Divider.createBorderSide(
           context,
           color: color ?? Theme.of(context).dividerColor,
-          width: kFastBorderSize,
+          width: borderWidth ?? borderSize,
         ),
       ),
     );

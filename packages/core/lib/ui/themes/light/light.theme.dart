@@ -67,7 +67,7 @@ final kLightFastTheme = kBaseFastTheme.copyWith(
   dividerColor: kFastLightSeparatorColor,
   dividerTheme: DividerThemeData(
     color: kFastLightSeparatorColor,
-    thickness: kFastDividerSize,
+    thickness: kFastBorderSize,
     indent: kFastDividerIndent,
   ),
   inputDecorationTheme: kInputDecorationTheme.copyWith(
