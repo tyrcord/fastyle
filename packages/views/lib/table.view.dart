@@ -18,14 +18,15 @@ class FastTableColumnDescriptor {
 
 // Widget for displaying a table view with customizable rows and columns.
 class FastTableView<T> extends StatelessWidget {
-  final String? Function(FastTableColumnDescriptor column, T row) rowBuilder;
+  final String? Function(FastTableColumnDescriptor column, T row)
+      cellTextContentBuilder;
   final List<FastTableColumnDescriptor> columns;
   final List<T> rows;
   final Color? borderColor;
 
   const FastTableView({
     super.key,
-    required this.rowBuilder,
+    required this.cellTextContentBuilder,
     required this.columns,
     required this.rows,
     this.borderColor,
@@ -44,7 +45,7 @@ class FastTableView<T> extends StatelessWidget {
 
   // Generates a map of column widths for the table.
   Map<int, TableColumnWidth> _getColumnWidths() {
-    var columnWidths = <int, TableColumnWidth>{};
+    final columnWidths = <int, TableColumnWidth>{};
 
     for (var i = 0; i < columns.length; i++) {
       columnWidths[i] = columns[i].width;
@@ -103,7 +104,7 @@ class FastTableView<T> extends StatelessWidget {
         padding: padding,
         child: FastBody(
           textAlign: column.textAlign,
-          text: rowBuilder(column, row) ?? '',
+          text: cellTextContentBuilder(column, row) ?? '',
         ),
       ),
     );
