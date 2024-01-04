@@ -39,7 +39,7 @@ class FastCalculatorChartToggle<B extends FastCalculatorBloc,
 
     return FastMediaLayoutBuilder(
       builder: (context, mediaType) {
-        final isDesktop = mediaType > FastMediaType.tablet;
+        final isDesktop = mediaType > mediaTypeThreshold!;
 
         if (!isDesktop) return _buildCalculatorActionButton(context);
 
