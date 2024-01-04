@@ -333,8 +333,8 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
     final primaryColor = ThemeHelper.colors.getPrimaryColor(context);
 
     return FastCard(
-      // FIXME: localize
-      titleText: breakdownTitleText ?? 'Breakdown',
+      titleText: breakdownTitleText ??
+          CalculatorLocaleKeys.calculator_label_breakdown.tr(),
       titleTextColor: primaryColor,
       headerActions: <Widget>[
         ...?breakdownActions,
