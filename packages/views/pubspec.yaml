@@ -6,8 +6,8 @@ dependencies:
     sdk: flutter
   go_router: ^13.0.0
   lingua_core: ^0.0.33
-  tbloc: ^0.21.8+12
-  tenhance: ^0.0.6
+  tbloc: ^0.21.9
+  tenhance: ^0.0.7
 description: Set of views Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^3.2.3

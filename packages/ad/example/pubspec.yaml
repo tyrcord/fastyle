@@ -11,7 +11,7 @@ dependencies:
   lingua_core: ^0.0.33
   lingua_purchases: ^0.0.19
   rxdart: ^0.27.7
-  tbloc: ^0.21.8+12
+  tbloc: ^0.21.9
   video_player: ^2.8.1
 description: A new Flutter project.
 dev_dependencies:

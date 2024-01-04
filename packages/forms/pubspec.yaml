@@ -16,8 +16,8 @@ dependencies:
   lingua_number: ^0.0.10+1
   matex_data: ^0.0.22
   matex_financial: ^0.0.38
-  t_helpers: ^0.0.49+2
-  tbloc: ^0.21.8+12
+  t_helpers: ^0.0.50
+  tbloc: ^0.21.9
 description: Set of forms Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^3.2.3

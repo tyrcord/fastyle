@@ -4,7 +4,7 @@ dependencies:
   flutter:
     sdk: flutter
   lingua_core: ^0.0.33
-  t_helpers: ^0.0.49+2
+  t_helpers: ^0.0.50
   visibility_detector: ^0.4.0+2
 description: A set of pricing texts for the fastyle library.
 dev_dependencies:
