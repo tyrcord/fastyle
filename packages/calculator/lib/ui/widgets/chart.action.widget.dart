@@ -15,6 +15,7 @@ import 'package:fastyle_calculator/fastyle_calculator.dart';
 class FastCalculatorChartToggle<B extends FastCalculatorBloc,
     R extends FastCalculatorResults> extends FastCalculatorAction<B, R> {
   final ValueNotifier<bool> _chartViewNotifier;
+  final FastMediaType? mediaTypeThreshold;
   final Widget? _chartIcon;
   final Widget? _listIcon;
 
@@ -22,6 +23,7 @@ class FastCalculatorChartToggle<B extends FastCalculatorBloc,
     super.key,
     required super.calculatorBloc,
     required ValueNotifier<bool> chartViewNotifier,
+    this.mediaTypeThreshold,
     super.disabledColor,
     Widget? chartIcon,
     Widget? listIcon,
@@ -31,32 +33,35 @@ class FastCalculatorChartToggle<B extends FastCalculatorBloc,
 
   @override
   Widget build(BuildContext context) {
-    final primaryColor = ThemeHelper.colors.getPrimaryColor(context);
+    if (mediaTypeThreshold == null) {
+      return _buildCalculatorActionButton(context);
+    }
 
     return FastMediaLayoutBuilder(
       builder: (context, mediaType) {
         final isDesktop = mediaType > FastMediaType.tablet;
 
-        if (!isDesktop) {
-          return BlocBuilderWidget<FastCalculatorBlocState>(
-            bloc: calculatorBloc,
-            buildWhen: (previous, next) => previous.isDirty != next.isDirty,
-            builder: (_, state) {
-              return _buildActionWidget(context, state, primaryColor);
-            },
-          );
-        }
+        if (!isDesktop) return _buildCalculatorActionButton(context);
 
         return const SizedBox.shrink();
       },
     );
   }
 
-  Widget _buildActionWidget(
+  Widget _buildCalculatorActionButton(BuildContext context) {
+    return BlocBuilderWidget<FastCalculatorBlocState>(
+      buildWhen: (previous, next) => previous.isDirty != next.isDirty,
+      builder: (context, state) => _buildActionButton(context, state),
+      bloc: calculatorBloc,
+    );
+  }
+
+  Widget _buildActionButton(
     BuildContext context,
     FastCalculatorBlocState state,
-    Color primaryColor,
   ) {
+    final primaryColor = ThemeHelper.colors.getPrimaryColor(context);
+
     return ValueListenableBuilder<bool>(
       valueListenable: _chartViewNotifier,
       builder: (context, showChart, child) {
