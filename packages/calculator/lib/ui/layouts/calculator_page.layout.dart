@@ -37,6 +37,17 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
   /// calculations.
   final WidgetBuilder fieldsBuilder;
 
+  /// A builder method used to build the UI for displaying the breakdown of
+  /// the calculations.
+  final WidgetBuilder? breakdownBuilder;
+
+  /// A string that represents the title text for the breakdown section.
+  /// If null, the default value is used.
+  final String? breakdownTitleText;
+
+  /// A list of actions that can be performed on the breakdown section.
+  final List<Widget>? breakdownActions;
+
   /// A string that represents the title text for the results section.
   final String? resultsTitleText;
 
@@ -89,6 +100,8 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
   final bool Function(FastCalculatorBlocState state)?
       canEnableExportToPdfInteractions;
 
+  final ValueNotifier<bool>? breadownViewNotifier;
+
   const FastCalculatorPageLayout({
     super.key,
     required this.calculatorBloc,
@@ -114,6 +127,10 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
     this.infoIcon,
     this.leading,
     this.onInfo,
+    this.breakdownBuilder,
+    this.breakdownTitleText,
+    this.breakdownActions,
+    this.breadownViewNotifier,
   });
 
   @override
@@ -170,7 +187,15 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
             ThemeHelper.spacing.getHorizontalSpacing(context),
             Flexible(
               flex: mediaType > FastMediaType.tablet ? 2 : 1,
-              child: _buildResults(context),
+              child: Column(
+                children: [
+                  _buildResults(context),
+                  if (breakdownBuilder != null) ...[
+                    _buildDivider(context),
+                    _buildBreakdown(context),
+                  ]
+                ],
+              ),
             ),
           ],
         ),
@@ -187,6 +212,10 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
         _buildFormFields(context),
         _buildDivider(context),
         _buildResults(context),
+        if (breakdownBuilder != null) ...[
+          _buildDivider(context),
+          _buildBreakdown(context),
+        ]
       ],
     );
   }
@@ -284,6 +313,33 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
           ),
       ],
       child: Builder(builder: resultsBuilder),
+    );
+  }
+
+  Widget _buildBreakdown(BuildContext context) {
+    if (breadownViewNotifier == null) return _buildBreakdownCard(context);
+
+    return ValueListenableBuilder<bool>(
+      valueListenable: breadownViewNotifier!,
+      builder: (context, show, child) {
+        if (!show) return const SizedBox.shrink();
+
+        return _buildBreakdownCard(context);
+      },
+    );
+  }
+
+  Widget _buildBreakdownCard(BuildContext context) {
+    final primaryColor = ThemeHelper.colors.getPrimaryColor(context);
+
+    return FastCard(
+      // FIXME: localize
+      titleText: breakdownTitleText ?? 'Breakdown',
+      titleTextColor: primaryColor,
+      headerActions: <Widget>[
+        ...?breakdownActions,
+      ],
+      child: Builder(builder: breakdownBuilder!),
     );
   }
 }
