@@ -1,8 +1,8 @@
 dependencies:
   easy_localization: ^3.0.3
-  fastyle_core: ^0.0.45
-  fastyle_iap: ^0.0.33
-  fastyle_pricing: ^1.39.0
+  fastyle_core: ^0.0.46
+  fastyle_iap: ^0.0.34
+  fastyle_pricing: ^1.40.0
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0

@@ -3,6 +3,163 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-01-05
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.40`](#fastyle_ad---v0040)
+ - [`fastyle_animation` - `v0.0.16`](#fastyle_animation---v0016)
+ - [`fastyle_buttons` - `v0.0.25`](#fastyle_buttons---v0025)
+ - [`fastyle_calculator` - `v1.55.0`](#fastyle_calculator---v1550)
+ - [`fastyle_charts` - `v0.0.30`](#fastyle_charts---v0030)
+ - [`fastyle_connectivity` - `v0.0.40`](#fastyle_connectivity---v0040)
+ - [`fastyle_core` - `v0.0.46`](#fastyle_core---v0046)
+ - [`fastyle_digit_calculator` - `v0.0.41`](#fastyle_digit_calculator---v0041)
+ - [`fastyle_financial` - `v0.0.40`](#fastyle_financial---v0040)
+ - [`fastyle_firebase` - `v0.0.32`](#fastyle_firebase---v0032)
+ - [`fastyle_forms` - `v0.0.44`](#fastyle_forms---v0044)
+ - [`fastyle_home` - `v0.0.37`](#fastyle_home---v0037)
+ - [`fastyle_iap` - `v0.0.34`](#fastyle_iap---v0034)
+ - [`fastyle_images` - `v0.0.45`](#fastyle_images---v0045)
+ - [`fastyle_layouts` - `v0.0.19`](#fastyle_layouts---v0019)
+ - [`fastyle_onboarding` - `v0.0.45`](#fastyle_onboarding---v0045)
+ - [`fastyle_pricing` - `v1.40.0`](#fastyle_pricing---v1400)
+ - [`fastyle_quizz` - `v0.0.17`](#fastyle_quizz---v0017)
+ - [`fastyle_settings` - `v0.0.49`](#fastyle_settings---v0049)
+ - [`fastyle_text` - `v0.0.24`](#fastyle_text---v0024)
+ - [`fastyle_video_player` - `v0.0.27`](#fastyle_video_player---v0027)
+ - [`fastyle_views` - `v0.0.31`](#fastyle_views---v0031)
+
+---
+
+#### `fastyle_ad` - `v0.0.40`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_animation` - `v0.0.16`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_buttons` - `v0.0.25`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_calculator` - `v1.55.0`
+
+ - **FIX**: FastCalculatorChartToggle doesn't have a media type threshold by default.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastCalculatorExportToCsvAction.
+ - **FEAT**: add FastCalculatorExportToXlsAction.
+ - **FEAT**: add a breakdown section to the calculator page.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_charts` - `v0.0.30`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_connectivity` - `v0.0.40`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_core` - `v0.0.46`
+
+ - **FIX**: Uri.toString() for "mailto"  does not encode spaces properly.
+ - **FEAT**: improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome constants.
+ - **FEAT**: change default border size width.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_digit_calculator` - `v0.0.41`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_financial` - `v0.0.40`
+
+ - **FEAT**: improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_firebase` - `v0.0.32`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**(app check): use appAttestWithDeviceCheckFallback.
+ - **FEAT**: support default config.
+
+#### `fastyle_forms` - `v0.0.44`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_home` - `v0.0.37`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_iap` - `v0.0.34`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_images` - `v0.0.45`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_layouts` - `v0.0.19`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_onboarding` - `v0.0.45`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_pricing` - `v1.40.0`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_quizz` - `v0.0.17`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_settings` - `v0.0.49`
+
+ - **FEAT**: improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_text` - `v0.0.24`
+
+ - **FEAT**: support currencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_video_player` - `v0.0.27`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_views` - `v0.0.31`
+
+ - **FIX**: remove workaround.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastTableView Widget.
+ - **FEAT**: update dependencies.
+
+
 ## 2023-12-31
 
 ### Changes

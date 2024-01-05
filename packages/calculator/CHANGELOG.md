@@ -1,3 +1,12 @@
+## 1.55.0
+
+ - **FIX**: FastCalculatorChartToggle doesn't have a media type threshold by default.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastCalculatorExportToCsvAction.
+ - **FEAT**: add FastCalculatorExportToXlsAction.
+ - **FEAT**: add a breakdown section to the calculator page.
+ - **FEAT**: update dependencies.
+
 ## 1.54.0
 
  - **FEAT**: update dependencies.

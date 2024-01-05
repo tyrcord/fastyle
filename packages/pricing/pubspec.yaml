@@ -1,7 +1,7 @@
 dependencies:
   easy_localization: ^3.0.3
-  fastyle_core: ^0.0.45
-  fastyle_iap: ^0.0.33
+  fastyle_core: ^0.0.46
+  fastyle_iap: ^0.0.34
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
@@ -19,4 +19,4 @@ environment:
   sdk: '>=3.2.0 <4.0.0'
 name: fastyle_pricing
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/pricing
-version: 1.39.0
+version: 1.40.0

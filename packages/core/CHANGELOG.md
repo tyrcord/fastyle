@@ -1,3 +1,12 @@
+## 0.0.46
+
+ - **FIX**: Uri.toString() for "mailto"  does not encode spaces properly.
+ - **FEAT**: improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome constants.
+ - **FEAT**: change default border size width.
+ - **FEAT**: update dependencies.
+
 ## 0.0.45
 
  - **FEAT**: update dependencies.

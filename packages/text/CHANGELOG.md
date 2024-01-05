@@ -1,3 +1,8 @@
+## 0.0.24
+
+ - **FEAT**: support currencies.
+ - **FEAT**: update dependencies.
+
 ## 0.0.23
 
  - **FEAT**: update dependencies.

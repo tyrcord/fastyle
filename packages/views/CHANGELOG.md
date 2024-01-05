@@ -1,3 +1,10 @@
+## 0.0.31
+
+ - **FIX**: remove workaround.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastTableView Widget.
+ - **FEAT**: update dependencies.
+
 ## 0.0.30
 
  - **FEAT**: update dependencies.

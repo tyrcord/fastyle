@@ -1,3 +1,9 @@
+## 0.0.32
+
+ - **FEAT**: update dependencies.
+ - **FEAT**(app check): use appAttestWithDeviceCheckFallback.
+ - **FEAT**: support default config.
+
 ## 0.0.31
 
  - **FEAT**: update dependencies.
