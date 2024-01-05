@@ -1,3 +1,7 @@
+## 0.0.47
+
+ - **FEAT**: update dependencies.
+
 ## 0.0.46
 
  - **FIX**: Uri.toString() for "mailto"  does not encode spaces properly.

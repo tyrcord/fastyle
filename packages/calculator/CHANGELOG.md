@@ -1,3 +1,7 @@
+## 1.56.0
+
+ - **FEAT**: update dependencies.
+
 ## 1.55.0
 
  - **FIX**: FastCalculatorChartToggle doesn't have a media type threshold by default.
