@@ -45,6 +45,10 @@ class FastAppDictJob extends FastJob {
 
     await _addDefaultEntries();
 
+    for (final entry in FastAppDictBloc.instance.currentState.entries) {
+      _logger.info('App Dict Entry: ${entry.name}', entry.value);
+    }
+
     _logger.debug('Initialized');
   }
 
@@ -67,11 +71,11 @@ class FastAppDictJob extends FastJob {
         return !oldEntriesIds.contains(entry.name);
       }).toList();
 
-      _logger.debug('New entries to add: ${newEntries.map((e) => e.name)}');
-
       if (newEntries.isEmpty) {
         _logger.debug('No new entries to add');
         return;
+      } else {
+        _logger.debug('New entries to add: ${newEntries.map((e) => e.name)}');
       }
 
       _logger.debug('Adding new entries...');

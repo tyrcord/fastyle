@@ -34,6 +34,7 @@ class FastFinancialSelectPivotPointsMethodsFieldState
     final items = _buildItems();
 
     return FastSelectField<MatexPivotPointsMethods>(
+      searchTitleText: FinanceLocaleKeys.finance_select_pivot_point_method.tr(),
       labelText: FinanceLocaleKeys.finance_label_pivot_points.tr(),
       selection: _findSelection(items, widget.selection),
       onSelectionChanged: widget.onSelectionChanged,

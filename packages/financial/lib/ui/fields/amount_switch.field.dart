@@ -11,6 +11,7 @@ import 'package:lingua_number/generated/locale_keys.g.dart';
 
 // Project imports:
 import 'package:fastyle_financial/fastyle_financial.dart';
+import 'package:matex_financial/financial.dart';
 
 /// A widget that allows the user to switch between an amount field and a
 /// percent field.

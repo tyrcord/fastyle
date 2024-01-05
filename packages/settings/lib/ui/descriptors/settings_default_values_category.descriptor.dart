@@ -9,8 +9,8 @@ import 'package:fastyle_settings/fastyle_settings.dart';
 /// The default values for the user settings fields.
 const kDefaultFastAppSettingsDefaultValuesFields = {
   FastAppSettingsFields.primaryCurrency: FastFormFieldDescriptor(
-    searchTitleText: FinanceLocaleKeys.finance_label_primary_currency,
-    labelText: FinanceLocaleKeys.finance_select_primary_currency,
+    searchTitleText: FinanceLocaleKeys.finance_select_primary_currency,
+    labelText: FinanceLocaleKeys.finance_label_primary_currency,
   ),
 };
 
