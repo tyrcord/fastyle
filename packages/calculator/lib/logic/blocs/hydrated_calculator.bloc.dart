@@ -52,6 +52,7 @@ abstract class HydratedFastCalculatorBloc<
     super.debouceComputeEvents = false,
     super.debugLabel,
     super.delegate,
+    super.getContext,
   }) {
     addDebouncedSaveEntryEvent = debounceEvent((event) => addEvent(event));
   }

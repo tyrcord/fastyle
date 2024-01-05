@@ -78,6 +78,10 @@ abstract class FastCalculatorBloc<
   @protected
   late final String? debugLabel;
 
+  final BuildContext? Function()? getContext;
+
+  BuildContext? get context => getContext?.call();
+
   /// Constructs a new [FastCalculatorBloc] instance.
   ///
   /// [initialState] is required and represents the initial state of the bloc.
@@ -92,6 +96,7 @@ abstract class FastCalculatorBloc<
     this.debugLabel,
     this.delegate,
     bool? isAutoRefreshEnabled = false,
+    this.getContext,
   }) {
     if (debouceComputeEvents) {
       debugPrint('`debouceComputeEvents` is enabled for $runtimeType');
