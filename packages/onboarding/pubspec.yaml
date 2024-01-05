@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
-  lingua_core: ^0.0.33
+  lingua_core: ^0.0.34
   lingua_onboarding: ^0.0.16
   lingua_purchases: ^0.0.19
   tbloc: ^0.21.9

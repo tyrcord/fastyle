@@ -7,16 +7,16 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
-  lingua_calculator: ^0.0.5
-  lingua_core: ^0.0.33
+  lingua_calculator: ^0.0.6
+  lingua_core: ^0.0.34
   lingua_countries: ^0.0.5
-  lingua_finance: ^0.0.29
+  lingua_finance: ^0.0.30
   lingua_finance_instrument: ^0.0.8
   lingua_help: ^0.0.9
   lingua_languages: ^0.0.7
   lingua_settings: ^0.0.14
-  matex_data: ^0.0.22
-  matex_financial: ^0.0.38
+  matex_data: ^0.0.24
+  matex_financial: ^0.0.41
   t_helpers: ^0.0.50
   tbloc: ^0.21.9
 description: Set of settings Widgets for the fastyle library.
