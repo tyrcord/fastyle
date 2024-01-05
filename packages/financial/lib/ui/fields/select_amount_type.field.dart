@@ -1,5 +1,4 @@
 // Flutter imports:
-import 'package:fastyle_financial/fastyle_financial.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -43,8 +42,8 @@ class FastFinancialSelectAmounTypeFieldState
     final items = _buildItems();
 
     return FastSelectField<FastFinancialAmountSwitchFieldType>(
-      // FIXME: use a localized string
-      labelText: widget.labelText ?? 'AMOUNT_TYPE',
+      labelText:
+          widget.labelText ?? FinanceLocaleKeys.finance_label_amount_type.tr(),
       selection: _findSelection(items, widget.selection),
       onSelectionChanged: widget.onSelectionChanged,
       canClearSelection: widget.canClearSelection,
