@@ -1,4 +1,6 @@
 // Flutter imports:
+import 'dart:math';
+
 import 'package:flutter/services.dart';
 
 // Package imports:
@@ -107,15 +109,18 @@ class NumberInputFormatter extends TextInputFormatter {
     } catch (e) {}
 
     if (number != null) {
-      if (number > maxValue) {
-        return oldValue;
-      }
+      if (number > maxValue) return oldValue;
 
       final text = _formatNumberToString(number, valueText, periods.isNotEmpty);
-      final position = TextPosition(offset: text.length);
-      final selection = TextSelection.fromPosition(position);
 
-      return TextEditingValue(text: text, selection: selection);
+      //  Calculate the new cursor position
+      int cursorPosition = newValue.selection.baseOffset;
+      cursorPosition = min(cursorPosition, text.length);
+
+      return TextEditingValue(
+        selection: TextSelection.collapsed(offset: cursorPosition),
+        text: text,
+      );
     }
 
     return oldValue;

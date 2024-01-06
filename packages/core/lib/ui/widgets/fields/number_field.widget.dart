@@ -1,4 +1,6 @@
 // Flutter imports:
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 // Project imports:
@@ -114,10 +116,14 @@ class FastNumberFieldState extends State<FastNumberField>
     final value = widget.valueText;
 
     if (oldWidget.valueText != value || _controller.text != value) {
-      final position = TextPosition(offset: value.length);
-      final selection = TextSelection.fromPosition(position);
+      //  Calculate the new cursor position
+      int cursorPosition = _controller.selection.baseOffset;
+      cursorPosition = min(cursorPosition, value.length);
 
-      _controller.value = TextEditingValue(text: value, selection: selection);
+      _controller.value = _controller.value.copyWith(
+        selection: TextSelection.collapsed(offset: cursorPosition),
+        text: value,
+      );
     }
   }
 
