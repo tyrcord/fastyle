@@ -1,7 +1,7 @@
 dependencies:
-  fastyle_buttons: ^0.0.26
-  fastyle_core: ^0.0.47
-  fastyle_views: ^0.0.32
+  fastyle_buttons: ^0.0.26+1
+  fastyle_core: ^0.0.47+1
+  fastyle_views: ^0.0.32+1
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
