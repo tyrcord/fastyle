@@ -1,1 +1,7 @@
-enum FastAdInfoBlocEventType { init, initialized }
+enum FastAdInfoBlocEventType {
+  init,
+  initialized,
+  askForConsent,
+  askForConsentIfNedded,
+  constentStatusChanged,
+}

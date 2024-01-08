@@ -1,4 +1,5 @@
 // Package imports:
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tbloc/tbloc.dart';
 
 // Project imports:
@@ -6,11 +7,13 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastAdInfoBlocState extends BlocState {
   final FastAdInfo adInfo;
+  final ConsentStatus? consentStatus;
 
   FastAdInfoBlocState({
     super.isInitializing = false,
     super.isInitialized = false,
     FastAdInfo? adInfo,
+    this.consentStatus,
   }) : adInfo = adInfo ?? const FastAdInfo();
 
   @override
@@ -18,10 +21,12 @@ class FastAdInfoBlocState extends BlocState {
     FastAdInfo? adInfo,
     bool? isInitializing,
     bool? isInitialized,
+    ConsentStatus? consentStatus,
   }) {
     return FastAdInfoBlocState(
       adInfo: adInfo != null ? this.adInfo.merge(adInfo) : this.adInfo,
       isInitializing: isInitializing ?? this.isInitializing,
+      consentStatus: consentStatus ?? this.consentStatus,
       isInitialized: isInitialized ?? this.isInitialized,
     );
   }
@@ -34,6 +39,7 @@ class FastAdInfoBlocState extends BlocState {
     return copyWith(
       isInitializing: model.isInitializing,
       isInitialized: model.isInitialized,
+      consentStatus: model.consentStatus,
       adInfo: model.adInfo,
     );
   }
@@ -42,6 +48,7 @@ class FastAdInfoBlocState extends BlocState {
   List<Object?> get props => [
         isInitializing,
         isInitialized,
+        consentStatus,
         adInfo,
       ];
 }
