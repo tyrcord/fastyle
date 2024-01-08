@@ -94,6 +94,8 @@ const kFastIconSizeLarge = 28.0;
 const kFastIconSizeXl = 32.0;
 const kFastIconSizeXxl = 48.0;
 
+const kFastSettingIconWidth = kFastIconSizeMedium;
+
 // Image Sizes
 
 const kFastImageizeXs = 16.0;

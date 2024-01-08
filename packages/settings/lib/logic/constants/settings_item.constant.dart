@@ -1,5 +1,6 @@
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lingua_calculator/generated/locale_keys.g.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
@@ -9,33 +10,44 @@ import 'package:lingua_settings/generated/locale_keys.g.dart';
 // Project imports:
 import 'package:fastyle_settings/fastyle_settings.dart';
 
+const _emptyItemDescriptor = FastListItemDescriptor(
+  trailing: SizedBox.shrink(),
+);
+
 const kFastSettingsItemDescriptors = {
   FastSettingsItems.twitter: FastItem(
     labelText: 'X',
     value: 'action://twitter',
+    descriptor: _emptyItemDescriptor,
   ),
   FastSettingsItems.facebook: FastItem(
-    labelText: 'Facebook',
     value: 'action://facebook',
+    descriptor: _emptyItemDescriptor,
+    labelText: 'Facebook',
   ),
   FastSettingsItems.website: FastItem(
     labelText: CoreLocaleKeys.core_label_website,
+    descriptor: _emptyItemDescriptor,
     value: 'action://site',
   ),
   FastSettingsItems.share: FastItem(
     labelText: CoreLocaleKeys.core_label_share_app,
+    descriptor: _emptyItemDescriptor,
     value: 'action://share',
   ),
   FastSettingsItems.rateUs: FastItem(
     labelText: SettingsLocaleKeys.settings_label_rate_us,
+    descriptor: _emptyItemDescriptor,
     value: 'action://rate-us',
   ),
   FastSettingsItems.contactUs: FastItem(
     labelText: SettingsLocaleKeys.settings_label_help_and_support,
+    descriptor: _emptyItemDescriptor,
     value: 'action://contact-us',
   ),
   FastSettingsItems.bugReport: FastItem(
     labelText: SettingsLocaleKeys.settings_label_submit_bug_report,
+    descriptor: _emptyItemDescriptor,
     value: 'action://bug-report',
   ),
   FastSettingsItems.privacyPolicy: FastItem(

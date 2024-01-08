@@ -97,7 +97,14 @@ class FastAppInfoPage<T> extends StatelessWidget {
   ) {
     return FastNavigationListItem<FastItem<T>>(
       contentPadding: EdgeInsets.symmetric(horizontal: spacing),
-      onTap: () => handleNavigationItemTap(context, item),
+      onTap: () {
+        if (item.onTap != null) {
+          item.onTap!(item);
+          return;
+        }
+
+        handleNavigationItemTap(context, item);
+      },
       item: item,
     );
   }

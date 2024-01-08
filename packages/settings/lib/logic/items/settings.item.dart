@@ -27,10 +27,11 @@ class FastSettingsItem {
   }) {
     assert(kFastSettingsItemDescriptors[value] != null);
 
-    final defaultLabelText = kFastSettingsItemDescriptors[value]!.labelText;
+    final item = kFastSettingsItemDescriptors[value]!;
+    final defaultLabelText = item.labelText;
 
     return kFastSettingsItemDescriptors[value]!.copyWith(
-      descriptor: buildListItemDescriptor(context, value),
+      descriptor: buildListItemDescriptor(context, item, value),
       labelText: labelText ?? defaultLabelText.tr(),
       value: valueText,
     );
@@ -38,19 +39,27 @@ class FastSettingsItem {
 
   static FastListItemDescriptor buildListItemDescriptor(
     BuildContext context,
+    FastItem<String> item,
     FastSettingsItems value,
   ) {
     assert(kFastSettingsItemIcons[value] != null);
 
     final useProIcons = FastIconHelper.of(context).useProIcons;
-    final scaleFactor = MediaQuery.textScaleFactorOf(context);
     final icons = kFastSettingsItemIcons[value]!;
-
-    return FastListItemDescriptor(
-      leading: FaIcon(
+    final scaleFactor = MediaQuery.maybeTextScalerOf(context);
+    final iconSize = scaleFactor?.scale(kFastIconSizeSmall);
+    final icon = SizedBox(
+      width: iconSize,
+      child: FaIcon(
         useProIcons ? icons.pro : icons.free,
-        size: kFastIconSizeSmall * scaleFactor,
+        size: iconSize ?? kFastIconSizeSmall,
       ),
     );
+
+    if (item.descriptor == null) {
+      return FastListItemDescriptor(leading: icon);
+    }
+
+    return item.descriptor!.copyWith(leading: icon);
   }
 }

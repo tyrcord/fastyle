@@ -42,6 +42,8 @@ class FastItem<T> extends TModel {
   ///
   final T? value;
 
+  final Callback<FastItem<T>>? onTap;
+
   const FastItem({
     required this.labelText,
     this.isEnabled = true,
@@ -50,6 +52,7 @@ class FastItem<T> extends TModel {
     this.categories,
     this.descriptor,
     this.value,
+    this.onTap,
   });
 
   @override
@@ -62,6 +65,7 @@ class FastItem<T> extends TModel {
     String? labelText,
     bool? isEnabled,
     T? value,
+    Callback<FastItem<T>>? onTap,
   }) {
     return FastItem<T>(
       normalizedLabelText: normalizedLabelText ?? this.normalizedLabelText,
@@ -70,6 +74,7 @@ class FastItem<T> extends TModel {
       descriptor: descriptor ?? this.descriptor,
       isEnabled: isEnabled ?? this.isEnabled,
       labelText: labelText ?? this.labelText,
+      onTap: onTap ?? this.onTap,
       value: value ?? this.value,
     );
   }
@@ -83,6 +88,7 @@ class FastItem<T> extends TModel {
       categories: categories?.map((c) => c.clone()).toList(),
       isEnabled: isEnabled,
       labelText: labelText,
+      onTap: onTap,
       value: value,
     );
   }
@@ -97,6 +103,7 @@ class FastItem<T> extends TModel {
       isEnabled: model.isEnabled,
       labelText: model.labelText,
       value: model.value,
+      onTap: model.onTap,
     );
   }
 
@@ -109,5 +116,6 @@ class FastItem<T> extends TModel {
         isEnabled,
         labelText,
         value,
+        onTap,
       ];
 }
