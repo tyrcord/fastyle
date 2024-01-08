@@ -3,6 +3,8 @@ import 'dart:convert';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:t_helpers/helpers.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
@@ -95,4 +97,21 @@ List<FastResponseAd>? tryDecodeAds(String? data) {
   }
 
   return null;
+}
+
+Future<void> showConsentFormIfNeeded() async {
+  // Do not show consent form on web or macOS.
+  if (isWeb || isMacOS) return;
+
+  // Checks if the application is set to ad-free mode.
+  final isAdFree = isAdFreeEnabled();
+
+  if (!isAdFree) {
+    const event = FastAdInfoBlocEvent.askForConsentIfNeeded();
+    FastAdInfoBloc.instance.addEvent(event);
+  }
+}
+
+Future<void> showConsentForm() async {
+  FastAdInfoBloc.instance.addEvent(const FastAdInfoBlocEvent.askForConsent());
 }
