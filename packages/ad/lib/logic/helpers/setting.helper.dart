@@ -1,8 +1,13 @@
-import 'package:fastyle_ad/fastyle_ad.dart';
-import 'package:fastyle_core/fastyle_core.dart';
+// Flutter imports:
 import 'package:flutter/widgets.dart';
+
+// Package imports:
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:lingua_settings/generated/locale_keys.g.dart';
+
+// Project imports:
+import 'package:fastyle_ad/fastyle_ad.dart';
 
 FastItem<String> buildAdConsentSettingItem(
   BuildContext context, {
