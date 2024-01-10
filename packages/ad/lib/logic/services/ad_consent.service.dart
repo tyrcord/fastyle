@@ -87,7 +87,11 @@ class FastAdConsentService {
   Future<bool> _requestConsentInfoUpdate() async {
     if (_consentInfoUpdateFuture == null) {
       final completer = Completer<bool>();
-      final params = ConsentRequestParameters();
+      final params = ConsentRequestParameters(
+          // consentDebugSettings: ConsentDebugSettings(
+          //   debugGeography: DebugGeography.debugGeographyEea,
+          // ),
+          );
 
       ConsentInformation.instance.requestConsentInfoUpdate(
         params,

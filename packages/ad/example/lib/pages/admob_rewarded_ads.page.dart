@@ -90,7 +90,7 @@ class AdmobRewardedAdsPageState extends State<AdmobRewardedAdsPage> {
 
   Widget buildInitial(BuildContext context) {
     return FastBody(
-      text: CoreLocaleKeys.core_question_export_data_pdf.tr(),
+      text: CoreLocaleKeys.core_question_export_data_as_pdf.tr(),
     );
   }
 
