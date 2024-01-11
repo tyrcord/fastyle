@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:shimmer/shimmer.dart';
 
 // Class representing a table column with necessary attributes.
 class FastTableColumnDescriptor {
@@ -21,11 +22,18 @@ class FastTableColumnDescriptor {
 
 // Widget for displaying a table view with customizable rows and columns.
 class FastTableView<T> extends StatelessWidget {
+  static const cellPadding = EdgeInsets.only(
+    top: 6.0,
+    bottom: 6.0,
+    right: 12.0,
+  );
+
   final String? Function(FastTableColumnDescriptor column, T row)
       cellTextContentBuilder;
   final List<FastTableColumnDescriptor> columns;
   final List<T> rows;
   final Color? borderColor;
+  final bool isPending;
 
   const FastTableView({
     super.key,
@@ -33,6 +41,7 @@ class FastTableView<T> extends StatelessWidget {
     required this.columns,
     required this.rows,
     this.borderColor,
+    this.isPending = false,
   });
 
   @override
@@ -41,7 +50,10 @@ class FastTableView<T> extends StatelessWidget {
       columnWidths: _getColumnWidths(),
       children: [
         _createTableHeader(context),
-        ..._createTableRows(context),
+        if (isPending)
+          _createPendingTableRow(context)
+        else
+          ..._createTableRows(context),
       ],
     );
   }
@@ -84,7 +96,6 @@ class FastTableView<T> extends StatelessWidget {
 
   // Creates a single table row.
   TableRow _createTableRow(T row, BuildContext context) {
-    const cellPadding = EdgeInsets.only(top: 6.0, bottom: 6.0, right: 12.0);
     final BoxDecoration boxDecoration = ThemeHelper.createBorderSide(
       context,
       color: borderColor,
@@ -101,13 +112,60 @@ class FastTableView<T> extends StatelessWidget {
 
   // Helper to create a cell in a table row.
   Widget _createRowCell(
-      FastTableColumnDescriptor column, T row, EdgeInsets padding) {
+    FastTableColumnDescriptor column,
+    T row,
+    EdgeInsets padding,
+  ) {
     return TableCell(
       child: Padding(
         padding: padding,
         child: FastSecondaryBody(
           textAlign: column.textAlign,
           text: cellTextContentBuilder(column, row) ?? '',
+        ),
+      ),
+    );
+  }
+
+  TableRow _createPendingTableRow(BuildContext context) {
+    final BoxDecoration boxDecoration = ThemeHelper.createBorderSide(
+      context,
+      color: borderColor,
+      borderWidth: 0.5,
+    );
+
+    return TableRow(
+      decoration: boxDecoration,
+      children: columns
+          .map((column) => _createPendingRowCell(context, column, cellPadding))
+          .toList(),
+    );
+  }
+
+  Widget _createPendingRowCell(
+    BuildContext context,
+    FastTableColumnDescriptor column,
+    EdgeInsets padding,
+  ) {
+    return TableCell(
+      child: Padding(
+        padding: padding,
+        child: _buildPendingText(context, column.textAlign),
+      ),
+    );
+  }
+
+  Widget? _buildPendingText(BuildContext context, TextAlign textAlign) {
+    final baseColor = ThemeHelper.texts.getBodyTextStyle(context).color!;
+
+    return RepaintBoundary(
+      child: Shimmer.fromColors(
+        highlightColor: baseColor.withOpacity(0.1),
+        baseColor: baseColor,
+        child: FastSecondaryBody(
+          textColor: baseColor,
+          textAlign: textAlign,
+          text: '0',
         ),
       ),
     );
