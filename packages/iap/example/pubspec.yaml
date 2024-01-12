@@ -8,7 +8,7 @@ dependencies:
   font_awesome_flutter: ^10.6.0
   go_router: ^13.0.0
   lingua_core: ^0.0.34
-  lingua_purchases: ^0.0.19
+  lingua_purchases: ^0.0.20
   tbloc: ^0.21.9
 description: A new Flutter project.
 dev_dependencies:

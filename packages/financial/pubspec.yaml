@@ -9,12 +9,12 @@ dependencies:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
   lingua_core: ^0.0.34
-  lingua_finance: ^0.0.30
+  lingua_finance: ^0.0.31
   lingua_finance_forex: ^0.0.11
   lingua_finance_instrument: ^0.0.8
   lingua_number: ^0.0.10+2
   lingua_units: ^0.0.7
-  matex_financial: ^0.0.41
+  matex_financial: ^0.0.42+2
   t_helpers: ^0.0.50
   tbloc: ^0.21.9
 description: Set of Financial Widgets for the fastyle library.

@@ -9,7 +9,7 @@ dependencies:
   google_mobile_ads: ^4.0.0
   lingua_ad: ^0.0.16
   lingua_core: ^0.0.34
-  lingua_purchases: ^0.0.19
+  lingua_purchases: ^0.0.20
   rxdart: ^0.27.7
   tbloc: ^0.21.9
   video_player: ^2.8.1

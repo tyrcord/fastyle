@@ -19,7 +19,7 @@ dependencies:
   google_fonts: ^6.1.0
   intl: ^0.18.1
   lingua_core: ^0.0.34
-  lingua_settings: ^0.0.14
+  lingua_settings: ^0.0.15
   package_info_plus: ^5.0.1
   rate_my_app: ^2.0.0
   rxdart: ^0.27.7

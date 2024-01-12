@@ -9,8 +9,8 @@ dependencies:
   lingua_ad: ^0.0.16
   lingua_calculator: ^0.0.6
   lingua_core: ^0.0.34
-  lingua_purchases: ^0.0.19
-  lingua_settings: ^0.0.14
+  lingua_purchases: ^0.0.20
+  lingua_settings: ^0.0.15
   pdf: ^3.10.6
   printing: ^5.11.1
   t_helpers: ^0.0.50
