@@ -1,3 +1,8 @@
+## 0.0.51
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: improvements with the setting items.
+
 ## 0.0.50+1
 
  - Update a dependency to the latest release.

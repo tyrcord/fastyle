@@ -1,3 +1,8 @@
+## 0.0.48
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: improvements with the setting items.
+
 ## 0.0.47+1
 
  - **FIX**: text number input position.

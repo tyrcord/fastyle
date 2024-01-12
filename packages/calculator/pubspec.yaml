@@ -1,8 +1,8 @@
 dependencies:
   easy_localization: ^3.0.3
-  fastyle_buttons: ^0.0.26+1
-  fastyle_core: ^0.0.47+1
-  fastyle_text: ^0.0.25+1
+  fastyle_buttons: ^0.0.26+2
+  fastyle_core: ^0.0.48
+  fastyle_text: ^0.0.25+2
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
@@ -30,4 +30,4 @@ environment:
   sdk: '>=3.2.0 <4.0.0'
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/calculator
 name: fastyle_calculator
-version: 1.56.1
+version: 1.57.0

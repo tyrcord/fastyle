@@ -1,3 +1,7 @@
+## 0.0.46
+
+ - **FEAT**: update crypto images.
+
 ## 0.0.45+2
 
  - Update a dependency to the latest release.

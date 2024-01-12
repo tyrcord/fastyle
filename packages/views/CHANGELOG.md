@@ -1,3 +1,8 @@
+## 0.0.33
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: the table view as a pending state.
+
 ## 0.0.32+1
 
  - Update a dependency to the latest release.
