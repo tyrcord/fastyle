@@ -15,4 +15,6 @@ enum FastCalculatorBlocEventType {
   saveEntryChanged,
   share,
   exportToPdf,
+  exportToCsv,
+  exportToExcel,
 }

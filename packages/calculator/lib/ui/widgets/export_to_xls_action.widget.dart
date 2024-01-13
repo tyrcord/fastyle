@@ -55,7 +55,7 @@ class FastCalculatorExportToXlsAction<B extends FastCalculatorBloc,
   }
 
   void handleTap(BuildContext context) {
-    calculatorBloc.addEvent(FastCalculatorBlocEvent.custom('exportToXls'));
+    calculatorBloc.addEvent(FastCalculatorBlocEvent.exportToExcel(context));
   }
 
   Widget buildIcon(BuildContext context) {

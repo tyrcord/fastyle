@@ -215,7 +215,7 @@ class FastOperationRewardedDialog extends StatelessWidget {
 
   Widget buildOperationSucceeded(BuildContext context) {
     return FastSuccessStatus(
-      text: AdLocaleKeys.ad_message_enjoy_your_reward.tr(),
+      text: AdLocaleKeys.ad_message_enjoy_your_reward_text.tr(),
     );
   }
 

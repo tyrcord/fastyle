@@ -157,6 +157,22 @@ class FastCalculatorBlocEvent<R extends FastCalculatorResults>
   }
 
   static FastCalculatorBlocEvent<R>
+      exportToCsv<R extends FastCalculatorResults>(BuildContext context) {
+    return FastCalculatorBlocEvent<R>(
+      payload: FastCalculatorBlocEventPayload<R>(value: context),
+      type: FastCalculatorBlocEventType.exportToCsv,
+    );
+  }
+
+  static FastCalculatorBlocEvent<R>
+      exportToExcel<R extends FastCalculatorResults>(BuildContext context) {
+    return FastCalculatorBlocEvent<R>(
+      payload: FastCalculatorBlocEventPayload<R>(value: context),
+      type: FastCalculatorBlocEventType.exportToExcel,
+    );
+  }
+
+  static FastCalculatorBlocEvent<R>
       retrieveDefaultValues<R extends FastCalculatorResults>() {
     return FastCalculatorBlocEvent<R>(
       type: FastCalculatorBlocEventType.retrieveDefaultValues,

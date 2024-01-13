@@ -233,6 +233,20 @@ abstract class FastCalculatorBloc<
     throw '`exportToPdf` function is not implemented';
   }
 
+  /// Exports the calculator state to CSV.
+  /// Throws an exception if the `exportToCsv` function is not implemented.
+  @protected
+  Future<void> exportToCsv(BuildContext context) async {
+    throw '`exportToCsv` function is not implemented';
+  }
+
+  /// Export the calculator state to an Excel file.
+  /// Throws an exception if the `exportToExcel` function is not implemented.
+  @protected
+  Future<void> exportToExcel(BuildContext context) async {
+    throw '`exportToExcel` function is not implemented';
+  }
+
   /// Determines if events should be processed in order.
   ///
   /// Returns `false` by default, meaning events can be processed out of order.
@@ -297,6 +311,14 @@ abstract class FastCalculatorBloc<
       } else if (eventType == FastCalculatorBlocEventType.exportToPdf) {
         if (payload?.value is BuildContext) {
           await exportToPdf(payload!.value as BuildContext);
+        }
+      } else if (eventType == FastCalculatorBlocEventType.exportToCsv) {
+        if (payload?.value is BuildContext) {
+          await exportToCsv(payload!.value as BuildContext);
+        }
+      } else if (eventType == FastCalculatorBlocEventType.exportToExcel) {
+        if (payload?.value is BuildContext) {
+          await exportToExcel(payload!.value as BuildContext);
         }
       } else if (eventType == FastCalculatorBlocEventType.reset) {
         yield* handleResetEvent();

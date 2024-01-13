@@ -55,7 +55,7 @@ class FastCalculatorExportToCsvAction<B extends FastCalculatorBloc,
   }
 
   void handleTap(BuildContext context) {
-    calculatorBloc.addEvent(FastCalculatorBlocEvent.custom('exportToCsv'));
+    calculatorBloc.addEvent(FastCalculatorBlocEvent.exportToCsv(context));
   }
 
   Widget buildIcon(BuildContext context) {

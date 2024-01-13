@@ -11,7 +11,7 @@ import 'package:lingua_purchases/generated/locale_keys.g.dart';
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 
-class FastExportPdfRewardedDialog extends StatelessWidget {
+class FastExportCsvRewardedDialog extends StatelessWidget {
   /// Callback triggered when the operation status changes.
   final FastOperationStatusChanged? onOperationStatusChanged;
 
@@ -68,8 +68,8 @@ class FastExportPdfRewardedDialog extends StatelessWidget {
 
   final rewardedAdBloc = FastRewardedAdBloc();
 
-  /// Constructs a [FastExportPdfRewardedDialog].
-  FastExportPdfRewardedDialog({
+  /// Constructs a [FastExportCsvRewardedDialog].
+  FastExportCsvRewardedDialog({
     super.key,
     required this.onCreateOperation,
     this.intialBuilder,
@@ -120,13 +120,13 @@ class FastExportPdfRewardedDialog extends StatelessWidget {
 
   Widget handleOperationSucceeded(BuildContext context) {
     return FastSuccessStatus(
-      text: AdLocaleKeys.ad_message_enjoy_your_reward_pdf.tr(),
+      text: AdLocaleKeys.ad_message_enjoy_your_reward_csv.tr(),
     );
   }
 
   Widget buildInitial(BuildContext context) {
     return FastBody(
-      text: CoreLocaleKeys.core_question_export_data_as_pdf.tr(),
+      text: CoreLocaleKeys.core_question_export_data_as_csv.tr(),
     );
   }
 
@@ -141,7 +141,7 @@ class FastExportPdfRewardedDialog extends StatelessWidget {
         ),
         kFastVerticalSizedBox16,
         FastBody(
-          text: AdLocaleKeys.ad_message_watch_ad_unlock_pdf.tr(),
+          text: AdLocaleKeys.ad_message_watch_ad_unlock_csv.tr(),
         ),
       ],
     );
@@ -149,15 +149,15 @@ class FastExportPdfRewardedDialog extends StatelessWidget {
 
   String? handleTitleChange(FastOperationStatus status) {
     if (status == FastOperationStatus.initial) {
-      return CoreLocaleKeys.core_label_export_pdf.tr();
+      return CoreLocaleKeys.core_label_export_csv.tr();
     } else if (status == FastOperationStatus.missingRights) {
       return PurchasesLocaleKeys.purchases_label_free_version.tr();
     } else if (status == FastOperationStatus.operationSucceeded) {
-      return CoreLocaleKeys.core_message_ready_pdf.tr();
+      return CoreLocaleKeys.core_message_ready_csv.tr();
     } else if (status == FastOperationStatus.operationFailed) {
-      return CoreLocaleKeys.core_message_failed_to_generate_pdf.tr();
+      return CoreLocaleKeys.core_message_failed_to_generate_csv.tr();
     } else if (status == FastOperationStatus.operationInProgress) {
-      return CoreLocaleKeys.core_message_generating_pdf.tr();
+      return CoreLocaleKeys.core_message_generating_csv.tr();
     }
 
     return FastOperationRewardedDialog.handleTitleChange(status);
