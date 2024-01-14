@@ -7,8 +7,8 @@ import 'package:fastyle_core/fastyle_core.dart';
 // Project imports:
 import './export_pdf.dialog.dart';
 import './operation_rewared.dialog.dart';
-import 'export_excel.dialog.dart';
 import 'export_csv.dialog.dart';
+import 'export_excel.dialog.dart';
 
 // Exports:
 export './export_pdf.dialog.dart';
