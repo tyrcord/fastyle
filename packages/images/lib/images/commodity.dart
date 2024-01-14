@@ -3,6 +3,7 @@ class FastImageCommodity {
 
   static const gas = 'assets/images/commodity/gas.svg.vec';
   static const oil = 'assets/images/commodity/oil.svg.vec';
+  static const aluminum = 'assets/images/commodity/aluminum.svg.vec';
   static const silver = 'assets/images/commodity/silver.svg.vec';
   static const gold = 'assets/images/commodity/gold.svg.vec';
   static const coffee = 'assets/images/commodity/coffee.svg.vec';
@@ -20,6 +21,7 @@ class FastImageCommodity {
 const kFastImageCommodity = [
   'gas',
   'oil',
+  'aluminum',
   'silver',
   'gold',
   'coffee',
@@ -37,6 +39,7 @@ const kFastImageCommodity = [
 const kFastImageCommodityMap = {
   'gas': FastImageCommodity.gas,
   'oil': FastImageCommodity.oil,
+  'aluminum': FastImageCommodity.aluminum,
   'silver': FastImageCommodity.silver,
   'gold': FastImageCommodity.gold,
   'coffee': FastImageCommodity.coffee,
