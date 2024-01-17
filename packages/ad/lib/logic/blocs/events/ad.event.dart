@@ -23,7 +23,7 @@ class FastAdInfoBlocEvent
       : super(type: FastAdInfoBlocEventType.askForConsent);
 
   const FastAdInfoBlocEvent.askForConsentIfNeeded()
-      : super(type: FastAdInfoBlocEventType.askForConsentIfNedded);
+      : super(type: FastAdInfoBlocEventType.askForConsentIfNeeded);
 
   FastAdInfoBlocEvent.constentStatusChanged(ConsentStatus consentStatus)
       : super(

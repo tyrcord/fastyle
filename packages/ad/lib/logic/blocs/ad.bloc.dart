@@ -47,7 +47,7 @@ class FastAdInfoBloc
         yield* handleAskForConsentEvent();
       } else if (type == FastAdInfoBlocEventType.constentStatusChanged) {
         yield* handleConsentStatusChangedEvent(payload?.consentStatus);
-      } else if (type == FastAdInfoBlocEventType.askForConsentIfNedded) {
+      } else if (type == FastAdInfoBlocEventType.askForConsentIfNeeded) {
         yield* handleAskForConsentEventIfNeeded();
       } else {
         assert(false, 'Unknown event type: $type');
@@ -112,7 +112,7 @@ class FastAdInfoBloc
 
       final consentStatus = await _consentService.getConsentStatus();
 
-      if (consentStatus == ConsentStatus.unknown) {
+      if (consentStatus != ConsentStatus.unknown) {
         addEvent(FastAdInfoBlocEvent.constentStatusChanged(consentStatus));
       }
     }
