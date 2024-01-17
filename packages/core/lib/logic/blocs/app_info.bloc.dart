@@ -72,12 +72,14 @@ class FastAppInfoBloc
       final persistedDocument = await _retrievePersistedAppInfo();
       final packageInfo = await PackageInfo.fromPlatform();
       final osVersion = await _getOsVersion();
+      final osName = await getOsName();
       final appVersion = packageInfo.version;
       final appBuildNumber = packageInfo.buildNumber;
       var document = appInfoDocument;
 
       _logger
         ..debug('FastAppInfoBloc is initialized')
+        ..info('OS name', osName)
         ..info('OS version', osVersion)
         ..info('App build', appBuildNumber)
         ..info('App version', appVersion);
@@ -172,5 +174,25 @@ class FastAppInfoBloc
     }
 
     return osVersion;
+  }
+
+  Future<String> getOsName() async {
+    if (isAndroid) {
+      return "Android";
+    } else if (isIOS) {
+      return "iOS";
+    } else if (isMacOS) {
+      return "macOS";
+    } else if (isWindows) {
+      return "Windows";
+    } else if (isLinux) {
+      return "Linux";
+    } else if (isFuchsia) {
+      return "Fuchsia";
+    } else if (isWeb) {
+      return "Web";
+    } else {
+      return "Unknown";
+    }
   }
 }
