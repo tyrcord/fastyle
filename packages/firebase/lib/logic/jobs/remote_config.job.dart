@@ -83,7 +83,7 @@ class FastFirebaseRemoteConfigJob extends FastJob {
     _logger.debug('Loaded default config: $customConfig');
 
     bloc.addEvent(FastFirebaseRemoteConfigBlocEvent.init(
-      defaultConfig: defaultConfig,
+      defaultConfig: customConfig,
     ));
 
     final response = await RaceStream([

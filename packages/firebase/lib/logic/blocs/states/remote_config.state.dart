@@ -4,28 +4,28 @@ import 'package:tbloc/tbloc.dart';
 
 class FastFirebaseRemoteConfigBlocState extends BlocState {
   final FirebaseRemoteConfig? config;
-  final bool isEnabled;
+  final bool isActivated;
 
   FastFirebaseRemoteConfigBlocState({
     super.isInitializing = false,
     super.isInitialized = false,
     super.error,
-    bool? isEnabled,
+    bool? isActivated,
     this.config,
-  }) : isEnabled = isEnabled ?? false;
+  }) : isActivated = isActivated ?? false;
 
   @override
   FastFirebaseRemoteConfigBlocState copyWith({
     FirebaseRemoteConfig? config,
     bool? isInitializing,
     bool? isInitialized,
-    bool? isEnabled,
+    bool? isActivated,
     dynamic error,
   }) {
     return FastFirebaseRemoteConfigBlocState(
       isInitializing: isInitializing ?? this.isInitializing,
       isInitialized: isInitialized ?? this.isInitialized,
-      isEnabled: isEnabled ?? this.isEnabled,
+      isActivated: isActivated ?? this.isActivated,
       config: config ?? this.config,
       error: error,
     );
@@ -41,7 +41,7 @@ class FastFirebaseRemoteConfigBlocState extends BlocState {
     return FastFirebaseRemoteConfigBlocState(
       isInitializing: model.isInitializing,
       isInitialized: model.isInitialized,
-      isEnabled: model.isEnabled,
+      isActivated: model.isActivated,
       config: model.config,
       error: model.error,
     );
@@ -51,7 +51,7 @@ class FastFirebaseRemoteConfigBlocState extends BlocState {
   List<Object?> get props => [
         isInitializing,
         isInitialized,
-        isEnabled,
+        isActivated,
         config,
       ];
 }

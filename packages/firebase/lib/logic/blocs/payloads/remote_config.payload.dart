@@ -1,6 +1,9 @@
 class FastFirebaseRemoteConfigBlocEventPayload {
   final Map<String, dynamic>? defaultConfig;
-  final bool? enabled;
+  final bool? activated;
 
-  FastFirebaseRemoteConfigBlocEventPayload({this.enabled, this.defaultConfig});
+  FastFirebaseRemoteConfigBlocEventPayload({
+    this.activated,
+    this.defaultConfig,
+  });
 }

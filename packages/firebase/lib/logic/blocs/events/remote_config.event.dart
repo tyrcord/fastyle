@@ -20,9 +20,11 @@ class FastFirebaseRemoteConfigBlocEvent extends BlocEvent<
           ),
         );
 
-  FastFirebaseRemoteConfigBlocEvent.initialized({bool enabled = false})
+  FastFirebaseRemoteConfigBlocEvent.initialized({bool activated = false})
       : super(
           type: FastFirebaseRemoteConfigBlocEventType.initialized,
-          payload: FastFirebaseRemoteConfigBlocEventPayload(enabled: enabled),
+          payload: FastFirebaseRemoteConfigBlocEventPayload(
+            activated: activated,
+          ),
         );
 }

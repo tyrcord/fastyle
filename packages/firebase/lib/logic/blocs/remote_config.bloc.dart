@@ -44,7 +44,7 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
     if (type == FastFirebaseRemoteConfigBlocEventType.init) {
       yield* handleInitEvent(payload?.defaultConfig);
     } else if (type == FastFirebaseRemoteConfigBlocEventType.initialized) {
-      yield* handleInitializedEvent(enabled: payload?.enabled);
+      yield* handleInitializedEvent(isActivated: payload?.activated);
     } else {
       assert(false, 'FastFirebaseRemoteConfigBloc is not initialized yet.');
     }
@@ -58,11 +58,7 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
       yield currentState.copyWith(isInitializing: true);
 
       final remoteConfig = FirebaseRemoteConfig.instance;
-
-      if (defaultConfig != null) {
-        _logger.debug('setting default config: $defaultConfig');
-        await remoteConfig.setDefaults(defaultConfig);
-      }
+      await remoteConfig.ensureInitialized();
 
       _logger.debug('setting config settings');
       await remoteConfig.setConfigSettings(RemoteConfigSettings(
@@ -70,12 +66,17 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
         fetchTimeout: const Duration(minutes: 1),
       ));
 
-      bool enabled = false;
+      if (defaultConfig != null) {
+        _logger.debug('setting default config: $defaultConfig');
+        await remoteConfig.setDefaults(defaultConfig);
+      }
+
+      bool activated = false;
 
       try {
         // TODO: listen on config changes ?
         _logger.debug('fetching and activating remote config');
-        enabled = await remoteConfig.fetchAndActivate();
+        activated = await remoteConfig.fetchAndActivate();
       } catch (error, stackTrace) {
         _logger.error(
           'An error occured when fetching and activating remote config: $error',
@@ -83,30 +84,28 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
         );
       }
 
-      _logger.info('remote config is enabled', enabled);
+      _logger.info('remote config is activated', activated);
 
-      if (enabled) {
-        final config = remoteConfig.getAll();
-        await _updateAppFeatures(config);
-      } else {
-        _logger.warning('remote config is not enabled');
-      }
+      final config = remoteConfig.getAll();
+      await _updateAppFeatures(config);
 
-      addEvent(FastFirebaseRemoteConfigBlocEvent.initialized(enabled: enabled));
+      addEvent(
+        FastFirebaseRemoteConfigBlocEvent.initialized(activated: activated),
+      );
     }
   }
 
   Stream<FastFirebaseRemoteConfigBlocState> handleInitializedEvent({
-    bool? enabled = false,
+    bool? isActivated = false,
   }) async* {
     if (isInitializing) {
       final remoteConfig = FirebaseRemoteConfig.instance;
       isInitialized = true;
 
       yield currentState.copyWith(
-        config: remoteConfig,
-        isEnabled: enabled,
+        isActivated: isActivated,
         isInitializing: false,
+        config: remoteConfig,
         isInitialized: true,
       );
     }
