@@ -12,6 +12,51 @@ scripts:
 
   fix:
     exec: dart fix --apply
+
+  test:
+    exec: flutter test
+    packageFilters:
+      ignore:
+        - fastyle_ad
+        - fastyle_ad_example
+        - fastyle_animation
+        - fastyle_animation_example
+        - fastyle_buttons
+        - fastyle_buttons_example
+        - fastyle_calculator
+        - fastyle_calculator_example
+        - fastyle_charts
+        - fastyle_charts_example
+        - fastyle_connectivity
+        - fastyle_connectivity_example
+        - fastyle_core
+        - fastyle_core_example
+        - fastyle_digit_calculator
+        - fastyle_digit_calculator_example
+        - fastyle_financial
+        - fastyle_financial_example
+        - fastyle_firebase
+        - fastyle_forms
+        - fastyle_forms_example
+        - fastyle_home
+        - fastyle_home_example
+        - fastyle_iap
+        - fastyle_iap_example
+        - fastyle_images
+        - fastyle_images_example
+        - fastyle_layouts
+        - fastyle_onboarding
+        - fastyle_onboarding_example
+        - fastyle_pricing
+        - fastyle_pricing_example
+        - fastyle_quizz
+        - fastyle_quizz_example
+        - fastyle_settings
+        - fastyle_settings_example
+        - fastyle_text
+        - fastyle_video_player
+        - fastyle_views
+
   sort_imports:
     exec: dart pub run import_sorter:main
   dependency_validator:
