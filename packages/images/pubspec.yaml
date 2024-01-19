@@ -26,4 +26,4 @@ flutter:
   - assets/images/localizations/
 name: fastyle_images
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/images
-version: 0.0.46
+version: 0.0.47

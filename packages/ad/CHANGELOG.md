@@ -1,3 +1,9 @@
+## 0.0.43
+
+ - **FIX**: lint.
+ - **FIX**: make sure we update the consentStatus state after user response.
+ - **FEAT**: support more export types.
+
 ## 0.0.42
 
  - **FEAT**: update dependencies.

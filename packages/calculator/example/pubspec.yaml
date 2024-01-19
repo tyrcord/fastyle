@@ -1,6 +1,6 @@
 dependencies:
   decimal: ^2.3.3
-  fastyle_calculator: ^1.57.0
+  fastyle_calculator: ^1.58.0
   fastyle_core: ^0.0.48
   flutter:
     sdk: flutter

@@ -1,3 +1,9 @@
+## 0.0.47
+
+ - **FEAT**: update images.
+ - **FEAT**: update images.
+ - **FEAT**: update images.
+
 ## 0.0.46
 
  - **FEAT**: update crypto images.

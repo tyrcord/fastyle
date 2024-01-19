@@ -1,3 +1,8 @@
+## 1.58.0
+
+ - **FIX**: lint.
+ - **FEAT**: support more export types.
+
 ## 1.57.0
 
  - **FEAT**: update dependencies.

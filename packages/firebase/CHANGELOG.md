@@ -1,3 +1,7 @@
+## 0.0.32+4
+
+ - **FIX**: make sure to use the default config when available.
+
 ## 0.0.32+3
 
  - Update a dependency to the latest release.

@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-01-19
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.43`](#fastyle_ad---v0043)
+ - [`fastyle_calculator` - `v1.58.0`](#fastyle_calculator---v1580)
+ - [`fastyle_firebase` - `v0.0.32+4`](#fastyle_firebase---v00324)
+ - [`fastyle_images` - `v0.0.47`](#fastyle_images---v0047)
+ - [`fastyle_forms` - `v0.0.46+1`](#fastyle_forms---v00461)
+ - [`fastyle_settings` - `v0.0.51+1`](#fastyle_settings---v00511)
+ - [`fastyle_financial` - `v0.0.42+1`](#fastyle_financial---v00421)
+ - [`fastyle_views` - `v0.0.33+1`](#fastyle_views---v00331)
+ - [`fastyle_onboarding` - `v0.0.47+1`](#fastyle_onboarding---v00471)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_forms` - `v0.0.46+1`
+ - `fastyle_settings` - `v0.0.51+1`
+ - `fastyle_financial` - `v0.0.42+1`
+ - `fastyle_views` - `v0.0.33+1`
+ - `fastyle_onboarding` - `v0.0.47+1`
+
+---
+
+#### `fastyle_ad` - `v0.0.43`
+
+ - **FIX**: lint.
+ - **FIX**: make sure we update the consentStatus state after user response.
+ - **FEAT**: support more export types.
+
+#### `fastyle_calculator` - `v1.58.0`
+
+ - **FIX**: lint.
+ - **FEAT**: support more export types.
+
+#### `fastyle_firebase` - `v0.0.32+4`
+
+ - **FIX**: make sure to use the default config when available.
+
+#### `fastyle_images` - `v0.0.47`
+
+ - **FEAT**: update images.
+ - **FEAT**: update images.
+ - **FEAT**: update images.
+
+
 ## 2024-01-12
 
 ### Changes
