@@ -104,7 +104,8 @@ class FastPdfCalculatorReporter {
               pw.Column(
                   crossAxisAlignment: pw.CrossAxisAlignment.start,
                   children: [
-                    // rearrange its children to span them across multiple pages.
+                    // Rearrange its children to span them across
+                    // multiple pages.
                     pw.Wrap(children: [
                       // HEADER
                       _buildHeaderTitle(title, style),

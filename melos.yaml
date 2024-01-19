@@ -6,6 +6,10 @@ packages:
 scripts:
   analyze:
     exec: dart analyze .
+    packageFilters:
+      ignore:
+        - fastyle_core
+
   fix:
     exec: dart fix --apply
   sort_imports:

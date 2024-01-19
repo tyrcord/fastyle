@@ -83,12 +83,13 @@ class FastAdRaisedButtonState extends State<FastAdRaisedButton>
 
   EdgeInsetsGeometry _scaledPadding(BuildContext context) {
     const double padding1x = 12.0;
+    final textScaler = MediaQuery.textScalerOf(context);
 
     return ButtonStyleButton.scaledPadding(
       const EdgeInsets.symmetric(horizontal: padding1x),
       const EdgeInsets.symmetric(horizontal: padding1x / 2),
       const EdgeInsets.symmetric(horizontal: padding1x / 2 / 2),
-      MediaQuery.textScaleFactorOf(context),
+      textScaler.scale(kFastFontSize16),
     );
   }
 }

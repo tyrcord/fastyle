@@ -189,8 +189,8 @@ class FastAdmobNativeAdService {
   /// Returns the CTR ratio, or 0 if there are insufficient impression and
   /// click data.
   double _getCtrRatio() {
-    final nativeClicked = FastAdAction.nativeClicked.name;
-    final nativePrinted = FastAdAction.nativePrinted.name;
+    const nativeClicked = FastAdAction.nativeClicked;
+    const nativePrinted = FastAdAction.nativePrinted;
     final impressionCounter = _journal[nativePrinted];
     final clickCounter = _journal[nativeClicked];
 

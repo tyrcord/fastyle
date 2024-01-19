@@ -85,10 +85,9 @@ class FastAdmobSplashAdService {
           },
           onAdFailedToLoad: (error) {
             stopwatch.stop();
+            final milliseconds = stopwatch.elapsedMilliseconds;
             _logger
-              ..debug(
-                'Splash Ad failed to load in ${stopwatch.elapsedMilliseconds}ms',
-              )
+              ..debug('Splash Ad failed to load in $milliseconds ms')
               ..error('failed to load ad: $error');
             _loadAdFuture = null;
             completer.complete(false);
