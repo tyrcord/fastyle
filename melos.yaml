@@ -57,21 +57,21 @@ scripts:
         - fastyle_video_player
         - fastyle_views
 
-  sort_imports:
-    exec: dart pub run import_sorter:main
-  dependency_validator:
-    exec: dart run dependency_validator
+  check:dependencies:
+    exec: python3 $PWD/scripts/check_dependencies.py
   update:analysis_options:
     exec: $PWD/scripts/update_analysis_options.sh
-  update:dependencies:
+  sort:imports:
+    exec: flutter pub run import_sorter:main
+  update:pubspec:
     exec: python3 $PWD/scripts/update_pubspec.py
-
+  dependency_validator:
+    exec: dart run dependency_validator
   compile:svg:
     exec: python3 $PWD/scripts/compile_svg.py
     packageFilters:
       scope:
         - fastyle_images
-
   generate:images:
     exec: dart run fastyle_images:generate
     packageFilters:
