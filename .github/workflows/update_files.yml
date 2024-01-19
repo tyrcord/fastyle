@@ -1,0 +1,121 @@
+name: Update CodeX shared files
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [update_files]
+
+jobs:
+  update-file:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          # This is required to allow another workflow to be triggered
+          token: ${{ secrets.WORKFLOW_TOKEN }}
+
+      # Configure Git
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "actions@github.com"
+
+      # Clone the Codex repository
+      - name: Clone Codex Repo
+        uses: actions/checkout@v4
+        with:
+          repository: tyrcord/codex
+          path: codex
+          token: ${{ secrets.WORKFLOW_TOKEN }}
+
+      # Copy the Actions files
+      - name: Copy Actions files
+        run: |
+          # Create the actions directory if it does not exist
+          mkdir -p .github/workflows
+
+          # Copy the Actions files
+          cp codex/actions/flutter/library/sort_imports.yml .github/workflows/sort_imports.yml
+          cp codex/actions/flutter/library/tests.yml .github/workflows/tests.yml
+          cp codex/actions/flutter/library/update_dependencies.yml .github/workflows/update_dependencies.yml
+          cp codex/actions/flutter/library/update_files.yml .github/workflows/update_files.yml
+          cp codex/actions/flutter/library/version.yml .github/workflows/version.yml
+
+      # Copy the Data files
+      - name: Copy Data files
+        run: |
+          # Create the data directory if it does not exist
+          mkdir -p data
+
+          # Copy the Data files
+          cp codex/data/flutter/library/dependencies.json data/dependencies.json
+
+      # Copy the Scripts files
+      - name: Copy Scripts files
+        run: |
+          # Create the data directory if it does not exist
+          mkdir -p scripts
+
+          # Copy the script files
+          cp codex/scripts/flutter/library/update_pubspec.py scripts/update_pubspec.py
+          cp codex/scripts/flutter/shared/check_dependencies.py scripts/check_dependencies.py
+
+      # Remove the Codex folder
+      - name: Remove Codex Folder
+        run: |
+          # Remove the codex folder
+          rm -rf codex
+
+      # Delete Old Files
+      - name: Delete Old Files
+        run: |
+          # Check if old workflow file exists and delete it
+          rm -f .github/workflows/update_dependency.yml
+          rm -f scripts/update_dependencies.sh
+
+      # Commit and Push Changes
+      - name: Commit and Push Changes
+        run: |
+          # Function to conditionally add a file to git if it exists
+          add_if_exists() {
+            if [ -f "$1" ]; then
+              git add "$1"
+            fi
+          }
+
+          # Function to remove a file using git, handling errors
+          remove_with_handling() {
+            git rm "$1" || echo "Warn: Failed to remove $1"
+          }
+
+          # Add the copied actions files to git
+          add_if_exists .github/workflows/sort_imports.yml
+          add_if_exists .github/workflows/tests.yml
+          add_if_exists .github/workflows/update_dependencies.yml
+          add_if_exists .github/workflows/update_files.yml
+          add_if_exists .github/workflows/version.yml
+
+          # Add the copied data file to git
+          add_if_exists data/dependencies.json
+
+          # Add the copied scripts file to git
+          add_if_exists scripts/check_dependencies.py
+          add_if_exists scripts/update_pubspec.py
+
+          # Add the deleted files to git
+          remove_with_handling .github/workflows/update_dependency.yml
+          remove_with_handling scripts/update_dependencies.sh
+
+          # Check if there are any changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            # Commit the changes
+            git commit -m "chore: updated files from codex repository"
+
+            # Push the changes back to the origin
+            git push
+          fi
