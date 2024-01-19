@@ -1,3 +1,7 @@
+## 0.0.48
+
+ - **FEAT**: update dependencies.
+
 ## 0.0.47
 
  - **FEAT**: update images.

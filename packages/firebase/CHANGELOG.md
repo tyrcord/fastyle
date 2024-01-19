@@ -1,3 +1,7 @@
+## 0.0.33
+
+ - **FEAT**: update dependencies.
+
 ## 0.0.32+4
 
  - **FIX**: make sure to use the default config when available.

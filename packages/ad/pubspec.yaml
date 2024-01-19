@@ -1,9 +1,9 @@
 dependencies:
   collection: ^1.18.0
   easy_localization: ^3.0.3
-  fastyle_core: ^0.0.48
-  fastyle_images: ^0.0.46
-  fastyle_video_player: ^0.0.28+2
+  fastyle_core: ^0.0.49
+  fastyle_images: ^0.0.48
+  fastyle_video_player: ^0.0.29
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
@@ -45,4 +45,4 @@ flutter:
         pluginClass: FastAdPlugin
 name: fastyle_ad
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/ad
-version: 0.0.43
+version: 0.0.44
