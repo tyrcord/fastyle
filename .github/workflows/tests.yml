@@ -1,0 +1,46 @@
+name: Run Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    paths:
+      - "**/*.dart" # Trigger only on changes to .dart files
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "**/*.dart" # Trigger only on changes to .dart files
+  repository_dispatch:
+    types: [run_test]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      # Set up Flutter environment
+      - name: Install and set Flutter version
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+          cache: true
+
+      # Install Melos
+      - name: Install and set Melos version
+        uses: bluefireteam/melos-action@v3
+
+      # Install dependencies
+      - name: Install dependencies
+        run: flutter pub get
+
+      # Analyze project source
+      - name: Analyze project source
+        run: melos run --no-select analyze
+
+      # Run tests
+      - name: Run tests
+        run: melos run --no-select test

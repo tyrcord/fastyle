@@ -1,5 +1,7 @@
 import requests
 import yaml
+import json
+import os
 
 
 def fetch_latest_version(package_name):
@@ -11,7 +13,10 @@ def fetch_latest_version(package_name):
     return latest_version
 
 
-def update_dependencies(pubspec_path, packages_latest, specified_versions):
+def update_dependencies(pubspec_path, dependency_data):
+    packages_latest = dependency_data['packages_latest']
+    specified_versions = dependency_data['specified_versions']
+
     with open(pubspec_path, 'r') as file:
         pubspec = yaml.safe_load(file)
 
@@ -30,86 +35,13 @@ def update_dependencies(pubspec_path, packages_latest, specified_versions):
         yaml.dump(pubspec, file, indent=2)
 
 
-packages_latest = [
-    # Firebase
-    'firebase_analytics',
-    'firebase_app_check',
-    'firebase_core',
-    'firebase_crashlytics',
-    'firebase_in_app_messaging',
-    'firebase_messaging',
-    'firebase_performance',
-    'firebase_remote_config',
-
-    # Lingua
-    'lingua_ad',
-    'lingua_apps',
-    'lingua_calculator',
-    'lingua_core',
-    'lingua_countries',
-    'lingua_finance',
-    'lingua_finance_dividend',
-    'lingua_finance_forex',
-    'lingua_finance_instrument',
-    'lingua_finance_stock',
-    'lingua_help',
-    'lingua_languages',
-    'lingua_number',
-    'lingua_onboarding',
-    'lingua_purchases',
-    'lingua_settings',
-    'lingua_units',
-
-    # T
-    'tbloc',
-    't_cache',
-    'tenhance',
-    'tlogger',
-    't_helpers',
-    'tenhtloggerance',
-    'tmodel',
-    'tstore',
-    'tsub',
-    'subx',
-
-    # MateX
-    'matex_financial',
-    'matex_core',
-    'matex_data',
-]
-
-specified_versions = {
-    'another_flushbar': '^1.12.30',
-    'app_tracking_transparency': '^2.0.4',
-    'connectivity_plus': '^5.0.2',
-    'decimal': '^2.3.3',
-    'shimmer': '^3.0.0',
-    'device_info_plus': '^9.1.1',
-    'package_info_plus': '^5.0.1',
-    'rate_my_app': '^2.0.0',
-    'share_plus': '^7.2.1',
-    'diacritic': '^0.1.5',
-    'devicelocale': '^0.7.0',
-    'easy_localization': '^3.0.3',
-    'flutter_spinkit': '^5.2.0',
-    'async': '^2.11.0',
-    'http': '^1.1.0',
-    'rxdart': '^0.27.7',
-    'collection': '^1.18.0',
-    'font_awesome_flutter': '^10.6.0',
-    'google_fonts': '^6.1.0',
-    'fuzzy': '^0.5.1',
-    'google_mobile_ads': '^4.0.0',
-    'url_launcher': '^6.2.2',
-    'uuid': '^4.2.1',
-    'visibility_detector': '^0.4.0+2',
-    'go_router': '^13.0.0',
-    'video_player': '^2.8.1',
-    'flutter_native_splash': '^2.3.6',
-}
-
 # This is the path to the pubspec.yaml file
 pubspec_path = './pubspec.yaml'
 
+# This is the dependency data passed in from the GitHub Action
+dependency_data_env_var = 'DEPENDENCY_DATA'
+dependency_data_raw = os.environ.get(dependency_data_env_var)
+dependency_data = json.loads(dependency_data_raw)
+
 # Call the function to update the dependencies
-update_dependencies(pubspec_path, packages_latest, specified_versions)
+update_dependencies(pubspec_path, dependency_data)

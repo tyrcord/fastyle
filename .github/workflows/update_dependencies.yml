@@ -1,11 +1,9 @@
-name: Sort Imports
+name: Update dependency versions
 
 on:
   workflow_dispatch:
   repository_dispatch:
-    types: [sort_imports]
-  schedule:
-    - cron: "0 0 * * *"
+    types: [update_dependencies]
 
 env:
   changes: 0
@@ -30,19 +28,21 @@ jobs:
       - name: Install and set Melos version
         uses: bluefireteam/melos-action@v3
 
-      # Install dependencies
-      - name: Install dependencies
-        run: flutter pub get
+      # Update pubspec files
+      - name: Update pubspec files
+        run: |
+          export DEPENDENCY_DATA=$(<./data/dependencies.json) && \
+          melos run --no-select update:pubspec
 
-      # Sort imports
-      - name: Sort imports
-        run: melos run --no-select sort:imports
+      # Install packages dependencies
+      - name: Install packages dependencies
+        run: melos bs
 
       # Check for any changes
       - name: Check for any changes
         id: git-check
         run: |
-          git diff --exit-code -- '*.dart' || echo "changes=1" >> $GITHUB_ENV
+          git diff --exit-code -- '**/pubspec.yaml' || echo "changes=1" >> $GITHUB_ENV
 
       # Configure Git
       - name: Configure Git
@@ -52,9 +52,9 @@ jobs:
           git config user.email "actions@github.com"
 
       # Commit and push changes
-      - name: Commit and push changes
+      - name: Commit and push Changes
         if: env.changes == '1'
         run: |
-          git add -u *.dart
-          git commit -m "chore: sorted imports"
+          git add -u **/pubspec.yaml
+          git commit -m "chore: updated dependencies"
           git push
