@@ -16,7 +16,7 @@ dependencies:
   lingua_settings: ^0.0.17
   lingua_share: ^0.0.2+1
   matex_financial: ^0.0.47
-  tbloc: ^0.22.0
+  tbloc: ^0.21.0
 description: A new Flutter project.
 dev_dependencies:
   dependency_validator: ^3.2.3
@@ -25,8 +25,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: '>=3.16.0'
-  sdk: '>=3.2.0 <4.0.0'
+  flutter: ">=3.16.0"
+  sdk: ">=3.2.0 <4.0.0"
 flutter:
   uses-material-design: true
 name: fastyle_settings_example

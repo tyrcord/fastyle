@@ -12,7 +12,7 @@ dependencies:
   lingua_purchases: ^0.0.22
   rxdart: ^0.27.7
   t_helpers: ^0.0.51
-  tbloc: ^0.22.0
+  tbloc: ^0.21.0
   tlogger: ^0.0.8
   tmodel: ^0.5.13
   tstore: ^0.8.23
@@ -24,8 +24,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: '>=3.16.0'
-  sdk: '>=3.2.0 <4.0.0'
+  flutter: ">=3.16.0"
+  sdk: ">=3.2.0 <4.0.0"
 name: fastyle_iap
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/iap
 version: 0.0.37
