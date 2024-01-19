@@ -2,7 +2,7 @@ dependencies:
   fastyle_core: ^0.0.48
   flutter:
     sdk: flutter
-  tenhance: ^0.0.7
+  tenhance: ^0.0.8
 description: Set of layouts Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^3.2.3

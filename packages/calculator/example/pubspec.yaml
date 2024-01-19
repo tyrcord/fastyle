@@ -1,11 +1,11 @@
 dependencies:
   decimal: ^2.3.3
-  fastyle_calculator: ^1.58.0
+  fastyle_calculator: ^1.57.0
   fastyle_core: ^0.0.48
   flutter:
     sdk: flutter
-  go_router: ^13.0.0
-  tbloc: ^0.21.9
+  go_router: ^13.0.1
+  tbloc: ^0.22.0
 dev_dependencies:
   dependency_validator: ^3.2.3
   flutter_lints: ^3.0.1

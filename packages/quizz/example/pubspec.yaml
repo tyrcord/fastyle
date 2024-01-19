@@ -3,8 +3,8 @@ dependencies:
   fastyle_quizz: ^0.0.17+3
   flutter:
     sdk: flutter
-  go_router: ^13.0.0
-  tenhance: ^0.0.7
+  go_router: ^13.0.1
+  tenhance: ^0.0.8
 description: A new Flutter project.
 dev_dependencies:
   dependency_validator: ^3.2.3
