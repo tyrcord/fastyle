@@ -1,9 +1,9 @@
 dependencies:
   collection: ^1.18.0
   easy_localization: ^3.0.3
-  fastyle_core: ^0.0.49
-  fastyle_forms: ^0.0.47
-  fastyle_images: ^0.0.48
+  fastyle_core: ^0.0.50
+  fastyle_forms: ^0.0.48
+  fastyle_images: ^0.0.48+1
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
@@ -31,4 +31,4 @@ environment:
   sdk: ">=3.2.0 <4.0.0"
 name: fastyle_settings
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/settings
-version: 0.0.52
+version: 0.0.53
