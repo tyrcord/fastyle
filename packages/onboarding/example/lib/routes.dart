@@ -22,13 +22,9 @@ final kAppRoutes = [
   ),
   GoRoute(
     path: 'ads',
-    builder: (context, state) => FastSectionPage(
+    builder: (context, state) => const FastSectionPage(
       contentPadding: EdgeInsets.zero,
-      child: FastOnboardingPersonalizedAds(
-        onActionTap: () {
-          debugPrint('Personalized Ads action tapped');
-        },
-      ),
+      child: FastOnboardingPersonalizedAds(),
     ),
   ),
   GoRoute(

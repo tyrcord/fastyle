@@ -24,19 +24,11 @@ class FastOnboardingPersonalizedAds extends StatelessWidget {
   /// The size of the icon to display on a tablet.
   final double? tabletIconSize;
 
-  /// The callback to call when the action is tapped.
-  final VoidCallback? onActionTap;
-
-  /// The text to display as an action.
-  final String? actionText;
-
   const FastOnboardingPersonalizedAds({
     super.key,
     this.handsetIconSize,
     this.tabletIconSize,
-    this.onActionTap,
     this.controller,
-    this.actionText,
     this.titleText,
     this.children,
   });
@@ -63,9 +55,7 @@ class FastOnboardingPersonalizedAds extends StatelessWidget {
           content = FastOnboardingRequestPersonalizedAdsContent(
             handsetIconSize: handsetIconSize,
             tabletIconSize: tabletIconSize,
-            onActionTap: onActionTap,
             controller: controller,
-            actionText: actionText,
             children: children,
           );
         }
