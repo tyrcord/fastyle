@@ -45,6 +45,8 @@ class FastDigitCalculatorField extends StatefulWidget {
 
   final FastRoundingMethod roundingMethod;
 
+  final bool transformInvalidNumber;
+
   /// Creates a new instance of [FastDigitCalculatorField].
   ///
   /// [labelText] is the label of the input field.
@@ -64,10 +66,12 @@ class FastDigitCalculatorField extends StatefulWidget {
     bool? acceptDecimal = true,
     FastRoundingMethod? roundingMethod = FastRoundingMethod.round,
     bool? acceptNegative = false,
+    bool? transformInvalidNumber = true,
   })  : roundingMethod = roundingMethod ?? FastRoundingMethod.round,
         valueText = valueText ?? '',
         acceptDecimal = acceptDecimal ?? true,
-        acceptNegative = acceptNegative ?? false;
+        acceptNegative = acceptNegative ?? false,
+        transformInvalidNumber = transformInvalidNumber ?? true;
 
   @override
   State<FastDigitCalculatorField> createState() =>
@@ -92,6 +96,7 @@ class _FastDigitCalculatorFieldState extends State<FastDigitCalculatorField> {
         onTap: () => _handleOnTapCalculator(context),
         child: buildSuffixIcon(context),
       ),
+      transformInvalidNumber: widget.transformInvalidNumber,
       placeholderText: widget.placeholderText,
       onValueChanged: widget.onValueChanged,
       acceptDecimal: widget.acceptDecimal,

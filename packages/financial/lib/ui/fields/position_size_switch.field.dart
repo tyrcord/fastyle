@@ -59,6 +59,8 @@ class FastPositionSizeSwitchField extends StatelessWidget {
 
   final String? microMenuText;
 
+  final bool transformInvalidNumber;
+
   const FastPositionSizeSwitchField({
     super.key,
     this.onFieldTypeChanged,
@@ -82,20 +84,23 @@ class FastPositionSizeSwitchField extends StatelessWidget {
     MatexPositionSizeType? fieldType,
     String? value,
     bool? isEnabled,
+    bool? transformInvalidNumber = true,
   })  : fieldType = fieldType ?? kDefaultFieldType,
         isEnabled = isEnabled ?? true,
-        value = value ?? '';
+        value = value ?? '',
+        transformInvalidNumber = transformInvalidNumber ?? true;
 
   @override
   Widget build(BuildContext context) {
     return FastNumberField(
+      transformInvalidNumber: transformInvalidNumber,
       suffixIcon: _buildSwitchFieldMenuButton(),
       placeholderText: _getPlaceholderText(),
       onValueChanged: onValueChanged,
       captionText: _getCaptionText(),
       labelText: _getLabelText(),
-      valueText: value,
       isEnabled: isEnabled,
+      valueText: value,
     );
   }
 

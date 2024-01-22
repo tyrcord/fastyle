@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:decimal/decimal.dart';
 import 'package:fastyle_calculator/fastyle_calculator.dart';
 
 // Project imports:
@@ -34,16 +33,16 @@ class SumCalculatorBloc extends HydratedFastCalculatorBloc<
   Future<SumCalculatorResults> compute() async {
     if (await isCalculatorStateValid()) {
       final fields = currentState.fields;
-      final dNumberA = Decimal.tryParse(fields.numberA);
-      final dNumberB = Decimal.tryParse(fields.numberB);
+      final dNumberA = double.tryParse(fields.numberA);
+      final dNumberB = double.tryParse(fields.numberB);
 
       // demo purpose
       await Future.delayed(const Duration(seconds: 2));
 
       if (dNumberA != null &&
           dNumberB != null &&
-          dNumberA > Decimal.zero &&
-          dNumberB > Decimal.zero) {
+          dNumberA > 0 &&
+          dNumberB > 0) {
         return SumCalculatorResults(
           sum: (dNumberA + dNumberB).toStringAsFixed(2),
         );

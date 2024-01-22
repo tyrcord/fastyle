@@ -5,10 +5,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:decimal/decimal.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:tbloc/tbloc.dart';
-import 'package:tenhance/tenhance.dart';
 import 'package:tlogger/logger.dart';
 
 // Project imports:
@@ -38,9 +36,8 @@ class FastJobRunner {
   }) {
     if (!_isRunning) {
       _logger.debug('Running jobs...');
-      final rProgresStep = Decimal.one / Decimal.fromInt(jobs.length);
-      final dProgresStep = rProgresStep.toDecimal(scaleOnInfinitePrecision: 32);
-      var progress = Decimal.zero;
+      final progresStep = 1 / jobs.length;
+      var progress = 0.0;
       var hasError = false;
       _isRunning = true;
 
@@ -69,9 +66,9 @@ class FastJobRunner {
 
         return Stream.fromFuture(completer.future);
       }).map((_) {
-        progress += dProgresStep;
+        progress += progresStep;
 
-        return progress.toSafeDouble();
+        return progress;
       }).handleError((error) {
         hasError = true;
 
