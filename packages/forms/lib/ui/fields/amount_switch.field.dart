@@ -73,6 +73,8 @@ class FastAmountSwitchField extends StatelessWidget {
 
   final List<FastAmountSwitchMenuOption> availableMenuOptions;
 
+  final bool transformInvalidNumber;
+
   const FastAmountSwitchField({
     super.key,
     required this.onFieldTypeChanged,
@@ -99,6 +101,7 @@ class FastAmountSwitchField extends StatelessWidget {
     List<FastAmountSwitchMenuOption>? availableMenuOptions =
         kDefaultMenuOptions,
     bool? isEnabled,
+    bool? transformInvalidNumber = true,
   })  : availableMenuOptions = availableMenuOptions ?? kDefaultMenuOptions,
         fieldType = fieldType ?? kDefaultFieldType,
         percentValue = percentValue ?? '',
@@ -107,7 +110,8 @@ class FastAmountSwitchField extends StatelessWidget {
         percentPlaceholderText =
             percentPlaceholderText ?? kDefaultPlaceholderText,
         amountPlaceholderText =
-            amountPlaceholderText ?? kDefaultPlaceholderText;
+            amountPlaceholderText ?? kDefaultPlaceholderText,
+        transformInvalidNumber = transformInvalidNumber ?? true;
 
   @override
   Widget build(BuildContext context) {
@@ -123,6 +127,7 @@ class FastAmountSwitchField extends StatelessWidget {
   Widget buildPercentField() {
     return FastNumberField(
       captionText: percentCaptionText ?? kDefaultPercentCaptionText,
+      transformInvalidNumber: transformInvalidNumber,
       suffixIcon: buildSwitchFieldMenuButton(),
       placeholderText: percentPlaceholderText,
       onValueChanged: onPercentValueChanged,
@@ -136,6 +141,7 @@ class FastAmountSwitchField extends StatelessWidget {
   Widget buildAmountField() {
     return FastNumberField(
       captionText: amountCaptionText ?? kDefaultAmountCaptionText,
+      transformInvalidNumber: transformInvalidNumber,
       suffixIcon: buildSwitchFieldMenuButton(),
       placeholderText: amountPlaceholderText,
       onValueChanged: onAmountValueChanged,

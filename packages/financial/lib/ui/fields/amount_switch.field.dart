@@ -101,6 +101,8 @@ class FastFiancialAmountSwitchField extends StatelessWidget {
 
   final String? priceMenuText;
 
+  final bool transformInvalidNumber;
+
   const FastFiancialAmountSwitchField({
     super.key,
     required this.onFieldTypeChanged,
@@ -136,6 +138,7 @@ class FastFiancialAmountSwitchField extends StatelessWidget {
     String? pipValue,
     String? priceValue,
     bool? isEnabled,
+    bool? transformInvalidNumber = true,
   })  : availableMenuOptions = availableMenuOptions ?? kDefaultMenuOptions,
         fieldType = fieldType ?? kDefaultFieldType,
         percentValue = percentValue ?? '',
@@ -148,7 +151,8 @@ class FastFiancialAmountSwitchField extends StatelessWidget {
         pricePlaceholderText = pricePlaceholderText ?? kDefaultPlaceholderText,
         pipPlaceholderText = pipPlaceholderText ?? kDefaultPlaceholderText,
         amountPlaceholderText =
-            amountPlaceholderText ?? kDefaultPlaceholderText;
+            amountPlaceholderText ?? kDefaultPlaceholderText,
+        transformInvalidNumber = transformInvalidNumber ?? true;
 
   @override
   Widget build(BuildContext context) {
@@ -167,8 +171,9 @@ class FastFiancialAmountSwitchField extends StatelessWidget {
   @protected
   Widget buildPipField() {
     return FastNumberField(
-      captionText: pipCaptionText ?? 'Pips',
+      transformInvalidNumber: transformInvalidNumber,
       suffixIcon: buildSwitchFieldMenuButton(),
+      captionText: pipCaptionText ?? 'Pips',
       placeholderText: pipPlaceholderText,
       onValueChanged: onPipValueChanged,
       labelText: _getPipLabelText(),
@@ -180,6 +185,7 @@ class FastFiancialAmountSwitchField extends StatelessWidget {
   Widget buildPriceField() {
     return FastNumberField(
       captionText: priceCaptionText ?? kDefaultAmountCaptionText,
+      transformInvalidNumber: transformInvalidNumber,
       suffixIcon: buildSwitchFieldMenuButton(),
       placeholderText: pricePlaceholderText,
       onValueChanged: onPriceValueChanged,
@@ -193,6 +199,7 @@ class FastFiancialAmountSwitchField extends StatelessWidget {
   Widget buildPercentField() {
     return FastNumberField(
       captionText: percentCaptionText ?? kDefaultPercentCaptionText,
+      transformInvalidNumber: transformInvalidNumber,
       suffixIcon: buildSwitchFieldMenuButton(),
       placeholderText: percentPlaceholderText,
       onValueChanged: onPercentValueChanged,
@@ -206,6 +213,7 @@ class FastFiancialAmountSwitchField extends StatelessWidget {
   Widget buildAmountField() {
     return FastNumberField(
       captionText: amountCaptionText ?? kDefaultAmountCaptionText,
+      transformInvalidNumber: transformInvalidNumber,
       suffixIcon: buildSwitchFieldMenuButton(),
       placeholderText: amountPlaceholderText,
       onValueChanged: onAmountValueChanged,
