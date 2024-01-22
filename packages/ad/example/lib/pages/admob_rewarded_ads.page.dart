@@ -136,7 +136,7 @@ class AdmobRewardedAdsPageState extends State<AdmobRewardedAdsPage> {
     } else if (status == FastOperationStatus.missingRights) {
       return PurchasesLocaleKeys.purchases_label_free_version.tr();
     } else if (status == FastOperationStatus.operationSucceeded) {
-      return CoreLocaleKeys.core_message_pdf_ready.tr();
+      return CoreLocaleKeys.core_message_ready_pdf.tr();
     } else if (status == FastOperationStatus.operationFailed) {
       return CoreLocaleKeys.core_message_failed_to_generate_pdf.tr();
     } else if (status == FastOperationStatus.operationInProgress) {
