@@ -103,6 +103,8 @@ class FastApp extends StatefulWidget {
 
   final RoutesForMediaTypeCallback routesForMediaType;
 
+  final VoidCallback? onWillRestartApp;
+
   FastApp({
     super.key,
     required this.routesForMediaType,
@@ -129,6 +131,7 @@ class FastApp extends StatefulWidget {
     bool? overrideLoaderJobs,
     bool? isInternetConnectionRequired,
     this.defaultAppDictEntries,
+    this.onWillRestartApp,
   })  : useProIcons = useProIcons ?? false,
         overrideLoaderJobs = overrideLoaderJobs ?? false,
         assetLoader = assetLoader ?? const LinguaLoader(),
@@ -231,6 +234,21 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
   }
 
   void restartApp() {
+    // Reset the app blocs
+    FastAppDictBloc.reset();
+    FastAppFeaturesBloc.reset();
+    FastAppInfoBloc.reset();
+    FastAppLifecycleBloc.reset();
+    FastAppLoaderBloc.reset();
+    FastAppOnboardingBloc.reset();
+    FastAppPermissionsBloc.reset();
+    FastAppSettingsBloc.reset();
+    FastDeviceOrientationBloc.reset();
+    FastConnectivityStatusBloc.reset();
+    FastThemeBloc.reset();
+
+    widget.onWillRestartApp?.call();
+
     setState(() {
       // Reset routing
       _routingConfigNotifier?.dispose();
@@ -240,19 +258,6 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
       _routingConfigNotifier = null;
       _hasRouterBeenInitialized = false;
       _hasForcedOnboarding = false;
-
-      // Reset the app blocs
-      FastAppDictBloc.reset();
-      FastAppFeaturesBloc.reset();
-      FastAppInfoBloc.reset();
-      FastAppLifecycleBloc.reset();
-      FastAppLoaderBloc.reset();
-      FastAppOnboardingBloc.reset();
-      FastAppPermissionsBloc.reset();
-      FastAppSettingsBloc.reset();
-      FastDeviceOrientationBloc.reset();
-      FastConnectivityStatusBloc.reset();
-      FastThemeBloc.reset();
 
       // Reset App
       _appkey = UniqueKey();

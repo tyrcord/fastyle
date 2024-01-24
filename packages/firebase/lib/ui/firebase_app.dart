@@ -19,6 +19,8 @@ class FastFirebaseApp extends FastApp {
   /// The default remote config values.
   final Map<String, dynamic>? defaultRemoteConfig;
 
+  final VoidCallback? onWillRestartApp;
+
   FastFirebaseApp({
     super.key,
     required super.routesForMediaType,
@@ -44,6 +46,7 @@ class FastFirebaseApp extends FastApp {
     super.initialLocation,
     this.defaultRemoteConfig,
     this.firebaseOptions,
+    this.onWillRestartApp,
     String? localizationPath,
     Locale? fallbackLocale,
   }) : super(
@@ -123,7 +126,14 @@ class _FastFirebaseAppState extends State<FastFirebaseApp> {
         debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
         askForReview: widget.askForReview,
         initialLocation: widget.initialLocation,
+        onWillRestartApp: _handleRestartApp,
       ),
     );
+  }
+
+  void _handleRestartApp() {
+    FastFirebaseRemoteConfigBloc.reset();
+
+    widget.onWillRestartApp?.call();
   }
 }

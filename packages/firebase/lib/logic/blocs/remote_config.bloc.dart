@@ -10,21 +10,30 @@ import 'package:fastyle_firebase/fastyle_firebase.dart';
 
 class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
     FastFirebaseRemoteConfigBlocEvent, FastFirebaseRemoteConfigBlocState> {
-  static const String _debugLabel = 'FastFirebaseRemoteConfigBloc';
-  static final TLogger _logger = _manager.getLogger(_debugLabel);
-  static late FastFirebaseRemoteConfigBloc instance;
-  static final _manager = TLoggerManager();
+  /// Keeps track if a singleton instance has been created.
+  static bool get hasBeenInstantiated => _hasBeenInstantiated;
   static bool _hasBeenInstantiated = false;
 
-  FastFirebaseRemoteConfigBloc._({
-    FastFirebaseRemoteConfigBlocState? initialState,
-  }) : super(initialState: initialState ?? FastFirebaseRemoteConfigBlocState());
+  static final _logger = TLoggerManager.instance.getLogger(debugLabel);
+  static const debugLabel = 'FastFirebaseRemoteConfigBloc';
 
-  factory FastFirebaseRemoteConfigBloc({
-    FastFirebaseRemoteConfigBlocState? initialState,
-  }) {
+  static late FastFirebaseRemoteConfigBloc _instance;
+
+  static FastFirebaseRemoteConfigBloc get instance {
+    if (!_hasBeenInstantiated) return FastFirebaseRemoteConfigBloc();
+
+    return _instance;
+  }
+
+  // Method to reset the singleton instance
+  static void reset() => _hasBeenInstantiated = false;
+
+  FastFirebaseRemoteConfigBloc._()
+      : super(initialState: FastFirebaseRemoteConfigBlocState());
+
+  factory FastFirebaseRemoteConfigBloc() {
     if (!_hasBeenInstantiated) {
-      instance = FastFirebaseRemoteConfigBloc._(initialState: initialState);
+      _instance = FastFirebaseRemoteConfigBloc._();
       _hasBeenInstantiated = true;
     }
 
