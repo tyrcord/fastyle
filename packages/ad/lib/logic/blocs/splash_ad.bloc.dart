@@ -1,5 +1,6 @@
 // Package imports:
 import 'package:tbloc/tbloc.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
@@ -8,8 +9,23 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 /// application.
 class FastSplashAdBloc
     extends BidirectionalBloc<FastSplashAdBlocEvent, FastSplashAdBlocState> {
+  /// Keeps track if a singleton instance has been created.
+  static bool get hasBeenInstantiated => _hasBeenInstantiated;
   static bool _hasBeenInstantiated = false;
-  static late FastSplashAdBloc instance;
+
+  static final _logger = TLoggerManager.instance.getLogger(debugLabel);
+  static const debugLabel = 'FastSplashAdBloc';
+
+  static late FastSplashAdBloc _instance;
+
+  static FastSplashAdBloc get instance {
+    if (!_hasBeenInstantiated) return FastSplashAdBloc();
+
+    return _instance;
+  }
+
+  // Method to reset the singleton instance
+  static void reset() => _hasBeenInstantiated = false;
 
   late FastAdmobSplashAdService _service;
   late int _appLaunchCounter;
@@ -28,7 +44,7 @@ class FastSplashAdBloc
 
   factory FastSplashAdBloc({FastSplashAdBlocState? initialState}) {
     if (!_hasBeenInstantiated) {
-      instance = FastSplashAdBloc._(initialState: initialState);
+      _instance = FastSplashAdBloc._(initialState: initialState);
       _hasBeenInstantiated = true;
     }
 
@@ -51,6 +67,8 @@ class FastSplashAdBloc
   ) async* {
     final payload = event.payload;
     final type = event.type;
+
+    _logger.debug('Event received: $type');
 
     if (type == FastSplashAdBlocEventType.init) {
       yield* handleInitEvent(payload);

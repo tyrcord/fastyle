@@ -8,17 +8,29 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastAdInfoBloc
     extends BidirectionalBloc<FastAdInfoBlocEvent, FastAdInfoBlocState> {
-  static final FastAdConsentService _consentService =
-      FastAdConsentService.instance;
-  static final TLogger _logger = _manager.getLogger(_debugLabel);
-  static final _manager = TLoggerManager();
-  static const _debugLabel = 'FastAdInfoBloc';
+  /// Keeps track if a singleton instance has been created.
+  static bool get hasBeenInstantiated => _hasBeenInstantiated;
   static bool _hasBeenInstantiated = false;
-  static late FastAdInfoBloc instance;
+
+  static final _logger = TLoggerManager.instance.getLogger(debugLabel);
+  static const debugLabel = 'FastAdInfoBloc';
+
+  static final _consentService = FastAdConsentService.instance;
+
+  static late FastAdInfoBloc _instance;
+
+  static FastAdInfoBloc get instance {
+    if (!_hasBeenInstantiated) return FastAdInfoBloc();
+
+    return _instance;
+  }
+
+  // Method to reset the singleton instance
+  static void reset() => _hasBeenInstantiated = false;
 
   factory FastAdInfoBloc({FastAdInfoBlocState? initialState}) {
     if (!_hasBeenInstantiated) {
-      instance = FastAdInfoBloc._(initialState: initialState);
+      _instance = FastAdInfoBloc._(initialState: initialState);
       _hasBeenInstantiated = true;
     }
 

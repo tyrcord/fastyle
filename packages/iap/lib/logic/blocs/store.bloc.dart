@@ -20,16 +20,28 @@ import 'package:fastyle_iap/fastyle_iap.dart';
 /// necessary functionality to handle events and state changes in the store.
 class FastStoreBloc
     extends BidirectionalBloc<FastStoreBlocEvent, FastStoreBlocState> {
-  static final TLogger _logger = _manager.getLogger(_debugLabel);
-  static const _debugLabel = 'FastStoreBloc';
-  static final _manager = TLoggerManager();
+  /// Keeps track if a singleton instance has been created.
+  static bool get hasBeenInstantiated => _hasBeenInstantiated;
   static bool _hasBeenInstantiated = false;
-  static late FastStoreBloc instance;
 
-  late FastInAppPurchaseDataProvider _iapDataProvider;
+  static final _logger = TLoggerManager.instance.getLogger(debugLabel);
+  static const debugLabel = 'FastStoreBloc';
+
+  static late FastStoreBloc _instance;
+
+  static FastStoreBloc get instance {
+    if (!_hasBeenInstantiated) return FastStoreBloc();
+
+    return _instance;
+  }
+
+  static final _iapDataProvider = FastInAppPurchaseDataProvider();
+
+  // Method to reset the singleton instance
+  static void reset() => _hasBeenInstantiated = false;
+
   late FastInAppPurchaseService _iapService;
   StreamSubscription? _purchasesSubscription;
-  final String debugLabel;
 
   // Store-related flags
   bool _isLoadingProducts = false;
@@ -38,26 +50,18 @@ class FastStoreBloc
   bool _isStoreAvailable = false;
   String? _pendingPurchaseProductId;
 
+  FastStoreBloc._() : super(initialState: FastStoreBlocState());
+
   /// A factory constructor that returns an instance of [FastStoreBloc].
   /// It ensures that only one instance is created.
-  factory FastStoreBloc({
-    FastStoreBlocState? initialState,
-    String? debugLabel,
-  }) {
+  factory FastStoreBloc() {
     if (!_hasBeenInstantiated) {
-      instance = FastStoreBloc._(
-        initialState: initialState,
-        debugLabel: debugLabel,
-      );
+      _instance = FastStoreBloc._();
       _hasBeenInstantiated = true;
     }
 
     return instance;
   }
-
-  FastStoreBloc._({FastStoreBlocState? initialState, String? debugLabel})
-      : debugLabel = debugLabel ?? _debugLabel,
-        super(initialState: initialState ?? FastStoreBlocState());
 
   @override
   bool canClose() => false;
@@ -153,7 +157,6 @@ class FastStoreBloc
 
       yield currentState.copyWith(isInitializing: true);
 
-      _iapDataProvider = FastInAppPurchaseDataProvider();
       _iapService = FastInAppPurchaseService(
         appInfo: payload.appInfo!,
         errorReporter: payload.errorReporter,

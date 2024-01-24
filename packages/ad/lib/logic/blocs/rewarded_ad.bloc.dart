@@ -9,6 +9,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
@@ -17,9 +18,23 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 class FastRewardedAdBloc
     extends BidirectionalBloc<FastRewardedAdBlocEvent, FastRewardedAdBlocState>
     implements AdEventListener {
-  static String debugLabel = 'FastRewardedAdBloc';
+  /// Keeps track if a singleton instance has been created.
+  static bool get hasBeenInstantiated => _hasBeenInstantiated;
   static bool _hasBeenInstantiated = false;
-  static late FastRewardedAdBloc instance;
+
+  static final _logger = TLoggerManager.instance.getLogger(debugLabel);
+  static const debugLabel = 'FastRewardedAdBloc';
+
+  static late FastRewardedAdBloc _instance;
+
+  static FastRewardedAdBloc get instance {
+    if (!_hasBeenInstantiated) return FastRewardedAdBloc();
+
+    return _instance;
+  }
+
+  // Method to reset the singleton instance
+  static void reset() => _hasBeenInstantiated = false;
 
   late final FastAdmobRewardedAdService _admobService;
   late final Duration blockDuration;
@@ -35,7 +50,7 @@ class FastRewardedAdBloc
   /// Factory constructor to create an instance of [FastRewardedAdBloc].
   factory FastRewardedAdBloc({FastRewardedAdBlocState? initialState}) {
     if (!_hasBeenInstantiated) {
-      instance = FastRewardedAdBloc._(initialState: initialState);
+      _instance = FastRewardedAdBloc._(initialState: initialState);
       _hasBeenInstantiated = true;
     }
 
@@ -55,6 +70,8 @@ class FastRewardedAdBloc
   ) async* {
     final type = event.type;
     final payload = event.payload;
+
+    _logger.debug('Event received: $type');
 
     if (type == FastRewardedAdBlocEventType.init) {
       if (payload is FastRewardedAdBlocEventPayload) {
