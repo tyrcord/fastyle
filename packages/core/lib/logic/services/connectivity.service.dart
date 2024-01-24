@@ -28,9 +28,6 @@ class FastConnectivityService {
   /// A debug label to use when logging.
   String debugLabel;
 
-  // Connectivity status stream.
-  Stream<FastConnectivityStatus>? _connectivityStream;
-
   // Flag indicating whether the singleton instance has been accessed.
   static bool _hasBeenInstantiated = false;
 
@@ -69,12 +66,10 @@ class FastConnectivityService {
 
   // Stream providing real-time connectivity status.
   Stream<FastConnectivityStatus> get onInternetConnectivityChanged {
-    _connectivityStream ??= MergeStream([
+    return MergeStream([
       _checkConnectivityStatusPeriodically(),
       _checkConnectivityStatusOnSystemChange(),
     ]).distinct();
-
-    return _connectivityStream!;
   }
 
   // Check the current device internet connectivity.

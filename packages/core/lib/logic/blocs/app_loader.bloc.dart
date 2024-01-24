@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:tbloc/tbloc.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -13,20 +14,34 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppLoaderBloc
     extends BidirectionalBloc<FastAppLoaderBlocEvent, FastAppLoaderBlocState> {
+  /// Keeps track if a singleton instance has been created.
+  static bool get hasBeenInstantiated => _hasBeenInstantiated;
   static bool _hasBeenInstantiated = false;
-  static late FastAppLoaderBloc instance;
 
-  factory FastAppLoaderBloc({FastAppLoaderBlocState? initialState}) {
+  static final _logger = TLoggerManager.instance.getLogger(debugLabel);
+  static const debugLabel = 'FastAppLoaderBloc';
+
+  static late FastAppLoaderBloc _instance;
+
+  static FastAppLoaderBloc get instance {
+    if (!_hasBeenInstantiated) return FastAppLoaderBloc();
+
+    return _instance;
+  }
+
+  // Method to reset the singleton instance
+  static void reset() => _hasBeenInstantiated = false;
+
+  FastAppLoaderBloc._() : super(initialState: FastAppLoaderBlocState());
+
+  factory FastAppLoaderBloc() {
     if (!_hasBeenInstantiated) {
-      instance = FastAppLoaderBloc._(initialState);
+      _instance = FastAppLoaderBloc._();
       _hasBeenInstantiated = true;
     }
 
     return instance;
   }
-
-  FastAppLoaderBloc._(FastAppLoaderBlocState? initialState)
-      : super(initialState: initialState ?? FastAppLoaderBlocState());
 
   @override
   bool canClose() => false;
@@ -38,12 +53,27 @@ class FastAppLoaderBloc
     final eventPayload = event.payload;
     final eventType = event.type;
 
-    // Don't use isInitialized here because we want to be able to reinitialize
-    // the app loader bloc. (When we restart the app for example)
-    if (eventType == FastAppLoaderBlocEventType.init && !isInitializing) {
-      final jobs = eventPayload!.jobs;
-      final errorReporter = eventPayload.errorReporter;
+    _logger.debug('Event received: $eventType');
+
+    if (eventType == FastAppLoaderBlocEventType.init &&
+        eventPayload is FastAppLoaderBlocEventPayload) {
+      yield* handleInitEvent(eventPayload);
+    } else if (eventType == FastAppLoaderBlocEventType.initialized) {
+      yield* handleInitializedEvent();
+    } else if (eventType == FastAppLoaderBlocEventType.initFailed) {
+      yield* handleInitFailedEvent(eventPayload);
+    }
+  }
+
+  Stream<FastAppLoaderBlocState> handleInitEvent(
+    FastAppLoaderBlocEventPayload eventPayload,
+  ) async* {
+    if (canInitialize) {
+      _logger.debug('Initializing...');
       isInitializing = true;
+
+      final errorReporter = eventPayload.errorReporter;
+      final jobs = eventPayload.jobs;
 
       yield currentState.copyWith(
         isLoading: isInitializing,
@@ -60,24 +90,32 @@ class FastAppLoaderBloc
       } else {
         addEvent(const FastAppLoaderBlocEvent.initialized());
       }
-    } else if (eventType == FastAppLoaderBlocEventType.initialized &&
-        isInitializing) {
+    }
+  }
+
+  Stream<FastAppLoaderBlocState> handleInitializedEvent() async* {
+    if (isInitializing) {
+      _logger.debug('Initialized');
       isInitializing = false;
 
       yield currentState.copyWith(
         isLoading: isInitializing,
         isLoaded: true,
       );
-    } else if (eventType == FastAppLoaderBlocEventType.initFailed) {
-      isInitializing = false;
-
-      yield currentState.copyWith(
-        error: eventPayload!.error,
-        isLoading: isInitializing,
-        isLoaded: false,
-        progress: 0,
-      );
     }
+  }
+
+  Stream<FastAppLoaderBlocState> handleInitFailedEvent(
+    FastAppLoaderBlocEventPayload? eventPayload,
+  ) async* {
+    isInitializing = false;
+
+    yield currentState.copyWith(
+      error: eventPayload?.error,
+      isLoading: isInitializing,
+      isLoaded: false,
+      progress: 0,
+    );
   }
 
   Stream<FastAppLoaderBlocState> _runJobs(

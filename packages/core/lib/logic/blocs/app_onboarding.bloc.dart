@@ -1,5 +1,6 @@
 // Package imports:
 import 'package:tbloc/tbloc.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -9,19 +10,33 @@ import 'package:fastyle_core/fastyle_core.dart';
 /// current onboarding state.
 class FastAppOnboardingBloc extends BidirectionalBloc<
     FastAppOnboardingBlocEvent, FastAppOnboardingBlocState> {
-  final FastAppOnboardingDataProvider _dataProvider;
   late FastAppOnboardingDocument _persistedOnboarding;
 
+  /// Keeps track if a singleton instance has been created.
+  static bool get hasBeenInstantiated => _hasBeenInstantiated;
   static bool _hasBeenInstantiated = false;
-  static late FastAppOnboardingBloc instance;
 
-  FastAppOnboardingBloc._({FastAppOnboardingBlocState? initialState})
-      : _dataProvider = FastAppOnboardingDataProvider(),
-        super(initialState: initialState ?? FastAppOnboardingBlocState());
+  static final _logger = TLoggerManager.instance.getLogger(debugLabel);
+  static const debugLabel = 'FastAppOnboardingBloc';
 
-  factory FastAppOnboardingBloc({FastAppOnboardingBlocState? initialState}) {
+  static late FastAppOnboardingBloc _instance;
+
+  static FastAppOnboardingBloc get instance {
+    if (!_hasBeenInstantiated) return FastAppOnboardingBloc();
+
+    return _instance;
+  }
+
+  static final _dataProvider = FastAppOnboardingDataProvider();
+
+  // Method to reset the singleton instance
+  static void reset() => _hasBeenInstantiated = false;
+
+  FastAppOnboardingBloc._() : super(initialState: FastAppOnboardingBlocState());
+
+  factory FastAppOnboardingBloc() {
     if (!_hasBeenInstantiated) {
-      instance = FastAppOnboardingBloc._(initialState: initialState);
+      _instance = FastAppOnboardingBloc._();
       _hasBeenInstantiated = true;
     }
 
@@ -33,9 +48,12 @@ class FastAppOnboardingBloc extends BidirectionalBloc<
 
   @override
   Stream<FastAppOnboardingBlocState> mapEventToState(
-      FastAppOnboardingBlocEvent event) async* {
+    FastAppOnboardingBlocEvent event,
+  ) async* {
     final payload = event.payload;
     final type = event.type;
+
+    _logger.debug('Event received: $type');
 
     if (type == FastAppOnboardingBlocEventType.init) {
       yield* handleInitEvent();
@@ -59,6 +77,7 @@ class FastAppOnboardingBloc extends BidirectionalBloc<
   /// dispatch a [FastAppOnboardingBlocEventType.initialized] event.
   Stream<FastAppOnboardingBlocState> handleInitEvent() async* {
     if (canInitialize) {
+      _logger.debug('Initializing...');
       isInitializing = true;
       yield currentState.copyWith(isInitializing: true);
 
@@ -81,6 +100,7 @@ class FastAppOnboardingBloc extends BidirectionalBloc<
     FastAppOnboardingBlocEventPayload? payload,
   ) async* {
     if (isInitializing) {
+      _logger.debug('Initialized');
       isInitialized = true;
 
       yield currentState.copyWith(

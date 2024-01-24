@@ -14,26 +14,36 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppInfoBloc
     extends BidirectionalBloc<FastAppInfoBlocEvent, FastAppInfoBlocState> {
-  static final TLogger _logger = _manager.getLogger(debugLabel);
-  static const String debugLabel = 'FastAppInfoBloc';
-  static final _manager = TLoggerManager();
+  /// Keeps track if a singleton instance has been created.
+  static bool get hasBeenInstantiated => _hasBeenInstantiated;
   static bool _hasBeenInstantiated = false;
-  static late FastAppInfoBloc instance;
 
-  FastAppInfoDataProvider _dataProvider;
+  static final _logger = TLoggerManager.instance.getLogger(debugLabel);
+  static const debugLabel = 'FastAppInfoBloc';
 
-  factory FastAppInfoBloc({FastAppInfoBlocState? initialState}) {
+  static late FastAppInfoBloc _instance;
+
+  static FastAppInfoBloc get instance {
+    if (!_hasBeenInstantiated) return FastAppInfoBloc();
+
+    return _instance;
+  }
+
+  static final _dataProvider = FastAppInfoDataProvider();
+
+  // Method to reset the singleton instance
+  static void reset() => _hasBeenInstantiated = false;
+
+  FastAppInfoBloc._() : super(initialState: FastAppInfoBlocState());
+
+  factory FastAppInfoBloc() {
     if (!_hasBeenInstantiated) {
-      instance = FastAppInfoBloc._(initialState: initialState);
+      _instance = FastAppInfoBloc._();
       _hasBeenInstantiated = true;
     }
 
     return instance;
   }
-
-  FastAppInfoBloc._({FastAppInfoBlocState? initialState})
-      : _dataProvider = FastAppInfoDataProvider(),
-        super(initialState: initialState ?? FastAppInfoBlocState());
 
   @override
   bool canClose() => false;
@@ -44,6 +54,8 @@ class FastAppInfoBloc
   ) async* {
     final payload = event.payload;
     final type = event.type;
+
+    _logger.debug('Event received: $type');
 
     if (type == FastAppInfoBlocEventType.init) {
       if (payload is FastAppInfoDocument) {
@@ -62,6 +74,8 @@ class FastAppInfoBloc
     FastAppInfoDocument appInfoDocument,
   ) async* {
     if (canInitialize) {
+      _logger.debug('Initializing...');
+
       isInitializing = true;
       yield currentState.copyWith(isInitializing: true);
 
@@ -78,11 +92,12 @@ class FastAppInfoBloc
       var document = appInfoDocument;
 
       _logger
-        ..debug('FastAppInfoBloc is initialized')
         ..info('OS name', osName)
         ..info('OS version', osVersion)
         ..info('App build', appBuildNumber)
-        ..info('App version', appVersion);
+        ..info('App version', appVersion)
+        ..info('Device language code', deviceLanguageCode)
+        ..info('Device country code', deviceCountryCode);
 
       document = document.copyWith(
         // Values controlled by the persisted document.
@@ -105,6 +120,7 @@ class FastAppInfoBloc
     FastAppInfoDocument document,
   ) async* {
     if (isInitializing) {
+      _logger.debug('Initialized');
       isInitialized = true;
 
       final nextDocument = document.copyWith(
@@ -113,12 +129,16 @@ class FastAppInfoBloc
 
       await _dataProvider.persistAppInfo(nextDocument);
 
-      final tmpState = FastAppInfoBlocState.fromDocument(nextDocument);
+      var tmpState = FastAppInfoBlocState.fromDocument(nextDocument);
 
-      yield currentState.merge(tmpState).copyWith(
+      tmpState = currentState.merge(tmpState).copyWith(
             isInitializing: false,
             isInitialized: true,
           );
+
+      _logger.info('Is first launch', tmpState.isFirstLaunch);
+
+      yield tmpState;
     }
   }
 

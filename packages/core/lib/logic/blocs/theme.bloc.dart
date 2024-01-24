@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:tlogger/logger.dart';
 
 // Package imports:
 import 'package:tbloc/tbloc.dart';
@@ -11,24 +12,34 @@ import 'package:fastyle_core/fastyle_core.dart';
 class FastThemeBloc
     extends BidirectionalBloc<FastThemeBlocEvent, FastThemeBlocState> {
   /// Keeps track if a singleton instance has been created.
-  static bool hasBeenInstantiated = false;
+  static bool get hasBeenInstantiated => _hasBeenInstantiated;
+  static bool _hasBeenInstantiated = false;
+
+  static final _logger = TLoggerManager.instance.getLogger(debugLabel);
+  static const debugLabel = 'FastAppOnboardingBloc';
 
   /// Singleton instance of the `FastThemeBloc`.
-  static late FastThemeBloc instance;
+  static late FastThemeBloc _instance;
+
+  static FastThemeBloc get instance {
+    if (!_hasBeenInstantiated) return FastThemeBloc();
+
+    return _instance;
+  }
+
+  // Method to reset the singleton instance
+  static void reset() => _hasBeenInstantiated = false;
 
   /// Factory constructor to ensure that only a single instance of
   /// `FastThemeBloc` is used throughout the application.
   factory FastThemeBloc({FastThemeBlocState? initialState}) {
     if (!hasBeenInstantiated) {
-      instance = FastThemeBloc._(initialState: initialState);
-      hasBeenInstantiated = true;
+      _instance = FastThemeBloc._(initialState: initialState);
+      _hasBeenInstantiated = true;
     }
+
     return instance;
   }
-
-  /// Indicates if the Bloc can be closed.
-  @override
-  bool canClose() => false;
 
   /// Private constructor with optional initial state.
   ///
@@ -38,11 +49,17 @@ class FastThemeBloc
             initialState == null),
         super(initialState: initialState ?? FastThemeBlocState());
 
+  /// Indicates if the Bloc can be closed.
+  @override
+  bool canClose() => false;
+
   /// Maps incoming events to output states.
   @override
   Stream<FastThemeBlocState> mapEventToState(FastThemeBlocEvent event) async* {
     final payload = event.payload;
     final type = event.type;
+
+    _logger.debug('Event received: $type');
 
     if (type == FastThemeBlocEventType.init) {
       yield* handleInitEvent(payload);
@@ -56,6 +73,7 @@ class FastThemeBloc
   /// Handles the initialization event with an optional mode.
   Stream<FastThemeBlocState> handleInitEvent(ThemeMode? mode) async* {
     if (canInitialize) {
+      _logger.debug('Initializing...');
       isInitializing = true;
       yield currentState.copyWith(isInitializing: true);
 
@@ -77,6 +95,8 @@ class FastThemeBloc
   /// Handles the event after initialization is done.
   Stream<FastThemeBlocState> handleInitializedEvent() async* {
     if (isInitializing) {
+      _logger.debug('Initialized');
+
       isInitialized = true;
       yield currentState.copyWith(isInitialized: true);
     }

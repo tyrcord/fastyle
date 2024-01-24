@@ -6,28 +6,41 @@ import 'package:tbloc/tbloc.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:tlogger/logger.dart';
 
 /// Singleton class to manage the app's life cycle state.
 /// Utilizes the BLoC pattern for state management.
 class FastAppLifecycleBloc extends BidirectionalBloc<FastAppLifecycleBlocEvent,
     FastAppLifecycleBlocState> {
-  /// Flag indicating whether an instance has already been created.
+  /// Keeps track if a singleton instance has been created.
+  static bool get hasBeenInstantiated => _hasBeenInstantiated;
   static bool _hasBeenInstantiated = false;
 
+  static final _logger = TLoggerManager.instance.getLogger(debugLabel);
+  static const debugLabel = 'FastAppLifecycleBloc';
+
   /// Singleton instance of FastAppLifecycleBloc.
-  static late FastAppLifecycleBloc instance;
+  static late FastAppLifecycleBloc _instance;
+
+  static FastAppLifecycleBloc get instance {
+    if (!_hasBeenInstantiated) return FastAppLifecycleBloc();
+
+    return _instance;
+  }
+
+  // Method to reset the singleton instance
+  static void reset() => _hasBeenInstantiated = false;
 
   /// Private constructor. The underscore enforces the singleton pattern,
   /// preventing direct instantiation from other classes.
-  FastAppLifecycleBloc._({FastAppLifecycleBlocState? initialState})
-      : super(initialState: initialState ?? FastAppLifecycleBlocState());
+  FastAppLifecycleBloc._() : super(initialState: FastAppLifecycleBlocState());
 
   /// Factory constructor to provide a singleton instance.
   /// This ensures the class has only one instance and provides a global point
   /// of access to it.
-  factory FastAppLifecycleBloc({FastAppLifecycleBlocState? initialState}) {
+  factory FastAppLifecycleBloc() {
     if (!_hasBeenInstantiated) {
-      instance = FastAppLifecycleBloc._(initialState: initialState);
+      _instance = FastAppLifecycleBloc._();
       _hasBeenInstantiated = true;
     }
 
@@ -47,6 +60,8 @@ class FastAppLifecycleBloc extends BidirectionalBloc<FastAppLifecycleBlocEvent,
   ) async* {
     final payload = event.payload;
     final type = event.type;
+
+    _logger.debug('Event received: $type');
 
     if (type == FastAppLifecycleBlocEventType.lifecycleChanged) {
       yield* _handleLifecycleChanged(payload);

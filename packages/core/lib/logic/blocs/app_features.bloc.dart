@@ -1,24 +1,38 @@
 // Package imports:
 import 'package:tbloc/tbloc.dart';
 import 'package:tstore/tstore.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppFeaturesBloc extends BidirectionalBloc<FastAppFeaturesBlocEvent,
     FastAppFeaturesBlocState> {
+  /// Keeps track if a singleton instance has been created.
+  static bool get hasBeenInstantiated => _hasBeenInstantiated;
   static bool _hasBeenInstantiated = false;
-  static late FastAppFeaturesBloc instance;
 
-  FastAppFeaturesDataProvider _dataProvider;
+  static final _logger = TLoggerManager.instance.getLogger(debugLabel);
+  static const debugLabel = 'FastAppFeaturesBloc';
 
-  FastAppFeaturesBloc._({FastAppFeaturesBlocState? initialState})
-      : _dataProvider = FastAppFeaturesDataProvider(),
-        super(initialState: initialState ?? FastAppFeaturesBlocState());
+  static late FastAppFeaturesBloc _instance;
 
-  factory FastAppFeaturesBloc({FastAppFeaturesBlocState? initialState}) {
+  static FastAppFeaturesBloc get instance {
+    if (!_hasBeenInstantiated) return FastAppFeaturesBloc();
+
+    return _instance;
+  }
+
+  static final _dataProvider = FastAppFeaturesDataProvider();
+
+  // Method to reset the singleton instance
+  static void reset() => _hasBeenInstantiated = false;
+
+  FastAppFeaturesBloc._() : super(initialState: FastAppFeaturesBlocState());
+
+  factory FastAppFeaturesBloc() {
     if (!_hasBeenInstantiated) {
-      instance = FastAppFeaturesBloc._(initialState: initialState);
+      _instance = FastAppFeaturesBloc._();
       _hasBeenInstantiated = true;
     }
 
@@ -38,6 +52,8 @@ class FastAppFeaturesBloc extends BidirectionalBloc<FastAppFeaturesBlocEvent,
   ) async* {
     final payload = event.payload;
     final type = event.type;
+
+    _logger.debug('Event received: $type');
 
     if (type == FastAppFeaturesBlocEventType.init) {
       yield* handleInitEvent();
@@ -90,6 +106,7 @@ class FastAppFeaturesBloc extends BidirectionalBloc<FastAppFeaturesBlocEvent,
 
   Stream<FastAppFeaturesBlocState> handleInitEvent() async* {
     if (canInitialize) {
+      _logger.debug('Initializing...');
       isInitializing = true;
       yield currentState.copyWith(isInitializing: true);
 
@@ -109,6 +126,7 @@ class FastAppFeaturesBloc extends BidirectionalBloc<FastAppFeaturesBlocEvent,
     List<FastFeatureEntity> features,
   ) async* {
     if (isInitializing) {
+      _logger.debug('Initialized');
       isInitialized = true;
 
       yield currentState.copyWith(

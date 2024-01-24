@@ -14,13 +14,25 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 class FastConnectivityStatusBloc extends BidirectionalBloc<
     FastConnectivityStatusBlocEvent, FastConnectivityStatusBlocState> {
-  static late FastConnectivityStatusBloc instance;
-  static late FastConnectivityService service;
+  /// Keeps track if a singleton instance has been created.
+  static bool get hasBeenInstantiated => _hasBeenInstantiated;
   static bool _hasBeenInstantiated = false;
-  static const _debugLabel = 'FastConnectivityStatusBloc';
-  static final _manager = TLoggerManager();
 
-  late final TLogger _logger;
+  static final _logger = TLoggerManager.instance.getLogger(debugLabel);
+  static const debugLabel = 'FastConnectivityStatusBloc';
+
+  static late FastConnectivityStatusBloc _instance;
+
+  static FastConnectivityStatusBloc get instance {
+    if (!_hasBeenInstantiated) return FastConnectivityStatusBloc();
+
+    return _instance;
+  }
+
+  static late FastConnectivityService service;
+
+  // Method to reset the singleton instance
+  static void reset() => _hasBeenInstantiated = false;
 
   /// Subscription to connectivity status updates.
   @protected
@@ -36,8 +48,7 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
     FastConnectivityStatusBlocState? initialState,
   }) {
     if (!_hasBeenInstantiated) {
-      instance = FastConnectivityStatusBloc._(initialState: initialState);
-      instance._logger = _manager.getLogger(_debugLabel);
+      _instance = FastConnectivityStatusBloc._(initialState: initialState);
       _hasBeenInstantiated = true;
     }
 
@@ -97,6 +108,10 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
         checkAddress: payload?.checkAddress ?? kFastConnectivityCheckAddress,
         checkPort: payload?.checkPort ?? kFastConnectivityCheckPort,
       );
+
+      if (connectivitySubscription != null) {
+        disposeConnectivityStream();
+      }
 
       connectivitySubscription = listenToConnectivityStatusChanges();
 
@@ -221,6 +236,7 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
   @protected
   void disposeConnectivityStream() {
     connectivitySubscription?.cancel();
+    connectivitySubscription = null;
   }
 
   /// Listens to the app's lifecycle changes, pausing or resuming the

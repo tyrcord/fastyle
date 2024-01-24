@@ -241,6 +241,19 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
       _hasRouterBeenInitialized = false;
       _hasForcedOnboarding = false;
 
+      // Reset the app blocs
+      FastAppDictBloc.reset();
+      FastAppFeaturesBloc.reset();
+      FastAppInfoBloc.reset();
+      FastAppLifecycleBloc.reset();
+      FastAppLoaderBloc.reset();
+      FastAppOnboardingBloc.reset();
+      FastAppPermissionsBloc.reset();
+      FastAppSettingsBloc.reset();
+      FastDeviceOrientationBloc.reset();
+      FastConnectivityStatusBloc.reset();
+      FastThemeBloc.reset();
+
       // Reset App
       _appkey = UniqueKey();
     });
@@ -264,6 +277,7 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
                 BlocProvider(bloc: FastAppDictBloc()),
                 BlocProvider(bloc: FastAppFeaturesBloc()),
                 BlocProvider(bloc: FastAppOnboardingBloc()),
+                BlocProvider(bloc: FastDeviceOrientationBloc()),
                 BlocProvider(bloc: _appLifecycleBloc),
                 BlocProvider(bloc: _mediaLayoutBloc),
                 BlocProvider(bloc: _themeBloc),

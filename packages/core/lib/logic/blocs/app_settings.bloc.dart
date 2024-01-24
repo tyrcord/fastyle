@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:tlogger/logger.dart';
 
 // Package imports:
 import 'package:tbloc/tbloc.dart';
@@ -12,20 +13,34 @@ import 'package:fastyle_core/fastyle_core.dart';
 /// or the theme.
 class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
     FastAppSettingsBlocState> {
-  static bool hasBeenInstantiated = false;
-  static late FastAppSettingsBloc instance;
+  /// Keeps track if a singleton instance has been created.
+  static bool get hasBeenInstantiated => _hasBeenInstantiated;
+  static bool _hasBeenInstantiated = false;
 
-  final FastAppSettingsDataProvider _dataProvider;
+  static final _logger = TLoggerManager.instance.getLogger(debugLabel);
+  static const debugLabel = 'FastAppSettingsBloc';
+
+  static late FastAppSettingsBloc _instance;
+
+  static FastAppSettingsBloc get instance {
+    if (!_hasBeenInstantiated) return FastAppSettingsBloc();
+
+    return _instance;
+  }
+
+  static final _dataProvider = FastAppSettingsDataProvider();
+
+  // Method to reset the singleton instance
+  static void reset() => _hasBeenInstantiated = false;
+
   late FastAppSettingsDocument _persistedSettings;
 
-  FastAppSettingsBloc._({FastAppSettingsBlocState? initialState})
-      : _dataProvider = FastAppSettingsDataProvider(),
-        super(initialState: initialState ?? FastAppSettingsBlocState());
+  FastAppSettingsBloc._() : super(initialState: FastAppSettingsBlocState());
 
-  factory FastAppSettingsBloc({FastAppSettingsBlocState? initialState}) {
+  factory FastAppSettingsBloc() {
     if (!hasBeenInstantiated) {
-      instance = FastAppSettingsBloc._(initialState: initialState);
-      hasBeenInstantiated = true;
+      _instance = FastAppSettingsBloc._();
+      _hasBeenInstantiated = true;
     }
 
     return instance;
@@ -40,6 +55,8 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   ) async* {
     final payload = event.payload;
     final type = event.type;
+
+    _logger.debug('Event received: $type');
 
     if (type == FastAppSettingsBlocEventType.init) {
       yield* handleInitEvent(payload);
@@ -77,6 +94,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
     FastAppSettingsBlocEventPayload? payload,
   ) async* {
     if (canInitialize) {
+      _logger.debug('Initializing...');
       isInitializing = true;
       yield currentState.copyWith(isInitializing: true);
 
@@ -103,6 +121,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
     FastAppSettingsBlocEventPayload? payload,
   ) async* {
     if (isInitializing) {
+      _logger.debug('Initialized');
       isInitialized = true;
 
       yield currentState.copyWith(

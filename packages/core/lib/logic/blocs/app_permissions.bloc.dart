@@ -10,18 +10,30 @@ import 'package:fastyle_core/fastyle_core.dart';
 /// It can be used to request permissions, check permission status, etc.
 class FastAppPermissionsBloc extends BidirectionalBloc<
     FastAppPermissionsBlocEvent, FastAppPermissionsBlocState> {
-  static final TLogger _logger = _manager.getLogger(_debugLabel);
-  static const String _debugLabel = 'FastAppPermissionsBloc';
-  static late FastAppPermissionsBloc instance;
+  /// Keeps track if a singleton instance has been created.
+  static bool get hasBeenInstantiated => _hasBeenInstantiated;
   static bool _hasBeenInstantiated = false;
-  static final _manager = TLoggerManager();
 
-  FastAppPermissionsBloc._({FastAppPermissionsBlocState? initialState})
-      : super(initialState: initialState ?? FastAppPermissionsBlocState());
+  static final _logger = TLoggerManager.instance.getLogger(debugLabel);
+  static const debugLabel = 'FastAppPermissionsBloc';
 
-  factory FastAppPermissionsBloc({FastAppPermissionsBlocState? initialState}) {
+  static late FastAppPermissionsBloc _instance;
+
+  static FastAppPermissionsBloc get instance {
+    if (!_hasBeenInstantiated) return FastAppPermissionsBloc();
+
+    return _instance;
+  }
+
+  // Method to reset the singleton instance
+  static void reset() => _hasBeenInstantiated = false;
+
+  FastAppPermissionsBloc._()
+      : super(initialState: FastAppPermissionsBlocState());
+
+  factory FastAppPermissionsBloc() {
     if (!_hasBeenInstantiated) {
-      instance = FastAppPermissionsBloc._(initialState: initialState);
+      _instance = FastAppPermissionsBloc._();
       _hasBeenInstantiated = true;
     }
 

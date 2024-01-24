@@ -1,24 +1,38 @@
 // Package imports:
 import 'package:tbloc/tbloc.dart';
 import 'package:tstore/tstore.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
 class FastAppDictBloc
     extends BidirectionalBloc<FastAppDictBlocEvent, FastAppDictBlocState> {
+  /// Keeps track if a singleton instance has been created.
+  static bool get hasBeenInstantiated => _hasBeenInstantiated;
   static bool _hasBeenInstantiated = false;
-  static late FastAppDictBloc instance;
 
-  FastAppDictDataProvider _dataProvider;
+  static final _logger = TLoggerManager.instance.getLogger(debugLabel);
+  static const debugLabel = 'FastAppDictBloc';
 
-  FastAppDictBloc._({FastAppDictBlocState? initialState})
-      : _dataProvider = FastAppDictDataProvider(),
-        super(initialState: initialState ?? FastAppDictBlocState());
+  static late FastAppDictBloc _instance;
 
-  factory FastAppDictBloc({FastAppDictBlocState? initialState}) {
+  static FastAppDictBloc get instance {
+    if (!_hasBeenInstantiated) return FastAppDictBloc();
+
+    return _instance;
+  }
+
+  static final _dataProvider = FastAppDictDataProvider();
+
+  // Method to reset the singleton instance
+  static void reset() => _hasBeenInstantiated = false;
+
+  FastAppDictBloc._() : super(initialState: FastAppDictBlocState());
+
+  factory FastAppDictBloc() {
     if (!_hasBeenInstantiated) {
-      instance = FastAppDictBloc._(initialState: initialState);
+      _instance = FastAppDictBloc._();
       _hasBeenInstantiated = true;
     }
 
@@ -36,6 +50,8 @@ class FastAppDictBloc
   ) async* {
     final payload = event.payload;
     final type = event.type;
+
+    _logger.debug('Event received: $type');
 
     if (type == FastAppDictBlocEventType.init) {
       yield* handleInitEvent();
@@ -69,6 +85,7 @@ class FastAppDictBloc
 
   Stream<FastAppDictBlocState> handleInitEvent() async* {
     if (canInitialize) {
+      _logger.debug('Initializing...');
       isInitializing = true;
       yield currentState.copyWith(isInitializing: true);
 
@@ -88,6 +105,7 @@ class FastAppDictBloc
     List<FastDictEntryEntity> entries,
   ) async* {
     if (isInitializing) {
+      _logger.debug('Initialized');
       isInitialized = true;
 
       yield currentState.copyWith(

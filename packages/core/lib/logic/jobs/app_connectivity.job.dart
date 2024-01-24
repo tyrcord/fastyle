@@ -15,7 +15,6 @@ class FastAppConnectivityJob extends FastJob {
   static FastAppConnectivityJob? _singleton;
   static final _manager = TLoggerManager();
 
-
   factory FastAppConnectivityJob() {
     return (_singleton ??= const FastAppConnectivityJob._());
   }
@@ -32,29 +31,13 @@ class FastAppConnectivityJob extends FastJob {
     final bloc = FastConnectivityStatusBloc.instance;
     late Object result;
 
-    if (bloc.currentState.isInitialized) {
-      _logger
-        ..debug('Already initialized')
-        ..debug('Checking connectivity status...');
+    _logger.debug('Initializing...');
+    bloc.addEvent(FastConnectivityStatusBlocEvent.init());
 
-      bloc.addEvent(FastConnectivityStatusBlocEvent.checkConnectivity());
-
-      result = await RaceStream([
-        bloc.onError,
-        bloc.onEvent.where((event) {
-          return event.type ==
-              FastConnectivityStatusBlocEventType.connectivityStatusChanged;
-        }).mapTo(bloc.currentState),
-      ]).first;
-    } else {
-      _logger.debug('Initializing...');
-      bloc.addEvent(FastConnectivityStatusBlocEvent.init());
-
-      result = await RaceStream([
-        bloc.onError,
-        bloc.onData.where((state) => state.isInitialized),
-      ]).first;
-    }
+    result = await RaceStream([
+      bloc.onError,
+      bloc.onData.where((state) => state.isInitialized),
+    ]).first;
 
     if (result is! FastConnectivityStatusBlocState) {
       _logger.error('Failed to initialize: $result');

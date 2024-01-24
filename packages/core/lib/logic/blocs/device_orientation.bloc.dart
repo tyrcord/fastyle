@@ -10,21 +10,30 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 class FastDeviceOrientationBloc extends BidirectionalBloc<
     FastDeviceOrientationBlocEvent, FastDeviceOrientationBlocState> {
+  /// Keeps track if a singleton instance has been created.
+  static bool get hasBeenInstantiated => _hasBeenInstantiated;
   static bool _hasBeenInstantiated = false;
-  static late FastDeviceOrientationBloc instance;
-  static late final TLogger _logger;
 
-  FastDeviceOrientationBloc._({FastDeviceOrientationBlocState? initialState})
-      : super(initialState: initialState ?? FastDeviceOrientationBlocState());
+  static final _logger = TLoggerManager.instance.getLogger(debugLabel);
+  static const debugLabel = 'FastDeviceOrientationBloc';
 
-  factory FastDeviceOrientationBloc({
-    FastDeviceOrientationBlocState? initialState,
-  }) {
+  static late FastDeviceOrientationBloc _instance;
+
+  static FastDeviceOrientationBloc get instance {
+    if (!_hasBeenInstantiated) return FastDeviceOrientationBloc();
+
+    return _instance;
+  }
+
+  // Method to reset the singleton instance
+  static void reset() => _hasBeenInstantiated = false;
+
+  FastDeviceOrientationBloc._()
+      : super(initialState: FastDeviceOrientationBlocState());
+
+  factory FastDeviceOrientationBloc() {
     if (!_hasBeenInstantiated) {
-      final manager = TLoggerManager();
-      _logger = manager.getLogger('FastDeviceOrientationListener');
-      instance = FastDeviceOrientationBloc._(initialState: initialState);
-
+      _instance = FastDeviceOrientationBloc._();
       _hasBeenInstantiated = true;
     }
 
