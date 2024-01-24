@@ -19,8 +19,6 @@ class FastFirebaseApp extends FastApp {
   /// The default remote config values.
   final Map<String, dynamic>? defaultRemoteConfig;
 
-  final VoidCallback? onWillRestartApp;
-
   FastFirebaseApp({
     super.key,
     required super.routesForMediaType,
@@ -46,7 +44,7 @@ class FastFirebaseApp extends FastApp {
     super.initialLocation,
     this.defaultRemoteConfig,
     this.firebaseOptions,
-    this.onWillRestartApp,
+    super.onWillRestartApp,
     String? localizationPath,
     Locale? fallbackLocale,
   }) : super(
