@@ -93,6 +93,7 @@ class FastConnectivityService {
         timeout: _checkTimeout,
       );
 
+      await socket.flush();
       await socket.close();
 
       return true;
