@@ -14,6 +14,18 @@ class FastFirebaseRemoteConfigBlocState extends BlocState {
     this.config,
   }) : isActivated = isActivated ?? false;
 
+  bool getConfigBoolValue(String key) {
+    if (config != null) return config!.getBool(key);
+
+    return false;
+  }
+
+  String? getConfigStringValue(String key) {
+    if (config != null) return config!.getString(key);
+
+    return null;
+  }
+
   @override
   FastFirebaseRemoteConfigBlocState copyWith({
     FirebaseRemoteConfig? config,

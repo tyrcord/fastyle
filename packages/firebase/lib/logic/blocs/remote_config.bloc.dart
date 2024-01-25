@@ -43,6 +43,14 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
   @override
   bool canClose() => false;
 
+  bool getConfigBoolValue(String key) {
+    return currentState.getConfigBoolValue(key);
+  }
+
+  String? getConfigStringValue(String key) {
+    return currentState.getConfigStringValue(key);
+  }
+
   @override
   Stream<FastFirebaseRemoteConfigBlocState> mapEventToState(
     FastFirebaseRemoteConfigBlocEvent event,
