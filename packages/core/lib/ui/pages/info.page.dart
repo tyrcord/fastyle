@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:go_router/go_router.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -13,6 +15,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 class FastAppInfoPage<T> extends StatelessWidget {
   final List<FastNavigationCategoryDescriptor<T>> categoryDescriptors;
   final void Function(BuildContext context, FastItem<T>)? onNavigationItemTap;
+  final bool showEraseContentSettingsButton;
   final EdgeInsets? contentPadding;
   final EdgeInsets? footerPadding;
   final EdgeInsets? headerPadding;
@@ -33,6 +36,7 @@ class FastAppInfoPage<T> extends StatelessWidget {
     this.titleText,
     this.actions,
     this.header,
+    this.showEraseContentSettingsButton = true,
     this.categoryDescriptors = const [],
     this.showAppVersion = true,
     this.showAppBar = true,
@@ -40,9 +44,11 @@ class FastAppInfoPage<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final spacing = ThemeHelper.spacing.getSpacing(context);
+
     return FastSectionPage(
       contentPadding: EdgeInsets.zero,
-      footer: buildFooter(context),
+      footer: _buildFooter(context),
       isViewScrollable: true,
       showAppBar: showAppBar,
       titleText: titleText,
@@ -51,8 +57,40 @@ class FastAppInfoPage<T> extends StatelessWidget {
         children: [
           if (header != null) _buildHeader(context),
           Column(children: buildNavigationCategories(context)),
+          if (showEraseContentSettingsButton)
+            Container(
+              padding: EdgeInsets.only(top: spacing),
+              alignment: Alignment.bottomCenter,
+              child: _buildEraseContentSettingsButton(context),
+            ),
         ],
       ),
+    );
+  }
+
+  Widget _buildEraseContentSettingsButton(BuildContext context) {
+    final redColor = ThemeHelper.getPaletteColors(context).red.mid;
+
+    return FastTextButton(
+      text: CoreLocaleKeys.core_label_erase_all_content_and_settings.tr(),
+      textColor: redColor,
+      upperCase: false,
+      onTap: () async {
+        showAnimatedFastAlertDialog(
+          messageText: CoreLocaleKeys
+              .core_message_erase_all_content_and_settings_explanation
+              .tr(),
+          titleText:
+              CoreLocaleKeys.core_question_erase_all_content_and_settings.tr(),
+          context: context,
+          showCancel: true,
+          onValid: () async {
+            await clearFastAppData();
+
+            if (context.mounted) FastApp.restart(context);
+          },
+        );
+      },
     );
   }
 
@@ -110,7 +148,7 @@ class FastAppInfoPage<T> extends StatelessWidget {
   }
 
   /// Builds the footer of the setting page.
-  Widget buildFooter(BuildContext context) {
+  Widget _buildFooter(BuildContext context) {
     if (footerText != null) {
       return Container(
         padding: footerPadding ??

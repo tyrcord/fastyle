@@ -190,7 +190,7 @@ class FastAppSettingsPage extends FastSettingPageLayout {
     final blueColor = ThemeHelper.getPaletteColors(context).blue.mid;
 
     return FastTextButton(
-      text: SettingsLocaleKeys.settings_label_reset_settings.tr(),
+      text: SettingsLocaleKeys.settings_label_restore_settings.tr(),
       textColor: blueColor,
       upperCase: false,
       onTap: () async {
