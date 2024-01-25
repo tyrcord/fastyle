@@ -3,10 +3,10 @@ import 'dart:ui';
 
 // Package imports:
 import 'package:tbloc/tbloc.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:tlogger/logger.dart';
 
 /// Singleton class to manage the app's life cycle state.
 /// Utilizes the BLoC pattern for state management.

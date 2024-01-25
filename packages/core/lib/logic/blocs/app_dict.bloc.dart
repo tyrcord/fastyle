@@ -1,7 +1,7 @@
 // Package imports:
 import 'package:tbloc/tbloc.dart';
-import 'package:tstore/tstore.dart';
 import 'package:tlogger/logger.dart';
+import 'package:tstore/tstore.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
