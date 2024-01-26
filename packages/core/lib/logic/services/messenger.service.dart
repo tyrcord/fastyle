@@ -1,6 +1,7 @@
 /// Import the required package for launching URLs.
 
 // Package imports:
+import 'package:tlogger/logger.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 /// A class representing a fast messenger.
@@ -27,6 +28,17 @@ class FastMessenger {
     );
 
     return launchUrl(uri.toString());
+  }
+
+  static Future<void> writeErrorEmail(
+    String recipientEmail, {
+    String? subject,
+    String? body,
+  }) async {
+    final logFile = await TLoggerJournal().getLogFile();
+    body = await logFile.readAsString();
+
+    return writeEmail(recipientEmail, subject: subject, body: body);
   }
 
   /// Launches a URL using the provided URL string.

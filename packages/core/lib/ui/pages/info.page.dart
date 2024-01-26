@@ -195,7 +195,7 @@ class FastAppInfoPage<T> extends StatelessWidget {
             }
           case 'bug-report':
             if (appInfo.bugReportEmail != null) {
-              FastMessenger.writeEmail(
+              FastMessenger.writeErrorEmail(
                 appInfo.bugReportEmail!,
                 subject: appInfo.appName,
               );

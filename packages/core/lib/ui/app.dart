@@ -465,16 +465,18 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
     return appInfo.supportEmail != null;
   }
 
-  void contactSupport({dynamic error}) {
+  Future<void> contactSupport({dynamic error}) async {
     if (_canContactSupport()) {
       final appInfoBloc = FastAppInfoBloc.instance;
       final appInfo = appInfoBloc.currentState;
+      final email = appInfo.supportEmail!;
+      final appName = appInfo.appName;
 
-      FastMessenger.writeEmail(
-        body: error != null ? TLoggerJournal().logs.join('\n') : null,
-        subject: appInfo.appName,
-        appInfo.supportEmail!,
-      );
+      if (error != null) {
+        FastMessenger.writeErrorEmail(subject: appName, email);
+      } else {
+        FastMessenger.writeEmail(subject: appName, email);
+      }
     }
   }
 
