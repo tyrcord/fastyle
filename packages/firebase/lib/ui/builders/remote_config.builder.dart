@@ -1,9 +1,11 @@
 // Flutter imports:
-import 'package:fastyle_firebase/fastyle_firebase.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
+import 'package:fastyle_firebase/fastyle_firebase.dart';
 
 class FastFirebaseRemoteConfigBuilder extends StatelessWidget {
   final BlocBuilder<FastFirebaseRemoteConfigBlocState> builder;
