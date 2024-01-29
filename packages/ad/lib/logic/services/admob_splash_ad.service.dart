@@ -49,7 +49,11 @@ class FastAdmobSplashAdService {
   /// Loads an AppOpenAd.
   ///
   /// Returns `true` if the ad was loaded successfully, `false` otherwise.
-  Future<bool> loadAd({String? country, List<String>? whiteList}) async {
+  Future<bool> loadAd({
+    List<String>? whiteList,
+    Duration? timeout,
+    String? country,
+  }) async {
     final canRequestAd = isAdRequestAllowedForCountry(
       country: country,
       whiteList: whiteList,
@@ -95,7 +99,14 @@ class FastAdmobSplashAdService {
         ),
       );
 
-      _loadAdFuture = completer.future;
+      timeout ??= const Duration(seconds: 30);
+
+      _loadAdFuture = completer.future.timeout(timeout).catchError((error) {
+        _logger.error('failed to load ad: $error');
+        _loadAdFuture = null;
+
+        return false;
+      });
 
       return _loadAdFuture!;
     }
