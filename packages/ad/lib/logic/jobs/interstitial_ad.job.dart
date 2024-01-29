@@ -10,17 +10,17 @@ import 'package:tlogger/logger.dart';
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 
-class FastSplashAdJob extends FastJob {
+class FastInterstitialAdJob extends FastJob {
   static final TLogger _logger = _manager.getLogger(_debugLabel);
-  static const _debugLabel = 'FastSplashAdJob';
+  static const _debugLabel = 'FastInterstitialAdJob';
   static final _manager = TLoggerManager();
-  static FastSplashAdJob? _singleton;
+  static FastInterstitialAdJob? _singleton;
 
-  factory FastSplashAdJob() {
-    return (_singleton ??= const FastSplashAdJob._());
+  factory FastInterstitialAdJob() {
+    return (_singleton ??= const FastInterstitialAdJob._());
   }
 
-  const FastSplashAdJob._() : super(debugLabel: _debugLabel);
+  const FastInterstitialAdJob._() : super(debugLabel: _debugLabel);
 
   @override
   Future<void> initialize(
@@ -32,14 +32,14 @@ class FastSplashAdJob extends FastJob {
 
     _logger.debug('Initializing...');
 
-    final splashAdBloc = FastSplashAdBloc.instance;
+    final interstitialAdBloc = FastInterstitialAdBloc.instance;
     final adInfoBloc = FastAdInfoBloc.instance;
     final appInfoBloc = FastAppInfoBloc.instance;
     final appInfo = appInfoBloc.currentState;
     final adInfo = adInfoBloc.currentState.adInfo;
 
-    splashAdBloc.addEvent(FastSplashAdBlocEvent.init(
-      payload: FastSplashAdBlocEventPayload(
+    interstitialAdBloc.addEvent(FastInterstitialAdBlocEvent.init(
+      payload: FastInterstitialAdBlocEventPayload(
         appLaunchCounter: appInfo.appLaunchCounter,
         countryCode: appInfo.deviceCountryCode,
         adInfo: adInfo,
@@ -47,24 +47,24 @@ class FastSplashAdJob extends FastJob {
     ));
 
     var response = await RaceStream([
-      splashAdBloc.onError,
-      splashAdBloc.onData.where((state) => state.isInitialized),
+      interstitialAdBloc.onError,
+      interstitialAdBloc.onData.where((state) => state.isInitialized),
     ]).first;
 
-    if (response is! FastSplashAdBlocState) {
+    if (response is! FastInterstitialAdBlocState) {
       _logger.error('Failed to initialize: $response');
       // FIXME: should not be a blocker
       // throw response;
       return;
     }
 
-    if (FastInterstitialAdBloc.hasBeenInstantiated) {
-      final interstitialAdBloc = FastInterstitialAdBloc.instance;
-      final interstitialAdBlocState = interstitialAdBloc.currentState;
+    if (FastSplashAdBloc.hasBeenInstantiated) {
+      final splashAdBloc = FastSplashAdBloc.instance;
+      final splashAdBlocState = splashAdBloc.currentState;
 
-      if (interstitialAdBlocState.isAdDisplayable) {
+      if (splashAdBlocState.isAdDisplayable) {
         _logger.debug(
-          'Interstitial ad is displayable, no need to show an splash ad',
+          'Splash ad is displayable, no need to show an interstitial ad',
         );
 
         logInitialized();
@@ -75,28 +75,28 @@ class FastSplashAdJob extends FastJob {
 
     // note: we need to initialize the bloc before verifying
     // if we can show the ad
-    if (!splashAdBloc.canShowAd) {
-      _logger.debug('No need to show a splash ad');
+    if (!interstitialAdBloc.canShowAd) {
+      _logger.debug('No need to show an interstitial ad');
       logInitialized();
 
       return;
     }
 
-    _logger.debug('Loading a splash ad...');
-    splashAdBloc.addEvent(const FastSplashAdBlocEvent.loadAd());
+    _logger.debug('Loading an interstitial ad...');
+    interstitialAdBloc.addEvent(const FastInterstitialAdBlocEvent.loadAd());
 
     response = await RaceStream([
-      splashAdBloc.onError,
-      splashAdBloc.onData.where((state) => state.isAdLoaded),
+      interstitialAdBloc.onError,
+      interstitialAdBloc.onData.where((state) => state.isAdLoaded),
     ]).first;
 
-    if (response is! FastSplashAdBlocState) {
-      _logger.error('Failed to load a splash ad: $response');
+    if (response is! FastInterstitialAdBlocState) {
+      _logger.error('Failed to load an interstitial ad: $response');
       // FIXME: should not be a blocker
       // throw response;
     }
 
-    _logger.debug('Splash ad loaded');
+    _logger.debug('Interstitial ad loaded');
     logInitialized();
   }
 

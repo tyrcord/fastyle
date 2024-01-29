@@ -1,5 +1,5 @@
 const kFastAdmobTestUnitsIOS = {
-  'Interstitial': '	ca-app-pub-3940256099942544/5135589807',
+  'Interstitial': 'ca-app-pub-3940256099942544/5135589807',
   'Rewarded': 'ca-app-pub-3940256099942544/1712485313',
   'Native': 'ca-app-pub-3940256099942544/2521693316',
   'Banner': 'ca-app-pub-3940256099942544/2934735716',

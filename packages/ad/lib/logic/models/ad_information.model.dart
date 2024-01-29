@@ -63,6 +63,8 @@ class FastAdInfo extends TDocument {
   /// The threshold value for splash ads.
   final int splashAdThreshold;
 
+  final int interstitialAdThreshold;
+
   /// The authority of the ad service URI.
   final String? adServiceUriAuthority;
 
@@ -211,6 +213,7 @@ class FastAdInfo extends TDocument {
     this.showRemoveAdLink = kFastAdShowRemoveAdLink,
     this.androidNativeAdmobEnabled = kFastNativeAdmobEnabled,
     this.iosNativeAdmobEnabled = kFastNativeAdmobEnabled,
+    this.interstitialAdThreshold = kFastInterstitialAdThreshold,
   });
 
   /// Create a new [FastAdInfo] instance from a JSON map.
@@ -245,6 +248,8 @@ class FastAdInfo extends TDocument {
           json['nativeAdmobEnabled'] as bool? ?? kFastNativeAdmobEnabled,
       iosNativeAdmobEnabled:
           json['nativeAdmobEnabled'] as bool? ?? kFastNativeAdmobEnabled,
+      interstitialAdThreshold: json['interstitialAdThreshold'] as int? ??
+          kFastInterstitialAdThreshold,
     );
   }
 
@@ -276,6 +281,7 @@ class FastAdInfo extends TDocument {
     bool? showRemoveAdLink,
     bool? androidNativeAdmobEnabled,
     bool? iosNativeAdmobEnabled,
+    int? interstitialAdThreshold,
   }) =>
       FastAdInfo(
         iosNativeAdUnitId: iosNativeAdUnitId ?? this.iosNativeAdUnitId,
@@ -311,6 +317,8 @@ class FastAdInfo extends TDocument {
             androidNativeAdmobEnabled ?? this.androidNativeAdmobEnabled,
         iosNativeAdmobEnabled:
             iosNativeAdmobEnabled ?? this.iosNativeAdmobEnabled,
+        interstitialAdThreshold:
+            interstitialAdThreshold ?? this.interstitialAdThreshold,
       );
 
   /// Merges the properties of another [FastAdInfo] instance into this one.
@@ -339,6 +347,7 @@ class FastAdInfo extends TDocument {
       showRemoveAdLink: model.showRemoveAdLink,
       androidNativeAdmobEnabled: model.androidNativeAdmobEnabled,
       iosNativeAdmobEnabled: model.iosNativeAdmobEnabled,
+      interstitialAdThreshold: model.interstitialAdThreshold,
     );
   }
 
@@ -367,6 +376,7 @@ class FastAdInfo extends TDocument {
         'showRemoveAdLink': showRemoveAdLink,
         'androidNativeAdmobEnabled': androidNativeAdmobEnabled,
         'iosNativeAdmobEnabled': iosNativeAdmobEnabled,
+        'interstitialAdThreshold': interstitialAdThreshold,
         ...super.toJson(),
       };
 
@@ -395,6 +405,7 @@ class FastAdInfo extends TDocument {
         showRemoveAdLink,
         androidNativeAdmobEnabled,
         iosNativeAdmobEnabled,
+        interstitialAdThreshold,
       ];
 
   /// Print the values of properties in debug mode.
@@ -423,7 +434,13 @@ class FastAdInfo extends TDocument {
         ..info('countries', countries)
         ..info('splashAdThreshold', splashAdThreshold)
         ..info('adServiceUriAuthority', adServiceUriAuthority)
-        ..info('refreshInterval: $refreshInterval');
+        ..info('interstitialAdThreshold', interstitialAdThreshold)
+        ..info('refreshInterval', refreshInterval)
+        ..info('autoRefresh', autoRefresh)
+        ..info('showRemoveAdLink', showRemoveAdLink)
+        ..info('androidNativeAdmobEnabled', androidNativeAdmobEnabled)
+        ..info('iosNativeAdmobEnabled', iosNativeAdmobEnabled)
+        ..info('interstitialAdThreshold', interstitialAdThreshold);
     }
   }
 }

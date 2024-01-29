@@ -13,6 +13,10 @@ const kFastAdRefreshInterval = 300;
 /// Default is 3 app launches.
 const kFastSplashAdThreshold = 3;
 
+/// The threshold for showing an interstitial ad.
+/// Default is 3 app launches.
+const kFastInterstitialAdThreshold = 3;
+
 /// The default time to keep in cache the ad service response.
 const kFastAdServiceCacheTTL = Duration(minutes: 60);
 

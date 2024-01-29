@@ -7,3 +7,4 @@ export './splash_ad.bloc.dart';
 export './native_ad.bloc.dart';
 export 'rewarded_ad.bloc.dart';
 export './enums/enums.dart';
+export 'interstitial_ad.bloc.dart';

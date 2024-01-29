@@ -1,20 +1,16 @@
 // Dart imports:
 import 'dart:async';
 
-// Flutter imports:
-import 'package:flutter/material.dart';
-
 // Package imports:
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 
-/// Controller for a App Open ad.
-class FastAdmobSplashAdService {
-  static const _debugLabel = 'FastAdmobSplashAdService';
+/// Controller for Interstitial ads.
+class FastAdmobInterstitialAdService {
+  static const _debugLabel = 'FastAdmobInterstitialAdService';
   static final _manager = TLoggerManager();
 
   /// Information about the ad.
@@ -22,31 +18,30 @@ class FastAdmobSplashAdService {
 
   late final TLogger _logger;
 
-  /// The loaded splash ad.
-  AppOpenAd? _splashAd;
+  /// The loaded Interstitial ad.
+  InterstitialAd? _interstitialAd;
 
   /// Whether an ad is currently being shown.
   bool _isShowingAd = false;
 
-  /// Creates a new [FastAdmobSplashAdService] with the given [adInfo].
-  FastAdmobSplashAdService({this.adInfo}) {
+  FastAdmobInterstitialAdService({this.adInfo}) {
     _logger = _manager.getLogger(_debugLabel);
   }
 
   void dispose() {
     _manager.removeLogger(_debugLabel);
-    _splashAd?.dispose();
+    _interstitialAd?.dispose();
   }
 
-  /// The ad unit ID for the splash ad.
-  String? get _adUnitId => adInfo?.splashAdUnitId;
+  /// The ad unit ID for the Interstitial ad.
+  String? get _adUnitId => adInfo?.interstitialAdUnitId;
 
   /// Whether an ad is available to be shown.
-  bool get isAdAvailable => _splashAd != null;
+  bool get isAdAvailable => _interstitialAd != null;
 
   Future<bool>? _loadAdFuture;
 
-  /// Loads an AppOpenAd.
+  /// Loads an InterstitialAd.
   ///
   /// Returns `true` if the ad was loaded successfully, `false` otherwise.
   Future<bool> loadAd({
@@ -61,38 +56,32 @@ class FastAdmobSplashAdService {
 
     if (canRequestAd && _adUnitId != null) {
       final completer = Completer<bool>();
-      final bloc = FastDeviceOrientationBloc();
-      final deviceOrientation = bloc.currentState.orientation;
-      final adOrientation = deviceOrientation == Orientation.portrait
-          ? AppOpenAd.orientationPortrait
-          : AppOpenAd.orientationLandscapeRight;
       final stopwatch = Stopwatch()..start();
 
-      _logger.debug(
-        'Loading Splash Ad for orientation: ${deviceOrientation.name}',
-      );
+      _logger
+        ..debug('Loading Interstitial Ad...')
+        ..debug('Ad unit ID: $_adUnitId');
 
-      AppOpenAd.load(
+      InterstitialAd.load(
         adUnitId: _adUnitId!,
-        orientation: adOrientation,
         request: const AdRequest(),
-        adLoadCallback: AppOpenAdLoadCallback(
+        adLoadCallback: InterstitialAdLoadCallback(
           onAdLoaded: (ad) {
             stopwatch.stop();
             _logger.debug(
-              'Splash Ad loaded in ${stopwatch.elapsedMilliseconds}ms',
+              'Interstitial Ad loaded in ${stopwatch.elapsedMilliseconds}ms',
             );
 
-            _splashAd = ad;
+            _interstitialAd = ad;
             _loadAdFuture = null;
             completer.complete(true);
           },
           onAdFailedToLoad: (error) {
             stopwatch.stop();
-            final milliseconds = stopwatch.elapsedMilliseconds;
+            final elapsedTime = stopwatch.elapsedMilliseconds;
             _logger
-              ..debug('Splash Ad failed to load in $milliseconds ms')
-              ..error('failed to load ad: $error');
+              ..debug('Interstitial Ad failed to load in ${elapsedTime}ms')
+              ..error('Failed to load Interstitial Ad: $error');
             _loadAdFuture = null;
             completer.complete(false);
           },
@@ -102,7 +91,7 @@ class FastAdmobSplashAdService {
       timeout ??= const Duration(seconds: 45);
 
       _loadAdFuture = completer.future.timeout(timeout).catchError((error) {
-        _logger.error('failed to load ad: $error');
+        _logger.error('Failed to load Interstitial Ad: $error');
         _loadAdFuture = null;
 
         return false;
@@ -135,7 +124,7 @@ class FastAdmobSplashAdService {
       return;
     }
 
-    _splashAd!.fullScreenContentCallback = FullScreenContentCallback(
+    _interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
       onAdShowedFullScreenContent: (ad) => _isShowingAd = true,
       onAdDismissedFullScreenContent: _disposeAd,
       onAdFailedToShowFullScreenContent: (ad, error) {
@@ -144,13 +133,13 @@ class FastAdmobSplashAdService {
       },
     );
 
-    return _splashAd!.show();
+    _interstitialAd!.show();
   }
 
   /// Disposes of the current ad.
-  void _disposeAd(AppOpenAd ad) {
+  void _disposeAd(InterstitialAd ad) {
     _isShowingAd = false;
-    _splashAd?.dispose();
-    _splashAd = null;
+    _interstitialAd?.dispose();
+    _interstitialAd = null;
   }
 }

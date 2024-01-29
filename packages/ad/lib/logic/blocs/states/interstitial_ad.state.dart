@@ -4,14 +4,14 @@ import 'package:tbloc/tbloc.dart';
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
 
-class FastSplashAdBlocState extends BlocState {
+class FastInterstitialAdBlocState extends BlocState {
   final bool isAdDisplayable;
   final String? countryCode;
   final FastAdInfo adInfo;
   final bool isAdLoading;
   final bool isAdLoaded;
 
-  FastSplashAdBlocState({
+  FastInterstitialAdBlocState({
     super.isInitializing = false,
     super.isInitialized = false,
     this.isAdDisplayable = false,
@@ -22,7 +22,7 @@ class FastSplashAdBlocState extends BlocState {
   }) : adInfo = adInfo ?? const FastAdInfo();
 
   @override
-  FastSplashAdBlocState copyWith({
+  FastInterstitialAdBlocState copyWith({
     bool? isAdDisplayable,
     bool? isInitializing,
     bool? isInitialized,
@@ -31,7 +31,7 @@ class FastSplashAdBlocState extends BlocState {
     bool? isAdLoading,
     bool? isAdLoaded,
   }) {
-    return FastSplashAdBlocState(
+    return FastInterstitialAdBlocState(
       isAdDisplayable: isAdDisplayable ?? this.isAdDisplayable,
       isInitializing: isInitializing ?? this.isInitializing,
       isInitialized: isInitialized ?? this.isInitialized,
@@ -54,11 +54,11 @@ class FastSplashAdBlocState extends BlocState {
       ];
 
   @override
-  FastSplashAdBlocState clone() => copyWith();
+  FastInterstitialAdBlocState clone() => copyWith();
 
   @override
-  FastSplashAdBlocState merge(
-    covariant FastSplashAdBlocState model,
+  FastInterstitialAdBlocState merge(
+    covariant FastInterstitialAdBlocState model,
   ) {
     return copyWith(
       isInitializing: model.isInitializing,
