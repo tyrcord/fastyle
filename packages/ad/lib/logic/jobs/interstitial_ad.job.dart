@@ -61,6 +61,7 @@ class FastInterstitialAdJob extends FastJob {
     if (FastSplashAdBloc.hasBeenInstantiated) {
       final splashAdBloc = FastSplashAdBloc.instance;
       final splashAdBlocState = splashAdBloc.currentState;
+      final lastImpressionDate = splashAdBlocState.lastImpressionDate;
 
       if (splashAdBlocState.isAdDisplayable) {
         _logger.debug(
@@ -70,6 +71,20 @@ class FastInterstitialAdJob extends FastJob {
         logInitialized();
 
         return;
+      } else if (lastImpressionDate != null) {
+        final now = DateTime.now();
+        final difference = now.difference(lastImpressionDate);
+
+        if (difference.inSeconds < adInfo.splashAdTimeThreshold) {
+          _logger.debug(
+            'Splash ad was displayed less than an hour ago, no need to '
+            'show an interstitial ad',
+          );
+
+          logInitialized();
+
+          return;
+        }
       }
     }
 

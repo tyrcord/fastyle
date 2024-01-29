@@ -5,6 +5,7 @@ import 'package:tbloc/tbloc.dart';
 import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastSplashAdBlocState extends BlocState {
+  final DateTime? lastImpressionDate;
   final bool isAdDisplayable;
   final String? countryCode;
   final FastAdInfo adInfo;
@@ -17,12 +18,14 @@ class FastSplashAdBlocState extends BlocState {
     this.isAdDisplayable = false,
     this.isAdLoading = false,
     this.isAdLoaded = false,
+    this.lastImpressionDate,
     FastAdInfo? adInfo,
     this.countryCode,
   }) : adInfo = adInfo ?? const FastAdInfo();
 
   @override
   FastSplashAdBlocState copyWith({
+    DateTime? lastImpressionDate,
     bool? isAdDisplayable,
     bool? isInitializing,
     bool? isInitialized,
@@ -32,6 +35,7 @@ class FastSplashAdBlocState extends BlocState {
     bool? isAdLoaded,
   }) {
     return FastSplashAdBlocState(
+      lastImpressionDate: lastImpressionDate ?? this.lastImpressionDate,
       isAdDisplayable: isAdDisplayable ?? this.isAdDisplayable,
       isInitializing: isInitializing ?? this.isInitializing,
       isInitialized: isInitialized ?? this.isInitialized,
@@ -44,9 +48,10 @@ class FastSplashAdBlocState extends BlocState {
 
   @override
   List<Object?> get props => [
+        lastImpressionDate,
+        isAdDisplayable,
         isInitializing,
         isInitialized,
-        isAdDisplayable,
         countryCode,
         isAdLoading,
         isAdLoaded,
@@ -61,9 +66,10 @@ class FastSplashAdBlocState extends BlocState {
     covariant FastSplashAdBlocState model,
   ) {
     return copyWith(
+      lastImpressionDate: model.lastImpressionDate,
+      isAdDisplayable: model.isAdDisplayable,
       isInitializing: model.isInitializing,
       isInitialized: model.isInitialized,
-      isAdDisplayable: model.isAdDisplayable,
       countryCode: model.countryCode,
       isAdLoading: model.isAdLoading,
       isAdLoaded: model.isAdLoaded,

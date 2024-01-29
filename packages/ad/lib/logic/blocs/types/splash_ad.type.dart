@@ -3,4 +3,5 @@ enum FastSplashAdBlocEventType {
   initialized,
   loadAd,
   showAd,
+  adImpression,
 }

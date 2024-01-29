@@ -3,6 +3,7 @@ import 'dart:async';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:rxdart/rxdart.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -27,6 +28,10 @@ class FastAdmobSplashAdService {
 
   /// Whether an ad is currently being shown.
   bool _isShowingAd = false;
+
+  final _adImpressionController = PublishSubject<DateTime>();
+
+  Stream<DateTime> get onAdImpression => _adImpressionController.stream;
 
   /// Creates a new [FastAdmobSplashAdService] with the given [adInfo].
   FastAdmobSplashAdService({this.adInfo}) {
@@ -139,8 +144,13 @@ class FastAdmobSplashAdService {
       onAdShowedFullScreenContent: (ad) => _isShowingAd = true,
       onAdDismissedFullScreenContent: _disposeAd,
       onAdFailedToShowFullScreenContent: (ad, error) {
-        _logger.debug('failed to show ad: $error');
+        _logger.debug('failed to show splash ad: $error');
         _disposeAd(ad);
+      },
+      onAdImpression: (ad) {
+        _logger.debug('Splash ad impression');
+        final nowUtc = DateTime.now().toUtc();
+        _adImpressionController.add(nowUtc);
       },
     );
 

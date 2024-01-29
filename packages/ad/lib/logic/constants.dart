@@ -31,6 +31,8 @@ const kFastNativeAdmobEnabled = true;
 
 const kFastAdRewardedBlockDuration = Duration(seconds: 5);
 
+const kFastAdSplashAdTimeThreshold = 60 * 60; // 1 hour
+
 const kFastNativeAdAssetSizes = {
   FastAdSize.small: 60.0,
   FastAdSize.medium: 120.0,
@@ -42,3 +44,5 @@ const kFastNativeAdContainerHeights = {
   FastAdSize.medium: 120.0,
   FastAdSize.large: 340.0,
 };
+
+const kFastSplashAdStoreName = 'fastSplashAdStore';

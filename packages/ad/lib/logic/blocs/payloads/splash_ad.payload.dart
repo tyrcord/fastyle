@@ -2,25 +2,29 @@
 import 'package:fastyle_ad/fastyle_ad.dart';
 
 class FastSplashAdBlocEventPayload {
-  final FastAdInfo? adInfo;
-  final String? countryCode;
+  final DateTime? lastImpressionDate;
   final int appLaunchCounter;
+  final String? countryCode;
+  final FastAdInfo? adInfo;
 
   const FastSplashAdBlocEventPayload({
-    this.adInfo,
+    this.lastImpressionDate,
     this.countryCode,
+    this.adInfo,
     int? appLaunchCounter,
   }) : appLaunchCounter = appLaunchCounter ?? 0;
 
   FastSplashAdBlocEventPayload copyWith({
-    FastAdInfo? adInfo,
-    String? countryCode,
+    DateTime? lastImpressionDate,
     int? appLaunchCounter,
+    String? countryCode,
+    FastAdInfo? adInfo,
   }) {
     return FastSplashAdBlocEventPayload(
-      adInfo: adInfo ?? this.adInfo,
-      countryCode: countryCode ?? this.countryCode,
+      lastImpressionDate: lastImpressionDate ?? this.lastImpressionDate,
       appLaunchCounter: appLaunchCounter ?? this.appLaunchCounter,
+      countryCode: countryCode ?? this.countryCode,
+      adInfo: adInfo ?? this.adInfo,
     );
   }
 }

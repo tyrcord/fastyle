@@ -18,4 +18,10 @@ class FastSplashAdBlocEvent
 
   const FastSplashAdBlocEvent.showAd()
       : super(type: FastSplashAdBlocEventType.showAd);
+
+  FastSplashAdBlocEvent.adImpression(DateTime date)
+      : super(
+          payload: FastSplashAdBlocEventPayload(lastImpressionDate: date),
+          type: FastSplashAdBlocEventType.adImpression,
+        );
 }

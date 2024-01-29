@@ -1,4 +1,6 @@
 // Package imports:
+import 'dart:async';
+
 import 'package:tbloc/tbloc.dart';
 import 'package:tlogger/logger.dart';
 
@@ -25,10 +27,20 @@ class FastSplashAdBloc
   }
 
   // Method to reset the singleton instance
-  static void reset() => _hasBeenInstantiated = false;
+  static void reset() {
+    if (_instance._serviceSubscription != null) {
+      _instance._serviceSubscription!.cancel();
+    }
+
+    _hasBeenInstantiated = false;
+  }
+
+  static final _dataProvider = FastSplashAdDataProvider();
 
   late FastAdmobSplashAdService _service;
   late int _appLaunchCounter;
+
+  StreamSubscription<DateTime>? _serviceSubscription;
 
   /// Returns whether the ad can be shown based on the current state.
   bool get canShowAd {
@@ -79,6 +91,10 @@ class FastSplashAdBloc
         yield* handleLoadSplashAdEvent();
       } else if (type == FastSplashAdBlocEventType.showAd) {
         yield* handleShowSplashAdEvent();
+      } else if (type == FastSplashAdBlocEventType.adImpression) {
+        if (payload is FastSplashAdBlocEventPayload) {
+          yield* handleAdImpressionEvent(payload);
+        }
       }
     }
   }
@@ -91,10 +107,23 @@ class FastSplashAdBloc
       isInitializing = true;
       yield currentState.copyWith(isInitializing: true);
 
+      if (_serviceSubscription != null) _serviceSubscription!.cancel();
+
       final adInfo = payload?.adInfo ?? currentState.adInfo;
+      final document = await _retrieveDocument();
 
       _service = FastAdmobSplashAdService(adInfo: adInfo);
       _appLaunchCounter = payload?.appLaunchCounter ?? 0;
+
+      payload = payload?.copyWith(
+        lastImpressionDate: document.lastImpressionDate,
+      );
+
+      _logger.debug('lastImpressionDate: ${payload?.lastImpressionDate}');
+
+      _serviceSubscription = _service.onAdImpression.listen((date) {
+        addEvent(FastSplashAdBlocEvent.adImpression(date));
+      });
 
       addEvent(FastSplashAdBlocEvent.initialized(payload: payload));
     }
@@ -108,6 +137,7 @@ class FastSplashAdBloc
       isInitialized = true;
 
       yield currentState.copyWith(
+        lastImpressionDate: payload?.lastImpressionDate,
         countryCode: payload?.countryCode,
         adInfo: payload?.adInfo,
         isInitializing: false,
@@ -139,5 +169,28 @@ class FastSplashAdBloc
     if (canShowAd) _service.showAdIfAvailable();
 
     yield currentState.copyWith(isAdLoaded: false, isAdDisplayable: false);
+  }
+
+  /// Updates the state after an ad impression.
+  Stream<FastSplashAdBlocState> handleAdImpressionEvent(
+    FastSplashAdBlocEventPayload payload,
+  ) async* {
+    final document = await _retrieveDocument();
+    final lastImpressionDate =
+        payload.lastImpressionDate ?? DateTime.now().toUtc();
+
+    _logger.debug('Ad impression: $lastImpressionDate');
+
+    await _dataProvider.persistSplashAdDocument(
+      document.copyWith(lastImpressionDate: lastImpressionDate),
+    );
+
+    yield currentState.copyWith(lastImpressionDate: lastImpressionDate);
+  }
+
+  Future<FastSplashAdDocument> _retrieveDocument() async {
+    await _dataProvider.connect();
+
+    return _dataProvider.retrieveSplashAdDocument();
   }
 }
