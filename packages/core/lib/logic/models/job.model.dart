@@ -25,11 +25,15 @@ abstract class FastJob {
 
   /// The time limit for the job to complete.
   @protected
-  final Duration timeLimit;
+  final Duration timeout;
+
+  /// Whether the job should prevent the app from starting if it fails.
+  final bool blockStartupOnFailure;
 
   const FastJob({
-    this.timeLimit = kFastJobTimeout,
+    this.timeout = kFastJobTimeout,
     this.requestUserInteraction = false,
+    this.blockStartupOnFailure = true,
     this.debugLabel,
   });
 
@@ -49,7 +53,7 @@ abstract class FastJob {
     var operationAsync = initialize(context, errorReporter: errorReporter);
 
     if (!requestUserInteraction) {
-      operationAsync = operationAsync.timeout(timeLimit);
+      operationAsync = operationAsync.timeout(timeout);
     } else {
       // Wait for the next frame to ensure that
       // the next job can request a user interaction.
@@ -71,7 +75,12 @@ abstract class FastJob {
     operationAsync.catchError((dynamic error, StackTrace? stackTrace) {
       _logger.error('Job failed: $debugLabel => $error', stackTrace);
       blocInitializationOperation.cancel();
-      completer.completeError(_transformError(error, stackTrace), stackTrace);
+
+      if (blockStartupOnFailure) {
+        completer.completeError(_transformError(error, stackTrace), stackTrace);
+      } else {
+        completer.complete(true);
+      }
     }).whenComplete(() {
       if (!completer.isCompleted) {
         _logger.debug('Job completed: $debugLabel');

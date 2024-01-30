@@ -20,7 +20,8 @@ class FastRewardedAdJob extends FastJob {
     return (_singleton ??= const FastRewardedAdJob._());
   }
 
-  const FastRewardedAdJob._() : super(debugLabel: _debugLabel);
+  const FastRewardedAdJob._()
+      : super(blockStartupOnFailure: false, debugLabel: _debugLabel);
 
   @override
   Future<void> initialize(

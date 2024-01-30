@@ -20,7 +20,8 @@ class FastSplashAdJob extends FastJob {
     return (_singleton ??= const FastSplashAdJob._());
   }
 
-  const FastSplashAdJob._() : super(debugLabel: _debugLabel);
+  const FastSplashAdJob._()
+      : super(blockStartupOnFailure: false, debugLabel: _debugLabel);
 
   @override
   Future<void> initialize(
@@ -53,9 +54,7 @@ class FastSplashAdJob extends FastJob {
 
     if (response is! FastSplashAdBlocState) {
       _logger.error('Failed to initialize: $response');
-      // FIXME: should not be a blocker
-      // throw response;
-      return;
+      throw response;
     }
 
     if (FastInterstitialAdBloc.hasBeenInstantiated) {
@@ -92,8 +91,7 @@ class FastSplashAdJob extends FastJob {
 
     if (response is! FastSplashAdBlocState) {
       _logger.error('Failed to load a splash ad: $response');
-      // FIXME: should not be a blocker
-      // throw response;
+      throw response;
     }
 
     _logger.debug('Splash ad loaded');

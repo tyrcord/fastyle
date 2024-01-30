@@ -47,7 +47,7 @@ class FastFirebaseRemoteConfigJob extends FastJob {
   FastFirebaseRemoteConfigJob._({
     this.defaultConfig,
     String? configPath,
-  }) : super(debugLabel: _debugLabel) {
+  }) : super(blockStartupOnFailure: false, debugLabel: _debugLabel) {
     defaultConfigPath = configPath ?? _defaultConfigPath;
   }
 

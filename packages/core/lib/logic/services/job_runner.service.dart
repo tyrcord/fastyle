@@ -58,8 +58,15 @@ class FastJobRunner {
             }
           }, (error, stackTrace) {
             if (!completer.isCompleted) {
-              final message = 'Job failed: ${job.debugLabel} - $error';
-              completer.completeError(message, stackTrace);
+              final debugLabel = job.debugLabel ?? 'Unknown';
+              final prefix = 'Job failed: $debugLabel - ';
+
+              if (job.blockStartupOnFailure) {
+                final message = '$prefix$error';
+                completer.completeError(message, stackTrace);
+              } else {
+                _logger.warning('${prefix}but startup failure is prevented');
+              }
             }
           });
         });

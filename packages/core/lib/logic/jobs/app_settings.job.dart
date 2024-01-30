@@ -167,15 +167,15 @@ class FastAppSettingsJob extends FastJob with FastSettingsThemeMixin {
   Future<bool> shouldUse24HourFormat(BuildContext context) async {
     final completer = Completer<bool>();
 
-    try {
-      SchedulerBinding.instance.scheduleFrameCallback((_) {
+    SchedulerBinding.instance.scheduleFrameCallback((_) {
+      try {
         final use24HourFormat = MediaQuery.alwaysUse24HourFormatOf(context);
 
         completer.complete(use24HourFormat);
-      });
-    } catch (e) {
-      completer.complete(true);
-    }
+      } catch (e) {
+        completer.complete(true);
+      }
+    });
 
     return completer.future;
   }

@@ -20,7 +20,8 @@ class FastInterstitialAdJob extends FastJob {
     return (_singleton ??= const FastInterstitialAdJob._());
   }
 
-  const FastInterstitialAdJob._() : super(debugLabel: _debugLabel);
+  const FastInterstitialAdJob._()
+      : super(blockStartupOnFailure: false, debugLabel: _debugLabel);
 
   @override
   Future<void> initialize(

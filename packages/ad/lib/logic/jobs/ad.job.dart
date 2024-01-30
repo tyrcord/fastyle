@@ -25,7 +25,8 @@ class FastAdInfoJob extends FastJob {
     return (_singleton ??= FastAdInfoJob._(delegate: delegate));
   }
 
-  const FastAdInfoJob._({this.delegate}) : super(debugLabel: _debugLabel);
+  const FastAdInfoJob._({this.delegate})
+      : super(blockStartupOnFailure: false, debugLabel: _debugLabel);
 
   @override
   Future<void> initialize(
