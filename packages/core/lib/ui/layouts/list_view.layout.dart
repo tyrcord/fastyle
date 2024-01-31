@@ -96,7 +96,7 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
       context,
       FastListItemCategory(
         labelText: CoreLocaleKeys.core_label_all,
-        valueText: 'all',
+        valueText: kFastListTileCategoryAll.valueText,
         items: elements,
       ),
     );
@@ -263,13 +263,11 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
         categoriesMap[kFastListTileCategoryAll.valueText]!.items;
 
     for (final item in items) {
+      if (!allCategory.contains(item)) allCategory.add(item);
+
       item.categories?.forEach((FastCategory category) {
         if (!categoriesMap.containsKey(category.valueText)) {
           categoriesMap[category.valueText] = _buildListCategory(category);
-        }
-
-        if (!allCategory.contains(item)) {
-          allCategory.add(item);
         }
 
         categoriesMap[category.valueText]!.items.add(item);
