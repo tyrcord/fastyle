@@ -2,10 +2,9 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_core/fastyle_core.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:matex_financial/financial.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:fastyle_financial/fastyle_financial.dart';
 
 /// A widget that displays a heart icon indicating whether a financial
 /// instrument is marked as favorite or not. The widget is built using the
@@ -37,20 +36,13 @@ class FastMatexInstrumentFavoriteIcon extends StatelessWidget {
       bloc: favoriteBloc,
       buildWhen: (previous, next) => _shouldRebuildIcon(previous, next),
       builder: (context, state) {
-        late Widget icon;
-
-        if (isInstrumentFavorite(baseMeta.code!, counterMeta.code!)) {
-          icon = _getFilledHeartIcon(context);
-        } else {
-          icon = _getHollowHeartIcon(context);
-        }
-
-        return Stack(
-          alignment: Alignment.center,
-          children: [
-            icon,
-            _getHeartIconHitZone(state),
-          ],
+        return FastItemFavoriteIcon(
+          onIconTapped: () => _onIconTapped(state),
+          isFavorite: isInstrumentFavorite(
+            baseMeta.code!,
+            counterMeta.code!,
+            favorites: state.favorites,
+          ),
         );
       },
     );
@@ -72,39 +64,6 @@ class FastMatexInstrumentFavoriteIcon extends StatelessWidget {
         isInstrumentFavorite(base, counter, favorites: nextFav);
 
     return nextIsFavorite != previousIsFavorite;
-  }
-
-  /// Returns a widget that displays a hollow heart icon.
-  Widget _getHollowHeartIcon(BuildContext context) {
-    final palette = ThemeHelper.getPaletteColors(context);
-
-    return FaIcon(
-      FastFontAwesomeIcons.lightHeart,
-      size: kFastFontSize16,
-      color: palette.gray.light,
-    );
-  }
-
-  /// Returns a widget that displays a filled heart icon.
-  Widget _getFilledHeartIcon(BuildContext context) {
-    final palette = ThemeHelper.getPaletteColors(context);
-
-    return FaIcon(
-      FontAwesomeIcons.solidHeart,
-      size: kFastFontSize16,
-      color: palette.red.mid,
-    );
-  }
-
-  Widget _getHeartIconHitZone(MatexInstrumentFavoriteBlocState state) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-      child: GestureDetector(
-        behavior: HitTestBehavior.translucent,
-        child: const SizedBox(width: 40, height: 40),
-        onTap: () => _onIconTapped(state),
-      ),
-    );
   }
 
   /// Handles the tap event on the heart icon. Adds or removes the instrument

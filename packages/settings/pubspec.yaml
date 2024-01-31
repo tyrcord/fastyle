@@ -15,6 +15,7 @@ dependencies:
   lingua_help: ^0.0.11
   lingua_languages: ^0.0.9
   lingua_settings: ^0.0.17
+  fastyle_financial: ^0.0.48
   matex_data: ^0.0.29
   matex_financial: ^0.0.47
   t_helpers: ^0.0.51

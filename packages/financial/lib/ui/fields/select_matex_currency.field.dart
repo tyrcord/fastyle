@@ -10,6 +10,7 @@ import 'package:matex_financial/financial.dart';
 
 // Project imports:
 import 'package:fastyle_forms/fastyle_forms.dart';
+import 'package:fastyle_financial/fastyle_financial.dart';
 
 class FastMatexSelectCurrencyField extends StatefulWidget {
   /// A callback function that takes a [MatexInstrumentMetadata] object and

@@ -95,10 +95,10 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
           allCategoryText: CoreLocaleKeys.core_label_all.tr(gender: maleGender),
           labelText: FinanceLocaleKeys.finance_label_financial_instrument.tr(),
           showHelperBoundaries: widget.showHelperBoundaries,
+          listViewEmptyContentBuilder: _buildEmptyContent,
           extraTabBuilder: () => [_buildFavoritesTab()],
           onSelectionChanged: widget.onSelectionChanged,
           searchPlaceholderText: searchPlaceholderText,
-          listViewEmptyContentBuilder: _buildEmptyContent,
           listViewContentPadding: EdgeInsets.zero,
           searchTitleText: searchTitleText,
           captionText: widget.captionText,
@@ -265,6 +265,20 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
     return '$baseLabel / $counterLabel';
   }
 
+  Widget? _buildFlagIcon(
+    MatexInstrumentMetadata instrument, {
+    bool hasShadow = true,
+    double width = 20,
+    double? height,
+  }) {
+    return buildFlagIconForFinancialInstrument(
+      instrument.icon!,
+      hasShadow: hasShadow,
+      height: height,
+      width: width,
+    );
+  }
+
   @override
   Widget? willBuildListViewForCategory(
     FastListViewLayout<FastItem> listViewLayout,
@@ -291,19 +305,5 @@ class FastSelectInstrumentFieldState extends State<FastSelectInstrumentField>
     int categoryCategoryIndex,
   ) {
     return _favoriteBloc.hasFavorites ? 1 : 2;
-  }
-
-  Widget? _buildFlagIcon(
-    MatexInstrumentMetadata instrument, {
-    bool hasShadow = true,
-    double width = 20,
-    double? height,
-  }) {
-    return buildFlagIconForFinancialInstrument(
-      instrument.icon!,
-      hasShadow: hasShadow,
-      height: height,
-      width: width,
-    );
   }
 }
