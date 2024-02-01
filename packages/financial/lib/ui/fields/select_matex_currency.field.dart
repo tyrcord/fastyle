@@ -5,11 +5,11 @@ import 'package:flutter/scheduler.dart';
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:fastyle_forms/fastyle_forms.dart';
 import 'package:lingua_finance_instrument/lingua_finance_instrument.dart';
 import 'package:matex_financial/financial.dart';
 
 // Project imports:
-import 'package:fastyle_forms/fastyle_forms.dart';
 import 'package:fastyle_financial/fastyle_financial.dart';
 
 class FastMatexSelectCurrencyField extends StatefulWidget {

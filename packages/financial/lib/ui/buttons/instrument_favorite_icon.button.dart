@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:matex_financial/financial.dart';
 import 'package:tbloc/tbloc.dart';
+
+// Project imports:
 import 'package:fastyle_financial/fastyle_financial.dart';
 
 /// A widget that displays a heart icon indicating whether a financial
