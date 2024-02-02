@@ -95,6 +95,7 @@ class FastImageFlag {
   static const euro = 'assets/images/flag/euro.svg.vec';
   static const saudiArabia = 'assets/images/flag/saudi_arabia.svg.vec';
   static const estonia = 'assets/images/flag/estonia.svg.vec';
+  static const liechtenstein = 'assets/images/flag/liechtenstein.svg.vec';
   static const senegal = 'assets/images/flag/senegal.svg.vec';
   static const finland = 'assets/images/flag/finland.svg.vec';
   static const unitedArabEmirates = 'assets/images/flag/united_arab_emirates.svg.vec';
@@ -210,6 +211,7 @@ const kFastImageFlag = [
   'euro',
   'saudiArabia',
   'estonia',
+  'liechtenstein',
   'senegal',
   'finland',
   'unitedArabEmirates',
@@ -325,6 +327,7 @@ const kFastImageFlagMap = {
   'euro': FastImageFlag.euro,
   'saudiArabia': FastImageFlag.saudiArabia,
   'estonia': FastImageFlag.estonia,
+  'liechtenstein': FastImageFlag.liechtenstein,
   'senegal': FastImageFlag.senegal,
   'finland': FastImageFlag.finland,
   'unitedArabEmirates': FastImageFlag.unitedArabEmirates,
