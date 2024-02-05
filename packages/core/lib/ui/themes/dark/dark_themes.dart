@@ -58,3 +58,10 @@ final kDarkMintFastTheme = FastThemeFactory.buildDarkThemeWithColors(
   secondaryColor: kFastDarkPurpleColor,
   tertiaryColor: kFastDarkIndigoColor,
 );
+
+final kDarkBlueGrayFastTheme = FastThemeFactory.buildDarkThemeWithColors(
+  primaryColor: kFastDarkBlueGrayColor,
+  primaryColorDark: kFastDarkBlueGrayPaletteColors.dark,
+  secondaryColor: kFastDarkMintColor,
+  tertiaryColor: kFastDarkPurpleColor,
+);

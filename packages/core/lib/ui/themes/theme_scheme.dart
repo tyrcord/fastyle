@@ -12,6 +12,7 @@ class FastThemeScheme {
   final ThemeData teal;
   final ThemeData yellow;
   final ThemeData mint;
+  final ThemeData? blueGray;
 
   FastThemeScheme({
     required this.blue,
@@ -22,5 +23,6 @@ class FastThemeScheme {
     required this.teal,
     required this.yellow,
     required this.mint,
+    this.blueGray,
   });
 }
