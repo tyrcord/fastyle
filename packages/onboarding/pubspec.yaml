@@ -13,7 +13,7 @@ dependencies:
   lingua_core: ^0.0.38
   lingua_onboarding: ^0.0.20
   lingua_purchases: ^0.0.24
-  tbloc: ^0.22.0+1
+  tbloc: ^0.21.0
 description: Set of onboarding Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^3.2.3
@@ -22,8 +22,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: '>=3.16.0'
-  sdk: '>=3.2.0 <4.0.0'
+  flutter: ">=3.16.0"
+  sdk: ">=3.2.0 <4.0.0"
 name: fastyle_onboarding
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/onboarding
 version: 0.0.49
