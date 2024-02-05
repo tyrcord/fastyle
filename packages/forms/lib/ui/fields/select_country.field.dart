@@ -7,6 +7,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_images/fastyle_images.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:lingua_core/lingua_core.dart';
 import 'package:lingua_countries/countries.dart';
 import 'package:matex_data/matex_data.dart';
 
@@ -55,6 +56,8 @@ class FastSelectCountryField extends StatelessWidget {
   /// Specifies whether the selection can be cleared.
   final bool canClearSelection;
 
+  String get maleGender => LinguaLocalizationGender.male;
+
   /// Creates a [FastSelectCountryField].
   const FastSelectCountryField({
     super.key,
@@ -92,6 +95,7 @@ class FastSelectCountryField extends StatelessWidget {
           searchTitleText ?? CoreLocaleKeys.core_select_country.tr(),
       selection: selectedOption,
       captionText: captionText,
+      noneTextGender: maleGender,
       isReadOnly: !isEnabled,
       useFuzzySearch: true,
       items: options,

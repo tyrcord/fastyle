@@ -58,10 +58,8 @@ class FastAppSettingsUserCountrySelectField extends StatelessWidget {
           labelText: _getLabelText(),
           canClearSelection: canClearSelection,
           onSelectionChanged: (FastItem<MatexCountryMetadata>? item) {
-            if (item != null &&
-                item.value != null &&
-                item.value!.code != state.countryCode) {
-              onCountryChanged?.call(item.value!.code);
+            if (item?.value != null) {
+              onCountryChanged?.call(item!.value!.code);
             } else {
               onCountryChanged?.call(null);
             }
