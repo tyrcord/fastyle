@@ -6,18 +6,18 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
-  lingua_ad: ^0.0.18
-  lingua_calculator: ^0.0.8
-  lingua_core: ^0.0.36
-  lingua_purchases: ^0.0.22
-  lingua_settings: ^0.0.17
+  lingua_ad: ^0.0.20
+  lingua_calculator: ^0.0.10
+  lingua_core: ^0.0.38
+  lingua_purchases: ^0.0.24
+  lingua_settings: ^0.0.19
   pdf: ^3.10.6
   printing: ^5.11.1
-  t_helpers: ^0.0.51
-  tbloc: ^0.21.0
-  tenhance: ^0.0.8
-  tmodel: ^0.5.13
-  tstore: ^0.8.23
+  t_helpers: ^0.0.51+1
+  tbloc: ^0.22.0+1
+  tenhance: ^0.0.8+1
+  tmodel: ^0.5.13+1
+  tstore: ^0.8.24
 description: Set of calculator Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^3.2.3
@@ -26,8 +26,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: ">=3.16.0"
-  sdk: ">=3.2.0 <4.0.0"
+  flutter: '>=3.16.0'
+  sdk: '>=3.2.0 <4.0.0'
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/calculator
 name: fastyle_calculator
 version: 1.60.0
