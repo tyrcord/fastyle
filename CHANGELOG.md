@@ -3,6 +3,179 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-02-05
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.46`](#fastyle_ad---v0046)
+ - [`fastyle_animation` - `v0.0.19`](#fastyle_animation---v0019)
+ - [`fastyle_buttons` - `v0.0.28`](#fastyle_buttons---v0028)
+ - [`fastyle_calculator` - `v1.61.0`](#fastyle_calculator---v1610)
+ - [`fastyle_charts` - `v0.0.32`](#fastyle_charts---v0032)
+ - [`fastyle_connectivity` - `v0.0.44`](#fastyle_connectivity---v0044)
+ - [`fastyle_core` - `v0.0.51`](#fastyle_core---v0051)
+ - [`fastyle_digit_calculator` - `v0.0.43`](#fastyle_digit_calculator---v0043)
+ - [`fastyle_financial` - `v0.0.45`](#fastyle_financial---v0045)
+ - [`fastyle_firebase` - `v0.0.35`](#fastyle_firebase---v0035)
+ - [`fastyle_forms` - `v0.0.49`](#fastyle_forms---v0049)
+ - [`fastyle_home` - `v0.0.39`](#fastyle_home---v0039)
+ - [`fastyle_iap` - `v0.0.39`](#fastyle_iap---v0039)
+ - [`fastyle_images` - `v0.0.49`](#fastyle_images---v0049)
+ - [`fastyle_layouts` - `v0.0.21`](#fastyle_layouts---v0021)
+ - [`fastyle_onboarding` - `v0.0.50`](#fastyle_onboarding---v0050)
+ - [`fastyle_pricing` - `v1.44.0`](#fastyle_pricing---v1440)
+ - [`fastyle_quizz` - `v0.0.19`](#fastyle_quizz---v0019)
+ - [`fastyle_settings` - `v0.0.54`](#fastyle_settings---v0054)
+ - [`fastyle_text` - `v0.0.27`](#fastyle_text---v0027)
+ - [`fastyle_video_player` - `v0.0.31`](#fastyle_video_player---v0031)
+ - [`fastyle_views` - `v0.0.36`](#fastyle_views---v0036)
+
+---
+
+#### `fastyle_ad` - `v0.0.46`
+
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+ - **FEAT**: avoid to block the startup process when some starting job fails.
+ - **FEAT**: make sure we don't display too many ads at startup.
+ - **FEAT**: added support for interstitial ads.
+ - **FEAT**: add a timeout when requesting a splash ad.
+ - **FEAT**: allow to reset singleton blocs.
+
+#### `fastyle_animation` - `v0.0.19`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_buttons` - `v0.0.28`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_calculator` - `v1.61.0`
+
+ - **REFACTOR**: move away from Decimal.
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_charts` - `v0.0.32`
+
+ - **REFACTOR**: move away from Decimal.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_connectivity` - `v0.0.44`
+
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_core` - `v0.0.51`
+
+ - **REFACTOR**: move away from Decimal.
+ - **FIX**: make sure the all tab is not empty.
+ - **FIX**: flush the socket before closing it.
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add blue gray theme.
+ - **FEAT**: avoid to block the startup process when some starting job fails.
+ - **FEAT**: added writeErrorEmail helper.
+ - **FEAT**: allow to reset all content and settings of a fast app.
+ - **FEAT**: better restart logic.
+ - **FEAT**: better restart logic.
+
+#### `fastyle_digit_calculator` - `v0.0.43`
+
+ - **REFACTOR**: move away from Decimal.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_financial` - `v0.0.45`
+
+ - **REFACTOR**: move away from Decimal.
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+ - **FEAT**: added favorite currency feature.
+ - **FEAT**: allow invalid numbers.
+
+#### `fastyle_firebase` - `v0.0.35`
+
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+ - **FEAT**: avoid to block the startup process when some starting job fails.
+ - **FEAT**: add FastFirebaseRemoteConfigBuilder.
+ - **FEAT**: better restart logic.
+
+#### `fastyle_forms` - `v0.0.49`
+
+ - **REFACTOR**: move away from Decimal.
+ - **FIX**: bunch of fixes.
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+ - **FEAT**: added favorite currency feature.
+ - **FEAT**: allow invalid numbers.
+
+#### `fastyle_home` - `v0.0.39`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_iap` - `v0.0.39`
+
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to reset singleton blocs.
+
+#### `fastyle_images` - `v0.0.49`
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: add liechtenstein flag.
+ - **FEAT**: support more flags.
+
+#### `fastyle_layouts` - `v0.0.21`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_onboarding` - `v0.0.50`
+
+ - **FIX**: remove enable ads button.
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_pricing` - `v1.44.0`
+
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_quizz` - `v0.0.19`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_settings` - `v0.0.54`
+
+ - **FIX**: bunch of fixes.
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+ - **FEAT**: added favorite currency feature.
+ - **FEAT**: allow to reset all content and settings of a fast app.
+
+#### `fastyle_text` - `v0.0.27`
+
+ - **FEAT**: update dependencies.
+
+#### `fastyle_video_player` - `v0.0.31`
+
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_views` - `v0.0.36`
+
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+
+
 ## 2024-01-19
 
 ### Changes

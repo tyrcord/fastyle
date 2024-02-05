@@ -1,3 +1,9 @@
+## 0.0.50
+
+ - **FIX**: remove enable ads button.
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+
 ## 0.0.49
 
  - **FEAT**: update dependencies.

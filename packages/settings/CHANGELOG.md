@@ -1,3 +1,11 @@
+## 0.0.54
+
+ - **FIX**: bunch of fixes.
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+ - **FEAT**: added favorite currency feature.
+ - **FEAT**: allow to reset all content and settings of a fast app.
+
 ## 0.0.53
 
  - **FEAT**: update dependencies.

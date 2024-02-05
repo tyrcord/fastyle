@@ -1,3 +1,8 @@
+## 0.0.44
+
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+
 ## 0.0.43
 
  - **FEAT**: update dependencies.

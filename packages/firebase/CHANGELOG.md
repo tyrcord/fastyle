@@ -1,3 +1,11 @@
+## 0.0.35
+
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+ - **FEAT**: avoid to block the startup process when some starting job fails.
+ - **FEAT**: add FastFirebaseRemoteConfigBuilder.
+ - **FEAT**: better restart logic.
+
 ## 0.0.34
 
  - **FEAT**: update dependencies.

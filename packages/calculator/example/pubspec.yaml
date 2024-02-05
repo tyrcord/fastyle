@@ -1,6 +1,6 @@
 dependencies:
-  fastyle_calculator: ^1.60.0
-  fastyle_core: ^0.0.50
+  fastyle_calculator: ^1.61.0
+  fastyle_core: ^0.0.51
   flutter:
     sdk: flutter
   go_router: ^13.0.1

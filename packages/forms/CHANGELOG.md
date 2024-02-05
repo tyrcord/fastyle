@@ -1,3 +1,12 @@
+## 0.0.49
+
+ - **REFACTOR**: move away from Decimal.
+ - **FIX**: bunch of fixes.
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+ - **FEAT**: added favorite currency feature.
+ - **FEAT**: allow invalid numbers.
+
 ## 0.0.48
 
  - **FEAT**: update dependencies.

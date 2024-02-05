@@ -1,3 +1,9 @@
+## 0.0.39
+
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to reset singleton blocs.
+
 ## 0.0.38
 
  - **FEAT**: update dependencies.

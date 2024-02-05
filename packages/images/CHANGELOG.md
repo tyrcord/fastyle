@@ -1,3 +1,9 @@
+## 0.0.49
+
+ - **FEAT**: update dependencies.
+ - **FEAT**: add liechtenstein flag.
+ - **FEAT**: support more flags.
+
 ## 0.0.48+1
 
  - Update a dependency to the latest release.

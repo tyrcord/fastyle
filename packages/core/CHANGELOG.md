@@ -1,3 +1,17 @@
+## 0.0.51
+
+ - **REFACTOR**: move away from Decimal.
+ - **FIX**: make sure the all tab is not empty.
+ - **FIX**: flush the socket before closing it.
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add blue gray theme.
+ - **FEAT**: avoid to block the startup process when some starting job fails.
+ - **FEAT**: added writeErrorEmail helper.
+ - **FEAT**: allow to reset all content and settings of a fast app.
+ - **FEAT**: better restart logic.
+ - **FEAT**: better restart logic.
+
 ## 0.0.50
 
  - **FEAT**: update dependencies.

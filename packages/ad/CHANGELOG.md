@@ -1,3 +1,13 @@
+## 0.0.46
+
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+ - **FEAT**: avoid to block the startup process when some starting job fails.
+ - **FEAT**: make sure we don't display too many ads at startup.
+ - **FEAT**: added support for interstitial ads.
+ - **FEAT**: add a timeout when requesting a splash ad.
+ - **FEAT**: allow to reset singleton blocs.
+
 ## 0.0.45
 
  - **FEAT**: update dependencies.
