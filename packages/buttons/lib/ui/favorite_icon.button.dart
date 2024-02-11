@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class FastItemFavoriteIcon extends StatelessWidget {
+class FastFavoriteIconButton extends StatelessWidget {
   final VoidCallback onIconTapped;
   final bool isFavorite;
 
-  const FastItemFavoriteIcon({
+  const FastFavoriteIconButton({
     super.key,
     required this.onIconTapped,
     required this.isFavorite,

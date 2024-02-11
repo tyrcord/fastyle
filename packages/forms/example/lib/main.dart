@@ -61,11 +61,6 @@ class _MyAppState extends State<MyApp> {
                 amountValue: _amountValue,
                 fieldType: _fieldType,
               ),
-              FastMatexSelectCountryField(
-                onSelectionChanged: (item) {
-                  debugPrint('onSelectionChanged $item');
-                },
-              ),
             ]),
           ),
         )
