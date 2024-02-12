@@ -15,7 +15,6 @@ dependencies:
   lingua_purchases: ^0.0.24
   lingua_settings: ^0.0.19
   lingua_share: ^0.0.2+1
-  matex_financial: ^0.0.52
   tbloc: ^0.21.0
 description: A new Flutter project.
 dev_dependencies:
