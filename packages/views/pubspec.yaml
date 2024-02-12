@@ -7,8 +7,8 @@ dependencies:
   go_router: ^13.0.1
   lingua_core: ^0.0.38
   shimmer: ^3.0.0
-  tbloc: ^0.21.0
-  tenhance: ^0.0.8+1
+  tbloc: ^0.22.1+1
+  tenhance: ^0.0.8+2
 description: Set of views Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^3.2.3
@@ -17,8 +17,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: ">=3.16.0"
-  sdk: ">=3.2.0 <4.0.0"
+  flutter: '>=3.16.0'
+  sdk: '>=3.2.0 <4.0.0'
 name: fastyle_views
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/views
 version: 0.0.36

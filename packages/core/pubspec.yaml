@@ -25,12 +25,12 @@ dependencies:
   share_plus: ^7.2.1
   shimmer: ^3.0.0
   subx: ^1.12.0
-  t_helpers: ^0.0.51+1
-  tbloc: ^0.21.0
-  tenhance: ^0.0.8+1
-  tlogger: ^0.0.10
-  tmodel: ^0.5.13+1
-  tstore: ^0.8.24
+  t_helpers: ^0.0.52
+  tbloc: ^0.22.1+1
+  tenhance: ^0.0.8+2
+  tlogger: ^0.0.10+1
+  tmodel: ^0.5.13+2
+  tstore: ^0.8.24+1
   url_launcher: ^6.2.3
 description: The core package for the fastyle libraries.
 dev_dependencies:
@@ -40,11 +40,11 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: ">=3.16.0"
-  sdk: ">=3.2.0 <4.0.0"
+  flutter: '>=3.16.0'
+  sdk: '>=3.2.0 <4.0.0'
 flutter:
   assets:
-    - assets/fonts/
+  - assets/fonts/
 name: fastyle_core
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/core
 version: 0.0.51
