@@ -1,3 +1,8 @@
+## 0.0.45+1
+
+ - **REFACTOR**: remove matex dependencies.
+ - **REFACTOR**: move financial field to matex.
+
 ## 0.0.45
 
  - **REFACTOR**: move away from Decimal.

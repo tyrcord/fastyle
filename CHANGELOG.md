@@ -3,6 +3,88 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-02-12
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_buttons` - `v0.0.28+1`](#fastyle_buttons---v00281)
+ - [`fastyle_financial` - `v0.0.45+1`](#fastyle_financial---v00451)
+ - [`fastyle_forms` - `v0.0.49+1`](#fastyle_forms---v00491)
+ - [`fastyle_onboarding` - `v0.0.50+1`](#fastyle_onboarding---v00501)
+ - [`fastyle_settings` - `v0.0.54+1`](#fastyle_settings---v00541)
+ - [`fastyle_core` - `v0.0.51+1`](#fastyle_core---v00511)
+ - [`fastyle_calculator` - `v1.61.1`](#fastyle_calculator---v1611)
+ - [`fastyle_iap` - `v0.0.39+1`](#fastyle_iap---v00391)
+ - [`fastyle_home` - `v0.0.39+1`](#fastyle_home---v00391)
+ - [`fastyle_quizz` - `v0.0.19+1`](#fastyle_quizz---v00191)
+ - [`fastyle_ad` - `v0.0.46+1`](#fastyle_ad---v00461)
+ - [`fastyle_connectivity` - `v0.0.44+1`](#fastyle_connectivity---v00441)
+ - [`fastyle_images` - `v0.0.49+1`](#fastyle_images---v00491)
+ - [`fastyle_video_player` - `v0.0.31+1`](#fastyle_video_player---v00311)
+ - [`fastyle_charts` - `v0.0.32+1`](#fastyle_charts---v00321)
+ - [`fastyle_animation` - `v0.0.19+1`](#fastyle_animation---v00191)
+ - [`fastyle_digit_calculator` - `v0.0.43+1`](#fastyle_digit_calculator---v00431)
+ - [`fastyle_layouts` - `v0.0.21+1`](#fastyle_layouts---v00211)
+ - [`fastyle_views` - `v0.0.36+1`](#fastyle_views---v00361)
+ - [`fastyle_text` - `v0.0.27+1`](#fastyle_text---v00271)
+ - [`fastyle_firebase` - `v0.0.35+1`](#fastyle_firebase---v00351)
+ - [`fastyle_pricing` - `v1.44.1`](#fastyle_pricing---v1441)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_core` - `v0.0.51+1`
+ - `fastyle_calculator` - `v1.61.1`
+ - `fastyle_iap` - `v0.0.39+1`
+ - `fastyle_home` - `v0.0.39+1`
+ - `fastyle_quizz` - `v0.0.19+1`
+ - `fastyle_ad` - `v0.0.46+1`
+ - `fastyle_connectivity` - `v0.0.44+1`
+ - `fastyle_images` - `v0.0.49+1`
+ - `fastyle_video_player` - `v0.0.31+1`
+ - `fastyle_charts` - `v0.0.32+1`
+ - `fastyle_animation` - `v0.0.19+1`
+ - `fastyle_digit_calculator` - `v0.0.43+1`
+ - `fastyle_layouts` - `v0.0.21+1`
+ - `fastyle_views` - `v0.0.36+1`
+ - `fastyle_text` - `v0.0.27+1`
+ - `fastyle_firebase` - `v0.0.35+1`
+ - `fastyle_pricing` - `v1.44.1`
+
+---
+
+#### `fastyle_buttons` - `v0.0.28+1`
+
+ - **REFACTOR**: move financial field to matex.
+
+#### `fastyle_financial` - `v0.0.45+1`
+
+ - **REFACTOR**: remove matex dependencies.
+ - **REFACTOR**: move financial field to matex.
+
+#### `fastyle_forms` - `v0.0.49+1`
+
+ - **REFACTOR**: remove matex dependencies.
+ - **REFACTOR**: move financial field to matex.
+
+#### `fastyle_onboarding` - `v0.0.50+1`
+
+ - **REFACTOR**: remove matex dependencies.
+
+#### `fastyle_settings` - `v0.0.54+1`
+
+ - **REFACTOR**: remove matex dependencies.
+
+
 ## 2024-02-05
 
 ### Changes

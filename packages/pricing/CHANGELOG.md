@@ -1,3 +1,7 @@
+## 1.44.1
+
+ - Update a dependency to the latest release.
+
 ## 1.44.0
 
  - **FEAT**: update t_bloc min version.

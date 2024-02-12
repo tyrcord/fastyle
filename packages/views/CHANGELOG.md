@@ -1,3 +1,7 @@
+## 0.0.36+1
+
+ - Update a dependency to the latest release.
+
 ## 0.0.36
 
  - **FEAT**: update t_bloc min version.

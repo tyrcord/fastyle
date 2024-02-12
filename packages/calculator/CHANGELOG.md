@@ -1,3 +1,7 @@
+## 1.61.1
+
+ - Update a dependency to the latest release.
+
 ## 1.61.0
 
  - **REFACTOR**: move away from Decimal.

@@ -1,3 +1,7 @@
+## 0.0.54+1
+
+ - **REFACTOR**: remove matex dependencies.
+
 ## 0.0.54
 
  - **FIX**: bunch of fixes.

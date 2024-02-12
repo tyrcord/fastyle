@@ -1,3 +1,7 @@
+## 0.0.50+1
+
+ - **REFACTOR**: remove matex dependencies.
+
 ## 0.0.50
 
  - **FIX**: remove enable ads button.
