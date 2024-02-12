@@ -14,8 +14,6 @@ dependencies:
   lingua_finance: ^0.0.35
   lingua_finance_instrument: ^0.0.12
   lingua_number: ^0.0.14
-  matex_data: ^0.0.34
-  matex_financial: ^0.0.52
   t_helpers: ^0.0.51+1
   tbloc: ^0.21.0
 description: Set of forms Widgets for the fastyle library.

@@ -28,30 +28,6 @@ final kAppRoutes = [
     ),
   ),
   GoRoute(
-    path: 'currency',
-    builder: (context, state) => FastSectionPage(
-      contentPadding: EdgeInsets.zero,
-      child: FastOnboardingUserCurrency(
-        palette: ThemeHelper.getPaletteColors(context).pink,
-        onActionTap: () {
-          debugPrint('Select currency action tapped');
-        },
-        actionText: OnboardingLocaleKeys.onboarding_user_currency_action.tr(),
-      ),
-    ),
-  ),
-  GoRoute(
-    path: 'country',
-    builder: (context, state) => FastSectionPage(
-      contentPadding: EdgeInsets.zero,
-      child: FastOnboardingUserCountry(
-        onActionTap: () {
-          debugPrint('Select country action tapped');
-        },
-      ),
-    ),
-  ),
-  GoRoute(
     path: 'premium',
     builder: (context, state) => FastSectionPage(
       contentPadding: EdgeInsets.zero,
