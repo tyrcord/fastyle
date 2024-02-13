@@ -1,6 +1,6 @@
 dependencies:
   app_tracking_transparency: ^2.0.4
-  easy_localization: ^3.0.3
+  easy_localization: ^3.0.4
   fastyle_buttons: ^0.0.28+1
   fastyle_core: ^0.0.51+1
   fastyle_iap: ^0.0.39+1
