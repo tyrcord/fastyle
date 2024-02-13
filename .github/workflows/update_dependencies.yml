@@ -56,5 +56,5 @@ jobs:
         if: env.changes == '1'
         run: |
           git add -u **/pubspec.yaml
-          git commit -m "chore: updated dependencies"
+          git commit -m "feat: updated dependencies"
           git push
