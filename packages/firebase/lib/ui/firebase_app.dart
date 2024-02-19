@@ -10,7 +10,7 @@ import 'package:tbloc/tbloc.dart';
 // Project imports:
 import 'package:fastyle_firebase/fastyle_firebase.dart';
 
-class FastFirebaseApp extends FastApp {
+class FastFirebaseApp extends FastApp implements IFastAnalyticsService {
   static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
 
   /// The default firebase options.
@@ -54,6 +54,11 @@ class FastFirebaseApp extends FastApp {
 
   @override
   State<FastFirebaseApp> createState() => _FastFirebaseAppState();
+
+  @override
+  void logEvent({required String name, Map<String, Object?>? parameters}) {
+    analytics.logEvent(name: name, parameters: parameters);
+  }
 }
 
 class _FastFirebaseAppState extends State<FastFirebaseApp> {
