@@ -28,7 +28,7 @@ class FastThemeBloc
   }
 
   // Method to reset the singleton instance
-  static void reset() => _hasBeenInstantiated = false;
+  static void reset() => _instance.resetBloc();
 
   /// Factory constructor to ensure that only a single instance of
   /// `FastThemeBloc` is used throughout the application.

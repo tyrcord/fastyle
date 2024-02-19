@@ -31,7 +31,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   static final _dataProvider = FastAppSettingsDataProvider();
 
   // Method to reset the singleton instance
-  static void reset() => _hasBeenInstantiated = false;
+  static void reset() => _instance.resetBloc();
 
   late FastAppSettingsDocument _persistedSettings;
 

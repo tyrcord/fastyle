@@ -29,7 +29,7 @@ class FastAppLifecycleBloc extends BidirectionalBloc<FastAppLifecycleBlocEvent,
   }
 
   // Method to reset the singleton instance
-  static void reset() => _hasBeenInstantiated = false;
+  static void reset() => _instance.resetBloc();
 
   /// Private constructor. The underscore enforces the singleton pattern,
   /// preventing direct instantiation from other classes.

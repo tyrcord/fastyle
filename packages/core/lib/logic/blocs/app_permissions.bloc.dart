@@ -26,7 +26,7 @@ class FastAppPermissionsBloc extends BidirectionalBloc<
   }
 
   // Method to reset the singleton instance
-  static void reset() => _hasBeenInstantiated = false;
+  static void reset() => _instance.resetBloc();
 
   FastAppPermissionsBloc._()
       : super(initialState: FastAppPermissionsBlocState());

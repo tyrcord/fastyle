@@ -30,7 +30,7 @@ class FastAppOnboardingBloc extends BidirectionalBloc<
   static final _dataProvider = FastAppOnboardingDataProvider();
 
   // Method to reset the singleton instance
-  static void reset() => _hasBeenInstantiated = false;
+  static void reset() => _instance.resetBloc();
 
   FastAppOnboardingBloc._() : super(initialState: FastAppOnboardingBlocState());
 

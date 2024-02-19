@@ -32,7 +32,7 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
   static late FastConnectivityService service;
 
   // Method to reset the singleton instance
-  static void reset() => _hasBeenInstantiated = false;
+  static void reset() => _instance.resetBloc();
 
   /// Subscription to connectivity status updates.
   @protected

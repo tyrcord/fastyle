@@ -38,7 +38,7 @@ class FastStoreBloc
   static final _iapDataProvider = FastInAppPurchaseDataProvider();
 
   // Method to reset the singleton instance
-  static void reset() => _hasBeenInstantiated = false;
+  static void reset() => _instance.resetBloc();
 
   late FastInAppPurchaseService _iapService;
   StreamSubscription? _purchasesSubscription;

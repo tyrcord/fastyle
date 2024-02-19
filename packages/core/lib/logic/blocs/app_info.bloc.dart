@@ -32,7 +32,7 @@ class FastAppInfoBloc
   static final _dataProvider = FastAppInfoDataProvider();
 
   // Method to reset the singleton instance
-  static void reset() => _hasBeenInstantiated = false;
+  static void reset() => _instance.resetBloc();
 
   FastAppInfoBloc._() : super(initialState: FastAppInfoBlocState());
 

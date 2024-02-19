@@ -34,7 +34,7 @@ class FastRewardedAdBloc
   }
 
   // Method to reset the singleton instance
-  static void reset() => _hasBeenInstantiated = false;
+  static void reset() => _instance.resetBloc();
 
   late final FastAdmobRewardedAdService _admobService;
   late final Duration blockDuration;

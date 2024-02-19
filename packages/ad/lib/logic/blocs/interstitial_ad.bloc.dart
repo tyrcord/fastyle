@@ -22,7 +22,7 @@ class FastInterstitialAdBloc extends BidirectionalBloc<
   }
 
   // Method to reset the singleton instance
-  static void reset() => _hasBeenInstantiated = false;
+  static void reset() => _instance.resetBloc();
 
   late FastAdmobInterstitialAdService _service;
   late int _appLaunchCounter;

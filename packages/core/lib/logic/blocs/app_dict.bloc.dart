@@ -26,7 +26,7 @@ class FastAppDictBloc
   static final _dataProvider = FastAppDictDataProvider();
 
   // Method to reset the singleton instance
-  static void reset() => _hasBeenInstantiated = false;
+  static void reset() => _instance.resetBloc();
 
   FastAppDictBloc._() : super(initialState: FastAppDictBlocState());
 

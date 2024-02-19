@@ -26,7 +26,7 @@ class FastAppFeaturesBloc extends BidirectionalBloc<FastAppFeaturesBlocEvent,
   static final _dataProvider = FastAppFeaturesDataProvider();
 
   // Method to reset the singleton instance
-  static void reset() => _hasBeenInstantiated = false;
+  static void reset() => _instance.resetBloc();
 
   FastAppFeaturesBloc._() : super(initialState: FastAppFeaturesBlocState());
 
