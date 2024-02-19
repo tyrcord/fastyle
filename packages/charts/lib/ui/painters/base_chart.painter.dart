@@ -15,12 +15,15 @@ abstract class BaseChartPainter extends CustomPainter {
   final List<FastChartData> data;
   final double animationValue;
   final double labelValueThreshold;
+  final bool showLabel;
 
   BaseChartPainter({
     required this.data,
     required this.animationValue,
     double? labelValueThreshold = 0.05,
-  }) : labelValueThreshold = labelValueThreshold ?? 0.05;
+    bool? showLabel = true,
+  })  : labelValueThreshold = labelValueThreshold ?? 0.05,
+        showLabel = showLabel ?? true;
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
@@ -45,7 +48,7 @@ abstract class BaseChartPainter extends CustomPainter {
       paint,
     );
 
-    if (datum.value >= labelValueThreshold) {
+    if (showLabel && datum.value >= labelValueThreshold) {
       // Draw the percentage text in the middle of the segment
       final textPainter = TextPainter(
         text: TextSpan(

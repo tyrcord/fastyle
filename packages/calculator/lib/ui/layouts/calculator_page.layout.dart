@@ -97,6 +97,8 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
   /// A widget that represents the leading widget.
   final Widget? leading;
 
+  final VoidCallback? onClear;
+
   final bool Function(FastCalculatorBlocState state)?
       canEnableExportToPdfInteractions;
 
@@ -131,6 +133,7 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
     this.breakdownTitleText,
     this.breakdownActions,
     this.breadownViewNotifier,
+    this.onClear,
   });
 
   @override
@@ -276,6 +279,7 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
           FastCalculatorClearAction<B, R>(
             calculatorBloc: calculatorBloc,
             icon: clearIcon,
+            onTap: onClear,
           )
       ],
       child: Builder(builder: fieldsBuilder),

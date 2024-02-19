@@ -11,6 +11,7 @@ class FastDoughnutChartPainter extends BaseChartPainter {
     required super.data,
     required super.animationValue,
     super.labelValueThreshold,
+    super.showLabel,
     double? doughnutRatio = 0.5,
   }) : doughnutRatio = doughnutRatio ?? 0.5;
 

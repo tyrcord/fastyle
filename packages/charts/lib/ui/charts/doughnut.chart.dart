@@ -9,6 +9,7 @@ class FastDoughnutChart extends StatelessWidget {
   final bool animate;
   final double width;
   final double height;
+  final bool showLabel;
 
   const FastDoughnutChart({
     super.key,
@@ -16,6 +17,7 @@ class FastDoughnutChart extends StatelessWidget {
     this.animate = false,
     this.width = 200,
     this.height = 200,
+    this.showLabel = true,
   });
 
   @override
@@ -27,6 +29,7 @@ class FastDoughnutChart extends StatelessWidget {
         return CustomPaint(
           painter: FastDoughnutChartPainter(
             animationValue: animate ? animationValue : 1.0,
+            showLabel: showLabel,
             data: data,
           ),
           child: const SizedBox.shrink(),

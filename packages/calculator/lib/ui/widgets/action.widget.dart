@@ -17,11 +17,14 @@ abstract class FastCalculatorAction<B extends FastCalculatorBloc,
   /// The color to use when the action is disabled.
   final Color? disabledColor;
 
+  final VoidCallback? onTap;
+
   const FastCalculatorAction({
     super.key,
     required this.calculatorBloc,
     this.disabledColor,
     this.icon,
+    this.onTap,
   });
 
   /// Whether the action should be enabled or not.

@@ -17,6 +17,7 @@ class FastCalculatorClearAction<B extends FastCalculatorBloc,
     required super.calculatorBloc,
     super.disabledColor,
     super.icon,
+    super.onTap,
   });
 
   @override
@@ -34,9 +35,10 @@ class FastCalculatorClearAction<B extends FastCalculatorBloc,
           icon: buildIcon(context),
           iconColor: primaryColor,
           shouldTrottleTime: true,
-          onTap: () => calculatorBloc.addEvent(
-            FastCalculatorBlocEvent.clear<R>(),
-          ),
+          onTap: () {
+            calculatorBloc.addEvent(FastCalculatorBlocEvent.clear<R>());
+            onTap?.call();
+          },
         );
       },
     );
