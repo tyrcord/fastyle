@@ -26,7 +26,7 @@ class FastAdInfoBloc
   }
 
   // Method to reset the singleton instance
-  static void reset() => _instance.resetBloc();
+  static void reset() => instance.resetBloc();
 
   factory FastAdInfoBloc({FastAdInfoBlocState? initialState}) {
     if (!_hasBeenInstantiated) {

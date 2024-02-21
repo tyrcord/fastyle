@@ -34,12 +34,18 @@ class FastRewardedAdBloc
   }
 
   // Method to reset the singleton instance
-  static void reset() => _instance.resetBloc();
+  static void reset() {
+    instance.resetBloc();
 
-  late final FastAdmobRewardedAdService _admobService;
-  late final Duration blockDuration;
+    if (instance.isInitialized) {
+      instance._admobService!.removeListener(_instance);
+    }
+  }
 
   final rewardController = PublishSubject<RewardItem>();
+
+  FastAdmobRewardedAdService? _admobService;
+  Duration blockDuration = kFastAdRewardedBlockDuration;
 
   /// Stream to listen for earned rewards.
   Stream<RewardItem> get onReward => rewardController.stream;
@@ -117,9 +123,8 @@ class FastRewardedAdBloc
       yield currentState.copyWith(isInitializing: true);
 
       blockDuration = payload.blockDuration ?? kFastAdRewardedBlockDuration;
-
       _admobService = FastAdmobRewardedAdService(payload.adInfo);
-      _admobService.addListener(this);
+      _admobService!.addListener(this);
 
       addEvent(const FastRewardedAdBlocEvent.initialized());
     }
@@ -168,7 +173,7 @@ class FastRewardedAdBloc
       return;
     }
 
-    final requestId = await _admobService.loadAd();
+    final requestId = await _admobService!.loadAd();
 
     debugLog('Ad requested. Request id: $requestId', debugLabel: debugLabel);
 
@@ -192,7 +197,7 @@ class FastRewardedAdBloc
         isLoadingAd: false,
       );
 
-      _admobService.showAdIfAvailable(currentState.requestId!);
+      _admobService!.showAdIfAvailable(currentState.requestId!);
     }
   }
 

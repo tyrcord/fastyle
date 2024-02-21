@@ -26,7 +26,7 @@ class FastFirebaseRemoteConfigBloc extends BidirectionalBloc<
   }
 
   // Method to reset the singleton instance
-  static void reset() => _instance.resetBloc();
+  static void reset() => instance.resetBloc();
 
   FastFirebaseRemoteConfigBloc._()
       : super(initialState: FastFirebaseRemoteConfigBlocState());

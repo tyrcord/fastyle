@@ -30,7 +30,7 @@ class FastAppLoaderBloc
   }
 
   // Method to reset the singleton instance
-  static void reset() => _instance.resetBloc();
+  static void reset() => instance.resetBloc();
 
   FastAppLoaderBloc._() : super(initialState: FastAppLoaderBlocState());
 

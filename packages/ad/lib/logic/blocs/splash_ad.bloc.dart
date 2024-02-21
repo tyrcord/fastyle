@@ -28,18 +28,12 @@ class FastSplashAdBloc
   }
 
   // Method to reset the singleton instance
-  static void reset() {
-    if (_instance._serviceSubscription != null) {
-      _instance._serviceSubscription!.cancel();
-    }
-
-    _hasBeenInstantiated = false;
-  }
+  static void reset() => instance.resetBloc();
 
   static final _dataProvider = FastSplashAdDataProvider();
 
-  late FastAdmobSplashAdService _service;
-  late int _appLaunchCounter;
+  FastAdmobSplashAdService? _service;
+  int _appLaunchCounter = 0;
 
   StreamSubscription<DateTime>? _serviceSubscription;
 
@@ -122,9 +116,11 @@ class FastSplashAdBloc
 
       _logger.debug('lastImpressionDate: ${payload?.lastImpressionDate}');
 
-      _serviceSubscription = _service.onAdImpression.listen((date) {
-        addEvent(FastSplashAdBlocEvent.adImpression(date));
-      });
+      subxList.add(
+        _service!.onAdImpression.listen((date) {
+          addEvent(FastSplashAdBlocEvent.adImpression(date));
+        }),
+      );
 
       addEvent(FastSplashAdBlocEvent.initialized(payload: payload));
     }
@@ -156,7 +152,7 @@ class FastSplashAdBloc
 
     var isAdDisplayable = false;
 
-    if (canShowAd) isAdDisplayable = await _service.loadAd();
+    if (canShowAd) isAdDisplayable = await _service!.loadAd();
 
     yield currentState.copyWith(
       isAdDisplayable: isAdDisplayable,
@@ -167,7 +163,7 @@ class FastSplashAdBloc
 
   /// Shows the splash ad.
   Stream<FastSplashAdBlocState> handleShowSplashAdEvent() async* {
-    if (canShowAd) _service.showAdIfAvailable();
+    if (canShowAd) _service!.showAdIfAvailable();
 
     yield currentState.copyWith(isAdLoaded: false, isAdDisplayable: false);
   }

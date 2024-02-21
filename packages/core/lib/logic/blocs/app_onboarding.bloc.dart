@@ -10,7 +10,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 /// current onboarding state.
 class FastAppOnboardingBloc extends BidirectionalBloc<
     FastAppOnboardingBlocEvent, FastAppOnboardingBlocState> {
-  late FastAppOnboardingDocument _persistedOnboarding;
+  FastAppOnboardingDocument? _persistedOnboarding;
 
   /// Keeps track if a singleton instance has been created.
   static bool get hasBeenInstantiated => _hasBeenInstantiated;
@@ -30,7 +30,7 @@ class FastAppOnboardingBloc extends BidirectionalBloc<
   static final _dataProvider = FastAppOnboardingDataProvider();
 
   // Method to reset the singleton instance
-  static void reset() => _instance.resetBloc();
+  static void reset() => instance.resetBloc();
 
   FastAppOnboardingBloc._() : super(initialState: FastAppOnboardingBlocState());
 
@@ -117,7 +117,7 @@ class FastAppOnboardingBloc extends BidirectionalBloc<
       handleInitializationCompletedEvent() async* {
     await _persistInitializationCompleted(true);
 
-    yield currentState.copyWith(isCompleted: _persistedOnboarding.isCompleted);
+    yield currentState.copyWith(isCompleted: _persistedOnboarding!.isCompleted);
   }
 
   /// Persists the completion status of the onboarding process.
@@ -128,7 +128,7 @@ class FastAppOnboardingBloc extends BidirectionalBloc<
     bool isCompleted,
   ) async {
     if (isCompleted != currentState.isCompleted) {
-      final newOnboarding = _persistedOnboarding.copyWith(
+      final newOnboarding = _persistedOnboarding!.copyWith(
         isCompleted: isCompleted,
       );
 

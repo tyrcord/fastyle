@@ -22,10 +22,10 @@ class FastInterstitialAdBloc extends BidirectionalBloc<
   }
 
   // Method to reset the singleton instance
-  static void reset() => _instance.resetBloc();
+  static void reset() => instance.resetBloc();
 
-  late FastAdmobInterstitialAdService _service;
-  late int _appLaunchCounter;
+  FastAdmobInterstitialAdService? _service;
+  int _appLaunchCounter = 0;
 
   bool get canShowAd {
     if (isInitialized) {
@@ -114,7 +114,7 @@ class FastInterstitialAdBloc extends BidirectionalBloc<
 
     var isAdDisplayable = false;
 
-    if (canShowAd) isAdDisplayable = await _service.loadAd();
+    if (canShowAd) isAdDisplayable = await _service!.loadAd();
 
     yield currentState.copyWith(
       isAdDisplayable: isAdDisplayable,
@@ -124,7 +124,7 @@ class FastInterstitialAdBloc extends BidirectionalBloc<
   }
 
   Stream<FastInterstitialAdBlocState> _handleShowInterstitialAdEvent() async* {
-    if (canShowAd) _service.showAdIfAvailable();
+    if (canShowAd) _service!.showAdIfAvailable();
 
     yield currentState.copyWith(isAdLoaded: false, isAdDisplayable: false);
   }

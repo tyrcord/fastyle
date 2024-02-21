@@ -38,9 +38,9 @@ class FastStoreBloc
   static final _iapDataProvider = FastInAppPurchaseDataProvider();
 
   // Method to reset the singleton instance
-  static void reset() => _instance.resetBloc();
+  static void reset() => instance.resetBloc();
 
-  late FastInAppPurchaseService _iapService;
+  FastInAppPurchaseService? _iapService;
   StreamSubscription? _purchasesSubscription;
 
   // Store-related flags
@@ -69,7 +69,7 @@ class FastStoreBloc
   Future<ProductDetails?> getProductDetails(String productId) async {
     if (_isStoreAvailable && isInitialized) {
       try {
-        return _iapService.queryProductDetails(productId);
+        return _iapService!.queryProductDetails(productId);
       } catch (error, stackTrace) {
         _logger.error(
           'Error fetching product details for product ID: $productId - $error',
@@ -166,7 +166,7 @@ class FastStoreBloc
       _listenToErrors();
 
       await _iapDataProvider.connect();
-      _isStoreAvailable = await _iapService.connect();
+      _isStoreAvailable = await _iapService!.connect();
 
       addEvent(const FastStoreBlocEvent.initialized());
     }
@@ -197,7 +197,7 @@ class FastStoreBloc
       yield currentState.copyWith(isRestoringPurchases: true);
 
       // Purchase status handled by _listenToPurchases
-      await _iapService.restorePurchases();
+      await _iapService!.restorePurchases();
     }
   }
 
@@ -249,7 +249,7 @@ class FastStoreBloc
       _logger.debug('Loading products...');
 
       try {
-        final products = await _iapService
+        final products = await _iapService!
             .listAvailableProducts()
             .timeout(kFastAsyncTimeout);
 
@@ -320,7 +320,7 @@ class FastStoreBloc
 
       try {
         // Purchase status handled by _listenToPurchases
-        await _iapService.purchaseProduct(productId);
+        await _iapService!.purchaseProduct(productId);
       } catch (error) {
         addEvent(FastStoreBlocEvent.purchaseProductFailed(
           _formartError(error),
@@ -388,7 +388,7 @@ class FastStoreBloc
       _purchasesSubscription!.cancel();
     }
 
-    _purchasesSubscription = _iapService.onPurchase.listen(
+    _purchasesSubscription = _iapService!.onPurchase.listen(
       (PurchaseDetails purchaseDetails) {
         if (purchaseDetails.status == PurchaseStatus.purchased) {
           addEvent(FastStoreBlocEvent.productPurchased(purchaseDetails));
@@ -428,7 +428,7 @@ class FastStoreBloc
   /// Sets up the subscriptions to listen for error events.
   void _listenToErrors() {
     subxList.addAll([
-      _iapService.onError.listen(handleError),
+      _iapService!.onError.listen(handleError),
       onError.listen(handleError),
     ]);
   }

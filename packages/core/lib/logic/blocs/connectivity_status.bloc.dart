@@ -29,10 +29,10 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
     return _instance;
   }
 
-  static late FastConnectivityService service;
+  static FastConnectivityService? service;
 
   // Method to reset the singleton instance
-  static void reset() => _instance.resetBloc();
+  static void reset() => instance.resetBloc();
 
   /// Subscription to connectivity status updates.
   @protected
@@ -171,7 +171,7 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
 
   StreamSubscription<FastConnectivityStatus>
       listenToConnectivityStatusChanges() {
-    return service.onInternetConnectivityChanged.listen((status) {
+    return service!.onInternetConnectivityChanged.listen((status) {
       if (isInitialized) {
         addEvent(FastConnectivityStatusBlocEvent.connectivityStatusChanged(
           status.isConnected,
@@ -192,12 +192,12 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
 
     try {
       isDeviceConnected = await retry<bool>(
-        task: service.checkDeviceConnectivity,
+        task: service!.checkDeviceConnectivity,
         validate: validator,
       );
 
       isServiceAvailable = await retry<bool>(
-        task: service.checkServiceAvailability,
+        task: service!.checkServiceAvailability,
         validate: validator,
       );
     } catch (e) {

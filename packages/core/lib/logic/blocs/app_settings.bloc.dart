@@ -31,9 +31,9 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   static final _dataProvider = FastAppSettingsDataProvider();
 
   // Method to reset the singleton instance
-  static void reset() => _instance.resetBloc();
+  static void reset() => instance.resetBloc();
 
-  late FastAppSettingsDocument _persistedSettings;
+  FastAppSettingsDocument? _persistedSettings;
 
   FastAppSettingsBloc._() : super(initialState: FastAppSettingsBlocState());
 
@@ -152,7 +152,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
       _logAnalyticsEvent('language_code', languageCode);
 
       yield currentState.copyWith(
-        languageCode: _persistedSettings.languageCode,
+        languageCode: _persistedSettings!.languageCode,
       );
     }
   }
@@ -170,7 +170,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
 
       _logAnalyticsEvent('theme', theme);
 
-      yield currentState.copyWith(theme: _persistedSettings.theme);
+      yield currentState.copyWith(theme: _persistedSettings!.theme);
     }
   }
 
@@ -188,7 +188,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
     _logAnalyticsEvent('country_code', countryCode);
 
     yield currentState.copyWith(
-      countryCode: () => _persistedSettings.countryCode,
+      countryCode: () => _persistedSettings!.countryCode,
     );
   }
 
@@ -206,7 +206,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
       _logAnalyticsEvent('primary_currency_code', primaryCurrencyCode);
 
       yield currentState.copyWith(
-        primaryCurrencyCode: _persistedSettings.primaryCurrencyCode,
+        primaryCurrencyCode: _persistedSettings!.primaryCurrencyCode,
       );
     }
   }
@@ -225,7 +225,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
       _logAnalyticsEvent('secondary_currency_code', secondaryCurrencyCode);
 
       yield currentState.copyWith(
-        secondaryCurrencyCode: _persistedSettings.secondaryCurrencyCode,
+        secondaryCurrencyCode: _persistedSettings!.secondaryCurrencyCode,
       );
     }
   }
@@ -243,7 +243,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
 
       _logAnalyticsEvent('save_entry', saveEntry);
 
-      yield currentState.copyWith(saveEntry: _persistedSettings.saveEntry);
+      yield currentState.copyWith(saveEntry: _persistedSettings!.saveEntry);
     }
   }
 
@@ -257,7 +257,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
       await _persistuse24HourFormat(use24HourFormat);
 
       yield currentState.copyWith(
-        use24HourFormat: _persistedSettings.use24HourFormat,
+        use24HourFormat: _persistedSettings!.use24HourFormat,
       );
     }
   }
@@ -270,7 +270,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   ) async {
     if (use24HourFormat != null &&
         use24HourFormat != currentState.use24HourFormat) {
-      final newSettings = _persistedSettings.copyWith(
+      final newSettings = _persistedSettings!.copyWith(
         use24HourFormat: use24HourFormat,
       );
 
@@ -290,7 +290,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
     if (primaryCurrencyCode != null &&
         primaryCurrencyCode != currentState.primaryCurrencyCode) {
       // TODO: check if the currency code is valid and supported.
-      final newSettings = _persistedSettings.copyWith(
+      final newSettings = _persistedSettings!.copyWith(
         primaryCurrencyCode: primaryCurrencyCode.toUpperCase(),
       );
 
@@ -309,7 +309,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   ) async {
     if (secondaryCurrencyCode != null &&
         secondaryCurrencyCode != currentState.secondaryCurrencyCode) {
-      final newSettings = _persistedSettings.copyWith(
+      final newSettings = _persistedSettings!.copyWith(
         secondaryCurrencyCode: secondaryCurrencyCode.toUpperCase(),
       );
 
@@ -325,7 +325,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   /// persisted.
   Future<FastAppSettingsDocument> _persistSaveEntry(bool? saveEntry) async {
     if (saveEntry != null && saveEntry != currentState.saveEntry) {
-      final newSettings = _persistedSettings.copyWith(saveEntry: saveEntry);
+      final newSettings = _persistedSettings!.copyWith(saveEntry: saveEntry);
       await _dataProvider.persistSettings(newSettings);
     }
 
@@ -337,7 +337,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   /// nothing will be done.
   Future<void> _persistLanguageCode(String? languageCode) async {
     if (languageCode != null && languageCode != currentState.languageCode) {
-      final newSettings = _persistedSettings.copyWith(
+      final newSettings = _persistedSettings!.copyWith(
         languageCode: languageCode,
       );
 
@@ -350,7 +350,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   /// If the theme is the same as the current state, nothing will be done.
   Future<void> _persistTheme(String? theme) async {
     if (theme != null && theme != currentState.theme) {
-      final newSettings = _persistedSettings.copyWith(theme: theme);
+      final newSettings = _persistedSettings!.copyWith(theme: theme);
       await _dataProvider.persistSettings(newSettings);
       await _retrievePersistedSettings();
     }
@@ -361,7 +361,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   /// nothing will be done.
   Future<void> _persistCountryCode(String? countryCode) async {
     if (countryCode != currentState.countryCode) {
-      final newSettings = _persistedSettings.copyWith(
+      final newSettings = _persistedSettings!.copyWith(
         countryCode: () => countryCode,
       );
 
