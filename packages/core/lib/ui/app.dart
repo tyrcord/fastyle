@@ -281,7 +281,11 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
                   BlocProvider(bloc: _appConnectivityBloc),
                 BlocProvider(bloc: FastAppInfoBloc()),
                 BlocProvider(bloc: FastAppPermissionsBloc()),
-                BlocProvider(bloc: FastAppSettingsBloc()),
+                BlocProvider(
+                  bloc: FastAppSettingsBloc(
+                    analyticsService: widget.analyticsService,
+                  ),
+                ),
                 BlocProvider(
                   bloc: FastAppDictBloc(
                     analyticsService: widget.analyticsService,

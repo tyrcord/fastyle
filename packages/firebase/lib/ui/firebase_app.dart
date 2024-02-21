@@ -10,9 +10,7 @@ import 'package:tbloc/tbloc.dart';
 // Project imports:
 import 'package:fastyle_firebase/fastyle_firebase.dart';
 
-class FastFirebaseApp extends FastApp implements IFastAnalyticsService {
-  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
-
+class FastFirebaseApp extends FastApp {
   /// The default firebase options.
   final FirebaseOptions? firebaseOptions;
 
@@ -54,14 +52,11 @@ class FastFirebaseApp extends FastApp implements IFastAnalyticsService {
 
   @override
   State<FastFirebaseApp> createState() => _FastFirebaseAppState();
-
-  @override
-  void logEvent({required String name, Map<String, Object?>? parameters}) {
-    analytics.logEvent(name: name, parameters: parameters);
-  }
 }
 
-class _FastFirebaseAppState extends State<FastFirebaseApp> {
+class _FastFirebaseAppState extends State<FastFirebaseApp>
+    implements IFastAnalyticsService {
+  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   final _remoteConfigBloc = FastFirebaseRemoteConfigBloc();
   late final Future<FirebaseApp> _initialization;
 
@@ -130,6 +125,7 @@ class _FastFirebaseAppState extends State<FastFirebaseApp> {
         askForReview: widget.askForReview,
         initialLocation: widget.initialLocation,
         onWillRestartApp: _handleRestartApp,
+        analyticsService: this,
       ),
     );
   }
@@ -138,5 +134,10 @@ class _FastFirebaseAppState extends State<FastFirebaseApp> {
     FastFirebaseRemoteConfigBloc.reset();
 
     widget.onWillRestartApp?.call();
+  }
+
+  @override
+  void logEvent({required String name, Map<String, Object?>? parameters}) {
+    analytics.logEvent(name: name, parameters: parameters);
   }
 }

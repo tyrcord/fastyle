@@ -22,6 +22,8 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
 
   static late FastAppSettingsBloc _instance;
 
+  IFastAnalyticsService? analyticsService;
+
   static FastAppSettingsBloc get instance {
     if (!_hasBeenInstantiated) return FastAppSettingsBloc();
 
@@ -35,11 +37,14 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
 
   late FastAppSettingsDocument _persistedSettings;
 
-  FastAppSettingsBloc._() : super(initialState: FastAppSettingsBlocState());
+  FastAppSettingsBloc._({this.analyticsService})
+      : super(
+          initialState: FastAppSettingsBlocState(),
+        );
 
-  factory FastAppSettingsBloc() {
+  factory FastAppSettingsBloc({IFastAnalyticsService? analyticsService}) {
     if (!hasBeenInstantiated) {
-      _instance = FastAppSettingsBloc._();
+      _instance = FastAppSettingsBloc._(analyticsService: analyticsService);
       _hasBeenInstantiated = true;
     }
 
@@ -149,6 +154,11 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
       final languageCode = payload?.languageCode;
       await _persistLanguageCode(languageCode);
 
+      analyticsService?.logEvent(name: 'app_setting', parameters: {
+        'key': 'language_code',
+        'value': languageCode,
+      });
+
       yield currentState.copyWith(
         languageCode: _persistedSettings.languageCode,
       );
@@ -166,6 +176,11 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
       final theme = payload?.theme;
       await _persistTheme(theme);
 
+      analyticsService?.logEvent(name: 'app_setting', parameters: {
+        'key': 'theme',
+        'value': theme,
+      });
+
       yield currentState.copyWith(theme: _persistedSettings.theme);
     }
   }
@@ -180,6 +195,11 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
   ) async* {
     final countryCode = payload!.countryCode;
     await _persistCountryCode(countryCode);
+
+    analyticsService?.logEvent(name: 'app_setting', parameters: {
+      'key': 'country_code',
+      'value': countryCode,
+    });
 
     yield currentState.copyWith(
       countryCode: () => _persistedSettings.countryCode,
@@ -196,6 +216,11 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
     if (payload?.primaryCurrencyCode != null) {
       final primaryCurrencyCode = payload?.primaryCurrencyCode;
       await _persistPrimaryCurrencyCode(primaryCurrencyCode);
+
+      analyticsService?.logEvent(name: 'app_setting', parameters: {
+        'key': 'primary_currency_code',
+        'value': primaryCurrencyCode,
+      });
 
       yield currentState.copyWith(
         primaryCurrencyCode: _persistedSettings.primaryCurrencyCode,
@@ -214,6 +239,11 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
       final secondaryCurrencyCode = payload?.secondaryCurrencyCode;
       await _persistSecondaryCurrencyCode(secondaryCurrencyCode);
 
+      analyticsService?.logEvent(name: 'app_setting', parameters: {
+        'key': 'secondary_currency_code',
+        'value': secondaryCurrencyCode,
+      });
+
       yield currentState.copyWith(
         secondaryCurrencyCode: _persistedSettings.secondaryCurrencyCode,
       );
@@ -230,6 +260,11 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
     if (payload?.saveEntry != null) {
       final saveEntry = payload?.saveEntry;
       await _persistSaveEntry(saveEntry);
+
+      analyticsService?.logEvent(name: 'app_setting', parameters: {
+        'key': 'save_entry',
+        'value': saveEntry,
+      });
 
       yield currentState.copyWith(saveEntry: _persistedSettings.saveEntry);
     }
