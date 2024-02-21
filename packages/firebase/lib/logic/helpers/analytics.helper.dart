@@ -37,7 +37,7 @@ Map<String, dynamic>? _sanitizeAnalyticsParams(
         return false;
       }
 
-      return entry.value != null;
+      return entry.value != null && entry.value != '';
     }).map((entry) {
       var value = entry.value;
 

@@ -610,7 +610,7 @@ abstract class FastCalculatorBloc<
         final params = fields.toJson();
 
         _analyticsDebouncer?.run(() {
-          if (params.isNotEmpty) {
+          if (params.isNotEmpty && !closed) {
             analyticsEventController.add(BlocAnalyticsEvent(
               type: FastCalculatorBlocAnalyticEvent.computedFields,
               parameters: params,
