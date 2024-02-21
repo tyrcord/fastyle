@@ -105,7 +105,7 @@ class FastApp extends StatefulWidget {
 
   final VoidCallback? onWillRestartApp;
 
-  final IFastAnalyticsService? analyticsService;
+  final Future<dynamic> Function(BuildContext context)? onAppReady;
 
   FastApp({
     super.key,
@@ -134,7 +134,7 @@ class FastApp extends StatefulWidget {
     bool? isInternetConnectionRequired,
     this.defaultAppDictEntries,
     this.onWillRestartApp,
-    this.analyticsService,
+    this.onAppReady,
   })  : useProIcons = useProIcons ?? false,
         overrideLoaderJobs = overrideLoaderJobs ?? false,
         assetLoader = assetLoader ?? const LinguaLoader(),
@@ -281,16 +281,8 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
                   BlocProvider(bloc: _appConnectivityBloc),
                 BlocProvider(bloc: FastAppInfoBloc()),
                 BlocProvider(bloc: FastAppPermissionsBloc()),
-                BlocProvider(
-                  bloc: FastAppSettingsBloc(
-                    analyticsService: widget.analyticsService,
-                  ),
-                ),
-                BlocProvider(
-                  bloc: FastAppDictBloc(
-                    analyticsService: widget.analyticsService,
-                  ),
-                ),
+                BlocProvider(bloc: FastAppSettingsBloc()),
+                BlocProvider(bloc: FastAppDictBloc()),
                 BlocProvider(bloc: FastAppFeaturesBloc()),
                 BlocProvider(bloc: FastAppOnboardingBloc()),
                 BlocProvider(bloc: FastDeviceOrientationBloc()),
@@ -511,6 +503,7 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
           _listenOnConnectivityStatusChanges,
           _intializeRoutesForMediaType,
           _askForAppReviewIfNeeded,
+          if (widget.onAppReady != null) widget.onAppReady!,
         ],
       ),
     ];

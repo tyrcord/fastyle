@@ -22,8 +22,6 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
 
   static late FastAppSettingsBloc _instance;
 
-  IFastAnalyticsService? analyticsService;
-
   static FastAppSettingsBloc get instance {
     if (!_hasBeenInstantiated) return FastAppSettingsBloc();
 
@@ -37,14 +35,11 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
 
   late FastAppSettingsDocument _persistedSettings;
 
-  FastAppSettingsBloc._({this.analyticsService})
-      : super(
-          initialState: FastAppSettingsBlocState(),
-        );
+  FastAppSettingsBloc._() : super(initialState: FastAppSettingsBlocState());
 
-  factory FastAppSettingsBloc({IFastAnalyticsService? analyticsService}) {
+  factory FastAppSettingsBloc() {
     if (!hasBeenInstantiated) {
-      _instance = FastAppSettingsBloc._(analyticsService: analyticsService);
+      _instance = FastAppSettingsBloc._();
       _hasBeenInstantiated = true;
     }
 
@@ -154,10 +149,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
       final languageCode = payload?.languageCode;
       await _persistLanguageCode(languageCode);
 
-      analyticsService?.logEvent(name: 'app_setting', parameters: {
-        'key': 'language_code',
-        'value': languageCode,
-      });
+      _logAnalyticsEvent('language_code', languageCode);
 
       yield currentState.copyWith(
         languageCode: _persistedSettings.languageCode,
@@ -176,10 +168,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
       final theme = payload?.theme;
       await _persistTheme(theme);
 
-      analyticsService?.logEvent(name: 'app_setting', parameters: {
-        'key': 'theme',
-        'value': theme,
-      });
+      _logAnalyticsEvent('theme', theme);
 
       yield currentState.copyWith(theme: _persistedSettings.theme);
     }
@@ -196,10 +185,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
     final countryCode = payload!.countryCode;
     await _persistCountryCode(countryCode);
 
-    analyticsService?.logEvent(name: 'app_setting', parameters: {
-      'key': 'country_code',
-      'value': countryCode,
-    });
+    _logAnalyticsEvent('country_code', countryCode);
 
     yield currentState.copyWith(
       countryCode: () => _persistedSettings.countryCode,
@@ -217,10 +203,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
       final primaryCurrencyCode = payload?.primaryCurrencyCode;
       await _persistPrimaryCurrencyCode(primaryCurrencyCode);
 
-      analyticsService?.logEvent(name: 'app_setting', parameters: {
-        'key': 'primary_currency_code',
-        'value': primaryCurrencyCode,
-      });
+      _logAnalyticsEvent('primary_currency_code', primaryCurrencyCode);
 
       yield currentState.copyWith(
         primaryCurrencyCode: _persistedSettings.primaryCurrencyCode,
@@ -239,10 +222,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
       final secondaryCurrencyCode = payload?.secondaryCurrencyCode;
       await _persistSecondaryCurrencyCode(secondaryCurrencyCode);
 
-      analyticsService?.logEvent(name: 'app_setting', parameters: {
-        'key': 'secondary_currency_code',
-        'value': secondaryCurrencyCode,
-      });
+      _logAnalyticsEvent('secondary_currency_code', secondaryCurrencyCode);
 
       yield currentState.copyWith(
         secondaryCurrencyCode: _persistedSettings.secondaryCurrencyCode,
@@ -261,10 +241,7 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
       final saveEntry = payload?.saveEntry;
       await _persistSaveEntry(saveEntry);
 
-      analyticsService?.logEvent(name: 'app_setting', parameters: {
-        'key': 'save_entry',
-        'value': saveEntry,
-      });
+      _logAnalyticsEvent('save_entry', saveEntry);
 
       yield currentState.copyWith(saveEntry: _persistedSettings.saveEntry);
     }
@@ -398,5 +375,14 @@ class FastAppSettingsBloc extends BidirectionalBloc<FastAppSettingsBlocEvent,
     await _dataProvider.connect();
 
     return (_persistedSettings = await _dataProvider.retrieveSettings());
+  }
+
+  void _logAnalyticsEvent(String key, dynamic value) {
+    analyticsEventController.add(
+      BlocAnalyticsEvent(
+        type: FastBlocAnalyticsEvent.appSettingEntry,
+        parameters: {'key': key, 'value': value},
+      ),
+    );
   }
 }

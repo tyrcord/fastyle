@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:tbloc/tbloc.dart';
 
@@ -43,6 +42,7 @@ class FastFirebaseApp extends FastApp {
     this.defaultRemoteConfig,
     this.firebaseOptions,
     super.onWillRestartApp,
+    super.onAppReady,
     String? localizationPath,
     Locale? fallbackLocale,
   }) : super(
@@ -54,9 +54,7 @@ class FastFirebaseApp extends FastApp {
   State<FastFirebaseApp> createState() => _FastFirebaseAppState();
 }
 
-class _FastFirebaseAppState extends State<FastFirebaseApp>
-    implements IFastAnalyticsService {
-  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+class _FastFirebaseAppState extends State<FastFirebaseApp> {
   final _remoteConfigBloc = FastFirebaseRemoteConfigBloc();
   late final Future<FirebaseApp> _initialization;
 
@@ -125,7 +123,7 @@ class _FastFirebaseAppState extends State<FastFirebaseApp>
         askForReview: widget.askForReview,
         initialLocation: widget.initialLocation,
         onWillRestartApp: _handleRestartApp,
-        analyticsService: this,
+        onAppReady: widget.onAppReady,
       ),
     );
   }
@@ -134,10 +132,5 @@ class _FastFirebaseAppState extends State<FastFirebaseApp>
     FastFirebaseRemoteConfigBloc.reset();
 
     widget.onWillRestartApp?.call();
-  }
-
-  @override
-  void logEvent({required String name, Map<String, Object?>? parameters}) {
-    analytics.logEvent(name: name, parameters: parameters);
   }
 }

@@ -28,14 +28,11 @@ class FastAppDictBloc
   // Method to reset the singleton instance
   static void reset() => _instance.resetBloc();
 
-  IFastAnalyticsService? analyticsService;
+  FastAppDictBloc._() : super(initialState: FastAppDictBlocState());
 
-  FastAppDictBloc._({this.analyticsService})
-      : super(initialState: FastAppDictBlocState());
-
-  factory FastAppDictBloc({IFastAnalyticsService? analyticsService}) {
+  factory FastAppDictBloc() {
     if (!_hasBeenInstantiated) {
-      _instance = FastAppDictBloc._(analyticsService: analyticsService);
+      _instance = FastAppDictBloc._();
       _hasBeenInstantiated = true;
     }
 
@@ -147,10 +144,15 @@ class FastAppDictBloc
       _dataProvider.persistEntries(entries);
 
       for (final entry in entries) {
-        analyticsService?.logEvent(name: 'app_dict_entry', parameters: {
-          'key': entry.name,
-          'value': entry.value,
-        });
+        analyticsEventController.add(
+          BlocAnalyticsEvent(
+            type: FastBlocAnalyticsEvent.appDictEntry,
+            parameters: {
+              'key': entry.name,
+              'value': entry.value,
+            },
+          ),
+        );
       }
 
       addEvent(const FastAppDictBlocEvent.retrieveEntries());
