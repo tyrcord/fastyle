@@ -7,7 +7,7 @@ dependencies:
   go_router: ^13.2.0
   lingua_core: ^0.0.38
   lingua_countries: ^0.0.9
-  tbloc: ^0.22.1+1
+  tbloc: ^0.22.2
 description: A new Flutter project.
 dev_dependencies:
   dependency_validator: ^3.2.3

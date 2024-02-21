@@ -15,13 +15,13 @@ dependencies:
   lingua_settings: ^0.0.19
   rxdart: ^0.27.7
   subx: ^1.12.0
-  t_cache: ^0.0.14+3
-  t_helpers: ^0.0.52
-  tbloc: ^0.22.1+1
-  tenhance: ^0.0.8+2
-  tlogger: ^0.0.10+1
-  tmodel: ^0.5.13+2
-  tstore: ^0.8.24+1
+  t_cache: ^0.0.15
+  t_helpers: ^0.0.53
+  tbloc: ^0.22.2
+  tenhance: ^0.0.9
+  tlogger: ^0.0.10+2
+  tmodel: ^0.5.13+3
+  tstore: ^0.8.24+2
   url_launcher: ^6.2.4
   uuid: ^4.2.2
   visibility_detector: ^0.4.0+2

@@ -1,19 +1,19 @@
 dependencies:
   fastyle_core: ^0.0.51+1
-  firebase_analytics: ^10.8.5
-  firebase_app_check: ^0.2.1+13
+  firebase_analytics: ^10.8.6
+  firebase_app_check: ^0.2.1+14
   firebase_core: ^2.25.4
-  firebase_crashlytics: ^3.4.14
-  firebase_in_app_messaging: ^0.7.4+13
-  firebase_messaging: ^14.7.15
-  firebase_performance: ^0.9.3+13
-  firebase_remote_config: ^4.3.13
+  firebase_crashlytics: ^3.4.15
+  firebase_in_app_messaging: ^0.7.4+14
+  firebase_messaging: ^14.7.16
+  firebase_performance: ^0.9.3+14
+  firebase_remote_config: ^4.3.14
   flutter:
     sdk: flutter
   rxdart: ^0.27.7
-  t_helpers: ^0.0.52
-  tbloc: ^0.22.1+1
-  tlogger: ^0.0.10+1
+  t_helpers: ^0.0.53
+  tbloc: ^0.22.2
+  tlogger: ^0.0.10+2
 description: Set of firebase Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^3.2.3

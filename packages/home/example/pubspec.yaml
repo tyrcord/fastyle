@@ -4,7 +4,7 @@ dependencies:
   flutter:
     sdk: flutter
   go_router: ^13.2.0
-  t_helpers: ^0.0.52
+  t_helpers: ^0.0.53
 description: A new Flutter project.
 dev_dependencies:
   dependency_validator: ^3.2.3
