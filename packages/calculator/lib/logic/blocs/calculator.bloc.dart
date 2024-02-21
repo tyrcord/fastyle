@@ -612,7 +612,7 @@ abstract class FastCalculatorBloc<
         _analyticsDebouncer?.run(() {
           if (params.isNotEmpty) {
             analyticsEventController.add(BlocAnalyticsEvent(
-              type: FastCalculatorBlocAnalyticEvent.computedFields.snakeCase,
+              type: FastCalculatorBlocAnalyticEvent.computedFields,
               parameters: params,
             ));
           }
