@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:tbloc/tbloc.dart';
 import 'package:tlogger/logger.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -101,6 +102,12 @@ class FastAppLoaderState extends State<FastAppLoader> {
   }
 
   @override
+  void dispose() {
+    _cancelDelayTimer();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocProvider(
       bloc: _bloc,
@@ -192,15 +199,18 @@ class FastAppLoaderState extends State<FastAppLoader> {
   /// Initializes the bloc and sets up listeners.
   void _initializeAppLoaderBloc() {
     WidgetsBinding.instance.scheduleFrameCallback((timeStamp) {
-      _logger.debug('Initializing the app loader bloc...');
+      if (mounted) {
+        _logger.debug('Initializing the app loader bloc...');
 
-      _bloc.addEvent(FastAppLoaderBlocEvent.init(
-        context,
-        errorReporter: widget.errorReporter,
-        jobs: widget.loaderJobs,
-      ));
+        _bloc.addEvent(FastAppLoaderBlocEvent.init(
+          context,
+          errorReporter: widget.errorReporter,
+          jobs: widget.loaderJobs,
+        ));
 
-      _delayTimer = Timer(widget.delayBeforeShowingLoader, _showLoaderIfNeeded);
+        _delayTimer =
+            Timer(widget.delayBeforeShowingLoader, _showLoaderIfNeeded);
+      }
     });
   }
 
