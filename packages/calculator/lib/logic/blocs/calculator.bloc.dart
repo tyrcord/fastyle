@@ -82,6 +82,8 @@ abstract class FastCalculatorBloc<
 
   BuildContext? get context => getContext?.call();
 
+  Debouncer? _analyticsDebouncer;
+
   /// Constructs a new [FastCalculatorBloc] instance.
   ///
   /// [initialState] is required and represents the initial state of the bloc.
@@ -103,6 +105,8 @@ abstract class FastCalculatorBloc<
     } else {
       debugPrint('`debouceComputeEvents` is disabled for $runtimeType');
     }
+
+    _analyticsDebouncer = Debouncer(milliseconds: 5000); // 5 seconds
 
     addDebouncedComputeEvent = debounceEvent((event) {
       if (!closed) addEvent(event);
@@ -598,6 +602,22 @@ abstract class FastCalculatorBloc<
       debugLog('Results', value: payload.results, debugLabel: debugLabel);
 
       final (isValid, isDirty) = await retrieveCalculatorStateStatus();
+
+      if (isValid) {
+        final fields = currentState.fields;
+        // Note: capture the fields outside the closure to avoid
+        // capturing the whole state object.
+        final params = fields.toJson();
+
+        _analyticsDebouncer?.run(() {
+          if (params.isNotEmpty) {
+            analyticsEventController.add(BlocAnalyticsEvent(
+              type: FastCalculatorBlocAnalyticEvent.computedFields.snakeCase,
+              parameters: params,
+            ));
+          }
+        });
+      }
 
       yield currentState.copyWith(
         results: payload.results,

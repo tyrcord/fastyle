@@ -3,4 +3,6 @@ import 'package:tmodel/tmodel.dart';
 
 abstract class FastCalculatorFields extends TModel {
   const FastCalculatorFields();
+
+  Map<String, dynamic> toJson() => {};
 }
