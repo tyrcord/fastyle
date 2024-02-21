@@ -10,7 +10,14 @@ void logAnalyticsEvent({
   final analytics = FirebaseAnalytics.instance;
   final sanitizedParams = _sanitizeAnalyticsParams(parameters);
 
-  analytics.logEvent(name: name, parameters: sanitizedParams);
+  try {
+    analytics.logEvent(name: name, parameters: sanitizedParams);
+  } catch (e) {
+    debugLog(
+      'Failed to log analytics event: $name',
+      value: e,
+    );
+  }
 }
 
 void logFastBlocAnalyticsEvent(BlocAnalyticsEvent event) {
