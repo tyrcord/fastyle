@@ -11,12 +11,16 @@ class FastTableColumnDescriptor {
   final String title;
   final TableColumnWidth width;
   final TextAlign textAlign;
+  final VoidCallback? action;
+  final Color? textColor;
 
   const FastTableColumnDescriptor({
     required this.id,
     required this.title,
     this.width = const FlexColumnWidth(),
     this.textAlign = TextAlign.left,
+    this.textColor,
+    this.action,
   });
 }
 
@@ -81,9 +85,13 @@ class FastTableView<T> extends StatelessWidget {
     return TableCell(
       child: Padding(
         padding: const EdgeInsets.only(bottom: 12.0, right: 12.0),
-        child: FastSecondarySubtitle(
-          textAlign: column.textAlign,
-          text: column.title,
+        child: GestureDetector(
+          onTap: column.action,
+          child: FastSecondarySubtitle(
+            textAlign: column.textAlign,
+            textColor: column.textColor,
+            text: column.title,
+          ),
         ),
       ),
     );
