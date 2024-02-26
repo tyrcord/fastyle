@@ -4,6 +4,7 @@ import 'dart:async';
 // Package imports:
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tlogger/logger.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
@@ -55,52 +56,61 @@ class FastAdmobInterstitialAdService {
     );
 
     if (canRequestAd && _adUnitId != null) {
-      final completer = Completer<bool>();
-      final stopwatch = Stopwatch()..start();
-
-      _logger
-        ..debug('Loading Interstitial Ad...')
-        ..debug('Ad unit ID: $_adUnitId');
-
-      InterstitialAd.load(
-        adUnitId: _adUnitId!,
-        request: const AdRequest(),
-        adLoadCallback: InterstitialAdLoadCallback(
-          onAdLoaded: (ad) {
-            stopwatch.stop();
-            _logger.debug(
-              'Interstitial Ad loaded in ${stopwatch.elapsedMilliseconds}ms',
-            );
-
-            _interstitialAd = ad;
-            _loadAdFuture = null;
-            completer.complete(true);
-          },
-          onAdFailedToLoad: (error) {
-            stopwatch.stop();
-            final elapsedTime = stopwatch.elapsedMilliseconds;
-            _logger
-              ..debug('Interstitial Ad failed to load in ${elapsedTime}ms')
-              ..error('Failed to load Interstitial Ad: $error');
-            _loadAdFuture = null;
-            completer.complete(false);
-          },
-        ),
+      return retry<bool>(
+        task: () async => _requestAd(timeout: timeout),
+        taskTimeout: kFastAdDefaultTimeout,
+        maxAttempts: 2,
       );
-
-      timeout ??= const Duration(seconds: 45);
-
-      _loadAdFuture = completer.future.timeout(timeout).catchError((error) {
-        _logger.error('Failed to load Interstitial Ad: $error');
-        _loadAdFuture = null;
-
-        return false;
-      });
-
-      return _loadAdFuture!;
     }
 
     return false;
+  }
+
+  Future<bool> _requestAd({Duration? timeout}) async {
+    final completer = Completer<bool>();
+    final stopwatch = Stopwatch()..start();
+
+    _logger
+      ..debug('Loading Interstitial Ad...')
+      ..debug('Ad unit ID: $_adUnitId');
+
+    InterstitialAd.load(
+      adUnitId: _adUnitId!,
+      request: const AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (ad) {
+          stopwatch.stop();
+          _logger.debug(
+            'Interstitial Ad loaded in ${stopwatch.elapsedMilliseconds}ms',
+          );
+
+          _interstitialAd = ad;
+          _loadAdFuture = null;
+          completer.complete(true);
+        },
+        onAdFailedToLoad: (error) {
+          stopwatch.stop();
+          final elapsedTime = stopwatch.elapsedMilliseconds;
+          _logger
+            ..debug('Interstitial Ad failed to load in ${elapsedTime}ms')
+            ..error('Failed to load Interstitial Ad: $error');
+          _loadAdFuture = null;
+          completer.complete(false);
+        },
+      ),
+    );
+
+    timeout ??= kFastAdDefaultTimeout;
+
+    _loadAdFuture =
+        completer.future.timeout(kFastAdDefaultTimeout).catchError((error) {
+      _logger.error('Failed to load Interstitial Ad: $error');
+      _loadAdFuture = null;
+
+      return false;
+    });
+
+    return _loadAdFuture!;
   }
 
   /// Shows the ad if it is available.

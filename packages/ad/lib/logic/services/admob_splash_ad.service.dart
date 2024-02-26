@@ -9,6 +9,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:tlogger/logger.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
@@ -65,58 +66,66 @@ class FastAdmobSplashAdService {
     );
 
     if (canRequestAd && _adUnitId != null) {
-      final completer = Completer<bool>();
-      final bloc = FastDeviceOrientationBloc();
-      final deviceOrientation = bloc.currentState.orientation;
-      final adOrientation = deviceOrientation == Orientation.portrait
-          ? AppOpenAd.orientationPortrait
-          : AppOpenAd.orientationLandscapeRight;
-      final stopwatch = Stopwatch()..start();
-
-      _logger.debug(
-        'Loading Splash Ad for orientation: ${deviceOrientation.name}',
+      return retry<bool>(
+        task: () async => _requestAd(timeout: timeout),
+        taskTimeout: kFastAdDefaultTimeout,
+        maxAttempts: 2,
       );
-
-      AppOpenAd.load(
-        adUnitId: _adUnitId!,
-        orientation: adOrientation,
-        request: const AdRequest(),
-        adLoadCallback: AppOpenAdLoadCallback(
-          onAdLoaded: (ad) {
-            stopwatch.stop();
-            _logger.debug(
-              'Splash Ad loaded in ${stopwatch.elapsedMilliseconds}ms',
-            );
-
-            _splashAd = ad;
-            _loadAdFuture = null;
-            completer.complete(true);
-          },
-          onAdFailedToLoad: (error) {
-            stopwatch.stop();
-            final milliseconds = stopwatch.elapsedMilliseconds;
-            _logger
-              ..debug('Splash Ad failed to load in $milliseconds ms')
-              ..error('failed to load ad: $error');
-            _loadAdFuture = null;
-            completer.complete(false);
-          },
-        ),
-      );
-
-      timeout ??= const Duration(seconds: 45);
-
-      _loadAdFuture = completer.future.timeout(timeout).catchError((error) {
-        _logger.error('failed to load ad: $error');
-        _loadAdFuture = null;
-
-        return false;
-      });
-
-      return _loadAdFuture!;
     }
 
     return false;
+  }
+
+  Future<bool> _requestAd({Duration? timeout}) async {
+    final completer = Completer<bool>();
+    final bloc = FastDeviceOrientationBloc();
+    final deviceOrientation = bloc.currentState.orientation;
+    final adOrientation = deviceOrientation == Orientation.portrait
+        ? AppOpenAd.orientationPortrait
+        : AppOpenAd.orientationLandscapeRight;
+    final stopwatch = Stopwatch()..start();
+
+    _logger.debug(
+      'Loading Splash Ad for orientation: ${deviceOrientation.name}',
+    );
+
+    AppOpenAd.load(
+      adUnitId: _adUnitId!,
+      orientation: adOrientation,
+      request: const AdRequest(),
+      adLoadCallback: AppOpenAdLoadCallback(
+        onAdLoaded: (ad) {
+          stopwatch.stop();
+          _logger.debug(
+            'Splash Ad loaded in ${stopwatch.elapsedMilliseconds}ms',
+          );
+
+          _splashAd = ad;
+          _loadAdFuture = null;
+          completer.complete(true);
+        },
+        onAdFailedToLoad: (error) {
+          stopwatch.stop();
+          final milliseconds = stopwatch.elapsedMilliseconds;
+          _logger
+            ..debug('Splash Ad failed to load in $milliseconds ms')
+            ..error('failed to load ad: $error');
+          _loadAdFuture = null;
+          completer.complete(false);
+        },
+      ),
+    );
+
+    timeout ??= const Duration(seconds: 45);
+
+    _loadAdFuture = completer.future.timeout(timeout).catchError((error) {
+      _logger.error('failed to load ad: $error');
+      _loadAdFuture = null;
+
+      return false;
+    });
+
+    return _loadAdFuture!;
   }
 
   /// Shows the ad if it is available.

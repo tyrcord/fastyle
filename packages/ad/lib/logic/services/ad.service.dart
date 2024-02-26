@@ -342,6 +342,10 @@ class FastAdService {
   /// Throws a [TimeoutException] if the request takes longer than the
   /// specified timeout. The default timeout is 15 seconds.
   Future<http.Response> _requestAd(Uri url) {
-    return http.get(url).timeout(kFastAdDefaultTimeout);
+    return retry<http.Response>(
+      task: () async => http.get(url),
+      taskTimeout: kFastAdDefaultTimeout,
+      maxAttempts: 2,
+    );
   }
 }

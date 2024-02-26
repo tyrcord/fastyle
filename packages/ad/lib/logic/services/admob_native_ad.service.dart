@@ -3,6 +3,7 @@ import 'dart:async';
 
 // Package imports:
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
@@ -60,28 +61,13 @@ class FastAdmobNativeAdService {
     List<String>? countryWhiteList,
   }) async {
     if (_canRequestAd(country: country, whiteList: countryWhiteList)) {
-      final completer = Completer<bool>();
-      final adView = NativeAd(
-        request: AdRequest(keywords: keywords),
-        factoryId: 'mediumBanner',
-        adUnitId: adUnitID,
-        listener: NativeAdListener(
-          onAdLoaded: (Ad ad) => completer.complete(true),
-          onAdImpression: handleAdImpression,
-          onAdClicked: handleAdClicked,
-          onAdFailedToLoad: (Ad ad, LoadAdError error) {
-            ad.dispose();
-            completer.complete(false);
-          },
-        ),
-      )..load();
-
-      final isAdLoaded = await completer.future.timeout(
-        kFastAdDefaultTimeout,
-        onTimeout: _handleTimeoutEnd,
+      final adView = await retry<NativeAd?>(
+        task: () async => _requestAd(adUnitID, keywords: keywords),
+        taskTimeout: kFastAdDefaultTimeout,
+        maxAttempts: 2,
       );
 
-      if (isAdLoaded) {
+      if (adView != null) {
         _setLimitOnAdRequest();
 
         return adView;
@@ -89,6 +75,35 @@ class FastAdmobNativeAdService {
     }
 
     return null;
+  }
+
+  Future<NativeAd?> _requestAd(
+    String adUnitID, {
+    Duration? timeout,
+    List<String>? keywords,
+  }) async {
+    final completer = Completer<bool>();
+    final adView = NativeAd(
+      request: AdRequest(keywords: keywords),
+      factoryId: 'mediumBanner',
+      adUnitId: adUnitID,
+      listener: NativeAdListener(
+        onAdLoaded: (Ad ad) => completer.complete(true),
+        onAdImpression: handleAdImpression,
+        onAdClicked: handleAdClicked,
+        onAdFailedToLoad: (Ad ad, LoadAdError error) {
+          ad.dispose();
+          completer.complete(false);
+        },
+      ),
+    )..load();
+
+    final isAdLoaded = await completer.future.timeout(
+      timeout ?? kFastAdDefaultTimeout,
+      onTimeout: _handleTimeoutEnd,
+    );
+
+    return isAdLoaded ? adView : null;
   }
 
   /// Handles the ad click action.

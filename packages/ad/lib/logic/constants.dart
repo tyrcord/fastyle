@@ -3,7 +3,7 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 
 /// The default timeout for loading ads.
 /// Default is 15 seconds.
-const kFastAdDefaultTimeout = Duration(seconds: 15);
+const kFastAdDefaultTimeout = Duration(seconds: 20);
 
 /// The default refresh interval for ads.
 /// Default is 300 seconds.

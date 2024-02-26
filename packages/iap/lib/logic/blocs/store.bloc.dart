@@ -12,6 +12,7 @@ import 'package:in_app_purchase_storekit/store_kit_wrappers.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:tlogger/logger.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Project imports:
 import 'package:fastyle_iap/fastyle_iap.dart';
@@ -69,7 +70,11 @@ class FastStoreBloc
   Future<ProductDetails?> getProductDetails(String productId) async {
     if (_isStoreAvailable && isInitialized) {
       try {
-        return _iapService!.queryProductDetails(productId);
+        return retry<ProductDetails?>(
+          task: () async => _iapService!.queryProductDetails(productId),
+          taskTimeout: kFastAsyncTimeout,
+          maxAttempts: 2,
+        );
       } catch (error, stackTrace) {
         _logger.error(
           'Error fetching product details for product ID: $productId - $error',
@@ -166,7 +171,12 @@ class FastStoreBloc
       _listenToErrors();
 
       await _iapDataProvider.connect();
-      _isStoreAvailable = await _iapService!.connect();
+
+      _isStoreAvailable = await retry<bool>(
+        task: () async => _iapService!.connect(),
+        taskTimeout: kFastAsyncTimeout,
+        maxAttempts: 2,
+      );
 
       addEvent(const FastStoreBlocEvent.initialized());
     }
@@ -197,7 +207,11 @@ class FastStoreBloc
       yield currentState.copyWith(isRestoringPurchases: true);
 
       // Purchase status handled by _listenToPurchases
-      await _iapService!.restorePurchases();
+      await retry<void>(
+        task: () async => _iapService!.restorePurchases(),
+        taskTimeout: kFastAsyncTimeout,
+        maxAttempts: 2,
+      );
     }
   }
 
@@ -249,9 +263,11 @@ class FastStoreBloc
       _logger.debug('Loading products...');
 
       try {
-        final products = await _iapService!
-            .listAvailableProducts()
-            .timeout(kFastAsyncTimeout);
+        final products = await retry<List<ProductDetails>?>(
+          task: () async => _iapService!.listAvailableProducts(),
+          taskTimeout: kFastAsyncTimeout,
+          maxAttempts: 2,
+        );
 
         _logger.debug('Products found: ${products?.length}');
 
