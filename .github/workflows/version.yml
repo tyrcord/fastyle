@@ -1,9 +1,7 @@
-name: Deploy new versions
+name: Update library versions
 
 on:
   workflow_dispatch:
-  repository_dispatch:
-    types: [new_package_version]
 
 jobs:
   build:
