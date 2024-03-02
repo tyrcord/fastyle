@@ -53,6 +53,17 @@ jobs:
       - name: Set package versions
         run: melos version --yes
 
+      # Create custom tag
+      - name: Create custom tag
+        run: |
+          # Format the current date as yyyy-MM-dd
+          TAG_DATE=$(date +%Y-%m-%d)
+          # Create a custom tag
+          CUSTOM_TAG="release-$TAG_DATE"
+          echo "Creating and pushing tag $CUSTOM_TAG"
+          # Create the tag
+          git tag $CUSTOM_TAG
+
       # Push tags
       - name: Push tags
         run: git push --follow-tags
