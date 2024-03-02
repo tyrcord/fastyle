@@ -39,6 +39,7 @@ jobs:
           mkdir -p .github/workflows
 
           # Copy the Actions files
+          cp codex/actions/flutter/library/publish.yml .github/workflows/publish.yml
           cp codex/actions/flutter/library/sort_imports.yml .github/workflows/sort_imports.yml
           cp codex/actions/flutter/library/tests.yml .github/workflows/tests.yml
           cp codex/actions/flutter/library/update_dependencies.yml .github/workflows/update_dependencies.yml
@@ -93,6 +94,7 @@ jobs:
           }
 
           # Add the copied actions files to git
+          add_if_exists .github/workflows/publish.yml
           add_if_exists .github/workflows/sort_imports.yml
           add_if_exists .github/workflows/tests.yml
           add_if_exists .github/workflows/update_dependencies.yml

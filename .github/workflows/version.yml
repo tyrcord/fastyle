@@ -1,4 +1,4 @@
-name: Update library versions
+name: Update packages versions
 
 on:
   workflow_dispatch:
