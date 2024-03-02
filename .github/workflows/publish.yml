@@ -49,6 +49,10 @@ jobs:
           export PUB_TOKEN
           flutter pub token add https://pub.dev --env-var PUB_TOKEN
 
+      # Publish dry run
+      - name: Publish - dry run
+        run: melos publish --dry-run -y
+
       # Publishing...
       - name: Publish to pub.dev
         run: melos publish --no-dry-run -y
