@@ -3,7 +3,7 @@ name: Publish Packages
 on:
   push:
     tags:
-      - "^release-\\d{4}-\\d{2}-\\d{2}$"
+      - "^release-*"
 
 jobs:
   publish:
