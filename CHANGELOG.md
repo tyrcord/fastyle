@@ -3,6 +3,198 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-03-06
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.47`](#fastyle_ad---v0047)
+ - [`fastyle_animation` - `v0.0.20`](#fastyle_animation---v0020)
+ - [`fastyle_buttons` - `v0.0.29`](#fastyle_buttons---v0029)
+ - [`fastyle_calculator` - `v1.62.0`](#fastyle_calculator---v1620)
+ - [`fastyle_charts` - `v0.0.33`](#fastyle_charts---v0033)
+ - [`fastyle_connectivity` - `v0.0.45`](#fastyle_connectivity---v0045)
+ - [`fastyle_core` - `v0.0.52`](#fastyle_core---v0052)
+ - [`fastyle_digit_calculator` - `v0.0.44`](#fastyle_digit_calculator---v0044)
+ - [`fastyle_financial` - `v0.0.46`](#fastyle_financial---v0046)
+ - [`fastyle_firebase` - `v0.0.36`](#fastyle_firebase---v0036)
+ - [`fastyle_forms` - `v0.0.50`](#fastyle_forms---v0050)
+ - [`fastyle_home` - `v0.0.40`](#fastyle_home---v0040)
+ - [`fastyle_iap` - `v0.0.40`](#fastyle_iap---v0040)
+ - [`fastyle_images` - `v0.0.50`](#fastyle_images---v0050)
+ - [`fastyle_layouts` - `v0.0.22`](#fastyle_layouts---v0022)
+ - [`fastyle_onboarding` - `v0.0.51`](#fastyle_onboarding---v0051)
+ - [`fastyle_pricing` - `v1.45.0`](#fastyle_pricing---v1450)
+ - [`fastyle_quizz` - `v0.0.20`](#fastyle_quizz---v0020)
+ - [`fastyle_settings` - `v0.0.55`](#fastyle_settings---v0055)
+ - [`fastyle_text` - `v0.0.28`](#fastyle_text---v0028)
+ - [`fastyle_video_player` - `v0.0.32`](#fastyle_video_player---v0032)
+ - [`fastyle_views` - `v0.0.37`](#fastyle_views---v0037)
+
+---
+
+#### `fastyle_ad` - `v0.0.47`
+
+ - **FIX**: restart app.
+ - **FIX**: memory leaks.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: use retry helper when possible.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_animation` - `v0.0.20`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_buttons` - `v0.0.29`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_calculator` - `v1.62.0`
+
+ - **FIX**: typo.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: enable analytics logging for calculators.
+ - **FEAT**: minor improvements.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_charts` - `v0.0.33`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_connectivity` - `v0.0.45`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_core` - `v0.0.52`
+
+ - **REFACTOR**: analytics logging.
+ - **FIX**: restart app.
+ - **FIX**: memory leaks.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: use retry helper when possible.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: more analytics.
+ - **FEAT**: log app dict entries.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_digit_calculator` - `v0.0.44`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_financial` - `v0.0.46`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_firebase` - `v0.0.36`
+
+ - **REFACTOR**: analytics logging.
+ - **FIX**: restart app.
+ - **FIX**: memory leaks.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add analytics helpers.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: more analytics.
+ - **FEAT**: log app dict entries.
+
+#### `fastyle_forms` - `v0.0.50`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_home` - `v0.0.40`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_iap` - `v0.0.40`
+
+ - **FIX**: restart app.
+ - **FIX**: memory leaks.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: use retry helper when possible.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_images` - `v0.0.50`
+
+ - **FIX**: lint.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_layouts` - `v0.0.22`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_onboarding` - `v0.0.51`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_pricing` - `v1.45.0`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_quizz` - `v0.0.20`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_settings` - `v0.0.55`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_text` - `v0.0.28`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_video_player` - `v0.0.32`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_views` - `v0.0.37`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
+
 ## 2024-02-12
 
 ### Changes

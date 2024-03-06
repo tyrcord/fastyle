@@ -1,6 +1,6 @@
 dependencies:
   easy_localization: ^3.0.4
-  fastyle_core: ^0.0.51+1
+  fastyle_core: ^0.0.52
   flutter:
     sdk: flutter
   go_router: ^13.2.0
@@ -16,4 +16,4 @@ environment:
   flutter: '>=3.16.0'
   sdk: '>=3.2.0 <4.0.0'
 name: fastyle_animation
-version: 0.0.19+1
+version: 0.0.20

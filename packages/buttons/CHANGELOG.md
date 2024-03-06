@@ -1,3 +1,8 @@
+## 0.0.29
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
 ## 0.0.28+1
 
  - **REFACTOR**: move financial field to matex.

@@ -1,7 +1,7 @@
 dependencies:
   easy_localization: ^3.0.4
-  fastyle_core: ^0.0.51+1
-  fastyle_onboarding: ^0.0.50+1
+  fastyle_core: ^0.0.52
+  fastyle_onboarding: ^0.0.51
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0

@@ -1,3 +1,9 @@
+## 0.0.46
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
 ## 0.0.45+1
 
  - **REFACTOR**: remove matex dependencies.

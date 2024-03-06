@@ -1,3 +1,12 @@
+## 0.0.40
+
+ - **FIX**: restart app.
+ - **FIX**: memory leaks.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: use retry helper when possible.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
 ## 0.0.39+1
 
  - Update a dependency to the latest release.

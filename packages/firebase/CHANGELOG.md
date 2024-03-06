@@ -1,3 +1,15 @@
+## 0.0.36
+
+ - **REFACTOR**: analytics logging.
+ - **FIX**: restart app.
+ - **FIX**: memory leaks.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add analytics helpers.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: more analytics.
+ - **FEAT**: log app dict entries.
+
 ## 0.0.35+1
 
  - Update a dependency to the latest release.

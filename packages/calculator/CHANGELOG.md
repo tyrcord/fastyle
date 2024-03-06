@@ -1,3 +1,12 @@
+## 1.62.0
+
+ - **FIX**: typo.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: enable analytics logging for calculators.
+ - **FEAT**: minor improvements.
+ - **FEAT**: updated dependencies.
+
 ## 1.61.1
 
  - Update a dependency to the latest release.
