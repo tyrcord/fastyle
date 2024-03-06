@@ -111,8 +111,8 @@ jobs:
 
           # Add the deleted files to git
           remove_with_handling .github/workflows/update_dependency.yml
+          remove_with_handling .github/workflows/library/publish.yml
           remove_with_handling scripts/update_dependencies.sh
-          remove_with_handling actions/flutter/library/publish.yml
 
           # Check if there are any changes to commit
           if git diff --staged --quiet; then
