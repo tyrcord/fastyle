@@ -11,7 +11,7 @@ env:
   changes: 0
 
 jobs:
-  build:
+  sort-imports:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 

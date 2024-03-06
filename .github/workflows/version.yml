@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  version:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -56,13 +56,3 @@ jobs:
       # Push version tags
       - name: Push tags
         run: git push --follow-tags
-
-      # Create release tag
-      - name: Create release tag
-        run: |
-          # Create a custom tag
-          TAG_DATE=$(date -u +"release-%Y%m%d%H%M%S")
-          echo "Creating and pushing tag $TAG_DATE"
-          # Create the tag
-          git tag $TAG_DATE
-          git push origin $TAG_DATE

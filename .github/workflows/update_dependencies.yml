@@ -9,7 +9,7 @@ env:
   changes: 0
 
 jobs:
-  build:
+  update-dependencies:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
