@@ -5,8 +5,8 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
-  lingua_purchases: ^0.0.24
-  tbloc: ^0.22.2
+  lingua_purchases: ^0.0.26
+  tbloc: ^0.24.0
 description: A set of pricing widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^3.2.3

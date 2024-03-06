@@ -5,7 +5,7 @@ dependencies:
   flutter:
     sdk: flutter
   go_router: ^13.2.0
-  lingua_core: ^0.0.38
+  lingua_core: ^0.0.40
 description: A new Flutter project.
 dev_dependencies:
   dependency_validator: ^3.2.3

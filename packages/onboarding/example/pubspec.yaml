@@ -6,9 +6,9 @@ dependencies:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
   go_router: ^13.2.0
-  lingua_core: ^0.0.38
-  lingua_countries: ^0.0.9
-  lingua_onboarding: ^0.0.20
+  lingua_core: ^0.0.40
+  lingua_countries: ^0.0.11
+  lingua_onboarding: ^0.0.22
 description: A new Flutter project.
 dev_dependencies:
   dependency_validator: ^3.2.3
