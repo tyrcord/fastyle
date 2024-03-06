@@ -77,7 +77,7 @@ jobs:
           # Check if old workflow file exists and delete it
           rm -f .github/workflows/update_dependency.yml
           rm -f scripts/update_dependencies.sh
-          rm -f actions/flutter/library/publish.yml
+          rm -f .github/workflows/library/publish.yml
 
       # Commit and Push Changes
       - name: Commit and Push Changes
