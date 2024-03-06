@@ -1,0 +1,59 @@
+name: Publish Package Workflow
+
+on:
+  workflow_call:
+    inputs:
+      packageName:
+        required: true
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      id-token: write # Required for authentication using OIDC
+    environment: "pub.dev"
+
+    steps:
+      # Checkout the code
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      # Install Flutter
+      - name: Install and set Flutter version
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+          cache: true
+
+      # Precache Flutter
+      - name: Precache Flutter
+        run: flutter precache --universal
+
+      # Install Melos
+      - name: Install and set Melos version
+        uses: bluefireteam/melos-action@v3
+
+      # Install dependencies
+      - name: Install dependencies
+        run: flutter pub get
+
+      # melos bootstrap
+      - name: Bootstrap
+        run: melos bootstrap
+
+      # Create publishing token
+      - name: Create publishing token (flutter)
+        run: |
+          set -eo pipefail
+          PUB_TOKEN=$(curl --retry 5 --retry-connrefused -sLS "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=https://pub.dev" -H "User-Agent: actions/oidc-client" -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" | jq -r '.value')
+          echo "PUB_TOKEN=${PUB_TOKEN}" >> $GITHUB_ENV
+          export PUB_TOKEN
+          flutter pub token add https://pub.dev --env-var PUB_TOKEN
+
+      - name: Publish - dry run
+        run: melos publish --dry-run -y --scope=${{ inputs.packageName }}
+
+      - name: Publish to pub.dev
+        run: melos publish --no-dry-run -y --scope=${{ inputs.packageName }}
