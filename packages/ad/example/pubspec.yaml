@@ -5,7 +5,7 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
-  go_router: ^13.2.0
+  go_router: ^14.1.3
   google_mobile_ads: ^4.0.0
   lingua_ad: ^0.0.22
   lingua_core: ^0.0.40
