@@ -1,6 +1,6 @@
 dependencies:
   collection: ^1.18.0
-  easy_localization: ^3.0.4
+  easy_localization: ^3.0.7
   fastyle_core: ^0.0.52
   fastyle_financial: ^0.0.46
   fastyle_forms: ^0.0.50
@@ -26,8 +26,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: '>=3.16.0'
-  sdk: '>=3.2.0 <4.0.0'
+  flutter: ">=3.16.0"
+  sdk: ">=3.2.0 <4.0.0"
 name: fastyle_settings
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/settings
 version: 0.0.55

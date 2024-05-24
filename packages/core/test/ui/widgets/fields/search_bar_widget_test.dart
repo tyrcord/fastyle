@@ -166,7 +166,7 @@ void main() {
             items: items,
             showLeadingIcon: false,
           )),
-          const Duration(milliseconds: 60),
+          duration: const Duration(milliseconds: 60),
         );
 
         final finder = find.byWidget(_kFastBackIcon);

@@ -1,6 +1,6 @@
 dependencies:
   app_tracking_transparency: ^2.0.4
-  easy_localization: ^3.0.4
+  easy_localization: ^3.0.7
   fastyle_buttons: ^0.0.29
   fastyle_core: ^0.0.52
   fastyle_iap: ^0.0.40
@@ -22,8 +22,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: '>=3.16.0'
-  sdk: '>=3.2.0 <4.0.0'
+  flutter: ">=3.16.0"
+  sdk: ">=3.2.0 <4.0.0"
 name: fastyle_onboarding
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/onboarding
 version: 0.0.51
