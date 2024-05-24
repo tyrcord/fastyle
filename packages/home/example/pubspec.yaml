@@ -1,6 +1,6 @@
 dependencies:
-  fastyle_core: ^0.0.52
-  fastyle_home: ^0.0.40
+  fastyle_core: ^0.0.53
+  fastyle_home: ^0.0.41
   flutter:
     sdk: flutter
   go_router: ^14.1.3

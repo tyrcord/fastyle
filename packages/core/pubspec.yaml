@@ -8,7 +8,7 @@ dependencies:
   devicelocale: ^0.7.1
   diacritic: ^0.1.5
   easy_localization: ^3.0.5
-  fastyle_buttons: ^0.0.29
+  fastyle_buttons: ^0.0.30
   flutter:
     sdk: flutter
   flutter_spinkit: ^5.2.0
@@ -47,4 +47,4 @@ flutter:
   - assets/fonts/
 name: fastyle_core
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/core
-version: 0.0.52
+version: 0.0.53

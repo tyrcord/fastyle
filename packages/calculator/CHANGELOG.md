@@ -1,3 +1,9 @@
+## 1.63.0
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
 ## 1.62.0
 
  - **FIX**: typo.

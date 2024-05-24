@@ -3,6 +3,169 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-05-24
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.48`](#fastyle_ad---v0048)
+ - [`fastyle_animation` - `v0.0.21`](#fastyle_animation---v0021)
+ - [`fastyle_buttons` - `v0.0.30`](#fastyle_buttons---v0030)
+ - [`fastyle_calculator` - `v1.63.0`](#fastyle_calculator---v1630)
+ - [`fastyle_charts` - `v0.0.34`](#fastyle_charts---v0034)
+ - [`fastyle_connectivity` - `v0.0.46`](#fastyle_connectivity---v0046)
+ - [`fastyle_core` - `v0.0.53`](#fastyle_core---v0053)
+ - [`fastyle_digit_calculator` - `v0.0.45`](#fastyle_digit_calculator---v0045)
+ - [`fastyle_financial` - `v0.0.47`](#fastyle_financial---v0047)
+ - [`fastyle_firebase` - `v0.0.37`](#fastyle_firebase---v0037)
+ - [`fastyle_forms` - `v0.0.51`](#fastyle_forms---v0051)
+ - [`fastyle_home` - `v0.0.41`](#fastyle_home---v0041)
+ - [`fastyle_iap` - `v0.0.41`](#fastyle_iap---v0041)
+ - [`fastyle_images` - `v0.0.51`](#fastyle_images---v0051)
+ - [`fastyle_layouts` - `v0.0.23`](#fastyle_layouts---v0023)
+ - [`fastyle_onboarding` - `v0.0.52`](#fastyle_onboarding---v0052)
+ - [`fastyle_pricing` - `v1.46.0`](#fastyle_pricing---v1460)
+ - [`fastyle_quizz` - `v0.0.21`](#fastyle_quizz---v0021)
+ - [`fastyle_settings` - `v0.0.56`](#fastyle_settings---v0056)
+ - [`fastyle_text` - `v0.0.29`](#fastyle_text---v0029)
+ - [`fastyle_video_player` - `v0.0.33`](#fastyle_video_player---v0033)
+ - [`fastyle_views` - `v0.0.38`](#fastyle_views---v0038)
+
+---
+
+#### `fastyle_ad` - `v0.0.48`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_animation` - `v0.0.21`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_buttons` - `v0.0.30`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_calculator` - `v1.63.0`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_charts` - `v0.0.34`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_connectivity` - `v0.0.46`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_core` - `v0.0.53`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_digit_calculator` - `v0.0.45`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_financial` - `v0.0.47`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_firebase` - `v0.0.37`
+
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_forms` - `v0.0.51`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_home` - `v0.0.41`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_iap` - `v0.0.41`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_images` - `v0.0.51`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_layouts` - `v0.0.23`
+
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_onboarding` - `v0.0.52`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_pricing` - `v1.46.0`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_quizz` - `v0.0.21`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+
+#### `fastyle_settings` - `v0.0.56`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_text` - `v0.0.29`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_video_player` - `v0.0.33`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+#### `fastyle_views` - `v0.0.38`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
+
 ## 2024-03-06
 
 ### Changes

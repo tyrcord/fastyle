@@ -1,6 +1,6 @@
 dependencies:
-  fastyle_core: ^0.0.52
-  fastyle_digit_calculator: ^0.0.44
+  fastyle_core: ^0.0.53
+  fastyle_digit_calculator: ^0.0.45
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0

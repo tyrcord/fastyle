@@ -1,3 +1,9 @@
+## 0.0.53
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
 ## 0.0.52
 
  - **REFACTOR**: analytics logging.

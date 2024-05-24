@@ -1,3 +1,9 @@
+## 0.0.41
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+
 ## 0.0.40
 
  - **FIX**: restart app.
