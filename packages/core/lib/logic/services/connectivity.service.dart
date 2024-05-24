@@ -13,8 +13,8 @@ import 'package:fastyle_core/fastyle_core.dart';
 /// Service for monitoring internet connectivity status.
 ///
 /// This service provides streams and methods to check device connectivity and
-/// the availability of a remote service. It periodically checks connectivity and
-/// also listens for system connectivity changes.
+/// the availability of a remote service. It periodically checks connectivity
+/// and also listens for system connectivity changes.
 class FastConnectivityService {
   /// Singleton instance.
   static final FastConnectivityService instance = FastConnectivityService._();
@@ -74,9 +74,10 @@ class FastConnectivityService {
 
   // Check the current device internet connectivity.
   Future<bool> checkDeviceConnectivity() async {
-    final connectivityResult = await Connectivity().checkConnectivity();
+    final connectivityResults = await Connectivity().checkConnectivity();
 
-    return connectivityResult != ConnectivityResult.none;
+    return connectivityResults
+        .any((result) => result != ConnectivityResult.none);
   }
 
   // Check the availability of the remote service.
@@ -111,7 +112,7 @@ class FastConnectivityService {
     final deviceConnected = await checkDeviceConnectivity();
 
     return FastConnectivityStatus(
-      connectivityResult: connectivityResult,
+      connectivityResults: connectivityResult,
       isServiceAvailable: serviceAvailable,
       isConnected: deviceConnected,
     );
@@ -132,7 +133,7 @@ class FastConnectivityService {
       return FastConnectivityStatus(
         isServiceAvailable: await checkServiceAvailability(),
         isConnected: await checkDeviceConnectivity(),
-        connectivityResult: event,
+        connectivityResults: event,
       );
     });
   }

@@ -1,9 +1,6 @@
 // Dart imports:
 import 'dart:async';
 
-// Flutter imports:
-import 'package:flutter/material.dart';
-
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -80,9 +77,6 @@ class FastAdmobSplashAdService {
     final completer = Completer<bool>();
     final bloc = FastDeviceOrientationBloc();
     final deviceOrientation = bloc.currentState.orientation;
-    final adOrientation = deviceOrientation == Orientation.portrait
-        ? AppOpenAd.orientationPortrait
-        : AppOpenAd.orientationLandscapeRight;
     final stopwatch = Stopwatch()..start();
 
     _logger.debug(
@@ -91,7 +85,6 @@ class FastAdmobSplashAdService {
 
     AppOpenAd.load(
       adUnitId: _adUnitId!,
-      orientation: adOrientation,
       request: const AdRequest(),
       adLoadCallback: AppOpenAdLoadCallback(
         onAdLoaded: (ad) {

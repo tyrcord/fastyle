@@ -3,12 +3,12 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:tmodel/tmodel.dart';
 
 class FastConnectivityStatus extends TModel {
-  final ConnectivityResult connectivityResult;
+  final List<ConnectivityResult> connectivityResults;
   final bool isConnected;
   final bool isServiceAvailable;
 
   const FastConnectivityStatus({
-    required this.connectivityResult,
+    required this.connectivityResults,
     required this.isConnected,
     required this.isServiceAvailable,
   });
@@ -16,7 +16,7 @@ class FastConnectivityStatus extends TModel {
   @override
   FastConnectivityStatus clone() {
     return FastConnectivityStatus(
-      connectivityResult: connectivityResult,
+      connectivityResults: connectivityResults,
       isConnected: isConnected,
       isServiceAvailable: isServiceAvailable,
     );
@@ -24,12 +24,12 @@ class FastConnectivityStatus extends TModel {
 
   @override
   FastConnectivityStatus copyWith({
-    ConnectivityResult? connectivityResult,
+    List<ConnectivityResult>? connectivityResults,
     bool? isConnected,
     bool? isServiceAvailable,
   }) {
     return FastConnectivityStatus(
-      connectivityResult: connectivityResult ?? this.connectivityResult,
+      connectivityResults: connectivityResults ?? this.connectivityResults,
       isConnected: isConnected ?? this.isConnected,
       isServiceAvailable: isServiceAvailable ?? this.isServiceAvailable,
     );
@@ -38,7 +38,7 @@ class FastConnectivityStatus extends TModel {
   @override
   FastConnectivityStatus merge(covariant FastConnectivityStatus model) {
     return copyWith(
-      connectivityResult: model.connectivityResult,
+      connectivityResults: model.connectivityResults,
       isConnected: model.isConnected,
       isServiceAvailable: model.isServiceAvailable,
     );
@@ -46,5 +46,5 @@ class FastConnectivityStatus extends TModel {
 
   @override
   List<Object> get props =>
-      [connectivityResult, isConnected, isServiceAvailable];
+      [connectivityResults, isConnected, isServiceAvailable];
 }
