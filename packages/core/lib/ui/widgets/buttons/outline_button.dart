@@ -68,7 +68,7 @@ class FastOutlineButtonState extends State<FastOutlineButton>
           overlayColor: getOverlayColor(textColor),
           padding: getButtonPadding(),
           shape: getButtonShape(),
-          side: MaterialStateProperty.all<BorderSide>(BorderSide(
+          side: WidgetStateProperty.all<BorderSide>(BorderSide(
             color: widget.isEnabled ? borderColor : disabledColor,
           )),
         ),

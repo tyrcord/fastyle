@@ -1,5 +1,3 @@
-/// Import the required package for launching URLs.
-
 // Package imports:
 import 'package:tlogger/logger.dart';
 import 'package:url_launcher/url_launcher_string.dart';

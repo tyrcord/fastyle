@@ -81,10 +81,10 @@ final kDarkFastTheme = kBaseFastTheme.copyWith(
     color: kFastDarkTertiaryBackgroundColor,
   ),
   scrollbarTheme: ScrollbarThemeData(
-    thumbColor: MaterialStateProperty.resolveWith((states) {
-      const interactiveStates = <MaterialState>{
-        MaterialState.hovered,
-        MaterialState.dragged,
+    thumbColor: WidgetStateProperty.resolveWith((states) {
+      const interactiveStates = <WidgetState>{
+        WidgetState.hovered,
+        WidgetState.dragged,
       };
 
       if (states.any(interactiveStates.contains)) {
@@ -97,18 +97,18 @@ final kDarkFastTheme = kBaseFastTheme.copyWith(
   shadowColor: kFastDarkShadowColor,
   navigationBarTheme: kFastNavigationBarTheme.copyWith(
     surfaceTintColor: kFastDarkSecondaryBackgroundColor,
-    iconTheme: MaterialStateProperty.resolveWith<IconThemeData>((states) {
-      if (states.contains(MaterialState.disabled)) {
+    iconTheme: WidgetStateProperty.resolveWith<IconThemeData>((states) {
+      if (states.contains(WidgetState.disabled)) {
         return IconThemeData(color: kFastDarkTertiaryLabelColor);
-      } else if (states.contains(MaterialState.selected)) {
+      } else if (states.contains(WidgetState.selected)) {
         return const IconThemeData(color: kFastDarkWhiteColor);
       }
 
       return IconThemeData(color: kFastDarkSecondaryLabelColor);
     }),
-    labelTextStyle: MaterialStateProperty.resolveWith<TextStyle>(
+    labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
       (
-        Set<MaterialState> states,
+        Set<WidgetState> states,
       ) {
         final base = GoogleFonts.barlowSemiCondensed(
           fontWeight: kFastFontWeightRegular,
@@ -116,9 +116,9 @@ final kDarkFastTheme = kBaseFastTheme.copyWith(
           color: kFastLightLabelColor,
         );
 
-        if (states.contains(MaterialState.disabled)) {
+        if (states.contains(WidgetState.disabled)) {
           return base.copyWith(color: kFastDarkTertiaryLabelColor);
-        } else if (states.contains(MaterialState.selected)) {
+        } else if (states.contains(WidgetState.selected)) {
           return base.copyWith(color: kFastDarkLabelColor);
         }
 

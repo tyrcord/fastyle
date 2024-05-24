@@ -14,6 +14,7 @@ import 'package:fastyle_calculator/fastyle_calculator.dart';
 class FastCalculatorInfoAction<B extends FastCalculatorBloc,
     R extends FastCalculatorResults> extends FastCalculatorAction<B, R> {
   /// A callback function that is triggered when the info icon is pressed.
+  @override
   final VoidCallback onTap;
 
   const FastCalculatorInfoAction({
