@@ -1,6 +1,6 @@
 dependencies:
   collection: ^1.18.0
-  easy_localization: ^3.0.7
+  easy_localization: ^3.0.5
   fastyle_core: ^0.0.52
   fastyle_forms: ^0.0.50
   fastyle_images: ^0.0.50
@@ -8,14 +8,14 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
-  lingua_core: ^0.0.40
-  lingua_finance: ^0.0.37
-  lingua_finance_forex: ^0.0.17
-  lingua_finance_instrument: ^0.0.14
-  lingua_number: ^0.0.16
-  lingua_units: ^0.0.13
-  t_helpers: ^0.0.55
-  tbloc: ^0.24.0
+  lingua_core: ^0.0.42
+  lingua_finance: ^0.0.39
+  lingua_finance_forex: ^0.0.19
+  lingua_finance_instrument: ^0.0.16
+  lingua_number: ^0.0.18
+  lingua_units: ^0.0.15
+  t_helpers: ^0.0.56
+  tbloc: ^0.24.1
 description: Set of Financial Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^3.2.3
@@ -24,8 +24,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: ">=3.16.0"
-  sdk: ">=3.2.0 <4.0.0"
+  flutter: '>=3.16.0'
+  sdk: '>=3.2.0 <4.0.0'
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/fastyle_financial
 name: fastyle_financial
 version: 0.0.46

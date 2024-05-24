@@ -1,5 +1,5 @@
 dependencies:
-  easy_localization: ^3.0.7
+  easy_localization: ^3.0.5
   fastyle_core: ^0.0.52
   fastyle_iap: ^0.0.40
   fastyle_pricing: ^1.45.0
@@ -7,9 +7,9 @@ dependencies:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
   go_router: ^14.1.3
-  lingua_core: ^0.0.40
-  lingua_purchases: ^0.0.26
-  tbloc: ^0.24.0
+  lingua_core: ^0.0.42
+  lingua_purchases: ^0.0.28
+  tbloc: ^0.24.1
 description: A new Flutter project.
 dev_dependencies:
   dependency_validator: ^3.2.3
@@ -18,8 +18,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: ">=3.16.0"
-  sdk: ">=3.2.0 <4.0.0"
+  flutter: '>=3.16.0'
+  sdk: '>=3.2.0 <4.0.0'
 flutter:
   uses-material-design: true
 name: fastyle_iap_example

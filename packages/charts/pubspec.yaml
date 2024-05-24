@@ -2,7 +2,7 @@ dependencies:
   fastyle_core: ^0.0.52
   flutter:
     sdk: flutter
-  t_helpers: ^0.0.55
+  t_helpers: ^0.0.56
   visibility_detector: ^0.4.0+2
 description: Set of chart Widgets for the Fastyle library.
 dev_dependencies:

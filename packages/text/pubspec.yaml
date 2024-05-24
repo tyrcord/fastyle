@@ -1,10 +1,10 @@
 dependencies:
-  easy_localization: ^3.0.7
+  easy_localization: ^3.0.5
   fastyle_core: ^0.0.52
   flutter:
     sdk: flutter
-  lingua_core: ^0.0.40
-  t_helpers: ^0.0.55
+  lingua_core: ^0.0.42
+  t_helpers: ^0.0.56
   visibility_detector: ^0.4.0+2
 description: A set of pricing texts for the fastyle library.
 dev_dependencies:
@@ -14,8 +14,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: ">=3.16.0"
-  sdk: ">=3.2.0 <4.0.0"
+  flutter: '>=3.16.0'
+  sdk: '>=3.2.0 <4.0.0'
 name: fastyle_text
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/text
 version: 0.0.28

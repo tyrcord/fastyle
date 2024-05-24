@@ -1,5 +1,5 @@
 dependencies:
-  easy_localization: ^3.0.7
+  easy_localization: ^3.0.5
   fastyle_connectivity: ^0.0.45
   fastyle_core: ^0.0.52
   flutter:
@@ -14,8 +14,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: ">=3.16.0"
-  sdk: ">=3.2.0 <4.0.0"
+  flutter: '>=3.16.0'
+  sdk: '>=3.2.0 <4.0.0'
 flutter:
   uses-material-design: true
 name: fastyle_connectivity_example

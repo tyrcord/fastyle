@@ -1,19 +1,19 @@
 dependencies:
-  app_tracking_transparency: ^2.0.4
-  easy_localization: ^3.0.7
+  app_tracking_transparency: ^2.0.5
+  easy_localization: ^3.0.5
   fastyle_buttons: ^0.0.29
   fastyle_core: ^0.0.52
   fastyle_iap: ^0.0.40
   fastyle_layouts: ^0.0.22
   fastyle_settings: ^0.0.55
-  firebase_messaging: ^14.7.18
+  firebase_messaging: ^14.9.3
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
-  lingua_core: ^0.0.40
-  lingua_onboarding: ^0.0.22
-  lingua_purchases: ^0.0.26
-  tbloc: ^0.24.0
+  lingua_core: ^0.0.42
+  lingua_onboarding: ^0.0.24
+  lingua_purchases: ^0.0.28
+  tbloc: ^0.24.1
 description: Set of onboarding Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^3.2.3
@@ -22,8 +22,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: ">=3.16.0"
-  sdk: ">=3.2.0 <4.0.0"
+  flutter: '>=3.16.0'
+  sdk: '>=3.2.0 <4.0.0'
 name: fastyle_onboarding
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/onboarding
 version: 0.0.51
