@@ -54,6 +54,10 @@ class FastAdInfo extends TDocument {
   /// The Ad Unit ID for rewarded interstitial ads on iOS.
   final String? iosRewardedInterstitialAdUnitId;
 
+  final List<String>? iosSplashAdUnitIds;
+
+  final List<String>? androidSplashAdUnitIds;
+
   /// The list of keywords associated with the ads.
   final List<String>? keywords;
 
@@ -83,107 +87,68 @@ class FastAdInfo extends TDocument {
 
   final int splashAdTimeThreshold;
 
-  /// Get the Ad Unit ID for native ads.
-  String? get nativeAdUnitId {
+  /// Get the Ad Unit ID based on the platform and ad type.
+  String? getAdUnitId(
+    String adType,
+    String? iosUnitId,
+    String? androidUnitId,
+  ) {
     if (Platform.isIOS || Platform.isAndroid) {
       if (Platform.isIOS) {
-        return kDebugMode
-            ? kFastAdmobTestUnitsIOS['Native']
-            : iosNativeAdUnitId;
+        return kDebugMode ? kFastAdmobTestUnitsIOS[adType] : iosUnitId;
       }
 
-      return kDebugMode
-          ? kFastAdmobTestUnitsAndroid['Native']
-          : androidNativeAdUnitId;
+      return kDebugMode ? kFastAdmobTestUnitsAndroid[adType] : androidUnitId;
     }
 
     return null;
   }
+
+  List<String>? getAdUnitIds(
+    String adType,
+    List<String>? iosUnitIds,
+    List<String>? androidUnitIds,
+  ) {
+    if (Platform.isIOS || Platform.isAndroid) {
+      if (Platform.isIOS) return iosUnitIds;
+
+      return androidUnitIds;
+    }
+
+    return null;
+  }
+
+  /// Get the Ad Unit ID for native ads.
+  String? get nativeAdUnitId =>
+      getAdUnitId('Native', iosNativeAdUnitId, androidNativeAdUnitId);
 
   /// Get the Ad Unit ID for banner ads.
-  String? get bannerAdUnitId {
-    if (Platform.isIOS || Platform.isAndroid) {
-      if (Platform.isIOS) {
-        return kDebugMode
-            ? kFastAdmobTestUnitsIOS['Banner']
-            : iosBannerAdUnitId;
-      }
-
-      return kDebugMode
-          ? kFastAdmobTestUnitsAndroid['Banner']
-          : androidBannerAdUnitId;
-    }
-
-    return null;
-  }
+  String? get bannerAdUnitId =>
+      getAdUnitId('Banner', iosBannerAdUnitId, androidBannerAdUnitId);
 
   /// Get the Ad Unit ID for interstitial ads.
-  String? get interstitialAdUnitId {
-    if (Platform.isIOS || Platform.isAndroid) {
-      if (Platform.isIOS) {
-        return kDebugMode
-            ? kFastAdmobTestUnitsIOS['Interstitial']
-            : iosInterstitialAdUnitId;
-      }
-
-      return kDebugMode
-          ? kFastAdmobTestUnitsAndroid['Interstitial']
-          : androidInterstitialAdUnitId;
-    }
-
-    return null;
-  }
+  String? get interstitialAdUnitId => getAdUnitId(
+      'Interstitial', iosInterstitialAdUnitId, androidInterstitialAdUnitId);
 
   /// Get the Ad Unit ID for rewarded ads.
-  String? get rewardedAdUnitId {
-    if (Platform.isIOS || Platform.isAndroid) {
-      if (Platform.isIOS) {
-        return kDebugMode
-            ? kFastAdmobTestUnitsIOS['Rewarded']
-            : iosRewardedAdUnitId;
-      }
-
-      return kDebugMode
-          ? kFastAdmobTestUnitsAndroid['Rewarded']
-          : androidRewardedAdUnitId;
-    }
-
-    return null;
-  }
+  String? get rewardedAdUnitId =>
+      getAdUnitId('Rewarded', iosRewardedAdUnitId, androidRewardedAdUnitId);
 
   /// Get the Ad Unit ID for splash ads.
-  String? get splashAdUnitId {
-    if (Platform.isIOS || Platform.isAndroid) {
-      if (Platform.isIOS) {
-        return kDebugMode
-            ? kFastAdmobTestUnitsIOS['Splash']
-            : iosSplashAdUnitId;
-      }
-
-      return kDebugMode
-          ? kFastAdmobTestUnitsAndroid['Splash']
-          : androidSplashAdUnitId;
-    }
-
-    return null;
-  }
+  String? get splashAdUnitId =>
+      getAdUnitId('Splash', iosSplashAdUnitId, androidSplashAdUnitId);
 
   /// Get the Ad Unit ID for rewarded interstitial ads.
-  String? get rewardedInterstitialAdUnitId {
-    if (Platform.isIOS || Platform.isAndroid) {
-      if (Platform.isIOS) {
-        return kDebugMode
-            ? kFastAdmobTestUnitsIOS['RewardedInterstitial']
-            : iosRewardedInterstitialAdUnitId;
-      }
+  String? get rewardedInterstitialAdUnitId => getAdUnitId(
+      'RewardedInterstitial',
+      iosRewardedInterstitialAdUnitId,
+      androidRewardedInterstitialAdUnitId);
 
-      return kDebugMode
-          ? kFastAdmobTestUnitsAndroid['RewardedInterstitial']
-          : androidRewardedInterstitialAdUnitId;
-    }
-
-    return null;
-  }
+  List<String>? get splashAdUnitIds => getAdUnitIds(
+        'Splash',
+        iosSplashAdUnitIds,
+        androidSplashAdUnitIds,
+      );
 
   bool get nativeAdmobEnabled {
     if (Platform.isAndroid) return androidNativeAdmobEnabled;
@@ -217,6 +182,8 @@ class FastAdInfo extends TDocument {
     this.iosNativeAdmobEnabled = kFastNativeAdmobEnabled,
     this.interstitialAdThreshold = kFastInterstitialAdThreshold,
     this.splashAdTimeThreshold = kFastAdSplashAdTimeThreshold,
+    this.androidSplashAdUnitIds,
+    this.iosSplashAdUnitIds,
   });
 
   /// Create a new [FastAdInfo] instance from a JSON map.
@@ -255,6 +222,8 @@ class FastAdInfo extends TDocument {
           kFastInterstitialAdThreshold,
       splashAdTimeThreshold:
           json['splashAdTimeThreshold'] as int? ?? kFastAdSplashAdTimeThreshold,
+      androidSplashAdUnitIds: json['androidSplashAdUnitIds'] as List<String>?,
+      iosSplashAdUnitIds: json['iosSplashAdUnitIds'] as List<String>?,
     );
   }
 
@@ -288,6 +257,8 @@ class FastAdInfo extends TDocument {
     bool? iosNativeAdmobEnabled,
     int? interstitialAdThreshold,
     int? splashAdTimeThreshold,
+    List<String>? androidSplashAdUnitIds,
+    List<String>? iosSplashAdUnitIds,
   }) =>
       FastAdInfo(
         iosNativeAdUnitId: iosNativeAdUnitId ?? this.iosNativeAdUnitId,
@@ -327,6 +298,9 @@ class FastAdInfo extends TDocument {
             interstitialAdThreshold ?? this.interstitialAdThreshold,
         splashAdTimeThreshold:
             splashAdTimeThreshold ?? this.splashAdTimeThreshold,
+        androidSplashAdUnitIds:
+            androidSplashAdUnitIds ?? this.androidSplashAdUnitIds,
+        iosSplashAdUnitIds: iosSplashAdUnitIds ?? this.iosSplashAdUnitIds,
       );
 
   /// Merges the properties of another [FastAdInfo] instance into this one.
@@ -357,6 +331,8 @@ class FastAdInfo extends TDocument {
       iosNativeAdmobEnabled: model.iosNativeAdmobEnabled,
       interstitialAdThreshold: model.interstitialAdThreshold,
       splashAdTimeThreshold: model.splashAdTimeThreshold,
+      androidSplashAdUnitIds: model.androidSplashAdUnitIds,
+      iosSplashAdUnitIds: model.iosSplashAdUnitIds,
     );
   }
 
@@ -387,6 +363,8 @@ class FastAdInfo extends TDocument {
         'iosNativeAdmobEnabled': iosNativeAdmobEnabled,
         'interstitialAdThreshold': interstitialAdThreshold,
         'splashAdTimeThreshold': splashAdTimeThreshold,
+        'androidSplashAdUnitIds': androidSplashAdUnitIds,
+        'iosSplashAdUnitIds': iosSplashAdUnitIds,
         ...super.toJson(),
       };
 
@@ -417,6 +395,8 @@ class FastAdInfo extends TDocument {
         iosNativeAdmobEnabled,
         interstitialAdThreshold,
         splashAdTimeThreshold,
+        androidSplashAdUnitIds,
+        iosSplashAdUnitIds,
       ];
 
   /// Print the values of properties in debug mode.
@@ -452,6 +432,8 @@ class FastAdInfo extends TDocument {
         ..info('androidNativeAdmobEnabled', androidNativeAdmobEnabled)
         ..info('iosNativeAdmobEnabled', iosNativeAdmobEnabled)
         ..info('splashAdTimeThreshold', splashAdTimeThreshold)
+        ..info('androidSplashAdUnitIds', androidSplashAdUnitIds)
+        ..info('iosSplashAdUnitIds', iosSplashAdUnitIds)
         ..info('interstitialAdThreshold', interstitialAdThreshold);
     }
   }

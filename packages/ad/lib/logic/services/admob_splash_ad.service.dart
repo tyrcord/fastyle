@@ -2,10 +2,8 @@
 import 'dart:async';
 
 // Package imports:
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:t_helpers/helpers.dart';
 import 'package:tlogger/logger.dart';
 
 // Project imports:
@@ -41,13 +39,14 @@ class FastAdmobSplashAdService {
     _splashAd?.dispose();
   }
 
-  /// The ad unit ID for the splash ad.
+  /// The ad unit IDs for the splash ad.
+  List<String>? get _adUnitIds => adInfo?.splashAdUnitIds;
   String? get _adUnitId => adInfo?.splashAdUnitId;
 
   /// Whether an ad is available to be shown.
   bool get isAdAvailable => _splashAd != null;
 
-  Future<bool>? _loadAdFuture;
+  Future<AppOpenAd?>? _loadAdFuture;
 
   /// Loads an AppOpenAd.
   ///
@@ -62,60 +61,65 @@ class FastAdmobSplashAdService {
       whiteList: whiteList,
     );
 
-    if (canRequestAd && _adUnitId != null) {
-      return retry<bool>(
-        task: () async => _requestAd(timeout: timeout),
-        taskTimeout: kFastAdDefaultTimeout,
-        maxAttempts: 2,
-      );
+    if (!canRequestAd) return false;
+
+    List<Future<AppOpenAd?>> adLoadFutures = [];
+
+    if (_adUnitIds != null && _adUnitIds!.isNotEmpty) {
+      // Map each ad unit ID to a _requestAd call and collect futures
+      adLoadFutures = _adUnitIds!.map((adUnitId) {
+        return _requestAd(adUnitId, timeout: timeout);
+      }).toList();
+    } else if (_adUnitId != null) {
+      // Single ad unit ID case
+      adLoadFutures.add(_requestAd(_adUnitId!, timeout: timeout));
     }
+
+    // Wait for all ad load attempts to complete
+    final results = await Future.wait(adLoadFutures);
+
+    // Find the first successfully loaded ad
+    for (final ad in results) {
+      if (ad != null) {
+        _splashAd = ad;
+        return true;
+      }
+    }
+
+    _logger.error('Failed to load any splash ad.');
 
     return false;
   }
 
-  Future<bool> _requestAd({Duration? timeout}) async {
-    final completer = Completer<bool>();
-    final bloc = FastDeviceOrientationBloc();
-    final deviceOrientation = bloc.currentState.orientation;
-    final stopwatch = Stopwatch()..start();
-
-    _logger.debug(
-      'Loading Splash Ad for orientation: ${deviceOrientation.name}',
-    );
+  Future<AppOpenAd?> _requestAd(
+    String adUnitId, {
+    Duration? timeout,
+  }) async {
+    final completer = Completer<AppOpenAd?>();
 
     AppOpenAd.load(
-      adUnitId: _adUnitId!,
+      adUnitId: adUnitId,
       request: const AdRequest(),
       adLoadCallback: AppOpenAdLoadCallback(
         onAdLoaded: (ad) {
-          stopwatch.stop();
-          _logger.debug(
-            'Splash Ad loaded in ${stopwatch.elapsedMilliseconds}ms',
-          );
-
-          _splashAd = ad;
           _loadAdFuture = null;
-          completer.complete(true);
+          completer.complete(ad);
         },
         onAdFailedToLoad: (error) {
-          stopwatch.stop();
-          final milliseconds = stopwatch.elapsedMilliseconds;
-          _logger
-            ..debug('Splash Ad failed to load in $milliseconds ms')
-            ..error('failed to load ad: $error');
+          _logger.error('failed to load ad: $error');
           _loadAdFuture = null;
-          completer.complete(false);
+          completer.complete(null);
         },
       ),
     );
 
-    timeout ??= const Duration(seconds: 45);
+    timeout ??= const Duration(seconds: 30);
 
     _loadAdFuture = completer.future.timeout(timeout).catchError((error) {
       _logger.error('failed to load ad: $error');
       _loadAdFuture = null;
 
-      return false;
+      return null;
     });
 
     return _loadAdFuture!;
