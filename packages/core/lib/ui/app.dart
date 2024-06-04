@@ -442,14 +442,10 @@ class _FastAppState extends State<FastApp> with WidgetsBindingObserver {
       if (!connectivityState.isConnected) {
         return FastConnectivityStatusPage(
           onRetryTap: () => FastApp.restart(context),
-          cancelButtonText: contactLabel,
-          onCancelTap: contactCallback,
         );
       } else if (!connectivityState.isServiceAvailable) {
         return FastServiceStatusPage(
           onRetryTap: () => FastApp.restart(context),
-          cancelButtonText: contactLabel,
-          onCancelTap: contactCallback,
         );
       }
     }
