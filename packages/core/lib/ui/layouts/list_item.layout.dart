@@ -92,7 +92,7 @@ class FastListItemLayout extends StatelessWidget {
   /// Builds the item label.
   Widget buildItemLabel() {
     final text =
-        capitalizeLabelText ? toBeginningOfSentenceCase(labelText)! : labelText;
+        capitalizeLabelText ? toBeginningOfSentenceCase(labelText) : labelText;
 
     return FastBody(textColor: selectionLabelColor, text: text);
   }
