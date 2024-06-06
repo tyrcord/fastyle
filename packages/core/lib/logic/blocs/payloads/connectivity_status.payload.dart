@@ -2,18 +2,18 @@
 import 'package:fastyle_core/fastyle_core.dart';
 
 class FastConnectivityStatusBlocEventPayload {
+  final List<String> checkAddresses;
   final Duration? checkInterval;
-  final Duration? checkTimeout;
-  final String? checkAddress;
-  final bool isConnected;
   final bool isServiceAvailable;
-  final int? checkPort;
+  final Duration? checkTimeout;
+  final List<int> checkPorts;
+  final bool isConnected;
 
   const FastConnectivityStatusBlocEventPayload({
     this.checkInterval = kFastConnectivityCheckInterval,
     this.checkTimeout = kFastConnectivityCheckTimeout,
-    this.checkAddress = kFastConnectivityCheckAddress,
-    this.checkPort = kFastConnectivityCheckPort,
+    this.checkAddresses = kFastConnectivityCheckAddresses,
+    this.checkPorts = kFastConnectivityCheckPorts,
     this.isConnected = false,
     this.isServiceAvailable = false,
   });

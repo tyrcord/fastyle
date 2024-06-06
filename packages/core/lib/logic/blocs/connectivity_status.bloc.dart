@@ -105,8 +105,9 @@ class FastConnectivityStatusBloc extends BidirectionalBloc<
       service = FastConnectivityService(
         checkInterval: payload?.checkInterval ?? kFastConnectivityCheckInterval,
         checkTimeout: payload?.checkTimeout ?? kFastConnectivityCheckTimeout,
-        checkAddress: payload?.checkAddress ?? kFastConnectivityCheckAddress,
-        checkPort: payload?.checkPort ?? kFastConnectivityCheckPort,
+        checkAddresses:
+            payload?.checkAddresses ?? kFastConnectivityCheckAddresses,
+        checkPorts: payload?.checkPorts ?? kFastConnectivityCheckPorts,
       );
 
       if (connectivitySubscription != null) {
