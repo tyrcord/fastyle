@@ -2,6 +2,7 @@
 import 'dart:io';
 
 // Flutter imports:
+import 'package:fastyle_ad/logic/models/ad_unit_metadata.util.dart';
 import 'package:flutter/foundation.dart' show kDebugMode;
 
 // Package imports:
@@ -54,9 +55,9 @@ class FastAdInfo extends TDocument {
   /// The Ad Unit ID for rewarded interstitial ads on iOS.
   final String? iosRewardedInterstitialAdUnitId;
 
-  final List<String>? iosSplashAdUnitIds;
+  final FastAdUnitMetadata? iosSplashAdUnitMetadata;
 
-  final List<String>? androidSplashAdUnitIds;
+  final FastAdUnitMetadata? androidSplashAdUnitMetadata;
 
   /// The list of keywords associated with the ads.
   final List<String>? keywords;
@@ -67,6 +68,7 @@ class FastAdInfo extends TDocument {
   /// The threshold value for splash ads.
   final int splashAdThreshold;
 
+  /// The threshold value for interstitial ads.
   final int interstitialAdThreshold;
 
   /// The authority of the ad service URI.
@@ -118,6 +120,20 @@ class FastAdInfo extends TDocument {
     return null;
   }
 
+  FastAdUnitMetadata? getAdUnitMetadata(
+    String adType,
+    FastAdUnitMetadata? iosUnitMetadata,
+    FastAdUnitMetadata? androidUnitMetadata,
+  ) {
+    if (Platform.isIOS || Platform.isAndroid) {
+      if (Platform.isIOS) return iosUnitMetadata;
+
+      return androidUnitMetadata;
+    }
+
+    return null;
+  }
+
   /// Get the Ad Unit ID for native ads.
   String? get nativeAdUnitId =>
       getAdUnitId('Native', iosNativeAdUnitId, androidNativeAdUnitId);
@@ -144,10 +160,10 @@ class FastAdInfo extends TDocument {
       iosRewardedInterstitialAdUnitId,
       androidRewardedInterstitialAdUnitId);
 
-  List<String>? get splashAdUnitIds => getAdUnitIds(
+  FastAdUnitMetadata? get splashAdUnitMetadata => getAdUnitMetadata(
         'Splash',
-        iosSplashAdUnitIds,
-        androidSplashAdUnitIds,
+        iosSplashAdUnitMetadata,
+        androidSplashAdUnitMetadata,
       );
 
   bool get nativeAdmobEnabled {
@@ -182,8 +198,8 @@ class FastAdInfo extends TDocument {
     this.iosNativeAdmobEnabled = kFastNativeAdmobEnabled,
     this.interstitialAdThreshold = kFastInterstitialAdThreshold,
     this.splashAdTimeThreshold = kFastAdSplashAdTimeThreshold,
-    this.androidSplashAdUnitIds,
-    this.iosSplashAdUnitIds,
+    this.androidSplashAdUnitMetadata,
+    this.iosSplashAdUnitMetadata,
   });
 
   /// Create a new [FastAdInfo] instance from a JSON map.
@@ -222,8 +238,12 @@ class FastAdInfo extends TDocument {
           kFastInterstitialAdThreshold,
       splashAdTimeThreshold:
           json['splashAdTimeThreshold'] as int? ?? kFastAdSplashAdTimeThreshold,
-      androidSplashAdUnitIds: json['androidSplashAdUnitIds'] as List<String>?,
-      iosSplashAdUnitIds: json['iosSplashAdUnitIds'] as List<String>?,
+      iosSplashAdUnitMetadata: FastAdUnitMetadata.fromJson(
+        json['iosSplashAdUnitMetadata'] as Map<String, dynamic>?,
+      ),
+      androidSplashAdUnitMetadata: FastAdUnitMetadata.fromJson(
+        json['androidSplashAdUnitMetadata'] as Map<String, dynamic>?,
+      ),
     );
   }
 
@@ -257,8 +277,8 @@ class FastAdInfo extends TDocument {
     bool? iosNativeAdmobEnabled,
     int? interstitialAdThreshold,
     int? splashAdTimeThreshold,
-    List<String>? androidSplashAdUnitIds,
-    List<String>? iosSplashAdUnitIds,
+    FastAdUnitMetadata? androidSplashAdUnitMetadata,
+    FastAdUnitMetadata? iosSplashAdUnitMetadata,
   }) =>
       FastAdInfo(
         iosNativeAdUnitId: iosNativeAdUnitId ?? this.iosNativeAdUnitId,
@@ -298,9 +318,10 @@ class FastAdInfo extends TDocument {
             interstitialAdThreshold ?? this.interstitialAdThreshold,
         splashAdTimeThreshold:
             splashAdTimeThreshold ?? this.splashAdTimeThreshold,
-        androidSplashAdUnitIds:
-            androidSplashAdUnitIds ?? this.androidSplashAdUnitIds,
-        iosSplashAdUnitIds: iosSplashAdUnitIds ?? this.iosSplashAdUnitIds,
+        androidSplashAdUnitMetadata:
+            iosSplashAdUnitMetadata ?? this.androidSplashAdUnitMetadata,
+        iosSplashAdUnitMetadata:
+            iosSplashAdUnitMetadata ?? this.iosSplashAdUnitMetadata,
       );
 
   /// Merges the properties of another [FastAdInfo] instance into this one.
@@ -331,8 +352,8 @@ class FastAdInfo extends TDocument {
       iosNativeAdmobEnabled: model.iosNativeAdmobEnabled,
       interstitialAdThreshold: model.interstitialAdThreshold,
       splashAdTimeThreshold: model.splashAdTimeThreshold,
-      androidSplashAdUnitIds: model.androidSplashAdUnitIds,
-      iosSplashAdUnitIds: model.iosSplashAdUnitIds,
+      androidSplashAdUnitMetadata: model.androidSplashAdUnitMetadata,
+      iosSplashAdUnitMetadata: model.iosSplashAdUnitMetadata,
     );
   }
 
@@ -363,8 +384,8 @@ class FastAdInfo extends TDocument {
         'iosNativeAdmobEnabled': iosNativeAdmobEnabled,
         'interstitialAdThreshold': interstitialAdThreshold,
         'splashAdTimeThreshold': splashAdTimeThreshold,
-        'androidSplashAdUnitIds': androidSplashAdUnitIds,
-        'iosSplashAdUnitIds': iosSplashAdUnitIds,
+        'androidSplashAdUnitMetadata': androidSplashAdUnitMetadata?.toJson(),
+        'iosSplashAdUnitMetadata': iosSplashAdUnitMetadata?.toJson(),
         ...super.toJson(),
       };
 
@@ -395,8 +416,8 @@ class FastAdInfo extends TDocument {
         iosNativeAdmobEnabled,
         interstitialAdThreshold,
         splashAdTimeThreshold,
-        androidSplashAdUnitIds,
-        iosSplashAdUnitIds,
+        androidSplashAdUnitMetadata,
+        iosSplashAdUnitMetadata,
       ];
 
   /// Print the values of properties in debug mode.
@@ -432,8 +453,8 @@ class FastAdInfo extends TDocument {
         ..info('androidNativeAdmobEnabled', androidNativeAdmobEnabled)
         ..info('iosNativeAdmobEnabled', iosNativeAdmobEnabled)
         ..info('splashAdTimeThreshold', splashAdTimeThreshold)
-        ..info('androidSplashAdUnitIds', androidSplashAdUnitIds)
-        ..info('iosSplashAdUnitIds', iosSplashAdUnitIds)
+        ..info('androidSplashAdUnitMetadata', androidSplashAdUnitMetadata)
+        ..info('iosSplashAdUnitMetadata', iosSplashAdUnitMetadata)
         ..info('interstitialAdThreshold', interstitialAdThreshold);
     }
   }
