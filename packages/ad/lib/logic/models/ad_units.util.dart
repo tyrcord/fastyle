@@ -1,20 +1,20 @@
-class FastAdUnitMetadata {
+class FastAdUnits {
   final String? high;
   final String? medium;
   final String? low;
   final Map<String, String> extra;
 
-  const FastAdUnitMetadata({
+  const FastAdUnits({
     this.high,
     this.medium,
     this.low,
     this.extra = const {},
   });
 
-  factory FastAdUnitMetadata.fromJson(Map<String, dynamic>? json) {
-    if (json == null) return const FastAdUnitMetadata();
+  factory FastAdUnits.fromJson(Map<String, dynamic>? json) {
+    if (json == null) return const FastAdUnits();
 
-    return FastAdUnitMetadata(
+    return FastAdUnits(
       high: json['high'] as String?,
       medium: json['medium'] as String?,
       low: json['low'] as String?,
@@ -34,7 +34,7 @@ class FastAdUnitMetadata {
 
   @override
   String toString() {
-    return 'FastAdUnitMetadata(high: $high, medium: $medium,'
+    return 'FastAdUnits(high: $high, medium: $medium,'
         ' low: $low, extra: $extra)';
   }
 }

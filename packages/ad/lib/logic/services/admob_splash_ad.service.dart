@@ -43,14 +43,14 @@ class FastAdmobSplashAdService {
   List<String>? get _adUnitIds {
     if (adInfo == null) return null;
 
-    final metadata = adInfo!.splashAdUnitMetadata;
+    final units = adInfo!.splashAdUnits;
 
-    if (metadata == null) return null;
+    if (units == null) return null;
 
     return [
-      metadata.high,
-      metadata.medium,
-      metadata.low,
+      units.high,
+      units.medium,
+      units.low,
     ].where((element) => element != null).cast<String>().toList();
   }
 
@@ -90,13 +90,18 @@ class FastAdmobSplashAdService {
 
     // Wait for all ad load attempts to complete
     final results = await Future.wait(adLoadFutures);
+    int index = 0;
 
     // Find the first successfully loaded ad
     for (final ad in results) {
       if (ad != null) {
+        _logger.debug('Loaded splash ad from ${_getAdFloor(index)} ad unit.');
         _splashAd = ad;
+
         return true;
       }
+
+      index++;
     }
 
     _logger.error('Failed to load any splash ad.');
@@ -181,5 +186,15 @@ class FastAdmobSplashAdService {
     _isShowingAd = false;
     _splashAd?.dispose();
     _splashAd = null;
+  }
+
+  String _getAdFloor(int index) {
+    final floor = index == 0
+        ? 'high'
+        : index == 1
+            ? 'medium'
+            : 'low';
+
+    return floor;
   }
 }
