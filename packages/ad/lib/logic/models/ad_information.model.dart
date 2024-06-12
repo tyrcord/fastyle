@@ -58,6 +58,18 @@ class FastAdInfo extends TDocument {
 
   final FastAdUnits? androidSplashAdUnits;
 
+  final FastAdUnits? iosInterstitialAdUnits;
+
+  final FastAdUnits? androidInterstitialAdUnits;
+
+  final FastAdUnits? iosRewardedAdUnits;
+
+  final FastAdUnits? androidRewardedAdUnits;
+
+  final FastAdUnits? iosNativeAdUnits;
+
+  final FastAdUnits? androidNativeAdUnits;
+
   /// The list of keywords associated with the ads.
   final List<String>? keywords;
 
@@ -153,6 +165,24 @@ class FastAdInfo extends TDocument {
         androidSplashAdUnits,
       );
 
+  FastAdUnits? get interstitialAdUnits => getAdUnits(
+        'Interstitial',
+        iosInterstitialAdUnits,
+        androidInterstitialAdUnits,
+      );
+
+  FastAdUnits? get rewardedAdUnits => getAdUnits(
+        'Rewarded',
+        iosRewardedAdUnits,
+        androidRewardedAdUnits,
+      );
+
+  FastAdUnits? get nativeAdUnits => getAdUnits(
+        'Native',
+        iosNativeAdUnits,
+        androidNativeAdUnits,
+      );
+
   bool get nativeAdmobEnabled {
     if (Platform.isAndroid) return androidNativeAdmobEnabled;
     if (Platform.isIOS) return iosNativeAdmobEnabled;
@@ -187,6 +217,12 @@ class FastAdInfo extends TDocument {
     this.splashAdTimeThreshold = kFastAdSplashAdTimeThreshold,
     this.androidSplashAdUnits,
     this.iosSplashAdUnits,
+    this.androidInterstitialAdUnits,
+    this.iosInterstitialAdUnits,
+    this.androidRewardedAdUnits,
+    this.iosRewardedAdUnits,
+    this.androidNativeAdUnits,
+    this.iosNativeAdUnits,
   });
 
   /// Create a new [FastAdInfo] instance from a JSON map.
@@ -231,6 +267,24 @@ class FastAdInfo extends TDocument {
       androidSplashAdUnits: FastAdUnits.fromJson(
         json['androidSplashAdUnits'] as Map<String, dynamic>?,
       ),
+      iosInterstitialAdUnits: FastAdUnits.fromJson(
+        json['iosInterstitialAdUnits'] as Map<String, dynamic>?,
+      ),
+      androidInterstitialAdUnits: FastAdUnits.fromJson(
+        json['androidInterstitialAdUnits'] as Map<String, dynamic>?,
+      ),
+      iosRewardedAdUnits: FastAdUnits.fromJson(
+        json['iosRewardedAdUnits'] as Map<String, dynamic>?,
+      ),
+      androidRewardedAdUnits: FastAdUnits.fromJson(
+        json['androidRewardedAdUnits'] as Map<String, dynamic>?,
+      ),
+      iosNativeAdUnits: FastAdUnits.fromJson(
+        json['iosNativeAdUnits'] as Map<String, dynamic>?,
+      ),
+      androidNativeAdUnits: FastAdUnits.fromJson(
+        json['androidNativeAdUnits'] as Map<String, dynamic>?,
+      ),
     );
   }
 
@@ -266,6 +320,12 @@ class FastAdInfo extends TDocument {
     int? splashAdTimeThreshold,
     FastAdUnits? androidSplashAdUnits,
     FastAdUnits? iosSplashAdUnits,
+    FastAdUnits? androidInterstitialAdUnits,
+    FastAdUnits? iosInterstitialAdUnits,
+    FastAdUnits? androidRewardedAdUnits,
+    FastAdUnits? iosRewardedAdUnits,
+    FastAdUnits? androidNativeAdUnits,
+    FastAdUnits? iosNativeAdUnits,
   }) =>
       FastAdInfo(
         iosNativeAdUnitId: iosNativeAdUnitId ?? this.iosNativeAdUnitId,
@@ -307,6 +367,15 @@ class FastAdInfo extends TDocument {
             splashAdTimeThreshold ?? this.splashAdTimeThreshold,
         androidSplashAdUnits: iosSplashAdUnits ?? this.androidSplashAdUnits,
         iosSplashAdUnits: iosSplashAdUnits ?? this.iosSplashAdUnits,
+        androidInterstitialAdUnits:
+            androidInterstitialAdUnits ?? this.androidInterstitialAdUnits,
+        iosInterstitialAdUnits:
+            iosInterstitialAdUnits ?? this.iosInterstitialAdUnits,
+        androidRewardedAdUnits:
+            androidRewardedAdUnits ?? this.androidRewardedAdUnits,
+        iosRewardedAdUnits: iosRewardedAdUnits ?? this.iosRewardedAdUnits,
+        androidNativeAdUnits: androidNativeAdUnits ?? this.androidNativeAdUnits,
+        iosNativeAdUnits: iosNativeAdUnits ?? this.iosNativeAdUnits,
       );
 
   /// Merges the properties of another [FastAdInfo] instance into this one.
@@ -339,6 +408,12 @@ class FastAdInfo extends TDocument {
       splashAdTimeThreshold: model.splashAdTimeThreshold,
       androidSplashAdUnits: model.androidSplashAdUnits,
       iosSplashAdUnits: model.iosSplashAdUnits,
+      androidInterstitialAdUnits: model.androidInterstitialAdUnits,
+      iosInterstitialAdUnits: model.iosInterstitialAdUnits,
+      androidRewardedAdUnits: model.androidRewardedAdUnits,
+      iosRewardedAdUnits: model.iosRewardedAdUnits,
+      androidNativeAdUnits: model.androidNativeAdUnits,
+      iosNativeAdUnits: model.iosNativeAdUnits,
     );
   }
 
@@ -371,6 +446,12 @@ class FastAdInfo extends TDocument {
         'splashAdTimeThreshold': splashAdTimeThreshold,
         'androidSplashAdUnits': androidSplashAdUnits?.toJson(),
         'iosSplashAdUnits': iosSplashAdUnits?.toJson(),
+        'androidInterstitialAdUnits': androidInterstitialAdUnits?.toJson(),
+        'iosInterstitialAdUnits': iosInterstitialAdUnits?.toJson(),
+        'androidRewardedAdUnits': androidRewardedAdUnits?.toJson(),
+        'iosRewardedAdUnits': iosRewardedAdUnits?.toJson(),
+        'androidNativeAdUnits': androidNativeAdUnits?.toJson(),
+        'iosNativeAdUnits': iosNativeAdUnits?.toJson(),
         ...super.toJson(),
       };
 
@@ -403,6 +484,12 @@ class FastAdInfo extends TDocument {
         splashAdTimeThreshold,
         androidSplashAdUnits,
         iosSplashAdUnits,
+        androidInterstitialAdUnits,
+        iosInterstitialAdUnits,
+        androidRewardedAdUnits,
+        iosRewardedAdUnits,
+        androidNativeAdUnits,
+        iosNativeAdUnits,
       ];
 
   /// Print the values of properties in debug mode.
@@ -440,7 +527,13 @@ class FastAdInfo extends TDocument {
         ..info('splashAdTimeThreshold', splashAdTimeThreshold)
         ..info('androidSplashAdUnits', androidSplashAdUnits)
         ..info('iosSplashAdUnits', iosSplashAdUnits)
-        ..info('interstitialAdThreshold', interstitialAdThreshold);
+        ..info('interstitialAdThreshold', interstitialAdThreshold)
+        ..info('androidInterstitialAdUnits', androidInterstitialAdUnits)
+        ..info('iosInterstitialAdUnits', iosInterstitialAdUnits)
+        ..info('androidRewardedAdUnits', androidRewardedAdUnits)
+        ..info('iosRewardedAdUnits', iosRewardedAdUnits)
+        ..info('androidNativeAdUnits', androidNativeAdUnits)
+        ..info('iosNativeAdUnits', iosNativeAdUnits);
     }
   }
 }
