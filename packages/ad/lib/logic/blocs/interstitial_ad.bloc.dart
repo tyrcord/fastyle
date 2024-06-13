@@ -1,4 +1,6 @@
 // Package imports:
+import 'dart:async';
+
 import 'package:tbloc/tbloc.dart';
 import 'package:tlogger/logger.dart';
 
@@ -15,6 +17,8 @@ class FastInterstitialAdBloc extends BidirectionalBloc<
 
   static late FastInterstitialAdBloc _instance;
 
+  static final _dataProvider = FastSplashAdDataProvider();
+
   static FastInterstitialAdBloc get instance {
     if (!_hasBeenInstantiated) return FastInterstitialAdBloc();
 
@@ -24,6 +28,7 @@ class FastInterstitialAdBloc extends BidirectionalBloc<
   // Method to reset the singleton instance
   static void reset() => instance.resetBloc();
 
+  StreamSubscription<DateTime>? _serviceSubscription;
   FastAdmobInterstitialAdService? _service;
   int _appLaunchCounter = 0;
 
@@ -55,7 +60,8 @@ class FastInterstitialAdBloc extends BidirectionalBloc<
 
   @override
   Stream<FastInterstitialAdBlocState> mapEventToState(
-      FastInterstitialAdBlocEvent event) async* {
+    FastInterstitialAdBlocEvent event,
+  ) async* {
     final payload = event.payload;
     final type = event.type;
 
@@ -83,10 +89,25 @@ class FastInterstitialAdBloc extends BidirectionalBloc<
       isInitializing = true;
       yield currentState.copyWith(isInitializing: true);
 
+      if (_serviceSubscription != null) _serviceSubscription!.cancel();
+
       final adInfo = payload?.adInfo ?? currentState.adInfo;
+      final document = await _retrieveDocument();
 
       _service = FastAdmobInterstitialAdService(adInfo: adInfo);
       _appLaunchCounter = payload?.appLaunchCounter ?? 0;
+
+      payload = payload?.copyWith(
+        lastImpressionDate: document.lastImpressionDate,
+      );
+
+      _logger.debug('lastImpressionDate: ${payload?.lastImpressionDate}');
+
+      subxList.add(
+        _service!.onAdImpression.listen((date) {
+          addEvent(FastSplashAdBlocEvent.adImpression(date));
+        }),
+      );
 
       addEvent(FastInterstitialAdBlocEvent.initialized(payload: payload));
     }
@@ -127,5 +148,13 @@ class FastInterstitialAdBloc extends BidirectionalBloc<
     if (canShowAd) _service!.showAdIfAvailable();
 
     yield currentState.copyWith(isAdLoaded: false, isAdDisplayable: false);
+  }
+
+  Future<FastSplashAdDocument> _retrieveDocument() async {
+    // Intertitital Ads are shown as fallback when splash ad is not available
+    // TODO: rename this store
+    await _dataProvider.connect();
+
+    return _dataProvider.retrieveSplashAdDocument();
   }
 }

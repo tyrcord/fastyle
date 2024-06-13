@@ -357,7 +357,7 @@ class FastRewardedAdBloc
     blockTimer = Timer(blockDuration, _unblockRequests);
 
     if (kDebugMode) {
-      final now = DateTime.now();
+      final now = DateTime.now().toUtc();
 
       debugLog(
         'Blocking ad requests for ${blockDuration.inSeconds} seconds.',

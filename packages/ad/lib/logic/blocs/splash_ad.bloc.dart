@@ -32,10 +32,9 @@ class FastSplashAdBloc
 
   static final _dataProvider = FastSplashAdDataProvider();
 
+  StreamSubscription<DateTime>? _serviceSubscription;
   FastAdmobSplashAdService? _service;
   int _appLaunchCounter = 0;
-
-  StreamSubscription<DateTime>? _serviceSubscription;
 
   /// Returns whether the ad can be shown based on the current state.
   bool get canShowAd {

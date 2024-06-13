@@ -137,7 +137,7 @@ class FastAdmobNativeAdService {
 
     if (canRequestAd) {
       if (waitForNewRequest != null) {
-        final now = DateTime.now().millisecondsSinceEpoch;
+        final now = DateTime.now().toUtc().millisecondsSinceEpoch;
 
         return now > waitForNewRequest;
       }
@@ -153,7 +153,7 @@ class FastAdmobNativeAdService {
   /// [hard]: If true, a hard limit will be set; otherwise, a soft limit
   /// will be set.
   void _setLimitOnAdRequest({bool hard = false}) {
-    final now = DateTime.now().millisecondsSinceEpoch;
+    final now = DateTime.now().toUtc().millisecondsSinceEpoch;
     final waitFor = hard ? hardRequestLimit : softRequestLimit;
     final limit = now + waitFor;
 

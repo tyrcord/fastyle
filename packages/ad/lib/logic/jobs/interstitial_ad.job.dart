@@ -73,7 +73,7 @@ class FastInterstitialAdJob extends FastJob {
 
         return;
       } else if (lastImpressionDate != null) {
-        final now = DateTime.now();
+        final now = DateTime.now().toUtc();
         final difference = now.difference(lastImpressionDate);
 
         if (difference.inSeconds < adInfo.splashAdTimeThreshold) {

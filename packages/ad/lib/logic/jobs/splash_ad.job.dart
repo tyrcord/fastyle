@@ -81,7 +81,26 @@ class FastSplashAdJob extends FastJob {
       return;
     }
 
-    _logger.debug('Loading a splash ad...');
+    final splashAdBlocState = splashAdBloc.currentState;
+    final lastImpressionDate = splashAdBlocState.lastImpressionDate;
+
+    if (lastImpressionDate != null) {
+      final now = DateTime.now().toUtc();
+      final difference = now.difference(lastImpressionDate);
+
+      if (difference.inSeconds < adInfo.splashAdTimeThreshold) {
+        _logger.debug(
+          'Splash Ad was displayed less than an hour ago, no need to '
+          'show Splash Ad',
+        );
+
+        logInitialized();
+
+        return;
+      }
+    }
+
+    _logger.debug('Loading a Splash Ad...');
     splashAdBloc.addEvent(const FastSplashAdBlocEvent.loadAd());
 
     response = await RaceStream([
