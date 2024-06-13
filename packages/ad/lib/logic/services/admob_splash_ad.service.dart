@@ -39,6 +39,8 @@ class FastAdmobSplashAdService {
     _splashAd?.dispose();
   }
 
+  String? get _adUnitId => adInfo?.splashAdUnitId;
+
   /// The ad unit IDs for the splash ad.
   List<String>? get _adUnitIds {
     final units = adInfo?.splashAdUnits;
@@ -51,17 +53,31 @@ class FastAdmobSplashAdService {
         .toList();
   }
 
-  String? get _adUnitId => adInfo?.splashAdUnitId;
-
   /// Whether an ad is available to be shown.
   bool get isAdAvailable => _splashAd != null;
 
-  Future<AppOpenAd?>? _loadAdFuture;
+  Future<bool>? _loadAdFuture;
 
   /// Loads an AppOpenAd.
   ///
   /// Returns `true` if the ad was loaded successfully, `false` otherwise.
   Future<bool> loadAd({
+    List<String>? whiteList,
+    Duration? timeout,
+    String? country,
+  }) async {
+    if (_loadAdFuture != null) return _loadAdFuture!;
+
+    _loadAdFuture = _loadAd(
+      whiteList: whiteList,
+      timeout: timeout,
+      country: country,
+    );
+
+    return _loadAdFuture!;
+  }
+
+  Future<bool> _loadAd({
     List<String>? whiteList,
     Duration? timeout,
     String? country,
@@ -107,38 +123,37 @@ class FastAdmobSplashAdService {
     return false;
   }
 
+  /// Requests an ad with the given [adUnitId].
   Future<AppOpenAd?> _requestAd(
     String adUnitId, {
     Duration? timeout,
   }) async {
     final completer = Completer<AppOpenAd?>();
+    timeout ??= kFastAdDefaultTimeout;
+
+    _logger
+      ..debug('Loading Splash Ad...')
+      ..debug('Ad unit ID: $adUnitId');
 
     AppOpenAd.load(
       adUnitId: adUnitId,
       request: const AdRequest(),
       adLoadCallback: AppOpenAdLoadCallback(
-        onAdLoaded: (ad) {
-          _loadAdFuture = null;
-          completer.complete(ad);
-        },
+        onAdLoaded: (ad) => completer.complete(ad),
         onAdFailedToLoad: (error) {
-          _logger.error('failed to load ad: $error');
-          _loadAdFuture = null;
+          _logger.error('Failed to load Splash Ad: $error');
           completer.complete(null);
         },
       ),
     );
 
-    timeout ??= const Duration(seconds: 30);
-
-    _loadAdFuture = completer.future.timeout(timeout).catchError((error) {
-      _logger.error('failed to load ad: $error');
-      _loadAdFuture = null;
-
+    return completer.future.timeout(timeout, onTimeout: () {
+      _logger.error('Splash Ad load timed out');
+      return null;
+    }).catchError((error) {
+      _logger.error('Failed to load Splash Ad: $error');
       return null;
     });
-
-    return _loadAdFuture!;
   }
 
   /// Shows the ad if it is available.
@@ -152,13 +167,11 @@ class FastAdmobSplashAdService {
 
     if (!isAdAvailable) {
       _logger.debug('Tried to show ad before it was available.');
-
       return;
     }
 
     if (_isShowingAd) {
       _logger.debug('Tried to show ad while already showing an ad.');
-
       return;
     }
 
@@ -166,11 +179,11 @@ class FastAdmobSplashAdService {
       onAdShowedFullScreenContent: (ad) => _isShowingAd = true,
       onAdDismissedFullScreenContent: _disposeAd,
       onAdFailedToShowFullScreenContent: (ad, error) {
-        _logger.debug('failed to show splash ad: $error');
+        _logger.debug('Failed to show Splash Ad: $error');
         _disposeAd(ad);
       },
       onAdImpression: (ad) {
-        _logger.debug('Splash ad impression');
+        _logger.debug('Splash Ad impression');
         final nowUtc = DateTime.now().toUtc();
         _adImpressionController.add(nowUtc);
       },

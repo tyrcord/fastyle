@@ -3,8 +3,8 @@ import 'dart:async';
 
 // Package imports:
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:t_helpers/helpers.dart';
 import 'package:tlogger/logger.dart';
+import 'package:rxdart/rxdart.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
@@ -25,6 +25,10 @@ class FastAdmobInterstitialAdService {
   /// Whether an ad is currently being shown.
   bool _isShowingAd = false;
 
+  final _adImpressionController = PublishSubject<DateTime>();
+
+  Stream<DateTime> get onAdImpression => _adImpressionController.stream;
+
   FastAdmobInterstitialAdService({this.adInfo}) {
     _logger = _manager.getLogger(_debugLabel);
   }
@@ -37,15 +41,45 @@ class FastAdmobInterstitialAdService {
   /// The ad unit ID for the Interstitial ad.
   String? get _adUnitId => adInfo?.interstitialAdUnitId;
 
+  /// The ad unit IDs for the splash ad.
+  List<String>? get _adUnitIds {
+    final units = adInfo?.interstitialAdUnits;
+
+    if (units == null) return null;
+
+    return [units.high, units.medium, units.low]
+        .where((element) => element != null)
+        .cast<String>()
+        .toList();
+  }
+
   /// Whether an ad is available to be shown.
   bool get isAdAvailable => _interstitialAd != null;
 
   Future<bool>? _loadAdFuture;
 
   /// Loads an InterstitialAd.
-  ///
   /// Returns `true` if the ad was loaded successfully, `false` otherwise.
+  /// [whiteList]: A list of allowed countries for ad requests.
+  /// [timeout]: The duration after which the ad request will time out.
+  /// [country]: The user's country for ad targeting.
   Future<bool> loadAd({
+    List<String>? whiteList,
+    Duration? timeout,
+    String? country,
+  }) async {
+    if (_loadAdFuture != null) return _loadAdFuture!;
+
+    _loadAdFuture = _loadAd(
+      whiteList: whiteList,
+      timeout: timeout,
+      country: country,
+    );
+
+    return _loadAdFuture!;
+  }
+
+  Future<bool> _loadAd({
     List<String>? whiteList,
     Duration? timeout,
     String? country,
@@ -55,62 +89,73 @@ class FastAdmobInterstitialAdService {
       whiteList: whiteList,
     );
 
-    if (canRequestAd && _adUnitId != null) {
-      return retry<bool>(
-        task: () async => _requestAd(timeout: timeout),
-        taskTimeout: kFastAdDefaultTimeout,
-        maxAttempts: 2,
-      );
+    if (!canRequestAd) return false;
+
+    List<Future<InterstitialAd?>> adLoadFutures = [];
+
+    if (_adUnitIds != null && _adUnitIds!.isNotEmpty) {
+      // Map each ad unit ID to a _requestAd call and collect futures
+      adLoadFutures = _adUnitIds!.map((adUnitId) {
+        return _requestAd(adUnitId, timeout: timeout);
+      }).toList();
+    } else if (_adUnitId != null) {
+      // Single ad unit ID case
+      adLoadFutures.add(_requestAd(_adUnitId!, timeout: timeout));
     }
+
+    // Wait for all ad load attempts to complete
+    final results = await Future.wait(adLoadFutures);
+    int index = 0;
+
+    // Find the first successfully loaded ad
+    for (final ad in results) {
+      if (ad != null) {
+        final adPriority = FastAdUnits.getAdPriorityByIndex(index);
+        _logger.debug('Loaded interstitial ad from $adPriority ad unit.');
+        _interstitialAd = ad;
+
+        return true;
+      }
+
+      index++;
+    }
+
+    _logger.error('Failed to load any interstitial ad.');
 
     return false;
   }
 
-  Future<bool> _requestAd({Duration? timeout}) async {
-    final completer = Completer<bool>();
-    final stopwatch = Stopwatch()..start();
+  /// Requests an InterstitialAd.
+  Future<InterstitialAd?> _requestAd(
+    String adUnitId, {
+    Duration? timeout,
+  }) async {
+    final completer = Completer<InterstitialAd?>();
+    timeout ??= kFastAdDefaultTimeout;
 
     _logger
       ..debug('Loading Interstitial Ad...')
-      ..debug('Ad unit ID: $_adUnitId');
+      ..debug('Ad unit ID: $adUnitId');
 
     InterstitialAd.load(
-      adUnitId: _adUnitId!,
+      adUnitId: adUnitId,
       request: const AdRequest(),
       adLoadCallback: InterstitialAdLoadCallback(
-        onAdLoaded: (ad) {
-          stopwatch.stop();
-          _logger.debug(
-            'Interstitial Ad loaded in ${stopwatch.elapsedMilliseconds}ms',
-          );
-
-          _interstitialAd = ad;
-          _loadAdFuture = null;
-          completer.complete(true);
-        },
+        onAdLoaded: (ad) => completer.complete(ad),
         onAdFailedToLoad: (error) {
-          stopwatch.stop();
-          final elapsedTime = stopwatch.elapsedMilliseconds;
-          _logger
-            ..debug('Interstitial Ad failed to load in ${elapsedTime}ms')
-            ..error('Failed to load Interstitial Ad: $error');
-          _loadAdFuture = null;
-          completer.complete(false);
+          _logger.error('Failed to load Interstitial Ad: $error');
+          completer.complete(null);
         },
       ),
     );
 
-    timeout ??= kFastAdDefaultTimeout;
-
-    _loadAdFuture =
-        completer.future.timeout(kFastAdDefaultTimeout).catchError((error) {
+    return completer.future.timeout(kFastAdDefaultTimeout, onTimeout: () {
+      _logger.error('Interstitial Ad load timed out');
+      return null;
+    }).catchError((error) {
       _logger.error('Failed to load Interstitial Ad: $error');
-      _loadAdFuture = null;
-
-      return false;
+      return null;
     });
-
-    return _loadAdFuture!;
   }
 
   /// Shows the ad if it is available.
@@ -124,13 +169,11 @@ class FastAdmobInterstitialAdService {
 
     if (!isAdAvailable) {
       _logger.debug('Tried to show ad before it was available.');
-
       return;
     }
 
     if (_isShowingAd) {
       _logger.debug('Tried to show ad while already showing an ad.');
-
       return;
     }
 
@@ -138,8 +181,13 @@ class FastAdmobInterstitialAdService {
       onAdShowedFullScreenContent: (ad) => _isShowingAd = true,
       onAdDismissedFullScreenContent: _disposeAd,
       onAdFailedToShowFullScreenContent: (ad, error) {
-        _logger.debug('failed to show ad: $error');
+        _logger.debug('Failed to show Interstitial Ad: $error');
         _disposeAd(ad);
+      },
+      onAdImpression: (ad) {
+        _logger.debug('Interstitial Ad impression');
+        final nowUtc = DateTime.now().toUtc();
+        _adImpressionController.add(nowUtc);
       },
     );
 
