@@ -41,17 +41,14 @@ class FastAdmobSplashAdService {
 
   /// The ad unit IDs for the splash ad.
   List<String>? get _adUnitIds {
-    if (adInfo == null) return null;
-
-    final units = adInfo!.splashAdUnits;
+    final units = adInfo?.splashAdUnits;
 
     if (units == null) return null;
 
-    return [
-      units.high,
-      units.medium,
-      units.low,
-    ].where((element) => element != null).cast<String>().toList();
+    return [units.high, units.medium, units.low]
+        .where((element) => element != null)
+        .cast<String>()
+        .toList();
   }
 
   String? get _adUnitId => adInfo?.splashAdUnitId;
