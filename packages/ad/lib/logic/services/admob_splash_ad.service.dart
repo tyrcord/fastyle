@@ -92,7 +92,8 @@ class FastAdmobSplashAdService {
     // Find the first successfully loaded ad
     for (final ad in results) {
       if (ad != null) {
-        _logger.debug('Loaded splash ad from ${_getAdFloor(index)} ad unit.');
+        final adPriority = FastAdUnits.getAdPriorityByIndex(index);
+        _logger.debug('Loaded splash ad from $adPriority ad unit.');
         _splashAd = ad;
 
         return true;
@@ -183,15 +184,5 @@ class FastAdmobSplashAdService {
     _isShowingAd = false;
     _splashAd?.dispose();
     _splashAd = null;
-  }
-
-  String _getAdFloor(int index) {
-    final floor = index == 0
-        ? 'high'
-        : index == 1
-            ? 'medium'
-            : 'low';
-
-    return floor;
   }
 }

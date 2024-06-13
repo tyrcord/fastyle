@@ -4,6 +4,17 @@ class FastAdUnits {
   final String? low;
   final Map<String, String> extra;
 
+  static String getAdPriorityByIndex(int index) {
+    switch (index) {
+      case 0:
+        return 'high';
+      case 1:
+        return 'medium';
+      default:
+        return 'low';
+    }
+  }
+
   const FastAdUnits({
     this.high,
     this.medium,
