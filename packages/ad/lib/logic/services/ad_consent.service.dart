@@ -2,7 +2,9 @@
 import 'dart:async';
 
 // Package imports:
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tlogger/logger.dart';
 
 class FastAdConsentService {
@@ -23,9 +25,12 @@ class FastAdConsentService {
 
   /// Shows the consent form if it is available and required.
   Future<bool> showConsentFormIfNeeded() async {
-    final status = await getConsentStatus();
+    final status = await AppTrackingTransparency.trackingAuthorizationStatus;
+    final permission = getTrackingPermission(status);
+    final consentStatus = await getConsentStatus();
 
-    if (status == ConsentStatus.required) {
+    if (permission == FastAppPermission.granted &&
+        consentStatus == ConsentStatus.required) {
       _logger.debug('Consent status is required, will show consent form');
       return showConsentForm();
     }
