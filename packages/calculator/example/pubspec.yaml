@@ -4,7 +4,7 @@ dependencies:
   flutter:
     sdk: flutter
   go_router: ^14.1.3
-  tbloc: ^0.24.1
+  tbloc: ^0.25.0
 dev_dependencies:
   dependency_validator: ^3.2.3
   flutter_lints: ^3.0.1

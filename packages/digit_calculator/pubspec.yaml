@@ -3,8 +3,8 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
-  t_helpers: ^0.0.56
-  tenhance: ^0.0.12
+  t_helpers: ^0.0.57
+  tenhance: ^0.0.13
 description: UI digit calculator built on top of the Fastyle library.
 dev_dependencies:
   dependency_validator: ^3.2.3

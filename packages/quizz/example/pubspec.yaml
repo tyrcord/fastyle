@@ -4,7 +4,7 @@ dependencies:
   flutter:
     sdk: flutter
   go_router: ^14.1.3
-  tenhance: ^0.0.12
+  tenhance: ^0.0.13
 description: A new Flutter project.
 dev_dependencies:
   dependency_validator: ^3.2.3
