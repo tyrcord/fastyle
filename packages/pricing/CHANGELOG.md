@@ -1,3 +1,7 @@
+## 1.48.0
+
+ - **FEAT**: updated dependencies.
+
 ## 1.47.0
 
  - **PERF**: minor improvements.

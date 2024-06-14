@@ -1,3 +1,7 @@
+## 0.0.40
+
+ - **FEAT**: updated dependencies.
+
 ## 0.0.39
 
  - **REFACTOR**: breaking change use routesForMediaType instead of homebuilder.

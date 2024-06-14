@@ -1,5 +1,5 @@
 dependencies:
-  fastyle_core: ^0.0.54
+  fastyle_core: ^0.0.55
   flutter:
     sdk: flutter
 description: Set of quizz Widgets for the fastyle library.
@@ -13,4 +13,4 @@ environment:
   flutter: '>=3.16.0'
   sdk: '>=3.2.0 <4.0.0'
 name: fastyle_quizz
-version: 0.0.22
+version: 0.0.23
