@@ -1,3 +1,56 @@
+## 0.0.31
+
+ - **REFACTOR**: move financial field to matex.
+ - **FIX**: lint.
+ - **FIX**: broken apps.
+ - **FIX**: back and close default buttons.
+ - **FEAT**: update dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: don't show consent form when not allowed.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add settings fab.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: localize packages.
+ - **FEAT**: initial commit for fastyle_buttons.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: update localization.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: add default assetLoader to FastApp.
+ - **FEAT**: add some pending buttons.
+ - **FEAT**: add copy button.
+ - **FEAT**: update dependencies.
+
 ## 0.0.30
 
  - **FEAT**: updated dependencies.

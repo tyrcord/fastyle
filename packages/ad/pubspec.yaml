@@ -2,9 +2,9 @@ dependencies:
   app_tracking_transparency: ^2.0.5
   collection: ^1.18.0
   easy_localization: ^3.0.5
-  fastyle_core: ^0.0.53
-  fastyle_images: ^0.0.51
-  fastyle_video_player: ^0.0.33
+  fastyle_core: ^0.0.54
+  fastyle_images: ^0.0.52
+  fastyle_video_player: ^0.0.34
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
@@ -46,4 +46,4 @@ flutter:
         pluginClass: FastAdPlugin
 name: fastyle_ad
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/ad
-version: 0.0.48
+version: 0.0.49

@@ -1,3 +1,117 @@
+## 0.0.53
+
+ - **REFACTOR**: remove matex dependencies.
+ - **PERF**: minor performance improvements.
+ - **FIX**: minor fixes.
+ - **FIX**: remove enable ads button.
+ - **FIX**: use MatexFinancialFrequency instead.
+ - **FIX**: typo.
+ - **FIX**: broken apps.
+ - **FIX**: onboarding example.
+ - **FIX**: notifications onboarding.
+ - **FIX**: minor improvements.
+ - **FIX**: minor improvements.
+ - **FIX**: bunch of fixes.
+ - **FIX**: missing dependency.
+ - **FIX**: lint.
+ - **FIX**: onboarding example.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: don't show consent form when not allowed.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use scheduleFrameCallback.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add onCountryChanged.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add user country onboarding page.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add select country field.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add onboarding content layout.
+ - **FEAT**: FastOnboardingPersonalizedAds has different states.
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: FastOnboardingNotifications has different states.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: more localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: better onboarding pages.
+ - **FEAT**: better notifications onboading.
+ - **FEAT**: better FastOnboardingPersonalizedAds.
+ - **FEAT**: add a default ad service.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: clean up.
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update example dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor performance improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add new onboarding pages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add Personalized Ads onboarding page.
+ - **FEAT**: add notifications onboarding page.
+ - **FEAT**: better onboarding pages.
+
 ## 0.0.52
 
  - **FEAT**: updated dependencies.

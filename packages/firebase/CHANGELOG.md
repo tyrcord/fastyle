@@ -1,3 +1,93 @@
+## 0.0.38
+
+ - **REFACTOR**: analytics logging.
+ - **REFACTOR**: breaking change use routesForMediaType instead of homebuilder.
+ - **PERF**: minor performance improvements.
+ - **PERF**: minor improvements.
+ - **FIX**: firebase app.
+ - **FIX**: restart app.
+ - **FIX**: memory leaks.
+ - **FIX**: regression.
+ - **FIX**: make sure to use the default config when available.
+ - **FIX**: better support for mac os.
+ - **FIX**: broken apps.
+ - **FIX**(remote config): catch error when no internet connection.
+ - **FIX**: minor improvements.
+ - **FIX**: app check.
+ - **FIX**: workaround for android notification permission.
+ - **FIX**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add analytics helpers.
+ - **FEAT**: update dependencies.
+ - **FEAT**(app check): use appAttestWithDeviceCheckFallback.
+ - **FEAT**: support default config.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: enable app check on all created instance.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add logs.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: don't show consent form when not allowed.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: more analytics.
+ - **FEAT**: boot screen match system theme.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check for internet connection.
+ - **FEAT**: localize packages.
+ - **FEAT**: initial commit for fastyle_firebase.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: log app dict entries.
+ - **FEAT**: update depencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: avoid to block the startup process when some starting job fails.
+ - **FEAT**: add default app dict entries.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastAppPermissionsBloc.
+ - **FEAT**: update dependencies.
+ - **FEAT**: enable firebase config to disable/enable features.
+ - **FEAT**: better notifications onboading.
+ - **FEAT**: minor improvements.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better restart logic.
+ - **FEAT**: add better debug log.
+ - **FEAT**: clean up.
+ - **FEAT**: update dependencies.
+ - **FEAT**: clean up.
+ - **FEAT**: implement the fast_firebase package.
+ - **FEAT**: add FastFirebaseRemoteConfigBuilder.
+
 ## 0.0.37
 
  - **FEAT**: updated dependencies.

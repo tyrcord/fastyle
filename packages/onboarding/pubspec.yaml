@@ -1,11 +1,11 @@
 dependencies:
   app_tracking_transparency: ^2.0.5
   easy_localization: ^3.0.5
-  fastyle_buttons: ^0.0.30
-  fastyle_core: ^0.0.53
-  fastyle_iap: ^0.0.41
-  fastyle_layouts: ^0.0.23
-  fastyle_settings: ^0.0.56
+  fastyle_buttons: ^0.0.31
+  fastyle_core: ^0.0.54
+  fastyle_iap: ^0.0.42
+  fastyle_layouts: ^0.0.24
+  fastyle_settings: ^0.0.57
   firebase_messaging: ^14.9.3
   flutter:
     sdk: flutter
@@ -26,4 +26,4 @@ environment:
   sdk: '>=3.2.0 <4.0.0'
 name: fastyle_onboarding
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/onboarding
-version: 0.0.52
+version: 0.0.53

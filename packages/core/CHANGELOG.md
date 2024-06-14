@@ -1,3 +1,261 @@
+## 0.0.54
+
+ - **REFACTOR**: analytics logging.
+ - **REFACTOR**: move away from Decimal.
+ - **REFACTOR**: ask for app review.
+ - **REFACTOR**: FastAppRatingService instance.
+ - **REFACTOR**: breaking change use routesForMediaType instead of homebuilder.
+ - **REFACTOR**: app loader.
+ - **REFACTOR**: app loader.
+ - **REFACTOR**: user country settings.
+ - **PERF**: minor improvements.
+ - **PERF**: optimize app loading.
+ - **PERF**: improvements.
+ - **PERF**: minor performance improvements.
+ - **PERF**: minor improvements.
+ - **FIX**: minor fixes.
+ - **FIX**: memory leaks.
+ - **FIX**: remove workaround with go_router.
+ - **FIX**: better support for mac os.
+ - **FIX**: migration to flutter 3.16.
+ - **FIX**: make sure onboarding exist before trying to redirect to it.
+ - **FIX**: uppercase default primary currency code.
+ - **FIX**: language settings.
+ - **FIX**: locale keys.
+ - **FIX**: avoid to listen periodically to stream when the app is paused.
+ - **FIX**: better padding.
+ - **FIX**: restarting the app.
+ - **FIX**: status bar color.
+ - **FIX**: missing property.
+ - **FIX**: make sure the all tab is not empty.
+ - **FIX**: flush the socket before closing it.
+ - **FIX**: regression.
+ - **FIX**: regression.
+ - **FIX**: broken connectivity status routes.
+ - **FIX**: broken apps.
+ - **FIX**: theme bloc.
+ - **FIX**: avoid to rebuild a router for the same routes.
+ - **FIX**: restart app.
+ - **FIX**: text number input position.
+ - **FIX**: Uri.toString() for "mailto"  does not encode spaces properly.
+ - **FIX**: lint.
+ - **FIX**: better onboarding process.
+ - **FIX**: don't send error report if there is no error.
+ - **FIX**: regression.
+ - **FIX**: use descriptor padding if available.
+ - **FIX**: add missing asset.
+ - **FIX**: use right settings state.
+ - **FIX**: bunch of fixes.
+ - **FIX**: only show rate my app popup on ios ans android.
+ - **FIX**: notifications onboarding.
+ - **FIX**: padding issue.
+ - **FIX**: bunch of fixes.
+ - **FIX**: minor improvements.
+ - **FIX**: remove default spacing for FastSelectableListView.
+ - **FIX**: minor improvements.
+ - **FIX**: bunch of fixes.
+ - **FIX**: FastOperationControlledDialog.
+ - **FIX**: AnimatedFastOverlay uses SafeArea.
+ - **FIX**: restart app when no connectivity.
+ - **FIX**: back and close default buttons.
+ - **FIX**: FastConnectivityStatusBloc initialization process.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: avoid to block the startup process when some starting job fails.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: add isAutoRefreshCalculatorResultsEnabled helper.
+ - **FEAT**: add device code as fallback when getting localeCode.
+ - **FEAT**: better style for FastNoFavoriteIcon.
+ - **FEAT**: add autoRefreshCalculatorResults feature.
+ - **FEAT**: added writeErrorEmail helper.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add alwaysUse24HourFormat to settings.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: update localization.
+ - **FEAT**: use removeDiacriticsAndLowercase from t_helpers.
+ - **FEAT**: move transitions to animations package.
+ - **FEAT**: add FastSelectInstrumentField.
+ - **FEAT**(FastSelectField): make labelText optional.
+ - **FEAT**: allow to reset all content and settings of a fast app.
+ - **FEAT**: don't show consent form when not allowed.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastRoundingMethod enum.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add getColorBasedOnValue helper.
+ - **FEAT**: better restart logic.
+ - **FEAT**: harmonize defaults.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better restart logic.
+ - **FEAT**: use retry helper when possible.
+ - **FEAT**(StatusPage): more spacing between actions.
+ - **FEAT**: use scheduleFrameCallback.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add checkConnectivity method.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add contact button when app fails.
+ - **FEAT**: minor improvements.
+ - **FEAT**: don't reload automatically app when no connectivity.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: improvements with the setting items.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**(FastAppInfoPage): better spacing.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: add FastAppFinalizeJob.
+ - **FEAT**: update dependencies.
+ - **FEAT**: improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome constants.
+ - **FEAT**: add split view.
+ - **FEAT**: change default border size width.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add logs.
+ - **FEAT**: boot screen match system theme.
+ - **FEAT**: minor improvements.
+ - **FEAT**: refactor status pages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: more callback type.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better startup errors.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check for internet connection.
+ - **FEAT**: Change the time limit for a job to complete.
+ - **FEAT**: change the delay period before presenting the loader in Fast App.
+ - **FEAT**: add noneTextGender property to select field.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add user country to the user settings page.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add todo comments.
+ - **FEAT**: allow to restart the app.
+ - **FEAT**: make status page responsive.
+ - **FEAT**: update depencies.
+ - **FEAT**: add log.
+ - **FEAT**: layout improvements.
+ - **FEAT**: improvements with fields.
+ - **FEAT**: allow to send the log journal when contacting support.
+ - **FEAT**: more analytics.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastDialogPage.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: support more language when exporting to PDF.
+ - **FEAT**: log app dict entries.
+ - **FEAT**: ad os version to the app info.
+ - **FEAT**: allow to override the control within FastReadOnlyTextField.
+ - **FEAT**: better spacer for the onboarding pages.
+ - **FEAT**: review store names.
+ - **FEAT**: initial commit for core.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add default app dict entries.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better onboarding pages.
+ - **FEAT**: FastOnboardingPersonalizedAds has different states.
+ - **FEAT**: update dependencies.
+ - **FEAT**: FastOnboardingNotifications has different states.
+ - **FEAT**: add FastAppPermissionsBloc.
+ - **FEAT**: add FastExampleBlock.
+ - **FEAT**: enable firebase config to disable/enable features.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvement.
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: more localization.
+ - **FEAT**: add leading icon to FastSelectCurrencyField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: better support for web.
+ - **FEAT**: support bottomSheet.
+ - **FEAT**: minor improvements.
+ - **FEAT**: FastOperationRewardedDialog.
+ - **FEAT**: add status icons/messages.
+ - **FEAT**: preparatory works for rewarded ads.
+ - **FEAT**: add blue gray theme.
+ - **FEAT**: FastOperationControlledDialog.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: change clear icon.
+ - **FEAT**: preload slash ad before.
+ - **FEAT**: add showAnimatedFastAlertDialog.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastPageHeaderRoundedDuotoneIconLayout.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: cleaning.
+ - **FEAT**: add default navigation handler.
+ - **FEAT**: add twitterUrl.
+ - **FEAT**: smart native ad.
+ - **FEAT**: better default icons.
+ - **FEAT**: add Device Orientation Bloc.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: add showAnimatedFastOverlay.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: move away from fastyle_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: increase default timeout when loading a job.
+ - **FEAT**: add smart native ad.
+ - **FEAT**: add premium page.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add missing store logic.
+ - **FEAT**: add enable feature event.
+ - **FEAT**: initial logic for fastyle_iap.
+ - **FEAT**: ad an error placeholder when a video fails to load.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastStarRating.
+ - **FEAT**: add default placeholders.
+ - **FEAT**: add FastCover.
+ - **FEAT**: add missing contants.
+ - **FEAT**: clean up.
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: add status pages.
+ - **FEAT**: add no favorite icon.
+ - **FEAT**: add default assetLoader to FastApp.
+ - **FEAT**: clean up.
+ - **FEAT**: add FastAppInfoPage.
+ - **FEAT**: add privacy policy page.
+ - **FEAT**: add FastSettingsDisclaimerPage.
+ - **FEAT**: add FastAppOnboardingBloc logic.
+ - **FEAT**: add FastDictBloc logic.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastApp.
+ - **FEAT**: minor improvements.
+ - **FEAT**: make stronger FastAppSettingsJob.
+ - **FEAT**: add AppFeaturesBloc logic.
+ - **FEAT**: finish app settings logic.
+ - **FEAT**: add AppInfo logic.
+ - **FEAT**: refactor settings and core packages.
+ - **FEAT**: minor improvements.
+
 ## 0.0.53
 
  - **FEAT**: updated dependencies.

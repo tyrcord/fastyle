@@ -1,3 +1,109 @@
+## 0.0.52
+
+ - **PERF**: precompiled svgs.
+ - **PERF**: smaller svgs.
+ - **PERF**: smaller svgs.
+ - **FIX**: minor fixes.
+ - **FIX**: lint.
+ - **FIX**: show all financial instrument items.
+ - **FIX**: bunch of improvements.
+ - **FIX**: broken apps.
+ - **FIX**: minor improvements.
+ - **FIX**: lint.
+ - **FIX**: images.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update images.
+ - **FEAT**: update images.
+ - **FEAT**: update crypto images.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: add more flags.
+ - **FEAT**: add jamaica flag.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: don't show consent form when not allowed.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add more flags.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update flags.
+ - **FEAT**: ad support SVGs.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add images package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: support network images.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add liechtenstein flag.
+ - **FEAT**: migrate pngs to svgs.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: minor improvements.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: support more flags.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update example dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: refactor settings and core packages.
+ - **FEAT**: support fastyle_core.
+ - **FEAT**: generate missing languages.
+ - **FEAT**: add languages images.
+ - **FEAT**: update dependencies.
+ - **FEAT**: handle empty path.
+ - **FEAT**: update images.
+ - **FEAT**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add mobile images.
+ - **FEAT**: add crypto and commodity images.
+ - **FEAT**: update dependencies.
+
 ## 0.0.51
 
  - **FEAT**: updated dependencies.

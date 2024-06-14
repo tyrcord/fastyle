@@ -1,3 +1,35 @@
+## 0.0.24
+
+ - **FIX**: lint.
+ - **FEAT**: don't show consent form when not allowed.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: better spacer for the onboarding pages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better onboarding pages.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: better onboarding pages.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add onboarding layout and views.
+ - **FEAT**: initial commit for fastyle_layouts.
+
 ## 0.0.23
 
  - **FEAT**: updated dependencies.

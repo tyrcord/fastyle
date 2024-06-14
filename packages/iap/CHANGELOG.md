@@ -1,3 +1,99 @@
+## 0.0.42
+
+ - **PERF**: minor performance improvements.
+ - **PERF**: minor improvements.
+ - **FIX**: lint.
+ - **FIX**: restart app.
+ - **FIX**: memory leaks.
+ - **FIX**: locale keys.
+ - **FIX**: typo.
+ - **FIX**: broken apps.
+ - **FIX**: bunch of fixes.
+ - **FIX**: minor improvements.
+ - **FIX**: enable plan after restoring it.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to reset singleton blocs.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add logs.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: better support for web.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: don't show consent form when not allowed.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use scheduleFrameCallback.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: add isUserPremium helper.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: use retry helper when possible.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements with FastIapPlanBuilder.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for fastyle_iap.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: review store names.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: enable firebase config to disable/enable features.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: minor improvements.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: better premium page.
+ - **FEAT**: improvements with the premium page.
+ - **FEAT**: better premium page.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add premium page.
+ - **FEAT**: minor improvements.
+ - **FEAT**: initial commit for PlanBloc logic.
+ - **FEAT**: minor improvements with the store logic.
+ - **FEAT**: add missing store logic.
+ - **FEAT**: initial logic for fastyle_iap.
+ - **FEAT**: update dependencies.
+
 ## 0.0.41
 
  - **FEAT**: updated dependencies.

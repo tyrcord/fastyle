@@ -1,3 +1,160 @@
+## 1.64.0
+
+ - **REFACTOR**: move away from Decimal.
+ - **PERF**: simplify FastCalculatorCategoryResult.
+ - **FIX**: avoid to build the calculator before its bloc is ready.
+ - **FIX**: typo.
+ - **FIX**: lint.
+ - **FIX**: FastCalculatorChartToggle doesn't have a media type threshold by default.
+ - **FIX**: make sure we debounced compute if needed.
+ - **FIX**: bunch of fixes.
+ - **FIX**: isAutoRefreshEnabled feature.
+ - **FIX**: willCompute.
+ - **FIX**: FastCalculatorRefreshAction rebuild when isBusy changes.
+ - **FIX**: check bloc validity after computed event.
+ - **FIX**: regression.
+ - **FIX**: make sure we can close a HydratedFastCalculatorBloc before trying to close it.
+ - **FIX**: minor fixes.
+ - **FIX**: broken apps.
+ - **FIX**: remove fastyle_ad dependency from calculators.
+ - **FIX**: debounced events.
+ - **FIX**: clear the document when the settings save user entry changes.
+ - **FIX**: debounce LoadMetadata event.
+ - **FIX**: bunch of fixes.
+ - **FIX**: bunch of fixes.
+ - **FIX**: showExportPdfDialog.
+ - **FIX**: lint.
+ - **FIX**: minor fixes.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: bunch of improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add exportToPdf action.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastCalculatorChartToggle.
+ - **FEAT**: default overlays.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: add isAutoRefreshCalculatorResultsEnabled helper.
+ - **FEAT**: make FastCalculatorLastUpdatedText more flexible.
+ - **FEAT**: enable analytics logging for calculators.
+ - **FEAT**: allow to auto refresh results.
+ - **FEAT**: don't show consent form when not allowed.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: added FastLastUpdatedText.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add willCompute life cycle method.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+ - **FEAT**: check if widget is mounted before using setState.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add resetValue FastCalculatorBlocEvent.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update font awesome dependency.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: use tenhance package.
+ - **FEAT**: boot screen match system theme.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for tyrcord logo animation.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: clean up.
+ - **FEAT**: support more export types.
+ - **FEAT**: better layout for desktop.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: support more language when exporting to PDF.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow to override share user interactions.
+ - **FEAT**: add calculator package.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: updated dependencies.
+ - **FEAT**(pdf): update default margin.
+ - **FEAT**: PDF support subtitle and authorUrl.
+ - **FEAT**: update dependencies.
+ - **FEAT**: enable firebase config to disable/enable features.
+ - **FEAT**: stronger feature mechanism.
+ - **FEAT**: more localization.
+ - **FEAT**: more option to FastPdfCalculatorReporter.
+ - **FEAT**: add FastCalculatorExportToCsvAction.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastCalculatorExportToXlsAction.
+ - **FEAT**: add FastExportPdfRewardedDialog.
+ - **FEAT**: better restore premium feature page.
+ - **FEAT**: minor improvement.
+ - **FEAT**: better default icons.
+ - **FEAT**: allow to use font awesome pro icons if provided.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add a breakdown section to the calculator page.
+ - **FEAT**: add better debug log.
+ - **FEAT**: clean up.
+ - **FEAT**: add status pages.
+ - **FEAT**: add default assetLoader to FastApp.
+ - **FEAT**: clean up.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add AppInfo logic.
+ - **FEAT**: refactor settings and core packages.
+ - **FEAT**: support fastyle_core.
+ - **FEAT**: add metadata and allow to force rendering.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastCalculatorCategoryResult.
+ - **FEAT**: add a default info button.
+ - **FEAT**: better default pdf calculator reporter.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add default pdf_calculator reporter.
+ - **FEAT**: add build context to shareCalculatorState.
+ - **FEAT**: update dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: better logs when a bloc calculator fails to init.
+ - **FEAT**: lint.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add disabled colors to action button.
+ - **FEAT**: add debouceComputeEvents for calculator blocs.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+
 ## 1.63.0
 
  - **FEAT**: updated dependencies.

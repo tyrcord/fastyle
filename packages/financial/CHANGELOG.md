@@ -1,3 +1,112 @@
+## 0.0.48
+
+ - **REFACTOR**: remove matex dependencies.
+ - **REFACTOR**: move financial field to matex.
+ - **REFACTOR**: move away from Decimal.
+ - **REFACTOR**: select currency fields.
+ - **PERF**: minor performance improvements.
+ - **FIX**: stronger selection property.
+ - **FIX**: minor improvements.
+ - **FIX**: bunch of fixes.
+ - **FIX**: use MatexPositionSizeType.
+ - **FIX**: use MatexFinancialFrequency instead.
+ - **FIX**: localization issue with  FastSelectInstrumentFieldState.
+ - **FIX**: FastSelectInstrumentField wrong empty content.
+ - **FIX**: show all financial instrument items.
+ - **FIX**: missing crytpos.
+ - **FIX**: selection FastSelectInstrumentField.
+ - **FIX**: broken apps.
+ - **FIX**: avoid to call tr() twice.
+ - **FIX**: minor improvements.
+ - **FIX**: bunch of fixes.
+ - **FIX**: rebuild FastFinanceInvestDisclaimer when language changes.
+ - **FIX**: lint.
+ - **FIX**: rename itemLabelBuilder to itemDescriptionBuilder.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: bunch of improvements.
+ - **FEAT**: added FastFinancialSelectLeverageField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: don't show consent form when not allowed.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: added FastFinancialFrequencySelectField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update t_bloc min version.
+ - **FEAT**: update dependencies.
+ - **FEAT**: added FastFiancialAmountSwitchField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: added favorite currency feature.
+ - **FEAT**: move away from matex_dart.
+ - **FEAT**: better style for FastNoFavoriteIcon.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update lingua_units dependency.
+ - **FEAT**: add localizeUnitSize helper.
+ - **FEAT**: update dependencies.
+ - **FEAT**: allow invalid numbers.
+ - **FEAT**: update localization.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: add FastSelectInstrumentField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add FastPositionSizeSwitchField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update localization.
+ - **FEAT**: update dependencies.
+ - **FEAT**: initial commit for fastyle_financial.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: localize packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update depencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: more localization.
+ - **FEAT**: add leading icon to FastSelectCurrencyField.
+ - **FEAT**: update dependencies.
+ - **FEAT**: improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: minor improvements.
+ - **FEAT**: minor improvements.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: add better debug log.
+ - **FEAT**: add FastFinanceInvestDisclaimerPage.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: refactor settings and core packages.
+ - **FEAT**: update dependencies.
+ - **FEAT**: update dependencies.
+ - **FEAT**: rename FastSelectInstrumentField to FastSelectCurrencyField.
+ - **FEAT**: add fastyle_financial_example.
+ - **FEAT**: update dependencies.
+
 ## 0.0.47
 
  - **FEAT**: updated dependencies.
