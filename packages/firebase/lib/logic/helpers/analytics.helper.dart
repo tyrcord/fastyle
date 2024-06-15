@@ -30,12 +30,12 @@ void logFastBlocAnalyticsEvent(BlocAnalyticsEvent event) {
   }
 }
 
-Map<String, dynamic>? _sanitizeAnalyticsParams(
+Map<String, Object>? _sanitizeAnalyticsParams(
   Map<String, dynamic>? originalMap,
 ) {
   if (originalMap == null) return null;
 
-  return Map<String, dynamic>.fromEntries(
+  return Map<String, Object>.fromEntries(
     originalMap.entries.where((entry) {
       final keyLength = entry.key.length;
 
@@ -53,7 +53,7 @@ Map<String, dynamic>? _sanitizeAnalyticsParams(
         value = value.toString();
       }
 
-      return MapEntry<String, dynamic>(entry.key, value);
+      return MapEntry<String, Object>(entry.key, value as Object);
     }),
   );
 }
