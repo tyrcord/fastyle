@@ -1,3 +1,7 @@
+## 0.0.40
+
+ - **FEAT**: support latest firebase analytic.
+
 ## 0.0.39
 
  - **FEAT**: updated dependencies.

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-06-15
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_firebase` - `v0.0.40`](#fastyle_firebase---v0040)
+
+---
+
+#### `fastyle_firebase` - `v0.0.40`
+
+ - **FEAT**: support latest firebase analytic.
+
+
 ## 2024-06-14
 
 ### Changes

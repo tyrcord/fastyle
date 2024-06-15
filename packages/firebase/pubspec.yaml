@@ -26,4 +26,4 @@ environment:
   sdk: '>=3.2.0 <4.0.0'
 name: fastyle_firebase
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/firebase
-version: 0.0.39
+version: 0.0.40
