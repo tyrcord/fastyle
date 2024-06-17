@@ -1,3 +1,7 @@
+## 0.0.50+1
+
+ - **FIX**: better logs.
+
 ## 0.0.50
 
  - **FEAT**: updated dependencies.

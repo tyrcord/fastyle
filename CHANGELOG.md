@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-06-17
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.50+1`](#fastyle_ad---v00501)
+
+---
+
+#### `fastyle_ad` - `v0.0.50+1`
+
+ - **FIX**: better logs.
+
+
 ## 2024-06-15
 
 ### Changes
