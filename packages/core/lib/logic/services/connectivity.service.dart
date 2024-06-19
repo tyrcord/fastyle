@@ -5,7 +5,7 @@ import 'dart:io';
 // Package imports:
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:t_helpers/helpers.dart';
+import 'package:tlogger/logger.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -18,6 +18,10 @@ import 'package:fastyle_core/fastyle_core.dart';
 class FastConnectivityService {
   /// Singleton instance.
   static final FastConnectivityService instance = FastConnectivityService._();
+  static const String debugLabel = 'FastConnectivityService';
+  static final _manager = TLoggerManager();
+
+  late final TLogger _logger;
 
   // Configuration parameters.
   Duration _checkInterval;
@@ -25,9 +29,6 @@ class FastConnectivityService {
   List<String> _checkAddresses;
   List<int> _checkPorts;
   Duration _throttleDuration;
-
-  /// A debug label to use when logging.
-  String debugLabel;
 
   // Flag indicating whether the singleton instance has been accessed.
   static bool _hasBeenInstantiated = false;
@@ -48,8 +49,10 @@ class FastConnectivityService {
         _checkAddresses = checkAddresses ?? kFastConnectivityCheckAddresses,
         _checkPorts = checkPorts ?? kFastConnectivityCheckPorts,
         _throttleDuration =
-            throttleDuration ?? kFastConnectivityCheckThrottleDuration,
-        debugLabel = debugLabel ?? 'FastConnectivityService' {
+            throttleDuration ?? kFastConnectivityCheckThrottleDuration {
+    debugLabel ??= FastConnectivityService.debugLabel;
+    _logger = _manager.getLogger(debugLabel);
+
     _serviceAvailabilityController.stream
         .throttleTime(_throttleDuration)
         .asyncMap((_) => _performServiceAvailabilityCheck())
@@ -115,11 +118,7 @@ class FastConnectivityService {
       final port = _checkPorts[entry.key];
 
       try {
-        debugLog(
-          'Checking service availability at $address:$port...',
-          debugLabel: debugLabel,
-        );
-
+        _logger.debug('Checking service availability at $address:$port...');
         final socket = await Socket.connect(
           address,
           port,
@@ -129,14 +128,11 @@ class FastConnectivityService {
         await socket.flush();
         await socket.close();
 
-        debugLog('Service available at $address:$port', debugLabel: debugLabel);
+        _logger.debug('Service available at $address:$port');
 
         return true;
       } catch (e) {
-        debugLog(
-          'Unable to connect to $address:$port - $e',
-          debugLabel: debugLabel,
-        );
+        _logger.debug('Unable to connect to $address:$port - $e');
 
         return false;
       }
@@ -144,19 +140,13 @@ class FastConnectivityService {
 
     try {
       return await Future.any(checks).then((result) {
-        debugLog(
-          'Service availability check completed - $result',
-          debugLabel: debugLabel,
-        );
+        _logger.debug('Service availability check completed - $result');
 
         return result;
       });
     } catch (e) {
       // If all futures fail, Future.any will throw an error, so we handle it
-      debugLog(
-        'All connection attempts failed - $e',
-        debugLabel: debugLabel,
-      );
+      _logger.debug('All connection attempts failed - $e');
 
       return false;
     }
@@ -165,7 +155,7 @@ class FastConnectivityService {
   // Check overall connectivity status, combining device connectivity
   // and service availability.
   Future<FastConnectivityStatus> checkOverallConnectivity() async {
-    debugLog('Checking overall connectivity status...', debugLabel: debugLabel);
+    _logger.debug('Checking overall connectivity status...');
 
     final connectivityResults = await Connectivity().checkConnectivity();
     final serviceAvailable = await checkServiceAvailability();
@@ -193,10 +183,7 @@ class FastConnectivityService {
         .skip(1) // Skips the first event which is the initial state.
         .sampleTime(const Duration(milliseconds: 2500))
         .asyncMap((connectivityResults) async {
-      debugLog(
-        'System connectivity changed - $connectivityResults',
-        debugLabel: debugLabel,
-      );
+      _logger.debug('System connectivity changed - $connectivityResults');
 
       return FastConnectivityStatus(
         isServiceAvailable: await checkServiceAvailability(),
