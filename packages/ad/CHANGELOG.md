@@ -1,3 +1,7 @@
+## 0.0.50+2
+
+ - Update a dependency to the latest release.
+
 ## 0.0.50+1
 
  - **FIX**: better logs.

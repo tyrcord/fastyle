@@ -1,3 +1,7 @@
+## 0.0.56
+
+ - **FEAT**(FastConnectivityService): use logger.
+
 ## 0.0.55
 
  - **FEAT**: updated dependencies.

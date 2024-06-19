@@ -3,6 +3,74 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-06-19
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_core` - `v0.0.56`](#fastyle_core---v0056)
+ - [`fastyle_calculator` - `v1.65.1`](#fastyle_calculator---v1651)
+ - [`fastyle_settings` - `v0.0.58+1`](#fastyle_settings---v00581)
+ - [`fastyle_forms` - `v0.0.53+1`](#fastyle_forms---v00531)
+ - [`fastyle_buttons` - `v0.0.32+1`](#fastyle_buttons---v00321)
+ - [`fastyle_financial` - `v0.0.49+1`](#fastyle_financial---v00491)
+ - [`fastyle_quizz` - `v0.0.23+1`](#fastyle_quizz---v00231)
+ - [`fastyle_home` - `v0.0.43+1`](#fastyle_home---v00431)
+ - [`fastyle_ad` - `v0.0.50+2`](#fastyle_ad---v00502)
+ - [`fastyle_video_player` - `v0.0.35+1`](#fastyle_video_player---v00351)
+ - [`fastyle_animation` - `v0.0.23+1`](#fastyle_animation---v00231)
+ - [`fastyle_connectivity` - `v0.0.48+1`](#fastyle_connectivity---v00481)
+ - [`fastyle_images` - `v0.0.53+1`](#fastyle_images---v00531)
+ - [`fastyle_digit_calculator` - `v0.0.47+1`](#fastyle_digit_calculator---v00471)
+ - [`fastyle_charts` - `v0.0.36+1`](#fastyle_charts---v00361)
+ - [`fastyle_iap` - `v0.0.43+1`](#fastyle_iap---v00431)
+ - [`fastyle_layouts` - `v0.0.25+1`](#fastyle_layouts---v00251)
+ - [`fastyle_text` - `v0.0.31+1`](#fastyle_text---v00311)
+ - [`fastyle_firebase` - `v0.0.40+1`](#fastyle_firebase---v00401)
+ - [`fastyle_views` - `v0.0.40+1`](#fastyle_views---v00401)
+ - [`fastyle_pricing` - `v1.48.1`](#fastyle_pricing---v1481)
+ - [`fastyle_onboarding` - `v0.0.54+1`](#fastyle_onboarding---v00541)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_calculator` - `v1.65.1`
+ - `fastyle_settings` - `v0.0.58+1`
+ - `fastyle_forms` - `v0.0.53+1`
+ - `fastyle_buttons` - `v0.0.32+1`
+ - `fastyle_financial` - `v0.0.49+1`
+ - `fastyle_quizz` - `v0.0.23+1`
+ - `fastyle_home` - `v0.0.43+1`
+ - `fastyle_ad` - `v0.0.50+2`
+ - `fastyle_video_player` - `v0.0.35+1`
+ - `fastyle_animation` - `v0.0.23+1`
+ - `fastyle_connectivity` - `v0.0.48+1`
+ - `fastyle_images` - `v0.0.53+1`
+ - `fastyle_digit_calculator` - `v0.0.47+1`
+ - `fastyle_charts` - `v0.0.36+1`
+ - `fastyle_iap` - `v0.0.43+1`
+ - `fastyle_layouts` - `v0.0.25+1`
+ - `fastyle_text` - `v0.0.31+1`
+ - `fastyle_firebase` - `v0.0.40+1`
+ - `fastyle_views` - `v0.0.40+1`
+ - `fastyle_pricing` - `v1.48.1`
+ - `fastyle_onboarding` - `v0.0.54+1`
+
+---
+
+#### `fastyle_core` - `v0.0.56`
+
+ - **FEAT**(FastConnectivityService): use logger.
+
+
 ## 2024-06-17
 
 ### Changes
