@@ -125,6 +125,12 @@ class FastConnectivityService {
           timeout: _checkTimeout,
         );
 
+        socket.listen(
+          (data) => _logger.debug('Received: ${String.fromCharCodes(data)}'),
+          onError: (error) => _logger.error('Socket error: $error'),
+          onDone: () => _logger.debug('Socket Closed'),
+        );
+
         await socket.flush();
         await socket.close();
 
