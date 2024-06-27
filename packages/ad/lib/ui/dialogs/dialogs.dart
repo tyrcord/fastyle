@@ -85,6 +85,8 @@ void showRewardedExportPdfDialog({
   WidgetBuilder? missingRightsBuilder,
   FastOperationStatusChanged? onCancel,
   FastOperationStatusChanged? onValid,
+  FastOperationStatusChanged? onAlternativeAction,
+  String? Function(FastOperationStatus)? onGetAlternativeText,
 }) {
   showAnimatedFastOverlay(
     context: context,
@@ -108,6 +110,8 @@ void showRewardedExportPdfDialog({
       errorBuilder: errorBuilder,
       onCancel: onCancel,
       onValid: onValid,
+      onGetAlternativeText: onGetAlternativeText,
+      onAlternativeAction: onAlternativeAction,
     ),
   );
 }
@@ -133,6 +137,8 @@ void showRewardedExportCsvDialog({
   WidgetBuilder? missingRightsBuilder,
   FastOperationStatusChanged? onCancel,
   FastOperationStatusChanged? onValid,
+  FastOperationStatusChanged? onAlternativeAction,
+  String? Function(FastOperationStatus)? onGetAlternativeText,
 }) {
   showAnimatedFastOverlay(
     context: context,
@@ -153,6 +159,8 @@ void showRewardedExportCsvDialog({
       operationSucceededBuilder: operationSucceededBuilder,
       operationFailedBuilder: operationFailedBuilder,
       missingRightsBuilder: missingRightsBuilder,
+      onGetAlternativeText: onGetAlternativeText,
+      onAlternativeAction: onAlternativeAction,
       errorBuilder: errorBuilder,
       onCancel: onCancel,
       onValid: onValid,
@@ -181,6 +189,8 @@ void showRewardedExportExcelDialog({
   WidgetBuilder? missingRightsBuilder,
   FastOperationStatusChanged? onCancel,
   FastOperationStatusChanged? onValid,
+  FastOperationStatusChanged? onAlternativeAction,
+  String? Function(FastOperationStatus)? onGetAlternativeText,
 }) {
   showAnimatedFastOverlay(
     context: context,
@@ -199,6 +209,8 @@ void showRewardedExportExcelDialog({
       rightsDeniedBuillder: rightsDeniedBuillder,
       operationInProgressBuilder: operationInProgressBuilder,
       operationSucceededBuilder: operationSucceededBuilder,
+      onGetAlternativeText: onGetAlternativeText,
+      onAlternativeAction: onAlternativeAction,
       operationFailedBuilder: operationFailedBuilder,
       missingRightsBuilder: missingRightsBuilder,
       errorBuilder: errorBuilder,

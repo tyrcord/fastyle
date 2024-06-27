@@ -35,6 +35,9 @@ class FastOperationRewardedDialog extends StatelessWidget {
   /// Function to retrieve title text based on operation status.
   final String? Function(FastOperationStatus)? onGetTitleText;
 
+  /// Function to retrieve alternative text based on operation status.
+  final String? Function(FastOperationStatus)? onGetAlternativeText;
+
   /// Builder for the initial state.
   final WidgetBuilder intialBuilder;
 
@@ -68,6 +71,9 @@ class FastOperationRewardedDialog extends StatelessWidget {
   /// Callback for when the valid button is tapped.
   final FastOperationStatusChanged? onValid;
 
+  /// Callback for when the alternative action button is tapped.
+  final FastOperationStatusChanged? onAlternativeAction;
+
   final rewardedAdBloc = FastRewardedAdBloc();
 
   /// Constructs a [FastOperationRewardedDialog].
@@ -89,6 +95,8 @@ class FastOperationRewardedDialog extends StatelessWidget {
     this.errorBuilder,
     this.onGetCancelText,
     this.onGetTitleText,
+    this.onGetAlternativeText,
+    this.onAlternativeAction,
     this.onCancel,
     this.onValid,
   });
@@ -177,6 +185,7 @@ class FastOperationRewardedDialog extends StatelessWidget {
       onGrantRights: onGrantRights ?? handleGrantRights,
       verifyingRightsBuilder: verifyingRightsBuilder,
       grantingRightsBuilder: grantingRightsBuilder,
+      onGetAlternativeText: onGetAlternativeText,
       missingRightsBuilder: missingRightsBuilder,
       errorBuilder: errorBuilder ?? buildError,
       onCreateOperation: onCreateOperation,
@@ -185,6 +194,7 @@ class FastOperationRewardedDialog extends StatelessWidget {
       intialBuilder: intialBuilder,
       onCancel: onCancel,
       onValid: onValid,
+      onAlternativeAction: onAlternativeAction,
       operationSucceededBuilder:
           operationSucceededBuilder ?? buildOperationSucceeded,
     );

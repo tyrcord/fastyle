@@ -37,6 +37,9 @@ class FastOperationControlledDialog extends StatefulWidget {
   /// Function to retrieve cancel text based on operation status.
   final String? Function(FastOperationStatus)? onGetCancelText;
 
+  /// Function to retrieve alternative text based on operation status.
+  final String? Function(FastOperationStatus)? onGetAlternativeText;
+
   /// Function to retrieve title text based on operation status.
   final String? Function(FastOperationStatus)? onGetTitleText;
 
@@ -73,6 +76,9 @@ class FastOperationControlledDialog extends StatefulWidget {
   /// Callback for when the valid button is tapped.
   final FastOperationStatusChanged? onValid;
 
+  /// Callback for when the alternative button is tapped.
+  final FastOperationStatusChanged? onAlternativeAction;
+
   final double tabletWidthFactor;
 
   /// Constructs a [FastOperationControlledDialog].
@@ -81,6 +87,7 @@ class FastOperationControlledDialog extends StatefulWidget {
     required this.onCreateOperation,
     required this.intialBuilder,
     this.onOperationStatusChanged,
+    this.onGetAlternativeText,
     this.onGrantRights,
     this.onVerifyRights,
     this.verifyingRightsBuilder,
@@ -90,6 +97,7 @@ class FastOperationControlledDialog extends StatefulWidget {
     this.operationInProgressBuilder,
     this.operationSucceededBuilder,
     this.operationFailedBuilder,
+    this.onAlternativeAction,
     this.onGetValidText,
     this.errorBuilder,
     this.onGetCancelText,
@@ -132,11 +140,17 @@ class FastOperationControlledDialogState
     Navigator.of(context).pop();
   }
 
+  void onAlternative() {
+    Navigator.of(context).pop();
+    widget.onAlternativeAction?.call(_currentStatus);
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget currentWidget;
     bool showValidButton = false;
     bool showCancelButton = false;
+    bool showAlternativeButton = false;
 
     // Logic to determine which widget to display based on current status.
     switch (_currentStatus) {
@@ -150,6 +164,9 @@ class FastOperationControlledDialogState
         currentWidget = _getMissingRightsBuilder(context);
         showValidButton = true;
         showCancelButton = true;
+
+        // Won't be shown if onAlternativeAction is null.
+        showAlternativeButton = true;
       case FastOperationStatus.grantingRights:
         currentWidget = _getGrantingRightsBuilder(context);
       case FastOperationStatus.rightsDenied:
@@ -176,13 +193,16 @@ class FastOperationControlledDialogState
         return FractionallySizedBox(
           widthFactor: isHandset ? 1 : widget.tabletWidthFactor,
           child: FastAlertDialog(
-            showValid: showValidButton,
+            showAlternative: showAlternativeButton,
             showCancel: showCancelButton,
+            showValid: showValidButton,
             onCancel: handleCancelTap,
             onValid: handleValidTap,
             titleText: titleText,
             validText: validText,
             cancelText: cancelText,
+            alternativeText: alternativeText,
+            onAlternative: onAlternative,
             children: [
               ConstrainedBox(
                 constraints: const BoxConstraints(minHeight: 40),
@@ -217,6 +237,15 @@ class FastOperationControlledDialogState
   String? get cancelText {
     if (widget.onGetCancelText != null) {
       return widget.onGetCancelText!(_currentStatus);
+    }
+
+    return null;
+  }
+
+  /// Returns the alternative button text based on the current operation status.
+  String? get alternativeText {
+    if (widget.onGetAlternativeText != null) {
+      return widget.onGetAlternativeText!(_currentStatus);
     }
 
     return null;

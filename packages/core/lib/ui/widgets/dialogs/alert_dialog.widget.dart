@@ -12,6 +12,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 //TODO: @need-review: code from fastyle_dart
 
 class FastAlertDialog extends AlertDialog {
+  final VoidCallback? onAlternative;
   final VoidCallback? onCancel;
   final List<Widget>? children;
   final VoidCallback? onValid;
@@ -23,11 +24,15 @@ class FastAlertDialog extends AlertDialog {
   final String? titleText;
   final bool showCancel;
   final bool showValid;
+  final String? alternativeText;
+  final bool showAlternative;
 
   const FastAlertDialog({
     super.key,
     this.titleText,
     super.backgroundColor,
+    this.alternativeText,
+    this.onAlternative,
     this.messageColor,
     this.messageText,
     this.cancelText,
@@ -39,8 +44,10 @@ class FastAlertDialog extends AlertDialog {
     this.onValid,
     bool? showCancel,
     bool? showValid,
+    bool? showAlternative,
   })  : assert(messageText == null || children == null),
         assert(messageText != null || children != null),
+        showAlternative = showAlternative ?? false,
         showValid = showValid ?? true,
         showCancel = showCancel ?? false;
 
@@ -60,7 +67,7 @@ class FastAlertDialog extends AlertDialog {
   }
 
   List<Widget> _buildDefaultActions(BuildContext context) {
-    return [
+    final actions = [
       if (showCancel)
         FastTextButton(
           text: cancelText ?? CoreLocaleKeys.core_label_cancel.tr(),
@@ -71,6 +78,12 @@ class FastAlertDialog extends AlertDialog {
               Navigator.pop(context);
             }
           },
+        ),
+      if (showAlternative && onAlternative != null && alternativeText != null)
+        FastTextButton(
+          textColor: ThemeHelper.getPaletteColors(context).blue.mid,
+          text: alternativeText,
+          onTap: onAlternative,
         ),
       if (showValid)
         FastTextButton(
@@ -85,5 +98,24 @@ class FastAlertDialog extends AlertDialog {
           emphasis: FastButtonEmphasis.high,
         ),
     ];
+
+    if (actions.length == 3) {
+      return [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            actions[0],
+            Row(
+              children: [
+                actions[1],
+                actions[2],
+              ],
+            ),
+          ],
+        )
+      ];
+    }
+
+    return actions;
   }
 }

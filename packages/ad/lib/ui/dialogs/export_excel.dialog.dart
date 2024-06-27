@@ -66,6 +66,12 @@ class FastExportExcelRewardedDialog extends StatelessWidget {
   /// Callback for when the valid button is tapped.
   final FastOperationStatusChanged? onValid;
 
+  /// Callback for when the alternative action button is tapped.
+  final FastOperationStatusChanged? onAlternativeAction;
+
+  /// Function to retrieve alternative text based on operation status.
+  final String? Function(FastOperationStatus)? onGetAlternativeText;
+
   final rewardedAdBloc = FastRewardedAdBloc();
 
   /// Constructs a [FastExportExcelRewardedDialog].
@@ -83,6 +89,8 @@ class FastExportExcelRewardedDialog extends StatelessWidget {
     this.operationInProgressBuilder,
     this.operationSucceededBuilder,
     this.operationFailedBuilder,
+    this.onGetAlternativeText,
+    this.onAlternativeAction,
     this.onGetValidText,
     this.errorBuilder,
     this.onGetCancelText,
@@ -109,6 +117,8 @@ class FastExportExcelRewardedDialog extends StatelessWidget {
       intialBuilder: intialBuilder ?? buildInitial,
       grantingRightsBuilder: grantingRightsBuilder,
       rightsDeniedBuillder: rightsDeniedBuillder,
+      onGetAlternativeText: onGetAlternativeText,
+      onAlternativeAction: onAlternativeAction,
       onCreateOperation: onCreateOperation,
       onGetCancelText: onGetCancelText,
       onGrantRights: onGrantRights,
@@ -139,10 +149,17 @@ class FastExportExcelRewardedDialog extends StatelessWidget {
               .purchases_message_have_not_acquired_premium_version
               .tr(),
         ),
-        kFastVerticalSizedBox16,
+        kFastVerticalSizedBox12,
         FastBody(
           text: AdLocaleKeys.ad_message_watch_ad_unlock_excel.tr(),
         ),
+        if (onAlternativeAction != null) ...[
+          kFastVerticalSizedBox12,
+          FastBody(
+            text: PurchasesLocaleKeys.purchases_message_premium_upgrade_offer
+                .tr(),
+          ),
+        ]
       ],
     );
   }
