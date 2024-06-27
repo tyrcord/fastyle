@@ -1,3 +1,7 @@
+## 0.0.51
+
+ - **FEAT**: add alternative action to FastOperationRewardedDialog.
+
 ## 0.0.50+2
 
  - Update a dependency to the latest release.

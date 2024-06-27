@@ -3,6 +3,80 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-06-27
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.51`](#fastyle_ad---v0051)
+ - [`fastyle_core` - `v0.0.57`](#fastyle_core---v0057)
+ - [`fastyle_home` - `v0.0.43+2`](#fastyle_home---v00432)
+ - [`fastyle_settings` - `v0.0.58+2`](#fastyle_settings---v00582)
+ - [`fastyle_forms` - `v0.0.53+2`](#fastyle_forms---v00532)
+ - [`fastyle_buttons` - `v0.0.32+2`](#fastyle_buttons---v00322)
+ - [`fastyle_quizz` - `v0.0.23+2`](#fastyle_quizz---v00232)
+ - [`fastyle_connectivity` - `v0.0.48+2`](#fastyle_connectivity---v00482)
+ - [`fastyle_calculator` - `v1.65.2`](#fastyle_calculator---v1652)
+ - [`fastyle_images` - `v0.0.53+2`](#fastyle_images---v00532)
+ - [`fastyle_financial` - `v0.0.49+2`](#fastyle_financial---v00492)
+ - [`fastyle_charts` - `v0.0.36+2`](#fastyle_charts---v00362)
+ - [`fastyle_digit_calculator` - `v0.0.47+2`](#fastyle_digit_calculator---v00472)
+ - [`fastyle_layouts` - `v0.0.25+2`](#fastyle_layouts---v00252)
+ - [`fastyle_text` - `v0.0.31+2`](#fastyle_text---v00312)
+ - [`fastyle_iap` - `v0.0.43+2`](#fastyle_iap---v00432)
+ - [`fastyle_firebase` - `v0.0.40+2`](#fastyle_firebase---v00402)
+ - [`fastyle_pricing` - `v1.48.2`](#fastyle_pricing---v1482)
+ - [`fastyle_animation` - `v0.0.23+2`](#fastyle_animation---v00232)
+ - [`fastyle_onboarding` - `v0.0.54+2`](#fastyle_onboarding---v00542)
+ - [`fastyle_views` - `v0.0.40+2`](#fastyle_views---v00402)
+ - [`fastyle_video_player` - `v0.0.35+2`](#fastyle_video_player---v00352)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_home` - `v0.0.43+2`
+ - `fastyle_settings` - `v0.0.58+2`
+ - `fastyle_forms` - `v0.0.53+2`
+ - `fastyle_buttons` - `v0.0.32+2`
+ - `fastyle_quizz` - `v0.0.23+2`
+ - `fastyle_connectivity` - `v0.0.48+2`
+ - `fastyle_calculator` - `v1.65.2`
+ - `fastyle_images` - `v0.0.53+2`
+ - `fastyle_financial` - `v0.0.49+2`
+ - `fastyle_charts` - `v0.0.36+2`
+ - `fastyle_digit_calculator` - `v0.0.47+2`
+ - `fastyle_layouts` - `v0.0.25+2`
+ - `fastyle_text` - `v0.0.31+2`
+ - `fastyle_iap` - `v0.0.43+2`
+ - `fastyle_firebase` - `v0.0.40+2`
+ - `fastyle_pricing` - `v1.48.2`
+ - `fastyle_animation` - `v0.0.23+2`
+ - `fastyle_onboarding` - `v0.0.54+2`
+ - `fastyle_views` - `v0.0.40+2`
+ - `fastyle_video_player` - `v0.0.35+2`
+
+---
+
+#### `fastyle_ad` - `v0.0.51`
+
+ - **FEAT**: add alternative action to FastOperationRewardedDialog.
+
+#### `fastyle_core` - `v0.0.57`
+
+ - **FIX**(FastConnectivityService): stronger connectivity check.
+ - **FEAT**(FastTextButton): support FastButtonEmphasis.medium widget.emphasis.
+ - **FEAT**: add alternative action to FastOperationRewardedDialog.
+ - **FEAT**: add more log when checking internet connection.
+
+
 ## 2024-06-19
 
 ### Changes

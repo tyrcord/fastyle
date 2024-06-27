@@ -1,7 +1,7 @@
 dependencies:
   connectivity_plus: ^6.0.3
   easy_localization: ^3.0.5
-  fastyle_core: ^0.0.56
+  fastyle_core: ^0.0.57
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
@@ -21,4 +21,4 @@ environment:
   sdk: '>=3.2.0 <4.0.0'
 name: fastyle_connectivity
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/connectivity
-version: 0.0.48+1
+version: 0.0.48+2

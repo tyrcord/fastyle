@@ -1,3 +1,10 @@
+## 0.0.57
+
+ - **FIX**(FastConnectivityService): stronger connectivity check.
+ - **FEAT**(FastTextButton): support FastButtonEmphasis.medium widget.emphasis.
+ - **FEAT**: add alternative action to FastOperationRewardedDialog.
+ - **FEAT**: add more log when checking internet connection.
+
 ## 0.0.56
 
  - **FEAT**(FastConnectivityService): use logger.
