@@ -46,12 +46,20 @@ class FastTextButtonState extends State<FastTextButton>
     super.dispose();
   }
 
+  Color getTextColor(BuildContext context) {
+    switch (widget.emphasis) {
+      case FastButtonEmphasis.high:
+        return ThemeHelper.colors.getPrimaryColor(context);
+      case FastButtonEmphasis.medium:
+        return ThemeHelper.colors.getSecondaryColor(context);
+      default:
+        return ThemeHelper.texts.getButtonTextStyle(context).color!;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final textColor = widget.textColor ??
-        (widget.emphasis == FastButtonEmphasis.high
-            ? ThemeHelper.colors.getPrimaryColor(context)
-            : ThemeHelper.texts.getButtonTextStyle(context).color!);
+    final textColor = widget.textColor ?? getTextColor(context);
 
     return TextButton(
       style: ButtonStyle(
