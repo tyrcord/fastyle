@@ -56,7 +56,9 @@ class FastConnectivityService {
     _serviceAvailabilityController.stream
         .throttleTime(_throttleDuration)
         .asyncMap((_) => _performServiceAvailabilityCheck())
-        .listen((result) => _serviceAvailabilitySubject.add(result));
+        .doOnData((result) {
+      _logger.debug('Service availability check result: $result');
+    }).listen((result) => _serviceAvailabilitySubject.add(result));
   }
 
   // Factory constructor for providing a singleton instance.
@@ -113,7 +115,15 @@ class FastConnectivityService {
 
   // Internal method to perform the actual service availability check.
   Future<bool> _performServiceAvailabilityCheck() async {
-    final checks = _checkAddresses.asMap().entries.map((entry) async {
+    await for (final result in _checkServiceAvailability()) {
+      if (result) return true;
+    }
+
+    return false;
+  }
+
+  Stream<bool> _checkServiceAvailability() async* {
+    for (final entry in _checkAddresses.asMap().entries) {
       final address = entry.value;
       final port = _checkPorts[entry.key];
 
@@ -136,25 +146,11 @@ class FastConnectivityService {
 
         _logger.debug('Service available at $address:$port');
 
-        return true;
+        yield true;
       } catch (e) {
         _logger.debug('Unable to connect to $address:$port - $e');
-
-        return false;
+        yield false;
       }
-    });
-
-    try {
-      return await Future.any(checks).then((result) {
-        _logger.debug('Service availability check completed - $result');
-
-        return result;
-      });
-    } catch (e) {
-      // If all futures fail, Future.any will throw an error, so we handle it
-      _logger.debug('All connection attempts failed - $e');
-
-      return false;
     }
   }
 
