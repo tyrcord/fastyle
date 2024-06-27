@@ -1,5 +1,5 @@
 dependencies:
-  fastyle_core: ^0.0.57
+  fastyle_core: ^0.0.58
   flutter:
     sdk: flutter
   tenhance: ^0.0.13
@@ -15,4 +15,4 @@ environment:
   sdk: '>=3.2.0 <4.0.0'
 name: fastyle_layouts
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/layouts
-version: 0.0.25+2
+version: 0.0.25+3

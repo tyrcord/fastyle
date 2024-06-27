@@ -15,6 +15,74 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_core` - `v0.0.58`](#fastyle_core---v0058)
+ - [`fastyle_forms` - `v0.0.53+3`](#fastyle_forms---v00533)
+ - [`fastyle_settings` - `v0.0.58+3`](#fastyle_settings---v00583)
+ - [`fastyle_home` - `v0.0.43+3`](#fastyle_home---v00433)
+ - [`fastyle_buttons` - `v0.0.32+3`](#fastyle_buttons---v00323)
+ - [`fastyle_connectivity` - `v0.0.48+3`](#fastyle_connectivity---v00483)
+ - [`fastyle_images` - `v0.0.53+3`](#fastyle_images---v00533)
+ - [`fastyle_charts` - `v0.0.36+3`](#fastyle_charts---v00363)
+ - [`fastyle_financial` - `v0.0.49+3`](#fastyle_financial---v00493)
+ - [`fastyle_quizz` - `v0.0.23+3`](#fastyle_quizz---v00233)
+ - [`fastyle_ad` - `v0.0.51+1`](#fastyle_ad---v00511)
+ - [`fastyle_animation` - `v0.0.23+3`](#fastyle_animation---v00233)
+ - [`fastyle_calculator` - `v1.65.3`](#fastyle_calculator---v1653)
+ - [`fastyle_digit_calculator` - `v0.0.47+3`](#fastyle_digit_calculator---v00473)
+ - [`fastyle_video_player` - `v0.0.35+3`](#fastyle_video_player---v00353)
+ - [`fastyle_firebase` - `v0.0.40+3`](#fastyle_firebase---v00403)
+ - [`fastyle_layouts` - `v0.0.25+3`](#fastyle_layouts---v00253)
+ - [`fastyle_text` - `v0.0.31+3`](#fastyle_text---v00313)
+ - [`fastyle_onboarding` - `v0.0.54+3`](#fastyle_onboarding---v00543)
+ - [`fastyle_views` - `v0.0.40+3`](#fastyle_views---v00403)
+ - [`fastyle_iap` - `v0.0.43+3`](#fastyle_iap---v00433)
+ - [`fastyle_pricing` - `v1.48.3`](#fastyle_pricing---v1483)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `fastyle_forms` - `v0.0.53+3`
+ - `fastyle_settings` - `v0.0.58+3`
+ - `fastyle_home` - `v0.0.43+3`
+ - `fastyle_buttons` - `v0.0.32+3`
+ - `fastyle_connectivity` - `v0.0.48+3`
+ - `fastyle_images` - `v0.0.53+3`
+ - `fastyle_charts` - `v0.0.36+3`
+ - `fastyle_financial` - `v0.0.49+3`
+ - `fastyle_quizz` - `v0.0.23+3`
+ - `fastyle_ad` - `v0.0.51+1`
+ - `fastyle_animation` - `v0.0.23+3`
+ - `fastyle_calculator` - `v1.65.3`
+ - `fastyle_digit_calculator` - `v0.0.47+3`
+ - `fastyle_video_player` - `v0.0.35+3`
+ - `fastyle_firebase` - `v0.0.40+3`
+ - `fastyle_layouts` - `v0.0.25+3`
+ - `fastyle_text` - `v0.0.31+3`
+ - `fastyle_onboarding` - `v0.0.54+3`
+ - `fastyle_views` - `v0.0.40+3`
+ - `fastyle_iap` - `v0.0.43+3`
+ - `fastyle_pricing` - `v1.48.3`
+
+---
+
+#### `fastyle_core` - `v0.0.58`
+
+ - **FEAT**: add FastAction.
+
+
+## 2024-06-27
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_ad` - `v0.0.51`](#fastyle_ad---v0051)
  - [`fastyle_core` - `v0.0.57`](#fastyle_core---v0057)
  - [`fastyle_home` - `v0.0.43+2`](#fastyle_home---v00432)

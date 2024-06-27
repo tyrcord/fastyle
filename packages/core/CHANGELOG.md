@@ -1,3 +1,7 @@
+## 0.0.58
+
+ - **FEAT**: add FastAction.
+
 ## 0.0.57
 
  - **FIX**(FastConnectivityService): stronger connectivity check.
