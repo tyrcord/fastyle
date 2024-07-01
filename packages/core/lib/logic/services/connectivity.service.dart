@@ -94,6 +94,7 @@ class FastConnectivityService {
   // Check the current device internet connectivity.
   Future<bool> checkDeviceConnectivity() async {
     final connectivityResults = await Connectivity().checkConnectivity();
+    _logger.debug('Device connectivity results: $connectivityResults');
 
     return connectivityResults
         .any((result) => result != ConnectivityResult.none);
