@@ -2,7 +2,9 @@
 import 'dart:async';
 
 // Flutter imports:
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:t_helpers/helpers.dart';
 
 // Package imports:
 import 'package:tbloc/tbloc.dart';
@@ -88,16 +90,27 @@ class FastAppLoaderState extends State<FastAppLoader> {
   final FastAppLoaderBloc _bloc = FastAppLoaderBloc();
 
   /// Timer used to delay the display of the loader.
-  late final Timer _delayTimer;
+  Timer? _delayTimer;
 
   /// Determines if the loader can be shown.
   bool _canShowLoader = false;
+
+  late final Function init;
+
+  FastAppLoaderState() {
+    if (kDebugMode) {
+      const duration = Duration(milliseconds: 300);
+      init = throttle(_initializeAppLoaderBloc, duration);
+    } else {
+      init = _initializeAppLoaderBloc;
+    }
+  }
 
   @override
   void initState() {
     super.initState();
     _logger = _manager.getLogger(_debugLabel);
-    _initializeAppLoaderBloc();
+    init();
   }
 
   @override
@@ -170,7 +183,7 @@ class FastAppLoaderState extends State<FastAppLoader> {
   }
 
   /// Cancels the delay timer.
-  void _cancelDelayTimer() => _delayTimer.cancel();
+  void _cancelDelayTimer() => _delayTimer?.cancel();
 
   /// Decides which app to display based on the [FastAppLoaderBlocState].
   Widget _decideAppDisplay(BuildContext context, FastAppLoaderBlocState state) {
@@ -207,8 +220,10 @@ class FastAppLoaderState extends State<FastAppLoader> {
           jobs: widget.loaderJobs,
         ));
 
-        _delayTimer =
-            Timer(widget.delayBeforeShowingLoader, _showLoaderIfNeeded);
+        _delayTimer = Timer(
+          widget.delayBeforeShowingLoader,
+          _showLoaderIfNeeded,
+        );
       }
     });
   }

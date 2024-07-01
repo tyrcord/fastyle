@@ -48,13 +48,24 @@ class FastJobRunner {
 
         WidgetsBinding.instance.scheduleFrameCallback((_) {
           runZonedGuarded(() async {
-            final response = await job.run(
-              context,
-              errorReporter: errorReporter,
-            );
+            try {
+              final response = await job.run(
+                context,
+                errorReporter: errorReporter,
+              );
 
-            if (!completer.isCompleted) {
-              completer.complete(response);
+              if (!completer.isCompleted) {
+                completer.complete(response);
+              }
+            } catch (error) {
+              if (!context.mounted) {
+                _logger.warning(
+                  'Job failed: ${job.debugLabel ?? 'Unknown'} - '
+                  'but the context is not mounted',
+                );
+              } else {
+                rethrow;
+              }
             }
           }, (error, stackTrace) {
             if (!completer.isCompleted) {
