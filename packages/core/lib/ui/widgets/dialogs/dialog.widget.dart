@@ -1,42 +1,32 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-//TODO: @need-review: code from fastyle_dart
-
 class FastDialog extends AlertDialog {
+  final BoxConstraints? constraints;
   final List<Widget> children;
-  final Color? titleColor;
   final String? titleText;
+  final Color? titleColor;
 
   const FastDialog({
     super.key,
-    this.titleText,
     required this.children,
     super.backgroundColor,
+    this.constraints,
     this.titleColor,
+    this.titleText,
     super.actions,
   });
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      clipBehavior: Clip.antiAlias,
-      content: SingleChildScrollView(
-        child: ListBody(
-          children: [
-            ...children,
-            kFastVerticalSizedBox16,
-          ],
-        ),
-      ),
-      title: buildTitle(),
+      content: SingleChildScrollView(child: _buildContent(context)),
       surfaceTintColor: _getBackgroundColor(context),
       contentPadding: _getContentPadding(),
-      titlePadding: _getTitlePadding(),
       actionsPadding: _getActionsPadding(),
+      titlePadding: _getTitlePadding(),
+      clipBehavior: Clip.antiAlias,
+      title: _buildTitle(),
       actions: actions,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -44,17 +34,51 @@ class FastDialog extends AlertDialog {
     );
   }
 
-  Color _getBackgroundColor(BuildContext context) {
-    return backgroundColor ??
-        ThemeHelper.colors.getSecondaryBackgroundColor(context);
+  Widget _buildContent(BuildContext context) {
+    final list = ListBody(children: [...children, kFastVerticalSizedBox16]);
+
+    if (constraints == null) return _buildAdaptiveContent(context, list);
+
+    return ConstrainedBox(constraints: constraints!, child: list);
   }
 
-  Widget? buildTitle() {
+  Widget _buildAdaptiveContent(BuildContext context, Widget list) {
+    return FastMediaLayoutBuilder(builder: (context, mediaType) {
+      final mediaQuerySize = MediaQuery.sizeOf(context);
+      final (heightMultiplier, widthMultiplier) = _getMultipliers(mediaType);
+
+      return ConstrainedBox(
+        constraints: BoxConstraints(
+          minHeight: mediaQuerySize.height * heightMultiplier,
+          minWidth: mediaQuerySize.width * widthMultiplier,
+        ),
+        child: list,
+      );
+    });
+  }
+
+  (double, double) _getMultipliers(FastMediaType mediaType) {
+    switch (mediaType) {
+      case FastMediaType.handset:
+        return (0.30, 0.75);
+      case FastMediaType.tablet:
+        return (0.35, 0.50);
+      default:
+        return (0.25, 0.40);
+    }
+  }
+
+  Widget? _buildTitle() {
     if (titleText != null) {
       return FastTitle(text: titleText!, textColor: titleColor);
     }
 
     return null;
+  }
+
+  Color _getBackgroundColor(BuildContext context) {
+    return backgroundColor ??
+        ThemeHelper.colors.getSecondaryBackgroundColor(context);
   }
 
   EdgeInsets _getTitlePadding() {
