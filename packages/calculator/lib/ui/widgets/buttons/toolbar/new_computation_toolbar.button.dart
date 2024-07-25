@@ -5,23 +5,27 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 // Project imports:
 import 'package:fastyle_calculator/fastyle_calculator.dart';
 
-/// A [FastCalculatorAction] that clears the calculator state.
-class FastCalculatorExportToPdfAction<B extends FastCalculatorBloc,
+/// A [FastCalculatorAction] that adds two numbers.
+class FastCalculatorAddComputationToolbarButton<B extends FastCalculatorBloc,
     R extends FastCalculatorResults> extends FastCalculatorAction<B, R> {
   final bool Function(FastCalculatorBlocState state)? canEnableInteractions;
 
-  static const iconSize = kFastIconSizeSmall;
+  final String? labelText;
 
-  const FastCalculatorExportToPdfAction({
+  const FastCalculatorAddComputationToolbarButton({
     super.key,
     required super.calculatorBloc,
     this.canEnableInteractions,
     super.disabledColor,
+    super.iconColor,
+    super.onTap,
     super.icon,
+    this.labelText,
   });
 
   @override
@@ -34,12 +38,14 @@ class FastCalculatorExportToPdfAction<B extends FastCalculatorBloc,
   }
 
   Widget _buildButton(BuildContext context, FastCalculatorBlocState state) {
-    return FastIconButton(
+    return FastToolBarButton(
       isEnabled: shouldEnableInteractions(state),
       onTap: () => handleTap(context),
       disabledColor: disabledColor,
       icon: buildIcon(context),
       shouldTrottleTime: true,
+      labelText: labelText,
+      iconColor: iconColor,
     );
   }
 
@@ -51,7 +57,7 @@ class FastCalculatorExportToPdfAction<B extends FastCalculatorBloc,
   }
 
   void handleTap(BuildContext context) {
-    calculatorBloc.addEvent(FastCalculatorBlocEvent.exportToPdf(context));
+    onTap?.call();
   }
 
   Widget buildIcon(BuildContext context) {
@@ -60,10 +66,10 @@ class FastCalculatorExportToPdfAction<B extends FastCalculatorBloc,
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return const FaIcon(FastFontAwesomeIcons.lightFilePdf, size: iconSize);
+      return const FaIcon(FastFontAwesomeIcons.lightPlus);
     }
 
-    return const FaIcon(FontAwesomeIcons.filePdf, size: iconSize);
+    return const FaIcon(FontAwesomeIcons.plus);
   }
 
   /// Whether the action should be enabled or not.
@@ -71,6 +77,6 @@ class FastCalculatorExportToPdfAction<B extends FastCalculatorBloc,
   bool shouldEnableInteractions(FastCalculatorBlocState state) {
     if (canEnableInteractions != null) return canEnableInteractions!(state);
 
-    return state.isInitialized && state.isValid && !state.isBusy;
+    return state.isInitialized;
   }
 }
