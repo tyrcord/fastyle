@@ -41,7 +41,7 @@ class FastCalculatorAddComputationToolbarButton<B extends FastCalculatorBloc,
     return FastToolBarButton(
       isEnabled: shouldEnableInteractions(state),
       onTap: () => handleTap(context),
-      disabledColor: disabledColor,
+      disabledIconColor: disabledColor,
       icon: buildIcon(context),
       shouldTrottleTime: true,
       labelText: labelText,

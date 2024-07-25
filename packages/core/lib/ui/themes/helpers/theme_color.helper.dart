@@ -112,4 +112,30 @@ class ThemeColorHelper {
 
     return isBrightnessLight ? palette.gray.ultraLight : palette.gray.darkest;
   }
+
+  Color getHighlightColor(BuildContext context) {
+    final themeBloc = FastThemeBloc.instance;
+    final brightness = themeBloc.currentState.brightness;
+    final palette = ThemeHelper.getPaletteColors(context);
+    final isBrightnessLight = brightness == Brightness.light;
+
+    return isBrightnessLight
+        ? palette.gray.lightest.withOpacity(0.5)
+        : palette.gray.ultraDark.withOpacity(0.5);
+  }
+
+  Color getHoverColor(BuildContext context) {
+    final themeBloc = FastThemeBloc.instance;
+    final brightness = themeBloc.currentState.brightness;
+    final palette = ThemeHelper.getPaletteColors(context);
+    final isBrightnessLight = brightness == Brightness.light;
+
+    return isBrightnessLight
+        ? palette.gray.ultraLight.withOpacity(0.5)
+        : palette.gray.darkest.withOpacity(0.5);
+  }
+
+  Color getFocusColor(BuildContext context) {
+    return getPrimaryColor(context).withOpacity(0.75);
+  }
 }

@@ -23,11 +23,17 @@ abstract class FastCalculatorAction<B extends FastCalculatorBloc,
   /// The color to use for the icon.
   final Color? iconColor;
 
+  final String? tooltip;
+
+  final String? semanticLabel;
+
   const FastCalculatorAction({
     super.key,
     required this.calculatorBloc,
     this.disabledColor,
+    this.semanticLabel,
     this.iconColor,
+    this.tooltip,
     this.onTap,
     this.icon,
   });

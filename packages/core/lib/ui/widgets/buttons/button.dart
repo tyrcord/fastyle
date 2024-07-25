@@ -15,8 +15,9 @@ abstract class FastButton extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final bool shouldTrottleTime;
   final Color? highlightColor;
+  final Color? hoverColor;
   final Color? disabledColor;
-  final Color? overlayColor;
+  final Color? focusColor;
   final VoidCallback? onTap;
   final Color? textColor;
   final bool isEnabled;
@@ -32,8 +33,9 @@ abstract class FastButton extends StatefulWidget {
     this.upperCase = false,
     this.isEnabled = true,
     this.highlightColor,
+    this.hoverColor,
+    this.focusColor,
     this.disabledColor,
-    this.overlayColor,
     this.textColor,
     this.padding,
     this.child,

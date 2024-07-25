@@ -1,3 +1,4 @@
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
 
 class FastToolbarDivider extends StatelessWidget {
@@ -17,7 +18,7 @@ class FastToolbarDivider extends StatelessWidget {
     return Padding(
       padding: padding,
       child: Container(
-        color: Theme.of(context).disabledColor,
+        color: ThemeHelper.colors.getDisabledColor(context),
         height: height,
         width: width,
       ),
