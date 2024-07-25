@@ -6,8 +6,6 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
-//TODO: @need-review: code from fastyle_dart
-
 class FastCloseButton extends FastButton {
   final Alignment iconAlignment;
   final Color? iconColor;
@@ -37,22 +35,12 @@ class FastCloseButton extends FastButton {
   FastCloseButtonState createState() => FastCloseButtonState();
 }
 
-class FastCloseButtonState extends State<FastCloseButton>
-    with FastThrottleButtonMixin {
-  @override
-  void dispose() {
-    super.dispose();
-    unsubscribeToTrottlerEventsIfNeeded();
-    trottler.close();
-  }
-
+class FastCloseButtonState extends State<FastCloseButton> {
   void handleTap(BuildContext context) {
     if (widget.onTap != null) {
       widget.onTap!();
-    } else {
-      if (context.canPop()) {
-        context.pop();
-      }
+    } else if (context.canPop()) {
+      context.pop();
     }
   }
 
@@ -77,9 +65,7 @@ class FastCloseButtonState extends State<FastCloseButton>
   }
 
   Widget buildIcon(BuildContext context) {
-    if (widget.icon != null) {
-      return widget.icon!;
-    }
+    if (widget.icon != null) return widget.icon!;
 
     final useProIcons = FastIconHelper.of(context).useProIcons;
 

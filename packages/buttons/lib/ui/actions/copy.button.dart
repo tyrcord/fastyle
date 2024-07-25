@@ -52,8 +52,7 @@ class FastCopyButton extends StatelessWidget {
     if (isEnabled && valueText.isNotEmpty) {
       await Clipboard.setData(ClipboardData(text: valueText));
 
-      if (showNotification) {
-        // ignore: use_build_context_synchronously
+      if (showNotification && context.mounted) {
         FastNotificationCenter.info(context, message ?? _getDefaultValueText());
       }
     }
@@ -67,9 +66,7 @@ class FastCopyButton extends StatelessWidget {
   }
 
   Widget buildIcon(BuildContext context) {
-    if (icon != null) {
-      return icon!;
-    }
+    if (icon != null) return icon!;
 
     final useProIcons = FastIconHelper.of(context).useProIcons;
 

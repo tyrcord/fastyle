@@ -36,12 +36,16 @@ class FastPendingRaisedButtonState extends State<FastPendingRaisedButton>
   void didUpdateWidget(FastPendingRaisedButton oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    if (widget.isPending != oldWidget.isPending) {
-      if (widget.isPending) {
-        final width = _getButtonWidth(context);
-        _constraints = BoxConstraints(maxWidth: width, minWidth: width);
-      }
+    if (widget.isPending != oldWidget.isPending && widget.isPending) {
+      _updateConstraints(context);
     }
+  }
+
+  void _updateConstraints(BuildContext context) {
+    setState(() {
+      final width = _getButtonWidth(context);
+      _constraints = BoxConstraints(maxWidth: width, minWidth: width);
+    });
   }
 
   @override
@@ -50,8 +54,8 @@ class FastPendingRaisedButtonState extends State<FastPendingRaisedButton>
       padding: widget.isPending ? EdgeInsets.zero : widget.padding,
       isEnabled: !widget.isPending && widget.isEnabled,
       trottleTimeDuration: widget.trottleTimeDuration,
-      shouldTrottleTime: widget.shouldTrottleTime,
       text: !widget.isPending ? widget.text : null,
+      shouldTrottleTime: widget.shouldTrottleTime,
       highlightColor: widget.highlightColor,
       textColor: widget.textColor,
       onTap: widget.onTap,
@@ -75,10 +79,6 @@ class FastPendingRaisedButtonState extends State<FastPendingRaisedButton>
   double _getButtonWidth(BuildContext context) {
     final renderBox = context.findRenderObject() as RenderBox?;
 
-    if (renderBox != null) {
-      return renderBox.size.width;
-    }
-
-    return 0.0;
+    return renderBox?.size.width ?? 0.0;
   }
 }

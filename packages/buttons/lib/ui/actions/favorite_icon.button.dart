@@ -35,8 +35,18 @@ class FastFavoriteIconButton extends StatelessWidget {
   Widget _getHollowHeartIcon(BuildContext context) {
     final palette = ThemeHelper.getPaletteColors(context);
 
+    final useProIcons = FastIconHelper.of(context).useProIcons;
+
+    if (useProIcons) {
+      return FaIcon(
+        FastFontAwesomeIcons.lightHeart,
+        color: palette.gray.light,
+        size: kFastFontSize16,
+      );
+    }
+
     return FaIcon(
-      FastFontAwesomeIcons.lightHeart,
+      FastFontAwesomeIcons.heart,
       color: palette.gray.light,
       size: kFastFontSize16,
     );
@@ -53,6 +63,7 @@ class FastFavoriteIconButton extends StatelessWidget {
     );
   }
 
+  /// Returns a widget that acts as a hit zone for the heart icon.
   Widget _getHeartIconHitZone() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 4.0),

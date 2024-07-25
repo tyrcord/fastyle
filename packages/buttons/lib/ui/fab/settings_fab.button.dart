@@ -24,17 +24,15 @@ class FastSettingsFab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      tooltip: tooltip,
       onPressed: onTap,
+      tooltip: tooltip,
       mini: mini,
       child: buildIcon(context),
     );
   }
 
   Widget buildIcon(BuildContext context) {
-    if (icon != null) {
-      return icon!;
-    }
+    if (icon != null) return icon!;
 
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
