@@ -37,6 +37,8 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
   /// calculations.
   final WidgetBuilder fieldsBuilder;
 
+  final List<Widget> Function(BuildContext context)? actionsBuilder;
+
   /// A builder method used to build the UI for displaying the breakdown of
   /// the calculations.
   final WidgetBuilder? breakdownBuilder;
@@ -75,9 +77,6 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
   /// A widget that represents the back button.
   final Widget? backButton;
 
-  /// A widget that represents the exportToPdf icon.
-  final Widget? exportToPdfIcon;
-
   /// A widget that represents the clear icon.
   final Widget? clearIcon;
 
@@ -99,9 +98,6 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
 
   final VoidCallback? onClear;
 
-  final bool Function(FastCalculatorBlocState state)?
-      canEnableExportToPdfInteractions;
-
   final ValueNotifier<bool>? breadownViewNotifier;
 
   const FastCalculatorPageLayout({
@@ -109,7 +105,6 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
     required this.calculatorBloc,
     required this.resultsBuilder,
     required this.fieldsBuilder,
-    this.canEnableExportToPdfInteractions,
     this.requestFullApp = false,
     this.showRefreshIcon = true,
     this.showClearIcon = true,
@@ -121,10 +116,10 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
     this.dividerBuilder,
     this.footerBuilder,
     this.headerBuilder,
+    this.actionsBuilder,
     this.pageTitleText,
     this.refreshIcon,
     this.backButton,
-    this.exportToPdfIcon,
     this.clearIcon,
     this.infoIcon,
     this.leading,
@@ -142,7 +137,7 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
       builder: (BuildContext context, FastMediaType mediaType) {
         return FastSectionPage(
           isTitlePositionBelowAppBar: !requestFullApp,
-          actions: _buildPageActions(),
+          actions: actionsBuilder?.call(context),
           titleText: pageTitleText,
           backButton: backButton,
           isViewScrollable: true,
@@ -243,18 +238,6 @@ class FastCalculatorPageLayout<B extends FastCalculatorBloc,
     }
 
     return const SizedBox.shrink();
-  }
-
-  /// Builds a list of action widgets based on the [exportToPdfIcon] parameter.
-  List<Widget> _buildPageActions() {
-    return [
-      if (isExportReportPdfEnabled())
-        FastCalculatorExportToPdfAction<B, R>(
-          canEnableInteractions: canEnableExportToPdfInteractions,
-          calculatorBloc: calculatorBloc,
-          icon: exportToPdfIcon,
-        ),
-    ];
   }
 
   /// Builds the input fields widget based on the [fieldsTitleText],
