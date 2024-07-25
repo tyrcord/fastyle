@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:fastyle_buttons_example/actions.dart';
-import 'package:fastyle_buttons_example/pending.dart';
+import 'package:fastyle_buttons_example/sections/actions.dart';
+import 'package:fastyle_buttons_example/sections/pending.dart';
+import 'package:fastyle_buttons_example/sections/navigation.dart';
+import 'package:fastyle_buttons_example/sections/toolbar.dart';
 
 final kAppInfo = kFastAppInfo.copyWith(
   appName: 'Fastyle Buttons',
@@ -46,6 +48,10 @@ class HomePage extends StatelessWidget {
           PendingButtonsSection(),
           kFastVerticalSizedBox16,
           ActionButtonsSection(),
+          kFastVerticalSizedBox16,
+          ToolbarButtonsSection(),
+          kFastVerticalSizedBox16,
+          NavigationButtonsSection()
         ],
       ),
     );

@@ -16,7 +16,13 @@ class _PendingButtonsSectionState extends State<PendingButtonsSection> {
   bool _isPending = false;
 
   void _togglePending() {
-    setState(() => _isPending = !_isPending);
+    setState(() => _isPending = true);
+
+    Future.delayed(const Duration(seconds: 2), () {
+      if (mounted) {
+        setState(() => _isPending = false);
+      }
+    });
   }
 
   @override

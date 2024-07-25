@@ -25,9 +25,13 @@ class FastCopyButton extends StatelessWidget {
   /// Custom icon for the button (optional).
   final Widget? icon;
 
+  /// The icon alignment.
+  final Alignment iconAlignment;
+
   const FastCopyButton({
     super.key,
     String? valueText,
+    this.iconAlignment = Alignment.center,
     this.showNotification = true,
     this.isEnabled = true,
     this.message,
@@ -38,8 +42,8 @@ class FastCopyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FastIconButton(
       iconColor: ThemeHelper.texts.getSecondaryBodyTextStyle(context).color,
-      iconAlignment: Alignment.centerRight,
       onTap: () => handleTap(context),
+      iconAlignment: iconAlignment,
       icon: buildIcon(context),
       padding: EdgeInsets.zero,
       shouldTrottleTime: true,
