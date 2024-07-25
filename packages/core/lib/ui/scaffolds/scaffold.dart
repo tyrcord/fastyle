@@ -112,37 +112,87 @@ class FastScaffold extends StatelessWidget {
   Widget _buildAppBar(BuildContext context) {
     final themeBloc = FastThemeBloc.instance;
     final brightness = themeBloc.currentState.brightness;
-    final palette = ThemeHelper.getPaletteColors(context);
     final isBrightnessLight = brightness == Brightness.light;
-    final overlayStyle = !isBrightnessLight
-        ? SystemUiOverlayStyle.light
-        : ThemeHelper.colors.getOverlayStyleForColor(
-            context: context,
-            color: appBarBackgroundColor ??
-                ThemeHelper.colors.getSecondaryBackgroundColor(context),
-          );
 
     return AppBar(
-      surfaceTintColor: appBarBackgroundColor == null
-          ? ThemeHelper.colors.getSurfaceTintColor(context)
-          : Colors.transparent,
       scrolledUnderElevation: appBarBackgroundColor == null ? null : 0,
-      systemOverlayStyle: overlayStyle,
-      automaticallyImplyLeading: false,
-      leading: leading ?? _buildLeadingIcon(context),
-      iconTheme: IconThemeData(
-        color: isBrightnessLight
-            ? ThemeHelper.texts.getBodyTextStyle(context).color
-            : palette.whiteColor,
-      ),
+      systemOverlayStyle: _getOverlayStyle(context, isBrightnessLight),
       backgroundColor: appBarBackgroundColor ?? Colors.transparent,
+      iconTheme: _getIconTheme(context, isBrightnessLight),
+      surfaceTintColor: _getSurfaceTintColor(context),
+      automaticallyImplyLeading: false,
+      leading: _buildLeading(context),
+      actions: _buildActions(context),
       elevation: _kElevation,
-      actions: actions,
-      title: !isTitlePositionBelowAppBar && titleText != null
-          ? FastTitle(text: titleText!, textColor: titleColor, fontSize: 28.0)
-          : null,
+      title: _buildTitle(),
       centerTitle: false,
     );
+  }
+
+  Color _getSurfaceTintColor(BuildContext context) {
+    return appBarBackgroundColor == null
+        ? ThemeHelper.colors.getSurfaceTintColor(context)
+        : Colors.transparent;
+  }
+
+  SystemUiOverlayStyle _getOverlayStyle(
+    BuildContext context,
+    bool isBrightnessLight,
+  ) {
+    final backgroundColor = appBarBackgroundColor ??
+        ThemeHelper.colors.getSecondaryBackgroundColor(context);
+
+    return isBrightnessLight
+        ? ThemeHelper.colors.getOverlayStyleForColor(
+            color: backgroundColor,
+            context: context,
+          )
+        : SystemUiOverlayStyle.light;
+  }
+
+  IconThemeData _getIconTheme(BuildContext context, bool isBrightnessLight) {
+    final palette = ThemeHelper.getPaletteColors(context);
+
+    return IconThemeData(
+      color: isBrightnessLight
+          ? ThemeHelper.texts.getBodyTextStyle(context).color
+          : palette.whiteColor,
+    );
+  }
+
+  Widget? _buildLeading(BuildContext context) {
+    if (leading != null) {
+      return Padding(
+        padding: EdgeInsets.only(
+          left: ThemeHelper.spacing.getSpacing(context),
+        ),
+        child: leading,
+      );
+    }
+
+    return _buildLeadingIcon(context);
+  }
+
+  List<Widget> _buildActions(BuildContext context) {
+    if (actions != null) {
+      final spacing = ThemeHelper.spacing.getHorizontalSpacing(context);
+
+      return [...actions!, spacing];
+    }
+
+    return [];
+  }
+
+  Widget? _buildTitle() {
+    if (!isTitlePositionBelowAppBar && titleText != null) {
+      return FastTitle(
+        textColor: titleColor,
+        text: titleText!,
+        fontSize: 28.0,
+      );
+    }
+
+    return null;
   }
 
   Widget? _buildLeadingIcon(BuildContext context) {
