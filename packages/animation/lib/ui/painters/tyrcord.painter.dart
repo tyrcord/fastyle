@@ -2,18 +2,16 @@
 import 'package:flutter/material.dart';
 
 class FastTyrcordLogoPainter extends CustomPainter {
-  final AnimationController animationController;
+  final double progress;
   final Color color;
 
   FastTyrcordLogoPainter({
-    required this.animationController,
+    required this.progress,
     this.color = const Color(0xFF434343),
-  }) : super(repaint: animationController);
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
-    final double progress = animationController.value;
-
     final paint = Paint()..color = color;
 
     final double rectWidth = size.width * 0.125; // 12.5% of canvas width
