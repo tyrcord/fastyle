@@ -21,3 +21,6 @@ export './links/links.dart';
 export './blocks/blocks.dart';
 export './shells/shells.dart';
 export './observers/observers.dart';
+export './modals/modals.dart';
+export './dividers/toolbar.divider.dart';
+export './inkwell.dart';
