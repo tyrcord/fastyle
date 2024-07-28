@@ -1,6 +1,10 @@
 export 'actions/copy.button.dart';
 export 'actions/favorite_icon.button.dart';
 
+// Base buttons
+export 'base/button.dart';
+export 'base/icon_button.dart';
+
 export 'fab/settings_fab.button.dart';
 
 export 'navigation/close.button.dart';

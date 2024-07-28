@@ -1,10 +1,10 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 // Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 
@@ -28,26 +28,72 @@ class FastCopyButton extends StatelessWidget {
   /// The icon alignment.
   final Alignment iconAlignment;
 
+  /// The duration for throttling button taps.
+  final Duration trottleTimeDuration;
+
+  /// Whether to throttle button taps.
+  final bool shouldTrottleTime;
+
+  /// The color when the button is highlighted.
+  final Color? highlightColor;
+
+  /// The color when the button is disabled.
+  final Color? disabledColor;
+
+  /// The color when the button is focused.
+  final Color? focusColor;
+
+  /// The color when the button is hovered.
+  final Color? hoverColor;
+
+  /// The size of the icon.
+  final double? iconSize;
+
+  /// The color of the icon.
+  final Color? iconColor;
+
+  /// The constraints for the button.
+  final BoxConstraints? constraints;
+
+  /// The callback when the button is tapped.
+  final VoidCallback? onTap;
+
   const FastCopyButton({
     super.key,
     String? valueText,
+    this.trottleTimeDuration = kFastTrottleTimeDuration,
     this.iconAlignment = Alignment.center,
+    this.shouldTrottleTime = true,
     this.showNotification = true,
     this.isEnabled = true,
+    this.highlightColor,
+    this.disabledColor,
+    this.constraints,
+    this.focusColor,
+    this.hoverColor,
+    this.iconColor,
+    this.iconSize,
     this.message,
+    this.onTap,
     this.icon,
   }) : valueText = valueText ?? kFastEmptyString;
 
   @override
   Widget build(BuildContext context) {
-    return FastIconButton(
-      iconColor: ThemeHelper.texts.getSecondaryBodyTextStyle(context).color,
+    return FastIconButton2(
+      trottleTimeDuration: trottleTimeDuration,
+      shouldTrottleTime: shouldTrottleTime,
       onTap: () => handleTap(context),
+      highlightColor: highlightColor,
+      disabledColor: disabledColor,
       iconAlignment: iconAlignment,
       icon: buildIcon(context),
-      padding: EdgeInsets.zero,
-      shouldTrottleTime: true,
+      constraints: constraints,
+      focusColor: focusColor,
+      hoverColor: hoverColor,
+      iconColor: iconColor,
       isEnabled: isEnabled,
+      iconSize: iconSize,
     );
   }
 
@@ -59,6 +105,8 @@ class FastCopyButton extends StatelessWidget {
       if (showNotification && context.mounted) {
         FastNotificationCenter.info(context, message ?? _getDefaultValueText());
       }
+
+      onTap?.call();
     }
   }
 

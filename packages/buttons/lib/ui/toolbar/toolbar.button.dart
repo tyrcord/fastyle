@@ -83,12 +83,9 @@ class FastToolBarButton extends StatelessWidget {
         }
 
         if (tooltip != null) {
-          // TODO: Replace with FastTooltip when available.
-          button = Tooltip(
-            waitDuration: const Duration(seconds: 1),
-            margin: const EdgeInsets.only(top: 8),
+          button = FastTooltip(
             preferBelow: true,
-            message: tooltip,
+            message: tooltip!,
             child: button,
           );
         }
