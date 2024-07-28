@@ -3,23 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 
 class FastInkWell extends StatelessWidget {
-  final Widget child;
-  final VoidCallback? onTap;
+  final BorderRadius borderRadius;
   final Color? highlightColor;
+  final VoidCallback? onTap;
   final Color? hoverColor;
   final Color? focusColor;
   final bool isEnabled;
-  final BorderRadius borderRadius;
+  final Widget child;
 
   const FastInkWell({
     super.key,
     required this.child,
-    this.onTap,
+    this.borderRadius = const BorderRadius.all(Radius.circular(8)),
+    this.isEnabled = true,
     this.highlightColor,
     this.hoverColor,
     this.focusColor,
-    this.isEnabled = true,
-    this.borderRadius = const BorderRadius.all(Radius.circular(8)),
+    this.onTap,
   });
 
   @override
@@ -34,15 +34,21 @@ class FastInkWell extends StatelessWidget {
     );
   }
 
-  Color _getFocusColor(BuildContext context) {
-    return focusColor ?? ThemeHelper.colors.getFocusColor(context);
+  Color? _getFocusColor(BuildContext context) {
+    return isEnabled
+        ? focusColor ?? ThemeHelper.colors.getFocusColor(context)
+        : null;
   }
 
-  Color _getHoverColor(BuildContext context) {
-    return hoverColor ?? ThemeHelper.colors.getHoverColor(context);
+  Color? _getHoverColor(BuildContext context) {
+    return isEnabled
+        ? hoverColor ?? ThemeHelper.colors.getHoverColor(context)
+        : null;
   }
 
-  Color _getHighlightColor(BuildContext context) {
-    return highlightColor ?? ThemeHelper.colors.getHighlightColor(context);
+  Color? _getHighlightColor(BuildContext context) {
+    return isEnabled
+        ? highlightColor ?? ThemeHelper.colors.getHighlightColor(context)
+        : null;
   }
 }

@@ -24,3 +24,4 @@ export './observers/observers.dart';
 export './modals/modals.dart';
 export './dividers/toolbar.divider.dart';
 export './inkwell.dart';
+export './tooltip.dart';

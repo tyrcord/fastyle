@@ -1,14 +1,21 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 class FastIconButton2 extends FastButton2 {
-  final BoxConstraints? constraints;
+  /// The icon alignment.
   final Alignment? iconAlignment;
-  final Color? iconColor;
+
+  /// The size of the icon.
   final double? iconSize;
+
+  /// The color of the icon.
+  final Color? iconColor;
+
+  /// Custom icon for the button (optional).
   final Widget icon;
 
   const FastIconButton2({
@@ -20,13 +27,15 @@ class FastIconButton2 extends FastButton2 {
     super.isEnabled = true,
     super.highlightColor,
     super.disabledColor,
+    super.semanticLabel,
     this.iconAlignment,
-    this.constraints,
+    super.constraints,
     super.focusColor,
     super.hoverColor,
     this.iconColor,
     this.iconSize,
     super.padding,
+    super.tooltip,
     super.onTap,
   });
 
@@ -38,7 +47,7 @@ class _FastIconButton2State extends State<FastIconButton2>
     with FastButtonMixin2, FastThrottleButtonMixin2<FastIconButton2> {
   @override
   Widget build(BuildContext context) {
-    return FastInkWell(
+    Widget button = FastInkWell(
       highlightColor: widget.highlightColor,
       focusColor: widget.focusColor,
       hoverColor: widget.hoverColor,
@@ -51,6 +60,24 @@ class _FastIconButton2State extends State<FastIconButton2>
         child: buildIcon(context),
       ),
     );
+
+    // Wrap with Semantics
+    button = Semantics(
+      label: widget.semanticLabel,
+      enabled: widget.isEnabled,
+      button: true,
+      child: button,
+    );
+
+    // Wrap with Tooltip if a tooltip is provided
+    if (widget.tooltip != null) {
+      button = Tooltip(
+        message: widget.tooltip!,
+        child: button,
+      );
+    }
+
+    return button;
   }
 
   Widget buildIcon(BuildContext context) {

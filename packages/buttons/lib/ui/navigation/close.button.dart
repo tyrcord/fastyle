@@ -4,68 +4,33 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:go_router/go_router.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
-class FastCloseButton extends FastButton {
-  final Alignment iconAlignment;
-  final Color? iconColor;
-  final double iconSize;
-  final String? tooltip;
-  final Widget? icon;
-
+class FastCloseButton extends FastPopButton {
   const FastCloseButton({
-    super.trottleTimeDuration,
-    super.shouldTrottleTime,
+    super.key,
+    super.trottleTimeDuration = kFastTrottleTimeDuration,
+    super.emphasis = FastButtonEmphasis.low,
+    super.shouldTrottleTime = true,
+    super.isEnabled = true,
     super.highlightColor,
+    super.iconAlignment,
     super.disabledColor,
-    super.isEnabled,
-    super.textColor,
-    super.emphasis,
+    super.semanticLabel,
+    super.constraints,
+    super.focusColor,
+    super.hoverColor,
+    super.iconColor,
+    super.iconSize,
+    super.tooltip,
     super.padding,
     super.onTap,
-    super.key,
-    this.iconAlignment = Alignment.center,
-    this.iconSize = kFastIconSizeMedium,
-    this.iconColor,
-    this.tooltip,
-    this.icon,
+    super.icon,
   });
 
   @override
-  FastCloseButtonState createState() => FastCloseButtonState();
-}
-
-class FastCloseButtonState extends State<FastCloseButton> {
-  void handleTap(BuildContext context) {
-    if (widget.onTap != null) {
-      widget.onTap!();
-    } else if (context.canPop()) {
-      context.pop();
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return FastIconButton(
-      trottleTimeDuration: widget.trottleTimeDuration,
-      shouldTrottleTime: widget.shouldTrottleTime,
-      highlightColor: widget.highlightColor,
-      iconAlignment: widget.iconAlignment,
-      disabledColor: widget.disabledColor,
-      onTap: () => handleTap(context),
-      textColor: widget.textColor,
-      iconColor: widget.iconColor,
-      isEnabled: widget.isEnabled,
-      emphasis: widget.emphasis,
-      iconSize: widget.iconSize,
-      icon: buildIcon(context),
-      padding: widget.padding,
-      tooltip: widget.tooltip,
-    );
-  }
-
   Widget buildIcon(BuildContext context) {
-    if (widget.icon != null) return widget.icon!;
+    if (icon != null) return icon!;
 
     final useProIcons = FastIconHelper.of(context).useProIcons;
 

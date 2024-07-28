@@ -31,8 +31,14 @@ class _ActionButtonsSectionState extends State<ActionButtonsSection> {
             const FastCopyButton(valueText: '42'),
             kFastHorizontalSizedBox12,
             FastFavoriteIconButton(
-              onIconTapped: _toggleFavorite,
               isFavorite: _isFavorite,
+              onTap: _toggleFavorite,
+            ),
+            kFastHorizontalSizedBox12,
+            FastFavoriteIconButton(
+              onTap: _toggleFavorite,
+              isFavorite: false,
+              isEnabled: false,
             ),
           ],
         ),

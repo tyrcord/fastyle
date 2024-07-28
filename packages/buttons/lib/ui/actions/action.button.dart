@@ -2,14 +2,18 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_buttons/fastyle_buttons.dart';
 
-// Project imports:
-import 'package:fastyle_core/fastyle_core.dart';
-
-abstract class FastButton2 extends StatefulWidget {
+abstract class FastActionButton extends StatelessWidget {
   /// Whether the button is enabled.
   final bool isEnabled;
+
+  /// Custom icon for the button (optional).
+  final Widget? icon;
+
+  /// The icon alignment.
+  final Alignment iconAlignment;
 
   /// The duration for throttling button taps.
   final Duration trottleTimeDuration;
@@ -29,6 +33,12 @@ abstract class FastButton2 extends StatefulWidget {
   /// The color when the button is hovered.
   final Color? hoverColor;
 
+  /// The size of the icon.
+  final double? iconSize;
+
+  /// The color of the icon.
+  final Color? iconColor;
+
   /// The constraints for the button.
   final BoxConstraints? constraints;
 
@@ -47,20 +57,49 @@ abstract class FastButton2 extends StatefulWidget {
   /// The semantic label of the button.
   final String? semanticLabel;
 
-  const FastButton2({
+  const FastActionButton({
     super.key,
     this.trottleTimeDuration = kFastTrottleTimeDuration,
     this.emphasis = FastButtonEmphasis.low,
-    this.shouldTrottleTime = false,
+    this.iconAlignment = Alignment.center,
+    this.shouldTrottleTime = true,
     this.isEnabled = true,
     this.highlightColor,
-    this.semanticLabel,
     this.disabledColor,
+    this.semanticLabel,
     this.constraints,
-    this.hoverColor,
     this.focusColor,
+    this.hoverColor,
+    this.iconColor,
+    this.iconSize,
     this.tooltip,
     this.padding,
     this.onTap,
+    this.icon,
   });
+
+  @override
+  Widget build(BuildContext context) {
+    return FastIconButton2(
+      trottleTimeDuration: trottleTimeDuration,
+      shouldTrottleTime: shouldTrottleTime,
+      onTap: () => handleTap(context),
+      highlightColor: highlightColor,
+      disabledColor: disabledColor,
+      iconAlignment: iconAlignment,
+      icon: buildIcon(context),
+      constraints: constraints,
+      focusColor: focusColor,
+      hoverColor: hoverColor,
+      iconColor: iconColor,
+      isEnabled: isEnabled,
+      emphasis: emphasis,
+      iconSize: iconSize,
+      padding: padding,
+    );
+  }
+
+  Future<void> handleTap(BuildContext context);
+
+  Widget buildIcon(BuildContext context);
 }
