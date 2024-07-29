@@ -47,6 +47,9 @@ abstract class FastButton2 extends StatefulWidget {
   /// The semantic label of the button.
   final String? semanticLabel;
 
+  /// The debug label of the button to identify it in debug mode.
+  final String? debugLabel;
+
   const FastButton2({
     super.key,
     this.trottleTimeDuration = kFastTrottleTimeDuration,
@@ -59,6 +62,7 @@ abstract class FastButton2 extends StatefulWidget {
     this.constraints,
     this.hoverColor,
     this.focusColor,
+    this.debugLabel,
     this.tooltip,
     this.padding,
     this.onTap,

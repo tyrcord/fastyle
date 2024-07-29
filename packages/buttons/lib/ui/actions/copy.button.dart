@@ -35,11 +35,12 @@ class FastCopyButton extends FastActionButton {
     super.constraints,
     super.focusColor,
     super.hoverColor,
+    super.debugLabel,
     super.iconColor,
     super.iconSize,
     super.tooltip,
-    this.message,
     super.padding,
+    this.message,
     super.onTap,
     super.icon,
   }) : valueText = valueText ?? kFastEmptyString;

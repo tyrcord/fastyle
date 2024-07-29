@@ -32,6 +32,7 @@ class FastIconButton2 extends FastButton2 {
     super.constraints,
     super.focusColor,
     super.hoverColor,
+    super.debugLabel,
     this.iconColor,
     this.iconSize,
     super.padding,
@@ -81,15 +82,13 @@ class _FastIconButton2State extends State<FastIconButton2>
   }
 
   Widget buildIcon(BuildContext context) {
-    if (widget.icon is FaIcon || widget.icon is Icon) {
-      return Icon(
-        getIconData(context, widget.icon),
+    return IconTheme(
+      data: IconThemeData(
         color: getIconColor(context),
         size: getIconSize(context),
-      );
-    }
-
-    return widget.icon;
+      ),
+      child: widget.icon,
+    );
   }
 
   IconData? getIconData(BuildContext context, Widget icon) {

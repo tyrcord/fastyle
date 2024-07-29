@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:fastyle_buttons_example/sections/animated.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -51,7 +52,9 @@ class HomePage extends StatelessWidget {
           kFastVerticalSizedBox16,
           ToolbarButtonsSection(),
           kFastVerticalSizedBox16,
-          NavigationButtonsSection()
+          NavigationButtonsSection(),
+          kFastVerticalSizedBox16,
+          AnimatedButtonsSection(),
         ],
       ),
     );

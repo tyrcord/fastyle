@@ -58,6 +58,9 @@ abstract class FastPopButton extends StatelessWidget {
   /// The semantic label of the button.
   final String? semanticLabel;
 
+  /// The debug label of the button to identify it in debug mode.
+  final String? debugLabel;
+
   const FastPopButton({
     super.key,
     this.trottleTimeDuration = kFastTrottleTimeDuration,
@@ -71,6 +74,7 @@ abstract class FastPopButton extends StatelessWidget {
     this.constraints,
     this.focusColor,
     this.hoverColor,
+    this.debugLabel,
     this.iconColor,
     this.iconSize,
     this.tooltip,
@@ -102,6 +106,7 @@ abstract class FastPopButton extends StatelessWidget {
       semanticLabel: semanticLabel,
       icon: buildIcon(context),
       constraints: constraints,
+      debugLabel: debugLabel,
       focusColor: focusColor,
       hoverColor: hoverColor,
       iconColor: iconColor,

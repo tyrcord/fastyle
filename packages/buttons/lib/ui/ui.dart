@@ -2,6 +2,9 @@ export 'actions/action.button.dart';
 export 'actions/copy.button.dart';
 export 'actions/favorite_icon.button.dart';
 
+// Animated buttons
+export 'animated/animated_rotation_icon.button.dart';
+
 // Base buttons
 export 'base/button.dart';
 export 'base/icon_button.dart';

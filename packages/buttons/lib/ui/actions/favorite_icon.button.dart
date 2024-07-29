@@ -24,6 +24,7 @@ class FastFavoriteIconButton extends FastActionButton {
     super.constraints,
     super.focusColor,
     super.hoverColor,
+    super.debugLabel,
     super.iconColor,
     super.iconSize,
     super.tooltip,

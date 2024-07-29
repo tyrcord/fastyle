@@ -20,6 +20,7 @@ class FastCloseButton extends FastPopButton {
     super.constraints,
     super.focusColor,
     super.hoverColor,
+    super.debugLabel,
     super.iconColor,
     super.iconSize,
     super.tooltip,

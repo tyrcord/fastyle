@@ -57,6 +57,9 @@ abstract class FastActionButton extends StatelessWidget {
   /// The semantic label of the button.
   final String? semanticLabel;
 
+  /// The debug label of the button to identify it in debug mode.
+  final String? debugLabel;
+
   const FastActionButton({
     super.key,
     this.trottleTimeDuration = kFastTrottleTimeDuration,
@@ -71,6 +74,7 @@ abstract class FastActionButton extends StatelessWidget {
     this.focusColor,
     this.hoverColor,
     this.iconColor,
+    this.debugLabel,
     this.iconSize,
     this.tooltip,
     this.padding,
@@ -89,6 +93,7 @@ abstract class FastActionButton extends StatelessWidget {
       iconAlignment: iconAlignment,
       icon: buildIcon(context),
       constraints: constraints,
+      debugLabel: debugLabel,
       focusColor: focusColor,
       hoverColor: hoverColor,
       iconColor: iconColor,
