@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
-const kDefaultIconButtonConstraints = BoxConstraints(
+const kFastIconButtonConstraints = BoxConstraints(
   minWidth: 40,
   minHeight: 40,
 );
+
+const kFastButtonTrottleTimeDuration = Duration(milliseconds: 300);
+const kFastButtonHighlightAlpha = 26;
+const kFastButtonHoverAlpha = 25;

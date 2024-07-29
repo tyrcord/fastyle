@@ -23,7 +23,7 @@ class FastCopyButton extends FastActionButton {
   const FastCopyButton({
     super.key,
     String? valueText,
-    super.trottleTimeDuration = kFastTrottleTimeDuration,
+    super.trottleTimeDuration = kFastButtonTrottleTimeDuration,
     super.emphasis = FastButtonEmphasis.low,
     super.iconAlignment = Alignment.center,
     super.shouldTrottleTime = true,

@@ -40,8 +40,18 @@ class ToolbarButtonsSection extends StatelessWidget {
             FastToolBarButton(
               icon: const FaIcon(FontAwesomeIcons.trash),
               labelText: 'Delete',
+              isEnabled: false,
               onTap: () {
                 FastNotificationCenter.info(context, 'Delete button tapped');
+              },
+            ),
+            kFastHorizontalSizedBox12,
+            FastToolBarButton(
+              iconColor: ThemeHelper.colors.getPrimaryColor(context),
+              icon: const FaIcon(FontAwesomeIcons.print),
+              labelText: 'Print',
+              onTap: () {
+                FastNotificationCenter.info(context, 'Print button tapped');
               },
             ),
           ],

@@ -21,7 +21,7 @@ class FastIconButton2 extends FastButton2 {
   const FastIconButton2({
     super.key,
     required this.icon,
-    super.trottleTimeDuration = kFastTrottleTimeDuration,
+    super.trottleTimeDuration = kFastButtonTrottleTimeDuration,
     super.emphasis = FastButtonEmphasis.low,
     super.shouldTrottleTime = false,
     super.isEnabled = true,
@@ -49,13 +49,25 @@ class _FastIconButton2State extends State<FastIconButton2>
   @override
   Widget build(BuildContext context) {
     Widget button = FastInkWell(
-      highlightColor: widget.highlightColor,
+      highlightColor: getHighlightColor(
+        context,
+        highlightColor: widget.highlightColor,
+        iconColor: widget.iconColor,
+        emphasis: widget.emphasis,
+        icon: widget.icon,
+      ),
       focusColor: widget.focusColor,
-      hoverColor: widget.hoverColor,
+      hoverColor: getHoverColor(
+        context,
+        hoverColor: widget.hoverColor,
+        iconColor: widget.iconColor,
+        emphasis: widget.emphasis,
+        icon: widget.icon,
+      ),
       isEnabled: widget.isEnabled,
       onTap: onTapCallback,
       child: Container(
-        constraints: widget.constraints ?? kDefaultIconButtonConstraints,
+        constraints: widget.constraints ?? kFastIconButtonConstraints,
         alignment: widget.iconAlignment ?? Alignment.center,
         padding: widget.padding,
         child: buildIcon(context),
@@ -84,8 +96,19 @@ class _FastIconButton2State extends State<FastIconButton2>
   Widget buildIcon(BuildContext context) {
     return IconTheme(
       data: IconThemeData(
-        color: getIconColor(context),
-        size: getIconSize(context),
+        color: getIconColor(
+          context,
+          disabledColor: widget.disabledColor,
+          iconColor: widget.iconColor,
+          isEnabled: widget.isEnabled,
+          emphasis: widget.emphasis,
+          icon: widget.icon,
+        ),
+        size: getIconSize(
+          context,
+          iconSize: widget.iconSize,
+          icon: widget.icon,
+        ),
       ),
       child: widget.icon,
     );
@@ -96,52 +119,5 @@ class _FastIconButton2State extends State<FastIconButton2>
     if (icon is Icon) return icon.icon;
 
     return null;
-  }
-
-  double getIconSize(BuildContext context) {
-    if (widget.iconSize != null) return widget.iconSize!;
-
-    if ((widget.icon is FaIcon) && (widget.icon as FaIcon).size != null) {
-      return (widget.icon as FaIcon).size!;
-    }
-
-    if ((widget.icon is Icon) && (widget.icon as Icon).size != null) {
-      return (widget.icon as Icon).size!;
-    }
-
-    return kFastIconSizeSmall;
-  }
-
-  Color? getIconColor(BuildContext context) {
-    if (!widget.isEnabled) return getDisabledColor(context);
-    if (widget.iconColor != null) return widget.iconColor;
-
-    if ((widget.icon is FaIcon) && (widget.icon as FaIcon).color != null) {
-      return (widget.icon as FaIcon).color!;
-    }
-
-    if ((widget.icon is Icon) && (widget.icon as Icon).color != null) {
-      return (widget.icon as Icon).color!;
-    }
-
-    return getEmphasisedColor(context);
-  }
-
-  Color? getDisabledColor(BuildContext context) {
-    if (widget.disabledColor != null) return widget.disabledColor!;
-
-    if (widget.iconColor != null) {
-      return widget.iconColor!.withAlpha(kDisabledAlpha);
-    }
-
-    if ((widget.icon is FaIcon) && (widget.icon as FaIcon).color != null) {
-      return (widget.icon as FaIcon).color!.withAlpha(kDisabledAlpha);
-    }
-
-    if ((widget.icon is Icon) && (widget.icon as Icon).color != null) {
-      return (widget.icon as Icon).color!.withAlpha(kDisabledAlpha);
-    }
-
-    return getEmphasisedColor(context)?.withAlpha(kDisabledAlpha);
   }
 }

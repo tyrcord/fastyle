@@ -17,7 +17,7 @@ class FastPendingOutlineButton extends FastButton {
     super.textColor,
     super.padding,
     super.text,
-    super.trottleTimeDuration = kFastTrottleTimeDuration,
+    super.trottleTimeDuration = kFastButtonTrottleTimeDuration,
     super.emphasis = FastButtonEmphasis.low,
     super.shouldTrottleTime = false,
     super.isEnabled = true,

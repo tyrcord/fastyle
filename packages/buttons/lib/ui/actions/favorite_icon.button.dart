@@ -13,7 +13,7 @@ class FastFavoriteIconButton extends FastActionButton {
   const FastFavoriteIconButton({
     super.key,
     required this.isFavorite,
-    super.trottleTimeDuration = kFastTrottleTimeDuration,
+    super.trottleTimeDuration = kFastButtonTrottleTimeDuration,
     super.emphasis = FastButtonEmphasis.low,
     super.iconAlignment = Alignment.center,
     super.shouldTrottleTime = true,

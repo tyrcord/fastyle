@@ -76,7 +76,7 @@ class FastAnimatedRotationIconButton2 extends StatefulWidget {
 
   const FastAnimatedRotationIconButton2({
     super.key,
-    this.trottleTimeDuration = kFastTrottleTimeDuration,
+    this.trottleTimeDuration = kFastButtonTrottleTimeDuration,
     this.animationDuration = defaultAnimationDuration,
     this.emphasis = FastButtonEmphasis.low,
     this.iconAlignment = Alignment.center,

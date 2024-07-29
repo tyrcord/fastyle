@@ -4,9 +4,6 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_buttons/fastyle_buttons.dart';
 
-// Project imports:
-import 'package:fastyle_core/fastyle_core.dart';
-
 abstract class FastButton2 extends StatefulWidget {
   /// Whether the button is enabled.
   final bool isEnabled;
@@ -52,7 +49,7 @@ abstract class FastButton2 extends StatefulWidget {
 
   const FastButton2({
     super.key,
-    this.trottleTimeDuration = kFastTrottleTimeDuration,
+    this.trottleTimeDuration = kFastButtonTrottleTimeDuration,
     this.emphasis = FastButtonEmphasis.low,
     this.shouldTrottleTime = false,
     this.isEnabled = true,

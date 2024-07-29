@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:go_router/go_router.dart';
 
@@ -63,7 +62,7 @@ abstract class FastPopButton extends StatelessWidget {
 
   const FastPopButton({
     super.key,
-    this.trottleTimeDuration = kFastTrottleTimeDuration,
+    this.trottleTimeDuration = kFastButtonTrottleTimeDuration,
     this.emphasis = FastButtonEmphasis.low,
     this.shouldTrottleTime = true,
     this.isEnabled = true,

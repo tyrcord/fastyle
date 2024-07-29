@@ -9,7 +9,7 @@ import 'package:fastyle_buttons/fastyle_buttons.dart';
 class FastBackButton extends FastPopButton {
   const FastBackButton({
     super.key,
-    super.trottleTimeDuration = kFastTrottleTimeDuration,
+    super.trottleTimeDuration = kFastButtonTrottleTimeDuration,
     super.emphasis = FastButtonEmphasis.low,
     super.shouldTrottleTime = true,
     super.isEnabled = true,

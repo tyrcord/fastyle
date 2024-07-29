@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 abstract class FastActionButton extends StatelessWidget {
@@ -62,7 +61,7 @@ abstract class FastActionButton extends StatelessWidget {
 
   const FastActionButton({
     super.key,
-    this.trottleTimeDuration = kFastTrottleTimeDuration,
+    this.trottleTimeDuration = kFastButtonTrottleTimeDuration,
     this.emphasis = FastButtonEmphasis.low,
     this.iconAlignment = Alignment.center,
     this.shouldTrottleTime = true,
