@@ -52,7 +52,7 @@ class _FastIconButton2State extends State<FastIconButton2>
       highlightColor: getHighlightColor(
         context,
         highlightColor: widget.highlightColor,
-        iconColor: widget.iconColor,
+        color: widget.iconColor,
         emphasis: widget.emphasis,
         icon: widget.icon,
       ),
@@ -60,7 +60,7 @@ class _FastIconButton2State extends State<FastIconButton2>
       hoverColor: getHoverColor(
         context,
         hoverColor: widget.hoverColor,
-        iconColor: widget.iconColor,
+        color: widget.iconColor,
         emphasis: widget.emphasis,
         icon: widget.icon,
       ),
@@ -96,10 +96,10 @@ class _FastIconButton2State extends State<FastIconButton2>
   Widget buildIcon(BuildContext context) {
     return IconTheme(
       data: IconThemeData(
-        color: getIconColor(
+        color: getColor(
           context,
           disabledColor: widget.disabledColor,
-          iconColor: widget.iconColor,
+          color: widget.iconColor,
           isEnabled: widget.isEnabled,
           emphasis: widget.emphasis,
           icon: widget.icon,

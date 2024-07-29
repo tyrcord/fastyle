@@ -18,12 +18,12 @@ mixin FastButtonMixin2 {
     return kFastIconSizeSmall;
   }
 
-  Color? getIconColor(
+  Color? getColor(
     BuildContext context, {
     FastButtonEmphasis? emphasis,
     bool isEnabled = true,
     Color? disabledColor,
-    Color? iconColor,
+    Color? color,
     Widget? icon,
   }) {
     if (!isEnabled) {
@@ -31,13 +31,13 @@ mixin FastButtonMixin2 {
         context,
         disabledColor: disabledColor,
         isEnabled: isEnabled,
-        iconColor: iconColor,
         emphasis: emphasis,
+        color: color,
         icon: icon,
       );
     }
 
-    if (iconColor != null) return iconColor;
+    if (color != null) return color;
 
     if ((icon is FaIcon) && icon.color != null) return icon.color!;
 
@@ -51,11 +51,11 @@ mixin FastButtonMixin2 {
     FastButtonEmphasis? emphasis,
     bool isEnabled = true,
     Color? disabledColor,
-    Color? iconColor,
+    Color? color,
     Widget? icon,
   }) {
     if (disabledColor != null) return disabledColor;
-    if (iconColor != null) return iconColor.withAlpha(kDisabledAlpha);
+    if (color != null) return color.withAlpha(kDisabledAlpha);
 
     if ((icon is FaIcon) && icon.color != null) {
       return icon.color!.withAlpha(kDisabledAlpha);
@@ -86,11 +86,11 @@ mixin FastButtonMixin2 {
     BuildContext context, {
     FastButtonEmphasis? emphasis,
     Color? hoverColor,
-    Color? iconColor,
+    Color? color,
     Widget? icon,
   }) {
     if (hoverColor != null) return hoverColor;
-    if (iconColor != null) return iconColor.withAlpha(kFastButtonHoverAlpha);
+    if (color != null) return color.withAlpha(kFastButtonHoverAlpha);
 
     if ((icon is FaIcon) && icon.color != null) {
       return icon.color!.withAlpha(kFastButtonHoverAlpha);
@@ -108,13 +108,13 @@ mixin FastButtonMixin2 {
     BuildContext context, {
     FastButtonEmphasis? emphasis,
     Color? highlightColor,
-    Color? iconColor,
+    Color? color,
     Widget? icon,
   }) {
     if (highlightColor != null) return highlightColor;
 
-    if (iconColor != null) {
-      return iconColor.withAlpha(kFastButtonHighlightAlpha);
+    if (color != null) {
+      return color.withAlpha(kFastButtonHighlightAlpha);
     }
 
     if ((icon is FaIcon) && icon.color != null) {

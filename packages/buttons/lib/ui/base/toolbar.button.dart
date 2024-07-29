@@ -130,7 +130,6 @@ class FastToolBarButton extends StatelessWidget with FastButtonMixin2 {
 
         if (tooltip != null) {
           button = FastTooltip(
-            preferBelow: true,
             message: tooltip!,
             child: button,
           );
@@ -145,14 +144,14 @@ class FastToolBarButton extends StatelessWidget with FastButtonMixin2 {
             highlightColor: getHighlightColor(
               context,
               highlightColor: highlightColor,
-              iconColor: iconColor,
+              color: iconColor,
               emphasis: emphasis,
               icon: icon,
             ),
             hoverColor: getHoverColor(
               context,
               hoverColor: hoverColor,
-              iconColor: iconColor,
+              color: iconColor,
               emphasis: emphasis,
               icon: icon,
             ),
@@ -170,10 +169,10 @@ class FastToolBarButton extends StatelessWidget with FastButtonMixin2 {
     return FastSecondaryBody(
       upperCase: upperCase,
       text: labelText!,
-      textColor: getIconColor(
+      textColor: getColor(
         context,
         disabledColor: disabledColor,
-        iconColor: iconColor,
+        color: iconColor,
         isEnabled: isEnabled,
         emphasis: emphasis,
         icon: icon,

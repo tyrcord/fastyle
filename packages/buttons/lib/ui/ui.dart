@@ -10,6 +10,7 @@ export 'animated/animated_rotation_icon.button.dart';
 export 'base/button.dart';
 export 'base/icon_button.dart';
 export 'base/toolbar.button.dart';
+export 'base/text.button.dart';
 
 // Fab buttons
 export 'fab/settings_fab.button.dart';

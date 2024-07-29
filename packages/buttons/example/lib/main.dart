@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:fastyle_buttons_example/sections/animated.dart';
+import 'package:fastyle_buttons_example/sections/text.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -43,9 +44,12 @@ class HomePage extends StatelessWidget {
     return const FastSectionPage(
       titleText: 'Buttons',
       showAppBar: false,
+      isViewScrollable: true,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          TextButtonsSection(),
+          kFastVerticalSizedBox16,
           PendingButtonsSection(),
           kFastVerticalSizedBox16,
           ActionButtonsSection(),
@@ -55,6 +59,7 @@ class HomePage extends StatelessWidget {
           NavigationButtonsSection(),
           kFastVerticalSizedBox16,
           AnimatedButtonsSection(),
+          kFastVerticalSizedBox16,
         ],
       ),
     );
