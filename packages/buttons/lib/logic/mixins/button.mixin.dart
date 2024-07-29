@@ -128,4 +128,64 @@ mixin FastButtonMixin2 {
     return getEmphasisedColor(context, emphasis: emphasis)
         ?.withAlpha(kFastButtonHighlightAlpha);
   }
+
+  Widget buildButton(
+    BuildContext context,
+    Widget child, {
+    FastButtonEmphasis emphasis = FastButtonEmphasis.low,
+    BoxConstraints? constraints,
+    EdgeInsetsGeometry? padding,
+    bool isEnabled = true,
+    String? semanticLabel,
+    Color? highlightColor,
+    Alignment? alignment,
+    VoidCallback? onTap,
+    Color? focusColor,
+    Color? hoverColor,
+    String? tooltip,
+    Color? color,
+    Widget? icon,
+  }) {
+    Widget button = FastInkWell(
+      highlightColor: getHighlightColor(
+        context,
+        highlightColor: highlightColor,
+        emphasis: emphasis,
+        color: color,
+        icon: icon,
+      ),
+      focusColor: focusColor,
+      hoverColor: getHoverColor(
+        context,
+        hoverColor: hoverColor,
+        emphasis: emphasis,
+        color: color,
+        icon: icon,
+      ),
+      isEnabled: isEnabled,
+      onTap: onTap,
+      child: Container(
+        constraints: constraints,
+        alignment: alignment ?? Alignment.center,
+        padding: padding,
+        child: child,
+      ),
+    );
+
+    button = Semantics(
+      label: semanticLabel,
+      enabled: isEnabled,
+      button: true,
+      child: button,
+    );
+
+    if (tooltip != null) {
+      button = FastTooltip(
+        message: tooltip,
+        child: button,
+      );
+    }
+
+    return button;
+  }
 }

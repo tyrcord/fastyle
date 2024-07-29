@@ -50,47 +50,22 @@ class _FastTextButton2State extends State<FastTextButton2>
     with FastButtonMixin2, FastThrottleButtonMixin2<FastTextButton2> {
   @override
   Widget build(BuildContext context) {
-    Widget button = FastInkWell(
-      highlightColor: getHighlightColor(
-        context,
-        highlightColor: widget.highlightColor,
-        color: widget.textStyle?.color,
-        emphasis: widget.emphasis,
-      ),
+    return buildButton(
+      context,
+      buildText(context),
+      padding: widget.padding ?? const EdgeInsets.symmetric(horizontal: 12.0),
+      constraints: widget.constraints ?? kFastButtonConstraints,
+      alignment: widget.textAlignment ?? Alignment.center,
+      highlightColor: widget.highlightColor,
+      semanticLabel: widget.semanticLabel,
+      color: widget.textStyle?.color,
       focusColor: widget.focusColor,
-      hoverColor: getHoverColor(
-        context,
-        hoverColor: widget.hoverColor,
-        color: widget.textStyle?.color,
-        emphasis: widget.emphasis,
-      ),
+      hoverColor: widget.hoverColor,
       isEnabled: widget.isEnabled,
+      emphasis: widget.emphasis,
+      tooltip: widget.tooltip,
       onTap: onTapCallback,
-      child: Container(
-        padding: widget.padding ?? const EdgeInsets.symmetric(horizontal: 12.0),
-        constraints: widget.constraints ?? kFastButtonConstraints,
-        alignment: widget.textAlignment ?? Alignment.center,
-        child: buildText(context),
-      ),
     );
-
-    // Wrap with Semantics
-    button = Semantics(
-      label: widget.semanticLabel,
-      enabled: widget.isEnabled,
-      button: true,
-      child: button,
-    );
-
-    // Wrap with Tooltip if a tooltip is provided
-    if (widget.tooltip != null) {
-      button = FastTooltip(
-        message: widget.tooltip!,
-        child: button,
-      );
-    }
-
-    return button;
   }
 
   Widget buildText(BuildContext context) {

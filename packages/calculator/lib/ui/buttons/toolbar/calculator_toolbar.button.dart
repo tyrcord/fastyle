@@ -40,8 +40,8 @@ abstract class FastCalculatorToolbarButton<B extends FastCalculatorBloc,
   Widget buildButton(BuildContext context, FastCalculatorBlocState state) {
     return FastToolBarButton(
       isEnabled: shouldEnableInteractions(state),
-      disabledIconColor: disabledColor,
       onTap: () => handleTap(context),
+      disabledColor: disabledColor,
       semanticLabel: semanticLabel,
       icon: buildIcon(context),
       shouldTrottleTime: true,
