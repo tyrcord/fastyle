@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 class FastIconButton2 extends FastButton2 {
@@ -50,11 +49,19 @@ class _FastIconButton2State extends State<FastIconButton2>
   Widget build(BuildContext context) {
     return buildButton(
       context,
-      buildIcon(context),
+      buildIcon(
+        context,
+        widget.icon,
+        disabledColor: widget.disabledColor,
+        iconColor: widget.iconColor,
+        isEnabled: widget.isEnabled,
+        iconSize: widget.iconSize,
+        emphasis: widget.emphasis,
+      ),
       constraints: widget.constraints ?? kFastIconButtonConstraints,
-      alignment: widget.iconAlignment ?? Alignment.center,
       highlightColor: widget.highlightColor,
       semanticLabel: widget.semanticLabel,
+      alignment: widget.iconAlignment,
       focusColor: widget.focusColor,
       hoverColor: widget.hoverColor,
       isEnabled: widget.isEnabled,
@@ -65,33 +72,5 @@ class _FastIconButton2State extends State<FastIconButton2>
       onTap: onTapCallback,
       icon: widget.icon,
     );
-  }
-
-  Widget buildIcon(BuildContext context) {
-    return IconTheme(
-      data: IconThemeData(
-        color: getColor(
-          context,
-          disabledColor: widget.disabledColor,
-          color: widget.iconColor,
-          isEnabled: widget.isEnabled,
-          emphasis: widget.emphasis,
-          icon: widget.icon,
-        ),
-        size: getIconSize(
-          context,
-          iconSize: widget.iconSize,
-          icon: widget.icon,
-        ),
-      ),
-      child: widget.icon,
-    );
-  }
-
-  IconData? getIconData(BuildContext context, Widget icon) {
-    if (icon is FaIcon) return icon.icon;
-    if (icon is Icon) return icon.icon;
-
-    return null;
   }
 }

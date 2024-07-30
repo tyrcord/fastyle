@@ -129,12 +129,42 @@ mixin FastButtonMixin2 {
         ?.withAlpha(kFastButtonHighlightAlpha);
   }
 
+  Widget buildIcon(
+    BuildContext context,
+    Widget icon, {
+    FastButtonEmphasis? emphasis,
+    bool isEnabled = true,
+    Color? disabledColor,
+    Color? iconColor,
+    double? iconSize,
+  }) {
+    return IconTheme(
+      data: IconThemeData(
+        color: getColor(
+          context,
+          disabledColor: disabledColor,
+          isEnabled: isEnabled,
+          emphasis: emphasis,
+          color: iconColor,
+          icon: icon,
+        ),
+        size: getIconSize(
+          context,
+          iconSize: iconSize,
+          icon: icon,
+        ),
+      ),
+      child: icon,
+    );
+  }
+
   Widget buildButton(
     BuildContext context,
     Widget child, {
     FastButtonEmphasis emphasis = FastButtonEmphasis.low,
     BoxConstraints? constraints,
     EdgeInsetsGeometry? padding,
+    BoxDecoration? decoration,
     bool isEnabled = true,
     String? semanticLabel,
     Color? highlightColor,
@@ -146,7 +176,21 @@ mixin FastButtonMixin2 {
     Color? color,
     Widget? icon,
   }) {
-    Widget button = FastInkWell(
+    Widget button = Container(
+      alignment: alignment ?? Alignment.center,
+      constraints: constraints,
+      padding: padding,
+      child: child,
+    );
+
+    if (decoration != null) {
+      button = Ink(
+        decoration: decoration,
+        child: button,
+      );
+    }
+
+    button = FastInkWell(
       highlightColor: getHighlightColor(
         context,
         highlightColor: highlightColor,
@@ -154,7 +198,6 @@ mixin FastButtonMixin2 {
         color: color,
         icon: icon,
       ),
-      focusColor: focusColor,
       hoverColor: getHoverColor(
         context,
         hoverColor: hoverColor,
@@ -162,14 +205,10 @@ mixin FastButtonMixin2 {
         color: color,
         icon: icon,
       ),
+      focusColor: focusColor,
       isEnabled: isEnabled,
       onTap: onTap,
-      child: Container(
-        constraints: constraints,
-        alignment: alignment ?? Alignment.center,
-        padding: padding,
-        child: child,
-      ),
+      child: button,
     );
 
     button = Semantics(

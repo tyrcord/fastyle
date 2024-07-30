@@ -7,7 +7,7 @@ import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 
-class FastTextButton2 extends FastButton2 {
+class FastOutlinedButton extends FastButton2 {
   /// The text to display on the button.
   final String? labelText;
 
@@ -20,7 +20,13 @@ class FastTextButton2 extends FastButton2 {
   /// Whether to display the label in uppercase.
   final bool upperCase;
 
-  const FastTextButton2({
+  /// The width of the outline border.
+  final double borderWidth;
+
+  /// The color of the outline border.
+  final Color? borderColor;
+
+  const FastOutlinedButton({
     super.key,
     super.trottleTimeDuration = kFastButtonTrottleTimeDuration,
     super.emphasis = FastButtonEmphasis.low,
@@ -40,16 +46,32 @@ class FastTextButton2 extends FastButton2 {
     super.padding,
     super.tooltip,
     super.onTap,
+    this.borderWidth = 1.0,
+    this.borderColor,
   });
 
   @override
-  State<FastTextButton2> createState() => _FastTextButton2State();
+  State<FastOutlinedButton> createState() => _FastOutlinedButtonState();
 }
 
-class _FastTextButton2State extends State<FastTextButton2>
-    with FastButtonMixin2, FastThrottleButtonMixin2<FastTextButton2> {
+class _FastOutlinedButtonState extends State<FastOutlinedButton>
+    with FastButtonMixin2, FastThrottleButtonMixin2<FastOutlinedButton> {
   @override
   Widget build(BuildContext context) {
+    final borderColor = getBorderColor(context);
+
+    BoxDecoration? decoration;
+
+    if (borderColor != null) {
+      decoration = BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(8)),
+        border: Border.all(
+          color: borderColor,
+          width: widget.borderWidth,
+        ),
+      );
+    }
+
     return buildButton(
       context,
       buildText(context),
@@ -64,6 +86,7 @@ class _FastTextButton2State extends State<FastTextButton2>
       isEnabled: widget.isEnabled,
       emphasis: widget.emphasis,
       tooltip: widget.tooltip,
+      decoration: decoration,
       onTap: onTapCallback,
     );
   }
@@ -82,5 +105,16 @@ class _FastTextButton2State extends State<FastTextButton2>
         emphasis: widget.emphasis,
       ),
     );
+  }
+
+  Color? getBorderColor(BuildContext context) {
+    return widget.borderColor ??
+        getColor(
+          context,
+          disabledColor: widget.disabledColor,
+          color: widget.textStyle?.color,
+          isEnabled: widget.isEnabled,
+          emphasis: widget.emphasis,
+        );
   }
 }
