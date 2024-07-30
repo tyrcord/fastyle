@@ -63,6 +63,9 @@ class FastToolBarButton extends StatelessWidget with FastButtonMixin2 {
   /// Whether to display the label in uppercase.
   final bool upperCase;
 
+  /// Whether the button is flexible.
+  final bool flexible;
+
   const FastToolBarButton({
     super.key,
     required this.icon,
@@ -71,6 +74,7 @@ class FastToolBarButton extends StatelessWidget with FastButtonMixin2 {
     this.shouldTrottleTime = false,
     this.upperCase = false,
     this.isEnabled = true,
+    this.flexible = false,
     this.highlightColor,
     this.semanticLabel,
     this.disabledColor,
@@ -106,6 +110,7 @@ class FastToolBarButton extends StatelessWidget with FastButtonMixin2 {
           iconColor: iconColor,
           isEnabled: isEnabled,
           emphasis: emphasis,
+          flexible: flexible,
           iconSize: iconSize,
           icon: icon,
         );

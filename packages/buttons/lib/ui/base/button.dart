@@ -47,11 +47,15 @@ abstract class FastButton2 extends StatefulWidget {
   /// The debug label of the button to identify it in debug mode.
   final String? debugLabel;
 
+  /// Whether the button is flexible.
+  final bool flexible;
+
   const FastButton2({
     super.key,
     this.trottleTimeDuration = kFastButtonTrottleTimeDuration,
     this.emphasis = FastButtonEmphasis.low,
     this.shouldTrottleTime = false,
+    this.flexible = false,
     this.isEnabled = true,
     this.highlightColor,
     this.semanticLabel,

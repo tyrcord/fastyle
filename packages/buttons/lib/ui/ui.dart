@@ -24,5 +24,5 @@ export 'navigation/back.button.dart';
 export 'navigation/pop.button.dart';
 
 // Pending buttons
-export 'pending/pending_outline_button.widget.dart';
+export 'pending/pending_outlined_button.widget.dart';
 export 'pending/pending_raised_button.widget.dart';

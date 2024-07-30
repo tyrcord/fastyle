@@ -215,7 +215,7 @@ class FastStatusPage extends StatelessWidget {
     if (onValidTap != null && validButtonText != null) {
       return FastPendingRaisedButton(
         isPending: isValidButtonPending,
-        text: validButtonText,
+        labelText: validButtonText,
         onTap: onValidTap,
       );
     }

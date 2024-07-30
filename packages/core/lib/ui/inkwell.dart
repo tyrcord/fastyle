@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 
 class FastInkWell extends StatelessWidget {
+  final ValueChanged<bool>? onHover;
   final BorderRadius borderRadius;
   final Color? highlightColor;
   final VoidCallback? onTap;
@@ -19,6 +20,7 @@ class FastInkWell extends StatelessWidget {
     this.highlightColor,
     this.hoverColor,
     this.focusColor,
+    this.onHover,
     this.onTap,
   });
 
@@ -28,6 +30,7 @@ class FastInkWell extends StatelessWidget {
       highlightColor: _getHighlightColor(context),
       hoverColor: _getHoverColor(context),
       focusColor: _getFocusColor(context),
+      onHover: isEnabled ? onHover : null,
       onTap: isEnabled ? onTap : null,
       borderRadius: borderRadius,
       child: child,

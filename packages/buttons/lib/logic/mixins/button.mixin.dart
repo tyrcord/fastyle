@@ -104,6 +104,24 @@ mixin FastButtonMixin2 {
         ?.withAlpha(kFastButtonHoverAlpha);
   }
 
+  Color? getBorderColor(
+    BuildContext context, {
+    FastButtonEmphasis? emphasis,
+    bool isEnabled = true,
+    TextStyle? textStyle,
+    Color? disabledColor,
+    Color? borderColor,
+  }) {
+    return borderColor ??
+        getColor(
+          context,
+          disabledColor: disabledColor,
+          color: textStyle?.color,
+          isEnabled: isEnabled,
+          emphasis: emphasis,
+        );
+  }
+
   Color? getHighlightColor(
     BuildContext context, {
     FastButtonEmphasis? emphasis,
@@ -137,6 +155,7 @@ mixin FastButtonMixin2 {
     BoxConstraints? constraints,
     EdgeInsetsGeometry? padding,
     BoxDecoration? decoration,
+    bool flexible = false,
     bool isEnabled = true,
     String? semanticLabel,
     Color? highlightColor,
@@ -148,15 +167,16 @@ mixin FastButtonMixin2 {
     Color? color,
     Widget? icon,
   }) {
-    // TODO: make it flexible as well.
-    Widget button = UnconstrainedBox(
-      child: Container(
-        alignment: alignment ?? Alignment.center,
-        constraints: constraints,
-        padding: padding,
-        child: child,
-      ),
+    Widget button = Container(
+      alignment: alignment ?? Alignment.center,
+      constraints: constraints,
+      padding: padding,
+      child: child,
     );
+
+    if (!flexible) {
+      button = UnconstrainedBox(child: button);
+    }
 
     if (decoration != null) {
       button = Ink(

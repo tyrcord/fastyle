@@ -35,6 +35,7 @@ class FastTextButton2 extends FastButton2 {
     super.focusColor,
     super.hoverColor,
     super.debugLabel,
+    super.flexible,
     this.textStyle,
     this.labelText,
     super.padding,
@@ -63,6 +64,7 @@ class _FastTextButton2State extends State<FastTextButton2>
       hoverColor: widget.hoverColor,
       isEnabled: widget.isEnabled,
       emphasis: widget.emphasis,
+      flexible: widget.flexible,
       tooltip: widget.tooltip,
       onTap: onTapCallback,
     );

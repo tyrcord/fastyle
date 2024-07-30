@@ -38,14 +38,14 @@ class _PendingButtonsSectionState extends State<PendingButtonsSection> {
         kFastVerticalSizedBox12,
         Row(
           children: [
-            FastPendingOutlineButton(
-              text: 'Outline button',
+            FastPendingOutlinedButton(
+              labelText: 'Outline button',
               onTap: _togglePending,
               isPending: _isPending,
             ),
             kFastHorizontalSizedBox12,
             FastPendingRaisedButton(
-              text: 'Raised button',
+              labelText: 'Raised button',
               onTap: _togglePending,
               isPending: _isPending,
             ),

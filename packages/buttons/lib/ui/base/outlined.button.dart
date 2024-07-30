@@ -26,6 +26,8 @@ class FastOutlinedButton extends FastButton2 {
   /// The color of the outline border.
   final Color? borderColor;
 
+  final Widget? child;
+
   const FastOutlinedButton({
     super.key,
     super.trottleTimeDuration = kFastButtonTrottleTimeDuration,
@@ -33,21 +35,23 @@ class FastOutlinedButton extends FastButton2 {
     super.shouldTrottleTime = false,
     this.upperCase = false,
     super.isEnabled = true,
+    this.borderWidth = 1.0,
     super.highlightColor,
     super.disabledColor,
     super.semanticLabel,
     this.textAlignment,
     super.constraints,
+    this.borderColor,
     super.focusColor,
     super.hoverColor,
     super.debugLabel,
+    super.flexible,
     this.textStyle,
     this.labelText,
     super.padding,
     super.tooltip,
     super.onTap,
-    this.borderWidth = 1.0,
-    this.borderColor,
+    this.child,
   });
 
   @override
@@ -58,23 +62,27 @@ class _FastOutlinedButtonState extends State<FastOutlinedButton>
     with FastButtonMixin2, FastThrottleButtonMixin2<FastOutlinedButton> {
   @override
   Widget build(BuildContext context) {
-    final borderColor = getBorderColor(context);
+    final borderColor = getBorderColor(
+      context,
+      emphasis: widget.emphasis,
+      isEnabled: widget.isEnabled,
+      textStyle: widget.textStyle,
+      disabledColor: widget.disabledColor,
+      borderColor: widget.borderColor,
+    );
 
     BoxDecoration? decoration;
 
     if (borderColor != null) {
       decoration = BoxDecoration(
+        border: Border.all(width: widget.borderWidth, color: borderColor),
         borderRadius: const BorderRadius.all(Radius.circular(8)),
-        border: Border.all(
-          color: borderColor,
-          width: widget.borderWidth,
-        ),
       );
     }
 
     return buildButton(
       context,
-      buildText(context),
+      widget.child != null ? widget.child! : buildText(context),
       padding: widget.padding ?? const EdgeInsets.symmetric(horizontal: 12.0),
       constraints: widget.constraints ?? kFastButtonConstraints,
       highlightColor: widget.highlightColor,
@@ -85,6 +93,7 @@ class _FastOutlinedButtonState extends State<FastOutlinedButton>
       hoverColor: widget.hoverColor,
       isEnabled: widget.isEnabled,
       emphasis: widget.emphasis,
+      flexible: widget.flexible,
       tooltip: widget.tooltip,
       decoration: decoration,
       onTap: onTapCallback,
@@ -105,16 +114,5 @@ class _FastOutlinedButtonState extends State<FastOutlinedButton>
         emphasis: widget.emphasis,
       ),
     );
-  }
-
-  Color? getBorderColor(BuildContext context) {
-    return widget.borderColor ??
-        getColor(
-          context,
-          disabledColor: widget.disabledColor,
-          color: widget.textStyle?.color,
-          isEnabled: widget.isEnabled,
-          emphasis: widget.emphasis,
-        );
   }
 }

@@ -60,12 +60,16 @@ abstract class FastPopButton extends StatelessWidget {
   /// The debug label of the button to identify it in debug mode.
   final String? debugLabel;
 
+  /// Whether the button is flexible.
+  final bool flexible;
+
   const FastPopButton({
     super.key,
     this.trottleTimeDuration = kFastButtonTrottleTimeDuration,
     this.emphasis = FastButtonEmphasis.low,
     this.shouldTrottleTime = true,
     this.isEnabled = true,
+    this.flexible = false,
     this.highlightColor,
     this.iconAlignment,
     this.disabledColor,
@@ -111,6 +115,7 @@ abstract class FastPopButton extends StatelessWidget {
       iconColor: iconColor,
       isEnabled: isEnabled,
       emphasis: emphasis,
+      flexible: flexible,
       iconSize: iconSize,
       padding: padding,
       tooltip: tooltip,

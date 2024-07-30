@@ -74,6 +74,9 @@ class FastAnimatedRotationIconButton2 extends StatefulWidget {
   /// Whether to rotate the icon.
   final bool rotate;
 
+  /// Whether the button is flexible.
+  final bool flexible;
+
   const FastAnimatedRotationIconButton2({
     super.key,
     this.trottleTimeDuration = kFastButtonTrottleTimeDuration,
@@ -83,6 +86,7 @@ class FastAnimatedRotationIconButton2 extends StatefulWidget {
     this.shouldTrottleTime = true,
     this.animationController,
     this.isEnabled = true,
+    this.flexible = false,
     this.rotate = false,
     this.highlightColor,
     this.disabledColor,
@@ -165,6 +169,7 @@ class FastAnimatedRotationIconButtonState
         iconColor: widget.iconColor,
         isEnabled: widget.isEnabled,
         emphasis: widget.emphasis,
+        flexible: widget.flexible,
         iconSize: widget.iconSize,
         padding: widget.padding,
         onTap: widget.onTap,

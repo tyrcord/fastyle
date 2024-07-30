@@ -37,6 +37,7 @@ class FastCopyButton extends FastActionButton {
     super.hoverColor,
     super.debugLabel,
     super.iconColor,
+    super.flexible,
     super.iconSize,
     super.tooltip,
     super.padding,

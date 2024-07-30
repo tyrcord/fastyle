@@ -59,12 +59,16 @@ abstract class FastActionButton extends StatelessWidget {
   /// The debug label of the button to identify it in debug mode.
   final String? debugLabel;
 
+  /// Whether the button is flexible.
+  final bool flexible;
+
   const FastActionButton({
     super.key,
     this.trottleTimeDuration = kFastButtonTrottleTimeDuration,
     this.emphasis = FastButtonEmphasis.low,
     this.iconAlignment = Alignment.center,
     this.shouldTrottleTime = true,
+    this.flexible = false,
     this.isEnabled = true,
     this.highlightColor,
     this.disabledColor,
@@ -98,6 +102,7 @@ abstract class FastActionButton extends StatelessWidget {
       iconColor: iconColor,
       isEnabled: isEnabled,
       emphasis: emphasis,
+      flexible: flexible,
       iconSize: iconSize,
       padding: padding,
     );

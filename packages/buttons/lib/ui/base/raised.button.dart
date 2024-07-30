@@ -22,6 +22,8 @@ class FastRaisedButton2 extends FastButton2 {
 
   final Color? color;
 
+  final Widget? child;
+
   const FastRaisedButton2({
     super.key,
     super.trottleTimeDuration = kFastButtonTrottleTimeDuration,
@@ -37,12 +39,14 @@ class FastRaisedButton2 extends FastButton2 {
     super.focusColor,
     super.hoverColor,
     super.debugLabel,
+    super.flexible,
     this.textStyle,
     this.labelText,
     super.padding,
     super.tooltip,
     super.onTap,
     this.color,
+    this.child,
   });
 
   @override
@@ -86,7 +90,7 @@ class _FastRaisedButtonState2 extends State<FastRaisedButton2>
 
     return buildButton(
       context,
-      buildText(context),
+      widget.child != null ? widget.child! : buildText(context),
       padding: widget.padding ?? const EdgeInsets.symmetric(horizontal: 12.0),
       constraints: widget.constraints ?? kFastButtonConstraints,
       highlightColor: widget.highlightColor,
@@ -96,6 +100,7 @@ class _FastRaisedButtonState2 extends State<FastRaisedButton2>
       hoverColor: widget.hoverColor,
       isEnabled: widget.isEnabled,
       emphasis: widget.emphasis,
+      flexible: widget.flexible,
       color: interactionsColor,
       tooltip: widget.tooltip,
       decoration: decoration,

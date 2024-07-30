@@ -1,5 +1,8 @@
 // Flutter imports:
 import 'package:fastyle_buttons_example/sections/animated.dart';
+import 'package:fastyle_buttons_example/sections/outlined.dart';
+import 'package:fastyle_buttons_example/sections/popup_menu.dart';
+import 'package:fastyle_buttons_example/sections/raised.dart';
 import 'package:fastyle_buttons_example/sections/text.dart';
 import 'package:flutter/material.dart';
 
@@ -50,11 +53,17 @@ class HomePage extends StatelessWidget {
         children: [
           TextButtonsSection(),
           kFastVerticalSizedBox16,
+          OutlinedButtonsSection(),
+          kFastVerticalSizedBox16,
+          RaisedButtonsSection(),
+          kFastVerticalSizedBox16,
           PendingButtonsSection(),
+          kFastVerticalSizedBox16,
+          ToolbarButtonsSection(),
           kFastVerticalSizedBox16,
           ActionButtonsSection(),
           kFastVerticalSizedBox16,
-          ToolbarButtonsSection(),
+          PopupMenuButtonsSection(),
           kFastVerticalSizedBox16,
           NavigationButtonsSection(),
           kFastVerticalSizedBox16,

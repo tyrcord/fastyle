@@ -23,7 +23,8 @@ class _TextButtonsSectionState extends State<TextButtonsSection> {
       children: [
         const FastBody(text: 'Text Buttons'),
         kFastVerticalSizedBox12,
-        Row(
+        Wrap(
+          runSpacing: 6,
           children: [
             FastTextButton2(
               labelText: 'Default',
@@ -41,11 +42,7 @@ class _TextButtonsSectionState extends State<TextButtonsSection> {
               onTap: _toggleEnabled,
               isEnabled: _isEnabled,
             ),
-          ],
-        ),
-        kFastVerticalSizedBox12,
-        Row(
-          children: [
+            kFastHorizontalSizedBox12,
             FastTextButton2(
               labelText: 'Uppercase',
               upperCase: true,
