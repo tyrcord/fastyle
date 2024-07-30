@@ -16,7 +16,9 @@ class ToolbarButtonsSection extends StatelessWidget {
       children: [
         const FastBody(text: 'Toolbar Buttons'),
         kFastVerticalSizedBox12,
-        Row(
+        Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
+          runSpacing: 6,
           children: [
             FastToolBarButton(
               icon: const FaIcon(FontAwesomeIcons.folderOpen),
@@ -52,6 +54,33 @@ class ToolbarButtonsSection extends StatelessWidget {
               labelText: 'Print',
               onTap: () {
                 FastNotificationCenter.info(context, 'Print button tapped');
+              },
+            ),
+            kFastHorizontalSizedBox12,
+            FastToolBarButton(
+              size: FastButtonSize.small,
+              icon: const FaIcon(FontAwesomeIcons.magnifyingGlass),
+              labelText: 'Small',
+              onTap: () {
+                FastNotificationCenter.info(context, 'Small button tapped');
+              },
+            ),
+            kFastHorizontalSizedBox12,
+            FastToolBarButton(
+              size: FastButtonSize.medium,
+              icon: const FaIcon(FontAwesomeIcons.magnifyingGlass),
+              labelText: 'Medium',
+              onTap: () {
+                FastNotificationCenter.info(context, 'Medium button tapped');
+              },
+            ),
+            kFastHorizontalSizedBox12,
+            FastToolBarButton(
+              size: FastButtonSize.large,
+              icon: const FaIcon(FontAwesomeIcons.magnifyingGlass),
+              labelText: 'Large',
+              onTap: () {
+                FastNotificationCenter.info(context, 'Large button tapped');
               },
             ),
           ],

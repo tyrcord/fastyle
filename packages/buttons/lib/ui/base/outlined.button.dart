@@ -2,10 +2,8 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_buttons/fastyle_buttons.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:lingua_core/generated/locale_keys.g.dart';
+
 
 class FastOutlinedButton extends FastButton2 {
   /// The text to display on the button.
@@ -23,8 +21,7 @@ class FastOutlinedButton extends FastButton2 {
   /// The width of the outline border.
   final double borderWidth;
 
-  /// The color of the outline border.
-  final Color? borderColor;
+  final Color? color;
 
   final Widget? child;
 
@@ -41,7 +38,6 @@ class FastOutlinedButton extends FastButton2 {
     super.semanticLabel,
     this.textAlignment,
     super.constraints,
-    this.borderColor,
     super.focusColor,
     super.hoverColor,
     super.debugLabel,
@@ -51,7 +47,9 @@ class FastOutlinedButton extends FastButton2 {
     super.padding,
     super.tooltip,
     super.onTap,
+    this.color,
     this.child,
+    super.size,
   });
 
   @override
@@ -64,11 +62,11 @@ class _FastOutlinedButtonState extends State<FastOutlinedButton>
   Widget build(BuildContext context) {
     final borderColor = getBorderColor(
       context,
-      emphasis: widget.emphasis,
+      disabledColor: widget.disabledColor,
       isEnabled: widget.isEnabled,
       textStyle: widget.textStyle,
-      disabledColor: widget.disabledColor,
-      borderColor: widget.borderColor,
+      borderColor: widget.color,
+      emphasis: widget.emphasis,
     );
 
     BoxDecoration? decoration;
@@ -82,13 +80,24 @@ class _FastOutlinedButtonState extends State<FastOutlinedButton>
 
     return buildButton(
       context,
-      widget.child != null ? widget.child! : buildText(context),
+      widget.child != null
+          ? widget.child!
+          : buildLabelText(
+              context,
+              color: borderColor,
+              disabledColor: widget.disabledColor,
+              textStyle: widget.textStyle,
+              upperCase: widget.upperCase,
+              isEnabled: widget.isEnabled,
+              labelText: widget.labelText,
+              emphasis: widget.emphasis,
+              size: widget.size,
+            ),
       padding: widget.padding ?? const EdgeInsets.symmetric(horizontal: 12.0),
-      constraints: widget.constraints ?? kFastButtonConstraints,
       highlightColor: widget.highlightColor,
       semanticLabel: widget.semanticLabel,
+      constraints: widget.constraints,
       alignment: widget.textAlignment,
-      color: widget.textStyle?.color,
       focusColor: widget.focusColor,
       hoverColor: widget.hoverColor,
       isEnabled: widget.isEnabled,
@@ -97,22 +106,8 @@ class _FastOutlinedButtonState extends State<FastOutlinedButton>
       tooltip: widget.tooltip,
       decoration: decoration,
       onTap: onTapCallback,
-    );
-  }
-
-  Widget buildText(BuildContext context) {
-    return FastButtonLabel(
-      text: widget.labelText ?? CoreLocaleKeys.core_label_button.tr(),
-      fontWeight: widget.textStyle?.fontWeight,
-      fontSize: widget.textStyle?.fontSize,
-      upperCase: widget.upperCase,
-      textColor: getColor(
-        context,
-        disabledColor: widget.disabledColor,
-        color: widget.textStyle?.color,
-        isEnabled: widget.isEnabled,
-        emphasis: widget.emphasis,
-      ),
+      color: borderColor,
+      size: widget.size,
     );
   }
 }

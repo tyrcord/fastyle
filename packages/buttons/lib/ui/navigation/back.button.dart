@@ -28,6 +28,7 @@ class FastBackButton extends FastPopButton {
     super.padding,
     super.onTap,
     super.icon,
+    super.size,
   });
 
   @override

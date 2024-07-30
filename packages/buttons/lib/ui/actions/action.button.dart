@@ -62,6 +62,9 @@ abstract class FastActionButton extends StatelessWidget {
   /// Whether the button is flexible.
   final bool flexible;
 
+  /// The size of the button.
+  final FastButtonSize? size;
+
   const FastActionButton({
     super.key,
     this.trottleTimeDuration = kFastButtonTrottleTimeDuration,
@@ -83,6 +86,7 @@ abstract class FastActionButton extends StatelessWidget {
     this.padding,
     this.onTap,
     this.icon,
+    this.size,
   });
 
   @override
@@ -94,6 +98,7 @@ abstract class FastActionButton extends StatelessWidget {
       highlightColor: highlightColor,
       disabledColor: disabledColor,
       iconAlignment: iconAlignment,
+      semanticLabel: semanticLabel,
       icon: buildIcon(context),
       constraints: constraints,
       debugLabel: debugLabel,
@@ -105,6 +110,8 @@ abstract class FastActionButton extends StatelessWidget {
       flexible: flexible,
       iconSize: iconSize,
       padding: padding,
+      tooltip: tooltip,
+      size: size,
     );
   }
 

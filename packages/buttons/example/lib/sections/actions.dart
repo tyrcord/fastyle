@@ -26,9 +26,16 @@ class _ActionButtonsSectionState extends State<ActionButtonsSection> {
       children: [
         const FastBody(text: 'Action buttons'),
         kFastVerticalSizedBox12,
-        Row(
+        Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
+          runSpacing: 6,
           children: [
             const FastCopyButton(valueText: '42'),
+            kFastHorizontalSizedBox12,
+            const FastCopyButton(
+              valueText: '42',
+              isEnabled: false,
+            ),
             kFastHorizontalSizedBox12,
             FastFavoriteIconButton(
               isFavorite: _isFavorite,
@@ -39,6 +46,21 @@ class _ActionButtonsSectionState extends State<ActionButtonsSection> {
               onTap: _toggleFavorite,
               isFavorite: false,
               isEnabled: false,
+            ),
+            kFastHorizontalSizedBox12,
+            const FastFavoriteIconButton(
+              size: FastButtonSize.small,
+              isFavorite: false,
+            ),
+            kFastHorizontalSizedBox12,
+            const FastFavoriteIconButton(
+              size: FastButtonSize.medium,
+              isFavorite: true,
+            ),
+            kFastHorizontalSizedBox12,
+            const FastFavoriteIconButton(
+              size: FastButtonSize.large,
+              isFavorite: false,
             ),
           ],
         ),

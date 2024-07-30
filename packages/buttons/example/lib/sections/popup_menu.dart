@@ -17,9 +17,52 @@ class PopupMenuButtonsSection extends StatelessWidget {
         const FastBody(text: 'Popup Menu Buttons'),
         kFastVerticalSizedBox12,
         Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
           runSpacing: 6,
           children: [
             FastPopupMenuButton2(
+              size: FastButtonSize.small,
+              onSelected: (String value) {
+                FastNotificationCenter.info(context, '$value selected');
+              },
+              itemBuilder: (context) => [
+                const PopupMenuItem(
+                  value: 'One',
+                  child: Text('One'),
+                ),
+                const PopupMenuItem(
+                  value: 'Two',
+                  child: Text('Two'),
+                ),
+                const PopupMenuItem(
+                  value: 'Three',
+                  child: Text('Three'),
+                ),
+              ],
+              icon: const FaIcon(FontAwesomeIcons.ellipsisVertical),
+            ),
+            FastPopupMenuButton2(
+              onSelected: (String value) {
+                FastNotificationCenter.info(context, '$value selected');
+              },
+              itemBuilder: (context) => [
+                const PopupMenuItem(
+                  value: 'One',
+                  child: Text('One'),
+                ),
+                const PopupMenuItem(
+                  value: 'Two',
+                  child: Text('Two'),
+                ),
+                const PopupMenuItem(
+                  value: 'Three',
+                  child: Text('Three'),
+                ),
+              ],
+              icon: const FaIcon(FontAwesomeIcons.ellipsisVertical),
+            ),
+            FastPopupMenuButton2(
+              size: FastButtonSize.large,
               onSelected: (String value) {
                 FastNotificationCenter.info(context, '$value selected');
               },

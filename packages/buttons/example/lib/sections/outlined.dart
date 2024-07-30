@@ -16,12 +16,51 @@ class OutlinedButtonsSection extends StatelessWidget {
         const FastBody(text: 'Outlined Buttons'),
         kFastVerticalSizedBox12,
         Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
           runSpacing: 6,
           children: [
             FastOutlinedButton(
-              labelText: 'Border',
+              size: FastButtonSize.small,
+              labelText: 'Small',
+              onTap: () {
+                FastNotificationCenter.info(context, 'Small button tapped');
+              },
+            ),
+            kFastHorizontalSizedBox12,
+            FastOutlinedButton(
+              labelText: 'Medium',
+              onTap: () {
+                FastNotificationCenter.info(context, 'Medium button tapped');
+              },
+            ),
+            kFastHorizontalSizedBox12,
+            FastOutlinedButton(
+              size: FastButtonSize.large,
+              labelText: 'Large',
+              onTap: () {
+                FastNotificationCenter.info(context, 'Large button tapped');
+              },
+            ),
+            kFastHorizontalSizedBox12,
+            const FastOutlinedButton(
+              labelText: 'Disabled',
+              isEnabled: false,
+            ),
+            kFastHorizontalSizedBox12,
+            FastOutlinedButton(
+              color: Colors.red[300],
+              labelText: 'Red',
+              onTap: () {
+                FastNotificationCenter.info(context, 'Red button tapped');
+              },
+            ),
+            kFastHorizontalSizedBox12,
+            FastOutlinedButton(
+              labelText: 'With Tooltip',
+              tooltip: 'This is a tooltip',
               onTap: () {},
             ),
+            kFastHorizontalSizedBox12,
           ],
         ),
       ],

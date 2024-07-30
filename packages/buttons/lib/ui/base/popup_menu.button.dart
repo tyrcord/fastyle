@@ -83,6 +83,7 @@ class FastPopupMenuButton2<T> extends FastButton2 {
     this.onOpened,
     this.iconSize,
     super.onTap,
+    super.size,
   });
 
   @override
@@ -110,6 +111,7 @@ class _FastPopupMenuButtonState<T> extends State<FastPopupMenuButton2<T>>
       padding: widget.padding,
       icon: widget.icon,
       onTap: _handleTap,
+      size: widget.size,
     );
   }
 

@@ -77,6 +77,9 @@ class FastAnimatedRotationIconButton2 extends StatefulWidget {
   /// Whether the button is flexible.
   final bool flexible;
 
+  /// The size of the button.
+  final FastButtonSize? size;
+
   const FastAnimatedRotationIconButton2({
     super.key,
     this.trottleTimeDuration = kFastButtonTrottleTimeDuration,
@@ -101,6 +104,7 @@ class FastAnimatedRotationIconButton2 extends StatefulWidget {
     this.padding,
     this.onTap,
     this.icon,
+    this.size,
   });
 
   @override
@@ -172,7 +176,9 @@ class FastAnimatedRotationIconButtonState
         flexible: widget.flexible,
         iconSize: widget.iconSize,
         padding: widget.padding,
+        tooltip: widget.tooltip,
         onTap: widget.onTap,
+        size: widget.size,
       ),
     );
   }

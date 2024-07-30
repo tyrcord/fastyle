@@ -24,17 +24,46 @@ class _TextButtonsSectionState extends State<TextButtonsSection> {
         const FastBody(text: 'Text Buttons'),
         kFastVerticalSizedBox12,
         Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
           runSpacing: 6,
           children: [
             FastTextButton2(
-              labelText: 'Default',
-              onTap: () {},
+              size: FastButtonSize.small,
+              labelText: 'Small',
+              onTap: () {
+                FastNotificationCenter.info(context, 'Small button tapped');
+              },
+            ),
+            kFastHorizontalSizedBox12,
+            FastTextButton2(
+              size: FastButtonSize.medium,
+              labelText: 'Medium',
+              onTap: () {
+                FastNotificationCenter.info(context, 'Medium button tapped');
+              },
+            ),
+            kFastHorizontalSizedBox12,
+            FastTextButton2(
+              size: FastButtonSize.large,
+              labelText: 'Large',
+              onTap: () {
+                FastNotificationCenter.info(context, 'Large button tapped');
+              },
             ),
             kFastHorizontalSizedBox12,
             FastTextButton2(
               labelText: 'Disabled',
               onTap: () {},
               isEnabled: false,
+            ),
+            kFastHorizontalSizedBox12,
+            FastTextButton2(
+              labelText: 'Custom Style',
+              textStyle: TextStyle(
+                color: ThemeHelper.colors.getPrimaryColor(context),
+                fontWeight: FontWeight.bold,
+              ),
+              onTap: () {},
             ),
             kFastHorizontalSizedBox12,
             FastTextButton2(
@@ -50,19 +79,11 @@ class _TextButtonsSectionState extends State<TextButtonsSection> {
             ),
             kFastHorizontalSizedBox12,
             FastTextButton2(
-              labelText: 'Custom Style',
-              textStyle: TextStyle(
-                color: ThemeHelper.colors.getPrimaryColor(context),
-                fontWeight: FontWeight.bold,
-              ),
-              onTap: () {},
-            ),
-            kFastHorizontalSizedBox12,
-            FastTextButton2(
               labelText: 'With Tooltip',
               tooltip: 'This is a tooltip',
               onTap: () {},
             ),
+            kFastHorizontalSizedBox12,
           ],
         ),
       ],

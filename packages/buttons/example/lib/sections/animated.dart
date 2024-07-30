@@ -41,7 +41,19 @@ class _AnimatedButtonsSectionState extends State<AnimatedButtonsSection> {
             ),
             kFastHorizontalSizedBox12,
             FastAnimatedRotationIconButton2(
-              iconSize: kFastIconSizeMedium,
+              size: FastButtonSize.small,
+              onTap: _toggleRotation,
+              rotate: _isRotating,
+            ),
+            kFastHorizontalSizedBox12,
+            FastAnimatedRotationIconButton2(
+              size: FastButtonSize.medium,
+              onTap: _toggleRotation,
+              rotate: _isRotating,
+            ),
+            kFastHorizontalSizedBox12,
+            FastAnimatedRotationIconButton2(
+              size: FastButtonSize.large,
               onTap: _toggleRotation,
               rotate: _isRotating,
             ),

@@ -32,6 +32,7 @@ class FastFavoriteIconButton extends FastActionButton with FastButtonMixin2 {
     super.padding,
     super.onTap,
     super.icon,
+    super.size,
   });
 
   @override
@@ -57,7 +58,10 @@ class FastFavoriteIconButton extends FastActionButton with FastButtonMixin2 {
       isEnabled: isEnabled,
       emphasis: emphasis,
       iconSize: iconSize,
+      flexible: flexible,
       padding: padding,
+      tooltip: tooltip,
+      size: size,
     );
   }
 

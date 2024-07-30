@@ -24,7 +24,7 @@ class FastPendingOutlinedButton extends FastOutlinedButton {
     super.textAlignment,
     super.borderWidth,
     super.constraints,
-    super.borderColor,
+    super.color,
     super.focusColor,
     super.hoverColor,
     super.debugLabel,
@@ -34,6 +34,7 @@ class FastPendingOutlinedButton extends FastOutlinedButton {
     super.padding,
     super.tooltip,
     super.onTap,
+    super.size,
   });
 
   @override
@@ -46,8 +47,6 @@ class FastPendingOutlineButtonState extends State<FastPendingOutlinedButton>
         FastButtonMixin2,
         FastThrottleButtonMixin2<FastPendingOutlinedButton>,
         FastPendingButtonMixin {
-
-
   @override
   void didUpdateWidget(FastPendingOutlinedButton oldWidget) {
     super.didUpdateWidget(oldWidget);
@@ -68,13 +67,14 @@ class FastPendingOutlineButtonState extends State<FastPendingOutlinedButton>
       highlightColor: widget.highlightColor,
       semanticLabel: widget.semanticLabel,
       textAlignment: widget.textAlignment,
-      borderColor: widget.borderColor,
+      color: widget.color,
       focusColor: widget.focusColor,
       hoverColor: widget.hoverColor,
       emphasis: widget.emphasis,
       flexible: widget.flexible,
       tooltip: widget.tooltip,
       onTap: widget.onTap,
+      size: widget.size,
       key: buttonKey,
       child: widget.isPending ? buildPendingIndicator(context) : null,
     );
@@ -88,7 +88,7 @@ class FastPendingOutlineButtonState extends State<FastPendingOutlinedButton>
           context,
           isEnabled: !widget.isPending && widget.isEnabled,
           disabledColor: widget.disabledColor,
-          borderColor: widget.borderColor,
+          borderColor: widget.color,
           textStyle: widget.textStyle,
           emphasis: widget.emphasis,
         ) ??

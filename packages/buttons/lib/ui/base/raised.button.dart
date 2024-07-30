@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_buttons/fastyle_buttons.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:lingua_core/generated/locale_keys.g.dart';
 
 class FastRaisedButton2 extends FastButton2 {
   /// The text to display on the button.
@@ -47,6 +45,7 @@ class FastRaisedButton2 extends FastButton2 {
     super.onTap,
     this.color,
     this.child,
+    super.size,
   });
 
   @override
@@ -90,11 +89,23 @@ class _FastRaisedButtonState2 extends State<FastRaisedButton2>
 
     return buildButton(
       context,
-      widget.child != null ? widget.child! : buildText(context),
+      widget.child != null
+          ? widget.child!
+          : buildLabelText(
+              context,
+              color: ThemeHelper.getPaletteColors(context).whiteColor,
+              disabledColor: widget.disabledColor,
+              textStyle: widget.textStyle,
+              upperCase: widget.upperCase,
+              isEnabled: widget.isEnabled,
+              labelText: widget.labelText,
+              emphasis: widget.emphasis,
+              size: widget.size,
+            ),
       padding: widget.padding ?? const EdgeInsets.symmetric(horizontal: 12.0),
-      constraints: widget.constraints ?? kFastButtonConstraints,
       highlightColor: widget.highlightColor,
       semanticLabel: widget.semanticLabel,
+      constraints: widget.constraints,
       alignment: widget.textAlignment,
       focusColor: widget.focusColor,
       hoverColor: widget.hoverColor,
@@ -106,16 +117,7 @@ class _FastRaisedButtonState2 extends State<FastRaisedButton2>
       decoration: decoration,
       onHover: _handleHover,
       onTap: onTapCallback,
-    );
-  }
-
-  Widget buildText(BuildContext context) {
-    return FastButtonLabel(
-      text: widget.labelText ?? CoreLocaleKeys.core_label_button.tr(),
-      fontWeight: widget.textStyle?.fontWeight,
-      fontSize: widget.textStyle?.fontSize,
-      upperCase: widget.upperCase,
-      textColor: Colors.white,
+      size: widget.size,
     );
   }
 

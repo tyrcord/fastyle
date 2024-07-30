@@ -30,16 +30,14 @@ class _PendingButtonsSectionState extends State<PendingButtonsSection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Row(
-          children: [
-            FastBody(text: 'Pending buttons'),
-          ],
-        ),
+        const FastBody(text: 'Pending Buttons'),
         kFastVerticalSizedBox12,
-        Row(
+        Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
+          runSpacing: 6,
           children: [
             FastPendingOutlinedButton(
-              labelText: 'Outline button',
+              labelText: 'Outlined button',
               onTap: _togglePending,
               isPending: _isPending,
             ),
@@ -49,6 +47,21 @@ class _PendingButtonsSectionState extends State<PendingButtonsSection> {
               onTap: _togglePending,
               isPending: _isPending,
             ),
+            kFastHorizontalSizedBox12,
+            FastPendingRaisedButton(
+              labelText: 'With Tooltip',
+              tooltip: 'This is a tooltip',
+              onTap: _togglePending,
+              isPending: _isPending,
+            ),
+            kFastHorizontalSizedBox12,
+            FastPendingRaisedButton(
+              labelText: 'Red',
+              color: Colors.red[300],
+              onTap: _togglePending,
+              isPending: _isPending,
+            ),
+            kFastHorizontalSizedBox12,
           ],
         ),
       ],

@@ -15,7 +15,9 @@ class NavigationButtonsSection extends StatelessWidget {
       children: [
         const FastBody(text: 'Navigation Buttons'),
         kFastVerticalSizedBox12,
-        Row(
+        Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
+          runSpacing: 6,
           children: [
             FastBackButton(
               onTap: () {
@@ -24,6 +26,21 @@ class NavigationButtonsSection extends StatelessWidget {
             ),
             kFastHorizontalSizedBox12,
             FastCloseButton(
+              size: FastButtonSize.small,
+              onTap: () {
+                FastNotificationCenter.info(context, 'Close button tapped');
+              },
+            ),
+            kFastHorizontalSizedBox12,
+            FastCloseButton(
+              size: FastButtonSize.medium,
+              onTap: () {
+                FastNotificationCenter.info(context, 'Close button tapped');
+              },
+            ),
+            kFastHorizontalSizedBox12,
+            FastCloseButton(
+              size: FastButtonSize.large,
               onTap: () {
                 FastNotificationCenter.info(context, 'Close button tapped');
               },

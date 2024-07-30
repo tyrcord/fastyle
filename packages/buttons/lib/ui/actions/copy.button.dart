@@ -44,6 +44,7 @@ class FastCopyButton extends FastActionButton {
     this.message,
     super.onTap,
     super.icon,
+    super.size,
   }) : valueText = valueText ?? kFastEmptyString;
 
   /// Handles the tap event when the button is pressed.

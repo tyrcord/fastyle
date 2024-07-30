@@ -66,6 +66,12 @@ class FastToolBarButton extends StatelessWidget with FastButtonMixin2 {
   /// Whether the button is flexible.
   final bool flexible;
 
+  /// The size of the button.
+  final FastButtonSize? size;
+
+  /// The style of the text.
+  final TextStyle? textStyle;
+
   const FastToolBarButton({
     super.key,
     required this.icon,
@@ -83,12 +89,14 @@ class FastToolBarButton extends StatelessWidget with FastButtonMixin2 {
     this.debugLabel,
     this.focusColor,
     this.hoverColor,
+    this.textStyle,
     this.labelText,
     this.iconColor,
     this.iconSize,
     this.padding,
     this.tooltip,
     this.onTap,
+    this.size,
   });
 
   @override
@@ -112,6 +120,7 @@ class FastToolBarButton extends StatelessWidget with FastButtonMixin2 {
           emphasis: emphasis,
           flexible: flexible,
           iconSize: iconSize,
+          size: size,
           icon: icon,
         );
 
@@ -120,7 +129,18 @@ class FastToolBarButton extends StatelessWidget with FastButtonMixin2 {
             mainAxisSize: MainAxisSize.min,
             children: [
               button,
-              _buildLabel(context),
+              buildLabelText(
+                context,
+                disabledColor: disabledColor,
+                textStyle: textStyle,
+                upperCase: upperCase,
+                isEnabled: isEnabled,
+                labelText: labelText,
+                emphasis: emphasis,
+                color: iconColor,
+                size: size,
+                icon: icon,
+              ),
               kFastHorizontalSizedBox12,
             ],
           );
@@ -170,18 +190,24 @@ class FastToolBarButton extends StatelessWidget with FastButtonMixin2 {
     );
   }
 
-  Widget _buildLabel(BuildContext context) {
-    return FastSecondaryBody(
-      upperCase: upperCase,
-      text: labelText!,
-      textColor: getColor(
-        context,
-        disabledColor: disabledColor,
-        color: iconColor,
-        isEnabled: isEnabled,
-        emphasis: emphasis,
-        icon: icon,
-      ),
-    );
-  }
+  // Widget buildLabelText(BuildContext context) {
+  //   return FastButtonLabel(
+  //     text: labelText ?? CoreLocaleKeys.core_label_button.tr(),
+  //     fontWeight: textStyle?.fontWeight,
+  //     upperCase: upperCase,
+  //     textColor: getColor(
+  //       context,
+  //       color: textStyle?.color ?? iconColor,
+  //       disabledColor: disabledColor,
+  //       isEnabled: isEnabled,
+  //       emphasis: emphasis,
+  //       icon: icon,
+  //     ),
+  //     fontSize: getFontSize(
+  //       context,
+  //       textStyle: textStyle,
+  //       size: size,
+  //     ),
+  //   );
+  // }
 }

@@ -63,6 +63,9 @@ abstract class FastPopButton extends StatelessWidget {
   /// Whether the button is flexible.
   final bool flexible;
 
+  /// The size of the button.
+  final FastButtonSize? size;
+
   const FastPopButton({
     super.key,
     this.trottleTimeDuration = kFastButtonTrottleTimeDuration,
@@ -84,6 +87,7 @@ abstract class FastPopButton extends StatelessWidget {
     this.padding,
     this.onTap,
     this.icon,
+    this.size,
   });
 
   @protected
@@ -119,6 +123,7 @@ abstract class FastPopButton extends StatelessWidget {
       iconSize: iconSize,
       padding: padding,
       tooltip: tooltip,
+      size: size,
     );
   }
 }

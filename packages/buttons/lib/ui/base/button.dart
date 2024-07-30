@@ -50,6 +50,9 @@ abstract class FastButton2 extends StatefulWidget {
   /// Whether the button is flexible.
   final bool flexible;
 
+  /// The size of the button.
+  final FastButtonSize? size;
+
   const FastButton2({
     super.key,
     this.trottleTimeDuration = kFastButtonTrottleTimeDuration,
@@ -67,5 +70,6 @@ abstract class FastButton2 extends StatefulWidget {
     this.tooltip,
     this.padding,
     this.onTap,
+    this.size,
   });
 }

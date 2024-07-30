@@ -38,6 +38,7 @@ class FastIconButton2 extends FastButton2 {
     super.padding,
     super.tooltip,
     super.onTap,
+    super.size,
   });
 
   @override
@@ -58,11 +59,12 @@ class _FastIconButton2State extends State<FastIconButton2>
         isEnabled: widget.isEnabled,
         iconSize: widget.iconSize,
         emphasis: widget.emphasis,
+        size: widget.size,
       ),
-      constraints: widget.constraints ?? kFastIconButtonConstraints,
       highlightColor: widget.highlightColor,
       semanticLabel: widget.semanticLabel,
       alignment: widget.iconAlignment,
+      constraints: widget.constraints,
       focusColor: widget.focusColor,
       hoverColor: widget.hoverColor,
       isEnabled: widget.isEnabled,
@@ -73,6 +75,7 @@ class _FastIconButton2State extends State<FastIconButton2>
       color: widget.iconColor,
       onTap: onTapCallback,
       icon: widget.icon,
+      size: widget.size,
     );
   }
 
@@ -82,6 +85,7 @@ class _FastIconButton2State extends State<FastIconButton2>
     FastButtonEmphasis? emphasis,
     bool isEnabled = true,
     Color? disabledColor,
+    FastButtonSize? size,
     Color? iconColor,
     double? iconSize,
   }) {
@@ -98,6 +102,7 @@ class _FastIconButton2State extends State<FastIconButton2>
         size: getIconSize(
           context,
           iconSize: iconSize,
+          size: size,
           icon: icon,
         ),
       ),

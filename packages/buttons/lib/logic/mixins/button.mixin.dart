@@ -5,9 +5,13 @@ import 'package:flutter/material.dart';
 // Project imports:
 import 'package:fastyle_buttons/fastyle_buttons.dart';
 
+import 'package:easy_localization/easy_localization.dart';
+import 'package:lingua_core/generated/locale_keys.g.dart';
+
 mixin FastButtonMixin2 {
   double getIconSize(
     BuildContext context, {
+    FastButtonSize? size,
     double? iconSize,
     Widget? icon,
   }) {
@@ -15,7 +19,41 @@ mixin FastButtonMixin2 {
     if ((icon is FaIcon) && icon.size != null) return icon.size!;
     if ((icon is Icon) && icon.size != null) return icon.size!;
 
+    if (size != null) {
+      switch (size) {
+        case FastButtonSize.large:
+          return FastIconButtonSpec.large.iconSize;
+        case FastButtonSize.medium:
+          return FastIconButtonSpec.medium.iconSize;
+        case FastButtonSize.small:
+          return FastIconButtonSpec.small.iconSize;
+      }
+    }
+
     return kFastIconSizeSmall;
+  }
+
+  double getFontSize(
+    BuildContext context, {
+    FastButtonSize? size,
+    TextStyle? textStyle,
+  }) {
+    if (textStyle != null && textStyle.fontSize != null) {
+      return textStyle.fontSize!;
+    }
+
+    if (size != null) {
+      switch (size) {
+        case FastButtonSize.large:
+          return FastButtonSpec.large.fontSize;
+        case FastButtonSize.medium:
+          return FastButtonSpec.medium.fontSize;
+        case FastButtonSize.small:
+          return FastButtonSpec.small.fontSize;
+      }
+    }
+
+    return kFastFontSize16;
   }
 
   Color? getColor(
@@ -147,6 +185,36 @@ mixin FastButtonMixin2 {
         ?.withAlpha(kFastButtonHighlightAlpha);
   }
 
+  BoxConstraints? getButtonConstraints(
+    BuildContext context, {
+    FastButtonSize? size,
+    Widget? icon,
+  }) {
+    if (icon != null) {
+      switch (size) {
+        case FastButtonSize.large:
+          return FastIconButtonSpec.large.constraints;
+        case FastButtonSize.medium:
+          return FastIconButtonSpec.medium.constraints;
+        case FastButtonSize.small:
+          return FastIconButtonSpec.small.constraints;
+        default:
+          return FastIconButtonSpec.medium.constraints;
+      }
+    }
+
+    switch (size) {
+      case FastButtonSize.large:
+        return FastButtonSpec.large.constraints;
+      case FastButtonSize.medium:
+        return FastButtonSpec.medium.constraints;
+      case FastButtonSize.small:
+        return FastButtonSpec.small.constraints;
+      default:
+        return FastButtonSpec.medium.constraints;
+    }
+  }
+
   Widget buildButton(
     BuildContext context,
     Widget child, {
@@ -160,6 +228,7 @@ mixin FastButtonMixin2 {
     String? semanticLabel,
     Color? highlightColor,
     Alignment? alignment,
+    FastButtonSize? size,
     VoidCallback? onTap,
     Color? focusColor,
     Color? hoverColor,
@@ -168,8 +237,13 @@ mixin FastButtonMixin2 {
     Widget? icon,
   }) {
     Widget button = Container(
+      constraints: constraints ??
+          getButtonConstraints(
+            context,
+            size: size,
+            icon: icon,
+          ),
       alignment: alignment ?? Alignment.center,
-      constraints: constraints,
       padding: padding,
       child: child,
     );
@@ -222,5 +296,37 @@ mixin FastButtonMixin2 {
     }
 
     return button;
+  }
+
+  Widget buildLabelText(
+    BuildContext context, {
+    FastButtonEmphasis emphasis = FastButtonEmphasis.low,
+    bool upperCase = true,
+    bool isEnabled = true,
+    TextStyle? textStyle,
+    Color? disabledColor,
+    FastButtonSize? size,
+    String? labelText,
+    Color? color,
+    Widget? icon,
+  }) {
+    return FastButtonLabel(
+      text: labelText ?? CoreLocaleKeys.core_label_button.tr(),
+      fontWeight: textStyle?.fontWeight,
+      upperCase: upperCase,
+      textColor: getColor(
+        context,
+        color: textStyle?.color ?? color,
+        disabledColor: disabledColor,
+        isEnabled: isEnabled,
+        emphasis: emphasis,
+        icon: icon,
+      ),
+      fontSize: getFontSize(
+        context,
+        textStyle: textStyle,
+        size: size,
+      ),
+    );
   }
 }

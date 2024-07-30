@@ -80,7 +80,7 @@ class FastIapPurchasePremiumButtton extends StatelessWidget {
     return FastPendingRaisedButton(
       isEnabled: state.isInitialized && !state.isRestoringPlan,
       isPending: state.isPlanPurchasePending,
-      text: _getLabelText(product),
+      labelText: _getLabelText(product),
       onTap: () {
         final bloc = planBloc ?? BlocProvider.of<FastPlanBloc>(context);
         bloc.addEvent(FastPlanBlocEvent.purchasePlan(_getPremiumProductId()));

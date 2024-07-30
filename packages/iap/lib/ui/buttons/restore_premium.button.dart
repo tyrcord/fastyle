@@ -82,7 +82,7 @@ class FastIapRestorePremiumButton extends StatelessWidget {
       isEnabled: state.isInitialized && !state.isPlanPurchasePending,
       onTap: () => handleOnTap(context),
       isPending: state.isRestoringPlan,
-      text: _getLabelText(),
+      labelText: _getLabelText(),
     );
   }
 
@@ -91,11 +91,11 @@ class FastIapRestorePremiumButton extends StatelessWidget {
     BuildContext context,
     FastPlanBlocState state,
   ) {
-    return FastPendingOutlineButton(
+    return FastPendingOutlinedButton(
       isEnabled: state.isInitialized && !state.isPlanPurchasePending,
       onTap: () => handleOnTap(context),
       isPending: state.isRestoringPlan,
-      text: _getLabelText(),
+      labelText: _getLabelText(),
     );
   }
 

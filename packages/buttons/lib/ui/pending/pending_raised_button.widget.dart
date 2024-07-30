@@ -33,6 +33,7 @@ class FastPendingRaisedButton extends FastRaisedButton2 {
     super.tooltip,
     super.onTap,
     super.color,
+    super.size,
   });
 
   @override
@@ -70,6 +71,7 @@ class FastPendingRaisedButtonState extends State<FastPendingRaisedButton>
       tooltip: widget.tooltip,
       color: widget.color,
       onTap: widget.onTap,
+      size: widget.size,
       key: buttonKey,
       child: widget.isPending ? buildPendingIndicator(context) : null,
     );
