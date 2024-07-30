@@ -51,6 +51,12 @@ class FastRaisedButton2 extends FastButton2 {
 
 class _FastRaisedButtonState2 extends State<FastRaisedButton2>
     with FastButtonMixin2, FastThrottleButtonMixin2<FastRaisedButton2> {
+  bool isHovering = false;
+
+  void _handleHover(bool isHovering) {
+    setState(() => this.isHovering = isHovering);
+  }
+
   @override
   Widget build(BuildContext context) {
     final backgroundColor = getColor(
@@ -66,6 +72,7 @@ class _FastRaisedButtonState2 extends State<FastRaisedButton2>
     if (backgroundColor != null) {
       decoration = BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(8)),
+        boxShadow: [getShadow(context, backgroundColor)],
         color: backgroundColor,
       );
     }
@@ -92,6 +99,7 @@ class _FastRaisedButtonState2 extends State<FastRaisedButton2>
       color: interactionsColor,
       tooltip: widget.tooltip,
       decoration: decoration,
+      onHover: _handleHover,
       onTap: onTapCallback,
     );
   }
@@ -103,6 +111,24 @@ class _FastRaisedButtonState2 extends State<FastRaisedButton2>
       fontSize: widget.textStyle?.fontSize,
       upperCase: widget.upperCase,
       textColor: Colors.white,
+    );
+  }
+
+  BoxShadow getShadow(BuildContext context, Color backgroundColor) {
+    if (isHovering) {
+      return BoxShadow(
+        color: backgroundColor.withAlpha(128),
+        offset: const Offset(0, 0),
+        spreadRadius: 1,
+        blurRadius: 6,
+      );
+    }
+
+    return BoxShadow(
+      color: ThemeHelper.colors.getShadowColor(context),
+      offset: const Offset(0, 0),
+      spreadRadius: 1,
+      blurRadius: 3,
     );
   }
 }

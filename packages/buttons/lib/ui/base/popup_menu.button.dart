@@ -30,9 +30,6 @@ class FastPopupMenuButton2<T> extends FastButton2 {
   /// The shadow color of the overlay.
   final Color? overlayShadowColor;
 
-  /// The shape of the overlay.
-  final ShapeBorder? overlayShape;
-
   /// The elevation of the overlay.
   final double? overlayElevation;
 
@@ -72,7 +69,6 @@ class FastPopupMenuButton2<T> extends FastButton2 {
     super.disabledColor,
     super.semanticLabel,
     this.iconAlignment,
-    this.overlayShape,
     super.constraints,
     this.initialValue,
     super.focusColor,
@@ -95,11 +91,6 @@ class FastPopupMenuButton2<T> extends FastButton2 {
 
 class _FastPopupMenuButtonState<T> extends State<FastPopupMenuButton2<T>>
     with FastButtonMixin2 {
-  void _handleTap() {
-    showButtonMenu(context);
-    widget.onTap?.call();
-  }
-
   @override
   Widget build(BuildContext context) {
     return FastIconButton2(
@@ -120,27 +111,85 @@ class _FastPopupMenuButtonState<T> extends State<FastPopupMenuButton2<T>>
     );
   }
 
-  void showButtonMenu(BuildContext context) {
-    final popupMenuTheme = PopupMenuTheme.of(context);
-    final position = _calculateMenuPosition(context, popupMenuTheme);
-    final items = widget.itemBuilder(context);
+  void _handleMenuSelection(T? newValue) {
+    if (!mounted) return;
 
-    if (items.isNotEmpty) {
-      widget.onOpened?.call();
-      _showMenu(context, position, items, popupMenuTheme);
+    if (newValue == null) {
+      widget.onCanceled?.call();
+    } else {
+      widget.onSelected?.call(newValue);
     }
   }
 
-  RelativeRect _calculateMenuPosition(
+  void _handleTap() {
+    final items = widget.itemBuilder(context);
+
+    if (items.isNotEmpty) {
+      final mediaType = FastMediaLayoutBloc.instance.currentState.mediaType;
+
+      if (mediaType == FastMediaType.handset) {
+        _showModalBottomSheet(context, items);
+      } else {
+        _showPopupMenu(context, items);
+      }
+
+      widget.onOpened?.call();
+    }
+  }
+
+  void _showModalBottomSheet(
     BuildContext context,
-    PopupMenuThemeData popupMenuTheme,
+    List<PopupMenuEntry<T>> items,
   ) {
+    showModalBottomSheet<T>(
+      backgroundColor: _getBackgroundColor(context),
+      elevation: widget.overlayElevation,
+      shape: _buildShape(),
+      context: context,
+      builder: (BuildContext context) {
+        return SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: widget
+                .itemBuilder(context)
+                .map((item) => FastInkWell(child: item))
+                .toList(),
+          ),
+        );
+      },
+    ).then(_handleMenuSelection);
+  }
+
+  void _showPopupMenu(BuildContext context, List<PopupMenuEntry<T>> items) {
+    final position = _calculateMenuPosition(context);
+
+    showMenu<T?>(
+      surfaceTintColor: _getBackgroundColor(context),
+      clipBehavior: widget.overlayClipBehavior,
+      shadowColor: widget.overlayShadowColor,
+      elevation: widget.overlayElevation,
+      initialValue: widget.initialValue,
+      shape: _buildShape(),
+      position: position,
+      context: context,
+      items: items,
+    ).then<void>(_handleMenuSelection);
+  }
+
+  Color? _getBackgroundColor(BuildContext context) {
+    return widget.overlayBackgroundColor ??
+        ThemeHelper.colors.getSecondaryBackgroundColor(context);
+  }
+
+  ShapeBorder _buildShape() {
+    return RoundedRectangleBorder(borderRadius: BorderRadius.circular(8));
+  }
+
+  RelativeRect _calculateMenuPosition(BuildContext context) {
     final button = context.findRenderObject()! as RenderBox;
     final overlay =
         Navigator.of(context).overlay!.context.findRenderObject()! as RenderBox;
-    final popupMenuPosition = widget.overlayPosition ??
-        popupMenuTheme.position ??
-        PopupMenuPosition.over;
+    final popupMenuPosition = widget.overlayPosition ?? PopupMenuPosition.over;
     final offset = _getOffsetBasedOnPosition(popupMenuPosition, button.size);
 
     return RelativeRect.fromRect(
@@ -168,36 +217,6 @@ class _FastPopupMenuButtonState<T> extends State<FastPopupMenuButton2<T>>
         final offset = Offset(0.0, buttonHeight - (verticalPadding / 2));
 
         return offset + widget.overlayOffset;
-    }
-  }
-
-  void _showMenu(
-    BuildContext context,
-    RelativeRect position,
-    List<PopupMenuEntry<T>> items,
-    PopupMenuThemeData popupMenuTheme,
-  ) {
-    showMenu<T?>(
-      shadowColor: widget.overlayShadowColor ?? popupMenuTheme.shadowColor,
-      elevation: widget.overlayElevation ?? popupMenuTheme.elevation,
-      surfaceTintColor: widget.overlayBackgroundColor ??
-          ThemeHelper.colors.getSecondaryBackgroundColor(context),
-      shape: widget.overlayShape ?? popupMenuTheme.shape,
-      clipBehavior: widget.overlayClipBehavior,
-      initialValue: widget.initialValue,
-      position: position,
-      context: context,
-      items: items,
-    ).then<void>(_handleMenuSelection);
-  }
-
-  void _handleMenuSelection(T? newValue) {
-    if (!mounted) return;
-
-    if (newValue == null) {
-      widget.onCanceled?.call();
-    } else {
-      widget.onSelected?.call(newValue);
     }
   }
 }

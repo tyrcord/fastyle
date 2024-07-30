@@ -11,5 +11,5 @@ const kFastButtonConstraints = BoxConstraints(
 );
 
 const kFastButtonTrottleTimeDuration = Duration(milliseconds: 300);
-const kFastButtonHighlightAlpha = 26;
-const kFastButtonHoverAlpha = 25;
+const kFastButtonHighlightAlpha = 28;
+const kFastButtonHoverAlpha = 26;

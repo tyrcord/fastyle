@@ -81,9 +81,7 @@ class FastPendingOutlineButtonState extends State<FastPendingOutlineButton>
   double _getButtonWidth(BuildContext context) {
     final renderBox = context.findRenderObject() as RenderBox?;
 
-    if (renderBox != null) {
-      return renderBox.size.width;
-    }
+    if (renderBox != null) return renderBox.size.width;
 
     return 0.0;
   }

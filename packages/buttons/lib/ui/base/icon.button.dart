@@ -51,7 +51,7 @@ class _FastIconButton2State extends State<FastIconButton2>
       context,
       buildIcon(
         context,
-        widget.icon,
+        icon: widget.icon,
         disabledColor: widget.disabledColor,
         iconColor: widget.iconColor,
         isEnabled: widget.isEnabled,
@@ -71,6 +71,35 @@ class _FastIconButton2State extends State<FastIconButton2>
       color: widget.iconColor,
       onTap: onTapCallback,
       icon: widget.icon,
+    );
+  }
+
+  Widget buildIcon(
+    BuildContext context, {
+    required Widget icon,
+    FastButtonEmphasis? emphasis,
+    bool isEnabled = true,
+    Color? disabledColor,
+    Color? iconColor,
+    double? iconSize,
+  }) {
+    return IconTheme(
+      data: IconThemeData(
+        color: getColor(
+          context,
+          disabledColor: disabledColor,
+          isEnabled: isEnabled,
+          emphasis: emphasis,
+          color: iconColor,
+          icon: icon,
+        ),
+        size: getIconSize(
+          context,
+          iconSize: iconSize,
+          icon: icon,
+        ),
+      ),
+      child: icon,
     );
   }
 }

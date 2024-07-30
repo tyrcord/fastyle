@@ -6,7 +6,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fastyle_buttons/fastyle_buttons.dart';
 
-class FastFavoriteIconButton extends FastActionButton {
+class FastFavoriteIconButton extends FastActionButton with FastButtonMixin2 {
   /// Whether the item is a favorite.
   final bool isFavorite;
 
@@ -39,6 +39,28 @@ class FastFavoriteIconButton extends FastActionButton {
   }
 
   @override
+  Widget build(BuildContext context) {
+    return FastIconButton2(
+      highlightColor: _getHighlightColor(context),
+      trottleTimeDuration: trottleTimeDuration,
+      shouldTrottleTime: shouldTrottleTime,
+      hoverColor: _getHoverColor(context),
+      onTap: () => handleTap(context),
+      disabledColor: disabledColor,
+      iconAlignment: iconAlignment,
+      icon: buildIcon(context),
+      constraints: constraints,
+      debugLabel: debugLabel,
+      focusColor: focusColor,
+      iconColor: iconColor,
+      isEnabled: isEnabled,
+      emphasis: emphasis,
+      iconSize: iconSize,
+      padding: padding,
+    );
+  }
+
+  @override
   Widget buildIcon(BuildContext context) {
     late Widget icon;
 
@@ -49,6 +71,18 @@ class FastFavoriteIconButton extends FastActionButton {
     }
 
     return icon;
+  }
+
+  Color? _getHoverColor(BuildContext context) {
+    return hoverColor ??
+        getEmphasisedColor(context, emphasis: emphasis)
+            ?.withAlpha(kFastButtonHoverAlpha);
+  }
+
+  Color? _getHighlightColor(BuildContext context) {
+    return highlightColor ??
+        getEmphasisedColor(context, emphasis: emphasis)
+            ?.withAlpha(kFastButtonHighlightAlpha);
   }
 
   /// Returns a widget that displays a hollow heart icon.

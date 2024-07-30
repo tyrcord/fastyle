@@ -129,39 +129,11 @@ mixin FastButtonMixin2 {
         ?.withAlpha(kFastButtonHighlightAlpha);
   }
 
-  Widget buildIcon(
-    BuildContext context,
-    Widget icon, {
-    FastButtonEmphasis? emphasis,
-    bool isEnabled = true,
-    Color? disabledColor,
-    Color? iconColor,
-    double? iconSize,
-  }) {
-    return IconTheme(
-      data: IconThemeData(
-        color: getColor(
-          context,
-          disabledColor: disabledColor,
-          isEnabled: isEnabled,
-          emphasis: emphasis,
-          color: iconColor,
-          icon: icon,
-        ),
-        size: getIconSize(
-          context,
-          iconSize: iconSize,
-          icon: icon,
-        ),
-      ),
-      child: icon,
-    );
-  }
-
   Widget buildButton(
     BuildContext context,
     Widget child, {
     FastButtonEmphasis emphasis = FastButtonEmphasis.low,
+    ValueChanged<bool>? onHover,
     BoxConstraints? constraints,
     EdgeInsetsGeometry? padding,
     BoxDecoration? decoration,
@@ -176,11 +148,14 @@ mixin FastButtonMixin2 {
     Color? color,
     Widget? icon,
   }) {
-    Widget button = Container(
-      alignment: alignment ?? Alignment.center,
-      constraints: constraints,
-      padding: padding,
-      child: child,
+    // TODO: make it flexible as well.
+    Widget button = UnconstrainedBox(
+      child: Container(
+        alignment: alignment ?? Alignment.center,
+        constraints: constraints,
+        padding: padding,
+        child: child,
+      ),
     );
 
     if (decoration != null) {
@@ -207,6 +182,7 @@ mixin FastButtonMixin2 {
       ),
       focusColor: focusColor,
       isEnabled: isEnabled,
+      onHover: onHover,
       onTap: onTap,
       child: button,
     );
