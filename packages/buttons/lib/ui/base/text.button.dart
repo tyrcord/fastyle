@@ -17,7 +17,11 @@ class FastTextButton2 extends FastButton2 {
   /// Whether to display the label in uppercase.
   final bool upperCase;
 
+  /// The child contained.
   final Widget? child;
+
+  /// The background color of the button.
+  final Color? backgroundColor;
 
   const FastTextButton2({
     super.key,
@@ -26,6 +30,7 @@ class FastTextButton2 extends FastButton2 {
     super.shouldTrottleTime = false,
     this.upperCase = false,
     super.isEnabled = true,
+    this.backgroundColor,
     super.highlightColor,
     super.disabledColor,
     super.semanticLabel,
@@ -52,6 +57,15 @@ class _FastTextButton2State extends State<FastTextButton2>
     with FastButtonMixin2, FastThrottleButtonMixin2<FastTextButton2> {
   @override
   Widget build(BuildContext context) {
+    BoxDecoration? decoration;
+
+    if (widget.backgroundColor != null) {
+      decoration = BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(8)),
+        color: widget.backgroundColor,
+      );
+    }
+
     return buildButton(
       context,
       widget.child != null
@@ -78,7 +92,9 @@ class _FastTextButton2State extends State<FastTextButton2>
       emphasis: widget.emphasis,
       flexible: widget.flexible,
       tooltip: widget.tooltip,
+      decoration: decoration,
       onTap: onTapCallback,
+      icon: widget.child,
       size: widget.size,
     );
   }

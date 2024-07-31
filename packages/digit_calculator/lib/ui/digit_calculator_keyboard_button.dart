@@ -8,12 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:t_helpers/helpers.dart';
 import 'package:tenhance/tenhance.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 // A custom Flutter widget for a calculator keyboard button
 class FastDigitCalculatorKeyboardButton<T> extends StatelessWidget {
-  /// The elevation of the button
-  final double buttonElevation;
-
   /// The function to call when the button is pressed
   final Function(T) onPressed;
 
@@ -60,7 +58,6 @@ class FastDigitCalculatorKeyboardButton<T> extends StatelessWidget {
     required this.label,
     required this.value,
     this.backgroundColor,
-    this.buttonElevation = 0,
     this.flex = 1,
     this.highlightColor,
     this.textColor,
@@ -95,34 +92,21 @@ class FastDigitCalculatorKeyboardButton<T> extends StatelessWidget {
           return Container(
             padding: kFastEdgeInsets6,
             height: height,
-            child: FastFilledButton(
-              highlightColor: _getButtonHighlightColor(context),
-              backgroundColor: _getButtonBackgroundColor(context),
+            child: FastTextButton2(
               onTap: () => isEnabled ? onPressed(value) : null,
-              elevation: buttonElevation,
-              padding: EdgeInsets.zero,
+              backgroundColor: _getButtonBackgroundColor(context),
               isEnabled: isEnabled,
-              textColor: textColor,
-              fontSize: fontSize,
-              text: label,
+              textStyle: TextStyle(
+                fontSize: fontSize,
+                color: textColor,
+              ),
+              labelText: label,
               child: icon,
             ),
           );
         }),
       ),
     );
-  }
-
-  // Private method to determine the button's highlight color
-  Color _getButtonHighlightColor(BuildContext context) {
-    if (highlightColor != null) {
-      return highlightColor!;
-    }
-
-    final texts = ThemeHelper.texts;
-    final color = textColor ?? texts.getBodyTextStyle(context).color!;
-
-    return lightenColor(color, 0.25);
   }
 
   // Private method to determine the button's background color

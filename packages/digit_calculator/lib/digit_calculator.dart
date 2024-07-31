@@ -215,7 +215,7 @@ class FastDigitCalculatorState extends State<FastDigitCalculator> {
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
+    return Ink(
       color: ThemeHelper.colors.getSecondaryBackgroundColor(context),
       child: Center(
         child: ConstrainedBox(

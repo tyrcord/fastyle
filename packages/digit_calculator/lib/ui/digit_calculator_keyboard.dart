@@ -43,11 +43,11 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     // The overall container for the keyboard, with a secondary background color
-    return ColoredBox(
+    return Ink(
       color: ThemeHelper.colors.getSecondaryBackgroundColor(context),
       child: FastDigitCalculatorKeyboardListener(
         onKeyPressed: onKeyPressed,
-        child: DecoratedBox(
+        child: Ink(
           decoration: BoxDecoration(
             color: _getBackgroundColor(context),
             borderRadius: const BorderRadius.only(
