@@ -1,8 +1,8 @@
 // Flutter imports:
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tbloc/tbloc.dart';
 
 // Project imports:
@@ -20,29 +20,32 @@ class FastCalculatorRefreshAction<B extends FastCalculatorBloc,
 
   @override
   Widget build(BuildContext context) {
-    final primaryColor = ThemeHelper.colors.getPrimaryColor(context);
-
     return BlocBuilderWidget<FastCalculatorBlocState>(
       bloc: calculatorBloc,
-      buildWhen: (previous, next) {
-        return previous.isBusy != next.isBusy ||
-            previous.isValid != next.isValid;
-      },
+      buildWhen: _buildWhen,
       builder: (_, FastCalculatorBlocState state) {
-        return FastAnimatedRotationIconButton(
+        return FastAnimatedRotationIconButton2(
           isEnabled: shouldEnableInteractions(state),
-          iconAlignment: Alignment.centerRight,
+          emphasis: FastButtonEmphasis.high,
           disabledColor: disabledColor,
           shouldTrottleTime: true,
-          iconColor: primaryColor,
           rotate: state.isBusy,
+          onTap: _handleTap,
           icon: icon,
-          onTap: () => calculatorBloc.addEvent(
-            FastCalculatorBlocEvent.compute<R>(),
-          ),
         );
       },
     );
+  }
+
+  bool _buildWhen(
+    FastCalculatorBlocState previous,
+    FastCalculatorBlocState next,
+  ) {
+    return previous.isBusy != next.isBusy || previous.isValid != next.isValid;
+  }
+
+  void _handleTap() {
+    calculatorBloc.addEvent(FastCalculatorBlocEvent.compute<R>());
   }
 
   /// Whether the action should be enabled or not.

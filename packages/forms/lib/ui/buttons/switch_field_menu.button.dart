@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -20,34 +21,24 @@ class FastSwitchFieldMenuButton<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FastPopupMenuButton<T>(
+    return FastPopupMenuButton2<T>(
+      iconColor: ThemeHelper.texts.getBodyTextStyle(context).color,
       itemBuilder: (BuildContext context) => options,
-      iconAlignment: Alignment.centerRight,
       onSelected: onOptionChanged,
-      padding: EdgeInsets.zero,
+      size: FastButtonSize.small,
       icon: buildIcon(context),
     );
   }
 
   Widget buildIcon(BuildContext context) {
-    if (icon != null) {
-      return icon!;
-    }
+    if (icon != null) return icon!;
 
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return FaIcon(
-        FastFontAwesomeIcons.lightEllipsisVertical,
-        color: ThemeHelper.texts.getBodyTextStyle(context).color,
-        size: kFastIconSizeSmall,
-      );
+      return const FaIcon(FastFontAwesomeIcons.lightEllipsisVertical);
     }
 
-    return FaIcon(
-      FontAwesomeIcons.ellipsisVertical,
-      color: ThemeHelper.texts.getBodyTextStyle(context).color,
-      size: kFastIconSizeSmall,
-    );
+    return const FaIcon(FontAwesomeIcons.ellipsisVertical);
   }
 }

@@ -6,6 +6,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tbloc/tbloc.dart';
 import 'package:tenhance/tenhance.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 // Project imports:
 import 'package:fastyle_calculator/fastyle_calculator.dart';
@@ -60,19 +61,16 @@ class FastCalculatorChartToggle<B extends FastCalculatorBloc,
     BuildContext context,
     FastCalculatorBlocState state,
   ) {
-    final primaryColor = ThemeHelper.colors.getPrimaryColor(context);
-
     return ValueListenableBuilder<bool>(
       valueListenable: _chartViewNotifier,
       builder: (context, showChart, child) {
         final icon =
             showChart ? _buildListIcon(context) : _buildChartIcon(context);
 
-        return FastIconButton(
+        return FastIconButton2(
           onTap: () => _chartViewNotifier.value = !showChart,
           isEnabled: state.isInitialized && state.isValid,
-          iconAlignment: Alignment.centerRight,
-          iconColor: primaryColor,
+          emphasis: FastButtonEmphasis.high,
           icon: icon,
         );
       },
@@ -91,26 +89,20 @@ class FastCalculatorChartToggle<B extends FastCalculatorBloc,
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return const FaIcon(
-        FastFontAwesomeIcons.lightChartPieSimple,
-        size: kFastIconSizeSmall,
-      );
+      return const FaIcon(FastFontAwesomeIcons.lightChartPieSimple);
     }
 
-    return const FaIcon(FontAwesomeIcons.chartPie, size: kFastIconSizeSmall);
+    return const FaIcon(FontAwesomeIcons.chartPie);
   }
 
   Widget _defaultListIcon(BuildContext context) {
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return const FaIcon(
-        FastFontAwesomeIcons.lightListOl,
-        size: kFastIconSizeSmall,
-      );
+      return const FaIcon(FastFontAwesomeIcons.lightListOl);
     }
 
-    return const FaIcon(FontAwesomeIcons.listOl, size: kFastIconSizeSmall);
+    return const FaIcon(FontAwesomeIcons.listOl);
   }
 
   @override

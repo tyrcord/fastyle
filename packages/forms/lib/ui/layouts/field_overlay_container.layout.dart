@@ -133,7 +133,7 @@ class FastFieldOverlayContainer<T> extends StatelessWidget {
 
   /// Builds the trailing icon based on the current route's properties.
   Widget _buildTralingIcon(BuildContext context) {
-    return FastIconButton(
+    return FastIconButton2(
       onTap: () => _valid(context),
       iconSize: kFastIconSizeLarge,
       icon: validIcon!,

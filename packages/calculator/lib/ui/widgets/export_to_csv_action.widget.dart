@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -13,8 +14,6 @@ import 'package:fastyle_calculator/fastyle_calculator.dart';
 class FastCalculatorExportToCsvAction<B extends FastCalculatorBloc,
     R extends FastCalculatorResults> extends FastCalculatorAction<B, R> {
   final bool Function(FastCalculatorBlocState state)? canEnableInteractions;
-
-  static const iconSize = kFastIconSizeSmall;
 
   final Color? color;
 
@@ -37,8 +36,9 @@ class FastCalculatorExportToCsvAction<B extends FastCalculatorBloc,
   }
 
   Widget _buildButton(BuildContext context, FastCalculatorBlocState state) {
-    return FastIconButton(
+    return FastIconButton2(
       isEnabled: shouldEnableInteractions(state),
+      emphasis: FastButtonEmphasis.high,
       onTap: () => handleTap(context),
       disabledColor: disabledColor,
       icon: buildIcon(context),
@@ -64,10 +64,10 @@ class FastCalculatorExportToCsvAction<B extends FastCalculatorBloc,
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return const FaIcon(FastFontAwesomeIcons.lightFileCsv, size: iconSize);
+      return const FaIcon(FastFontAwesomeIcons.lightFileCsv);
     }
 
-    return const FaIcon(FontAwesomeIcons.fileCsv, size: iconSize);
+    return const FaIcon(FontAwesomeIcons.fileCsv);
   }
 
   /// Whether the action should be enabled or not.

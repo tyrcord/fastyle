@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -17,8 +18,8 @@ class _SmartNativeAdsPageState extends State<SmartNativeAdsPage> {
   @override
   Widget build(BuildContext context) {
     return FastSectionPage(
-      floatingActionButton: FastRaisedButton(
-        text: 'Show',
+      floatingActionButton: FastRaisedButton2(
+        labelText: 'Show',
         onTap: () => GoRouter.of(context).go('/smart-native/cover'),
       ),
       titleText: 'Smart Native Ads',

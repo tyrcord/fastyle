@@ -6,6 +6,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
@@ -71,9 +72,9 @@ class FastAppInfoPage<T> extends StatelessWidget {
   Widget _buildEraseContentSettingsButton(BuildContext context) {
     final redColor = ThemeHelper.getPaletteColors(context).red.mid;
 
-    return FastTextButton(
-      text: CoreLocaleKeys.core_label_erase_all_content_and_settings.tr(),
-      textColor: redColor,
+    return FastTextButton2(
+      labelText: CoreLocaleKeys.core_label_erase_all_content_and_settings.tr(),
+      textStyle: TextStyle(color: redColor),
       upperCase: false,
       onTap: () async {
         showAnimatedFastAlertDialog(

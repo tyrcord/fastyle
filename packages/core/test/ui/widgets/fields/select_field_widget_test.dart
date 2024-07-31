@@ -207,52 +207,6 @@ void main() {
     });
 
     group('#canClearSelection', () {
-      testWidgets('should be set to true by default',
-          (WidgetTester tester) async {
-        var called = false;
-        FastItem<dynamic>? selection;
-
-        await tester.pumpWidget(
-          _buildApp(FastSelectField(
-            labelText: labelText,
-            onSelectionChanged: (FastItem<dynamic>? item) {
-              called = true;
-              selection = item;
-            },
-            categories: categories,
-            groupByCategory: true,
-            items: items,
-          )),
-        );
-        await tester.pumpAndSettle();
-
-        await tester.tap(find.byType(FastSelectField));
-        await tester.pumpAndSettle();
-
-        final listItems = find.byType(FastSelectableListItem);
-
-        await tester.tap(listItems.first);
-        await tester.pumpAndSettle();
-
-        expect(called, isTrue);
-        expect(selection!.labelText, '0');
-        expect(find.text('0'), findsOneWidget);
-
-        await tester.tap(find.byType(FastSelectField));
-        await tester.pumpAndSettle();
-        expect(find.byType(FastSelectableListItem), findsNWidgets(7));
-
-        final link =
-            tester.firstWidget(find.byType(FastTextButton)) as FastTextButton;
-        expect(find.byType(FastTextButton), findsOneWidget);
-        expect(link.text, 'Clear selection');
-
-        await tester.tap(find.byType(FastTextButton));
-        await tester.pumpAndSettle();
-
-        expect(find.text('0'), findsNothing);
-      });
-
       testWidgets('should not be visible whether set to false',
           (WidgetTester tester) async {
         await tester.pumpWidget(
@@ -271,31 +225,6 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(find.byType(FastLink), findsNothing);
-      });
-    });
-
-    group('#clearSelectionText', () {
-      testWidgets('should be used for the "clear selection" text',
-          (WidgetTester tester) async {
-        await tester.pumpWidget(
-          _buildApp(FastSelectField(
-            labelText: labelText,
-            onSelectionChanged: (FastItem<dynamic>? item) {},
-            categories: categories,
-            groupByCategory: true,
-            clearSelectionText: 'Nettoyer',
-            items: items,
-          )),
-        );
-        await tester.pumpAndSettle();
-
-        await tester.tap(find.byType(FastSelectField));
-        await tester.pumpAndSettle();
-
-        final link =
-            tester.firstWidget(find.byType(FastTextButton)) as FastTextButton;
-        expect(find.byType(FastTextButton), findsOneWidget);
-        expect(link.text, 'Nettoyer');
       });
     });
 

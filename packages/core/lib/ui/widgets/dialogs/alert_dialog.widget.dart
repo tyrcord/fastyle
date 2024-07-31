@@ -69,8 +69,8 @@ class FastAlertDialog extends AlertDialog {
   List<Widget> _buildDefaultActions(BuildContext context) {
     final actions = [
       if (showCancel)
-        FastTextButton(
-          text: cancelText ?? CoreLocaleKeys.core_label_cancel.tr(),
+        FastTextButton2(
+          labelText: cancelText ?? CoreLocaleKeys.core_label_cancel.tr(),
           onTap: () {
             if (onCancel != null) {
               onCancel!();
@@ -80,13 +80,15 @@ class FastAlertDialog extends AlertDialog {
           },
         ),
       if (showAlternative && onAlternative != null && alternativeText != null)
-        FastTextButton(
-          textColor: ThemeHelper.getPaletteColors(context).blue.mid,
-          text: alternativeText,
+        FastTextButton2(
+          textStyle: TextStyle(
+            color: ThemeHelper.getPaletteColors(context).blue.mid,
+          ),
+          labelText: alternativeText,
           onTap: onAlternative,
         ),
       if (showValid)
-        FastTextButton(
+        FastTextButton2(
           onTap: () {
             if (onValid != null) {
               onValid!();
@@ -94,7 +96,7 @@ class FastAlertDialog extends AlertDialog {
               Navigator.pop(context);
             }
           },
-          text: validText ?? CoreLocaleKeys.core_label_valid.tr(),
+          labelText: validText ?? CoreLocaleKeys.core_label_valid.tr(),
           emphasis: FastButtonEmphasis.high,
         ),
     ];

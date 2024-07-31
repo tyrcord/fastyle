@@ -7,7 +7,6 @@ import 'package:fastyle_views/fastyle_views.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
-import 'package:fastyle_core_example/pages/buttons.dart';
 import 'package:fastyle_core_example/pages/cards.dart';
 import 'package:fastyle_core_example/pages/colors.dart';
 import 'package:fastyle_core_example/pages/fields.dart';
@@ -44,10 +43,6 @@ final List<RouteBase> kAppRoutes = [
         ),
       );
     },
-  ),
-  GoRoute(
-    path: 'buttons',
-    builder: (context, state) => const ButtonsPage(),
   ),
   GoRoute(
     path: 'typography',

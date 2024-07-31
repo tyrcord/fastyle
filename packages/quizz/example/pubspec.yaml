@@ -5,6 +5,7 @@ dependencies:
     sdk: flutter
   go_router: ^14.1.3
   tenhance: ^0.0.13
+  fastyle_buttons: ^0.0.32+3
 description: A new Flutter project.
 dev_dependencies:
   dependency_validator: ^3.2.3
@@ -13,8 +14,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: '>=3.16.0'
-  sdk: '>=3.2.0 <4.0.0'
+  flutter: ">=3.16.0"
+  sdk: ">=3.2.0 <4.0.0"
 flutter:
   uses-material-design: true
 name: fastyle_quizz_example

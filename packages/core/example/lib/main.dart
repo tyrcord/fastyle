@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -107,14 +108,14 @@ class MyHomePageState extends State<MyHomePage> {
     final palette = ThemeHelper.getPaletteColors(context);
 
     return FastHomePage(
-      leading: FastIconButton(
+      leading: FastIconButton2(
         onTap: () => context.go('/onboarding'),
         icon: const Icon(Icons.account_circle),
         iconColor: palette.whiteColor,
         iconSize: kFastIconSizeMedium,
       ),
       actions: [
-        FastIconButton(
+        FastIconButton2(
           onTap: () async {
             final response = await Navigator.push(
               context,

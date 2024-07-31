@@ -16,7 +16,7 @@ class FastFilledButton extends FastButton {
     super.trottleTimeDuration,
     super.shouldTrottleTime,
     super.highlightColor,
-    super.overlayColor,
+    // super.overlayColor,
     super.isEnabled,
     super.textColor,
     super.padding,
@@ -65,7 +65,7 @@ class FastFilledButtonState extends State<FastFilledButton>
     return FilledButton(
       onPressed: throttleOnTapIfNeeded(),
       style: FilledButton.styleFrom(
-        foregroundColor: widget.highlightColor,
+        // foregroundColor: widget.highlightColor,
         padding: widget.padding,
         elevation: widget.elevation,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),

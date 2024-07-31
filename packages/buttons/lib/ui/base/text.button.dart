@@ -17,6 +17,8 @@ class FastTextButton2 extends FastButton2 {
   /// Whether to display the label in uppercase.
   final bool upperCase;
 
+  final Widget? child;
+
   const FastTextButton2({
     super.key,
     super.trottleTimeDuration = kFastButtonTrottleTimeDuration,
@@ -39,6 +41,7 @@ class FastTextButton2 extends FastButton2 {
     super.tooltip,
     super.onTap,
     super.size,
+    this.child,
   });
 
   @override
@@ -51,16 +54,18 @@ class _FastTextButton2State extends State<FastTextButton2>
   Widget build(BuildContext context) {
     return buildButton(
       context,
-      buildLabelText(
-        context,
-        disabledColor: widget.disabledColor,
-        textStyle: widget.textStyle,
-        upperCase: widget.upperCase,
-        isEnabled: widget.isEnabled,
-        labelText: widget.labelText,
-        emphasis: widget.emphasis,
-        size: widget.size,
-      ),
+      widget.child != null
+          ? widget.child!
+          : buildLabelText(
+              context,
+              disabledColor: widget.disabledColor,
+              textStyle: widget.textStyle,
+              upperCase: widget.upperCase,
+              isEnabled: widget.isEnabled,
+              labelText: widget.labelText,
+              emphasis: widget.emphasis,
+              size: widget.size,
+            ),
       padding: widget.padding ?? const EdgeInsets.symmetric(horizontal: 12.0),
       highlightColor: widget.highlightColor,
       semanticLabel: widget.semanticLabel,

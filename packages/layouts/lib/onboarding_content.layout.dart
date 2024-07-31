@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tenhance/tenhance.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 class FastOnboardingContentLayout extends StatelessWidget {
   /// The palette to use for the icon.
@@ -129,7 +130,10 @@ class FastOnboardingContentLayout extends StatelessWidget {
         if (actionBuilder != null)
           Builder(builder: actionBuilder!)
         else
-          FastRaisedButton(onTap: () => onActionTap?.call(), text: actionText!),
+          FastRaisedButton2(
+            onTap: () => onActionTap?.call(),
+            labelText: actionText!,
+          ),
         isHandset ? kFastSizedBox24 : kFastSizedBox32,
       ],
     );

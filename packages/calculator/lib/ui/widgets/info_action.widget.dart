@@ -31,12 +31,11 @@ class FastCalculatorInfoAction<B extends FastCalculatorBloc,
       bloc: calculatorBloc,
       onlyWhenInitializing: true,
       builder: (_, FastCalculatorBlocState state) {
-        return FastIconButton(
-          icon: buildIcon(context),
+        return FastIconButton2(
           isEnabled: shouldEnableInteractions(state),
-          iconAlignment: Alignment.centerRight,
           emphasis: FastButtonEmphasis.high,
           disabledColor: disabledColor,
+          icon: buildIcon(context),
           shouldTrottleTime: true,
           onTap: onTap,
         );

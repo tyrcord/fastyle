@@ -120,7 +120,7 @@ class FastSearchBarState<T extends FastItem> extends State<FastSearchBar<T>> {
   Widget _buildClearIcon(BuildContext context) {
     final theme = Theme.of(context);
 
-    return FastIconButton(
+    return FastIconButton2(
       iconColor: _searchQuery == null ? theme.hintColor : null,
       onTap: () => _textController.clear(),
       iconSize: kFastIconSizeMedium,

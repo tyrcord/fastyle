@@ -8,6 +8,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:tenhance/tenhance.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 //TODO: @need-review: code from fastyle_dart
 
@@ -146,7 +147,7 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
             alignment: Alignment.centerRight,
             child: _buildButtonLayout(
               context,
-              FastTextButton(
+              FastTextButton2(
                 onTap: () async {
                   if (hasReachEnd) {
                     _done(context);
@@ -162,7 +163,7 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
                     );
                   }
                 },
-                text: hasReachEnd ? _getDoneText() : _getNextText(),
+                labelText: hasReachEnd ? _getDoneText() : _getNextText(),
                 isEnabled: !isPending,
               ),
             ),
@@ -170,9 +171,9 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
           if (canShowSkipButton)
             _buildButtonLayout(
               context,
-              FastTextButton(
+              FastTextButton2(
                 onTap: () => _onSkip(context),
-                text: _getSkipText(),
+                labelText: _getSkipText(),
               ),
             ),
         ],

@@ -161,14 +161,7 @@ class FastScaffold extends StatelessWidget {
   }
 
   Widget? _buildLeading(BuildContext context) {
-    if (leading != null) {
-      return Padding(
-        padding: EdgeInsets.only(
-          left: ThemeHelper.spacing.getSpacing(context),
-        ),
-        child: leading,
-      );
-    }
+    if (leading != null) return leading;
 
     return _buildLeadingIcon(context);
   }

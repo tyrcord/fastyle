@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 // Project imports:
 import 'package:fastyle_calculator/fastyle_calculator.dart';
@@ -22,46 +23,44 @@ class FastCalculatorClearAction<B extends FastCalculatorBloc,
 
   @override
   Widget build(BuildContext context) {
-    final primaryColor = ThemeHelper.colors.getPrimaryColor(context);
-
     return BlocBuilderWidget<FastCalculatorBlocState>(
       bloc: calculatorBloc,
-      buildWhen: (previous, next) => previous.isDirty != next.isDirty,
+      buildWhen: _buildWhen,
       builder: (_, FastCalculatorBlocState state) {
-        return FastIconButton(
+        return FastIconButton2(
           isEnabled: shouldEnableInteractions(state),
-          iconAlignment: Alignment.centerRight,
+          emphasis: FastButtonEmphasis.high,
           disabledColor: disabledColor,
           icon: buildIcon(context),
-          iconColor: primaryColor,
           shouldTrottleTime: true,
-          onTap: () {
-            calculatorBloc.addEvent(FastCalculatorBlocEvent.clear<R>());
-            onTap?.call();
-          },
+          onTap: handleTap,
         );
       },
     );
   }
 
+  bool _buildWhen(
+    FastCalculatorBlocState previous,
+    FastCalculatorBlocState next,
+  ) {
+    return previous.isDirty != next.isDirty;
+  }
+
+  void handleTap() {
+    calculatorBloc.addEvent(FastCalculatorBlocEvent.clear<R>());
+    onTap?.call();
+  }
+
   Widget buildIcon(BuildContext context) {
-    if (icon != null) {
-      return icon!;
-    }
+    if (icon != null) return icon!;
 
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return const FaIcon(
-        FastFontAwesomeIcons.lightEraser,
-        size: kFastIconSizeSmall,
-      );
+      return const FaIcon(FastFontAwesomeIcons.lightEraser);
     }
 
-    return const FaIcon(
-      FontAwesomeIcons.eraser,
-      size: kFastIconSizeSmall,
-    );
+    return const FaIcon(FontAwesomeIcons.eraser);
   }
 
   /// Whether the action should be enabled or not.

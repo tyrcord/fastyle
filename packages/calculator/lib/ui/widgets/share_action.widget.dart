@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -26,10 +27,11 @@ class FastCalculatorShareAction<B extends FastCalculatorBloc,
   Widget build(BuildContext context) {
     return BlocBuilderWidget<FastCalculatorBlocState>(
       bloc: calculatorBloc,
-      buildWhen: (previous, next) => previous.isValid != next.isValid,
+      buildWhen: _buildWhen,
       builder: (BuildContext context, FastCalculatorBlocState state) {
-        return FastIconButton(
+        return FastIconButton2(
           isEnabled: shouldEnableInteractions(state),
+          emphasis: FastButtonEmphasis.high,
           disabledColor: disabledColor,
           icon: buildIcon(context),
           shouldTrottleTime: true,
@@ -41,24 +43,23 @@ class FastCalculatorShareAction<B extends FastCalculatorBloc,
     );
   }
 
+  bool _buildWhen(
+    FastCalculatorBlocState previous,
+    FastCalculatorBlocState next,
+  ) {
+    return previous.isValid != next.isValid;
+  }
+
   Widget buildIcon(BuildContext context) {
-    if (icon != null) {
-      return icon!;
-    }
+    if (icon != null) return icon!;
 
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
-      return const FaIcon(
-        FastFontAwesomeIcons.lightArrowUpRightFromSquare,
-        size: kFastIconSizeSmall,
-      );
+      return const FaIcon(FastFontAwesomeIcons.lightArrowUpRightFromSquare);
     }
 
-    return const FaIcon(
-      FontAwesomeIcons.arrowUpRightFromSquare,
-      size: kFastIconSizeSmall,
-    );
+    return const FaIcon(FontAwesomeIcons.arrowUpRightFromSquare);
   }
 
   /// Whether the action should be enabled or not.

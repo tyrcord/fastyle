@@ -204,7 +204,10 @@ class FastStatusPage extends StatelessWidget {
   /// Builds the widget for the cancel button.
   Widget buildCancelButton() {
     if (onCancelTap != null && cancelButtonText != null) {
-      return FastOutlineButton(onTap: onCancelTap, text: cancelButtonText);
+      return FastOutlinedButton(
+        onTap: onCancelTap,
+        labelText: cancelButtonText,
+      );
     }
 
     return const SizedBox.shrink();

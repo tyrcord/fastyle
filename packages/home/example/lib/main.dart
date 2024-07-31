@@ -6,6 +6,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_home/fastyle_home.dart';
 import 'package:go_router/go_router.dart';
 import 'package:t_helpers/helpers.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 void main() {
   runApp(const MyApp());
@@ -47,24 +48,24 @@ class MyAppState extends State<MyApp> {
             appBarExpandedHeight: 250,
             graphType: _graphType,
             children: [
-              FastRaisedButton(
-                text: 'Line Graph',
+              FastRaisedButton2(
+                labelText: 'Line Graph',
                 onTap: () {
                   setState(() {
                     _graphType = FastHomeGraphType.line;
                   });
                 },
               ),
-              FastRaisedButton(
-                text: 'Pie Graph',
+              FastRaisedButton2(
+                labelText: 'Pie Graph',
                 onTap: () {
                   setState(() {
                     _graphType = FastHomeGraphType.pie;
                   });
                 },
               ),
-              FastRaisedButton(
-                text: 'Bar Graph',
+              FastRaisedButton2(
+                labelText: 'Bar Graph',
                 onTap: () {
                   setState(() {
                     _graphType = FastHomeGraphType.bar;

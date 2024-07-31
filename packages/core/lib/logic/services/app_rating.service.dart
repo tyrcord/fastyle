@@ -2,6 +2,7 @@
 import 'dart:io';
 
 // Flutter imports:
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -55,21 +56,22 @@ class FastAppRatingService {
   }) async {
     await _rateMyApp.init();
 
-    // ignore: use_build_context_synchronously
-    return _rateMyApp.showStarRateDialog(
-      context,
-      title: titleText ??
-          SettingsLocaleKeys.settings_question_do_you_like_our_app.tr(),
-      message: messageText ??
-          SettingsLocaleKeys.settings_question_do_you_enjoy_our_app.tr(),
-      ignoreNativeDialog: Platform.isAndroid,
-      actionsBuilder: (context, stars) {
-        return buildRatingDialogActions(context, validText: validText);
-      },
-      onDismissed: () {
-        _rateMyApp.callEvent(RateMyAppEventType.laterButtonPressed);
-      },
-    );
+    if (context.mounted) {
+      return _rateMyApp.showStarRateDialog(
+        context,
+        title: titleText ??
+            SettingsLocaleKeys.settings_question_do_you_like_our_app.tr(),
+        message: messageText ??
+            SettingsLocaleKeys.settings_question_do_you_enjoy_our_app.tr(),
+        ignoreNativeDialog: Platform.isAndroid,
+        actionsBuilder: (context, stars) {
+          return buildRatingDialogActions(context, validText: validText);
+        },
+        onDismissed: () {
+          _rateMyApp.callEvent(RateMyAppEventType.laterButtonPressed);
+        },
+      );
+    }
   }
 
   List<Widget> buildRatingDialogActions(
@@ -77,15 +79,17 @@ class FastAppRatingService {
     String? validText,
   }) {
     return [
-      FastTextButton(
-        text: validText ?? CoreLocaleKeys.core_label_ok.tr(),
+      FastTextButton2(
+        labelText: validText ?? CoreLocaleKeys.core_label_ok.tr(),
         onTap: () async {
           await _rateMyApp.callEvent(RateMyAppEventType.rateButtonPressed);
-          // ignore: use_build_context_synchronously
-          Navigator.pop<RateMyAppDialogButton>(
-            context,
-            RateMyAppDialogButton.rate,
-          );
+
+          if (context.mounted) {
+            Navigator.pop<RateMyAppDialogButton>(
+              context,
+              RateMyAppDialogButton.rate,
+            );
+          }
         },
       ),
     ];
@@ -94,8 +98,9 @@ class FastAppRatingService {
   /// Checks if app review is needed and displays the app rating dialog if so.
   Future<void> askForAppReviewIfNeeded(BuildContext context) async {
     if (await shouldAskForAppReview()) {
-      // ignore: use_build_context_synchronously
-      return showAppRatingDialog(context);
+      if (context.mounted) {
+        return showAppRatingDialog(context);
+      }
     }
   }
 

@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:fastyle_calculator/fastyle_calculator.dart';
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:tbloc/tbloc.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 // Project imports:
 import 'package:fastyle_calculator_example/logic/logic.dart';
@@ -84,7 +85,7 @@ class SumCalculatorPageState extends State<SumCalculatorPage> {
         );
       },
       resultsActions: [
-        FastIconButton(
+        FastIconButton2(
           iconColor: ThemeHelper.colors.getPrimaryColor(context),
           iconAlignment: Alignment.centerRight,
           icon: const Icon(Icons.bar_chart),
@@ -189,7 +190,7 @@ class SumCalculatorPageState extends State<SumCalculatorPage> {
           enableInteractiveSelection: canCopy,
           placeholderText: '0',
           pendingText: '0.00',
-          suffixIcon: FastIconButton(
+          suffixIcon: FastIconButton2(
             icon: const Icon(Icons.content_copy),
             iconAlignment: Alignment.centerRight,
             padding: EdgeInsets.zero,
@@ -249,7 +250,7 @@ class SumCalculatorPageState extends State<SumCalculatorPage> {
           onValueChanged: (_) {},
           valueText: asyncValue,
           isEnabled: !isFetchingAsyncValue,
-          suffixIcon: FastAnimatedRotationIconButton(
+          suffixIcon: FastAnimatedRotationIconButton2(
             isEnabled: !isFetchingAsyncValue,
             iconAlignment: Alignment.centerRight,
             rotate: isFetchingAsyncValue,

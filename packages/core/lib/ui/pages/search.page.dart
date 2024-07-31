@@ -292,9 +292,9 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            FastTextButton(
-              textColor: palette.blue.mid,
-              text: widget.clearSelectionText ??
+            FastTextButton2(
+              textStyle: TextStyle(color: palette.blue.mid),
+              labelText: widget.clearSelectionText ??
                   CoreLocaleKeys.core_label_clear_selection.tr(),
               onTap: () => _close(context, null),
             )

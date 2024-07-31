@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 class NotificationsPage extends StatelessWidget {
   const NotificationsPage({super.key});
@@ -15,8 +16,8 @@ class NotificationsPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          FastRaisedButton(
-            text: 'info button',
+          FastRaisedButton2(
+            labelText: 'info button',
             onTap: () {
               FastNotificationCenter.info(
                 context,
@@ -27,8 +28,8 @@ class NotificationsPage extends StatelessWidget {
               );
             },
           ),
-          FastRaisedButton(
-            text: 'error button',
+          FastRaisedButton2(
+            labelText: 'error button',
             onTap: () {
               FastNotificationCenter.error(
                 context,
@@ -39,8 +40,8 @@ class NotificationsPage extends StatelessWidget {
               );
             },
           ),
-          FastRaisedButton(
-            text: 'warn button',
+          FastRaisedButton2(
+            labelText: 'warn button',
             onTap: () {
               FastNotificationCenter.warn(
                 context,
@@ -48,8 +49,8 @@ class NotificationsPage extends StatelessWidget {
               );
             },
           ),
-          FastRaisedButton(
-            text: 'success button',
+          FastRaisedButton2(
+            labelText: 'success button',
             onTap: () {
               FastNotificationCenter.success(
                 context,

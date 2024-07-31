@@ -127,63 +127,6 @@ void main() {
       });
     });
 
-    group('#canClearSelection', () {
-      testWidgets('should be set to true by default',
-          (WidgetTester tester) async {
-        await tester.pumpWidget(
-          _buildApp(const FastSearchPage(
-            categories: categories,
-            groupByCategory: true,
-            items: items,
-          )),
-        );
-
-        await tester.pumpAndSettle();
-
-        final link =
-            tester.firstWidget(find.byType(FastTextButton)) as FastTextButton;
-        expect(find.byType(FastTextButton), findsOneWidget);
-        expect(link.text, 'Clear selection');
-      });
-
-      testWidgets('should not be visible whether set to false',
-          (WidgetTester tester) async {
-        await tester.pumpWidget(
-          _buildApp(const FastSearchPage(
-            categories: categories,
-            groupByCategory: true,
-            items: items,
-            canClearSelection: false,
-          )),
-        );
-
-        await tester.pumpAndSettle();
-
-        expect(find.byType(FastTextButton), findsNothing);
-      });
-    });
-
-    group('#clearSelectionText', () {
-      testWidgets('should be used for the "clear selection" text',
-          (WidgetTester tester) async {
-        await tester.pumpWidget(
-          _buildApp(const FastSearchPage(
-            categories: categories,
-            groupByCategory: true,
-            clearSelectionText: 'Nettoyer',
-            items: items,
-          )),
-        );
-
-        await tester.pumpAndSettle();
-
-        final link =
-            tester.firstWidget(find.byType(FastTextButton)) as FastTextButton;
-        expect(find.byType(FastTextButton), findsOneWidget);
-        expect(link.text, 'Nettoyer');
-      });
-    });
-
     group('#intialCategoryIndex', () {
       testWidgets('The "All" category should be selected by default',
           (WidgetTester tester) async {

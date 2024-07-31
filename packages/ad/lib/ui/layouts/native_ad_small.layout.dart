@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_core/fastyle_core.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 // Project imports:
 import 'package:fastyle_ad/fastyle_ad.dart';
@@ -42,7 +43,7 @@ class FastSmallNativeAdLayout extends StatelessWidget {
           ),
         ),
         if (detailsPlaceholder == null && buttonText != null)
-          FastRaisedButton(text: buttonText, onTap: onButtonTap),
+          FastRaisedButton2(labelText: buttonText, onTap: onButtonTap),
       ],
     );
   }

@@ -8,6 +8,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:lingua_ad/generated/locale_keys.g.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
 import 'package:lingua_purchases/generated/locale_keys.g.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 class AdmobRewardedAdsPage extends StatefulWidget {
   const AdmobRewardedAdsPage({super.key});
@@ -56,10 +57,13 @@ class AdmobRewardedAdsPageState extends State<AdmobRewardedAdsPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              FastOutlineButton(text: 'reset', onTap: _clearAndCancelAdRequest),
+              FastOutlinedButton(
+                onTap: _clearAndCancelAdRequest,
+                labelText: 'reset',
+              ),
               FastRewardedAdBuilder(builder: (context, state) {
-                return FastRaisedButton(
-                  text: 'Show rewarded ad',
+                return FastRaisedButton2(
+                  labelText: 'Show rewarded ad',
                   isEnabled: !state.isLoadingAd,
                   onTap: () {
                     rewardedAdBloc.addEvent(
@@ -71,8 +75,8 @@ class AdmobRewardedAdsPageState extends State<AdmobRewardedAdsPage> {
             ],
           ),
           kFastVerticalSizedBox48,
-          FastRaisedButton(
-            text: CoreLocaleKeys.core_label_export_pdf.tr(),
+          FastRaisedButton2(
+            labelText: CoreLocaleKeys.core_label_export_pdf.tr(),
             onTap: () => showOperationRewardedDialog(
               missingRightsBuilder: buildMissingRights,
               onGetValidText: handleValidTextChange,

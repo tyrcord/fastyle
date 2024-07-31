@@ -6,6 +6,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_quizz/fastyle_quizz.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tenhance/tenhance.dart';
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 // Project imports:
 import 'package:fastyle_quizz_example/questions.dart';
@@ -289,10 +290,10 @@ class QuizPageState extends State<QuizPage> {
   }
 
   Widget buildAnswerOption(BuildContext context, int answerIndex, String text) {
-    return FastRaisedButton(
-      backgroundColor: _determineButtonColor(context, answerIndex),
+    return FastRaisedButton2(
       onTap: !answered ? () => handleAnswer(answerIndex) : null,
-      text: text,
+      color: _determineButtonColor(context, answerIndex),
+      labelText: text,
     );
   }
 

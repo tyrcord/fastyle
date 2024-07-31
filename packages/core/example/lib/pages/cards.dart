@@ -29,7 +29,7 @@ class CardsPage extends StatelessWidget {
           FastCard(
             titleText: 'English',
             headerActions: <Widget>[
-              FastIconButton(
+              FastIconButton2(
                 onTap: () {
                   _showPopup(context, 'Thanks!');
                 },
@@ -55,7 +55,7 @@ class CardsPage extends StatelessWidget {
           const FastCard(
             titleText: 'English',
             headerActions: <Widget>[
-              FastIconButton(
+              FastIconButton2(
                 onTap: noop,
                 icon: Icon(
                   Icons.favorite,
@@ -63,13 +63,13 @@ class CardsPage extends StatelessWidget {
               ),
             ],
             footerActions: <Widget>[
-              FastTextButton(
-                text: 'cancel',
+              FastTextButton2(
+                labelText: 'cancel',
                 onTap: noop,
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
               ),
-              FastTextButton(
-                text: 'Valid',
+              FastTextButton2(
+                labelText: 'Valid',
                 onTap: noop,
                 emphasis: FastButtonEmphasis.high,
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
@@ -81,7 +81,7 @@ class CardsPage extends StatelessWidget {
           const FastCard(
             titleText: 'English',
             headerActions: <Widget>[
-              FastIconButton(
+              FastIconButton2(
                 onTap: noop,
                 icon: Icon(
                   Icons.favorite,
@@ -89,13 +89,13 @@ class CardsPage extends StatelessWidget {
               ),
             ],
             footerActions: <Widget>[
-              FastTextButton(
-                text: 'cancel',
+              FastTextButton2(
+                labelText: 'cancel',
                 onTap: noop,
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
               ),
-              FastTextButton(
-                text: 'Valid',
+              FastTextButton2(
+                labelText: 'Valid',
                 onTap: noop,
                 emphasis: FastButtonEmphasis.high,
                 padding: EdgeInsets.symmetric(horizontal: 8.0),

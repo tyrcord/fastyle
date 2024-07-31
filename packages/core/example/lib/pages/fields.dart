@@ -4,6 +4,7 @@
 import 'dart:developer';
 
 // Flutter imports:
+import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -68,7 +69,7 @@ class FieldsPage extends StatelessWidget {
           FastNumberField(
             labelText: 'Number with a suffix icon',
             placeholderText: '0',
-            suffixIcon: FastPopupMenuButton(
+            suffixIcon: FastPopupMenuButton2(
               itemBuilder: (context) => [
                 const PopupMenuItem(
                   value: 1,
