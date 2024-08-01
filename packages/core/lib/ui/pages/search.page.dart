@@ -244,7 +244,7 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
       child: Stack(
         children: [
           Positioned.fill(
-            child: ColoredBox(
+            child: Ink(
               color: ThemeHelper.colors.getPrimaryBackgroundColor(),
               child: SafeArea(
                 bottom: !widget.canClearSelection,
