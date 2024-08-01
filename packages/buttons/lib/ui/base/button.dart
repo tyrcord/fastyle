@@ -53,11 +53,15 @@ abstract class FastButton2 extends StatefulWidget {
   /// The size of the button.
   final FastButtonSize? size;
 
+  /// The width of the outline border.
+  final double borderWidth;
+
   const FastButton2({
     super.key,
     this.trottleTimeDuration = kFastButtonTrottleTimeDuration,
     this.emphasis = FastButtonEmphasis.low,
     this.shouldTrottleTime = false,
+    this.borderWidth = 1.0,
     this.flexible = false,
     this.isEnabled = true,
     this.highlightColor,

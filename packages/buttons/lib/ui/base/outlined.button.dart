@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fastyle_buttons/fastyle_buttons.dart';
 
-
 class FastOutlinedButton extends FastButton2 {
   /// The text to display on the button.
   final String? labelText;
@@ -18,9 +17,6 @@ class FastOutlinedButton extends FastButton2 {
   /// Whether to display the label in uppercase.
   final bool upperCase;
 
-  /// The width of the outline border.
-  final double borderWidth;
-
   final Color? color;
 
   final Widget? child;
@@ -32,11 +28,11 @@ class FastOutlinedButton extends FastButton2 {
     super.shouldTrottleTime = false,
     this.upperCase = false,
     super.isEnabled = true,
-    this.borderWidth = 1.0,
     super.highlightColor,
     super.disabledColor,
     super.semanticLabel,
     this.textAlignment,
+    super.borderWidth,
     super.constraints,
     super.focusColor,
     super.hoverColor,

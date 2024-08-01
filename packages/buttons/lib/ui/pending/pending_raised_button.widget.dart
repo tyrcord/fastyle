@@ -43,7 +43,16 @@ class FastPendingRaisedButton extends FastRaisedButton2 {
 class FastPendingRaisedButtonState extends State<FastPendingRaisedButton>
     with
         FastThrottleButtonMixin2<FastPendingRaisedButton>,
-        FastPendingButtonMixin {
+        FastPendingButtonMixin,
+        WidgetsBindingObserver {
+  BoxConstraints? _parentContraints;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
   @override
   void didUpdateWidget(FastPendingRaisedButton oldWidget) {
     super.didUpdateWidget(oldWidget);
@@ -54,27 +63,49 @@ class FastPendingRaisedButtonState extends State<FastPendingRaisedButton>
   }
 
   @override
+  void didChangeMetrics() {
+    // Update constraints when the application's dimensions change
+    WidgetsBinding.instance.addPostFrameCallback((_) => updateConstraints());
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return FastRaisedButton2(
-      padding: widget.isPending ? EdgeInsets.zero : widget.padding,
-      labelText: !widget.isPending ? widget.labelText : null,
-      isEnabled: !widget.isPending && widget.isEnabled,
-      trottleTimeDuration: widget.trottleTimeDuration,
-      shouldTrottleTime: widget.shouldTrottleTime,
-      highlightColor: widget.highlightColor,
-      semanticLabel: widget.semanticLabel,
-      textAlignment: widget.textAlignment,
-      focusColor: widget.focusColor,
-      hoverColor: widget.hoverColor,
-      emphasis: widget.emphasis,
-      flexible: widget.flexible,
-      tooltip: widget.tooltip,
-      color: widget.color,
-      onTap: widget.onTap,
-      size: widget.size,
-      key: buttonKey,
-      child: widget.isPending ? buildPendingIndicator(context) : null,
-    );
+    return LayoutBuilder(builder: (context, constraints) {
+      // Check if constraints have changed
+      if (_parentContraints != constraints) {
+        _parentContraints = constraints;
+        // Schedule a post-frame callback to update constraints
+        WidgetsBinding.instance
+            .addPostFrameCallback((_) => updateConstraints());
+      }
+
+      return FastRaisedButton2(
+        padding: widget.isPending ? EdgeInsets.zero : widget.padding,
+        labelText: !widget.isPending ? widget.labelText : null,
+        isEnabled: !widget.isPending && widget.isEnabled,
+        trottleTimeDuration: widget.trottleTimeDuration,
+        shouldTrottleTime: widget.shouldTrottleTime,
+        highlightColor: widget.highlightColor,
+        semanticLabel: widget.semanticLabel,
+        textAlignment: widget.textAlignment,
+        focusColor: widget.focusColor,
+        hoverColor: widget.hoverColor,
+        emphasis: widget.emphasis,
+        flexible: widget.flexible,
+        tooltip: widget.tooltip,
+        color: widget.color,
+        onTap: widget.onTap,
+        size: widget.size,
+        key: buttonKey,
+        child: widget.isPending ? buildPendingIndicator(context) : null,
+      );
+    });
   }
 
   @override
