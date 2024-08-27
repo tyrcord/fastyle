@@ -4,14 +4,14 @@ dependencies:
     sdk: flutter
 description: Set of home Widgets for the fastyle library.
 dev_dependencies:
-  dependency_validator: ^3.2.3
-  flutter_lints: ^3.0.1
+  dependency_validator: ^4.1.0
+  flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: '>=3.16.0'
-  sdk: '>=3.2.0 <4.0.0'
+  flutter: ">=3.24.0"
+  sdk: ">=3.5.0 <4.0.0"
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/home
 name: fastyle_home
 version: 0.0.43+3

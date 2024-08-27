@@ -1,26 +1,26 @@
 dependencies:
   collection: ^1.18.0
-  easy_localization: ^3.0.5
+  easy_localization: ^3.0.7
   fastyle_core: ^0.0.58
   flutter:
     sdk: flutter
-  font_awesome_flutter: ^10.6.0
-  lingua_core: ^0.0.43
-  rxdart: ^0.27.7
-  t_helpers: ^0.0.57
-  tbloc: ^0.25.0
-  video_player: ^2.8.6
+  font_awesome_flutter: ^10.7.0
+  lingua_core: ^0.0.45
+  rxdart: ^0.28.0
+  t_helpers: ^0.0.59
+  tbloc: ^0.25.2
+  video_player: ^2.9.1
   visibility_detector: ^0.4.0+2
 description: Set of Video Player Widgets for the fastyle library.
 dev_dependencies:
-  dependency_validator: ^3.2.3
+  dependency_validator: ^4.1.0
   flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: '>=3.16.0'
-  sdk: '>=3.2.0 <4.0.0'
+  flutter: ">=3.16.0"
+  sdk: ">=3.2.0 <4.0.0"
 name: fastyle_video_player
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/video_player
 version: 0.0.35+3

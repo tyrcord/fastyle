@@ -1,24 +1,24 @@
 dependencies:
-  connectivity_plus: ^6.0.3
-  easy_localization: ^3.0.5
+  connectivity_plus: ^6.0.5
+  easy_localization: ^3.0.7
   fastyle_core: ^0.0.58
   flutter:
     sdk: flutter
-  font_awesome_flutter: ^10.6.0
-  lingua_core: ^0.0.43
-  rxdart: ^0.27.7
-  tbloc: ^0.25.0
-  tmodel: ^0.5.17
+  font_awesome_flutter: ^10.7.0
+  lingua_core: ^0.0.45
+  rxdart: ^0.28.0
+  tbloc: ^0.25.2
+  tmodel: ^0.5.19
 description: Set of connectivity Widgets for the fastyle library.
 dev_dependencies:
-  dependency_validator: ^3.2.3
-  flutter_lints: ^3.0.1
+  dependency_validator: ^4.1.0
+  flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
-  import_sorter: ^4.6.0
+  import_sorter: ^5.0.0-releasecandidate.1
 environment:
-  flutter: '>=3.16.0'
-  sdk: '>=3.2.0 <4.0.0'
+  flutter: ">=3.24.0"
+  sdk: ">=3.5.0 <4.0.0"
 name: fastyle_connectivity
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/connectivity
 version: 0.0.48+3
