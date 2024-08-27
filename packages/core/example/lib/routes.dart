@@ -143,4 +143,8 @@ final List<RouteBase> kAppRoutes = [
     path: 'indicators',
     builder: (context, state) => const IndicatorsPage(),
   ),
+  GoRoute(
+    path: 'results',
+    builder: (context, state) => const IndicatorsPage(),
+  ),
 ];

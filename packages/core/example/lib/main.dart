@@ -87,7 +87,8 @@ class MyApp extends StatelessWidget {
             ),
             kFastSizedBox16,
             const FastBody(
-                text: 'Please wait while the application is loading...'),
+              text: 'Please wait while the application is loading...',
+            ),
           ],
         );
       },
@@ -271,6 +272,14 @@ class MyHomePageState extends State<MyHomePage> {
         ),
         labelText: 'Navigation Bar View',
         onTap: () => context.go('/navigation-bar-view/explore'),
+      ),
+      FastNavigationListItem(
+        leading: FastRoundedDuotoneIcon(
+          icon: const FaIcon(FontAwesomeIcons.triangleExclamation),
+          palette: palette.green,
+        ),
+        labelText: 'Results',
+        onTap: () => context.go('/results'),
       ),
       FastNavigationListItem(
         leading: FastRoundedDuotoneIcon(
