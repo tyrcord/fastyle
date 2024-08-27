@@ -49,9 +49,12 @@ class _FastIapPremiumPageState extends State<FastIapPremiumPage>
   void initState() {
     super.initState();
     planBloc = FastPlanBloc(getFeaturesForPlan: getFeaturesForPlan);
-    errorSubscription = planBloc.onData
-        .where((state) => state.error != null)
-        .listen((state) => handleError(context, planBloc, state.error));
+    errorSubscription =
+        planBloc.onData.where((state) => state.error != null).listen((state) {
+      if (context.mounted && mounted) {
+        handleError(context, planBloc, state.error);
+      }
+    });
   }
 
   @override

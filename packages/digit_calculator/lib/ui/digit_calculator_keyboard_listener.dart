@@ -42,16 +42,16 @@ class FastDigitCalculatorKeyboardListenerState
   @override
   Widget build(BuildContext context) {
     return Focus(
-      onKey: _handlePhysicalKeyPressed,
+      onKeyEvent: _handlePhysicalKeyPressed,
       focusNode: _focusNode,
       child: widget.child,
     );
   }
 
   // This method handles physical key presses in Flutter
-  KeyEventResult _handlePhysicalKeyPressed(FocusNode node, RawKeyEvent event) {
+  KeyEventResult _handlePhysicalKeyPressed(FocusNode node, KeyEvent event) {
     // Check if the received event is a key down event
-    if (event is RawKeyDownEvent) {
+    if (event is KeyDownEvent) {
       // Get the logical key associated with the event
       final logicalKey = event.logicalKey;
       // Pass the logical key to the _handleLogicalKey function to determine

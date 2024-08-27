@@ -241,7 +241,9 @@ class FastOnboardingViewState extends State<FastOnboardingView> {
 
     widget.onDone?.call();
 
-    if (mounted) GoRouter.of(context).pushReplacement(widget.homeLocation);
+    if (mounted && context.mounted) {
+      GoRouter.of(context).pushReplacement(widget.homeLocation);
+    }
   }
 
   String _getDoneText() {

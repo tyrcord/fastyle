@@ -5,6 +5,7 @@ dependencies:
   font_awesome_flutter: ^10.7.0
   t_helpers: ^0.0.59
   tenhance: ^0.0.15
+  fastyle_buttons: ^0.0.32+3
 description: UI digit calculator built on top of the Fastyle library.
 dev_dependencies:
   dependency_validator: ^4.1.0
