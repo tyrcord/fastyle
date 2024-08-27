@@ -3,6 +3,172 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-08-27
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.52`](#fastyle_ad---v0052)
+ - [`fastyle_animation` - `v0.0.24`](#fastyle_animation---v0024)
+ - [`fastyle_buttons` - `v0.0.33`](#fastyle_buttons---v0033)
+ - [`fastyle_calculator` - `v1.66.0`](#fastyle_calculator---v1660)
+ - [`fastyle_charts` - `v0.0.37`](#fastyle_charts---v0037)
+ - [`fastyle_connectivity` - `v0.0.49`](#fastyle_connectivity---v0049)
+ - [`fastyle_core` - `v0.0.59`](#fastyle_core---v0059)
+ - [`fastyle_digit_calculator` - `v0.0.48`](#fastyle_digit_calculator---v0048)
+ - [`fastyle_financial` - `v0.0.50`](#fastyle_financial---v0050)
+ - [`fastyle_firebase` - `v0.0.41`](#fastyle_firebase---v0041)
+ - [`fastyle_forms` - `v0.0.54`](#fastyle_forms---v0054)
+ - [`fastyle_home` - `v0.0.44`](#fastyle_home---v0044)
+ - [`fastyle_iap` - `v0.0.44`](#fastyle_iap---v0044)
+ - [`fastyle_images` - `v0.0.54`](#fastyle_images---v0054)
+ - [`fastyle_layouts` - `v0.0.26`](#fastyle_layouts---v0026)
+ - [`fastyle_onboarding` - `v0.0.55`](#fastyle_onboarding---v0055)
+ - [`fastyle_pricing` - `v1.49.0`](#fastyle_pricing---v1490)
+ - [`fastyle_quizz` - `v0.0.24`](#fastyle_quizz---v0024)
+ - [`fastyle_settings` - `v0.0.59`](#fastyle_settings---v0059)
+ - [`fastyle_text` - `v0.0.32`](#fastyle_text---v0032)
+ - [`fastyle_video_player` - `v0.0.36`](#fastyle_video_player---v0036)
+ - [`fastyle_views` - `v0.0.41`](#fastyle_views---v0041)
+
+---
+
+#### `fastyle_ad` - `v0.0.52`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: support new buttons.
+
+#### `fastyle_animation` - `v0.0.24`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: minor improvements.
+
+#### `fastyle_buttons` - `v0.0.33`
+
+ - **REFACTOR**: buttons.
+ - **REFACTOR**: buttons.
+ - **REFACTOR**: icon button.
+ - **FIX**: pending buttons.
+ - **FIX**: bunch of improvements with buttons.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: support new buttons.
+ - **FEAT**: support new buttons.
+ - **FEAT**: refactor buttons.
+ - **FEAT**: refactor buttons.
+ - **FEAT**: add text button.
+ - **FEAT**: refactor buttons.
+ - **FEAT**: added.
+ - **FEAT**: minor improvements with buttons.
+ - **FEAT**: bunch of improvements with buttons.
+ - **FEAT**: refactor buttons.
+ - **FEAT**: refactor buttons.
+
+#### `fastyle_calculator` - `v1.66.0`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: support new buttons.
+ - **FEAT**: refactor buttons.
+ - **FEAT**: minor improvements with buttons.
+ - **FEAT**: bunch of improvements with buttons.
+ - **FEAT**: support new actionsBuilder.
+ - **FEAT**: add new toolbar buttons.
+
+#### `fastyle_charts` - `v0.0.37`
+
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_connectivity` - `v0.0.49`
+
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_core` - `v0.0.59`
+
+ - **REFACTOR**: shadow layout.
+ - **REFACTOR**: buttons.
+ - **FIX**: minor improvements.
+ - **FIX**: fast reload.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: support new buttons.
+ - **FEAT**: minor improvements with buttons.
+ - **FEAT**: bunch of improvements with buttons.
+ - **FEAT**: add toolbar divider.
+ - **FEAT**(FastDialog): add constraints.
+
+#### `fastyle_digit_calculator` - `v0.0.48`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: support new buttons.
+
+#### `fastyle_financial` - `v0.0.50`
+
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_firebase` - `v0.0.41`
+
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_forms` - `v0.0.54`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: support new buttons.
+
+#### `fastyle_home` - `v0.0.44`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: support new buttons.
+
+#### `fastyle_iap` - `v0.0.44`
+
+ - **REFACTOR**: buttons.
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_images` - `v0.0.54`
+
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_layouts` - `v0.0.26`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: support new buttons.
+
+#### `fastyle_onboarding` - `v0.0.55`
+
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_pricing` - `v1.49.0`
+
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_quizz` - `v0.0.24`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: support new buttons.
+
+#### `fastyle_settings` - `v0.0.59`
+
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_text` - `v0.0.32`
+
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_video_player` - `v0.0.36`
+
+ - **FEAT**: updated dependencies.
+
+#### `fastyle_views` - `v0.0.41`
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: support new buttons.
+
+
 ## 2024-06-27
 
 ### Changes

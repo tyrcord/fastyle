@@ -1,11 +1,11 @@
 dependencies:
-  fastyle_calculator: ^1.65.3
-  fastyle_core: ^0.0.58
+  fastyle_calculator: ^1.66.0
+  fastyle_core: ^0.0.59
   flutter:
     sdk: flutter
   go_router: ^14.1.3
   tbloc: ^0.25.2
-  fastyle_buttons: ^0.0.32+3
+  fastyle_buttons: ^0.0.33
 dev_dependencies:
   dependency_validator: ^3.2.3
   flutter_lints: ^4.0.0

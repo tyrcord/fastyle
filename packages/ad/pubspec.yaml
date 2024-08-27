@@ -2,9 +2,9 @@ dependencies:
   app_tracking_transparency: ^2.0.6
   collection: ^1.18.0
   easy_localization: ^3.0.7
-  fastyle_core: ^0.0.58
-  fastyle_images: ^0.0.53+3
-  fastyle_video_player: ^0.0.35+3
+  fastyle_core: ^0.0.59
+  fastyle_images: ^0.0.54
+  fastyle_video_player: ^0.0.36
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.7.0
@@ -26,7 +26,7 @@ dependencies:
   url_launcher: ^6.3.0
   uuid: ^4.4.2
   visibility_detector: ^0.4.0+2
-  fastyle_buttons: ^0.0.32+3
+  fastyle_buttons: ^0.0.33
 description: Set of ad Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^4.1.0
@@ -47,4 +47,4 @@ flutter:
         pluginClass: FastAdPlugin
 name: fastyle_ad
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/ad
-version: 0.0.51+1
+version: 0.0.52
