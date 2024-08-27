@@ -1,8 +1,8 @@
 dependencies:
   easy_localization: ^3.0.7
-  fastyle_core: ^0.0.58
-  fastyle_buttons: ^0.0.32+3
-  fastyle_images: ^0.0.53+3
+  fastyle_core: ^0.0.59
+  fastyle_buttons: ^0.0.33
+  fastyle_images: ^0.0.54
   flutter:
     sdk: flutter
   go_router: ^14.2.7
@@ -22,4 +22,4 @@ environment:
   sdk: ">=3.5.0 <4.0.0"
 name: fastyle_views
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/views
-version: 0.0.40+3
+version: 0.0.41

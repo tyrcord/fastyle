@@ -1,3 +1,23 @@
+## 0.0.33
+
+ - **REFACTOR**: buttons.
+ - **REFACTOR**: buttons.
+ - **REFACTOR**: icon button.
+ - **FIX**: pending buttons.
+ - **FIX**: bunch of improvements with buttons.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: support new buttons.
+ - **FEAT**: support new buttons.
+ - **FEAT**: refactor buttons.
+ - **FEAT**: refactor buttons.
+ - **FEAT**: add text button.
+ - **FEAT**: refactor buttons.
+ - **FEAT**: added.
+ - **FEAT**: minor improvements with buttons.
+ - **FEAT**: bunch of improvements with buttons.
+ - **FEAT**: refactor buttons.
+ - **FEAT**: refactor buttons.
+
 ## 0.0.32+3
 
  - Update a dependency to the latest release.

@@ -1,3 +1,8 @@
+## 0.0.41
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: support new buttons.
+
 ## 0.0.40+3
 
  - Update a dependency to the latest release.

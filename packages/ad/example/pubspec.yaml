@@ -1,7 +1,7 @@
 dependencies:
   easy_localization: ^3.0.7
-  fastyle_ad: ^0.0.51+1
-  fastyle_core: ^0.0.58
+  fastyle_ad: ^0.0.52
+  fastyle_core: ^0.0.59
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.7.0
@@ -13,7 +13,7 @@ dependencies:
   rxdart: ^0.28.0
   tbloc: ^0.25.2
   video_player: ^2.9.1
-  fastyle_buttons: ^0.0.32+3
+  fastyle_buttons: ^0.0.33
 description: A new Flutter project.
 dev_dependencies:
   dependency_validator: ^4.1.0

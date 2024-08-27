@@ -1,3 +1,16 @@
+## 0.0.59
+
+ - **REFACTOR**: shadow layout.
+ - **REFACTOR**: buttons.
+ - **FIX**: minor improvements.
+ - **FIX**: fast reload.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: support new buttons.
+ - **FEAT**: minor improvements with buttons.
+ - **FEAT**: bunch of improvements with buttons.
+ - **FEAT**: add toolbar divider.
+ - **FEAT**(FastDialog): add constraints.
+
 ## 0.0.58
 
  - **FEAT**: add FastAction.

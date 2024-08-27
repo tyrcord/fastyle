@@ -1,3 +1,8 @@
+## 0.0.44
+
+ - **REFACTOR**: buttons.
+ - **FEAT**: updated dependencies.
+
 ## 0.0.43+3
 
  - Update a dependency to the latest release.

@@ -1,3 +1,13 @@
+## 1.66.0
+
+ - **FEAT**: updated dependencies.
+ - **FEAT**: support new buttons.
+ - **FEAT**: refactor buttons.
+ - **FEAT**: minor improvements with buttons.
+ - **FEAT**: bunch of improvements with buttons.
+ - **FEAT**: support new actionsBuilder.
+ - **FEAT**: add new toolbar buttons.
+
 ## 1.65.3
 
  - Update a dependency to the latest release.
