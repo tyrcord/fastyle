@@ -16,7 +16,7 @@ export './widgets/widgets.dart';
 export './views/views.dart';
 export './scaffolds/scaffold.dart';
 export './helpers/helpers.dart';
-export './statuses/statuses.dart';
+export './results/results.dart';
 export './links/links.dart';
 export './blocks/blocks.dart';
 export './shells/shells.dart';

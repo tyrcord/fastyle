@@ -8,7 +8,7 @@ import 'package:lingua_core/generated/locale_keys.g.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-class FastWarningStatus extends StatelessWidget {
+class FastWarningResult extends StatelessWidget {
   final Color? textColor;
 
   final String? text;
@@ -17,17 +17,17 @@ class FastWarningStatus extends StatelessWidget {
 
   final double iconSize;
 
-  const FastWarningStatus({
+  const FastWarningResult({
     super.key,
-    this.text,
-    this.textColor,
-    this.icon,
     this.iconSize = kFastIconSizeXxl,
+    this.textColor,
+    this.text,
+    this.icon,
   });
 
   @override
   Widget build(BuildContext context) {
-    return FastStatus(
+    return FastResult(
       icon: _buildIcon(context),
       text: _buildText(context),
       textColor: textColor,
@@ -35,17 +35,13 @@ class FastWarningStatus extends StatelessWidget {
   }
 
   Widget _buildIcon(BuildContext context) {
-    if (icon != null) {
-      return icon!;
-    }
+    if (icon != null) return icon!;
 
     return FastWarningIcon(size: iconSize);
   }
 
   String _buildText(BuildContext context) {
-    if (text != null) {
-      return text!;
-    }
+    if (text != null) return text!;
 
     return CoreLocaleKeys.core_label_warning.tr();
   }

@@ -129,7 +129,7 @@ class FastExportPdfRewardedDialog extends StatelessWidget {
   }
 
   Widget handleOperationSucceeded(BuildContext context) {
-    return FastSuccessStatus(
+    return FastSuccessResult(
       text: AdLocaleKeys.ad_message_enjoy_your_reward_pdf.tr(),
     );
   }

@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-class FastStatus extends StatelessWidget {
+class FastResult extends StatelessWidget {
   final Color? textColor;
 
   final String? text;
 
   final Widget? icon;
 
-  const FastStatus({
+  const FastResult({
     super.key,
-    this.text,
     this.textColor,
+    this.text,
     this.icon,
   });
 

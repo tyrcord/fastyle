@@ -8,26 +8,26 @@ import 'package:lingua_core/generated/locale_keys.g.dart';
 // Project imports:
 import 'package:fastyle_core/fastyle_core.dart';
 
-class FastNoFavoriteStatus extends StatelessWidget {
+class FastNoFavoriteResult extends StatelessWidget {
   final Color? textColor;
+
+  final double iconSize;
 
   final String? text;
 
   final Widget? icon;
 
-  final double iconSize;
-
-  const FastNoFavoriteStatus({
+  const FastNoFavoriteResult({
     super.key,
-    this.text,
-    this.textColor,
-    this.icon,
     this.iconSize = kFastIconSizeXxl,
+    this.textColor,
+    this.text,
+    this.icon,
   });
 
   @override
   Widget build(BuildContext context) {
-    return FastStatus(
+    return FastResult(
       icon: _buildIcon(context),
       text: _buildText(context),
       textColor: textColor,
@@ -35,17 +35,13 @@ class FastNoFavoriteStatus extends StatelessWidget {
   }
 
   Widget _buildIcon(BuildContext context) {
-    if (icon != null) {
-      return icon!;
-    }
+    if (icon != null) return icon!;
 
     return FastNoFavoriteIcon(size: iconSize);
   }
 
   String _buildText(BuildContext context) {
-    if (text != null) {
-      return text!;
-    }
+    if (text != null) return text!;
 
     return CoreLocaleKeys.core_message_no_favorites.tr();
   }

@@ -217,26 +217,26 @@ class FastOperationRewardedDialog extends StatelessWidget {
     }
 
     if (isWarning) {
-      return FastWarningStatus(text: message);
+      return FastWarningResult(text: message);
     }
 
-    return FastErrorStatus(text: message);
+    return FastErrorResult(text: message);
   }
 
   Widget buildOperationSucceeded(BuildContext context) {
-    return FastSuccessStatus(
+    return FastSuccessResult(
       text: AdLocaleKeys.ad_message_enjoy_your_reward_text.tr(),
     );
   }
 
   Widget buildOperationFailed(BuildContext context) {
-    return FastErrorStatus(
+    return FastErrorResult(
       text: CoreLocaleKeys.core_error_error_occurred_exclamation.tr(),
     );
   }
 
   Widget buildRightsDenied(BuildContext context) {
-    return FastWarningStatus(
+    return FastWarningResult(
       text: AdLocaleKeys.ad_error_dimissed_ad.tr(),
     );
   }
