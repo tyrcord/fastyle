@@ -158,7 +158,7 @@ final kFastFastItemFuzzyOptions = FuzzyOptions(
 
 // Alpha
 
-const kDisabledAlpha = 72;
+const kDisabledAlpha = 144;
 
 // Duration
 

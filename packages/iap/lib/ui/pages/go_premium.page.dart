@@ -159,13 +159,38 @@ class FastIapGoPremiumPage extends StatelessWidget {
   }
 
   Widget buildFooter(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        FastIapRestorePremiumButton(onTap: onRestorePremium),
-        FastIapPurchasePremiumButtton(onTap: onBuyPremium),
-      ],
+    return FastMediaLayoutBuilder(
+      builder: (context, mediaType) {
+        final isHandset = mediaType == FastMediaType.handset;
+
+        if (isHandset) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              FastIapRestorePremiumButton(
+                onTap: onRestorePremium,
+                expand: true,
+              ),
+              kFastVerticalSizedBox12,
+              FastIapPurchasePremiumButtton(
+                onTap: onBuyPremium,
+                expand: true,
+              ),
+            ],
+          );
+        }
+
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            FastIapRestorePremiumButton(onTap: onRestorePremium),
+            kFastHorizontalSizedBox12,
+            FastIapPurchasePremiumButtton(onTap: onBuyPremium),
+          ],
+        );
+      },
     );
   }
 

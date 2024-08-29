@@ -20,6 +20,8 @@ class FastRaisedButton2 extends FastButton2 {
 
   final Color? color;
 
+  final Color? textColor;
+
   final Widget? child;
 
   const FastRaisedButton2({
@@ -39,6 +41,7 @@ class FastRaisedButton2 extends FastButton2 {
     super.debugLabel,
     super.flexible,
     this.textStyle,
+    this.textColor,
     this.labelText,
     super.padding,
     super.tooltip,
@@ -62,10 +65,11 @@ class _FastRaisedButtonState2 extends State<FastRaisedButton2>
 
   @override
   Widget build(BuildContext context) {
+    final palette = ThemeHelper.getPaletteColors(context);
+
     final backgroundColor = getColor(
       context,
       color: widget.color ?? ThemeHelper.colors.getPrimaryColor(context),
-      disabledColor: widget.disabledColor,
       isEnabled: widget.isEnabled,
       emphasis: widget.emphasis,
     );
@@ -82,8 +86,8 @@ class _FastRaisedButtonState2 extends State<FastRaisedButton2>
 
     final interactionsColor = ThemeHelper.colors.getColorWithBestConstrast(
       backgroundColor: backgroundColor,
-      darkColor: ThemeHelper.getPaletteColors(context).gray.ultraDark,
-      lightColor: ThemeHelper.getPaletteColors(context).whiteColor,
+      darkColor: palette.gray.ultraDark,
+      lightColor: palette.whiteColor,
       context: context,
     );
 
@@ -93,7 +97,7 @@ class _FastRaisedButtonState2 extends State<FastRaisedButton2>
           ? widget.child!
           : buildLabelText(
               context,
-              color: ThemeHelper.getPaletteColors(context).whiteColor,
+              color: widget.textColor ?? interactionsColor,
               disabledColor: widget.disabledColor,
               textStyle: widget.textStyle,
               upperCase: widget.upperCase,

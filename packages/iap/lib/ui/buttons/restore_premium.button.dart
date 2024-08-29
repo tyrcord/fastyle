@@ -26,6 +26,8 @@ class FastIapRestorePremiumButton extends StatelessWidget {
   /// Emphasis style for the button.
   final FastButtonEmphasis emphasis;
 
+  final bool expand;
+
   /// Creates a new instance of [FastIapRestorePremiumButton].
   ///
   /// [emphasis] defaults to [FastButtonEmphasis.low] if not provided.
@@ -35,6 +37,7 @@ class FastIapRestorePremiumButton extends StatelessWidget {
     this.labelText,
     this.onTap,
     this.emphasis = FastButtonEmphasis.low,
+    this.expand = false,
   });
 
   /// Handles the tap event for the button.
@@ -83,6 +86,7 @@ class FastIapRestorePremiumButton extends StatelessWidget {
       onTap: () => handleOnTap(context),
       isPending: state.isRestoringPlan,
       labelText: _getLabelText(),
+      expand: expand,
     );
   }
 
@@ -96,6 +100,7 @@ class FastIapRestorePremiumButton extends StatelessWidget {
       onTap: () => handleOnTap(context),
       isPending: state.isRestoringPlan,
       labelText: _getLabelText(),
+      expand: expand,
     );
   }
 

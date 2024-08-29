@@ -17,7 +17,9 @@ class FastOutlinedButton extends FastButton2 {
   /// Whether to display the label in uppercase.
   final bool upperCase;
 
-  final Color? color;
+  final Color? textColor;
+
+  final Color? borderColor;
 
   final Widget? child;
 
@@ -43,9 +45,10 @@ class FastOutlinedButton extends FastButton2 {
     super.padding,
     super.tooltip,
     super.onTap,
-    this.color,
     this.child,
     super.size,
+    this.borderColor,
+    this.textColor,
   });
 
   @override
@@ -58,10 +61,10 @@ class _FastOutlinedButtonState extends State<FastOutlinedButton>
   Widget build(BuildContext context) {
     final borderColor = getBorderColor(
       context,
+      textStyle: widget.textStyle ?? TextStyle(color: widget.textColor),
       disabledColor: widget.disabledColor,
+      borderColor: widget.borderColor,
       isEnabled: widget.isEnabled,
-      textStyle: widget.textStyle,
-      borderColor: widget.color,
       emphasis: widget.emphasis,
     );
 
@@ -80,7 +83,7 @@ class _FastOutlinedButtonState extends State<FastOutlinedButton>
           ? widget.child!
           : buildLabelText(
               context,
-              color: borderColor,
+              color: widget.textColor,
               disabledColor: widget.disabledColor,
               textStyle: widget.textStyle,
               upperCase: widget.upperCase,

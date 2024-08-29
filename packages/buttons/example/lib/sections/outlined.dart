@@ -48,7 +48,7 @@ class OutlinedButtonsSection extends StatelessWidget {
             ),
             kFastHorizontalSizedBox12,
             FastOutlinedButton(
-              color: Colors.red[300],
+              textColor: Colors.red[300],
               labelText: 'Red',
               onTap: () {
                 FastNotificationCenter.info(context, 'Red button tapped');

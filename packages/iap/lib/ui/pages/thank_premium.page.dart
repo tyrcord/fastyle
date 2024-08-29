@@ -106,15 +106,16 @@ class FastIapThankPremiumPage extends StatelessWidget {
   }
 
   Widget buildFooter(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        FastIapRestorePremiumButton(
+    return FastMediaLayoutBuilder(
+      builder: (context, mediaType) {
+        final isHandset = mediaType == FastMediaType.handset;
+
+        return FastIapRestorePremiumButton(
           premiumProductId: premiumProductId,
           onTap: onRestorePremium,
-        ),
-      ],
+          expand: isHandset,
+        );
+      },
     );
   }
 

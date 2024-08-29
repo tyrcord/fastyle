@@ -37,13 +37,26 @@ class _PendingButtonsSectionState extends State<PendingButtonsSection> {
           runSpacing: 6,
           children: [
             FastPendingOutlinedButton(
-              labelText: 'Outlined button',
+              labelText: 'Outlined Button',
               onTap: _togglePending,
               isPending: _isPending,
             ),
             kFastHorizontalSizedBox12,
+            FastPendingOutlinedButton(
+              labelText: 'Red',
+              onTap: _togglePending,
+              isPending: _isPending,
+              textColor: Colors.red[300],
+            ),
+            kFastHorizontalSizedBox12,
+            FastPendingOutlinedButton(
+              labelText: 'Disbaled Red',
+              isEnabled: false,
+              textColor: Colors.red[300],
+            ),
+            kFastHorizontalSizedBox12,
             FastPendingRaisedButton(
-              labelText: 'Raised button',
+              labelText: 'Raised Button',
               onTap: _togglePending,
               isPending: _isPending,
             ),

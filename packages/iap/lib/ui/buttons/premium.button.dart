@@ -27,13 +27,16 @@ class FastIapPurchasePremiumButtton extends StatelessWidget {
   /// Bloc that manages application plans.
   final FastPlanBloc? planBloc;
 
+  final bool expand;
+
   /// Creates a new instance of [FastIapPurchasePremiumButtton].
   const FastIapPurchasePremiumButtton({
     super.key,
     this.premiumProductId,
     this.labelText,
-    this.onTap,
     this.planBloc,
+    this.onTap,
+    this.expand = false,
   });
 
   @override
@@ -81,6 +84,7 @@ class FastIapPurchasePremiumButtton extends StatelessWidget {
       isEnabled: state.isInitialized && !state.isRestoringPlan,
       isPending: state.isPlanPurchasePending,
       labelText: _getLabelText(product),
+      expand: expand,
       onTap: () {
         final bloc = planBloc ?? BlocProvider.of<FastPlanBloc>(context);
         bloc.addEvent(FastPlanBlocEvent.purchasePlan(_getPremiumProductId()));

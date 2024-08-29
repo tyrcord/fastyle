@@ -9,12 +9,14 @@ import 'package:fastyle_buttons/fastyle_buttons.dart';
 
 class FastPendingOutlinedButton extends FastOutlinedButton {
   final bool isPending;
+  final bool expand;
 
   const FastPendingOutlinedButton({
     super.key,
     super.trottleTimeDuration = kFastButtonTrottleTimeDuration,
     super.emphasis = FastButtonEmphasis.low,
     super.shouldTrottleTime = false,
+    this.expand = false,
     super.upperCase = false,
     super.isEnabled = true,
     this.isPending = false,
@@ -24,7 +26,8 @@ class FastPendingOutlinedButton extends FastOutlinedButton {
     super.textAlignment,
     super.borderWidth,
     super.constraints,
-    super.color,
+    super.borderColor,
+    super.textColor,
     super.focusColor,
     super.hoverColor,
     super.debugLabel,
@@ -43,86 +46,50 @@ class FastPendingOutlinedButton extends FastOutlinedButton {
 }
 
 class FastPendingOutlineButtonState extends State<FastPendingOutlinedButton>
-    with
-        FastButtonMixin2,
-        FastThrottleButtonMixin2<FastPendingOutlinedButton>,
-        FastPendingButtonMixin,
-        WidgetsBindingObserver {
-  BoxConstraints? _parentContraints;
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addObserver(this);
-  }
-
-  @override
-  void didUpdateWidget(FastPendingOutlinedButton oldWidget) {
-    super.didUpdateWidget(oldWidget);
-
-    if (widget.labelText != oldWidget.labelText) {
-      WidgetsBinding.instance.addPostFrameCallback((_) => updateConstraints());
-    }
-  }
-
-  @override
-  void didChangeMetrics() {
-    // Update constraints when the application's dimensions change
-    WidgetsBinding.instance.addPostFrameCallback((_) => updateConstraints());
-  }
-
-  @override
-  void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    super.dispose();
-  }
-
+    with FastButtonMixin2, FastThrottleButtonMixin2<FastPendingOutlinedButton> {
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      // Check if constraints have changed
-      if (_parentContraints != constraints) {
-        _parentContraints = constraints;
-        // Schedule a post-frame callback to update constraints
-        WidgetsBinding.instance
-            .addPostFrameCallback((_) => updateConstraints());
-      }
+    final isPending = widget.isPending;
+    final isEnabled = !isPending && widget.isEnabled;
+    final textColor = getColor(
+      context,
+      color: widget.textStyle?.color ?? widget.textColor,
+      emphasis: widget.emphasis,
+      isEnabled: isEnabled,
+    );
 
-      return FastOutlinedButton(
-        padding: widget.isPending ? EdgeInsets.zero : widget.padding,
-        labelText: !widget.isPending ? widget.labelText : null,
-        isEnabled: !widget.isPending && widget.isEnabled,
-        trottleTimeDuration: widget.trottleTimeDuration,
-        shouldTrottleTime: widget.shouldTrottleTime,
-        highlightColor: widget.highlightColor,
-        semanticLabel: widget.semanticLabel,
-        textAlignment: widget.textAlignment,
-        focusColor: widget.focusColor,
-        hoverColor: widget.hoverColor,
-        emphasis: widget.emphasis,
-        flexible: widget.flexible,
-        tooltip: widget.tooltip,
-        color: widget.color,
-        onTap: widget.onTap,
-        size: widget.size,
-        key: buttonKey,
-        child: widget.isPending ? buildPendingIndicator(context) : null,
-      );
-    });
-  }
-
-  @override
-  Color? getIndicatorColor(BuildContext context) {
-    final palette = ThemeHelper.getPaletteColors(context);
-
-    return getBorderColor(
-          context,
-          isEnabled: !widget.isPending && widget.isEnabled,
-          disabledColor: widget.disabledColor,
-          borderColor: widget.color,
-          textStyle: widget.textStyle,
-          emphasis: widget.emphasis,
-        ) ??
-        palette.whiteColor;
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        SizedBox(
+          width: widget.expand ? double.infinity : null,
+          child: FastOutlinedButton(
+            disabledColor:
+                isPending ? Colors.transparent : widget.disabledColor,
+            textColor: isPending ? Colors.transparent : textColor,
+            trottleTimeDuration: widget.trottleTimeDuration,
+            borderColor: widget.borderColor ?? textColor,
+            shouldTrottleTime: widget.shouldTrottleTime,
+            highlightColor: widget.highlightColor,
+            semanticLabel: widget.semanticLabel,
+            textAlignment: widget.textAlignment,
+            focusColor: widget.focusColor,
+            hoverColor: widget.hoverColor,
+            labelText: widget.labelText,
+            emphasis: widget.emphasis,
+            flexible: widget.flexible,
+            tooltip: widget.tooltip,
+            padding: widget.padding,
+            isEnabled: isEnabled,
+            onTap: widget.onTap,
+            size: widget.size,
+          ),
+        ),
+        if (isPending)
+          Positioned.fill(
+            child: FastThreeBounceIndicator(color: textColor),
+          ),
+      ],
+    );
   }
 }
