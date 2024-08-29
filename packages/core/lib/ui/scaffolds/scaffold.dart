@@ -113,6 +113,7 @@ class FastScaffold extends StatelessWidget {
     final themeBloc = FastThemeBloc.instance;
     final brightness = themeBloc.currentState.brightness;
     final isBrightnessLight = brightness == Brightness.light;
+    final leadingWidthOffset = ThemeHelper.spacing.getSpacing(context);
 
     return AppBar(
       scrolledUnderElevation: appBarBackgroundColor == null ? null : 0,
@@ -120,6 +121,7 @@ class FastScaffold extends StatelessWidget {
       backgroundColor: appBarBackgroundColor ?? Colors.transparent,
       iconTheme: _getIconTheme(context, isBrightnessLight),
       surfaceTintColor: _getSurfaceTintColor(context),
+      leadingWidth: 56 + leadingWidthOffset,
       automaticallyImplyLeading: false,
       leading: _buildLeading(context),
       actions: _buildActions(context),
@@ -161,9 +163,19 @@ class FastScaffold extends StatelessWidget {
   }
 
   Widget? _buildLeading(BuildContext context) {
-    if (leading != null) return leading;
+    final spacing = ThemeHelper.spacing.getHorizontalSpacing(context);
 
-    return _buildLeadingIcon(context);
+    if (leading != null) {
+      return Row(children: [spacing, leading!]);
+    }
+
+    final navigationButton = _buildLeadingIcon(context);
+
+    if (navigationButton != null) {
+      return Row(children: [spacing, navigationButton]);
+    }
+
+    return null;
   }
 
   List<Widget> _buildActions(BuildContext context) {
