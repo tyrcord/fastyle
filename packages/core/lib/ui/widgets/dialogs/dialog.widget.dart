@@ -6,10 +6,12 @@ class FastDialog extends AlertDialog {
   final List<Widget> children;
   final String? titleText;
   final Color? titleColor;
+  final bool applyMinimumConstraints;
 
   const FastDialog({
     super.key,
     required this.children,
+    this.applyMinimumConstraints = false,
     super.backgroundColor,
     this.constraints,
     this.titleColor,
@@ -35,11 +37,15 @@ class FastDialog extends AlertDialog {
   }
 
   Widget _buildContent(BuildContext context) {
-    final list = ListBody(children: [...children, kFastVerticalSizedBox16]);
+    final content = ListBody(children: [...children, kFastVerticalSizedBox16]);
 
-    if (constraints == null) return _buildAdaptiveContent(context, list);
+    if (constraints != null) {
+      return ConstrainedBox(constraints: constraints!, child: content);
+    }
 
-    return ConstrainedBox(constraints: constraints!, child: list);
+    return applyMinimumConstraints
+        ? _buildAdaptiveContent(context, content)
+        : content;
   }
 
   Widget _buildAdaptiveContent(BuildContext context, Widget list) {
