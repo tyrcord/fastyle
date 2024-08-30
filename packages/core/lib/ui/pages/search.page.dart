@@ -156,6 +156,9 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
   }
 
   Widget _buildHeader(BuildContext context) {
+    final spacing = ThemeHelper.spacing.getHorizontalSpacing(context);
+    final leading = _buildLeadingIcon(context);
+
     return ColoredBox(
       color: ThemeHelper.colors.getSecondaryBackgroundColor(context),
       child: SafeArea(
@@ -163,7 +166,7 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildLeadingIcon(context),
+            Row(children: [spacing, leading]),
             Container(
               width: MediaQuery.sizeOf(context).width,
               padding: const EdgeInsets.only(
