@@ -6,7 +6,7 @@ dependencies:
   fastyle_iap: ^0.0.44
   fastyle_layouts: ^0.0.26
   fastyle_settings: ^0.0.59
-  firebase_messaging: ^15.0.4
+  firebase_messaging: ^15.1.2
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.7.0
