@@ -26,14 +26,17 @@ class FastInkWell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      highlightColor: _getHighlightColor(context),
-      hoverColor: _getHoverColor(context),
-      focusColor: _getFocusColor(context),
-      onHover: isEnabled ? onHover : null,
-      onTap: isEnabled ? onTap : null,
-      borderRadius: borderRadius,
-      child: child,
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        highlightColor: _getHighlightColor(context),
+        hoverColor: _getHoverColor(context),
+        focusColor: _getFocusColor(context),
+        onHover: isEnabled ? onHover : null,
+        onTap: isEnabled ? onTap : null,
+        borderRadius: borderRadius,
+        child: child,
+      ),
     );
   }
 

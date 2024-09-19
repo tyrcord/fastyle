@@ -183,13 +183,18 @@ class FastListViewLayout<T extends FastItem> extends StatelessWidget {
     final rows = _sortItemIfNeeded(items);
     final lastIndex = rows.length - 1;
 
+    // Set the padding for the list view content based on the widget's
+    // configuration or the theme's default padding.
+
+    final listViewPadding = padding ?? EdgeInsets.zero;
+
     return Scrollbar(
       controller: scrollController,
       child: ListView.builder(
-        padding: padding,
+        controller: scrollController,
+        padding: listViewPadding,
         itemCount: rows.length,
         shrinkWrap: true,
-        controller: scrollController,
         itemBuilder: (BuildContext context, int index) {
           return _buildListItem(
             context: context,

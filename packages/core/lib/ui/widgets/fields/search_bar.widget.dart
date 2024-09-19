@@ -83,6 +83,7 @@ class FastSearchBarState<T extends FastItem> extends State<FastSearchBar<T>> {
             )
           : null,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           if (widget.showLeadingIcon) _buildLeadingIcon(context),
@@ -106,25 +107,36 @@ class FastSearchBarState<T extends FastItem> extends State<FastSearchBar<T>> {
   }
 
   Widget _buildSearchTextInput(BuildContext context) {
+    final spacingHelper = ThemeHelper.spacing;
+    final horizontalSizedBox = spacingHelper.getHorizontalPadding(context);
+
     return Expanded(
-      child: FastSearchField(
-        margin: widget.showLeadingIcon
-            ? EdgeInsets.zero
-            : const EdgeInsets.only(left: 16.0),
-        placeholderText: widget.placeholderText,
-        textEditingController: _textController,
+      child: Padding(
+        padding: widget.showLeadingIcon ? EdgeInsets.zero : horizontalSizedBox,
+        child: FastSearchField(
+          placeholderText: widget.placeholderText,
+          textEditingController: _textController,
+        ),
       ),
     );
   }
 
   Widget _buildClearIcon(BuildContext context) {
+    final spacing = ThemeHelper.spacing.getSpacing(context);
     final theme = Theme.of(context);
+    const buttonSpecs = FastIconButtonSpec.medium;
+    final minWidth = buttonSpecs.constraints.minWidth;
+    final iconSize = buttonSpecs.iconSize;
+    final buttonPadding = (minWidth - iconSize) / 2;
 
-    return FastIconButton2(
-      iconColor: _searchQuery == null ? theme.hintColor : null,
-      onTap: () => _textController.clear(),
-      iconSize: kFastIconSizeMedium,
-      icon: buildClearIcon(context),
+    return Padding(
+      padding: EdgeInsets.only(right: spacing - buttonPadding),
+      child: FastIconButton2(
+        iconColor: _searchQuery == null ? theme.hintColor : null,
+        onTap: () => _textController.clear(),
+        size: FastButtonSize.medium,
+        icon: buildClearIcon(context),
+      ),
     );
   }
 

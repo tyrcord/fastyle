@@ -60,16 +60,19 @@ class FastListItemLayout extends StatelessWidget {
     this.isDense = true,
     this.selectionLabelColor,
     this.descriptionText,
-    EdgeInsets? contentPadding,
+    this.contentPadding,
     this.selectionColor,
     this.descriptor,
     this.trailing,
     this.leading,
     this.onTap,
-  }) : contentPadding = contentPadding ?? EdgeInsets.zero;
+  });
 
   @override
   Widget build(BuildContext context) {
+    var padding = descriptor?.padding ?? contentPadding;
+    padding ??= ThemeHelper.spacing.getHorizontalPadding(context);
+
     return ThemeHelper.getListTitleTheme(
       context: context,
       child: Container(
@@ -80,7 +83,7 @@ class FastListItemLayout extends StatelessWidget {
           dense: descriptor?.isDense ?? isDense,
           minLeadingWidth: minLeadingWidth,
           subtitle: buildItemDescription(),
-          contentPadding: contentPadding,
+          contentPadding: padding,
           title: buildItemLabel(),
           enabled: isEnabled,
           onTap: onTap,

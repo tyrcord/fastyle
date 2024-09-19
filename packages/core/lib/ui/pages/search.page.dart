@@ -100,6 +100,8 @@ class FastSearchPage<T extends FastItem> extends StatefulWidget {
 
   final EdgeInsets? listViewContentPadding;
 
+  final EdgeInsets? itemContentPadding;
+
   const FastSearchPage({
     super.key,
     required this.items,
@@ -122,6 +124,7 @@ class FastSearchPage<T extends FastItem> extends StatefulWidget {
     this.closeIcon,
     this.backIcon,
     this.listViewContentPadding,
+    this.itemContentPadding,
   });
 
   @override
@@ -156,7 +159,7 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
   }
 
   Widget _buildHeader(BuildContext context) {
-    final spacing = ThemeHelper.spacing.getHorizontalSpacing(context);
+    final spacing = ThemeHelper.spacing.getSpacing(context);
     final leading = _buildLeadingIcon(context);
 
     return ColoredBox(
@@ -166,13 +169,18 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(children: [spacing, leading]),
+            Padding(
+              padding: EdgeInsets.only(
+                left: spacing - FastPopButton.defaultButtonPadding,
+              ),
+              child: leading,
+            ),
             Container(
               width: MediaQuery.sizeOf(context).width,
-              padding: const EdgeInsets.only(
-                left: 16.0,
-                right: 16.0,
-                bottom: 16.0,
+              padding: EdgeInsets.only(
+                bottom: spacing / 2,
+                right: spacing,
+                left: spacing,
               ),
               child: FastHeadline(
                 text: widget.titleText ??
@@ -215,14 +223,10 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
           parentRoute is PageRoute<dynamic> && parentRoute.fullscreenDialog;
 
       if (useCloseButton) {
-        return FastCloseButton(
-          onTap: () => _close(context, widget.selection),
-        );
+        return FastCloseButton(onTap: () => _close(context, widget.selection));
       }
 
-      return FastBackButton(
-        onTap: () => _close(context, widget.selection),
-      );
+      return FastBackButton(onTap: () => _close(context, widget.selection));
     }
 
     return const SizedBox.shrink();
@@ -253,6 +257,7 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
                 bottom: !widget.canClearSelection,
                 top: false,
                 child: FastSelectableListView(
+                  itemContentPadding: widget.itemContentPadding,
                   sortItems: shouldSortItems,
                   items: _suggestions ?? widget.items,
                   onSelectionChanged: (T item) => _close(context, item),
@@ -267,8 +272,7 @@ class FastSearchPageState<T extends FastItem> extends State<FastSearchPage<T>> {
                   listViewEmptyContentBuilder:
                       widget.listViewEmptyContentBuilder,
                   listViewEmptyText: widget.listViewEmptyText,
-                  padding: widget.listViewContentPadding ??
-                      ThemeHelper.spacing.getHorizontalPadding(context),
+                  padding: widget.listViewContentPadding,
                 ),
               ),
             ),

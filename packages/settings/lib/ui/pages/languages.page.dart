@@ -34,7 +34,7 @@ class FastSettingsLanguagePage extends FastSettingPageLayout {
 
   const FastSettingsLanguagePage({
     super.key,
-    super.contentPadding,
+    super.contentPadding = EdgeInsets.zero,
     super.iconHeight,
     super.headerIcon,
     super.actions,
@@ -53,10 +53,15 @@ class FastSettingsLanguagePage extends FastSettingPageLayout {
 
   @override
   Widget buildSettingsContent(BuildContext context) {
+    final spacing = ThemeHelper.spacing.getSpacing(context);
+
     return Column(
       children: [
         if (subtitleText != null)
-          FastListHeader(categoryText: subtitleText!.tr()),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: spacing),
+            child: FastListHeader(categoryText: subtitleText!.tr()),
+          ),
         FastAppSettingsLanguagesBuilder(
           builder: (context, appInfoBlocState) {
             final items = buildLanguageItems(appInfoBlocState.supportedLocales);

@@ -34,6 +34,8 @@ class FastTabs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final spacing = ThemeHelper.spacing.getSpacing(context);
+
     return DefaultTabController(
       length: tabs.length,
       initialIndex: initialIndex,
@@ -41,6 +43,7 @@ class FastTabs extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           TabBar(
+            padding: EdgeInsets.symmetric(horizontal: spacing / 2),
             indicatorWeight: indicatorWeight ?? ThemeHelper.borderSize,
             isScrollable: isViewScrollable,
             indicatorColor:

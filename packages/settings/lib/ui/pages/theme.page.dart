@@ -39,7 +39,7 @@ class FastSettingsThemePage extends FastSettingPageLayout {
 
   const FastSettingsThemePage({
     super.key,
-    super.contentPadding,
+    super.contentPadding = EdgeInsets.zero,
     super.iconHeight,
     super.headerIcon,
     super.actions,
@@ -60,12 +60,16 @@ class FastSettingsThemePage extends FastSettingPageLayout {
 
   @override
   Widget buildSettingsContent(BuildContext context) {
+    final spacing = ThemeHelper.spacing.getSpacing(context);
     final items = buildThemeItems(context);
 
     return Column(
       children: [
         if (subtitleText != null)
-          FastListHeader(categoryText: subtitleText!.tr()),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: spacing),
+            child: FastListHeader(categoryText: subtitleText!.tr()),
+          ),
         FastAppSettingsThemeBuilder(
           builder: (BuildContext context, FastAppSettingsBlocState state) {
             return FastSelectableListView<FastItem<ThemeMode>>(

@@ -95,8 +95,8 @@ class _FastSearchableListViewState<T extends FastItem>
       groupByCategory: widget.groupByCategory,
       extraTabBuilder: widget.extraTabBuilder,
       emptyContentBuilder: widget.emptyContentBuilder,
-      delegate: widget.delegate,
       emptyText: widget.emptyText,
+      delegate: widget.delegate,
       padding: widget.padding,
     );
 
@@ -132,8 +132,11 @@ class _FastSearchableListViewState<T extends FastItem>
   }
 
   Widget _buildListItem(BuildContext context, T item) {
+    var padding = item.descriptor?.padding ?? widget.itemContentPadding;
+    padding ??= ThemeHelper.spacing.getHorizontalPadding(context);
+
     return FastListItemLayout(
-      contentPadding: widget.itemContentPadding,
+      contentPadding: padding,
       labelText: item.labelText,
       onTap: () {
         if (widget.isEnabled && item.isEnabled) {

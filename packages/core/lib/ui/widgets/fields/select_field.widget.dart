@@ -49,6 +49,7 @@ class FastSelectField<T> extends StatefulWidget {
   final Widget? leading;
   final String? noneText;
   final String? noneTextGender;
+  final EdgeInsets? itemContentPadding;
   final EdgeInsets? listViewContentPadding;
 
   const FastSelectField({
@@ -87,6 +88,7 @@ class FastSelectField<T> extends StatefulWidget {
     this.noneText,
     this.noneTextGender,
     this.listViewContentPadding,
+    this.itemContentPadding,
   });
 
   @override
@@ -235,6 +237,7 @@ class _FastSelectFieldState<T> extends State<FastSelectField<T>> {
             listViewContentPadding: widget.listViewContentPadding,
             searchPlaceholderText: widget.searchPlaceholderText,
             clearSelectionText: widget.clearSelectionText,
+            itemContentPadding: widget.itemContentPadding,
             canClearSelection: widget.canClearSelection,
             listViewEmptyText: widget.listViewEmptyText,
             allCategoryText: widget.allCategoryText,
