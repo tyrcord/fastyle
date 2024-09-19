@@ -50,7 +50,7 @@ class FastPendingRaisedButtonState extends State<FastPendingRaisedButton>
     final isPending = widget.isPending;
     final isEnabled = !isPending && widget.isEnabled;
     final palette = ThemeHelper.getPaletteColors(context);
-    final textColor = getColor(
+    final textColor = getTextColor(
       context,
       color: widget.textStyle?.color ?? widget.textColor ?? palette.whiteColor,
       emphasis: widget.emphasis,

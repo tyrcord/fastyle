@@ -67,7 +67,7 @@ class _FastRaisedButtonState2 extends State<FastRaisedButton2>
   Widget build(BuildContext context) {
     final palette = ThemeHelper.getPaletteColors(context);
 
-    final backgroundColor = getColor(
+    final backgroundColor = getTextColor(
       context,
       color: widget.color ?? ThemeHelper.colors.getPrimaryColor(context),
       isEnabled: widget.isEnabled,

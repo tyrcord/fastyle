@@ -51,7 +51,7 @@ class FastPendingOutlineButtonState extends State<FastPendingOutlinedButton>
   Widget build(BuildContext context) {
     final isPending = widget.isPending;
     final isEnabled = !isPending && widget.isEnabled;
-    final textColor = getColor(
+    final textColor = getTextColor(
       context,
       color: widget.textStyle?.color ?? widget.textColor,
       emphasis: widget.emphasis,

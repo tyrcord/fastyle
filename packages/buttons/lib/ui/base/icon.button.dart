@@ -91,7 +91,7 @@ class _FastIconButton2State extends State<FastIconButton2>
   }) {
     return IconTheme(
       data: IconThemeData(
-        color: getColor(
+        color: getTextColor(
           context,
           disabledColor: disabledColor,
           isEnabled: isEnabled,

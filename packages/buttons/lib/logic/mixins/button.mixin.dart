@@ -18,17 +18,7 @@ mixin FastButtonMixin2 {
     if (iconSize != null) return iconSize;
     if ((icon is FaIcon) && icon.size != null) return icon.size!;
     if ((icon is Icon) && icon.size != null) return icon.size!;
-
-    if (size != null) {
-      switch (size) {
-        case FastButtonSize.large:
-          return FastIconButtonSpec.large.iconSize;
-        case FastButtonSize.medium:
-          return FastIconButtonSpec.medium.iconSize;
-        case FastButtonSize.small:
-          return FastIconButtonSpec.small.iconSize;
-      }
-    }
+    if (size != null) return size.iconSpec.iconSize;
 
     return kFastIconSizeSmall;
   }
@@ -42,21 +32,28 @@ mixin FastButtonMixin2 {
       return textStyle.fontSize!;
     }
 
-    if (size != null) {
-      switch (size) {
-        case FastButtonSize.large:
-          return FastButtonSpec.large.fontSize;
-        case FastButtonSize.medium:
-          return FastButtonSpec.medium.fontSize;
-        case FastButtonSize.small:
-          return FastButtonSpec.small.fontSize;
-      }
-    }
+    if (size != null) return size.spec.fontSize;
 
     return kFastFontSize16;
   }
 
-  Color? getColor(
+  BoxConstraints? getButtonConstraints(
+    BuildContext context, {
+    FastButtonSize? size,
+    Widget? icon,
+  }) {
+    if (icon != null) {
+      if (size != null) return size.iconSpec.constraints;
+
+      return FastIconButtonSpec.medium.constraints;
+    }
+
+    if (size != null) return size.spec.constraints;
+
+    return FastButtonSpec.medium.constraints;
+  }
+
+  Color? getTextColor(
     BuildContext context, {
     FastButtonEmphasis? emphasis,
     bool isEnabled = true,
@@ -117,7 +114,7 @@ mixin FastButtonMixin2 {
 
     final palette = ThemeHelper.getPaletteColors(context);
 
-    return palette.gray.mid;
+    return palette.gray.darker;
   }
 
   Color? getHoverColor(
@@ -151,7 +148,7 @@ mixin FastButtonMixin2 {
     Color? borderColor,
   }) {
     return borderColor ??
-        getColor(
+        getTextColor(
           context,
           disabledColor: disabledColor,
           color: textStyle?.color,
@@ -183,36 +180,6 @@ mixin FastButtonMixin2 {
 
     return getEmphasisedColor(context, emphasis: emphasis)
         ?.withAlpha(kFastButtonHighlightAlpha);
-  }
-
-  BoxConstraints? getButtonConstraints(
-    BuildContext context, {
-    FastButtonSize? size,
-    Widget? icon,
-  }) {
-    if (icon != null) {
-      switch (size) {
-        case FastButtonSize.large:
-          return FastIconButtonSpec.large.constraints;
-        case FastButtonSize.medium:
-          return FastIconButtonSpec.medium.constraints;
-        case FastButtonSize.small:
-          return FastIconButtonSpec.small.constraints;
-        default:
-          return FastIconButtonSpec.medium.constraints;
-      }
-    }
-
-    switch (size) {
-      case FastButtonSize.large:
-        return FastButtonSpec.large.constraints;
-      case FastButtonSize.medium:
-        return FastButtonSpec.medium.constraints;
-      case FastButtonSize.small:
-        return FastButtonSpec.small.constraints;
-      default:
-        return FastButtonSpec.medium.constraints;
-    }
   }
 
   Widget buildButton(
@@ -314,7 +281,7 @@ mixin FastButtonMixin2 {
       text: labelText ?? CoreLocaleKeys.core_label_button.tr(),
       fontWeight: textStyle?.fontWeight,
       upperCase: upperCase,
-      textColor: getColor(
+      textColor: getTextColor(
         context,
         color: textStyle?.color ?? color,
         disabledColor: disabledColor,

@@ -6,6 +6,8 @@ enum FastIconButtonSpec {
   medium,
   large;
 
+  double get iconMinPadding => (constraints.minWidth - iconSize) / 2;
+
   BoxConstraints get constraints {
     switch (this) {
       case FastIconButtonSpec.small:

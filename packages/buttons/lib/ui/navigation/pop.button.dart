@@ -1,11 +1,26 @@
 // Flutter imports:
+import 'package:fastyle_core/fastyle_core.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:fastyle_buttons/fastyle_buttons.dart';
 import 'package:go_router/go_router.dart';
 
+final _popButtonMinWidth =
+    FastPopButton.defaultButtonSize.iconSpec.constraints.minWidth;
+
+final _popButtonPadding =
+    (_popButtonMinWidth - FastPopButton.defaultIconSize) / 2;
+
 abstract class FastPopButton extends StatelessWidget {
+  static const defaultButtonSize = FastButtonSize.medium;
+  static const defaultIconSize = kFastIconSizeLarge;
+
+  static late final double popButtonMinWidth;
+  static late final double popButtonPadding;
+
+  static double get defaultButtonPadding => _popButtonPadding;
+
   /// Whether the button is enabled.
   final bool isEnabled;
 
@@ -70,7 +85,9 @@ abstract class FastPopButton extends StatelessWidget {
     super.key,
     this.trottleTimeDuration = kFastButtonTrottleTimeDuration,
     this.emphasis = FastButtonEmphasis.low,
+    this.iconSize = defaultIconSize,
     this.shouldTrottleTime = true,
+    this.size = defaultButtonSize,
     this.isEnabled = true,
     this.flexible = false,
     this.highlightColor,
@@ -82,12 +99,10 @@ abstract class FastPopButton extends StatelessWidget {
     this.hoverColor,
     this.debugLabel,
     this.iconColor,
-    this.iconSize,
     this.tooltip,
     this.padding,
     this.onTap,
     this.icon,
-    this.size,
   });
 
   @protected
