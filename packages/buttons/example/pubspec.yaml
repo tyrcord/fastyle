@@ -1,12 +1,12 @@
 dependencies:
-  easy_localization: ^3.0.5
+  easy_localization: ^3.0.7
   fastyle_buttons: ^0.0.33
   fastyle_core: ^0.0.59
   flutter:
     sdk: flutter
-  go_router: ^14.1.3
-  lingua_core: ^0.0.43
-  font_awesome_flutter: ^10.6.0
+  font_awesome_flutter: ^10.7.0
+  go_router: ^14.2.7
+  lingua_core: ^0.0.46
 description: A new Flutter project.
 dev_dependencies:
   dependency_validator: ^3.2.3
@@ -15,8 +15,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: ">=3.24.0"
-  sdk: ">=3.5.0 <4.0.0"
+  flutter: '>=3.24.0'
+  sdk: '>=3.5.0 <4.0.0'
 flutter:
   uses-material-design: true
 name: fastyle_buttons_example

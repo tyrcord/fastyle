@@ -4,7 +4,7 @@ dependencies:
   flutter:
     sdk: flutter
   go_router: ^14.2.7
-  lingua_core: ^0.0.45
+  lingua_core: ^0.0.46
 description: Set of animation Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^4.1.0
@@ -13,7 +13,7 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: ">=3.24.0"
-  sdk: ">=3.5.0 <4.0.0"
+  flutter: '>=3.24.0'
+  sdk: '>=3.5.0 <4.0.0'
 name: fastyle_animation
 version: 0.0.24

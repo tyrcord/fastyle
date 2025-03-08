@@ -1,13 +1,13 @@
 dependencies:
-  easy_localization: ^3.0.5
+  easy_localization: ^3.0.7
   fastyle_core: ^0.0.59
   fastyle_forms: ^0.0.54
   flutter:
     sdk: flutter
-  go_router: ^14.1.3
-  lingua_core: ^0.0.43
-  lingua_countries: ^0.0.14
-  tbloc: ^0.25.0
+  go_router: ^14.2.7
+  lingua_core: ^0.0.46
+  lingua_countries: ^0.0.17
+  tbloc: ^0.25.3
 description: A new Flutter project.
 dev_dependencies:
   dependency_validator: ^3.2.3
@@ -16,8 +16,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: ">=3.24.0"
-  sdk: ">=3.5.0 <4.0.0"
+  flutter: '>=3.24.0'
+  sdk: '>=3.5.0 <4.0.0'
 flutter:
   uses-material-design: true
 name: fastyle_forms_example

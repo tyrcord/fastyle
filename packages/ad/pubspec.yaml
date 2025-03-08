@@ -2,6 +2,7 @@ dependencies:
   app_tracking_transparency: ^2.0.6
   collection: ^1.18.0
   easy_localization: ^3.0.7
+  fastyle_buttons: ^0.0.33
   fastyle_core: ^0.0.59
   fastyle_images: ^0.0.54
   fastyle_video_player: ^0.0.36
@@ -10,23 +11,22 @@ dependencies:
   font_awesome_flutter: ^10.7.0
   google_mobile_ads: ^5.1.0
   http: ^1.2.2
-  lingua_ad: ^0.0.27
-  lingua_core: ^0.0.45
-  lingua_purchases: ^0.0.31
-  lingua_settings: ^0.0.26
+  lingua_ad: ^0.0.28
+  lingua_core: ^0.0.46
+  lingua_purchases: ^0.0.32
+  lingua_settings: ^0.0.27
   rxdart: ^0.28.0
-  subx: ^1.18.0
-  t_cache: ^0.0.21
-  t_helpers: ^0.0.59
-  tbloc: ^0.25.0
-  tenhance: ^0.0.15
-  tlogger: ^0.0.16
-  tmodel: ^0.5.19
-  tstore: ^0.8.30
+  subx: ^1.19.0
+  t_cache: ^0.0.22
+  t_helpers: ^0.0.62
+  tbloc: ^0.25.3
+  tenhance: ^0.0.16
+  tlogger: ^0.0.17
+  tmodel: ^0.5.20
+  tstore: ^0.8.31
   url_launcher: ^6.3.0
   uuid: ^4.4.2
   visibility_detector: ^0.4.0+2
-  fastyle_buttons: ^0.0.33
 description: Set of ad Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^4.1.0
@@ -35,8 +35,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: ">=3.24.0"
-  sdk: ">=3.5.0 <4.0.0"
+  flutter: '>=3.24.0'
+  sdk: '>=3.5.0 <4.0.0'
 flutter:
   plugin:
     platforms:

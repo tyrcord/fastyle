@@ -10,8 +10,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: ">=3.24.0"
-  sdk: ">=3.5.0 <4.0.0"
+  flutter: '>=3.24.0'
+  sdk: '>=3.5.0 <4.0.0'
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/home
 name: fastyle_home
 version: 0.0.44
