@@ -29,8 +29,8 @@ class FastPageHeaderRoundedDuotoneIconLayout extends StatelessWidget {
     double? tabletIconSize,
     this.palette,
     this.hasShadow = true,
-  })  : handsetIconSize = handsetIconSize ?? kFastPageHeaderIconSizeSmall,
-        tabletIconSize = tabletIconSize ?? kFastPageHeaderIconSizeMedium;
+  }) : handsetIconSize = handsetIconSize ?? kFastPageHeaderIconSizeSmall,
+       tabletIconSize = tabletIconSize ?? kFastPageHeaderIconSizeMedium;
 
   @override
   Widget build(BuildContext context) {
@@ -56,14 +56,13 @@ class FastPageHeaderRoundedDuotoneIconLayout extends StatelessWidget {
   }
 
   double _getIconSize(BuildContext context, FastMediaType mediaType) {
-    final scaleFactor = MediaQuery.textScaleFactorOf(context);
-    final textScaleFactor = scaleFactor > 1 ? scaleFactor : scaleFactor;
+    final textScaler = MediaQuery.textScalerOf(context);
 
     if (mediaType == FastMediaType.tablet) {
-      return tabletIconSize * textScaleFactor;
+      return textScaler.scale(tabletIconSize);
     }
 
-    return handsetIconSize * textScaleFactor;
+    return textScaler.scale(handsetIconSize);
   }
 
   FastPaletteScheme _getPalette(BuildContext context) {

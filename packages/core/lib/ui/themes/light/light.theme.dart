@@ -21,7 +21,10 @@ final _defaultUnderlineInputBorder = UnderlineInputBorder(
 
 final kLightFastTheme = kBaseFastTheme.copyWith(
   scaffoldBackgroundColor: kFastLightPrimaryBackgroundColor,
-  dialogBackgroundColor: kFastLightSecondaryBackgroundColor,
+  dialogTheme: const DialogTheme(
+    backgroundColor: kFastLightSecondaryBackgroundColor,
+  ),
+  // dialogBackgroundColor: kFastLightSecondaryBackgroundColor,
   hintColor: kFastLightHintLabelColor,
   textTheme: _baseTextTheme.copyWith(
     headlineMedium: _baseTextTheme.headlineMedium!.copyWith(
@@ -104,24 +107,22 @@ final kLightFastTheme = kBaseFastTheme.copyWith(
 
       return IconThemeData(color: kFastLightSecondaryLabelColor);
     }),
-    labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
-      (
-        Set<WidgetState> states,
-      ) {
-        final base = GoogleFonts.barlowSemiCondensed(
-          fontWeight: kFastFontWeightRegular,
-          fontSize: kFastFontSize16,
-        );
+    labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>((
+      Set<WidgetState> states,
+    ) {
+      final base = GoogleFonts.barlowSemiCondensed(
+        fontWeight: kFastFontWeightRegular,
+        fontSize: kFastFontSize16,
+      );
 
-        if (states.contains(WidgetState.disabled)) {
-          return base.copyWith(color: kFastLightTertiaryLabelColor);
-        } else if (states.contains(WidgetState.selected)) {
-          return base.copyWith(color: kFastLightLabelColor);
-        }
+      if (states.contains(WidgetState.disabled)) {
+        return base.copyWith(color: kFastLightTertiaryLabelColor);
+      } else if (states.contains(WidgetState.selected)) {
+        return base.copyWith(color: kFastLightLabelColor);
+      }
 
-        return base.copyWith(color: kFastLightSecondaryLabelColor);
-      },
-    ),
+      return base.copyWith(color: kFastLightSecondaryLabelColor);
+    }),
   ),
   navigationRailTheme: kFastNavigationRailTheme.copyWith(
     backgroundColor: kFastLightWhiteColor,

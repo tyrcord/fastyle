@@ -44,10 +44,10 @@ class FastRichTextLinkState extends State<FastRichTextLink> {
   @override
   Widget build(BuildContext context) {
     final bodyTextStyle = ThemeHelper.texts.getBodyTextStyle(context);
-    final scaleFactor = MediaQuery.textScaleFactorOf(context);
+    final textScaler = MediaQuery.textScalerOf(context);
     final palette = ThemeHelper.getPaletteColors(context);
     final spanTextStyle = bodyTextStyle.copyWith(
-      fontSize: (widget.fontSize ?? bodyTextStyle.fontSize!) * scaleFactor,
+      fontSize: textScaler.scale(widget.fontSize ?? bodyTextStyle.fontSize!),
     );
 
     final linkTextStyle = spanTextStyle.copyWith(
