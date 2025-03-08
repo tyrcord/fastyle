@@ -20,14 +20,14 @@ dependencies:
   tbloc: ^0.25.3
 description: Set of settings Widgets for the fastyle library.
 dev_dependencies:
-  dependency_validator: ^4.1.0
-  flutter_lints: ^4.0.0
+  dependency_validator: ^5.0.2
+  flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: '>=3.24.0'
-  sdk: '>=3.5.0 <4.0.0'
+  flutter: ">=3.29.0 <4.0.0"
+  sdk: ">=3.7.0 <4.0.0"
 name: fastyle_settings
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/settings
 version: 0.0.59

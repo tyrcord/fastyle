@@ -7,22 +7,22 @@ dependencies:
   vector_graphics: ^1.1.11
 description: Set of images Widgets for the fastyle library.
 dev_dependencies:
-  dependency_validator: ^4.1.0
-  flutter_lints: ^4.0.0
+  dependency_validator: ^5.0.2
+  flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
   import_sorter: ^4.6.0
   vector_graphics_compiler: ^1.1.11
 environment:
-  flutter: '>=3.24.0'
-  sdk: '>=3.5.0 <4.0.0'
+  flutter: ">=3.29.0 <4.0.0"
+  sdk: ">=3.7.0 <4.0.0"
 flutter:
   assets:
-  - assets/images/commodity/
-  - assets/images/crypto/
-  - assets/images/flag/
-  - assets/images/mobile/
-  - assets/images/localizations/
+    - assets/images/commodity/
+    - assets/images/crypto/
+    - assets/images/flag/
+    - assets/images/mobile/
+    - assets/images/localizations/
 name: fastyle_images
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/images
 version: 0.0.54
