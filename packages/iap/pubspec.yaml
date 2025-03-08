@@ -1,8 +1,8 @@
 dependencies:
   collection: ^1.19.0
   easy_localization: ^3.0.7
-  fastyle_buttons: ^0.0.33
-  fastyle_core: ^0.0.59
+  fastyle_buttons: ^0.0.34
+  fastyle_core: ^0.0.60
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.7.0
@@ -28,4 +28,4 @@ environment:
   sdk: ">=3.7.0 <4.0.0"
 name: fastyle_iap
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/iap
-version: 0.0.44
+version: 0.0.45

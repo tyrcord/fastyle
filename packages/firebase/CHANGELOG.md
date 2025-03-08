@@ -1,3 +1,9 @@
+## 0.0.42
+
+ - **FEAT**: clean up.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated firebase dependencies versions.
+
 ## 0.0.41
 
  - **FEAT**: updated dependencies.

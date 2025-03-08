@@ -1,3 +1,12 @@
+## 0.0.60
+
+ - **FIX**: minor regressions.
+ - **FEAT**: clean up.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**(FastDialog): added new option applyMinimumConstraints.
+ - **FEAT**: better leading button layout.
+
 ## 0.0.59
 
  - **REFACTOR**: shadow layout.

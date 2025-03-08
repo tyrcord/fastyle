@@ -1,3 +1,11 @@
+## 0.0.34
+
+ - **FIX**: minor improvements.
+ - **FEAT**: clean up.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: better leading button layout.
+
 ## 0.0.33
 
  - **REFACTOR**: buttons.

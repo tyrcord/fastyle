@@ -1,3 +1,9 @@
+## 0.0.45
+
+ - **FEAT**: clean up.
+ - **FEAT**: updated dependencies.
+ - **FEAT**: updated dependencies.
+
 ## 0.0.44
 
  - **FEAT**: updated dependencies.
