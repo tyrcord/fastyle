@@ -1,6 +1,6 @@
 dependencies:
   app_tracking_transparency: ^2.0.6
-  collection: ^1.18.0
+  collection: ^1.19.0
   easy_localization: ^3.0.7
   fastyle_buttons: ^0.0.33
   fastyle_core: ^0.0.59
@@ -9,7 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.7.0
-  google_mobile_ads: ^5.1.0
+  google_mobile_ads: ^5.3.1
   http: ^1.2.2
   lingua_ad: ^0.0.28
   lingua_core: ^0.0.46
@@ -24,8 +24,8 @@ dependencies:
   tlogger: ^0.0.17
   tmodel: ^0.5.20
   tstore: ^0.8.31
-  url_launcher: ^6.3.0
-  uuid: ^4.4.2
+  url_launcher: ^6.3.1
+  uuid: ^4.5.1
   visibility_detector: ^0.4.0+2
 description: Set of ad Widgets for the fastyle library.
 dev_dependencies:

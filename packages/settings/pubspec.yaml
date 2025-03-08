@@ -1,5 +1,5 @@
 dependencies:
-  collection: ^1.18.0
+  collection: ^1.19.0
   easy_localization: ^3.0.7
   fastyle_core: ^0.0.59
   fastyle_financial: ^0.0.50

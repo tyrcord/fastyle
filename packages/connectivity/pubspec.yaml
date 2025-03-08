@@ -1,5 +1,5 @@
 dependencies:
-  connectivity_plus: ^6.0.5
+  connectivity_plus: ^6.1.3
   easy_localization: ^3.0.7
   fastyle_core: ^0.0.59
   flutter:
