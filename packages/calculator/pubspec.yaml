@@ -12,7 +12,7 @@ dependencies:
   lingua_purchases: ^0.0.32
   lingua_settings: ^0.0.27
   pdf: ^3.11.3
-  printing: ^5.13.1
+  printing: ^5.14.2
   t_helpers: ^0.0.62
   tbloc: ^0.25.3
   tenhance: ^0.0.16

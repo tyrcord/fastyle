@@ -26,7 +26,6 @@ linter:
     - library_prefixes
     - collection_methods_unrelated_type
     - non_constant_identifier_names
-    - package_names
     - package_prefixed_library_names
     - prefer_final_fields
     - prefer_generic_function_type_aliases

@@ -6,8 +6,8 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.7.0
-  in_app_purchase: ^3.2.0
-  in_app_purchase_storekit: ^0.3.17
+  in_app_purchase: ^3.2.1
+  in_app_purchase_storekit: ^0.3.21
   lingua_core: ^0.0.46
   lingua_purchases: ^0.0.32
   rxdart: ^0.28.0

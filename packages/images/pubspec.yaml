@@ -2,9 +2,9 @@ dependencies:
   fastyle_core: ^0.0.59
   flutter:
     sdk: flutter
-  flutter_svg: ^2.0.10
+  flutter_svg: ^2.0.17
   t_helpers: ^0.0.62
-  vector_graphics: ^1.1.11
+  vector_graphics: ^1.1.18
 description: Set of images Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^5.0.2
@@ -12,7 +12,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   import_sorter: ^4.6.0
-  vector_graphics_compiler: ^1.1.11
+  vector_graphics_compiler: ^1.1.16
 environment:
   flutter: ">=3.29.0 <4.0.0"
   sdk: ">=3.7.0 <4.0.0"
