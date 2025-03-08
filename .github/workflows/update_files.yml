@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           # This is required to allow another workflow to be triggered
-          token: ${{ secrets.WORKFLOW_TOKEN }}
+          token: ${{ secrets.CODEX_AUTH }}
 
       # Configure Git
       - name: Configure Git
@@ -30,7 +30,7 @@ jobs:
         with:
           repository: tyrcord/codex
           path: codex
-          token: ${{ secrets.WORKFLOW_TOKEN }}
+          token: ${{ secrets.CODEX_AUTH }}
 
       # Copy the Actions files
       - name: Copy Actions files
