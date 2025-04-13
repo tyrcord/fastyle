@@ -8,8 +8,8 @@ dependencies:
   go_router: ^14.8.1
   lingua_core: ^0.0.46
   shimmer: ^3.0.0
-  tbloc: ^0.25.3
-  tenhance: ^0.0.16
+  tbloc: ^0.25.4
+  tenhance: ^0.0.17
 description: Set of views Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^5.0.2

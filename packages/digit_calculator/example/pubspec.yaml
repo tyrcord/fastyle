@@ -6,7 +6,7 @@ dependencies:
   font_awesome_flutter: ^10.7.0
   go_router: ^14.8.1
   intl: ^0.19.0
-  t_helpers: ^0.0.62
+  t_helpers: ^0.0.63
 description: A new Flutter project.
 dev_dependencies:
   dependency_validator: ^3.2.3

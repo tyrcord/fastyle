@@ -7,8 +7,8 @@ dependencies:
   font_awesome_flutter: ^10.7.0
   lingua_core: ^0.0.46
   rxdart: ^0.28.0
-  tbloc: ^0.25.3
-  tmodel: ^0.5.20
+  tbloc: ^0.25.4
+  tmodel: ^0.5.21
 description: Set of connectivity Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^5.0.2

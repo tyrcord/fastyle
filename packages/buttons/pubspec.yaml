@@ -7,7 +7,7 @@ dependencies:
   go_router: ^14.8.1
   lingua_core: ^0.0.46
   rxdart: ^0.28.0
-  t_helpers: ^0.0.62
+  t_helpers: ^0.0.63
 description: Set of buttons Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^5.0.2

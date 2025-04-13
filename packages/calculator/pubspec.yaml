@@ -13,11 +13,11 @@ dependencies:
   lingua_settings: ^0.0.27
   pdf: ^3.11.3
   printing: ^5.14.2
-  t_helpers: ^0.0.62
-  tbloc: ^0.25.3
-  tenhance: ^0.0.16
-  tmodel: ^0.5.20
-  tstore: ^0.8.31
+  t_helpers: ^0.0.63
+  tbloc: ^0.25.4
+  tenhance: ^0.0.17
+  tmodel: ^0.5.21
+  tstore: ^0.8.32
 description: Set of calculator Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^5.0.2

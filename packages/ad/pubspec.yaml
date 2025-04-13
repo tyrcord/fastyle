@@ -2,10 +2,10 @@ dependencies:
   app_tracking_transparency: ^2.0.6
   collection: ^1.19.0
   easy_localization: ^3.0.7
-  fastyle_buttons: ^0.0.34
-  fastyle_core: ^0.0.60
-  fastyle_images: ^0.0.55
-  fastyle_video_player: ^0.0.37
+  fastyle_buttons: ^0.0.35
+  fastyle_core: ^0.0.61
+  fastyle_images: ^0.0.56
+  fastyle_video_player: ^0.0.38
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.7.0
@@ -16,14 +16,14 @@ dependencies:
   lingua_purchases: ^0.0.32
   lingua_settings: ^0.0.27
   rxdart: ^0.28.0
-  subx: ^1.19.0
-  t_cache: ^0.0.22
-  t_helpers: ^0.0.62
-  tbloc: ^0.25.3
-  tenhance: ^0.0.16
-  tlogger: ^0.0.17
-  tmodel: ^0.5.20
-  tstore: ^0.8.31
+  subx: ^1.20.0
+  t_cache: ^0.0.23
+  t_helpers: ^0.0.63
+  tbloc: ^0.25.4
+  tenhance: ^0.0.17
+  tlogger: ^0.0.18
+  tmodel: ^0.5.21
+  tstore: ^0.8.32
   url_launcher: ^6.3.1
   uuid: ^4.5.1
   visibility_detector: ^0.4.0+2

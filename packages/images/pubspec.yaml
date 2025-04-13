@@ -3,7 +3,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.17
-  t_helpers: ^0.0.62
+  t_helpers: ^0.0.63
   vector_graphics: ^1.1.18
 description: Set of images Widgets for the fastyle library.
 dev_dependencies:
