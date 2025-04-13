@@ -1,6 +1,6 @@
 dependencies:
-  fastyle_buttons: ^0.0.35
-  fastyle_core: ^0.0.61
+  fastyle_buttons: ^0.0.36
+  fastyle_core: ^0.0.62
   flutter:
     sdk: flutter
   tenhance: ^0.0.17
@@ -16,4 +16,4 @@ environment:
   sdk: '>=3.7.0 <4.0.0'
 name: fastyle_layouts
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/layouts
-version: 0.0.28
+version: 0.0.29

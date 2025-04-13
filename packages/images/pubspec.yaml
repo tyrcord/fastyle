@@ -1,5 +1,5 @@
 dependencies:
-  fastyle_core: ^0.0.61
+  fastyle_core: ^0.0.62
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.17
@@ -25,4 +25,4 @@ flutter:
   - assets/images/localizations/
 name: fastyle_images
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/images
-version: 0.0.56
+version: 0.0.57

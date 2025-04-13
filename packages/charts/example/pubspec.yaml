@@ -1,6 +1,6 @@
 dependencies:
-  fastyle_charts: ^0.0.39
-  fastyle_core: ^0.0.61
+  fastyle_charts: ^0.0.40
+  fastyle_core: ^0.0.62
   flutter:
     sdk: flutter
   go_router: ^14.8.1
