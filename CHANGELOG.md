@@ -16,6 +16,27 @@ Packages with breaking changes:
 Packages with other changes:
 
  - [`fastyle_ad` - `v0.0.54`](#fastyle_ad---v0054)
+
+---
+
+#### `fastyle_ad` - `v0.0.54`
+
+ - **FEAT**: updated dependencies.
+
+
+## 2025-04-13
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`fastyle_ad` - `v0.0.54`](#fastyle_ad---v0054)
  - [`fastyle_animation` - `v0.0.26`](#fastyle_animation---v0026)
  - [`fastyle_buttons` - `v0.0.35`](#fastyle_buttons---v0035)
  - [`fastyle_calculator` - `v1.68.0`](#fastyle_calculator---v1680)

@@ -47,4 +47,4 @@ flutter:
         pluginClass: FastAdPlugin
 name: fastyle_ad
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/ad
-version: 0.0.53
+version: 0.0.54
