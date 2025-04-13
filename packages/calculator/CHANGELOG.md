@@ -1,3 +1,7 @@
+## 1.68.0
+
+ - **FEAT**: updated dependencies.
+
 ## 1.67.0
 
  - **FEAT**: clean up.

@@ -1,3 +1,7 @@
+## 0.0.61
+
+ - **FEAT**: updated dependencies.
+
 ## 0.0.60
 
  - **FIX**: minor regressions.
