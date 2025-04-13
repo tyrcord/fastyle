@@ -6,7 +6,7 @@ dependencies:
   fastyle_iap: ^0.0.45
   fastyle_layouts: ^0.0.27
   fastyle_settings: ^0.0.60
-  firebase_messaging: ^15.2.4
+  firebase_messaging: ^15.2.5
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.7.0
@@ -22,8 +22,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: ">=3.29.0 <4.0.0"
-  sdk: ">=3.7.0 <4.0.0"
+  flutter: '>=3.29.0 <4.0.0'
+  sdk: '>=3.7.0 <4.0.0'
 name: fastyle_onboarding
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/onboarding
 version: 0.0.56
