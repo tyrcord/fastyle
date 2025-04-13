@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`fastyle_ad` - `v0.0.57`](#fastyle_ad---v0057)
+
+---
+
+#### `fastyle_ad` - `v0.0.57`
+
+ - **FEAT**: update android config.
+
+
+## 2025-04-13
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`fastyle_ad` - `v0.0.56`](#fastyle_ad---v0056)
 
 ---

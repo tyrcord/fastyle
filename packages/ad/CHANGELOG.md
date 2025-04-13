@@ -1,3 +1,7 @@
+## 0.0.57
+
+ - **FEAT**: update android config.
+
 ## 0.0.56
 
  - **FEAT**: updated dependencies.
