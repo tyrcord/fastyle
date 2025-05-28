@@ -1,3 +1,8 @@
+## 0.0.63
+
+ - **FEAT**: support flutter 3.22.
+ - **FEAT**: update dependencies.
+
 ## 0.0.62
 
  - **FEAT**: updated dependencies.
