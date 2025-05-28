@@ -6,7 +6,7 @@ import 'package:fastyle_core/fastyle_core.dart';
 
 //TODO: @need-review: code from fastyle_dart
 
-final kFastTabBarTheme = TabBarTheme(
+final kFastTabBarTheme = TabBarThemeData(
   indicatorSize: TabBarIndicatorSize.label,
   labelStyle: kFastTextTheme.bodyLarge,
   unselectedLabelStyle: kFastTextTheme.bodyLarge!.copyWith(

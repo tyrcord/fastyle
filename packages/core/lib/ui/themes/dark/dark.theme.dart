@@ -63,7 +63,7 @@ final kDarkFastTheme = kBaseFastTheme.copyWith(
     labelColor: kFastDarkLabelColor,
     unselectedLabelColor: kFastDarkSecondaryLabelColor,
   ),
-  cardTheme: const CardTheme(
+  cardTheme: const CardThemeData(
     color: kFastDarkSecondaryBackgroundColor,
   ),
   dividerColor: kFastDarkSeparatorColor,

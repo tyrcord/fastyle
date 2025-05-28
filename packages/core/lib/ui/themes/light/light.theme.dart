@@ -21,7 +21,7 @@ final _defaultUnderlineInputBorder = UnderlineInputBorder(
 
 final kLightFastTheme = kBaseFastTheme.copyWith(
   scaffoldBackgroundColor: kFastLightPrimaryBackgroundColor,
-  dialogTheme: const DialogTheme(
+  dialogTheme: const DialogThemeData(
     backgroundColor: kFastLightSecondaryBackgroundColor,
   ),
   // dialogBackgroundColor: kFastLightSecondaryBackgroundColor,
@@ -61,7 +61,7 @@ final kLightFastTheme = kBaseFastTheme.copyWith(
       color: kFastLightSecondaryLabelColor,
     ),
   ),
-  cardTheme: const CardTheme(color: kFastLightSecondaryBackgroundColor),
+  cardTheme: const CardThemeData(color: kFastLightSecondaryBackgroundColor),
   iconTheme: IconThemeData(color: kFastLightLabelColor),
   tabBarTheme: _baseTabBarTheme.copyWith(
     labelColor: kFastLightLabelColor,
