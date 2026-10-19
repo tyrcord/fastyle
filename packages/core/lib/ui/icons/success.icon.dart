@@ -34,7 +34,7 @@ class FastSuccessIcon extends StatelessWidget {
     final palettes = ThemeHelper.getPaletteColors(context);
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
-    late IconData iconData;
+    late FaIconData iconData;
     if (useProIcons) {
       iconData = FastFontAwesomeIcons.lightCheck;
     } else {

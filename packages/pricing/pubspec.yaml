@@ -4,7 +4,7 @@ dependencies:
   fastyle_iap: ^0.0.48
   flutter:
     sdk: flutter
-  font_awesome_flutter: ^10.7.0
+  font_awesome_flutter: ^11.0.0
   lingua_purchases: ^0.0.32
   tbloc: ^0.25.4
 description: A set of pricing widgets for the fastyle library.
@@ -15,8 +15,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
 environment:
-  flutter: '>=3.32.0 <4.0.0'
-  sdk: '>=3.8.0 <4.0.0'
+  flutter: '>=3.35.0 <4.0.0'
+  sdk: '>=3.9.0 <4.0.0'
 name: fastyle_pricing
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/pricing
 version: 1.53.0

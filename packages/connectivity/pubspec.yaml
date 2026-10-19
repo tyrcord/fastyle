@@ -4,7 +4,7 @@ dependencies:
   fastyle_core: ^0.0.63
   flutter:
     sdk: flutter
-  font_awesome_flutter: ^10.7.0
+  font_awesome_flutter: ^11.0.0
   lingua_core: ^0.0.46
   rxdart: ^0.28.0
   tbloc: ^0.25.4
@@ -17,8 +17,8 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^5.0.0-releasecandidate.1
 environment:
-  flutter: '>=3.32.0 <4.0.0'
-  sdk: '>=3.8.0 <4.0.0'
+  flutter: '>=3.35.0 <4.0.0'
+  sdk: '>=3.9.0 <4.0.0'
 name: fastyle_connectivity
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/connectivity
 version: 0.0.53

@@ -9,14 +9,14 @@ version '1.0-SNAPSHOT'
 
 android {
     namespace 'com.tyrcord.fastyle_ad'
-    compileSdk 33
+    compileSdk 36
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
     defaultConfig {
-        minSdk = 23
+        minSdk = 24
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     
@@ -25,16 +25,15 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.10"
-    implementation 'com.google.android.gms:play-services-ads:22.4.0'
+    implementation 'com.google.android.gms:play-services-ads:25.4.0'
 }

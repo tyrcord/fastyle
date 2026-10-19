@@ -49,7 +49,7 @@ class FastNoFavoriteIcon extends StatelessWidget {
 
   Widget _getIcon(BuildContext context) {
     final useProIcons = FastIconHelper.of(context).useProIcons;
-    late IconData iconData;
+    late FaIconData iconData;
 
     if (useProIcons) {
       iconData = FastFontAwesomeIcons.lightHeartCrack;

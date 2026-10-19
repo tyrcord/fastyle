@@ -1,3 +1,4 @@
+import GoogleMobileAds
 import google_mobile_ads
 
 class MediumBannerNativeAdFactory : FLTNativeAdFactory {
@@ -5,15 +6,19 @@ class MediumBannerNativeAdFactory : FLTNativeAdFactory {
     let nibName:String = "MediumBannerNativeAdView"
     let bundleName:String = "FastAdFramework.bundle"
 
-    func createNativeAd(_ nativeAd: GADNativeAd,
-                        customOptions: [AnyHashable : Any]? = nil) -> GADNativeAdView? {
+    func createNativeAd(_ nativeAd: NativeAd,
+                        customOptions: [AnyHashable : Any]? = nil) -> NativeAdView? {
         
+        #if SWIFT_PACKAGE
+        let bundle: Bundle? = Bundle.module
+        #else
         let frameworkBundle = Bundle(for: MediumBannerNativeAdFactory.self)
         let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent(self.bundleName)
         let bundle = Bundle(url: bundleURL!)
+        #endif
         let nibView = bundle!.loadNibNamed(self.nibName, owner: nil, options: nil)!.first
 
-        let nativeAdView = nibView as! GADNativeAdView
+        let nativeAdView = nibView as! NativeAdView
 
         (nativeAdView.headlineView as! UILabel).text = nativeAd.headline
 

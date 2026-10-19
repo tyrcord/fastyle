@@ -90,7 +90,7 @@ class FastStarRatingState extends State<FastStarRating> {
 
   FaIcon buildStarIcon(BuildContext context) {
     final useProIcons = FastIconHelper.of(context).useProIcons;
-    IconData iconData = FontAwesomeIcons.star;
+    FaIconData iconData = FontAwesomeIcons.star;
 
     if (useProIcons) {
       iconData = FastFontAwesomeIcons.lightStar;

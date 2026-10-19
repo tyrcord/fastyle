@@ -73,7 +73,7 @@ class FastThemeFactory {
     );
   }
 
-  static InputDecorationTheme _buildInputDecorationTheme(
+  static InputDecorationThemeData _buildInputDecorationTheme(
     ThemeData themeData,
     Color color,
   ) {

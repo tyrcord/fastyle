@@ -5,15 +5,15 @@ Pod::Spec.new do |s|
     s.name             = 'fastyle_ad'
     s.version          = '0.0.1'
     s.summary          = 'Native ads with templates'
-    s.homepage         = 'https://github.com/tyrcord/fastyle/tree/master/packages/ad'
+    s.homepage         = 'https://github.com/tyrcord/fastyle/tree/main/packages/ad'
     s.license          = { :file => '../LICENSE' }
     s.author           = { 'Tyrcord, Inc' => 'dev@tyrcord.com' }
     s.source           = { :path => '.' }
-    s.source_files = 'Classes/**/*.{swift,xib}'
+    s.source_files = 'fastyle_ad/Sources/fastyle_ad/**/*.swift'
     s.resource_bundles = {
-        'FastAdFramework' => ['Classes/**/*.{storyboard,xib,xcassets,json,imageset,png}']
+        'FastAdFramework' => ['fastyle_ad/Sources/fastyle_ad/Resources/**/*.{storyboard,xib,xcassets,json,imageset,png}']
     }
-    s.ios.deployment_target = '9.0'
+    s.ios.deployment_target = '13.0'
     s.dependency 'Flutter'
     s.dependency 'google_mobile_ads'
     s.dependency 'Google-Mobile-Ads-SDK'

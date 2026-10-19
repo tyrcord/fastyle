@@ -102,7 +102,7 @@ class FastIapGoPremiumPage extends StatelessWidget {
   Widget buildStarIcon(BuildContext context) {
     final useProIcons = FastIconHelper.of(context).useProIcons;
     final palettes = ThemeHelper.getPaletteColors(context);
-    late final IconData iconData;
+    late final FaIconData iconData;
 
     if (useProIcons) {
       iconData = FastFontAwesomeIcons.solidStars;
@@ -143,7 +143,7 @@ class FastIapGoPremiumPage extends StatelessWidget {
   Widget buildFeatureListItemIcon(BuildContext context, Widget icon) {
     if (icon is FaIcon) {
       icon = FaIcon(
-        icon.icon,
+        icon.faIconData,
         color: ThemeHelper.colors.getPrimaryColor(context),
         size: kFastIconSizeSmall,
       );

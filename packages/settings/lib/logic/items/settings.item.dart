@@ -9,8 +9,8 @@ import 'package:fastyle_core/fastyle_core.dart';
 import 'package:fastyle_settings/fastyle_settings.dart';
 
 class FastSettingsItemIcon {
-  final IconData pro;
-  final IconData free;
+  final FaIconData pro;
+  final FaIconData free;
 
   const FastSettingsItemIcon({
     required this.pro,
