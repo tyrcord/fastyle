@@ -89,6 +89,10 @@ class FastAdmobSplashAdService {
 
     if (!canRequestAd) return false;
 
+    if (!await FastAdNetworkService.instance.isAdNetworkReachable()) {
+      return false;
+    }
+
     List<Future<AppOpenAd?>> adLoadFutures = [];
 
     if (_adUnitIds != null && _adUnitIds!.isNotEmpty) {

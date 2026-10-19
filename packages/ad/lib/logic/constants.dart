@@ -5,6 +5,18 @@ import 'package:fastyle_ad/fastyle_ad.dart';
 /// Default is 15 seconds.
 const kFastAdDefaultTimeout = Duration(seconds: 20);
 
+/// The timeout for loading a splash ad, which delays the app launch.
+const kFastSplashAdTimeout = Duration(seconds: 3);
+
+/// The host resolved to check whether the ad network can be reached.
+const kFastAdNetworkCheckHost = 'googleads.g.doubleclick.net';
+
+/// The timeout of the ad network reachability check.
+const kFastAdNetworkCheckTimeout = Duration(seconds: 1);
+
+/// How long the ad network reachability result is cached.
+const kFastAdNetworkCheckTTL = Duration(minutes: 1);
+
 /// The default refresh interval for ads.
 /// Default is 300 seconds.
 const kFastAdRefreshInterval = 300;
