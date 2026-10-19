@@ -14,12 +14,12 @@ class FastFirebaseAppCheckJob extends FastJob {
   static FastFirebaseAppCheckJob? _singleton;
   static final _manager = TLoggerManager();
 
-  final AndroidProvider? androidProvider;
+  final AndroidAppCheckProvider? androidProvider;
   final String? webRecaptchaSiteKey;
 
   factory FastFirebaseAppCheckJob({
     String? webRecaptchaSiteKey,
-    AndroidProvider? androidProvider,
+    AndroidAppCheckProvider? androidProvider,
   }) {
     _singleton ??= FastFirebaseAppCheckJob._(
       webRecaptchaSiteKey: webRecaptchaSiteKey,
@@ -47,20 +47,20 @@ class FastFirebaseAppCheckJob extends FastJob {
       _logger.debug('Activating Firebase App Check for ${app.name}...');
       final appCheck = FirebaseAppCheck.instanceFor(app: app);
 
-      var appleProviderAppCheck =
-          AppleProvider.appAttestWithDeviceCheckFallback;
-      var androidProviderAppCheck =
-          androidProvider ?? AndroidProvider.playIntegrity;
+      AppleAppCheckProvider appleProviderAppCheck =
+          const AppleAppAttestWithDeviceCheckFallbackProvider();
+      AndroidAppCheckProvider androidProviderAppCheck =
+          androidProvider ?? const AndroidPlayIntegrityProvider();
 
       if (kDebugMode) {
-        androidProviderAppCheck = AndroidProvider.debug;
-        appleProviderAppCheck = AppleProvider.debug;
+        androidProviderAppCheck = const AndroidDebugProvider();
+        appleProviderAppCheck = const AppleDebugProvider();
       }
 
       await appCheck.activate(
-        androidProvider: androidProviderAppCheck,
-        appleProvider: appleProviderAppCheck,
-        webProvider: webRecaptchaSiteKey is String
+        providerAndroid: androidProviderAppCheck,
+        providerApple: appleProviderAppCheck,
+        providerWeb: webRecaptchaSiteKey is String
             ? ReCaptchaEnterpriseProvider(webRecaptchaSiteKey!)
             : null,
       );

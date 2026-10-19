@@ -1,13 +1,13 @@
 dependencies:
   fastyle_core: ^0.0.63
-  firebase_analytics: ^11.4.5
-  firebase_app_check: ^0.3.2+5
-  firebase_core: ^3.13.0
-  firebase_crashlytics: ^4.3.5
-  firebase_in_app_messaging: ^0.8.1+5
-  firebase_messaging: ^15.2.5
-  firebase_performance: ^0.10.1+5
-  firebase_remote_config: ^5.4.3
+  firebase_analytics: ^13.0.0
+  firebase_app_check: ^0.5.0
+  firebase_core: ^5.0.0
+  firebase_crashlytics: ^6.0.0
+  firebase_in_app_messaging: ^0.10.0
+  firebase_messaging: ^17.0.0
+  firebase_performance: ^0.12.0
+  firebase_remote_config: ^7.0.0
   flutter:
     sdk: flutter
   rxdart: ^0.28.0
