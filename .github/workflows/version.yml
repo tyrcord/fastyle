@@ -28,8 +28,8 @@ jobs:
         id: tyrcord-token
         uses: actions/create-github-app-token@v3
         with:
-          client-id: ${{ vars.PACKAGES_APP_CLIENT_ID }}
-          private-key: ${{ secrets.PACKAGES_APP_PRIVATE_KEY }}
+          client-id: ${{ vars.ALPINETIC_PACKAGES_APP_CLIENT_ID }}
+          private-key: ${{ secrets.ALPINETIC_PACKAGES_APP_PRIVATE_KEY }}
           owner: tyrcord
           repositories: fusex
           permission-contents: read
@@ -38,8 +38,8 @@ jobs:
         id: alpinetic-token
         uses: actions/create-github-app-token@v3
         with:
-          client-id: ${{ vars.PACKAGES_APP_CLIENT_ID }}
-          private-key: ${{ secrets.PACKAGES_APP_PRIVATE_KEY }}
+          client-id: ${{ vars.ALPINETIC_PACKAGES_APP_CLIENT_ID }}
+          private-key: ${{ secrets.ALPINETIC_PACKAGES_APP_PRIVATE_KEY }}
           owner: alpinetic
           repositories: font_awesome_flutter
           permission-contents: read
