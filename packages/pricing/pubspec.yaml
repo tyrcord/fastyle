@@ -1,10 +1,21 @@
 dependencies:
   easy_localization: ^3.0.7
-  fastyle_core: ^0.0.63
-  fastyle_iap: ^0.0.48
+  fastyle_core:
+    git:
+      path: packages/core
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
+  fastyle_iap:
+    git:
+      path: packages/iap
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
   flutter:
     sdk: flutter
-  font_awesome_flutter: ^11.0.0
+  font_awesome_flutter:
+    git:
+      ref: main
+      url: git@github.com:alpinetic/font_awesome_flutter.git
   lingua_purchases: ^0.0.32
   tbloc: ^0.25.4
 description: A set of pricing widgets for the fastyle library.
@@ -18,5 +29,6 @@ environment:
   flutter: '>=3.35.0 <4.0.0'
   sdk: '>=3.9.0 <4.0.0'
 name: fastyle_pricing
+publish_to: none
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/pricing
 version: 1.53.0

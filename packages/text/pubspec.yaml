@@ -1,6 +1,10 @@
 dependencies:
   easy_localization: ^3.0.7
-  fastyle_core: ^0.0.63
+  fastyle_core:
+    git:
+      path: packages/core
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
   flutter:
     sdk: flutter
   lingua_core: ^0.0.46
@@ -17,5 +21,6 @@ environment:
   flutter: '>=3.35.0 <4.0.0'
   sdk: '>=3.9.0 <4.0.0'
 name: fastyle_text
+publish_to: none
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/text
 version: 0.0.34+1

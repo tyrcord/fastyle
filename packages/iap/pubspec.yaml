@@ -1,11 +1,22 @@
 dependencies:
   collection: ^1.19.0
   easy_localization: ^3.0.7
-  fastyle_buttons: ^0.0.37
-  fastyle_core: ^0.0.63
+  fastyle_buttons:
+    git:
+      path: packages/buttons
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
+  fastyle_core:
+    git:
+      path: packages/core
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
   flutter:
     sdk: flutter
-  font_awesome_flutter: ^11.0.0
+  font_awesome_flutter:
+    git:
+      ref: main
+      url: git@github.com:alpinetic/font_awesome_flutter.git
   in_app_purchase: ^3.2.1
   in_app_purchase_storekit: ^0.3.21
   lingua_core: ^0.0.46
@@ -27,5 +38,6 @@ environment:
   flutter: '>=3.35.0 <4.0.0'
   sdk: '>=3.9.0 <4.0.0'
 name: fastyle_iap
+publish_to: none
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/iap
 version: 0.0.48

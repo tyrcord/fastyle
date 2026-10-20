@@ -1,5 +1,9 @@
 dependencies:
-  fastyle_core: ^0.0.63
+  fastyle_core:
+    git:
+      path: packages/core
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.17
@@ -24,5 +28,6 @@ flutter:
   - assets/images/mobile/
   - assets/images/localizations/
 name: fastyle_images
+publish_to: none
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/images
 version: 0.0.58

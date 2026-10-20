@@ -16,6 +16,7 @@ def fetch_latest_version(package_name):
 def update_dependencies(pubspec_path, dependency_data):
     packages_latest = dependency_data['packages_latest']
     specified_versions = dependency_data['specified_versions']
+    git_packages = dependency_data.get('git_packages', {})
 
     with open(pubspec_path, 'r') as file:
         pubspec = yaml.safe_load(file)
@@ -30,6 +31,12 @@ def update_dependencies(pubspec_path, dependency_data):
     for package, version in specified_versions.items():
         if 'dependencies' in pubspec and package in pubspec['dependencies']:
             pubspec['dependencies'][package] = version
+
+    # Point Git packages (fastyle, fusex, font_awesome_flutter) to their repos
+    for package, details in git_packages.items():
+        for section in ('dependencies', 'dependency_overrides'):
+            if section in pubspec and package in pubspec[section]:
+                pubspec[section][package] = {'git': dict(details)}
 
     with open(pubspec_path, 'w') as file:
         yaml.dump(pubspec, file, indent=2)

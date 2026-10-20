@@ -1,13 +1,32 @@
 dependencies:
   collection: ^1.19.0
   easy_localization: ^3.0.7
-  fastyle_core: ^0.0.63
-  fastyle_forms: ^0.0.58
-  fastyle_images: ^0.0.58
-  fastyle_settings: ^0.0.63
+  fastyle_core:
+    git:
+      path: packages/core
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
+  fastyle_forms:
+    git:
+      path: packages/forms
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
+  fastyle_images:
+    git:
+      path: packages/images
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
+  fastyle_settings:
+    git:
+      path: packages/settings
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
   flutter:
     sdk: flutter
-  font_awesome_flutter: ^11.0.0
+  font_awesome_flutter:
+    git:
+      ref: main
+      url: git@github.com:alpinetic/font_awesome_flutter.git
   lingua_core: ^0.0.46
   lingua_finance: ^0.0.43
   lingua_finance_forex: ^0.0.23
@@ -28,4 +47,5 @@ environment:
   sdk: '>=3.9.0 <4.0.0'
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/fastyle_financial
 name: fastyle_financial
+publish_to: none
 version: 0.0.54

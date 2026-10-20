@@ -1,11 +1,26 @@
 dependencies:
   easy_localization: ^3.0.7
-  fastyle_buttons: ^0.0.37
-  fastyle_core: ^0.0.63
-  fastyle_text: ^0.0.34+1
+  fastyle_buttons:
+    git:
+      path: packages/buttons
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
+  fastyle_core:
+    git:
+      path: packages/core
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
+  fastyle_text:
+    git:
+      path: packages/text
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
   flutter:
     sdk: flutter
-  font_awesome_flutter: ^11.0.0
+  font_awesome_flutter:
+    git:
+      ref: main
+      url: git@github.com:alpinetic/font_awesome_flutter.git
   lingua_ad: ^0.0.28
   lingua_calculator: ^0.0.18
   lingua_core: ^0.0.46
@@ -30,4 +45,5 @@ environment:
   sdk: '>=3.9.0 <4.0.0'
 homepage: https://github.com/tyrcord/fastyle/tree/main/packages/calculator
 name: fastyle_calculator
+publish_to: none
 version: 1.70.0

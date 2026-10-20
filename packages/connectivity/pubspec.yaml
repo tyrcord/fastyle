@@ -1,10 +1,17 @@
 dependencies:
   connectivity_plus: ^6.1.3
   easy_localization: ^3.0.7
-  fastyle_core: ^0.0.63
+  fastyle_core:
+    git:
+      path: packages/core
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
   flutter:
     sdk: flutter
-  font_awesome_flutter: ^11.0.0
+  font_awesome_flutter:
+    git:
+      ref: main
+      url: git@github.com:alpinetic/font_awesome_flutter.git
   lingua_core: ^0.0.46
   rxdart: ^0.28.0
   tbloc: ^0.25.4
@@ -20,5 +27,6 @@ environment:
   flutter: '>=3.35.0 <4.0.0'
   sdk: '>=3.9.0 <4.0.0'
 name: fastyle_connectivity
+publish_to: none
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/connectivity
 version: 0.0.53

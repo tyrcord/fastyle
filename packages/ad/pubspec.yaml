@@ -2,13 +2,32 @@ dependencies:
   app_tracking_transparency: ^2.0.6
   collection: ^1.19.0
   easy_localization: ^3.0.7
-  fastyle_buttons: ^0.0.37
-  fastyle_core: ^0.0.63
-  fastyle_images: ^0.0.58
-  fastyle_video_player: ^0.0.39+1
+  fastyle_buttons:
+    git:
+      path: packages/buttons
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
+  fastyle_core:
+    git:
+      path: packages/core
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
+  fastyle_images:
+    git:
+      path: packages/images
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
+  fastyle_video_player:
+    git:
+      path: packages/video_player
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
   flutter:
     sdk: flutter
-  font_awesome_flutter: ^11.0.0
+  font_awesome_flutter:
+    git:
+      ref: main
+      url: git@github.com:alpinetic/font_awesome_flutter.git
   google_mobile_ads: ^9.1.0
   http: ^1.2.2
   lingua_ad: ^0.0.28
@@ -46,5 +65,6 @@ flutter:
       ios:
         pluginClass: FastAdPlugin
 name: fastyle_ad
+publish_to: none
 repository: https://github.com/tyrcord/fastyle/tree/main/packages/ad
 version: 0.0.58
