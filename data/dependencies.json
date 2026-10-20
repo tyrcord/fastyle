@@ -34,10 +34,7 @@
     "tmodel",
     "tstore",
     "tsub",
-    "subx",
-    "matex_financial",
-    "matex_core",
-    "matex_data"
+    "subx"
   ],
   "specified_versions": {
     "another_flushbar": "^1.12.30",
@@ -213,6 +210,21 @@
     "pecunia_auth": {
       "url": "git@github.com:tyrcord/fusex.git",
       "path": "packages/pecunia_auth",
+      "ref": "main"
+    },
+    "matex_core": {
+      "url": "https://github.com/tyrcord/matex.git",
+      "path": "packages/core",
+      "ref": "main"
+    },
+    "matex_data": {
+      "url": "https://github.com/tyrcord/matex.git",
+      "path": "packages/data",
+      "ref": "main"
+    },
+    "matex_financial": {
+      "url": "https://github.com/tyrcord/matex.git",
+      "path": "packages/financial",
       "ref": "main"
     }
   }
