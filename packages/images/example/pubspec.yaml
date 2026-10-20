@@ -1,6 +1,14 @@
 dependencies:
-  fastyle_core: ^0.0.63
-  fastyle_images: ^0.0.58
+  fastyle_core:
+    git:
+      path: packages/core
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
+  fastyle_images:
+    git:
+      path: packages/images
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
   flutter:
     sdk: flutter
   go_router: ^14.8.1

@@ -1,9 +1,20 @@
 dependencies:
-  fastyle_core: ^0.0.63
-  fastyle_digit_calculator: ^0.0.52
+  fastyle_core:
+    git:
+      path: packages/core
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
+  fastyle_digit_calculator:
+    git:
+      path: packages/digit_calculator
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
   flutter:
     sdk: flutter
-  font_awesome_flutter: ^10.7.0
+  font_awesome_flutter:
+    git:
+      ref: main
+      url: git@github.com:alpinetic/font_awesome_flutter.git
   go_router: ^14.8.1
   intl: '>=0.20.2 <0.21.0'
   t_helpers: ^0.0.63

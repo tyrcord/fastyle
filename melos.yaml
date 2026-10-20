@@ -80,3 +80,8 @@ scripts:
 ide:
   intellij:
     enabled: false
+
+command:
+  bootstrap:
+    # Packages share Git dependencies; parallel pub gets race on their checkout.
+    runPubGetInParallel: false

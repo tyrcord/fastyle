@@ -70,7 +70,7 @@ class FastStoreBloc
   Future<ProductDetails?> getProductDetails(String productId) async {
     if (_isStoreAvailable && isInitialized) {
       try {
-        return retry<ProductDetails?>(
+        return await retry<ProductDetails?>(
           task: () async => _iapService!.queryProductDetails(productId),
           taskTimeout: kFastAsyncTimeout,
           maxAttempts: 2,
