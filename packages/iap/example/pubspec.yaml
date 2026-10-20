@@ -1,11 +1,26 @@
 dependencies:
   easy_localization: ^3.0.7
-  fastyle_core: ^0.0.63
-  fastyle_iap: ^0.0.48
-  fastyle_pricing: ^1.53.0
+  fastyle_core:
+    git:
+      path: packages/core
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
+  fastyle_iap:
+    git:
+      path: packages/iap
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
+  fastyle_pricing:
+    git:
+      path: packages/pricing
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
   flutter:
     sdk: flutter
-  font_awesome_flutter: ^10.7.0
+  font_awesome_flutter:
+    git:
+      ref: main
+      url: git@github.com:alpinetic/font_awesome_flutter.git
   go_router: ^14.8.1
   lingua_core: ^0.0.46
   lingua_purchases: ^0.0.32

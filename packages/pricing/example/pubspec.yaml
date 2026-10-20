@@ -1,6 +1,14 @@
 dependencies:
-  fastyle_core: ^0.0.63
-  fastyle_pricing: ^1.53.0
+  fastyle_core:
+    git:
+      path: packages/core
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
+  fastyle_pricing:
+    git:
+      path: packages/pricing
+      ref: main
+      url: https://github.com/tyrcord/fastyle.git
   flutter:
     sdk: flutter
   go_router: ^14.8.1

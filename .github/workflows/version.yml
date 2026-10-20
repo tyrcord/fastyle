@@ -49,6 +49,8 @@ jobs:
         run: |
           git config --global url."https://x-access-token:${{ steps.tyrcord-token.outputs.token }}@github.com/tyrcord/fusex".insteadOf "git@github.com:tyrcord/fusex"
           git config --global url."https://x-access-token:${{ steps.alpinetic-token.outputs.token }}@github.com/alpinetic/font_awesome_flutter".insteadOf "git@github.com:alpinetic/font_awesome_flutter"
+          # font_awesome_flutter keeps its generator data (icons.json) in Git LFS; apps don't need it
+          echo "GIT_LFS_SKIP_SMUDGE=1" >> "$GITHUB_ENV"
 
       # Install Melos
       - name: Install and set Melos version
