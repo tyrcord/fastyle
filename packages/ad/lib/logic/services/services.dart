@@ -4,3 +4,4 @@ export 'admob_rewarded_ad.service.dart';
 export 'ad.service.dart';
 export 'ad_consent.service.dart';
 export 'admob_interstitial.service.dart';
+export 'ad_network.service.dart';

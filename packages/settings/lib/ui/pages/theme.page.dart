@@ -189,11 +189,11 @@ class FastSettingsThemePage extends FastSettingPageLayout {
     }
   }
 
-  Widget buildLeadingIcon(IconData icon) {
-    return Icon(icon, size: kFastIconSizeSmall);
+  Widget buildLeadingIcon(FaIconData icon) {
+    return Icon(icon.data, size: kFastIconSizeSmall);
   }
 
-  IconData _getDarkIcon(BuildContext context) {
+  FaIconData _getDarkIcon(BuildContext context) {
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
@@ -203,7 +203,7 @@ class FastSettingsThemePage extends FastSettingPageLayout {
     return FontAwesomeIcons.moon;
   }
 
-  IconData _getLightIcon(BuildContext context) {
+  FaIconData _getLightIcon(BuildContext context) {
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {
@@ -213,7 +213,7 @@ class FastSettingsThemePage extends FastSettingPageLayout {
     return FontAwesomeIcons.sun;
   }
 
-  IconData _getSystemIcon(BuildContext context) {
+  FaIconData _getSystemIcon(BuildContext context) {
     final useProIcons = FastIconHelper.of(context).useProIcons;
 
     if (useProIcons) {

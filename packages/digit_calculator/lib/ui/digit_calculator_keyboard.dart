@@ -167,7 +167,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
 
   // Builds the backspace button with a value "<" and a deleteLeft icon
   Widget _buildDeleteButton(BuildContext context, bool useProIcons) {
-    late IconData iconData;
+    late FaIconData iconData;
 
     if (useProIcons) {
       iconData = FastFontAwesomeIcons.lightDeleteLeft;
@@ -184,7 +184,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
 
   // Builds the division button with a value "÷" and a division icon
   Widget _buildDivideButton(BuildContext context, bool useProIcons) {
-    late IconData iconData;
+    late FaIconData iconData;
 
     if (useProIcons) {
       iconData = FastFontAwesomeIcons.lightDivide;
@@ -201,7 +201,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
 
   // Builds the multiplication button with a value "×" and a multiplication icon
   Widget _buildMultiplyButton(BuildContext context, bool useProIcons) {
-    late IconData iconData;
+    late FaIconData iconData;
 
     if (useProIcons) {
       iconData = FastFontAwesomeIcons.lightXmark;
@@ -218,7 +218,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
 
   // Builds the subtraction button with a value "-" and a subtraction icon
   Widget _buildMinusButton(BuildContext context, bool useProIcons) {
-    late IconData iconData;
+    late FaIconData iconData;
 
     if (useProIcons) {
       iconData = FastFontAwesomeIcons.lightMinus;
@@ -235,7 +235,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
 
   // Builds the addition button with a value "+" and a addition icon
   Widget _buildPlusButton(BuildContext context, bool useProIcons) {
-    late IconData iconData;
+    late FaIconData iconData;
 
     if (useProIcons) {
       iconData = FastFontAwesomeIcons.lightPlus;
@@ -252,7 +252,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
 
   // Builds the equals button with a value "=" and a equals icon
   Widget _buildEqualsButton(BuildContext context, bool useProIcons) {
-    late IconData iconData;
+    late FaIconData iconData;
 
     if (useProIcons) {
       iconData = FastFontAwesomeIcons.lightEquals;
@@ -281,7 +281,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
 
   // Builds the plus-minus button with a value "±" and a plus-minus icon
   Widget _buildPlusMinusButton(BuildContext context, bool useProIcons) {
-    late IconData iconData;
+    late FaIconData iconData;
 
     if (useProIcons) {
       iconData = FastFontAwesomeIcons.lightPlusMinus;
@@ -298,7 +298,7 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
 
   // Builds the percent button with a value "%" and a percent icon
   Widget _buildPercentButton(BuildContext context, bool useProIcons) {
-    late IconData iconData;
+    late FaIconData iconData;
 
     if (useProIcons) {
       iconData = FastFontAwesomeIcons.lightPercent;
@@ -338,14 +338,14 @@ class FastDigitCalculatorKeyboard extends StatelessWidget {
       label = value;
     }
 
-    if (icon is Icon && !isEnabled) {
-      icon = Icon(
-        icon.icon,
+    if (icon is FaIcon && !isEnabled) {
+      icon = FaIcon(
+        icon.faIconData,
         color: ThemeHelper.colors.getDisabledColor(context),
         size: icon.size,
       );
-    } else if (icon is FaIcon && !isEnabled) {
-      icon = FaIcon(
+    } else if (icon is Icon && !isEnabled) {
+      icon = Icon(
         icon.icon,
         color: ThemeHelper.colors.getDisabledColor(context),
         size: icon.size,

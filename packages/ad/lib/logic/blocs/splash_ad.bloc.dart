@@ -151,7 +151,9 @@ class FastSplashAdBloc
 
     var isAdDisplayable = false;
 
-    if (canShowAd) isAdDisplayable = await _service!.loadAd();
+    if (canShowAd) {
+      isAdDisplayable = await _service!.loadAd(timeout: kFastSplashAdTimeout);
+    }
 
     yield currentState.copyWith(
       isAdDisplayable: isAdDisplayable,

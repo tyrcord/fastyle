@@ -5,3 +5,4 @@ export './app_info.helper.dart';
 export './app_permissions.helper.dart';
 export './color.helper.dart';
 export './persistence.helper.dart';
+export './fa_icon.helper.dart';

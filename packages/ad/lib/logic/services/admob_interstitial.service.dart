@@ -91,6 +91,10 @@ class FastAdmobInterstitialAdService {
 
     if (!canRequestAd) return false;
 
+    if (!await FastAdNetworkService.instance.isAdNetworkReachable()) {
+      return false;
+    }
+
     List<Future<InterstitialAd?>> adLoadFutures = [];
 
     if (_adUnitIds != null && _adUnitIds!.isNotEmpty) {

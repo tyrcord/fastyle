@@ -60,7 +60,8 @@ class FastAdmobNativeAdService {
     String? country,
     List<String>? countryWhiteList,
   }) async {
-    if (_canRequestAd(country: country, whiteList: countryWhiteList)) {
+    if (_canRequestAd(country: country, whiteList: countryWhiteList) &&
+        await FastAdNetworkService.instance.isAdNetworkReachable()) {
       final adView = await retry<NativeAd?>(
         task: () async => _requestAd(adUnitID, keywords: keywords),
         taskTimeout: kFastAdDefaultTimeout,

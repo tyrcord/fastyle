@@ -8,9 +8,9 @@ import android.widget.TextView
 
 import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdView
-import io.flutter.plugins.googlemobileads.GoogleMobileAdsPlugin
+import io.flutter.plugins.googlemobileads.NativeAdFactory
 
-class MediumBannerNativeAdFactory(val context: Context) : GoogleMobileAdsPlugin.NativeAdFactory {
+class MediumBannerNativeAdFactory(val context: Context) : NativeAdFactory {
 
     override fun createNativeAd(
             nativeAd: NativeAd,

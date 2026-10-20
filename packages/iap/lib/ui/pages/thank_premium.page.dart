@@ -94,7 +94,7 @@ class FastIapThankPremiumPage extends StatelessWidget {
   Widget buildStarIcon(BuildContext context) {
     final useProIcons = FastIconHelper.of(context).useProIcons;
     final palettes = ThemeHelper.getPaletteColors(context);
-    late final IconData iconData;
+    late final FaIconData iconData;
 
     if (useProIcons) {
       iconData = FastFontAwesomeIcons.solidStars;

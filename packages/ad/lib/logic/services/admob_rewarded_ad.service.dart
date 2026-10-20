@@ -87,6 +87,10 @@ class FastAdmobRewardedAdService {
     country ??= userCountry;
     _rewardedAd = null;
 
+    if (!await FastAdNetworkService.instance.isAdNetworkReachable()) {
+      return null;
+    }
+
     // Prioritize single adUnitId if provided
     if (adUnitId != null) {
       _logger.debug('Loading rewarded ad from ad unit ID.');

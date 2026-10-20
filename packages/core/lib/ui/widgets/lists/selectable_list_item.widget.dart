@@ -86,17 +86,17 @@ class FastSelectableListItem<T extends FastItem> extends StatelessWidget {
     final descriptor = item?.descriptor;
     var icon = descriptor?.trailing ?? trailing ?? buildDefaultIcon(context);
 
-    if (icon is Icon) {
+    if (icon is FaIcon) {
+      icon = FaIcon(
+        icon.faIconData,
+        color: _getSelectionTrailingColor(context),
+        size: icon.size,
+      );
+    } else if (icon is Icon) {
       icon = Icon(
         color: _getSelectionTrailingColor(context),
         size: icon.size,
         icon.icon,
-      );
-    } else if (icon is FaIcon) {
-      icon = FaIcon(
-        icon.icon,
-        color: _getSelectionTrailingColor(context),
-        size: icon.size,
       );
     }
 

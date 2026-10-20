@@ -39,10 +39,10 @@ class FastRoundedIcon extends StatelessWidget {
     final shape0 = _getShape();
     var icon0 = icon;
 
-    if (icon is Icon) {
-      icon0 = _transformIcon(icon as Icon);
-    } else if (icon is FaIcon) {
+    if (icon is FaIcon) {
       icon0 = _transformFaIcon(icon as FaIcon);
+    } else if (icon is Icon) {
+      icon0 = _transformIcon(icon as Icon);
     }
 
     return Container(
@@ -90,7 +90,7 @@ class FastRoundedIcon extends StatelessWidget {
 
   FaIcon _transformFaIcon(FaIcon icon) {
     return FaIcon(
-      icon.icon,
+      icon.faIconData,
       color: iconColor ?? icon.color,
       size: iconSize ?? size * ratio,
     );
