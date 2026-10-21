@@ -162,6 +162,8 @@ class FastStoreBloc
 
       yield currentState.copyWith(isInitializing: true);
 
+      await FastInAppPurchaseService.useStoreKit1();
+
       _iapService = FastInAppPurchaseService(
         appInfo: payload.appInfo!,
         errorReporter: payload.errorReporter,

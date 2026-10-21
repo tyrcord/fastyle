@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
+import 'package:in_app_purchase_storekit/in_app_purchase_storekit.dart';
 import 'package:in_app_purchase_storekit/store_kit_wrappers.dart';
 import 'package:rxdart/subjects.dart';
 
@@ -20,6 +21,20 @@ class FastInAppPurchaseService {
   Stream<PurchaseDetails> get onPurchase => _eventController.stream;
   Stream<dynamic> get onError => _errorController.stream;
   InAppPurchase get _iapService => InAppPurchase.instance;
+
+  static bool _isStoreKit1Enabled = false;
+
+  /// Keeps iOS on StoreKit 1, which this service relies on
+  /// ([SKPaymentQueueWrapper]); in_app_purchase_storekit 0.4 defaults to
+  /// StoreKit 2. Must run before the first use of [InAppPurchase.instance].
+  static Future<void> useStoreKit1() async {
+    if (!Platform.isIOS || _isStoreKit1Enabled) return;
+
+    // ignore: deprecated_member_use
+    await InAppPurchaseStoreKitPlatform.enableStoreKit1();
+    InAppPurchaseStoreKitPlatform.registerPlatform();
+    _isStoreKit1Enabled = true;
+  }
   bool _isRestoringPurchases = false;
 
   late PublishSubject<PurchaseDetails> _eventController;
