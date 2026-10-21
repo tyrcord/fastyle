@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:fastyle_core/fastyle_core.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
-import 'package:in_app_purchase_storekit/store_kit_wrappers.dart';
+import 'package:in_app_purchase_storekit/store_kit_2_wrappers.dart';
 import 'package:rxdart/subjects.dart';
 
 // Project imports:
@@ -20,6 +20,7 @@ class FastInAppPurchaseService {
   Stream<PurchaseDetails> get onPurchase => _eventController.stream;
   Stream<dynamic> get onError => _errorController.stream;
   InAppPurchase get _iapService => InAppPurchase.instance;
+
   bool _isRestoringPurchases = false;
 
   late PublishSubject<PurchaseDetails> _eventController;
@@ -212,49 +213,18 @@ class FastInAppPurchaseService {
     _eventController.sink.add(purchase);
   }
 
+  /// Finishes the unfinished App Store transactions (all of them, or only
+  /// those of [productIdentifier]) so they don't block a new purchase.
   Future<void> _finishPendingTransaction({String? productIdentifier}) async {
-    if (Platform.isIOS) {
-      final paymentWrapper = SKPaymentQueueWrapper();
-      final transactions = await paymentWrapper.transactions();
+    if (!Platform.isIOS) return;
 
-      for (final transaction in transactions) {
-        if (productIdentifier != null) {
-          if (transaction.payment.productIdentifier == productIdentifier) {
-            await paymentWrapper.finishTransaction(transaction);
-          }
-        } else {
-          await paymentWrapper.finishTransaction(transaction);
-        }
-      }
+    final transactions = await SK2Transaction.unfinishedTransactions();
 
-      if (transactions.isNotEmpty) {
-        await _waitForNoPendingTransaction(paymentWrapper);
+    for (final transaction in transactions) {
+      if (productIdentifier == null ||
+          transaction.productId == productIdentifier) {
+        await SK2Transaction.finish(int.parse(transaction.id));
       }
     }
-  }
-
-  Future<void> _waitForNoPendingTransaction(
-    SKPaymentQueueWrapper paymentWrapper, {
-    String? productIdentifier,
-  }) async {
-    // TODO: the package is kind of buggy. We need to wait for all the pending
-    // transactions are really to be really finished before purchasing the same
-    // productId. let's wait for the next event-loop iteration.
-    await Future.delayed(const Duration(seconds: 0));
-    final transactions = await paymentWrapper.transactions();
-    bool shouldWait = transactions.isNotEmpty;
-
-    if (productIdentifier != null) {
-      final transaction = transactions.firstWhereOrNull(
-        (transaction) =>
-            transaction.payment.productIdentifier == productIdentifier,
-      );
-
-      shouldWait = transaction != null;
-    }
-
-    return shouldWait
-        ? await _waitForNoPendingTransaction(paymentWrapper)
-        : null;
   }
 }
