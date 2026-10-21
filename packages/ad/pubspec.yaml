@@ -46,6 +46,10 @@ dependencies:
   url_launcher: ^6.3.1
   uuid: ^4.5.1
   visibility_detector: ^0.4.0+2
+  # google_mobile_ads 9.1.0 declares iOS 13 in its Package.swift, but
+  # webview_flutter_wkwebview 3.27.1 requires iOS 15, which breaks SwiftPM.
+  # Remove this cap once google_mobile_ads raises its iOS minimum.
+  webview_flutter_wkwebview: '>=3.22.0 <3.27.1'
 description: Set of ad Widgets for the fastyle library.
 dev_dependencies:
   dependency_validator: ^5.0.2
