@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lingua_core/generated/locale_keys.g.dart';
+import 'package:t_helpers/helpers.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:fastyle_buttons/fastyle_buttons.dart';
 
@@ -202,8 +203,19 @@ class FastAppInfoPage<T> extends StatelessWidget {
               );
             }
           case 'rate-us':
-            final rateService = FastAppRatingService(appInfo.toDocument());
-            rateService.showAppRatingDialog(context);
+            final appStoreId = appInfo.appStoreIdentifier;
+
+            // iOS rate-limits the review prompt and never shows it in
+            // TestFlight: an explicit button opens the App Store review page.
+            if (isIOS && appStoreId != null) {
+              FastMessenger.launchUrl(
+                'https://apps.apple.com/app/id$appStoreId?action=write-review',
+                mode: LaunchMode.externalApplication,
+              );
+            } else {
+              final rateService = FastAppRatingService(appInfo.toDocument());
+              rateService.showAppRatingDialog(context);
+            }
           case 'share':
             FastShare.shareApp(context);
           case 'site':
