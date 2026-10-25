@@ -14,6 +14,11 @@ class FastFirebaseAppCheckJob extends FastJob {
   static FastFirebaseAppCheckJob? _singleton;
   static final _manager = TLoggerManager();
 
+  /// Shared App Check debug token, passed at build time with
+  /// `--dart-define=APP_CHECK_DEBUG_TOKEN=...` and registered once per
+  /// Firebase app. Without it, each device generates its own token.
+  static const _debugToken = String.fromEnvironment('APP_CHECK_DEBUG_TOKEN');
+
   final AndroidAppCheckProvider? androidProvider;
   final String? webRecaptchaSiteKey;
 
@@ -42,6 +47,15 @@ class FastFirebaseAppCheckJob extends FastJob {
     _logger.debug('Initializing...');
 
     final apps = Firebase.apps;
+    final debugToken = _debugToken.isEmpty ? null : _debugToken;
+
+    if (kDebugMode) {
+      _logger.debug(
+        debugToken == null
+            ? 'Using a device-generated App Check debug token'
+            : 'Using the App Check debug token from APP_CHECK_DEBUG_TOKEN',
+      );
+    }
 
     for (final app in apps) {
       _logger.debug('Activating Firebase App Check for ${app.name}...');
@@ -53,8 +67,8 @@ class FastFirebaseAppCheckJob extends FastJob {
           androidProvider ?? const AndroidPlayIntegrityProvider();
 
       if (kDebugMode) {
-        androidProviderAppCheck = const AndroidDebugProvider();
-        appleProviderAppCheck = const AppleDebugProvider();
+        androidProviderAppCheck = AndroidDebugProvider(debugToken: debugToken);
+        appleProviderAppCheck = AppleDebugProvider(debugToken: debugToken);
       }
 
       await appCheck.activate(
