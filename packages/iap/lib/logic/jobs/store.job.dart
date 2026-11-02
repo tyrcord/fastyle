@@ -16,7 +16,11 @@ class FastIapStoreJob extends FastJob {
     return (_singleton ??= const FastIapStoreJob._());
   }
 
-  const FastIapStoreJob._() : super(debugLabel: 'FastIapStoreJob');
+  const FastIapStoreJob._()
+      : super(
+          debugLabel: 'FastIapStoreJob',
+          blockStartupOnFailure: false,
+        );
 
   @override
   Future<void> initialize(
@@ -33,8 +37,28 @@ class FastIapStoreJob extends FastJob {
       return;
     }
 
+    // The store must not prevent the app from starting: when it is
+    // unavailable or too slow to answer, the app starts without its products
+    // and the store keeps initializing in the background.
+    try {
+      await _initializeStore(
+        appInfoState.toDocument(),
+        errorReporter: errorReporter,
+      ).timeout(kFastIapStoreJobTimeout);
+    } catch (error, stackTrace) {
+      errorReporter?.recordError(
+        error,
+        stackTrace,
+        reason: 'The store is unavailable, the app starts without it',
+      );
+    }
+  }
+
+  Future<void> _initializeStore(
+    FastAppInfoDocument appInfo, {
+    IFastErrorReporter? errorReporter,
+  }) async {
     final storeBloc = FastStoreBloc.instance;
-    final appInfo = appInfoState.toDocument();
     storeBloc.addEvent(
       FastStoreBlocEvent.init(appInfo, errorReporter: errorReporter),
     );
@@ -53,12 +77,18 @@ class FastIapStoreJob extends FastJob {
 
       onboardingState = await RaceStream([
         storeBloc.onError,
-        storeBloc.onData
-            .where((FastStoreBlocState state) => state.hasLoadedProducts),
+        storeBloc.onData.where((FastStoreBlocState state) {
+          return state.hasLoadedProducts ||
+              (!state.isLoadingProducts && state.error != null);
+        }),
       ]).first;
 
       if (onboardingState is! FastStoreBlocState) {
         throw onboardingState;
+      }
+
+      if (!onboardingState.hasLoadedProducts) {
+        throw onboardingState.error as Object;
       }
     }
   }
