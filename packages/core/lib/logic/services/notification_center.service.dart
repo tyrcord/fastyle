@@ -36,6 +36,11 @@ class FastNotificationCenter {
   static const int _maxNotification = 2;
   static const double _maxNoticationWidth = 400;
 
+  /// A message is shown at most once per window, so an error repeated in a
+  /// loop (e.g. a quote that keeps failing to load) doesn't flood the user.
+  static const Duration _throttleDuration = Duration(seconds: 10);
+  static final Map<String, DateTime> _lastNotifiedAt = <String, DateTime>{};
+
   ///
   /// Displays an error notification.
   ///
@@ -151,6 +156,8 @@ class FastNotificationCenter {
     Key? key,
     FastNotificationCenterOptions? options,
   }) {
+    if (_isThrottled(message)) return;
+
     final colorHelper = ThemeHelper.colors;
     final backgroundColor = colorHelper.getSecondaryBackgroundColor(context);
 
@@ -182,6 +189,27 @@ class FastNotificationCenter {
       ),
     );
   }
+
+  /// Whether [message] was already notified less than [_throttleDuration] ago.
+  /// Otherwise, records it as notified now.
+  static bool _isThrottled(String message) {
+    final now = DateTime.now();
+
+    _lastNotifiedAt.removeWhere(
+      (_, notifiedAt) => now.difference(notifiedAt) >= _throttleDuration,
+    );
+
+    if (_lastNotifiedAt.containsKey(message)) return true;
+
+    _lastNotifiedAt[message] = now;
+
+    return false;
+  }
+
+  /// Forgets the recently notified messages, so the next ones are shown even
+  /// if they repeat earlier ones.
+  @visibleForTesting
+  static void resetThrottle() => _lastNotifiedAt.clear();
 
   static Widget? _buildIcon(FastNotificationCenterOptions? options) {
     if (options != null && options.leadingIcon != null) {
