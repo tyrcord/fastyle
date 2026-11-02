@@ -31,10 +31,12 @@ class FastShare {
 
     message ??= CoreLocaleKeys.core_message_share_invite.tr();
 
-    return Share.share(
-      '$message\n\n${appInfo.shareAppUrl ?? appInfo.appName}',
-      sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size,
-      subject: subject ?? appInfo.appName,
+    return SharePlus.instance.share(
+      ShareParams(
+        text: '$message\n\n${appInfo.shareAppUrl ?? appInfo.appName}',
+        sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size,
+        subject: subject ?? appInfo.appName,
+      ),
     );
   }
 }
