@@ -172,11 +172,24 @@ class FastStoreBloc
 
       await _iapDataProvider.connect();
 
-      _isStoreAvailable = await retry<bool>(
-        task: () async => _iapService!.connect(),
-        taskTimeout: kFastAsyncTimeout,
-        maxAttempts: 2,
-      );
+      try {
+        _isStoreAvailable = await retry<bool>(
+          task: () async => _iapService!.connect(),
+          taskTimeout: kFastAsyncTimeout,
+          maxAttempts: 2,
+        );
+      } catch (error, stackTrace) {
+        // The store did not answer (e.g. no App Store account): mark it as
+        // unavailable so the bloc still gets initialized.
+        _logger.error('Connecting to the store failed: $error', stackTrace);
+        _isStoreAvailable = false;
+
+        payload.errorReporter?.recordError(
+          error,
+          stackTrace,
+          reason: 'Connecting to the store failed',
+        );
+      }
 
       addEvent(const FastStoreBlocEvent.initialized());
     }
