@@ -1,3 +1,6 @@
+// Dart imports:
+import 'dart:async';
+
 // Package imports:
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tbloc/tbloc.dart';
@@ -77,7 +80,7 @@ class FastAdInfoBloc
       final consentStatus = await _consentService.getConsentStatus();
       _logger.info('GDPR consent status', consentStatus);
 
-      await MobileAds.instance.initialize();
+      await _initializeMobileAds();
       await FastAd.initialize();
 
       isInitializing = false;
@@ -89,6 +92,23 @@ class FastAdInfoBloc
         isInitialized: true,
         adInfo: adInfo,
       );
+    }
+  }
+
+  /// Starts the Google Mobile Ads SDK.
+  ///
+  /// When the ad network is blocked (Pi-hole, ad-blocking DNS) or the device
+  /// is offline, `MobileAds.initialize` only completes after its 10-second
+  /// timeout, which delayed every app launch. The SDK is still started then,
+  /// but not awaited: ad requests are skipped while the network is unreachable.
+  Future<void> _initializeMobileAds() async {
+    final initialization = MobileAds.instance.initialize();
+
+    if (await FastAdNetworkService.instance.isAdNetworkReachable()) {
+      await initialization;
+    } else {
+      _logger.debug('Not waiting for the Mobile Ads SDK initialization');
+      unawaited(initialization);
     }
   }
 
